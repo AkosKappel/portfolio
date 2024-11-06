@@ -54,21 +54,21 @@ const About = () => {
           alt="about image"
           width={320}
           height={320}
-          className="rounded-full shadow-lg bg-gradient-to-br from-blue-400 to-pink-600 p-2 mx-auto mb-12"
+          className="rounded-full shadow-lg bg-gradient-to-br from-blue-400 to-pink-600 p-2 mx-auto md:my-16"
         />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full col-span-2">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+          <h2 className="text-4xl font-bold text-white mb-8">About Me</h2>
           <p className="text-base lg:text-lg">
             I am a full stack web developer with a passion for creating
             interactive and responsive web applications. I have experience
-            working with libraries like React, Next.js, Vue, Nuxt.js,
-            Express.js, Django and Laravel. For databases I like to use
-            PostgreSQL or MongoDB. I am also familiar with HTML, CSS, Docker and
-            Git. For programming I usually use languages such as TypeScript,
-            Python, PHP, Java and C#. I am a team player, who can also work well
-            individually, I consider myself a quick learner and I am always
-            looking to expand my knowledge and skill set by looking for new
-            challenges.
+            working with frontend libraries like React, Next.js, Vue and
+            Nuxt.js. I am familiar with larger frameworks such as Express.js,
+            Django and Laravel. For data management I like to use PostgreSQL or
+            MongoDB. I am also familiar with HTML, CSS, Docker and Git. My core
+            programming languages include TypeScript, Python, and PHP. I am a
+            team player, who can also work well individually, I consider myself
+            a quick learner and I am always looking to expand my knowledge and
+            skill set by looking for new challenges.
           </p>
           <div className="flex flex-row sm:justify-start mt-8 text-xl flex-wrap justify-center">
             {Tabs.map((t) => (

@@ -5,10 +5,14 @@ import TailwindIcon from "@/public/icons/tailwindcss.svg";
 import BootstrapIcon from "@/public/icons/bootstrap.svg";
 import ExpressIcon from "@/public/icons/express-js.svg";
 import PostgresIcon from "@/public/icons/postgres.svg";
+import SlovakiaIcon from "@/public/icons/slovakia.svg";
 import PyTorchIcon from "@/public/icons/pytorch.svg";
 import LaravelIcon from "@/public/icons/laravel.svg";
 import FastapiIcon from "@/public/icons/fastapi.svg";
 import MongoDBIcon from "@/public/icons/mongodb.svg";
+import HungaryIcon from "@/public/icons/hungary.svg";
+import GermanyIcon from "@/public/icons/germany.svg";
+import EnglishIcon from "@/public/icons/english.svg";
 import DjangoIcon from "@/public/icons/django.svg";
 import KotlinIcon from "@/public/icons/kotlin.svg";
 import PythonIcon from "@/public/icons/python.svg";
@@ -98,10 +102,10 @@ const Skills = () => {
     {
       title: "Language Skills",
       items: [
-        { name: "Slovak - Native" },
-        { name: "English - C1" },
-        { name: "German - A2" },
-        { name: "Hungarian - C1" },
+        { icon: SlovakiaIcon, name: "Slovak - Native" },
+        { icon: EnglishIcon, name: "English - C1" },
+        { icon: GermanyIcon, name: "German - A2" },
+        { icon: HungaryIcon, name: "Hungarian - C1" },
       ],
     },
   ];
@@ -131,7 +135,7 @@ const Skills = () => {
                 (item: { icon: any; name: string }, index: number) => (
                   <li
                     key={index}
-                    className="flex flex-col items-center text-center text-slate-300 dark:text-slate-400"
+                    className="flex flex-col items-center justify-between text-center text-slate-300 dark:text-slate-400"
                   >
                     {item.icon && (
                       <Image
@@ -139,7 +143,6 @@ const Skills = () => {
                         width={48}
                         height={48}
                         alt={item.name}
-                        className="mr-2"
                       />
                     )}
                     <span className="text-sm">{item.name}</span>

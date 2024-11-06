@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-6">
       <div className="container mx-auto text-center">
-        <p className="mb-2">© 2024 Ákos Kappel. All rights reserved.</p>
+        <p className="mb-4">Made with ❤️ by Ákos Kappel. © 2024</p>
         <div className="flex justify-center space-x-6">
           <a
             href={githubUrl}
