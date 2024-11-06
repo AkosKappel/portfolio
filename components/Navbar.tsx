@@ -4,8 +4,8 @@ import {
   XMarkIcon,
   InformationCircleIcon,
 } from "@heroicons/react/24/solid";
-import MenuOverlay from "../components/ui/MenuOverlay";
-import NavLink from "../components/ui/NavLink";
+import MenuOverlay from "@/components/ui/MenuOverlay";
+import NavItem from "@/components/ui/NavItem";
 import React, { useState } from "react";
 import Link from "next/link";
 
@@ -55,7 +55,7 @@ const Navbar = () => {
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <NavLink href={link.path} title={link.title} icon={link.icon} />
+                <NavItem href={link.path} title={link.title} icon={link.icon} />
               </li>
             ))}
           </ul>

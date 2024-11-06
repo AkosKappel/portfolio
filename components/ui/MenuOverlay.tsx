@@ -1,4 +1,4 @@
-import NavLink from "../ui/NavLink";
+import NavItem from "@/components/ui/NavItem";
 import React from "react";
 
 const MenuOverlay = ({
@@ -10,7 +10,7 @@ const MenuOverlay = ({
     <ul className="flex flex-col py-4 space-y-4 items-center">
       {links.map((link, index) => (
         <li key={index}>
-          <NavLink href={link.path} title={link.title} icon={link.icon} />
+          <NavItem href={link.path} title={link.title} icon={link.icon} />
         </li>
       ))}
     </ul>
