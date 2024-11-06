@@ -1,4 +1,4 @@
-import NavLink from "@/components/ui/NavLink";
+import NavLink from "@/components/ui/Navlink";
 import React from "react";
 
 const MenuOverlay = ({
