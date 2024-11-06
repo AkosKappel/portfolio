@@ -81,7 +81,9 @@ const About = () => {
               </TabButton>
             ))}
           </div>
-          <div className="mt-8">{Tabs.find((t) => t.id === tab)?.content}</div>
+          <div className="mt-8">
+            {!isPending && Tabs.find((t) => t.id === tab)?.content}
+          </div>
         </div>
       </motion.div>
     </section>
