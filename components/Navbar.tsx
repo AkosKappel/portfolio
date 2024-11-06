@@ -4,8 +4,8 @@ import {
   XMarkIcon,
   InformationCircleIcon,
 } from "@heroicons/react/24/solid";
-import MenuOverlay from "@/components/ui/MenuOverlay";
-import NavLink from "@/components/ui/NavLink";
+import MenuOverlay from "../components/ui/MenuOverlay";
+import NavLink from "../components/ui/NavLink";
 import React, { useState } from "react";
 import Link from "next/link";
 

@@ -1,10 +1,10 @@
 "use client";
-import WorkExperience from "@/components/ui/WorkExperience";
+import WorkExperience from "../components/ui/WorkExperience";
 import React, { useTransition, useState } from "react";
-import TabButton from "@/components/ui/TabButton";
-import Education from "@/components/ui/Education";
-import Socials from "@/components/ui/Socials";
-import Skills from "@/components/ui/Skills";
+import TabButton from "../components/ui/TabButton";
+import Education from "../components/ui/Education";
+import Socials from "../components/ui/Socials";
+import Skills from "../components/ui/Skills";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
