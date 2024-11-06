@@ -5,8 +5,7 @@
     "image": "/images/projects/budget-master.png",
     "tag": ["Web"],
     "stack": ["Next.js", "Tailwind", "Chart.js", "MongoDB", "TypeScript"],
-    "gitUrl": "/",
-    "previewUrl": "/"
+    "gitUrl": "https://github.com/AkosKappel/BudgetMaster"
   },
   {
     "title": "FakeShop",
