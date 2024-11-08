@@ -3,7 +3,7 @@
     "title": "Budget Master",
     "description": "Financial management app. Provides a modern and simplistic interface for tracking user income and expenses. Also provides easy to read charts about the data, like monthly expenses or expenses by category.",
     "image": "/images/projects/budget-master.png",
-    "tag": ["Web"],
+    "tag": ["Web", "Solo"],
     "stack": ["Next.js", "Tailwind", "Chart.js", "MongoDB", "TypeScript"],
     "gitUrl": "https://github.com/AkosKappel/BudgetMaster"
   },
@@ -11,7 +11,7 @@
     "title": "FakeShop",
     "description": "A mock online store for shopping fake products from a public API.",
     "image": "/images/projects/eshop.png",
-    "tag": ["Web"],
+    "tag": ["Web", "Solo"],
     "stack": ["React", "Tailwind"],
     "gitUrl": "https://github.com/AkosKappel/FakeShop",
     "previewUrl": "https://akoskappel.github.io/FakeShop"
@@ -20,7 +20,7 @@
     "title": "Glaucoma Segmentation",
     "description": "Master's thesis project at the Faculty of Informatics and Information Technologies, Slovak University of Technology in Bratislava. The project is focused on the development of a deep learning model for the segmentation of the optic disc and cup in fundus images.",
     "image": "/images/projects/glaucoma.png",
-    "tag": ["AI"],
+    "tag": ["AI", "Solo"],
     "stack": [
       "Python",
       "PyTorch",
@@ -35,7 +35,7 @@
     "title": "Feast Finder",
     "description": "Frontend application for finding recipes based on ingredients and food preferences. It uses the MealDB API to fetch recipes and provides a user-friendly interface for searching and filtering.",
     "image": "/images/projects/feast-finder.png",
-    "tag": ["Web"],
+    "tag": ["Web", "Solo"],
     "stack": ["Nuxt.js", "Tailwind", "Axios", "TypeScript"],
     "gitUrl": "https://github.com/AkosKappel/FeastFinder",
     "previewUrl": "https://akoskappel.github.io/FeastFinder"
@@ -44,7 +44,7 @@
     "title": "PetGuide",
     "description": "Website for helping people select the best pet for them. It provides a registeration form for new users, search and filtering for pets based on their characteristics. Also allows users to identify the breed by uploading an image of their pet and a neural network in the background predicts the correct breed.",
     "image": "/images/projects/petguide.png",
-    "tag": ["Web"],
+    "tag": ["Web", "Solo"],
     "stack": ["Laravel", "PHP", "FastAPI", "Python", "Bootstrap", "TensorFlow"],
     "gitUrl": "https://github.com/ImMuffin/team_project_14",
     "previewUrl": "https://maciatka.eu"
@@ -53,7 +53,7 @@
     "title": "Iridescent",
     "description": "Iridescent is a puzzle-based cooperative multiplayer game for two players. The goal of the game is to complete levels in which players will collect different colors. These colors will be able to be mixed and thus players can create additional colors that will be needed to overcome various obstacles.",
     "image": "/images/projects/iridescent.png",
-    "tag": ["Games"],
+    "tag": ["Games", "Team"],
     "stack": ["Unity", "C#"],
     "gitUrl": "https://gitlab.com/VighNorbert/iridescent",
     "previewUrl": "https://the-norb.itch.io/iridescent"
@@ -62,7 +62,7 @@
     "title": "Smartphone Eshop",
     "description": "Online shop for buying smartphones. Provides filters for price range, brand, and color for finding the best smartphones. On the backend it stores the data in a PostgreSQL database. Users can add and remove products from their shopping cart and go through the checkout process (without actually buying anything).",
     "image": "/images/projects/wtech.png",
-    "tag": ["Web"],
+    "tag": ["Web", "Team"],
     "stack": ["Laravel", "PHP", "Tailwind", "PostgreSQL"],
     "gitUrl": "https://github.com/AkosKappel/WTECH-Laravel"
   },
@@ -70,7 +70,7 @@
     "title": "Advent of Code",
     "description": "My algorithmic solutions for the problems from the Advent of Code challenge, a annual programming contest organized in every December.",
     "image": "/images/projects/aoc.png",
-    "tag": ["Coding"],
+    "tag": ["Coding", "Solo"],
     "stack": ["Python", "Kotlin", "JavaScript"],
     "gitUrl": "https://github.com/AkosKappel/Advent-of-Code"
   }
