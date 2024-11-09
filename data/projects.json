@@ -53,7 +53,7 @@
     "title": "PetGuide",
     "description": "Website for helping people select the best pet for them. It provides a registeration form for new users, search and filtering for pets based on their characteristics. Also allows users to identify the breed by uploading an image of their pet and a neural network in the background predicts the correct breed.",
     "image": "/images/projects/petguide.png",
-    "tag": ["Web", "Solo"],
+    "tag": ["Web", "Team"],
     "stack": ["Laravel", "PHP", "FastAPI", "Python", "Bootstrap", "TensorFlow"],
     "gitUrl": "https://github.com/ImMuffin/team_project_14",
     "previewUrl": "https://maciatka.eu"
