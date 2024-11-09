@@ -41,6 +41,15 @@
     "previewUrl": "https://akoskappel.github.io/FeastFinder"
   },
   {
+    "title": "Pokedex",
+    "description": "A pokemon viewer application that uses data from the PokeAPI to display information about different pokemon games.",
+    "image": "/images/projects/pokedex.png",
+    "tag": ["Web", "Solo"],
+    "stack": ["Vue", "CSS", "Axios"],
+    "gitUrl": "https://github.com/AkosKappel/Pokedex",
+    "previewUrl": "https://130.61.106.56/pokedex/"
+  },
+  {
     "title": "PetGuide",
     "description": "Website for helping people select the best pet for them. It provides a registeration form for new users, search and filtering for pets based on their characteristics. Also allows users to identify the breed by uploading an image of their pet and a neural network in the background predicts the correct breed.",
     "image": "/images/projects/petguide.png",
