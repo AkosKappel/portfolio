@@ -53,7 +53,7 @@
     "title": "PetGuide",
     "description": "Website for helping people select the best pet for them. It provides a registeration form for new users, search and filtering for pets based on their characteristics. Also allows users to identify the breed by uploading an image of their pet and a neural network in the background predicts the correct breed.",
     "image": "/images/projects/petguide.png",
-    "tag": ["Web", "Team"],
+    "tag": ["Web", "Team projects"],
     "stack": ["Laravel", "PHP", "FastAPI", "Python", "Bootstrap", "TensorFlow"],
     "gitUrl": "https://github.com/ImMuffin/team_project_14",
     "previewUrl": "https://maciatka.eu"
@@ -62,7 +62,7 @@
     "title": "Iridescent",
     "description": "Iridescent is a puzzle-based cooperative multiplayer game for two players. The goal of the game is to complete levels in which players will collect different colors. These colors will be able to be mixed and thus players can create additional colors that will be needed to overcome various obstacles.",
     "image": "/images/projects/iridescent.png",
-    "tag": ["Games", "Team"],
+    "tag": ["Games", "Team projects"],
     "stack": ["Unity", "C#"],
     "gitUrl": "https://gitlab.com/VighNorbert/iridescent",
     "previewUrl": "https://the-norb.itch.io/iridescent"
@@ -71,7 +71,7 @@
     "title": "Smartphone Eshop",
     "description": "Online shop for buying smartphones. Provides filters for price range, brand, and color for finding the best smartphones. On the backend it stores the data in a PostgreSQL database. Users can add and remove products from their shopping cart and go through the checkout process (without actually buying anything).",
     "image": "/images/projects/wtech.png",
-    "tag": ["Web", "Team"],
+    "tag": ["Web", "Team projects"],
     "stack": ["Laravel", "PHP", "Tailwind", "PostgreSQL"],
     "gitUrl": "https://github.com/AkosKappel/WTECH-Laravel"
   },
@@ -79,8 +79,8 @@
     "title": "Advent of Code",
     "description": "My algorithmic solutions for the problems from the Advent of Code challenge, a annual programming contest organized in every December.",
     "image": "/images/projects/aoc.png",
-    "tag": ["Coding", "Solo"],
-    "stack": ["Python", "Kotlin", "JavaScript"],
+    "tag": ["Coding challenges", "Solo"],
+    "stack": ["Python", "Kotlin", "JavaScript", "C#", "Java"],
     "gitUrl": "https://github.com/AkosKappel/Advent-of-Code"
   }
 ]

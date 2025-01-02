@@ -19,7 +19,7 @@ const Socials = () => {
   };
 
   return (
-    <div className="flex flex-row justify-start gap-8 flex-wrap">
+    <div className="flex flex-row justify-start gap-8 flex-wrap m-8">
       <a
         href={githubUrl}
         className="hover:text-blue-400 flex items-center"
@@ -56,9 +56,14 @@ const Socials = () => {
       >
         <EnvelopeIcon className="h-12 w-12 mr-2" />
         {copied ? (
-          <ClipboardIcon className="h-6 w-6 mr-2 animate-pulse" />
+          <>
+            <ClipboardIcon className="h-6 w-6 mr-2 animate-pulse" />
+            <span className="animate-pulse">Copied!</span>
+          </>
         ) : (
-          "Email (click to copy)"
+          <span>
+            Email <i>(click to copy)</i>
+          </span>
         )}
       </button>
     </div>

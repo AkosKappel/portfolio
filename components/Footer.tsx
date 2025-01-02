@@ -7,11 +7,12 @@ import React from "react";
 const Footer = () => {
   const githubUrl = "https://github.com/AkosKappel";
   const linkedinUrl = "https://www.linkedin.com/in/%C3%A1kos-kappel-b53344220";
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-gray-800 text-white py-6">
       <div className="container mx-auto text-center">
-        <p className="mb-4">Made with ❤️ by Ákos Kappel. © 2024</p>
+        <p className="mb-4">Made with ❤️ by Ákos Kappel. © {currentYear}</p>
         <div className="flex justify-center space-x-6">
           <a
             href={githubUrl}

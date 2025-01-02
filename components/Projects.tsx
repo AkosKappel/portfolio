@@ -7,11 +7,25 @@ import React, { useState, useRef } from "react";
 
 const Projects = () => {
   const [tag, setTag] = useState("All");
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const [currentPage, setCurrentPage] = useState(0);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(projectsRef, { once: true });
 
   const handleTagChange = (newTag: string) => {
     setTag(newTag);
+    setCurrentPage(0);
+    scrollToSection();
+  };
+
+  const handlePageChange = (pageIndex: number) => {
+    setCurrentPage(pageIndex);
+    scrollToSection();
+  };
+
+  const scrollToSection = () => {
+    if (projectsRef.current) {
+      projectsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const tags = [
@@ -22,16 +36,24 @@ const Projects = () => {
     (project) => tag === "All" || project.tag.includes(tag),
   );
 
+  const projectsPerPage = 6;
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
+
+  const paginatedProjects = filteredProjects.slice(
+    currentPage * projectsPerPage,
+    (currentPage + 1) * projectsPerPage,
+  );
+
   const cardVariants = {
     initial: { y: 50, opacity: 0 },
     animate: { y: 0, opacity: 1 },
   };
 
   return (
-    <section id="projects">
+    <section id="projects" ref={projectsRef}>
       <h2 className="text-center text-4xl font-bold">My Projects</h2>
       <div className="flex flex-row flex-wrap justify-center items-center gap-2 py-12">
-        {tags.map((tagName: string) => (
+        {tags.map((tagName) => (
           <ProjectTag
             key={tagName}
             onClick={handleTagChange}
@@ -40,11 +62,8 @@ const Projects = () => {
           />
         ))}
       </div>
-      <ul
-        ref={ref}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
-      >
-        {filteredProjects.map((project, index: number) => (
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        {paginatedProjects.map((project, index) => (
           <motion.li
             key={index}
             variants={cardVariants}
@@ -64,6 +83,20 @@ const Projects = () => {
           </motion.li>
         ))}
       </ul>
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-8 space-x-2">
+          {Array.from({ length: totalPages }).map((_, pageIndex) => (
+            <button
+              key={pageIndex}
+              onClick={() => handlePageChange(pageIndex)}
+              className={`w-4 h-4 rounded-full ${
+                currentPage === pageIndex ? "bg-blue-500" : "bg-gray-300"
+              }`}
+              aria-label={`Go to page ${pageIndex + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 };

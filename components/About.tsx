@@ -10,11 +10,6 @@ import Image from "next/image";
 
 const Tabs = [
   {
-    title: "Contact",
-    id: "contact",
-    content: <Socials />,
-  },
-  {
     title: "Skills",
     id: "skills",
     content: <Skills />,
@@ -70,6 +65,7 @@ const About = () => {
             a quick learner and I am always looking to expand my knowledge and
             skill set by looking for new challenges.
           </p>
+          <Socials />
           <div className="flex flex-row sm:justify-start mt-8 text-xl flex-wrap justify-center">
             {Tabs.map((t) => (
               <TabButton
