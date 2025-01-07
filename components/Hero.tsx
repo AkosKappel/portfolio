@@ -33,7 +33,8 @@ const Hero = () => {
             />
           </h1>
           <p className="text-slate-300 mb-8 text-lg sm:text-xl lg:text-2xl mr-4">
-            I&apos;m passionate about programming and everything tech related.
+            I&apos;m passionate programmer with a great interest in coding,{" "}
+            <br></br>solving problems, and everything tech-related.
           </p>
           <div className="flex justify-center sm:justify-start mb-8 gap-4">
             <a

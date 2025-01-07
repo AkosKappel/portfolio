@@ -73,11 +73,13 @@ const About = () => {
                 selectTab={() => handleTabChange(t.id)}
                 active={tab === t.id}
               >
-                {t.title}
+                <h3 className="font-semibold transition duration-300 ease-in-out hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-br hover:from-blue-400 hover:to-pink-600">
+                  {t.title}
+                </h3>
               </TabButton>
             ))}
           </div>
-          <div className="mt-8">
+          <div className="mt-8 min-h-96">
             {!isPending && Tabs.find((t) => t.id === tab)?.content}
           </div>
         </div>

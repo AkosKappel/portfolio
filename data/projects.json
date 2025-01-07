@@ -79,8 +79,16 @@
     "title": "Advent of Code",
     "description": "My algorithmic solutions for the problems from the Advent of Code challenge, a annual programming contest organized in every December.",
     "image": "/images/projects/aoc.png",
-    "tag": ["Coding challenges", "Solo"],
+    "tag": ["Coding challenges"],
     "stack": ["Python", "Kotlin", "JavaScript", "C#", "Java"],
     "gitUrl": "https://github.com/AkosKappel/Advent-of-Code"
+  },
+  {
+    "title": "Advent of SQL",
+    "description": "",
+    "image": "/images/projects/aosql.png",
+    "tag": ["Coding challenges"],
+    "stack": ["PostgreSQL"],
+    "gitUrl": "https://github.com/AkosKappel/Advent-of-SQL"
   }
 ]
