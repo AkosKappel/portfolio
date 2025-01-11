@@ -49,7 +49,7 @@ const About = () => {
           alt="about image"
           width={320}
           height={320}
-          className="rounded-full shadow-lg bg-gradient-to-br from-blue-400 to-pink-600 p-2 mx-auto md:my-16"
+          className="rounded-full shadow-lg bg-gradient-to-br from-teal-400 to-blue-500 p-2 mx-auto md:my-16"
         />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full col-span-2">
           <h2 className="text-4xl font-bold text-white mb-8">About Me</h2>
@@ -73,7 +73,7 @@ const About = () => {
                 selectTab={() => handleTabChange(t.id)}
                 active={tab === t.id}
               >
-                <h3 className="font-semibold transition duration-300 ease-in-out hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-br hover:from-blue-400 hover:to-pink-600">
+                <h3 className="font-semibold transition duration-300 ease-in-out hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-br hover:from-teal-400 hover:to-blue-500">
                   {t.title}
                 </h3>
               </TabButton>

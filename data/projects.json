@@ -86,10 +86,18 @@
   },
   {
     "title": "Advent of SQL",
-    "description": "",
+    "description": "Coding challenges focused on databases and SQL queries.",
     "image": "/images/projects/aosql.png",
     "tag": ["Coding challenges"],
     "stack": ["PostgreSQL"],
     "gitUrl": "https://github.com/AkosKappel/Advent-of-SQL"
+  },
+  {
+    "title": "Mini Projects",
+    "description": "A collection of small projects written in vanilla JavaScript, HTML and CSS.",
+    "image": "/images/projects/mini.png",
+    "tag": ["Web", "Solo"],
+    "stack": ["HTML", "CSS", "JavaScript", "p5.js"],
+    "previewUrl": "https://130.61.106.56/mini-projects/"
   }
 ]

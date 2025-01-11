@@ -29,7 +29,7 @@ const Hero = () => {
               wrapper="span"
               speed={20}
               repeat={Infinity}
-              className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-pink-600"
+              className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-teal-400 to-blue-500"
             />
           </h1>
           <p className="text-slate-300 mb-8 text-lg sm:text-xl lg:text-2xl mr-4">
@@ -39,7 +39,7 @@ const Hero = () => {
           <div className="flex justify-center sm:justify-start mb-8 gap-4">
             <a
               href="mailto:kappelakos@gmail.com"
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-400 to-pink-600 hover:bg-slate-800"
+              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-teal-400 to-blue-500 hover:bg-slate-800"
             >
               <span className="block hover:bg-slate-800 rounded-full px-5 py-2">
                 Contact Me
@@ -50,7 +50,7 @@ const Hero = () => {
               download="CV_Akos_Kappel.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-400 to-pink-600 hover:bg-slate-800"
+              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-teal-400 to-blue-500 hover:bg-slate-800"
             >
               <span className="block hover:bg-slate-800 rounded-full px-5 py-2">
                 Download CV
