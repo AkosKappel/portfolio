@@ -147,7 +147,7 @@ const Skills = () => {
                     )}
                     <span className="text-sm">{item.name}</span>
                   </li>
-                ),
+                )
               )}
             </ul>
           </div>

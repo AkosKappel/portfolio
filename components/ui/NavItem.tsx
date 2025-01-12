@@ -7,7 +7,7 @@ const NavItem = ({
 }: {
   href: string;
   title: string;
-  icon?: any;
+  icon?: React.ReactNode;
 }) => {
   return (
     <Link

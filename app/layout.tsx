@@ -15,8 +15,28 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Ákos Kappel | Portfolio",
-  description: "Software Developer Portfolio of Ákos Kappel",
+  description: "Full-Stack Software Developer Portfolio of Ákos Kappel",
+  authors: [{ name: "Ákos Kappel" }],
+  keywords: [
+    "Ákos Kappel",
+    "Software Engineer",
+    "Full Stack Developer",
+    "Portfolio",
+    "Web Development",
+    "Frontend Developer",
+    "Backend Developer",
+    "Artificial Intelligence",
+  ],
+  openGraph: {
+    title: "Ákos Kappel | Portfolio",
+    description: "Full-Stack Software Developer Portfolio of Ákos Kappel",
+    siteName: "Portfolio Website",
+    type: "website",
+    locale: "en_US",
+  },
 };
+
+export const viewport = "width=device-width, initial-scale=1.0";
 
 export default function RootLayout({
   children,

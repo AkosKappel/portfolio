@@ -27,12 +27,12 @@ const Tabs = [
 ];
 
 const About = () => {
-  const [tab, setTab] = useState(Tabs[0].id);
+  const [currentTab, setCurrentTab] = useState(Tabs[0].id);
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id: string) => {
     startTransition(() => {
-      setTab(id);
+      setCurrentTab(id);
     });
   };
 
@@ -71,7 +71,7 @@ const About = () => {
               <TabButton
                 key={t.id}
                 selectTab={() => handleTabChange(t.id)}
-                active={tab === t.id}
+                active={currentTab === t.id}
               >
                 <h3 className="font-semibold transition duration-300 ease-in-out hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-br hover:from-teal-400 hover:to-blue-500">
                   {t.title}
@@ -80,7 +80,7 @@ const About = () => {
             ))}
           </div>
           <div className="mt-8 min-h-96">
-            {!isPending && Tabs.find((t) => t.id === tab)?.content}
+            {!isPending && Tabs.find((t) => t.id === currentTab)?.content}
           </div>
         </div>
       </motion.div>
