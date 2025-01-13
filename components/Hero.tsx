@@ -2,9 +2,32 @@
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 const Hero = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [hideDropdownTimeout, setHideDropdownTimeout] = useState<number | null>(
+    null
+  );
+
+  const handleMouseEnter = () => {
+    if (hideDropdownTimeout) {
+      clearTimeout(hideDropdownTimeout);
+      setHideDropdownTimeout(null);
+    }
+    setShowDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (!hideDropdownTimeout) {
+      const timeoutId = window.setTimeout(() => {
+        setShowDropdown(false);
+        setHideDropdownTimeout(null);
+      }, 100);
+      setHideDropdownTimeout(timeoutId);
+    }
+  };
+
   return (
     <section id="hero">
       <div className="grid grid-cols-1 sm:grid-cols-12 md:m-8">
@@ -45,17 +68,48 @@ const Hero = () => {
                 Contact Me
               </span>
             </a>
-            <a
-              href="/CV_Akos_Kappel.pdf"
-              download="CV_Akos_Kappel.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-teal-400 to-blue-500 hover:bg-slate-800"
+            <div
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
-              <span className="block hover:bg-slate-800 rounded-full px-5 py-2">
-                Download CV
-              </span>
-            </a>
+              <a
+                href="/CV_Akos_Kappel_(EN).pdf"
+                download="CV_Akos_Kappel_(EN).pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-teal-400 to-blue-500 hover:bg-slate-800"
+              >
+                <span className="block hover:bg-slate-800 rounded-full px-5 py-2">
+                  Download CV
+                </span>
+              </a>
+              {showDropdown && (
+                <div
+                  className="absolute top-full left-0 bg-slate-800 rounded-md p-2"
+                  style={{ marginTop: "0.5rem" }}
+                >
+                  <a
+                    href="/CV_Akos_Kappel_(EN).pdf"
+                    download="CV_Akos_Kappel_(EN).pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block py-1 px-2 rounded-md hover:bg-slate-700"
+                  >
+                    English
+                  </a>
+                  <a
+                    href="/CV_Akos_Kappel_(SK).pdf"
+                    download="CV_Akos_Kappel_(SK).pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block py-1 px-2 rounded-md hover:bg-slate-700"
+                  >
+                    Slovenčina
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
         </motion.div>
         <motion.div
