@@ -4,6 +4,18 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
 
+const languageOptions = [
+  // first option is default
+  {
+    label: "English",
+    file: "/CV_Akos_Kappel_(EN).pdf",
+  },
+  {
+    label: "Slovak",
+    file: "/CV_Akos_Kappel_(SK).pdf",
+  },
+];
+
 const Hero = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [hideDropdownTimeout, setHideDropdownTimeout] = useState<number | null>(
@@ -74,8 +86,8 @@ const Hero = () => {
               onMouseLeave={handleMouseLeave}
             >
               <a
-                href="/CV_Akos_Kappel_(EN).pdf"
-                download="CV_Akos_Kappel_(EN).pdf"
+                href={languageOptions[0].file}
+                download={languageOptions[0].file}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-teal-400 to-blue-500 hover:bg-slate-800"
@@ -87,26 +99,20 @@ const Hero = () => {
               {showDropdown && (
                 <div
                   className="absolute top-full left-0 bg-slate-800 rounded-md p-2"
-                  style={{ marginTop: "0.5rem" }}
+                  style={{ marginTop: "0.5rem", width: "fit-content" }}
                 >
-                  <a
-                    href="/CV_Akos_Kappel_(EN).pdf"
-                    download="CV_Akos_Kappel_(EN).pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block py-1 px-2 rounded-md hover:bg-slate-700"
-                  >
-                    English
-                  </a>
-                  <a
-                    href="/CV_Akos_Kappel_(SK).pdf"
-                    download="CV_Akos_Kappel_(SK).pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block py-1 px-2 rounded-md hover:bg-slate-700"
-                  >
-                    Slovenčina
-                  </a>
+                  {languageOptions.map((option) => (
+                    <a
+                      key={option.label}
+                      href={option.file}
+                      download={option.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block py-1 px-5 rounded-md hover:bg-slate-700"
+                    >
+                      {option.label}
+                    </a>
+                  ))}
                 </div>
               )}
             </div>
