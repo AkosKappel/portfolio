@@ -1,52 +1,48 @@
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
-import LinkedinIcon from "@/public/icons/linkedin.svg";
-import GithubIcon from "@/public/icons/github.svg";
-import Image from "next/image";
 import React from "react";
+import info from "@/data/info";
+import { FaGithub, FaLinkedin, FaGitlab } from "react-icons/fa";
 
 const Footer = () => {
-  const githubUrl = "https://github.com/AkosKappel";
-  const linkedinUrl = "https://www.linkedin.com/in/%C3%A1kos-kappel-b53344220";
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-gray-800 text-white py-6">
       <div className="container mx-auto text-center">
-        <p className="mb-4">Made with ❤️ by Ákos Kappel. © {currentYear}</p>
+        <p className="mb-4">
+          Made with ❤️ by {info.name}. © {currentYear}
+        </p>
         <div className="flex justify-center space-x-6">
           <a
-            href={githubUrl}
-            className="hover:text-blue-400 flex items-center"
+            href={info.githubUrl}
+            className="hover:text-teal-400 flex items-center"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              src={GithubIcon}
-              width={24}
-              height={24}
-              alt="GitHub"
-              className="mr-2"
-            />
-            GitHub
+            <FaGithub className="h-6 w-6 mr-2" />
+            <span>GitHub</span>
           </a>
           <a
-            href={linkedinUrl}
-            className="hover:text-blue-400 flex items-center"
+            href={info.gitlabUrl}
+            className="hover:text-teal-400 flex items-center"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              src={LinkedinIcon}
-              width={24}
-              height={24}
-              alt="LinkedIn"
-              className="mr-2"
-            />
-            LinkedIn
+            <FaGitlab className="h-6 w-6 mr-2" />
+            <span>GitLab</span>
           </a>
           <a
-            href="mailto:kappelakos@gmail.com"
-            className="hover:text-blue-400 flex items-center"
+            href={info.linkedinUrl}
+            className="hover:text-teal-400 flex items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin className="h-6 w-6 mr-2" />
+            <span>LinkedIn</span>
+          </a>
+          <a
+            href={`mailto:${info.email}`}
+            className="hover:text-teal-400 flex items-center"
           >
             <EnvelopeIcon className="h-6 w-6 mr-2" />
             Email
