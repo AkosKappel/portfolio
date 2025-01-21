@@ -57,7 +57,15 @@ const ProjectCard = ({
         </div>
       </div>
       <div className="text-white rounded-b-xl bg-slate-600 py-6 px-4">
-        <h4 className="text-xl font-semibold italic mb-2">{title}</h4>
+        <h4 className="text-xl font-semibold italic mb-2">
+          {previewUrl ? (
+            <Link href={previewUrl} className="hover:underline hover:text-teal-400" target="_blank">
+              {title}
+            </Link>
+          ) : (
+            title
+          )}
+        </h4>
         <p className="text-gray-300">{description}</p>
         <div className="flex flex-wrap gap-2 mt-4">
           {stack.map((item) => (
