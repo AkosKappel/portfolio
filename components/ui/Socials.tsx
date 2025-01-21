@@ -2,13 +2,13 @@ import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { ClipboardIcon } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
 import { FaGithub, FaLinkedin, FaGitlab } from "react-icons/fa";
-import info from "@/data/info";
+import personalData from "@/data/personal";
 
 const Socials = () => {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText(info.email);
+    navigator.clipboard.writeText(personalData.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
@@ -16,7 +16,7 @@ const Socials = () => {
   return (
     <div className="flex flex-row justify-start gap-12 flex-wrap m-8">
       <a
-        href={info.githubUrl}
+        href={personalData.githubUrl}
         className="hover:text-teal-400 flex items-center"
         target="_blank"
         rel="noopener noreferrer"
@@ -25,7 +25,7 @@ const Socials = () => {
         <span>GitHub</span>
       </a>
       <a
-        href={info.gitlabUrl}
+        href={personalData.gitlabUrl}
         className="hover:text-teal-400 flex items-center"
         target="_blank"
         rel="noopener noreferrer"
@@ -34,7 +34,7 @@ const Socials = () => {
         <span>GitLab</span>
       </a>
       <a
-        href={info.linkedinUrl}
+        href={personalData.linkedinUrl}
         className="hover:text-teal-400 flex items-center"
         target="_blank"
         rel="noopener noreferrer"

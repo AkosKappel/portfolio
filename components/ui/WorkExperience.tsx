@@ -3,7 +3,7 @@ import {
   CalendarIcon,
   CodeBracketIcon,
 } from "@heroicons/react/24/outline";
-import workExperienceData from "@/data/workExperience.json";
+import workExperienceData from "@/data/workExperience";
 import React from "react";
 
 const WorkExperience = () => {

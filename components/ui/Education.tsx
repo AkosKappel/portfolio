@@ -3,7 +3,7 @@ import {
   CalendarIcon,
   BookOpenIcon,
 } from "@heroicons/react/24/outline";
-import educationData from "@/data/education.json";
+import educationData from "@/data/education";
 import React from "react";
 
 const Education = () => {

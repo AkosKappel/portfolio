@@ -12,7 +12,7 @@ const NavItem = ({
   return (
     <Link
       href={href}
-      className="flex items-center text-gray-400 sm:text-xl rounded md:p-0 hover:text-white"
+      className="flex items-center p-1 text-gray-400 sm:text-xl rounded md:p-0 hover:text-white"
     >
       {icon && <span className="mr-2">{icon}</span>}
       {title}

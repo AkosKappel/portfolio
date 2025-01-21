@@ -1,4 +1,4 @@
-const info = {
+const personalData = {
   name: "Ákos Kappel",
   title: "Ing",
   email: "kappelakos@gmailcom",
@@ -7,4 +7,4 @@ const info = {
   linkedinUrl: "https://www.linkedin.com/in/%C3%A1kos-kappel-b53344220",
 };
 
-export default info;
+export default personalData;

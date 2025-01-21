@@ -3,6 +3,7 @@ import {
   Bars3Icon,
   XMarkIcon,
   InformationCircleIcon,
+  FolderIcon,
 } from "@heroicons/react/24/solid";
 import MenuOverlay from "@/components/ui/MenuOverlay";
 import NavItem from "@/components/ui/NavItem";
@@ -18,7 +19,7 @@ const navLinks = [
   {
     title: "Projects",
     path: "#projects",
-    icon: <Bars3Icon className="w-6 h-6" />,
+    icon: <FolderIcon className="w-6 h-6" />,
   },
 ];
 

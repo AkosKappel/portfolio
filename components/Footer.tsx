@@ -1,6 +1,6 @@
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import React from "react";
-import info from "@/data/info";
+import personalData from "@/data/personal";
 import { FaGithub, FaLinkedin, FaGitlab } from "react-icons/fa";
 
 const Footer = () => {
@@ -10,11 +10,11 @@ const Footer = () => {
     <footer className="bg-gray-800 text-white py-6">
       <div className="container mx-auto text-center">
         <p className="mb-4">
-          Made with ❤️ by {info.name}. © {currentYear}
+          Made with ❤️ by {personalData.name}. © {currentYear}
         </p>
         <div className="flex justify-center space-x-6">
           <a
-            href={info.githubUrl}
+            href={personalData.githubUrl}
             className="hover:text-teal-400 flex items-center"
             target="_blank"
             rel="noopener noreferrer"
@@ -23,7 +23,7 @@ const Footer = () => {
             <span>GitHub</span>
           </a>
           <a
-            href={info.gitlabUrl}
+            href={personalData.gitlabUrl}
             className="hover:text-teal-400 flex items-center"
             target="_blank"
             rel="noopener noreferrer"
@@ -32,7 +32,7 @@ const Footer = () => {
             <span>GitLab</span>
           </a>
           <a
-            href={info.linkedinUrl}
+            href={personalData.linkedinUrl}
             className="hover:text-teal-400 flex items-center"
             target="_blank"
             rel="noopener noreferrer"
@@ -41,7 +41,7 @@ const Footer = () => {
             <span>LinkedIn</span>
           </a>
           <a
-            href={`mailto:${info.email}`}
+            href={`mailto:${personalData.email}`}
             className="hover:text-teal-400 flex items-center"
           >
             <EnvelopeIcon className="h-6 w-6 mr-2" />
