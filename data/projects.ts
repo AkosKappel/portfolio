@@ -15,7 +15,7 @@ export const projectsData = [
       "Redux",
     ],
     gitUrl: "https://github.com/AkosKappel/BudgetMaster",
-    previewUrl: "https://130.61.106.56/dashboard",
+    previewUrl: "https://130.61.106.56/BudgetMaster",
   },
   {
     title: "FakeShop",
