@@ -1,5 +1,15 @@
 export const projectsData = [
   {
+    title: "Modern Fashion Store",
+    description:
+      "A simple dashboard interface for a manager of a clothing company. Keeps tranck of products and orders. Includes filtering for orders and products.",
+    image: "/images/projects/clothing-store.png",
+    tag: ["Web", "Solo"],
+    stack: ["Elixir", "Phoenix", "PostgreSQL", "Tailwind", "Nginx"],
+    gitUrl: "https://github.com/AkosKappel/clothing-store",
+    previewUrl: "https://130.61.106.56/",
+  },
+  {
     title: "Budget Master",
     description:
       "Financial management app. Provides a modern and simplistic interface for tracking user income and expenses. Also provides easy to read charts about the data, like monthly expenses or expenses by category.",

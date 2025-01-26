@@ -1,6 +1,6 @@
+import GithubActionsIcon from "@/public/icons/github-actions.svg";
 import JavascriptIcon from "@/public/icons/javascript.svg";
 import TensorflowIcon from "@/public/icons/tensorflow.svg";
-import KerasIcon from "@/public/icons/keras.svg";
 import TypescriptIcon from "@/public/icons/typescript.svg";
 import TailwindIcon from "@/public/icons/tailwindcss.svg";
 import BootstrapIcon from "@/public/icons/bootstrap.svg";
@@ -27,6 +27,8 @@ import NodeIcon from "@/public/icons/nodejs.svg";
 import ReactIcon from "@/public/icons/react.svg";
 import RedisIcon from "@/public/icons/redis.svg";
 import LinuxIcon from "@/public/icons/linux.svg";
+import FigmaIcon from "@/public/icons/figma.svg";
+import KerasIcon from "@/public/icons/keras.svg";
 import VueIcon from "@/public/icons/vue-js.svg";
 import JavaIcon from "@/public/icons/java.svg";
 import HtmlIcon from "@/public/icons/html.svg";
@@ -34,8 +36,6 @@ import JiraIcon from "@/public/icons/jira.svg";
 import GitIcon from "@/public/icons/git.svg";
 import PhpIcon from "@/public/icons/php.svg";
 import CssIcon from "@/public/icons/css.svg";
-import FigmaIcon from "@/public/icons/figma.svg";
-import GithubActionsIcon from "@/public/icons/github-actions.svg";
 
 export const skillsData = [
   {
