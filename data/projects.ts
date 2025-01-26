@@ -64,16 +64,6 @@ export const projectsData = [
     previewUrl: "https://akoskappel.github.io/FeastFinder",
   },
   {
-    title: "PokeVue",
-    description:
-      "A pokemon viewer application that uses data from the PokeAPI to display information about different pokemon games.",
-    image: "/images/projects/pokedex.png",
-    tag: ["Web", "Solo"],
-    stack: ["Vue", "CSS", "Axios", "Docker", "Nginx"],
-    gitUrl: "https://github.com/AkosKappel/Pokedex",
-    previewUrl: "https://130.61.106.56/pokevue/",
-  },
-  {
     title: "SmartTech e-Shop",
     description:
       "Online shop for buying smartphones. Provides filters for price range, brand, and color for finding the best smartphones. On the backend it stores the data in a PostgreSQL database. Users can add and remove products from their shopping cart and go through the checkout process (without actually buying anything).",
@@ -82,6 +72,16 @@ export const projectsData = [
     stack: ["Laravel", "PHP", "Tailwind", "PostgreSQL", "Docker", "Nginx"],
     gitUrl: "https://github.com/AkosKappel/WTECH-Laravel",
     previewUrl: "https://130.61.106.56/wtech/",
+  },
+  {
+    title: "PokeVue",
+    description:
+      "A pokemon viewer application that uses data from the PokeAPI to display information about different pokemon games.",
+    image: "/images/projects/pokedex.png",
+    tag: ["Web", "Solo"],
+    stack: ["Vue", "CSS", "Axios", "Docker", "Nginx"],
+    gitUrl: "https://github.com/AkosKappel/Pokedex",
+    previewUrl: "https://130.61.106.56/pokevue/",
   },
   {
     title: "PetGuide",
