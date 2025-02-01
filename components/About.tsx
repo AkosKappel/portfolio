@@ -42,14 +42,14 @@ const About = () => {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="md:grid md:grid-cols-3 gap-8 align-top"
+        className="md:grid lg:grid-cols-3 gap-8 align-top"
       >
         <Image
           src="/images/profile-picture.png"
-          alt="about image"
+          alt="Profile Picture"
           width={320}
           height={320}
-          className="rounded-full shadow-lg bg-gradient-to-br from-teal-400 to-blue-500 p-2 mx-auto md:my-16"
+          className="rounded-full hidden lg:block shadow-lg bg-gradient-to-br from-teal-400 to-blue-500 p-2 mx-auto md:my-16"
         />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full col-span-2">
           <h2 className="text-4xl font-bold text-white mb-8">About Me</h2>
@@ -65,6 +65,13 @@ const About = () => {
             a quick learner and I am always looking to expand my knowledge and
             skill set by looking for new challenges.
           </p>
+          <Image
+            src="/images/profile-picture.png"
+            alt="Profile Picture"
+            width={320}
+            height={320}
+            className="rounded-full block lg:hidden shadow-lg bg-gradient-to-br from-teal-400 to-blue-500 p-2 mx-auto my-8"
+          />
           <Socials />
           <div className="flex flex-row sm:justify-start mt-8 text-xl flex-wrap justify-center">
             {Tabs.map((t) => (

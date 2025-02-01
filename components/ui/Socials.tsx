@@ -14,7 +14,7 @@ const Socials = () => {
   };
 
   return (
-    <div className="flex flex-row justify-start gap-12 flex-wrap m-8">
+    <div className="flex flex-row justify-start gap-12 flex-wrap m-8 lg:my-12">
       <a
         href={personalData.githubUrl}
         className="hover:text-teal-400 flex items-center"
@@ -53,8 +53,10 @@ const Socials = () => {
             <span className="animate-pulse">Copied!</span>
           </>
         ) : (
-          <span>
-            Email <i>(click to copy)</i>
+          <span className="text-left">
+            Email
+            <br />
+            <i>(click to copy)</i>
           </span>
         )}
       </button>

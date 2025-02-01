@@ -47,7 +47,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
+          className="col-span-8 place-self-center text-center sm:text-left justify-self-start mr-4"
         >
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl lg:leading-normal">
             <span className="bg-clip-text">Hello, I&apos;m </span>
@@ -124,7 +124,7 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="col-span-4 place-self-center"
         >
-          <div className="rounded-full bg-slate-800 w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative hidden sm:block">
+          <div className="rounded-full bg-slate-800 w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] relative hidden sm:block">
             <Image
               src="/images/hero.jpeg"
               alt="hero image"

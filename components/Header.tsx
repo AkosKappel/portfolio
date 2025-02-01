@@ -17,17 +17,17 @@ const navLinks = [
     icon: <InformationCircleIcon className="w-6 h-6" />,
   },
   {
-    title: "Projects",
+    title: "My Projects",
     path: "#projects",
     icon: <FolderIcon className="w-6 h-6" />,
   },
 ];
 
-const Navbar = () => {
+const Header = () => {
   const [isNavbarOpen, setNavbarOpen] = useState<boolean>(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-gray-800 shadow">
+    <header className="fixed top-0 left-0 right-0 z-10 bg-gray-800 shadow">
       <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
         <Link
           href={"/"}
@@ -63,8 +63,8 @@ const Navbar = () => {
         </div>
       </div>
       {isNavbarOpen ? <MenuOverlay links={navLinks} /> : null}
-    </nav>
+    </header>
   );
 };
 
-export default Navbar;
+export default Header;
