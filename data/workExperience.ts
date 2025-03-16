@@ -1,6 +1,16 @@
 export const workExperienceData = [
   {
     position: "Full Stack Developer",
+    company: "IGT Consulting",
+    responsibilities: [
+      "Frontend and Backend development",
+      "Implementation of new features",
+    ],
+    technologies: "Phoenix, Elixir, JavaScript, MongoDB, PostgreSQL",
+    dates: "February 2025 - Present",
+  },
+  {
+    position: "Full Stack Developer",
     company: "Švarba s.r.o.",
     responsibilities: [
       "Developed API for a React application",
