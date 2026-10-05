@@ -1,0 +1,389 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+% showframe % for debugging
+]{geometry} % for adjusting page geometry
+\usepackage[explicit]{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={John Doe's CV},
+    pdfauthor={John Doe},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+\usepackage{graphicx} % for profile picture
+
+% Packages added by me
+\usepackage{multicol}
+\usepackage{fontawesome5} % For icons like \faLink
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\fi
+
+\usepackage[default, type1]{sourcesanspro}
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{
+% avoid page braking right after the section title
+    \needspace{4\baselineskip}
+    % make the font size of the section title large and color it with the primary color
+    \Large\color{primaryColor}
+}{
+}{
+}{
+% print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
+% from the end of the title to the end of the body
+    \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
+}[] % section title formatting
+
+\titlespacing{\section}{
+% left space:
+    -1pt
+}{
+% top space:
+    0.3 cm
+}{
+% bottom space:
+    0.2 cm
+} % section title spacing
+
+% \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+    }{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+    }{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+    }{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+    }{
+        \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{1 cm, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2}
+        \switchcolumn
+        }{
+        \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+    }{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+    \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+        \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+        ){\vtop{{\null}\makebox[0pt][c]{
+            \small\color{gray}\textit{Last updated in May 2024}\hspace{\widthof{Last updated in May 2024}}
+        }}}%
+    }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\mbox{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}}
+
+% \documentclass[10pt, letterpaper]{article}
+
+\begin{document}
+    % \placelastupdatedtext
+    \begin{header}
+    \begin{minipage}[c]{0.15\textwidth}
+        \includegraphics[width=\linewidth]{profile.jpg}
+    \end{minipage}
+    \hspace{0.02\textwidth} % Add horizontal space
+    \begin{minipage}[c]{0.70\textwidth}
+        \center
+        \fontsize{30 pt}{30 pt}
+        \textbf{Ing. Ákos Kappel}
+        \vspace{0.3 cm}
+        \normalsize
+
+        \mbox{\hrefWithoutArrow{mailto:kappelakos@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}kappelakos@gmail.com}}
+        \kern 0.5 cm
+        \mbox{{{\footnotesize\faPhone*}\hspace*{0.13cm}+421 918 727 886}}
+        \kern 0.5 cm
+        \mbox{{\footnotesize\faBirthdayCake}\hspace*{0.13cm}04. 11. 1999}
+        \kern 0.5 cm
+        \\
+        \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Bajč 155, 946 54, Slovakia}
+        \kern 0.5 cm
+        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/\%C3\%A1kos-kappel-b53344220/}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}linkedin.com/ákos-kappel}}
+        \kern 0.5 cm
+        \\
+        % \mbox{\hrefWithoutArrow{https://portfolio-xkappels-projects.vercel.app/}
+        \mbox{\hrefWithoutArrow{https://akoskappel.site/}{{\footnotesize\faGlobe}\hspace*{0.13cm}akoskappel.site}}
+        \kern 0.5 cm
+        \mbox{\hrefWithoutArrow{https://github.com/AkosKappel}{{\footnotesize\faGithub}\hspace*{0.13cm}github.com/AkosKappel}}
+        \kern 0.5 cm
+        \mbox{\hrefWithoutArrow{https://gitlab.com/AkosKappel}{{\footnotesize\faGitlab}\hspace*{0.13cm}gitlab.com/AkosKappel}}
+        \kern 0.5 cm
+    \end{minipage}
+    \end{header}
+
+    \vspace{0.3 cm - 0.3 cm}
+
+    \section{About Me}
+    \begin{onecolentry}
+        I’m a full-stack software engineer with hands-on experience in both frontend and backend development.
+        I enjoy building modern web applications, solving complex problems, and continuously learning new technologies.
+        I work well both independently and in collaborative, agile teams.
+        % I'm looking for opportunities where I can contribute my skills while growing as a developer.
+        I’m excited to apply my abilities in real-world challenges and continue expanding my knowledge as a developer.
+    \end{onecolentry}
+
+    \section{Technical Skills}
+
+    \begin{onecolentry}
+        \begin{highlightsforbulletentries}
+            \item \textbf{Programming Languages:} Python, TypeScript, PHP, Java, Kotlin, C\#, Elixir
+            \vspace{0.2em}
+            \item \textbf{Development Tools:} Git, Linux, Docker, VS Code, Jira, Gitlab
+            \vspace{0.2em}
+            \item \textbf{Web Technologies:} HTML, CSS, Tailwind, Bootstrap
+            \vspace{0.2em}
+            \item \textbf{Frameworks:} Laravel, Node.js, FastAPI, Django, React, Next.js, Vue, Nuxt
+            \vspace{0.2em}
+            \item \textbf{Databases:} PostgreSQL, MongoDB, Redis
+            \vspace{0.2em}
+            \item \textbf{AI Libraries:} PyTorch, TensorFlow
+        \end{highlightsforbulletentries}
+    \end{onecolentry}
+
+    \section{Work Experience}
+
+    \begin{twocolentry}{February 2025 - now}
+        \textbf{Full Stack Developer}, IGT Consulting
+        \begin{highlights}
+            \item Frontend and Backend development
+            \item Implementation of new features
+            \item \textit{Technologies used:} Phoenix, Elixir, JavaScript, MongoDB, PostgreSQL
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.2 cm}
+    \begin{twocolentry}{June 2024 - January 2025}
+        \textbf{Full Stack Developer}, Švarba s.r.o.
+        \begin{highlights}
+            \item Building RESTful APIs for frontend integration
+            \item Collaboration on the development of React applications
+            \item Implementation of new functionalities and website maintenance
+            \item Development of automated unit testing
+            \item \textit{Technologies used:} TypeScript, Node.js, Express.js, React, PHP, Nette, MSSql
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.2 cm}
+    \begin{twocolentry}{October 2023 - May 2024}
+        \textbf{Junior Python Developer}, SoftPoint s.r.o.
+        \begin{highlights}
+            \item Development of ETL processes - data extraction, transformation, and storage
+            \item Implementation of scalable web scraping pipelines
+            \item Automation of order processing workflows
+            \item \textit{Technologies used:} Python, Ruby, PostgreSQL, Selenium, Airflow, FastAPI
+        \end{highlights}
+    \end{twocolentry}
+
+    \section{Education}
+
+    \begin{twocolentry}{September 2022 - June 2024}
+        \textbf{Intelligent Software Systems}\\
+        Slovak University of Technology, Faculty of Informatics and Information Technologies
+        \begin{highlights}
+            \item Master's degree
+            \item \textit{Thesis:} Semi-automatic segmentation methods based on neural networks for improving detection and monitoring of human eye diseases
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.2 cm}
+    \begin{twocolentry}{September 2019 - June 2022}
+        \textbf{Computer Science}\\
+        Slovak University of Technology, Faculty of Informatics and Information Technologies
+        \begin{highlights}
+            \item Bachelor's degree
+            \item \textit{Thesis:} Generator of analytical geometry problems in plane - Conic sections
+        \end{highlights}
+    \end{twocolentry}
+
+    \section{Language Skills}
+
+    \begin{onecolentry}
+        \begin{highlightsforbulletentries}
+            \item \textbf{Slovak} - Native language
+            \item \textbf{English} - C1
+            \item \textbf{German} - A2
+            \item \textbf{Hungarian} - C1
+        \end{highlightsforbulletentries}
+    \end{onecolentry}
+
+    \section{Projects}
+
+    \begin{twocolentry}{2024 - 2025}
+        \hrefWithoutArrow{https://130.61.106.56/BudgetMaster}{\textbf{Budget Master}}
+        \hspace{0.5em} | \hspace{0.5em}
+        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/BudgetMaster}{Source code: GitHub/BudgetMaster}}
+        \begin{highlights}
+            \item Full-Stack application for personal finance management, with modern data visualizations for better overview of income and expenses
+            \item \textit{Technologies used:} Next.js, TypeScript, Tailwind, MongoDB, Axios, Redux, React Query, Zod, Recharts, Nginx
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.2 cm}
+    \begin{twocolentry}{2024}
+        \hrefWithoutArrow{https://akoskappel.github.io/FakeShop/}{\textbf{e-Shop}}
+        \hspace{0.5em} | \hspace{0.5em}
+        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/FakeShop}{GitHub/FakeShop}}
+        \begin{highlights}
+            \item Frontend application for e-commerce, displaying products from a public API and providing a user-friendly interface for browsing and filtering products
+            \item \textit{Technologies used:} React, TypeScript, Tailwind
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.2 cm}
+    \begin{twocolentry}{2024}
+        \textbf{WAC}
+        \hspace{0.5em} | \hspace{0.5em}
+        \textit{\hrefWithoutArrow{https://github.com/PatrikHarmanos/wac-projekt}{uFE}, \hrefWithoutArrow{https://github.com/PatrikHarmanos/wac-api}{WebAPI}, \hrefWithoutArrow{https://github.com/AkosKappel/wac-projekt-gitops}{GitOps}}
+        \begin{highlights}
+            \item Micro-frontend application created using Stencil.js and TypeScript
+            \item Backend developed in Go with MongoDB database and OpenAPI specification
+            \item Application deployed using Docker, Kubernetes, Github actions and Azure
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.2 cm}
+    \begin{twocolentry}{2022 - 2024}
+        \textbf{Glaucoma Segmentation}
+        \hspace{0.5em} | \hspace{0.5em}
+        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/DP-GlaucomaSegmentation}{GitHub/GlaucomaSegmentation}}
+        \begin{highlights}
+            \item Master's thesis in artificial intelligence field developed at FIIT STU
+            \item Console application with neural network for segmentation of eye structure images
+            \item \textit{Technologies used:} Python, PyTorch, OpenCV, Numpy, Pandas, Albumentations, Scikit-learn, Matplotlib
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.2 cm}
+    \begin{twocolentry}{2023}
+        \hrefWithoutArrow{https://akoskappel.github.io/FeastFinder/}{\textbf{Feast Finder}}
+        \hspace{0.5em} | \hspace{0.5em}
+        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/FeastFinder}{GitHub/FeastFinder}}
+        \begin{highlights}
+            \item Frontend application for recipe search, enabling quick and easy filtering by ingredients, meals, and categories
+            \item \textit{Technologies used:} Nuxt, TypeScript, Tailwind, Axios
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.2 cm}
+    \begin{twocolentry}{2022}
+        \hrefWithoutArrow{https://the-norb.itch.io/iridescent}{\textbf{Iridescent}}
+        \hspace{0.5em} | \hspace{0.5em}
+        \textit{\hrefWithoutArrow{https://gitlab.com/VighNorbert/iridescent/-/tree/main}{GitLab/iridescent}}
+        \begin{highlights}
+            \item Cooperative computer game for two players with splitscreen mode, focused on team play and fun
+            \item \textit{Technologies used:} Unity Engine, C\#
+        \end{highlights}
+    \end{twocolentry}
+
+    \vspace{0.2 cm}
+    \begin{twocolentry}{2021}
+        \hrefWithoutArrow{https://130.61.106.56/wtech/}{\textbf{SmartTech}}
+        \hspace{0.5em} | \hspace{0.5em}
+        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/WTECH-Laravel}{GitHub/WTECH}}
+        \begin{highlights}
+            \item Full-stack web application with an intuitive interface for purchasing smartphones.
+            \item Includes an admin panel for product management through CRUD operations.
+            \item \textit{Technologies used:} HTML, CSS, JavaScript, PHP, Laravel, Tailwind, PostgreSQL, Docker, Nginx.
+        \end{highlights}
+    \end{twocolentry}
+
+\end{document}
