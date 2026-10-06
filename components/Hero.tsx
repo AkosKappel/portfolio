@@ -3,6 +3,7 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
+import personalData from "@/data/personal";
 
 const languageOptions = [
   // first option is default
@@ -73,7 +74,7 @@ const Hero = () => {
           </p>
           <div className="flex justify-center sm:justify-start mb-8 gap-4">
             <a
-              href="mailto:kappelakos@gmail.com"
+              href={`mailto:${personalData.email}`}
               className="max-w-fit max-h-fit px-1 inline-block py-1 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-teal-400 to-blue-500 hover:bg-slate-800"
             >
               <span className="block hover:bg-slate-800 rounded-full px-5 py-2">

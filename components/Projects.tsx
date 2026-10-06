@@ -65,14 +65,13 @@ const Projects = () => {
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
         {paginatedProjects.map((project, index) => (
           <motion.li
-            key={index}
+            key={project.title}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ duration: 0.3, delay: index * 0.25 }}
           >
             <ProjectCard
-              key={index}
               title={project.title}
               description={project.description}
               stack={project.stack}

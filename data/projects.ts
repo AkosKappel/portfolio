@@ -2,12 +2,12 @@ export const projectsData = [
   {
     title: "Modern Fashion Store",
     description:
-      "A simple dashboard interface for a manager of a clothing company. Keeps tranck of products and orders. Includes filtering for orders and products.",
+      "A simple dashboard interface for a manager of a clothing company. Keeps track of products and orders. Includes filtering for orders and products.",
     image: "/images/projects/clothing-store.png",
     tag: ["Web", "Solo"],
     stack: ["Elixir", "Phoenix", "PostgreSQL", "Tailwind", "Nginx"],
     gitUrl: "https://github.com/AkosKappel/clothing-store",
-    previewUrl: "https://130.61.106.56/",
+    previewUrl: "https://tagline.tailb52c43.ts.net",
   },
   {
     title: "Budget Master",
@@ -25,7 +25,6 @@ export const projectsData = [
       "Redux",
     ],
     gitUrl: "https://github.com/AkosKappel/BudgetMaster",
-    previewUrl: "https://130.61.106.56/BudgetMaster",
   },
   {
     title: "FakeShop",
@@ -71,7 +70,7 @@ export const projectsData = [
     tag: ["Web", "Team projects"],
     stack: ["Laravel", "PHP", "Tailwind", "PostgreSQL", "Docker", "Nginx"],
     gitUrl: "https://github.com/AkosKappel/WTECH-Laravel",
-    previewUrl: "https://130.61.106.56/wtech/",
+    previewUrl: "https://wtech.tailb52c43.ts.net",
   },
   {
     title: "PokeVue",
@@ -81,12 +80,11 @@ export const projectsData = [
     tag: ["Web", "Solo"],
     stack: ["Vue", "CSS", "Axios", "Docker", "Nginx"],
     gitUrl: "https://github.com/AkosKappel/Pokedex",
-    previewUrl: "https://130.61.106.56/pokevue/",
   },
   {
     title: "PetGuide",
     description:
-      "Website for helping people select the best pet for them. It provides a registeration form for new users, search and filtering for pets based on their characteristics. Also allows users to identify the breed by uploading an image of their pet and a neural network in the background predicts the correct breed.",
+      "Website for helping people select the best pet for them. It provides a registration form for new users, search and filtering for pets based on their characteristics. Also allows users to identify the breed by uploading an image of their pet and a neural network in the background predicts the correct breed.",
     image: "/images/projects/petguide.png",
     tag: ["Web", "Team projects"],
     stack: ["Laravel", "PHP", "FastAPI", "Python", "Bootstrap", "TensorFlow"],
@@ -106,7 +104,7 @@ export const projectsData = [
   {
     title: "Advent of Code",
     description:
-      "My algorithmic solutions for the problems from the Advent of Code challenge, a annual programming contest organized in every December.",
+      "My algorithmic solutions for the problems from the Advent of Code challenge, an annual programming contest held every December.",
     image: "/images/projects/aoc.png",
     tag: ["Coding challenges"],
     stack: ["Python", "Kotlin", "JavaScript", "C#", "Java"],
@@ -127,7 +125,6 @@ export const projectsData = [
     image: "/images/projects/mini.png",
     tag: ["Web", "Solo"],
     stack: ["HTML", "CSS", "JavaScript", "p5.js"],
-    previewUrl: "https://130.61.106.56/mini-projects/",
   },
 ];
 

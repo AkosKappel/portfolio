@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local planning
+BACKLOG.md
+CV-NOTES.md
+
+# latex build artefacts
+/latex/*.aux
+/latex/*.log
+/latex/*.fls
+/latex/*.fdb_latexmk
+/latex/*.synctex.gz
+/latex/*.out
+/latex/*.pdf
