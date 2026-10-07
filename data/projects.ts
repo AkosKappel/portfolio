@@ -55,10 +55,10 @@ export const projectsData = [
   {
     title: "Feast Finder",
     description:
-      "Frontend application for finding recipes based on ingredients and food preferences. It uses the MealDB API to fetch recipes and provides a user-friendly interface for searching and filtering.",
+      "Recipe finder for almost 800 meals from TheMealDB: search by name, browse by ingredient, category or cuisine, or find meals from what is in your fridge. Cooking checklist, read-aloud instructions, favourites and offline support. Tested with Vitest and Playwright, deployed to GitHub Pages.",
     image: "/images/projects/feast-finder.png",
     tag: ["Web", "Solo"],
-    stack: ["Nuxt.js", "Tailwind", "Axios", "TypeScript"],
+    stack: ["Nuxt.js", "Vue", "TypeScript", "Tailwind", "Playwright"],
     gitUrl: "https://github.com/AkosKappel/FeastFinder",
     previewUrl: "https://akoskappel.github.io/FeastFinder",
   },
