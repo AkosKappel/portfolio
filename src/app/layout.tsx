@@ -16,7 +16,6 @@ const bricolage = Bricolage_Grotesque({
 const plex = IBM_Plex_Sans({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
   variable: "--font-plex",
   display: "swap",
 });
@@ -67,7 +66,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
         </main>
         <SiteFooter />
-        <Analytics />
+        {/* The analytics script only exists on Vercel deployments. */}
+        {process.env.VERCEL ? <Analytics /> : null}
       </body>
     </html>
   );

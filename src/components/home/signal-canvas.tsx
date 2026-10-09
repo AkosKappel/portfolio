@@ -104,6 +104,13 @@ function createProgram(gl: WebGL2RenderingContext) {
   return program;
 }
 
+/** Without a GPU, WebGL runs on the CPU; an endless animation would then slow the whole page. */
+function isSoftwareRenderer(gl: WebGL2RenderingContext) {
+  const info = gl.getExtension("WEBGL_debug_renderer_info");
+  const renderer = String(gl.getParameter(info ? info.UNMASKED_RENDERER_WEBGL : gl.RENDERER));
+  return /swiftshader|llvmpipe|software|basic render/i.test(renderer);
+}
+
 function readColor(name: string): [number, number, number] {
   const probe = document.createElement("span");
   probe.style.color = `var(${name})`;
@@ -189,13 +196,15 @@ export function SignalCanvas() {
     };
     resize();
 
-    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let sweep = reduceMotion ? REST_SWEEP : 0;
+    // A still frame that only redraws when the pointer moves the filter.
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches || isSoftwareRenderer(gl);
+    let sweep = still ? REST_SWEEP : 0;
     let target = REST_SWEEP;
     let time = 0;
     let last = performance.now();
     let frame = 0;
     let visible = true;
+    let ready = false;
 
     const draw = () => {
       gl.clearColor(0, 0, 0, 0);
@@ -219,7 +228,7 @@ export function SignalCanvas() {
     };
 
     const start = () => {
-      if (reduceMotion || frame || !visible || document.hidden) return;
+      if (still || !ready || frame || !visible || document.hidden) return;
       last = performance.now();
       frame = requestAnimationFrame(tick);
     };
@@ -231,14 +240,14 @@ export function SignalCanvas() {
     const onPointerMove = (event: PointerEvent) => {
       const rect = canvas.getBoundingClientRect();
       target = Math.min(Math.max((event.clientX - rect.left) / rect.width, 0), 1);
-      if (reduceMotion) {
+      if (still) {
         sweep = target;
         draw();
       }
     };
     const onPointerLeave = () => {
       target = REST_SWEEP;
-      if (reduceMotion) {
+      if (still) {
         sweep = target;
         draw();
       }
@@ -267,10 +276,20 @@ export function SignalCanvas() {
     surface.addEventListener("pointerleave", onPointerLeave);
 
     draw();
-    start();
+    // Start animating once the page has loaded and the main thread is idle.
+    const idle =
+      window.requestIdleCallback ?? ((callback: () => void) => setTimeout(callback, 200));
+    const begin = () =>
+      idle(() => {
+        ready = true;
+        start();
+      });
+    if (document.readyState === "complete") begin();
+    else window.addEventListener("load", begin, { once: true });
 
     return () => {
       stop();
+      window.removeEventListener("load", begin);
       intersection.disconnect();
       resizeObserver.disconnect();
       themeObserver.disconnect();

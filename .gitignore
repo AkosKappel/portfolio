@@ -59,3 +59,5 @@ CV-NOTES.md
 # playwright
 /test-results/
 /playwright-report/
+/lighthouse-report/
+/.lighthouseci/
