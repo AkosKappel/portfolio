@@ -57,7 +57,10 @@ test("English lives at the root and /en redirects there", async ({ page }) => {
 
 test("language switcher keeps the current page", async ({ page }) => {
   await page.goto("/projects/fakeshop");
-  await page.getByLabel("Language").click();
+  await page
+    .getByText(/^Language:/)
+    .locator("..")
+    .click();
   await page.getByRole("link", { name: "Slovak" }).click();
   await expect(page).toHaveURL(/\/sk\/projects\/fakeshop$/);
   await expect(page.locator("html")).toHaveAttribute("lang", "sk");

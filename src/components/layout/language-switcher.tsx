@@ -14,11 +14,9 @@ export function LanguageSwitcher() {
 
   return (
     <details className="group relative">
-      <summary
-        className="flex h-10 cursor-pointer list-none items-center gap-1.5 rounded-full px-2.5 text-sm text-muted hover:bg-ink/5 hover:text-ink [&::-webkit-details-marker]:hidden"
-        aria-label={t("common.language")}
-      >
+      <summary className="flex h-10 cursor-pointer list-none items-center gap-1.5 rounded-full px-2.5 text-sm text-muted hover:bg-ink/5 hover:text-ink [&::-webkit-details-marker]:hidden">
         <Flag locale={locale} />
+        <span className="sr-only">{t("common.language")}: </span>
         <span className="uppercase">{locale}</span>
         <ChevronDown aria-hidden size={14} className="transition-transform group-open:rotate-180" />
       </summary>
