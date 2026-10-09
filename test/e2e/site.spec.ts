@@ -102,3 +102,18 @@ test("mobile menu opens, closes with Escape and navigates", async ({ page, isMob
   await expect(page).toHaveURL(/\/experience$/);
   await expect(menu).toBeHidden();
 });
+
+test("pages send security headers and load without CSP errors", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("console", (message) => {
+    if (message.type() === "error" && message.text().includes("Content Security Policy")) {
+      errors.push(message.text());
+    }
+  });
+  const response = await page.goto("/");
+  const headers = response?.headers() ?? {};
+  expect(headers["content-security-policy"]).toContain("frame-ancestors 'none'");
+  expect(headers["x-content-type-options"]).toBe("nosniff");
+  await page.waitForLoadState("networkidle");
+  expect(errors).toEqual([]);
+});
