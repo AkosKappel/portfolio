@@ -75,7 +75,7 @@ export const projectsData = [
   {
     title: "Pokédex",
     description:
-      "Pokédex for all 1025 Pokémon with data from PokéAPI: instant search, type and region filters kept in the URL, stats, type matchups, evolution chains, compare, favorites and a \"Who's that Pokémon?\" quiz. Dark mode, offline support, tested with Vitest and Playwright, deployed to GitHub Pages.",
+      "Pokédex for all 1025 Pokémon with data from PokéAPI: instant search and filters kept in the URL, stats, type matchups, evolutions and learnsets, pages for moves, abilities and items, a team builder, compare and a \"Who's that Pokémon?\" quiz. Names in nine languages, dark mode, offline support, tested with Vitest and Playwright, deployed to GitHub Pages.",
     image: "/images/projects/pokedex.png",
     tag: ["Web", "Solo"],
     stack: ["Vue", "TypeScript", "Vite", "Playwright"],
