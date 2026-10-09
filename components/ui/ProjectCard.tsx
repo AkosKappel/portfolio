@@ -65,7 +65,7 @@ const ProjectCard = ({
           {stack.map((item) => (
             <span
               key={item}
-              className="font-bold text-xl border-gray-300 border-2 py-2 px-4 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 text-transparent bg-clip-text"
+              className="font-bold text-xl border-gray-300 border-2 py-2 px-4 rounded-full bg-linear-to-br from-teal-400 to-blue-500 text-transparent bg-clip-text"
             >
               {item}
             </span>

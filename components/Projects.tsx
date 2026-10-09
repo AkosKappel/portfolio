@@ -89,7 +89,7 @@ const Projects = () => {
               onClick={() => handlePageChange(pageIndex)}
               className={`w-4 h-4 rounded-full ${
                 currentPage === pageIndex
-                  ? "bg-gradient-to-br from-teal-400 to-blue-500"
+                  ? "bg-linear-to-br from-teal-400 to-blue-500"
                   : "bg-gray-400"
               }`}
               aria-label={`Go to page ${pageIndex + 1}`}

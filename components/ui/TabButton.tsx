@@ -16,7 +16,7 @@ const TabButton = ({
   children: React.ReactNode;
 }) => {
   const buttonClasses = active
-    ? "bg-clip-text text-transparent bg-gradient-to-br from-teal-400 to-blue-500"
+    ? "bg-clip-text text-transparent bg-linear-to-br from-teal-400 to-blue-500"
     : "text-gray-400";
 
   return (
@@ -25,7 +25,7 @@ const TabButton = ({
       <motion.div
         animate={active ? "active" : "default"}
         variants={variants}
-        className="h-1 mt-2 mr-3 bg-gradient-to-br from-teal-400 to-blue-500"
+        className="h-1 mt-2 mr-3 bg-linear-to-br from-teal-400 to-blue-500"
       ></motion.div>
     </button>
   );

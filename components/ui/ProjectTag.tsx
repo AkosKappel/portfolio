@@ -8,7 +8,7 @@ const ProjectTag = ({
   isSelected: boolean;
 }) => {
   const buttonStyles = isSelected
-    ? "text-white bg-gradient-to-br from-teal-400 to-blue-500"
+    ? "text-white bg-linear-to-br from-teal-400 to-blue-500"
     : "text-gray-400 border-slate-600 hover:border-white";
   return (
     <button

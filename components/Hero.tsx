@@ -40,7 +40,7 @@ const Hero = () => {
               wrapper="span"
               speed={20}
               repeat={Infinity}
-              className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-teal-400 to-blue-500"
+              className="font-bold bg-clip-text text-transparent bg-linear-to-br from-teal-400 to-blue-500"
             />
           </h1>
           <p className="text-slate-300 mb-8 text-lg sm:text-xl lg:text-2xl mr-4">
@@ -50,12 +50,12 @@ const Hero = () => {
           <div className="flex justify-center sm:justify-start mb-8 gap-4">
             <a
               href={`mailto:${personalData.email}`}
-              className="max-w-fit max-h-fit px-1 inline-block py-1 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-teal-400 to-blue-500 hover:bg-slate-800"
+              className="max-w-fit max-h-fit px-1 inline-block py-1 w-full sm:w-fit rounded-full mr-4 bg-linear-to-br from-teal-400 to-blue-500 hover:bg-slate-800"
             >
               <span className="block hover:bg-slate-800 rounded-full px-5 py-2">Contact Me</span>
             </a>
             <details className="group relative">
-              <summary className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-teal-400 to-blue-500 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              <summary className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-linear-to-br from-teal-400 to-blue-500 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                 <span className="block hover:bg-slate-800 rounded-full px-5 py-2">Download CV</span>
               </summary>
               <ul className="absolute top-full left-0 mt-2 w-max bg-slate-800 rounded-md p-2">

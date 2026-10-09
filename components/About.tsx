@@ -49,7 +49,7 @@ const About = () => {
           alt="Profile Picture"
           width={320}
           height={320}
-          className="rounded-full hidden lg:block shadow-lg bg-gradient-to-br from-teal-400 to-blue-500 p-2 mx-auto md:my-16"
+          className="rounded-full hidden lg:block shadow-lg bg-linear-to-br from-teal-400 to-blue-500 p-2 mx-auto md:my-16"
         />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full col-span-2">
           <h2 className="text-4xl font-bold text-white mb-8">About Me</h2>
@@ -68,7 +68,7 @@ const About = () => {
             alt="Profile Picture"
             width={320}
             height={320}
-            className="rounded-full block lg:hidden shadow-lg bg-gradient-to-br from-teal-400 to-blue-500 p-2 mx-auto my-8"
+            className="rounded-full block lg:hidden shadow-lg bg-linear-to-br from-teal-400 to-blue-500 p-2 mx-auto my-8"
           />
           <Socials />
           <div className="flex flex-row sm:justify-start mt-8 text-xl flex-wrap justify-center">
@@ -78,7 +78,7 @@ const About = () => {
                 selectTab={() => handleTabChange(t.id)}
                 active={currentTab === t.id}
               >
-                <h3 className="font-semibold transition duration-300 ease-in-out hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-br hover:from-teal-400 hover:to-blue-500">
+                <h3 className="font-semibold transition duration-300 ease-in-out hover:bg-clip-text hover:text-transparent hover:bg-linear-to-br hover:from-teal-400 hover:to-blue-500">
                   {t.title}
                 </h3>
               </TabButton>

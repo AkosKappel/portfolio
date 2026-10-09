@@ -22,11 +22,11 @@ const Header = () => {
   const [isNavbarOpen, setNavbarOpen] = useState<boolean>(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-10 bg-gray-800 shadow">
+    <header className="fixed top-0 left-0 right-0 z-10 bg-gray-800 shadow-sm">
       <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
         <Link
           href={"/"}
-          className="mx-2 text-2xl md:text-3xl bg-clip-text text-transparent bg-gradient-to-br from-teal-400 to-blue-500"
+          className="mx-2 text-2xl md:text-3xl bg-clip-text text-transparent bg-linear-to-br from-teal-400 to-blue-500"
         >
           Ákos&apos;s Portfolio
         </Link>
@@ -35,7 +35,7 @@ const Header = () => {
             <button
               type="button"
               onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+              className="flex items-center px-3 py-2 border rounded-sm border-slate-200 text-slate-200 hover:text-white hover:border-white"
             >
               <Bars3Icon className="h-5 w-5" />
             </button>
@@ -43,7 +43,7 @@ const Header = () => {
             <button
               type="button"
               onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+              className="flex items-center px-3 py-2 border rounded-sm border-slate-200 text-slate-200 hover:text-white hover:border-white"
             >
               <XMarkIcon className="h-5 w-5" />
             </button>
