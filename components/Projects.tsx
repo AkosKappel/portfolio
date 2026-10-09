@@ -1,9 +1,9 @@
 "use client";
+import { motion, useInView } from "framer-motion";
+import React, { useRef, useState } from "react";
 import ProjectCard from "@/components/ui/ProjectCard";
 import ProjectTag from "@/components/ui/ProjectTag";
-import { motion, useInView } from "framer-motion";
 import projectsData from "@/data/projects";
-import React, { useState, useRef } from "react";
 
 const Projects = () => {
   const [tag, setTag] = useState("All");
@@ -28,9 +28,7 @@ const Projects = () => {
     }
   };
 
-  const tags = [
-    ...new Set(["All", ...projectsData.flatMap((project) => project.tag)]),
-  ];
+  const tags = [...new Set(["All", ...projectsData.flatMap((project) => project.tag)])];
 
   const filteredProjects = projectsData.filter(
     (project) => tag === "All" || project.tag.includes(tag),

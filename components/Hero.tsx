@@ -1,8 +1,8 @@
 "use client";
-import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
+import { TypeAnimation } from "react-type-animation";
 import personalData from "@/data/personal";
 
 const languageOptions = [
@@ -19,9 +19,7 @@ const languageOptions = [
 
 const Hero = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [hideDropdownTimeout, setHideDropdownTimeout] = useState<number | null>(
-    null
-  );
+  const [hideDropdownTimeout, setHideDropdownTimeout] = useState<number | null>(null);
 
   const handleMouseEnter = () => {
     if (hideDropdownTimeout) {
@@ -69,17 +67,15 @@ const Hero = () => {
             />
           </h1>
           <p className="text-slate-300 mb-8 text-lg sm:text-xl lg:text-2xl mr-4">
-            I&apos;m a passionate programmer with a great interest in coding,{" "}
-            <br></br>solving problems, and everything tech-related.
+            I&apos;m a passionate programmer with a great interest in coding, <br></br>solving
+            problems, and everything tech-related.
           </p>
           <div className="flex justify-center sm:justify-start mb-8 gap-4">
             <a
               href={`mailto:${personalData.email}`}
               className="max-w-fit max-h-fit px-1 inline-block py-1 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-teal-400 to-blue-500 hover:bg-slate-800"
             >
-              <span className="block hover:bg-slate-800 rounded-full px-5 py-2">
-                Contact Me
-              </span>
+              <span className="block hover:bg-slate-800 rounded-full px-5 py-2">Contact Me</span>
             </a>
             <div
               className="relative"
@@ -93,9 +89,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-teal-400 to-blue-500 hover:bg-slate-800"
               >
-                <span className="block hover:bg-slate-800 rounded-full px-5 py-2">
-                  Download CV
-                </span>
+                <span className="block hover:bg-slate-800 rounded-full px-5 py-2">Download CV</span>
               </a>
               {showDropdown && (
                 <div

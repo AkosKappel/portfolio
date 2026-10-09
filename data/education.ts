@@ -14,8 +14,7 @@ export const educationData = [
     institution:
       "Slovak University of Technology, Faculty of Informatics and Information Technologies",
     degree: "Bachelor's Degree",
-    thesis:
-      "Problem Generator for Analytical Geometry in the Plane - Conic Sections",
+    thesis: "Problem Generator for Analytical Geometry in the Plane - Conic Sections",
     dates: "September 2019 - June 2022",
     link: "https://www.fiit.stuba.sk/",
   },

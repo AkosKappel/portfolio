@@ -1,12 +1,12 @@
 "use client";
-import WorkExperience from "@/components/ui/WorkExperience";
-import React, { useTransition, useState } from "react";
-import TabButton from "@/components/ui/TabButton";
-import Education from "@/components/ui/Education";
-import Socials from "@/components/ui/Socials";
-import Skills from "@/components/ui/Skills";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import React, { useState, useTransition } from "react";
+import Education from "@/components/ui/Education";
+import Skills from "@/components/ui/Skills";
+import Socials from "@/components/ui/Socials";
+import TabButton from "@/components/ui/TabButton";
+import WorkExperience from "@/components/ui/WorkExperience";
 
 const Tabs = [
   {
@@ -54,16 +54,14 @@ const About = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full col-span-2">
           <h2 className="text-4xl font-bold text-white mb-8">About Me</h2>
           <p className="text-base lg:text-lg">
-            I am a full stack web developer with a passion for creating
-            interactive and responsive web applications. I have experience
-            working with frontend libraries like React, Next.js, Vue and
-            Nuxt.js. I am familiar with larger frameworks such as Express.js,
-            Django and Laravel. For data management I like to use PostgreSQL or
-            MongoDB. I am also familiar with HTML, CSS, Docker and Git. My core
-            programming languages include TypeScript, Python, and PHP. I am a
-            team player, who can also work well individually, I consider myself
-            a quick learner and I am always looking to expand my knowledge and
-            skill set by looking for new challenges.
+            I am a full stack web developer with a passion for creating interactive and responsive
+            web applications. I have experience working with frontend libraries like React, Next.js,
+            Vue and Nuxt.js. I am familiar with larger frameworks such as Express.js, Django and
+            Laravel. For data management I like to use PostgreSQL or MongoDB. I am also familiar
+            with HTML, CSS, Docker and Git. My core programming languages include TypeScript,
+            Python, and PHP. I am a team player, who can also work well individually, I consider
+            myself a quick learner and I am always looking to expand my knowledge and skill set by
+            looking for new challenges.
           </p>
           <Image
             src="/images/profile-picture.png"

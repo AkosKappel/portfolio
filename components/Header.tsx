@@ -1,14 +1,9 @@
 "use client";
-import {
-  Bars3Icon,
-  XMarkIcon,
-  InformationCircleIcon,
-  FolderIcon,
-} from "@heroicons/react/24/solid";
+import { Bars3Icon, FolderIcon, InformationCircleIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+import React, { useState } from "react";
 import MenuOverlay from "@/components/ui/MenuOverlay";
 import NavItem from "@/components/ui/NavItem";
-import React, { useState } from "react";
-import Link from "next/link";
 
 const navLinks = [
   {

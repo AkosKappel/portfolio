@@ -15,15 +15,7 @@ export const projectsData = [
       "Financial management app. Provides a modern and simplistic interface for tracking user income and expenses. Also provides easy to read charts about the data, like monthly expenses or expenses by category.",
     image: "/images/projects/budget-master.png",
     tag: ["Web", "Solo"],
-    stack: [
-      "Next.js",
-      "Tailwind",
-      "Recharts",
-      "MongoDB",
-      "TypeScript",
-      "Axios",
-      "Redux",
-    ],
+    stack: ["Next.js", "Tailwind", "Recharts", "MongoDB", "TypeScript", "Axios", "Redux"],
     gitUrl: "https://github.com/AkosKappel/BudgetMaster",
   },
   {
@@ -42,14 +34,7 @@ export const projectsData = [
       "Master's thesis project at the Faculty of Informatics and Information Technologies, Slovak University of Technology in Bratislava. The project is focused on the development of a deep learning model for the segmentation of the optic disc and cup in fundus images.",
     image: "/images/projects/glaucoma.png",
     tag: ["AI", "Solo"],
-    stack: [
-      "Python",
-      "PyTorch",
-      "Matplotlib",
-      "Numpy",
-      "OpenCV",
-      "Albumentations",
-    ],
+    stack: ["Python", "PyTorch", "Matplotlib", "Numpy", "OpenCV", "Albumentations"],
     gitUrl: "https://github.com/AkosKappel/DP-GlaucomaSegmentation",
   },
   {
@@ -75,7 +60,7 @@ export const projectsData = [
   {
     title: "Pokédex",
     description:
-      "Pokédex for all 1025 Pokémon with data from PokéAPI: instant search and filters kept in the URL, stats, type matchups, evolutions and learnsets, pages for moves, abilities and items, a team builder, compare and a \"Who's that Pokémon?\" quiz. Names in nine languages, dark mode, offline support, tested with Vitest and Playwright, deployed to GitHub Pages.",
+      'Pokédex for all 1025 Pokémon with data from PokéAPI: instant search and filters kept in the URL, stats, type matchups, evolutions and learnsets, pages for moves, abilities and items, a team builder, compare and a "Who\'s that Pokémon?" quiz. Names in nine languages, dark mode, offline support, tested with Vitest and Playwright, deployed to GitHub Pages.',
     image: "/images/projects/pokedex.png",
     tag: ["Web", "Solo"],
     stack: ["Vue", "TypeScript", "Vite", "Playwright"],
@@ -121,8 +106,7 @@ export const projectsData = [
   },
   {
     title: "Mini Projects",
-    description:
-      "A collection of small projects written in vanilla JavaScript, HTML and CSS.",
+    description: "A collection of small projects written in vanilla JavaScript, HTML and CSS.",
     image: "/images/projects/mini.png",
     tag: ["Web", "Solo"],
     stack: ["HTML", "CSS", "JavaScript", "p5.js"],

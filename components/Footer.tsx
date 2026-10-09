@@ -1,7 +1,7 @@
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import React from "react";
+import { FaGithub, FaGitlab, FaLinkedin } from "react-icons/fa";
 import personalData from "@/data/personal";
-import { FaGithub, FaLinkedin, FaGitlab } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

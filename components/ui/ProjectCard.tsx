@@ -22,12 +22,7 @@ const ProjectCard = ({
     <div>
       <div className="h-52 md:h-72 rounded-t-xl relative group bg-gray-800">
         <div className="relative w-full h-full">
-          <Image
-            src={imgUrl}
-            alt={title}
-            fill
-            className="rounded-t-xl object-contain"
-          />
+          <Image src={imgUrl} alt={title} fill className="rounded-t-xl object-contain" />
         </div>
         <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-black bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500 ">
           {gitUrl && (

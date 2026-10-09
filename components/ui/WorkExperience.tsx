@@ -1,20 +1,13 @@
-import {
-  BriefcaseIcon,
-  CalendarIcon,
-  CodeBracketIcon,
-} from "@heroicons/react/24/outline";
-import workExperienceData from "@/data/workExperience";
+import { BriefcaseIcon, CalendarIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
 import React from "react";
+import workExperienceData from "@/data/workExperience";
 
 const WorkExperience = () => {
   return (
     <section>
       <div className="space-y-6">
         {workExperienceData.map((job, index) => (
-          <div
-            key={index}
-            className="p-6 bg-slate-700 shadow-md rounded-md dark:bg-slate-900"
-          >
+          <div key={index} className="p-6 bg-slate-700 shadow-md rounded-md dark:bg-slate-900">
             <h3 className="flex items-center text-2xl font-semibold text-white dark:text-slate-200">
               <BriefcaseIcon className="w-6 h-6 mr-2" />
               {job.position}, {job.company}
@@ -38,9 +31,7 @@ const WorkExperience = () => {
                 <CodeBracketIcon className="w-5 h-5 mr-2" />
                 Technologies:
               </h4>
-              <p className="text-slate-400 dark:text-slate-300 ml-6">
-                {job.technologies}
-              </p>
+              <p className="text-slate-400 dark:text-slate-300 ml-6">{job.technologies}</p>
             </div>
           </div>
         ))}

@@ -1,11 +1,7 @@
-import NavItem from "@/components/ui/NavItem";
 import React from "react";
+import NavItem from "@/components/ui/NavItem";
 
-const MenuOverlay = ({
-  links,
-}: {
-  links: { title: string; path: string; icon?: any }[];
-}) => {
+const MenuOverlay = ({ links }: { links: { title: string; path: string; icon?: any }[] }) => {
   return (
     <ul className="flex flex-col py-4 space-y-4 items-center">
       {links.map((link, index) => (
