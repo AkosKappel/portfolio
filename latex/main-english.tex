@@ -1,4 +1,4 @@
-\documentclass[10pt, letterpaper]{article}
+\documentclass[10pt, a4paper]{article}
 
 % Packages:
 \usepackage[
@@ -172,218 +172,143 @@
 % new command for external links:
 \renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\mbox{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}}
 
-% \documentclass[10pt, letterpaper]{article}
 
 \begin{document}
-    % \placelastupdatedtext
     \begin{header}
     \begin{minipage}[c]{0.15\textwidth}
         \includegraphics[width=\linewidth]{profile.jpg}
     \end{minipage}
-    \hspace{0.02\textwidth} % Add horizontal space
+    \hspace{0.02\textwidth}
     \begin{minipage}[c]{0.70\textwidth}
         \center
         \fontsize{30 pt}{30 pt}
         \textbf{Ing. Ákos Kappel}
-        \vspace{0.3 cm}
+        \vspace{0.25 cm}
+
+        \fontsize{14 pt}{14 pt}
+        Full-Stack Software Engineer
+        \vspace{0.25 cm}
         \normalsize
 
         \mbox{\hrefWithoutArrow{mailto:kappelakos@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}kappelakos@gmail.com}}
         \kern 0.5 cm
-        \mbox{{{\footnotesize\faPhone*}\hspace*{0.13cm}+421 918 727 886}}
+        \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Bratislava, Slovakia}
         \kern 0.5 cm
-        \mbox{{\footnotesize\faBirthdayCake}\hspace*{0.13cm}04. 11. 1999}
-        \kern 0.5 cm
+        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/\%C3\%A1kos-kappel-b53344220/}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}LinkedIn}}
         \\
-        \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Bajč 155, 946 54, Slovakia}
-        \kern 0.5 cm
-        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/\%C3\%A1kos-kappel-b53344220/}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}linkedin.com/ákos-kappel}}
-        \kern 0.5 cm
-        \\
-        % \mbox{\hrefWithoutArrow{https://portfolio-xkappels-projects.vercel.app/}
-        \mbox{\hrefWithoutArrow{https://akoskappel.site/}{{\footnotesize\faGlobe}\hspace*{0.13cm}akoskappel.site}}
+        \mbox{\hrefWithoutArrow{https://portfolio-taupe-eta-51.vercel.app/}{{\footnotesize\faGlobe}\hspace*{0.13cm}Portfolio}}
         \kern 0.5 cm
         \mbox{\hrefWithoutArrow{https://github.com/AkosKappel}{{\footnotesize\faGithub}\hspace*{0.13cm}github.com/AkosKappel}}
         \kern 0.5 cm
         \mbox{\hrefWithoutArrow{https://gitlab.com/AkosKappel}{{\footnotesize\faGitlab}\hspace*{0.13cm}gitlab.com/AkosKappel}}
-        \kern 0.5 cm
     \end{minipage}
     \end{header}
 
-    \vspace{0.3 cm - 0.3 cm}
-
-    \section{About Me}
+    \section{Summary}
     \begin{onecolentry}
-        I’m a full-stack software engineer with hands-on experience in both frontend and backend development.
-        I enjoy building modern web applications, solving complex problems, and continuously learning new technologies.
-        I work well both independently and in collaborative, agile teams.
-        % I'm looking for opportunities where I can contribute my skills while growing as a developer.
-        I’m excited to apply my abilities in real-world challenges and continue expanding my knowledge as a developer.
+        Full-Stack Software Engineer building web and mobile products end to end: React and TypeScript frontends, Kotlin Spring Boot and Elixir Phoenix backends, and Kotlin Multiplatform apps for Android and iOS.
+        I focus on fast, accessible interfaces, type-safe code and architectures that are easy to extend, from finding N+1 queries with flame graphs to polished animations.
+        I pick up new stacks quickly when a project needs them (Elixir, Ruby, KMP), and lately I work more and more with AI.
     \end{onecolentry}
 
     \section{Technical Skills}
-
     \begin{onecolentry}
         \begin{highlightsforbulletentries}
-            \item \textbf{Programming Languages:} Python, TypeScript, PHP, Java, Kotlin, C\#, Elixir
-            \vspace{0.2em}
-            \item \textbf{Development Tools:} Git, Linux, Docker, VS Code, Jira, Gitlab
-            \vspace{0.2em}
-            \item \textbf{Web Technologies:} HTML, CSS, Tailwind, Bootstrap
-            \vspace{0.2em}
-            \item \textbf{Frameworks:} Laravel, Node.js, FastAPI, Django, React, Next.js, Vue, Nuxt
-            \vspace{0.2em}
-            \item \textbf{Databases:} PostgreSQL, MongoDB, Redis
-            \vspace{0.2em}
-            \item \textbf{AI Libraries:} PyTorch, TensorFlow
+            \item \textbf{Daily:} TypeScript, React, Kotlin, Spring Boot, TanStack (Router, Query, Form, Table, Virtual), Tailwind CSS, PostgreSQL, Git
+            \item \textbf{Mobile:} Kotlin Multiplatform, Compose Multiplatform, Ktor, Koin
+            \item \textbf{Worked with:} Python, Elixir, Phoenix LiveView, Node.js, Express, PHP, Laravel, Nette, Next.js, Vue, Nuxt, MongoDB, MSSQL, Zod, Vitest, Jest, Playwright, Cypress, GitLab CI, Docker Compose, Airflow, Ruby, Linux
+            \item \textbf{AI and ML:} PyTorch, TensorFlow, OpenCV, OpenAI API; AI-assisted development with Claude Code, agent skills and MCP servers
+            \item \textbf{Familiar:} Java, C\#, Django, FastAPI, Redis, Bootstrap, Figma, Jira
         \end{highlightsforbulletentries}
     \end{onecolentry}
 
     \section{Work Experience}
 
-    \begin{twocolentry}{February 2025 - now}
-        \textbf{Full Stack Developer}, IGT Consulting
+    \begin{twocolentry}{February 2025 - now\\\textit{Bratislava, Hybrid}}
+        \textbf{Full-Stack Software Engineer}, IGT Systems (formerly IGT Consulting)
         \begin{highlights}
-            \item Frontend and Backend development
-            \item Implementation of new features
-            \item \textit{Technologies used:} Phoenix, Elixir, JavaScript, MongoDB, PostgreSQL
+            \item \textbf{\hrefWithoutArrow{https://www.core3.digital/}{Core3}} (business platform: project management, attendance, CRM, HR, ticketing; team of up to 8): owned the Project Management module, including kanban with drag and drop and per-status rules, task permissions, and Scrum and Waterfall methodologies. Made slow pages fast after user complaints: profiled with flame graphs, removed N+1 queries in PostgreSQL and MongoDB, added caching with invalidation, async streams with infinite scroll, ordered PubSub updates, loading skeletons and optimistic UI. \textit{Elixir, Phoenix LiveView, PostgreSQL, MongoDB, Cypress}
+            \item \textbf{\hrefWithoutArrow{https://wydo.sk/}{WYDO}} (sports activity search, team of 3): started the Kotlin Multiplatform app for Android and iOS (map with clustering, search and filters, groups, chat over WebSockets, 4 languages), then the promo site, then moved the web from KMP to a standalone React app with virtualized feeds, push notifications, passkey login, per-route SEO and PWA support. Backend features in Spring Boot, including full WebAuthn passkey support. \textit{Kotlin, Compose Multiplatform, React, TanStack, Spring Boot, Vitest, Playwright}
+            \item \textbf{\hrefWithoutArrow{https://cleaneeg.com/}{CleanEEG}} (EEG cleaning service, team of 2): built the frontend from scratch, including a fast WebGL EEG viewer that compares raw and cleaned signals with client-side filters, keyboard controls and multi-channel layout, plus signup, billing and the file dashboard. \textit{React, TypeScript, TanStack, Plotly}
+            \item \textbf{Internal analytics dashboard} for a large enterprise client (team of 3): built the frontend for monitoring data pipelines, designed so new sections are added as routes from reusable parts, such as a generic typed data grid with nested rows and table state kept in the URL. \textit{React, TypeScript, TanStack Query, Zod}
         \end{highlights}
     \end{twocolentry}
 
     \vspace{0.2 cm}
-    \begin{twocolentry}{June 2024 - January 2025}
-        \textbf{Full Stack Developer}, Švarba s.r.o.
+    \begin{twocolentry}{June 2024 - January 2025\\\textit{Nové Zámky, Remote}}
+        \textbf{Full-Stack Developer}, Švarba s.r.o.
         \begin{highlights}
-            \item Building RESTful APIs for frontend integration
-            \item Collaboration on the development of React applications
-            \item Implementation of new functionalities and website maintenance
-            \item Development of automated unit testing
-            \item \textit{Technologies used:} TypeScript, Node.js, Express.js, React, PHP, Nette, MSSql
+            \item Back-office system for an international direct-sales company: a new React web app that joined and replaced older Laravel and Nette monoliths.
+            \item Designed and built the TypeScript REST API in Express (MSSQL with stored procedures, JWT auth, generated OpenAPI docs, cron jobs, WebSocket notifications over Redis, automatic translations with the OpenAI API).
+            \item Wrote 200+ unit and integration tests (Jest, supertest); maintained and extended the legacy PHP system (reports, grids, T-SQL).
+            \item \textit{TypeScript, Node.js, Express, React, PHP, Nette, MSSQL, Redis}
         \end{highlights}
     \end{twocolentry}
 
     \vspace{0.2 cm}
-    \begin{twocolentry}{October 2023 - May 2024}
+    \begin{twocolentry}{October 2023 - May 2024\\\textit{Bratislava, Hybrid}}
         \textbf{Junior Python Developer}, SoftPoint s.r.o.
         \begin{highlights}
-            \item Development of ETL processes - data extraction, transformation, and storage
-            \item Implementation of scalable web scraping pipelines
-            \item Automation of order processing workflows
-            \item \textit{Technologies used:} Python, Ruby, PostgreSQL, Selenium, Airflow, FastAPI
+            \item Built ETL pipelines in Airflow that import product, price and stock data from supplier websites, APIs and XML, XLSX and FTP feeds into the data warehouse for a large e-commerce retailer.
+            \item Automated supplier B2B portals with Selenium scraping and headless-browser ordering scripts, which I wrote in Ruby after learning it for the task.
+            \item \textit{Python, Airflow, pandas, Selenium, Ruby, PostgreSQL, FastAPI}
         \end{highlights}
     \end{twocolentry}
-
-    \section{Education}
-
-    \begin{twocolentry}{September 2022 - June 2024}
-        \textbf{Intelligent Software Systems}\\
-        Slovak University of Technology, Faculty of Informatics and Information Technologies
-        \begin{highlights}
-            \item Master's degree
-            \item \textit{Thesis:} Semi-automatic segmentation methods based on neural networks for improving detection and monitoring of human eye diseases
-        \end{highlights}
-    \end{twocolentry}
-
-    \vspace{0.2 cm}
-    \begin{twocolentry}{September 2019 - June 2022}
-        \textbf{Computer Science}\\
-        Slovak University of Technology, Faculty of Informatics and Information Technologies
-        \begin{highlights}
-            \item Bachelor's degree
-            \item \textit{Thesis:} Generator of analytical geometry problems in plane - Conic sections
-        \end{highlights}
-    \end{twocolentry}
-
-    \section{Language Skills}
-
-    \begin{onecolentry}
-        \begin{highlightsforbulletentries}
-            \item \textbf{Slovak} - Native language
-            \item \textbf{English} - C1
-            \item \textbf{German} - A2
-            \item \textbf{Hungarian} - C1
-        \end{highlightsforbulletentries}
-    \end{onecolentry}
 
     \section{Projects}
 
-    \begin{twocolentry}{2024 - 2025}
-        \hrefWithoutArrow{https://130.61.106.56/BudgetMaster}{\textbf{Budget Master}}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/BudgetMaster}{Source code: GitHub/BudgetMaster}}
+    \begin{twocolentry}{2026 - now}
+        \textbf{Self-hosted home server}
         \begin{highlights}
-            \item Full-Stack application for personal finance management, with modern data visualizations for better overview of income and expenses
-            \item \textit{Technologies used:} Next.js, TypeScript, Tailwind, MongoDB, Axios, Redux, React Query, Zod, Recharts, Nginx
+            \item Run my portfolio demos on my own server: one Docker Compose project per app, published through Tailscale Funnel sidecars, nginx with rate limiting, nightly demo resets, and central traffic monitoring and attack detection (GoAccess, CrowdSec). Static apps deploy to GitHub Pages with GitHub Actions.
         \end{highlights}
     \end{twocolentry}
 
     \vspace{0.2 cm}
-    \begin{twocolentry}{2024}
-        \hrefWithoutArrow{https://akoskappel.github.io/FakeShop/}{\textbf{e-Shop}}
+    \begin{twocolentry}{2025, upgraded 2026}
+        \hrefWithoutArrow{https://tagline.tailb52c43.ts.net}{\textbf{Modern Fashion Store}}
         \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/FakeShop}{GitHub/FakeShop}}
+        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/clothing-store}{GitHub}}
         \begin{highlights}
-            \item Frontend application for e-commerce, displaying products from a public API and providing a user-friendly interface for browsing and filtering products
-            \item \textit{Technologies used:} React, TypeScript, Tailwind
-        \end{highlights}
-    \end{twocolentry}
-
-    \vspace{0.2 cm}
-    \begin{twocolentry}{2024}
-        \textbf{WAC}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/PatrikHarmanos/wac-projekt}{uFE}, \hrefWithoutArrow{https://github.com/PatrikHarmanos/wac-api}{WebAPI}, \hrefWithoutArrow{https://github.com/AkosKappel/wac-projekt-gitops}{GitOps}}
-        \begin{highlights}
-            \item Micro-frontend application created using Stencil.js and TypeScript
-            \item Backend developed in Go with MongoDB database and OpenAPI specification
-            \item Application deployed using Docker, Kubernetes, Github actions and Azure
+            \item Inventory and sales dashboard for a clothing company with live updates between users. Upgraded in 2026 to Phoenix 1.8, LiveView 1.2 and Tailwind 4, with a security review and a public demo that resets every night. \textit{Elixir, Phoenix LiveView, PostgreSQL, Docker}
         \end{highlights}
     \end{twocolentry}
 
     \vspace{0.2 cm}
     \begin{twocolentry}{2022 - 2024}
-        \textbf{Glaucoma Segmentation}
+        \textbf{Glaucoma Segmentation (master's thesis)}
         \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/DP-GlaucomaSegmentation}{GitHub/GlaucomaSegmentation}}
+        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/DP-GlaucomaSegmentation}{GitHub}}
         \begin{highlights}
-            \item Master's thesis in artificial intelligence field developed at FIIT STU
-            \item Console application with neural network for segmentation of eye structure images
-            \item \textit{Technologies used:} Python, PyTorch, OpenCV, Numpy, Pandas, Albumentations, Scikit-learn, Matplotlib
+            \item Proposed and evaluated two neural network architectures (cascade and dual decoder) for optic disc and cup segmentation in fundus images. Best Dice score 96.8\,\% for the disc and 89.7\,\% for the cup, with the cup-to-disc ratio used for glaucoma screening. \textit{Python, PyTorch, OpenCV, Albumentations}
+        \end{highlights}
+    \end{twocolentry}
+
+    \section{Education}
+
+    \begin{twocolentry}{2022 - 2024}
+        \textbf{Ing., Intelligent Software Systems}, Slovak University of Technology in Bratislava, FIIT
+        \begin{highlights}
+            \item \textit{Thesis:} Neural network based semi-automatic segmentation methods to enhance the detection and monitoring of human eye diseases
         \end{highlights}
     \end{twocolentry}
 
     \vspace{0.2 cm}
-    \begin{twocolentry}{2023}
-        \hrefWithoutArrow{https://akoskappel.github.io/FeastFinder/}{\textbf{Feast Finder}}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/FeastFinder}{GitHub/FeastFinder}}
+    \begin{twocolentry}{2019 - 2022}
+        \textbf{Bc., Computer Science}, Slovak University of Technology in Bratislava, FIIT
         \begin{highlights}
-            \item Frontend application for recipe search, enabling quick and easy filtering by ingredients, meals, and categories
-            \item \textit{Technologies used:} Nuxt, TypeScript, Tailwind, Axios
+            \item \textit{Thesis:} Problem generator for analytical geometry in the plane: conic sections
         \end{highlights}
     \end{twocolentry}
 
-    \vspace{0.2 cm}
-    \begin{twocolentry}{2022}
-        \hrefWithoutArrow{https://the-norb.itch.io/iridescent}{\textbf{Iridescent}}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://gitlab.com/VighNorbert/iridescent/-/tree/main}{GitLab/iridescent}}
-        \begin{highlights}
-            \item Cooperative computer game for two players with splitscreen mode, focused on team play and fun
-            \item \textit{Technologies used:} Unity Engine, C\#
-        \end{highlights}
-    \end{twocolentry}
+    \section{Languages}
+    \begin{onecolentry}
+        \textbf{Slovak} (native), \textbf{Hungarian} (native), \textbf{English} (C1), \textbf{German} (A2)
+    \end{onecolentry}
 
-    \vspace{0.2 cm}
-    \begin{twocolentry}{2021}
-        \hrefWithoutArrow{https://130.61.106.56/wtech/}{\textbf{SmartTech}}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/WTECH-Laravel}{GitHub/WTECH}}
-        \begin{highlights}
-            \item Full-stack web application with an intuitive interface for purchasing smartphones.
-            \item Includes an admin panel for product management through CRUD operations.
-            \item \textit{Technologies used:} HTML, CSS, JavaScript, PHP, Laravel, Tailwind, PostgreSQL, Docker, Nginx.
-        \end{highlights}
-    \end{twocolentry}
+    \section{Interests}
+    \begin{onecolentry}
+        Self-hosting, Advent of Code, sports
+    \end{onecolentry}
 
 \end{document}

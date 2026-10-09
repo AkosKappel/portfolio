@@ -1,4 +1,4 @@
-\documentclass[10pt, letterpaper]{article}
+\documentclass[10pt, a4paper]{article}
 
 % Packages:
 \usepackage[
@@ -19,7 +19,7 @@
 \usepackage{fontawesome5} % for using icons
 \usepackage{amsmath} % for math
 \usepackage[
-    pdftitle={Ákos Kappel's CV},
+    pdftitle={Životopis Ákos Kappel},
     pdfauthor={Ákos Kappel},
     colorlinks=true,
     urlcolor=primaryColor
@@ -174,237 +174,141 @@
 
 
 \begin{document}
-    % \placelastupdatedtext
     \begin{header}
     \begin{minipage}[c]{0.15\textwidth}
         \includegraphics[width=\linewidth]{profile.jpg}
     \end{minipage}
-    \hspace{0.02\textwidth} % Add horizontal space
+    \hspace{0.02\textwidth}
     \begin{minipage}[c]{0.70\textwidth}
         \center
         \fontsize{30 pt}{30 pt}
         \textbf{Ing. Ákos Kappel}
-        \vspace{0.3 cm}
+        \vspace{0.25 cm}
+
+        \fontsize{14 pt}{14 pt}
+        Full-Stack Software Engineer
+        \vspace{0.25 cm}
         \normalsize
 
         \mbox{\hrefWithoutArrow{mailto:kappelakos@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}kappelakos@gmail.com}}
         \kern 0.5 cm
-        % \mbox{\hrefWithoutArrow{tel:+421 918 727 886}{{\footnotesize\faPhone*}\hspace*{0.13cm}+421 918 727 886}}
-        \mbox{{{\footnotesize\faPhone*}\hspace*{0.13cm}+421 918 727 886}}
+        \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Bratislava, Slovensko}
         \kern 0.5 cm
-        \mbox{{\footnotesize\faBirthdayCake}\hspace*{0.13cm}04. 11. 1999}
-        \kern 0.5 cm
+        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/\%C3\%A1kos-kappel-b53344220/}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}LinkedIn}}
         \\
-        \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Bajč 155, 946 54, Slovensko}
+        \mbox{\hrefWithoutArrow{https://portfolio-taupe-eta-51.vercel.app/}{{\footnotesize\faGlobe}\hspace*{0.13cm}Portfólio}}
         \kern 0.5 cm
-        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/\%C3\%A1kos-kappel-b53344220/}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}linkedin/ákos-kappel}}
+        \mbox{\hrefWithoutArrow{https://github.com/AkosKappel}{{\footnotesize\faGithub}\hspace*{0.13cm}github.com/AkosKappel}}
         \kern 0.5 cm
-        \\
-        % \mbox{\hrefWithoutArrow{https://portfolio-xkappels-projects.vercel.app/}
-        \mbox{\hrefWithoutArrow{https://akoskappel.site/}{{\footnotesize\faGlobe}\hspace*{0.13cm}akoskappel.site}}
-        \kern 0.5 cm
-        \mbox{\hrefWithoutArrow{https://github.com/AkosKappel}{{\footnotesize\faGithub}\hspace*{0.13cm}github/AkosKappel}}
-        \kern 0.5 cm
-        \mbox{\hrefWithoutArrow{https://gitlab.com/AkosKappel}{{\footnotesize\faGitlab}\hspace*{0.13cm}gitlab/AkosKappel}}
-        \kern 0.5 cm
-        % \mbox{\hrefWithoutArrow{https://akoskappel.github.io/}{{\footnotesize\faGlobe}\hspace*{0.13cm}akoskappel.github.io}}
-        % \kern 0.5 cm
+        \mbox{\hrefWithoutArrow{https://gitlab.com/AkosKappel}{{\footnotesize\faGitlab}\hspace*{0.13cm}gitlab.com/AkosKappel}}
     \end{minipage}
     \end{header}
 
-    \vspace{0.3 cm - 0.3 cm}
-
-    \section{O mne}
+    \section{Profil}
     \begin{onecolentry}
-        Som softvérový inžinier so zameraním na vývoj frontend aplikácií a backendových systémov. Mám praktické skúsenosti s rôznymi technológiami a som otvorený učeniu sa aj nových vecí. Rád pracujem na zaujímavých projektoch, či už samostatne, alebo ako súčasť tímu. Hľadám príležitosť, kde môžem uplatniť svoje schopnosti a zároveň sa ďalej zlepšovať v oblasti vývoja softvéru.
+        Full-stack softvérový inžinier, ktorý vyvíja webové a mobilné produkty od začiatku do konca: frontendy v Reacte a TypeScripte, backendy v Kotlin Spring Boot a Elixir Phoenix a aplikácie v Kotlin Multiplatform pre Android a iOS.
+        Zameriavam sa na rýchle a prístupné rozhrania, typovo bezpečný kód a architektúru, ktorú je ľahké rozširovať, od hľadania N+1 dopytov pomocou flame grafov až po vyladené animácie.
+        Nové technológie si rýchlo osvojím, keď ich projekt potrebuje (Elixir, Ruby, KMP), a v poslednom čase čoraz viac pracujem s AI.
     \end{onecolentry}
 
     \section{Technické znalosti}
-
     \begin{onecolentry}
         \begin{highlightsforbulletentries}
-            \item \textbf{Programovacie jazyky:} Python, TypeScript, PHP, Java, Kotlin, C\#, Elixir
-            \vspace{0.2em}
-            \item \textbf{Vývojárske nástroje:} Git, Linux, Docker, VS Code, Jira, Gitlab
-            \vspace{0.2em}
-            \item \textbf{Webové technológie:} HTML, CSS, Tailwind, Bootstrap
-            \vspace{0.2em}
-            \item \textbf{Frameworky:} Laravel, Node.js, FastAPI, Django, React, Next.js, Vue, Nuxt
-            \vspace{0.2em}
-            \item \textbf{Databázy:} PostgreSQL, MongoDB, Redis
-            \vspace{0.2em}
-            \item \textbf{AI knižnice:} PyTorch, TensorFlow
+            \item \textbf{Denne:} TypeScript, React, Kotlin, Spring Boot, TanStack (Router, Query, Form, Table, Virtual), Tailwind CSS, PostgreSQL, Git
+            \item \textbf{Mobilný vývoj:} Kotlin Multiplatform, Compose Multiplatform, Ktor, Koin
+            \item \textbf{Skúsenosti:} Python, Elixir, Phoenix LiveView, Node.js, Express, PHP, Laravel, Nette, Next.js, Vue, Nuxt, MongoDB, MSSQL, Zod, Vitest, Jest, Playwright, Cypress, GitLab CI, Docker Compose, Airflow, Ruby, Linux
+            \item \textbf{AI a ML:} PyTorch, TensorFlow, OpenCV, OpenAI API; vývoj s pomocou AI (Claude Code, agent skills, MCP servery)
+            \item \textbf{Základy:} Java, C\#, Django, FastAPI, Redis, Bootstrap, Figma, Jira
         \end{highlightsforbulletentries}
     \end{onecolentry}
 
     \section{Pracovné skúsenosti}
 
-    \begin{twocolentry}{Február 2025 - Súčasnosť}
-        \textbf{Full Stack Developer}, IGT Consulting
+    \begin{twocolentry}{február 2025 - súčasnosť\\\textit{Bratislava, hybridne}}
+        \textbf{Full-Stack Software Engineer}, IGT Systems (predtým IGT Consulting)
         \begin{highlights}
-            \item Vývoj frontend a backend riešení
-            \item Implementácia nových funkcionalít
-            \item \textit{Práca s technológiami:} Phoenix, Elixir, JavaScript, MongoDB, PostgreSQL
+            \item \textbf{\hrefWithoutArrow{https://www.core3.digital/}{Core3}} (firemná platforma: projektový manažment, dochádzka, CRM, HR, ticketing; tím do 8 ľudí): zodpovednosť za modul projektového manažmentu vrátane kanbanu s drag and drop a pravidlami pre stavy, oprávnení k úlohám a metodík Scrum a Waterfall. Zrýchlenie pomalých stránok po sťažnostiach používateľov: profilovanie pomocou flame grafov, odstránenie N+1 dopytov v PostgreSQL a MongoDB, cache s invalidáciou, asynchrónne streamy s nekonečným scrollovaním, usporiadané PubSub aktualizácie, skeleton načítanie a optimistické UI. \textit{Elixir, Phoenix LiveView, PostgreSQL, MongoDB, Cypress}
+            \item \textbf{\hrefWithoutArrow{https://wydo.sk/}{WYDO}} (vyhľadávanie športových aktivít, tím 3 ľudí): začal som mobilnú aplikáciu v Kotlin Multiplatform pre Android a iOS (mapa so zhlukovaním, vyhľadávanie a filtre, skupiny, chat cez WebSockety, 4 jazyky), potom promo stránku a potom presun webu z KMP do samostatnej React aplikácie s virtualizovanými feedmi, push notifikáciami, prihlásením cez passkey, SEO pre každú stránku a podporou PWA. Funkcie backendu v Spring Boot vrátane plnej podpory WebAuthn passkey. \textit{Kotlin, Compose Multiplatform, React, TanStack, Spring Boot, Vitest, Playwright}
+            \item \textbf{\hrefWithoutArrow{https://cleaneeg.com/}{CleanEEG}} (služba na čistenie EEG záznamov, tím 2 ľudí): frontend od nuly vrátane rýchleho WebGL prehliadača EEG, ktorý porovnáva pôvodný a vyčistený signál, s filtrami v prehliadači, ovládaním klávesnicou a viackanálovým zobrazením, ďalej registrácia, platby a prehľad súborov. \textit{React, TypeScript, TanStack, Plotly}
+            \item \textbf{Interný analytický dashboard} pre veľkého firemného klienta (tím 3 ľudí): frontend na monitorovanie dátových pipeline, navrhnutý tak, aby sa nové sekcie pridávali ako routy zo znovupoužiteľných častí, napríklad generický typovaný dátový grid s vnorenými riadkami a stav tabuliek uložený v URL. \textit{React, TypeScript, TanStack Query, Zod}
         \end{highlights}
     \end{twocolentry}
 
     \vspace{0.2 cm}
-    \begin{twocolentry}{Jún 2024 - Január 2025}
-        \textbf{Full Stack Developer}, Švarba s.r.o.
+    \begin{twocolentry}{jún 2024 - január 2025\\\textit{Nové Zámky, na diaľku}}
+        \textbf{Full-Stack Developer}, Švarba s.r.o.
         \begin{highlights}
-            \item Vývoj API na integráciu s frontendom
-            \item Spolupráca na vývoji React aplikácie
-            \item Implementácia nových funkcionalít a údržba webovej stránky
-            \item Tvorba unit testov
-            \item \textit{Práca s technológiami:} TypeScript, Node.js, Express.js, React, PHP, Nette, MSSql
+            \item Back-office systém pre medzinárodnú firmu s priamym predajom: nová React webová aplikácia, ktorá spojila a nahradila staršie monolity v Laraveli a Nette.
+            \item Návrh a vývoj REST API v TypeScripte a Expresse (MSSQL s uloženými procedúrami, JWT autentifikácia, generovaná OpenAPI dokumentácia, cron úlohy, WebSocket notifikácie cez Redis, automatické preklady cez OpenAI API).
+            \item Viac ako 200 unit a integračných testov (Jest, supertest); údržba a rozširovanie pôvodného PHP systému (reporty, gridy, T-SQL).
+            \item \textit{TypeScript, Node.js, Express, React, PHP, Nette, MSSQL, Redis}
         \end{highlights}
     \end{twocolentry}
 
     \vspace{0.2 cm}
-    \begin{twocolentry}{Október 2023 - Máj 2024}
+    \begin{twocolentry}{október 2023 - máj 2024\\\textit{Bratislava, hybridne}}
         \textbf{Junior Python Developer}, SoftPoint s.r.o.
         \begin{highlights}
-            \item Tvorba ETL procesov - extrakcia, čistenie a ukladanie dát do databázy
-            \item Web scraping
-            \item Automatizácia objednávacích procesov
-            \item \textit{Práca s technológiami:} Python, Ruby, PostgreSQL, Selenium, Airflow, FastAPI
+            \item ETL pipeline v Airflow, ktoré importujú produktové dáta, ceny a skladové zásoby z webov dodávateľov, API a XML, XLSX a FTP feedov do dátového skladu veľkého e-commerce predajcu.
+            \item Automatizácia B2B portálov dodávateľov: scraping v Seleniu a skripty na objednávanie cez headless prehliadač v Ruby, ktorý som sa kvôli tomu naučil.
+            \item \textit{Python, Airflow, pandas, Selenium, Ruby, PostgreSQL, FastAPI}
         \end{highlights}
     \end{twocolentry}
-
-    \section{Vzdelanie}
-
-    \begin{twocolentry}{September 2022 - Jún 2024}
-        \textbf{Inteligentné Softvérové Systémy}\\
-        Slovenská Technická Univerzita, Fakulta Informatiky a Informačných Technológií
-        \begin{highlights}
-            \item Inžiniersky stupeň štúdia
-            \item \textit{Záverečná práca:} Poloautomatické segmentačné metódy založené na neurónových sieťach na zlepšenie detekcie a monitorovania ochorení ľudského oka
-        \end{highlights}
-    \end{twocolentry}
-
-    \vspace{0.2 cm}
-    \begin{twocolentry}{September 2019 - Jún 2022}
-        \textbf{Informatika}\\
-        Slovenská Technická Univerzita, Fakulta Informatiky a Informačných Technológií
-        \begin{highlights}
-            \item Bakalársky stupeň štúdia
-            \item \textit{Záverečná práca:} Generátor úloh z analytickej geometrie v rovine - Kužeľosečky
-        \end{highlights}
-    \end{twocolentry}
-
-    \section{Jazykové znalosti}
-
-    \begin{onecolentry}
-        \begin{highlightsforbulletentries}
-            \item \textbf{Slovenský jazyk} - materinský jazyk
-            \item \textbf{Anglický jazyk} - C1
-            \item \textbf{Nemecký jazyk} - A2
-            \item \textbf{Maďarský jazyk} - C1
-        \end{highlightsforbulletentries}
-    \end{onecolentry}
-
-    % \section{Publications}
-    % \begin{samepage}
-    %     \begin{twocolentry}{Jan. 2004}
-    %         \textbf{Magneto-Thermal Thin Shell Approximation for 3D Finite Element Analysis of No-Insulation Coils}
-    %         \vspace{0.10 cm}
-    %         \mbox{Albert Smith}, \mbox{\textbf{\textit{John Doe}}}, \mbox{Jane Derry}, \mbox{Harry Tom}, \mbox{Frodo Baggins}
-    %         \vspace{0.10 cm}
-    %         \href{https://doi.org/10.1109/TASC.2023.3340648}{10.1109/TASC.2023.3340648}
-    %     \end{twocolentry}
-    % \end{samepage}
 
     \section{Projekty}
 
-    \begin{twocolentry}{2024 - 2025}
-        \hrefWithoutArrow{https://130.61.106.56/BudgetMaster}{\textbf{Budget Master} \faLink}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/BudgetMaster}{Zdrojový kód: GitHub/BudgetMaster}}
+    \begin{twocolentry}{2026 - súčasnosť}
+        \textbf{Vlastný domáci server}
         \begin{highlights}
-            \item Full-Stack aplikácia na manažment osobných financií, s modernými vizualizáciami dát pre lepší prehľad o príjmoch a výdavkoch.
-            \item \textit{Použité technológie:} Next.js, TypeScript, Tailwind, MongoDB, Axios, Redux, React Query, Zod, Recharts, Nginx.
+            \item Dema svojich projektov prevádzkujem na vlastnom serveri: každá aplikácia ako samostatný Docker Compose projekt, zverejnená cez Tailscale Funnel sidecar, nginx s rate limitingom, nočný reset dem a centrálne monitorovanie návštevnosti a detekcia útokov (GoAccess, CrowdSec). Statické aplikácie nasadzujem na GitHub Pages cez GitHub Actions.
         \end{highlights}
     \end{twocolentry}
 
     \vspace{0.2 cm}
-    \begin{twocolentry}{2024}
-        \hrefWithoutArrow{https://akoskappel.github.io/FakeShop/}{\textbf{eShop} \faLink}
+    \begin{twocolentry}{2025, aktualizované 2026}
+        \hrefWithoutArrow{https://tagline.tailb52c43.ts.net}{\textbf{Modern Fashion Store}}
         \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/FakeShop}{GitHub/FakeShop}}
+        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/clothing-store}{GitHub}}
         \begin{highlights}
-            \item Frontend aplikácia pre e-shop, ktorá zobrazuje produkty z verejnej API a poskytuje užívateľsky prívetivé rozhranie pre prehliadanie a filtrovanie produktov.
-            \item \textit{Použité technológie:} React, TypeScript, Tailwind.
-        \end{highlights}
-    \end{twocolentry}
-
-    \vspace{0.2 cm}
-    \begin{twocolentry}{2024}
-        \textbf{WAC}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/PatrikHarmanos/wac-projekt}{uFE}, \hrefWithoutArrow{https://github.com/PatrikHarmanos/wac-api}{WebAPI}, \hrefWithoutArrow{https://github.com/AkosKappel/wac-projekt-gitops}{GitOps}}
-        \begin{highlights}
-            \item Micro-frontend aplikácia s Kubernetes pre škálovateľné a spoľahlivé nasadzovanie.
-            \item Backend navrhnutý s OpenAPI špecifikáciou a pokrytý unit testami.
-            \item \textit{Použité technológie:} Stencil.js, TypeScript, Go, MongoDB, Docker, GitHub Actions.
+            \item Dashboard skladu a predaja pre odevnú firmu so živými aktualizáciami medzi používateľmi. V roku 2026 aktualizovaný na Phoenix 1.8, LiveView 1.2 a Tailwind 4, s bezpečnostnou kontrolou a verejným demom, ktoré sa každú noc resetuje. \textit{Elixir, Phoenix LiveView, PostgreSQL, Docker}
         \end{highlights}
     \end{twocolentry}
 
     \vspace{0.2 cm}
     \begin{twocolentry}{2022 - 2024}
-        \textbf{Glaucoma Segmentation}
+        \textbf{Segmentácia glaukómu (diplomová práca)}
         \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/DP-GlaucomaSegmentation}{GitHub/GlaucomaSegmentation}}
+        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/DP-GlaucomaSegmentation}{GitHub}}
         \begin{highlights}
-            \item Diplomová práca v oblasti umelej inteligencie vypracovaná na FIIT STU.
-            \item Konzolová aplikácia s neurónovou sieťou na segmentáciu očných štruktúr.
-            \item \textit{Použité technológie:} Python, PyTorch, OpenCV, Numpy, Pandas, Albumentations, Scikit-learn, Matplotlib.
+            \item Návrh a vyhodnotenie dvoch architektúr neurónových sietí (kaskádová a s dvoma dekodérmi) na segmentáciu optického disku a jamky na snímkach očného pozadia. Najlepšie Dice skóre 96,8\,\% pre disk a 89,7\,\% pre jamku, pomer jamky a disku slúži na skríning glaukómu. \textit{Python, PyTorch, OpenCV, Albumentations}
+        \end{highlights}
+    \end{twocolentry}
+
+    \section{Vzdelanie}
+
+    \begin{twocolentry}{2022 - 2024}
+        \textbf{Ing., Inteligentné softvérové systémy}, Slovenská technická univerzita v Bratislave, FIIT
+        \begin{highlights}
+            \item \textit{Diplomová práca:} Poloautomatické segmentačné metódy založené na neurónových sieťach na zlepšenie detekcie a monitorovania ochorení ľudského oka
         \end{highlights}
     \end{twocolentry}
 
     \vspace{0.2 cm}
-    \begin{twocolentry}{2023}
-        \hrefWithoutArrow{https://akoskappel.github.io/FeastFinder/}{\textbf{Feast Finder} \faLink}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/FeastFinder}{GitHub/FeastFinder}}
+    \begin{twocolentry}{2019 - 2022}
+        \textbf{Bc., Informatika}, Slovenská technická univerzita v Bratislave, FIIT
         \begin{highlights}
-            \item Frontend aplikácia na vyhľadanie receptov, ktorá umožňuje rýchle a jednoduché filtrovanie podľa ingrediencií, jedál a kategórií.
-            \item \textit{Použité technológie:} Nuxt, TypeScript, Tailwind, Axios.
+            \item \textit{Bakalárska práca:} Generátor úloh z analytickej geometrie v rovine: kužeľosečky
         \end{highlights}
     \end{twocolentry}
 
-    % \vspace{0.2 cm}
-    % \begin{twocolentry}{2022 - 2023}
-    %     \hrefWithoutArrow{https://maciatka.eu/}{\textbf{PetGuide}}
-    %     \hspace{0.5em} | \hspace{0.5em}
-    %     \textit{\hrefWithoutArrow{https://github.com/ImMuffin/team_project_14}{Zdrojový kód}}
-    %     \begin{highlights}
-    %         \item Webová aplikácia o chovných staniciach s možnosťou registrácie cez Google alebo Facebook.
-    %         \item Vytvorená tímom siedmich developerov s agilným prístupom vývoja.
-    %         \item \textit{Použité technológie:} PHP, Laravel, Bootstrap, JavaScript, jQuery, Docker, Python, TensorFlow, FastAPI.
-    %     \end{highlights}
-    % \end{twocolentry}
+    \section{Jazyky}
+    \begin{onecolentry}
+        \textbf{slovenčina} (materinský jazyk), \textbf{maďarčina} (materinský jazyk), \textbf{angličtina} (C1), \textbf{nemčina} (A2)
+    \end{onecolentry}
 
-    \vspace{0.2 cm}
-    \begin{twocolentry}{2022}
-        \hrefWithoutArrow{https://the-norb.itch.io/iridescent}{\textbf{Iridescent} \faLink}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://gitlab.com/VighNorbert/iridescent/-/tree/main}{GitLab/iridescent}}
-        \begin{highlights}
-            \item Kooperatívna počítačová hra pre dvoch hráčov so splitscreen režimom, zameraná na tímovú spoluprácu a zábavu.
-            \item \textit{Použité technológie:} Unity Engine, C\#.
-        \end{highlights}
-    \end{twocolentry}
-
-    \vspace{0.2 cm}
-    \begin{twocolentry}{2021}
-        \hrefWithoutArrow{https://130.61.106.56/wtech/}{\textbf{SmartTech} \faLink}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/WTECH-Laravel}{GitHub/WTECH}}
-        \begin{highlights}
-            \item Full-stack webová aplikácia na nákup mobilných zariadení s prehľadným rozhraním.
-            \item Súčasťou je administratívny panel na správu produktov cez CRUD operácie.
-            \item \textit{Použité technológie:} HTML, CSS, JavaScript, PHP, Laravel, Tailwind, PostgreSQL, Docker, Nginx.
-        \end{highlights}
-    \end{twocolentry}
+    \section{Záujmy}
+    \begin{onecolentry}
+        Self-hosting, Advent of Code, šport
+    \end{onecolentry}
 
 \end{document}
