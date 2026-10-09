@@ -29,7 +29,9 @@
     "period": "{start} až {end}",
     "years": "{count, plural, one {# rok} few {# roky} other {# rokov}}",
     "months": "{count, plural, one {# mesiac} few {# mesiace} other {# mesiacov}}",
-    "technologies": "Technológie"
+    "technologies": "Technológie",
+    "anchor": "Odkaz na túto časť",
+    "phone": "Telefón"
   },
   "languages": {
     "en": "Angličtina",
@@ -102,7 +104,12 @@
     "stack": "Technológie",
     "previous": "Predchádzajúci projekt",
     "next": "Ďalší projekt",
-    "moreProjects": "Ďalšie projekty"
+    "moreProjects": "Ďalšie projekty",
+    "about": "O projekte",
+    "features": "Čo si môžete vyskúšať",
+    "technical": "Ako to funguje",
+    "upgrade": "Čo sa zmenilo v roku 2026",
+    "versions": "Verzie"
   },
   "experience": {
     "title": "Skúsenosti",
@@ -112,16 +119,19 @@
   "skills": {
     "title": "Zručnosti",
     "description": "Frontend, backend, mobilné aplikácie, dáta, AI, DevOps a testovanie: technológie, s ktorými pracujem.",
-    "lead": "Rozdelené podľa oblastí. Technológie použité v mojich projektoch na ne odkazujú.",
+    "lead": "Rozdelené podľa oblastí, bez vymyslených úrovní. Technológie použité v mojich projektoch na ne odkazujú.",
     "practices": "Postupy",
-    "projectCount": "{count, plural, one {# projekt} few {# projekty} other {# projektov}}"
+    "projectCount": "{count, plural, one {# projekt} few {# projekty} other {# projektov}}",
+    "practicesLead": "Ako pracujem, okrem samotných nástrojov."
   },
   "education": {
     "title": "Vzdelanie",
     "description": "Inžinierske štúdium Inteligentné softvérové systémy a bakalárske štúdium Informatika na Slovenskej technickej univerzite v Bratislave.",
-    "lead": "Informatika a inteligentné softvérové systémy na Slovenskej technickej univerzite v Bratislave.",
+    "lead": "Informatika a inteligentné softvérové systémy na Slovenskej technickej univerzite v Bratislave, predtým gymnázium v Nových Zámkoch.",
     "thesis": "Záverečná práca",
-    "languages": "Jazyky"
+    "languages": "Jazyky",
+    "university": "Univerzita",
+    "secondarySchool": "Stredná škola"
   },
   "about": {
     "title": "O mne",

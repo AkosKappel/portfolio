@@ -1,6 +1,7 @@
 import { Briefcase, ExternalLink, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { AnchorHeading } from "@/components/ui/anchor-heading";
 import { Page, PageHeader } from "@/components/ui/page";
 import { StackList } from "@/components/ui/tech-badge";
 import { jobs } from "@/content/experience";
@@ -43,9 +44,21 @@ export default async function ExperiencePage({ params }: PageProps<"/[locale]/ex
   return (
     <Page>
       <PageHeader title={t("title")} lead={t("lead")} />
+      <nav aria-label={t("title")} className="-mt-4 mb-12 flex flex-wrap gap-2">
+        {jobs.map((job) => (
+          <a
+            key={job.id}
+            href={`#${job.id}`}
+            className="hover-lift inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-1.5 text-sm"
+          >
+            <Briefcase aria-hidden size={15} className="text-muted" />
+            {job.company}
+          </a>
+        ))}
+      </nav>
       <ol>
         {jobs.map((job) => (
-          <li key={job.start} className="grid gap-4 pb-16 md:grid-cols-[11rem_1fr] md:gap-10">
+          <li key={job.id} className="grid gap-4 pb-16 md:grid-cols-[11rem_1fr] md:gap-10">
             <div className="md:pt-1 md:text-right">
               <p className="font-medium">
                 {tCommon("period", {
@@ -61,34 +74,45 @@ export default async function ExperiencePage({ params }: PageProps<"/[locale]/ex
                 aria-hidden
                 className={`absolute top-2 -left-[5px] size-[9px] rounded-full ring-4 ring-paper ${job.end ? "bg-muted" : "bg-accent"}`}
               />
-              <h2 className="text-2xl font-semibold sm:text-3xl">{job.role}</h2>
+              <AnchorHeading
+                id={job.id}
+                label={tCommon("anchor")}
+                className="text-2xl font-semibold sm:text-3xl"
+              >
+                {job.company}
+              </AnchorHeading>
               <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
-                <span className="inline-flex items-center gap-1.5 text-lg">
-                  <Briefcase aria-hidden size={18} className="text-muted" />
-                  {job.company}
-                </span>
+                <span className="text-lg font-medium">{job.role}</span>
                 <span className="inline-flex items-center gap-1.5 text-muted">
                   <MapPin aria-hidden size={16} />
                   {pick(job.location, locale)}
                 </span>
+                {job.companyNote ? (
+                  <span className="text-sm text-muted">({pick(job.companyNote, locale)})</span>
+                ) : null}
               </p>
               <p className="mt-3 max-w-2xl text-muted">{pick(job.summary, locale)}</p>
               <div className="mt-8 grid gap-10">
                 {job.items.map((item) => (
-                  <section key={item.name} aria-label={item.name}>
-                    <h3 className="text-xl font-semibold">
+                  <section key={item.id} aria-labelledby={item.id}>
+                    <AnchorHeading
+                      id={item.id}
+                      as="h3"
+                      label={tCommon("anchor")}
+                      className="text-xl font-semibold"
+                    >
                       {item.url ? (
                         <a
                           href={item.url}
-                          className="inline-flex items-center gap-1.5 hover:text-accent"
+                          className="inline-flex items-center gap-1.5 underline-offset-4 hover:text-accent hover:underline"
                         >
-                          {item.name}
+                          {pick(item.name, locale)}
                           <ExternalLink aria-hidden size={15} className="text-muted" />
                         </a>
                       ) : (
-                        item.name
+                        pick(item.name, locale)
                       )}
-                    </h3>
+                    </AnchorHeading>
                     <p className="text-sm text-muted">{pick(item.context, locale)}</p>
                     <ul className="mt-3 max-w-2xl list-disc space-y-1.5 pl-5 marker:text-accent">
                       {item.highlights.map((highlight) => (

@@ -18,6 +18,14 @@ export type Project = {
   /** Paragraphs for the project page. */
   description: Text[];
   highlights?: Text[];
+  /** Things a visitor can try in the live demo. */
+  features?: Text[];
+  /** Engineering details: architecture, testing, deployment. */
+  technical?: Text[];
+  /** What the 2026 rebuild changed. */
+  upgrade?: Text;
+  /** Main framework versions, e.g. "Phoenix 1.8". */
+  versions?: string[];
   kind: ProjectKind;
   area: ProjectArea;
   /** First year of work. */
@@ -33,7 +41,9 @@ export type Project = {
 };
 
 export type WorkItem = {
-  name: string;
+  /** Anchor on the experience page. */
+  id: string;
+  name: Text;
   url?: string;
   context: Text;
   highlights: Text[];
@@ -41,8 +51,11 @@ export type WorkItem = {
 };
 
 export type Job = {
+  /** Anchor on the experience page. */
+  id: string;
   role: string;
   company: string;
+  companyNote?: Text;
   location: Text;
   start: string;
   end?: string;
@@ -51,16 +64,20 @@ export type Job = {
 };
 
 export type Degree = {
+  /** Anchor on the education page. */
+  id: string;
   degree: Text;
   field: Text;
-  school: Text;
-  url?: string;
   start: number;
   end: number;
-  thesis?: { title: Text; url?: string };
+  description: Text;
+  thesis: { title: Text; url?: string };
 };
 
 export type SkillGroup = {
+  /** Anchor on the skills page. */
+  id: string;
   name: Text;
+  description: Text;
   skills: string[];
 };

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CvMenu } from "@/components/ui/cv-menu";
 import { Page } from "@/components/ui/page";
-import { degrees } from "@/content/education";
+import { degrees, university } from "@/content/education";
 import { jobs } from "@/content/experience";
 import { featuredProjects } from "@/content/projects";
 import { site } from "@/content/site";
@@ -43,7 +43,7 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
           </h1>
           <p className="mt-2 font-display text-2xl text-accent">{site.headline}</p>
           <p className="mt-4 text-muted">
-            {pick(site.location, locale)},{" "}
+            {pick(site.location, locale)}, {site.phone},{" "}
             <a href={`mailto:${site.email}`} className="link">
               {site.email}
             </a>
@@ -52,8 +52,7 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
 
         <CvSection title={t("profile")}>
           <p className="max-w-3xl">
-            {pick(site.intro, locale)}{" "}
-            {site.about.map((paragraph) => pick(paragraph, locale)).join(" ")}
+            {pick(site.intro, locale)} {pick(site.about[0].paragraphs[1], locale)}
           </p>
         </CvSection>
 
@@ -76,7 +75,7 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
                   item.highlights.map((highlight) => (
                     <li key={highlight.en}>
                       {job.items.length > 1 ? (
-                        <strong className="font-semibold">{item.name}: </strong>
+                        <strong className="font-semibold">{pick(item.name, locale)}: </strong>
                       ) : null}
                       {pick(highlight, locale)}
                     </li>
@@ -110,22 +109,22 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
         </CvSection>
 
         <CvSection title={t("education")}>
-          {degrees
-            .filter((degree) => degree.thesis)
-            .map((degree) => (
-              <div key={degree.start}>
-                <div className="flex flex-wrap items-baseline justify-between gap-x-6">
-                  <h3 className="text-lg font-semibold">
-                    {pick(degree.degree, locale)}, {pick(degree.field, locale)}
-                  </h3>
-                  <p className="text-sm text-muted">
-                    {degree.start} – {degree.end}
-                  </p>
-                </div>
-                <p className="text-sm text-muted">{pick(degree.school, locale)}</p>
-                {degree.thesis ? <p className="mt-1">{pick(degree.thesis.title, locale)}</p> : null}
+          <p className="text-sm text-muted">
+            {pick(university.name, locale)}, {pick(university.faculty, locale)}
+          </p>
+          {degrees.map((degree) => (
+            <div key={degree.id}>
+              <div className="flex flex-wrap items-baseline justify-between gap-x-6">
+                <h3 className="text-lg font-semibold">
+                  {pick(degree.degree, locale)}, {pick(degree.field, locale)}
+                </h3>
+                <p className="text-sm text-muted">
+                  {degree.start} – {degree.end}
+                </p>
               </div>
-            ))}
+              <p className="mt-1">{pick(degree.thesis.title, locale)}</p>
+            </div>
+          ))}
         </CvSection>
 
         <CvSection title={t("projects")}>

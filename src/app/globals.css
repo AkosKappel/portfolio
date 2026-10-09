@@ -7,11 +7,11 @@
   deep ink, and one navy accent (a soft steel blue in dark mode).
 */
 :root {
-  --paper: #f1f3f6;
-  --surface: #ffffff;
+  --paper: #e9edf2;
+  --surface: #f5f7fa;
   --ink: #142233;
-  --muted: #4f5d6e;
-  --line: #d3dae2;
+  --muted: #4b596a;
+  --line: #cdd5df;
   --accent: #1f3a5f;
   --accent-soft: #e2e9f2;
   --on-accent: #ffffff;
@@ -93,10 +93,30 @@
   text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
-  transition: text-decoration-color 150ms;
+  transition:
+    color 150ms,
+    text-decoration-color 150ms;
 
   &:hover {
+    color: var(--accent);
     text-decoration-color: currentColor;
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* Interactive surfaces (cards, chips, list rows) lift a little and take the accent border on hover. */
+@utility hover-lift {
+  transition:
+    border-color 150ms,
+    background-color 150ms,
+    box-shadow 150ms,
+    translate 150ms;
+
+  &:hover {
+    border-color: var(--accent);
+    background-color: var(--accent-soft);
+    box-shadow: 0 6px 18px -10px color-mix(in oklab, var(--ink) 45%, transparent);
+    translate: 0 -1px;
   }
 }
 

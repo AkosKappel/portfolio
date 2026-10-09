@@ -42,7 +42,12 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       />
       <section className="grid items-center gap-10 pt-12 pb-20 sm:pt-20 md:grid-cols-[1fr_auto] md:gap-16">
         <div className="order-2 md:order-1">
-          <h1 className="text-5xl font-semibold sm:text-7xl">{site.name}</h1>
+          <h1 className="text-5xl font-semibold sm:text-7xl">
+            <span className="mr-2 text-3xl font-medium text-muted sm:mr-3 sm:text-5xl">
+              {site.title}
+            </span>
+            {site.name}
+          </h1>
           <p className="mt-4 font-display text-2xl text-accent sm:text-3xl">{site.headline}</p>
           <p className="mt-6 max-w-xl text-lg text-muted">{pick(site.intro, locale)}</p>
           <p className="mt-4 inline-flex items-center gap-2 text-muted">
@@ -130,15 +135,14 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         </div>
         <ul className="grid gap-8 sm:grid-cols-2">
           {currentJob.items.map((item) => (
-            <li key={item.name}>
+            <li key={item.id}>
               <h3 className="text-xl font-semibold">
-                {item.url ? (
-                  <a href={item.url} className="hover:text-accent">
-                    {item.name}
-                  </a>
-                ) : (
-                  item.name
-                )}
+                <Link
+                  href={`/experience#${item.id}`}
+                  className="underline-offset-4 hover:text-accent hover:underline"
+                >
+                  {pick(item.name, locale)}
+                </Link>
               </h3>
               <p className="mt-1 text-muted">{pick(item.context, locale)}</p>
               <StackList items={item.stack} className="mt-3" />

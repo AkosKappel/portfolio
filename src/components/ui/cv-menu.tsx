@@ -8,7 +8,7 @@ export function CvMenu({ className = "" }: { className?: string }) {
   const t = useTranslations();
   return (
     <details className={`group relative ${className}`}>
-      <summary className="inline-flex cursor-pointer list-none items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-medium transition-colors hover:border-ink [&::-webkit-details-marker]:hidden">
+      <summary className="inline-flex cursor-pointer list-none items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-medium transition-colors hover:border-accent hover:bg-accent-soft hover:text-accent group-open:border-accent [&::-webkit-details-marker]:hidden">
         <Download aria-hidden size={18} />
         {t("common.downloadCv")}
       </summary>
@@ -19,7 +19,7 @@ export function CvMenu({ className = "" }: { className?: string }) {
               href={cv.href}
               download
               hrefLang={cv.locale}
-              className="flex items-center gap-2.5 rounded-md px-3 py-2 hover:bg-paper"
+              className="flex items-center gap-2.5 rounded-md px-3 py-2 hover:bg-accent-soft hover:text-accent"
             >
               <Flag locale={cv.locale} />
               <span className="flex-1">{t(`languages.${cv.locale}`)}</span>

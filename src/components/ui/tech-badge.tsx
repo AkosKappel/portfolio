@@ -3,8 +3,17 @@ import { techIcon } from "@/lib/tech-icons";
 export function TechLogo({ name, className = "size-3.5" }: { name: string; className?: string }) {
   const icon = techIcon(name);
   if (!icon) return null;
+  if (icon.kind === "image") {
+    // biome-ignore lint/performance/noImgElement: tiny static SVG logo, next/image adds nothing here
+    return <img src={icon.src} alt="" className={`shrink-0 ${className}`} />;
+  }
   return (
-    <svg viewBox="0 0 24 24" className={`shrink-0 ${className}`} fill="currentColor" aria-hidden>
+    <svg
+      viewBox="0 0 24 24"
+      className={`shrink-0 ${className}`}
+      fill={icon.color ?? "currentColor"}
+      aria-hidden
+    >
       <path d={icon.path} />
     </svg>
   );

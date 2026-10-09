@@ -34,13 +34,16 @@ export function SiteFooter() {
           <ul className="mt-3 grid grid-cols-2 gap-x-6 gap-y-2">
             {navigation.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-accent">
+                <Link
+                  href={item.href}
+                  className="hover:text-accent hover:underline underline-offset-4"
+                >
                   {t(`nav.${item.key}`)}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/cv" className="hover:text-accent">
+              <Link href="/cv" className="hover:text-accent hover:underline underline-offset-4">
                 {t("nav.cv")}
               </Link>
             </li>
@@ -53,7 +56,10 @@ export function SiteFooter() {
           <ul className="mt-3 space-y-2">
             {socials.map(({ href, label, Icon }) => (
               <li key={label}>
-                <a href={href} className="inline-flex items-center gap-2 hover:text-accent">
+                <a
+                  href={href}
+                  className="inline-flex items-center gap-2 underline-offset-4 hover:text-accent hover:underline"
+                >
                   <Icon className="size-4" />
                   {label}
                 </a>

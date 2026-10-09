@@ -1,13 +1,24 @@
-import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ExternalLink,
+  Info,
+  type LucideIcon,
+  MousePointerClick,
+  RefreshCw,
+  Sparkles,
+  Wrench,
+} from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProjectMedia, projectYears } from "@/components/projects/project-card";
+import { AnchorHeading } from "@/components/ui/anchor-heading";
 import { GitHubIcon, GitLabIcon } from "@/components/ui/brand-icons";
 import { Page } from "@/components/ui/page";
-import { StackList } from "@/components/ui/tech-badge";
+import { StackList, TechLogo } from "@/components/ui/tech-badge";
 import { getProject, projects } from "@/content/projects";
-import { pick } from "@/content/types";
+import { pick, type Text } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import { type Locale, routing } from "@/i18n/routing";
 import { alternates } from "@/lib/metadata";
@@ -99,25 +110,79 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
         />
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[2fr_1fr]">
-          <div className="max-w-2xl space-y-5 text-lg">
-            {project.description.map((paragraph) => (
-              <p key={paragraph.en}>{pick(paragraph, locale)}</p>
-            ))}
-            {project.highlights?.length ? (
-              <>
-                <h2 className="pt-6 text-2xl font-semibold">{t("highlights")}</h2>
-                <ul className="list-disc space-y-2 pl-5 marker:text-accent">
-                  {project.highlights.map((highlight) => (
-                    <li key={highlight.en}>{pick(highlight, locale)}</li>
-                  ))}
-                </ul>
-              </>
+          <div className="grid max-w-2xl gap-12">
+            <section aria-labelledby="about">
+              <AnchorHeading
+                id="about"
+                label={tCommon("anchor")}
+                className="flex items-center gap-2 text-2xl font-semibold"
+              >
+                <Info aria-hidden className="size-5 shrink-0 text-accent" />
+                {t("about")}
+              </AnchorHeading>
+              <div className="mt-4 space-y-4 text-lg">
+                {project.description.map((paragraph) => (
+                  <p key={paragraph.en}>{pick(paragraph, locale)}</p>
+                ))}
+              </div>
+            </section>
+            <DetailList
+              id="features"
+              title={t("features")}
+              items={project.features}
+              locale={locale}
+              Icon={MousePointerClick}
+              anchor={tCommon("anchor")}
+            />
+            <DetailList
+              id="highlights"
+              title={t("highlights")}
+              items={project.highlights}
+              locale={locale}
+              Icon={Sparkles}
+              anchor={tCommon("anchor")}
+            />
+            <DetailList
+              id="technical"
+              title={t("technical")}
+              items={project.technical}
+              locale={locale}
+              Icon={Wrench}
+              anchor={tCommon("anchor")}
+            />
+            {project.upgrade ? (
+              <section
+                aria-labelledby="upgrade"
+                className="rounded-xl border border-line bg-surface p-6"
+              >
+                <AnchorHeading
+                  id="upgrade"
+                  label={tCommon("anchor")}
+                  className="flex items-center gap-2 text-2xl font-semibold"
+                >
+                  <RefreshCw aria-hidden className="size-5 shrink-0 text-accent" />
+                  {t("upgrade")}
+                </AnchorHeading>
+                <p className="mt-3 text-lg">{pick(project.upgrade, locale)}</p>
+              </section>
             ) : null}
           </div>
-          <dl className="grid content-start gap-5 border-t border-line pt-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+          <dl className="grid content-start gap-5 border-t border-line pt-5 lg:sticky lg:top-24 lg:self-start lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
             <Fact label={t("when")}>{projectYears(project)}</Fact>
             <Fact label={t("type")}>{t(`kinds.${project.kind}`)}</Fact>
             {project.role ? <Fact label={t("role")}>{pick(project.role, locale)}</Fact> : null}
+            {project.versions?.length ? (
+              <Fact label={t("versions")}>
+                <ul className="mt-1 space-y-1">
+                  {project.versions.map((version) => (
+                    <li key={version} className="inline-flex w-full items-center gap-2">
+                      <TechLogo name={version.replace(/\s[\d.]+$/, "")} className="size-4" />
+                      {version}
+                    </li>
+                  ))}
+                </ul>
+              </Fact>
+            ) : null}
             <Fact label={t("stack")}>
               <StackList items={project.stack} className="mt-1" />
             </Fact>
@@ -164,5 +229,43 @@ function Fact({ label, children }: { label: string; children: React.ReactNode })
       <dt className="text-sm text-muted">{label}</dt>
       <dd className="mt-0.5">{children}</dd>
     </div>
+  );
+}
+
+function DetailList({
+  id,
+  title,
+  items,
+  locale,
+  Icon,
+  anchor,
+}: {
+  id: string;
+  title: string;
+  items?: Text[];
+  locale: Locale;
+  Icon: LucideIcon;
+  anchor: string;
+}) {
+  if (!items?.length) return null;
+  return (
+    <section aria-labelledby={id}>
+      <AnchorHeading
+        id={id}
+        label={anchor}
+        className="flex items-center gap-2 text-2xl font-semibold"
+      >
+        <Icon aria-hidden className="size-5 shrink-0 text-accent" />
+        {title}
+      </AnchorHeading>
+      <ul className="mt-4 space-y-2.5 text-lg">
+        {items.map((item) => (
+          <li key={item.en} className="flex gap-3">
+            <span aria-hidden className="mt-[0.7em] size-1.5 shrink-0 rounded-full bg-accent" />
+            {pick(item, locale)}
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

@@ -78,7 +78,7 @@ describe("skills", () => {
   it("mostly have logos", () => {
     const skills = skillGroups.flatMap((group) => group.skills);
     const withoutLogo = skills.filter((skill) => !techIcon(skill));
-    expect(withoutLogo).toEqual(["C#", "MSSQL", "OpenAI API", "Playwright"]);
+    expect(withoutLogo).toEqual(["MSSQL", "Codex", "OpenAI API", "Playwright"]);
   });
 });
 

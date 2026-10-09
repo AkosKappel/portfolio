@@ -22,6 +22,7 @@ import {
   ArrowDown,
   ArrowUp,
   Brain,
+  ChevronDown,
   Gamepad2,
   Globe,
   LayoutGrid,
@@ -149,56 +150,51 @@ export function ProjectArchive({ projects }: { projects: Project[] }) {
 
   return (
     <div>
-      <div className="flex flex-col gap-4 border-y border-line py-4 lg:flex-row lg:items-center">
-        <div className="relative lg:w-72">
-          <label htmlFor={searchId} className="sr-only">
-            {t("searchLabel")}
-          </label>
-          <Search
-            aria-hidden
-            size={18}
-            className="absolute top-1/2 left-3 -translate-y-1/2 text-muted"
-          />
-          <input
-            id={searchId}
-            type="search"
-            value={query}
-            onChange={(event) => setParam("q", event.target.value)}
-            placeholder={t("searchPlaceholder")}
-            className="w-full rounded-full border border-line bg-surface py-2 pr-4 pl-10 placeholder:text-muted focus:border-accent focus:outline-none"
-          />
-        </div>
-        <fieldset className="flex flex-wrap gap-1.5">
-          <legend className="sr-only">{t("area")}</legend>
-          {areas.map(({ value, Icon }) => (
-            <button
-              key={value || "all"}
-              type="button"
-              aria-pressed={area === value}
-              onClick={() => setParam("area", value)}
-              className="inline-flex items-center gap-1.5 rounded-full border border-line px-3.5 py-1.5 text-sm transition-colors hover:border-ink aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-on-accent"
-            >
-              <Icon aria-hidden size={15} />
-              {value ? t(`areas.${value}`) : t("all")}
-            </button>
-          ))}
-        </fieldset>
-        <div className="flex items-center gap-2 lg:ml-auto">
-          <label className="flex items-center gap-2 text-sm text-muted">
-            {t("sort")}
-            <select
-              value={fromSorting(sorting)}
-              onChange={(event) => setParam("sort", event.target.value)}
-              className="rounded-md border border-line bg-surface px-2 py-1.5 text-ink"
-            >
-              {sortOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {t(`sortOptions.${option.key}`)}
-                </option>
-              ))}
-            </select>
-          </label>
-          <fieldset className="flex rounded-full border border-line p-0.5">
+      <div className="grid gap-4 rounded-2xl border border-line bg-surface p-4">
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="relative min-w-0 flex-1 basis-64">
+            <label htmlFor={searchId} className="sr-only">
+              {t("searchLabel")}
+            </label>
+            <Search
+              aria-hidden
+              size={18}
+              className="pointer-events-none absolute top-1/2 left-3.5 -translate-y-1/2 text-muted"
+            />
+            <input
+              id={searchId}
+              type="search"
+              value={query}
+              onChange={(event) => setParam("q", event.target.value)}
+              placeholder={t("searchPlaceholder")}
+              className="h-10 w-full rounded-full border border-line bg-paper pr-4 pl-10 placeholder:text-muted hover:border-accent focus:border-accent focus:outline-none"
+            />
+          </div>
+          <div className="flex items-center gap-2">
+            <label htmlFor={`${searchId}-sort`} className="text-sm text-muted">
+              {t("sort")}
+            </label>
+            <div className="relative">
+              <select
+                id={`${searchId}-sort`}
+                value={fromSorting(sorting)}
+                onChange={(event) => setParam("sort", event.target.value)}
+                className="h-10 cursor-pointer appearance-none rounded-full border border-line bg-paper pr-9 pl-4 text-sm text-ink hover:border-accent focus:border-accent focus:outline-none"
+              >
+                {sortOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {t(`sortOptions.${option.key}`)}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown
+                aria-hidden
+                size={16}
+                className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-muted"
+              />
+            </div>
+          </div>
+          <fieldset className="flex h-10 items-center rounded-full border border-line bg-paper p-1">
             <legend className="sr-only">{t("view")}</legend>
             <ViewButton
               active={view === "grid"}
@@ -216,6 +212,21 @@ export function ProjectArchive({ projects }: { projects: Project[] }) {
             </ViewButton>
           </fieldset>
         </div>
+        <fieldset className="flex flex-wrap gap-2">
+          <legend className="sr-only">{t("area")}</legend>
+          {areas.map(({ value, Icon }) => (
+            <button
+              key={value || "all"}
+              type="button"
+              aria-pressed={area === value}
+              onClick={() => setParam("area", value)}
+              className="inline-flex h-9 items-center gap-1.5 rounded-full border border-line px-3.5 text-sm transition-colors hover:border-accent hover:bg-accent-soft aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-on-accent"
+            >
+              <Icon aria-hidden size={15} />
+              {value ? t(`areas.${value}`) : t("all")}
+            </button>
+          ))}
+        </fieldset>
       </div>
 
       <p className="mt-4 text-sm text-muted" aria-live="polite">
@@ -332,7 +343,7 @@ function ViewButton({
       aria-pressed={active}
       aria-label={label}
       title={label}
-      className="grid size-8 place-items-center rounded-full text-muted aria-pressed:bg-accent aria-pressed:text-on-accent"
+      className="grid size-8 place-items-center rounded-full text-muted transition-colors hover:text-ink aria-pressed:bg-accent aria-pressed:text-on-accent"
     >
       {children}
     </button>

@@ -28,7 +28,7 @@ export function ProjectMedia({
   return (
     <ViewTransition name={`project-${project.slug}`} share="project-media" default="none">
       <div
-        className="relative overflow-hidden rounded-lg border border-line bg-surface"
+        className="relative overflow-hidden rounded-lg border border-line bg-surface transition-[border-color,box-shadow,translate] duration-200 group-hover:-translate-y-0.5 group-hover:border-accent group-hover:shadow-[0_12px_28px_-14px_rgb(20_34_51/0.45)]"
         style={{
           aspectRatio:
             natural && project.image
@@ -71,7 +71,7 @@ export function ProjectCard({
         <Heading className="text-xl font-semibold">
           <Link
             href={`/projects/${project.slug}`}
-            className="inline-flex items-center gap-1 after:absolute after:inset-0 after:content-[''] group-hover:text-accent"
+            className="inline-flex items-center gap-1 decoration-2 underline-offset-4 after:absolute after:inset-0 after:content-[''] group-hover:text-accent group-hover:underline"
           >
             {project.title}
             <ArrowUpRight

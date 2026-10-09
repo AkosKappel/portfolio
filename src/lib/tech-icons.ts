@@ -1,132 +1,31 @@
-import {
-  type SimpleIcon,
-  siAngular,
-  siApacheairflow,
-  siBootstrap,
-  siClaude,
-  siCss,
-  siCypress,
-  siDocker,
-  siElixir,
-  siExpress,
-  siFastapi,
-  siGit,
-  siGithubactions,
-  siGitlab,
-  siGo,
-  siHtml5,
-  siJavascript,
-  siJest,
-  siJetpackcompose,
-  siKotlin,
-  siKubernetes,
-  siLaravel,
-  siLinux,
-  siModelcontextprotocol,
-  siMongodb,
-  siNette,
-  siNextdotjs,
-  siNginx,
-  siNodedotjs,
-  siNumpy,
-  siNuxt,
-  siOpencv,
-  siOpenjdk,
-  siP5dotjs,
-  siPandas,
-  siPhoenixframework,
-  siPhp,
-  siPlotly,
-  siPostgresql,
-  siPython,
-  siPytorch,
-  siReact,
-  siReactrouter,
-  siRedis,
-  siRedux,
-  siRuby,
-  siSelenium,
-  siSpringboot,
-  siStencil,
-  siTailwindcss,
-  siTanstack,
-  siTensorflow,
-  siTypescript,
-  siUnity,
-  siVite,
-  siVitest,
-  siVuedotjs,
-  siZod,
-} from "simple-icons";
+import { type TechIcon, techIcons } from "./tech-icons.data";
 
-/**
- * Logos for technology names used in the content. Names without an entry
- * (e.g. C#, MSSQL, Playwright, whose brands are not in Simple Icons) show text only.
- */
-const icons: Record<string, SimpleIcon> = {
-  Airflow: siApacheairflow,
-  Angular: siAngular,
-  Bootstrap: siBootstrap,
-  "Claude Code": siClaude,
-  "Compose Multiplatform": siJetpackcompose,
-  CSS: siCss,
-  Cypress: siCypress,
-  Docker: siDocker,
-  Elixir: siElixir,
-  Express: siExpress,
-  FastAPI: siFastapi,
-  Git: siGit,
-  "GitHub Actions": siGithubactions,
-  "GitLab CI": siGitlab,
-  Go: siGo,
-  HTML: siHtml5,
-  Java: siOpenjdk,
-  JavaScript: siJavascript,
-  Jest: siJest,
-  Kotlin: siKotlin,
-  "Kotlin Multiplatform": siKotlin,
-  Kubernetes: siKubernetes,
-  Laravel: siLaravel,
-  Linux: siLinux,
-  MCP: siModelcontextprotocol,
-  MongoDB: siMongodb,
-  Nette: siNette,
-  "Next.js": siNextdotjs,
-  nginx: siNginx,
-  "Node.js": siNodedotjs,
-  NumPy: siNumpy,
-  Nuxt: siNuxt,
-  OpenCV: siOpencv,
-  "p5.js": siP5dotjs,
-  pandas: siPandas,
-  Phoenix: siPhoenixframework,
-  "Phoenix LiveView": siPhoenixframework,
-  PHP: siPhp,
-  Plotly: siPlotly,
-  PostgreSQL: siPostgresql,
-  Python: siPython,
-  PyTorch: siPytorch,
-  React: siReact,
-  "React Query": siTanstack,
-  "React Router": siReactrouter,
-  Redis: siRedis,
-  Redux: siRedux,
-  Ruby: siRuby,
-  Selenium: siSelenium,
-  "Spring Boot": siSpringboot,
-  "Stencil.js": siStencil,
-  "Tailwind CSS": siTailwindcss,
-  TanStack: siTanstack,
-  "TanStack Query": siTanstack,
-  TensorFlow: siTensorflow,
-  TypeScript: siTypescript,
-  Unity: siUnity,
-  Vite: siVite,
-  Vitest: siVitest,
-  Vue: siVuedotjs,
-  Zod: siZod,
+/** Logos whose brand is not in Simple Icons, kept as files in public/icons. */
+const imageIcons: Record<string, string> = {
+  "C#": "/icons/csharp.svg",
 };
 
-export function techIcon(name: string) {
-  return icons[name];
+export type ResolvedIcon =
+  | (TechIcon & { kind: "path"; color: string | undefined })
+  | { kind: "image"; src: string };
+
+/** Relative luminance of a hex colour, 0 (black) to 1 (white). */
+function luminance(hex: string) {
+  const [r, g, b] = [0, 2, 4].map((i) => {
+    const channel = Number.parseInt(hex.slice(i, i + 2), 16) / 255;
+    return channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+/**
+ * Logo for a technology name, in its brand colour. Black or white brand colours
+ * (Next.js, Express, ...) would vanish on one of the themes, so they use the text colour.
+ */
+export function techIcon(name: string): ResolvedIcon | undefined {
+  if (imageIcons[name]) return { kind: "image", src: imageIcons[name] };
+  const icon = techIcons[name];
+  if (!icon) return undefined;
+  const l = luminance(icon.hex);
+  return { kind: "path", ...icon, color: l < 0.04 || l > 0.85 ? undefined : `#${icon.hex}` };
 }

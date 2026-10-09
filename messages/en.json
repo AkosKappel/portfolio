@@ -29,7 +29,9 @@
     "period": "{start} to {end}",
     "years": "{count, plural, one {# yr} other {# yrs}}",
     "months": "{count, plural, one {# mo} other {# mos}}",
-    "technologies": "Technologies"
+    "technologies": "Technologies",
+    "anchor": "Link to this section",
+    "phone": "Phone"
   },
   "languages": {
     "en": "English",
@@ -102,7 +104,12 @@
     "stack": "Stack",
     "previous": "Previous project",
     "next": "Next project",
-    "moreProjects": "More projects"
+    "moreProjects": "More projects",
+    "about": "About the project",
+    "features": "What you can try",
+    "technical": "Under the hood",
+    "upgrade": "What changed in 2026",
+    "versions": "Versions"
   },
   "experience": {
     "title": "Experience",
@@ -112,16 +119,19 @@
   "skills": {
     "title": "Skills",
     "description": "Frontend, backend, mobile, data, AI, DevOps and testing: the technologies I work with.",
-    "lead": "Grouped by area. Technologies used in my projects link to them.",
+    "lead": "Grouped by area, without made-up skill levels. Technologies used in my projects link to them.",
     "practices": "Practices",
-    "projectCount": "{count, plural, one {# project} other {# projects}}"
+    "projectCount": "{count, plural, one {# project} other {# projects}}",
+    "practicesLead": "How I work, apart from the tools."
   },
   "education": {
     "title": "Education",
     "description": "Master's degree in Intelligent Software Systems and bachelor's degree in Computer Science from the Slovak University of Technology in Bratislava.",
-    "lead": "Computer science and intelligent software systems at the Slovak University of Technology in Bratislava.",
+    "lead": "Computer science and intelligent software systems at the Slovak University of Technology in Bratislava, after a grammar school in Nové Zámky.",
     "thesis": "Thesis",
-    "languages": "Languages"
+    "languages": "Languages",
+    "university": "University",
+    "secondarySchool": "Secondary school"
   },
   "about": {
     "title": "About me",

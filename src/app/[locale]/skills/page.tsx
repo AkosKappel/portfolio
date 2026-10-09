@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { AnchorHeading } from "@/components/ui/anchor-heading";
 import { Page, PageHeader } from "@/components/ui/page";
 import { TechLogo } from "@/components/ui/tech-badge";
 import { projects } from "@/content/projects";
@@ -33,22 +34,42 @@ export default async function SkillsPage({ params }: PageProps<"/[locale]/skills
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
   const t = await getTranslations("skills");
+  const tCommon = await getTranslations("common");
 
   return (
     <Page>
       <PageHeader title={t("title")} lead={t("lead")} />
+      <nav aria-label={t("title")} className="-mt-4 mb-12 flex flex-wrap gap-2">
+        {[
+          ...skillGroups.map((group) => ({ id: group.id, name: pick(group.name, locale) })),
+          { id: "practices", name: t("practices") },
+        ].map((section) => (
+          <a
+            key={section.id}
+            href={`#${section.id}`}
+            className="hover-lift rounded-full border border-line bg-surface px-4 py-1.5 text-sm"
+          >
+            {section.name}
+          </a>
+        ))}
+      </nav>
       <div className="grid gap-x-12 gap-y-14 md:grid-cols-2">
         {skillGroups.map((group) => (
-          <section key={group.name.en} aria-labelledby={`group-${group.name.en}`}>
-            <h2 id={`group-${group.name.en}`} className="text-2xl font-semibold">
+          <section key={group.id} aria-labelledby={group.id}>
+            <AnchorHeading
+              id={group.id}
+              label={tCommon("anchor")}
+              className="text-2xl font-semibold"
+            >
               {pick(group.name, locale)}
-            </h2>
-            <ul className="mt-4 flex flex-wrap gap-2">
+            </AnchorHeading>
+            <p className="mt-2 max-w-xl text-muted">{pick(group.description, locale)}</p>
+            <ul className="mt-5 flex flex-wrap gap-2">
               {group.skills.map((skill) => {
                 const count = projectCount(skill);
                 const content = (
                   <>
-                    <TechLogo name={skill} className="size-4" />
+                    <TechLogo name={skill} className="size-[1.1rem]" />
                     {skill}
                   </>
                 );
@@ -58,13 +79,13 @@ export default async function SkillsPage({ params }: PageProps<"/[locale]/skills
                       <Link
                         href={{ pathname: "/projects", query: { q: skill } }}
                         title={t("projectCount", { count })}
-                        className="inline-flex items-center gap-2 rounded-lg border border-line bg-surface px-3 py-1.5 transition-colors hover:border-accent hover:text-accent"
+                        className="hover-lift inline-flex items-center gap-2 rounded-lg border border-line bg-surface px-3 py-1.5 hover:text-accent"
                       >
                         {content}
                         <span className="sr-only">({t("projectCount", { count })})</span>
                       </Link>
                     ) : (
-                      <span className="inline-flex items-center gap-2 rounded-lg border border-line px-3 py-1.5">
+                      <span className="inline-flex items-center gap-2 rounded-lg border border-line bg-surface/60 px-3 py-1.5">
                         {content}
                       </span>
                     )}
@@ -74,19 +95,20 @@ export default async function SkillsPage({ params }: PageProps<"/[locale]/skills
             </ul>
           </section>
         ))}
-        <section aria-labelledby="group-practices">
-          <h2 id="group-practices" className="text-2xl font-semibold">
-            {t("practices")}
-          </h2>
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {practices.map((practice) => (
-              <li key={practice} className="rounded-lg border border-line px-3 py-1.5">
-                {practice}
-              </li>
-            ))}
-          </ul>
-        </section>
       </div>
+      <section aria-labelledby="practices" className="mt-16 border-t border-line pt-12">
+        <AnchorHeading id="practices" label={tCommon("anchor")} className="text-2xl font-semibold">
+          {t("practices")}
+        </AnchorHeading>
+        <p className="mt-2 text-muted">{t("practicesLead")}</p>
+        <ul className="mt-5 flex flex-wrap gap-2">
+          {practices.map((practice) => (
+            <li key={practice.en} className="rounded-lg border border-line bg-surface px-3 py-1.5">
+              {pick(practice, locale)}
+            </li>
+          ))}
+        </ul>
+      </section>
     </Page>
   );
 }
