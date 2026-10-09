@@ -1,314 +1,87 @@
-\documentclass[10pt, a4paper]{article}
-
-% Packages:
-\usepackage[
-    ignoreheadfoot, % set margins without considering header and footer
-    top=2 cm, % seperation between body and page edge from the top
-    bottom=2 cm, % seperation between body and page edge from the bottom
-    left=2 cm, % seperation between body and page edge from the left
-    right=2 cm, % seperation between body and page edge from the right
-    footskip=1.0 cm, % seperation between body and footer
-% showframe % for debugging
-]{geometry} % for adjusting page geometry
-\usepackage[explicit]{titlesec} % for customizing section titles
-\usepackage{tabularx} % for making tables with fixed width columns
-\usepackage{array} % tabularx requires this
-\usepackage[dvipsnames]{xcolor} % for coloring text
-\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
-\usepackage{enumitem} % for customizing lists
-\usepackage{fontawesome5} % for using icons
-\usepackage{amsmath} % for math
-\usepackage[
-    pdftitle={Ákos Kappel's CV},
-    pdfauthor={Ákos Kappel},
-    colorlinks=true,
-    urlcolor=primaryColor
-]{hyperref} % for links, metadata and bookmarks
-\usepackage[pscoord]{eso-pic} % for floating text on the page
-\usepackage{calc} % for calculating lengths
-\usepackage{bookmark} % for bookmarks
-\usepackage{lastpage} % for getting the total number of pages
-\usepackage{changepage} % for one column entries (adjustwidth environment)
-\usepackage{paracol} % for two and three column entries
-\usepackage{ifthen} % for conditional statements
-\usepackage{needspace} % for avoiding page brake right after the section title
-\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
-\usepackage{graphicx} % for profile picture
-
-% Packages added by me
-\usepackage{multicol}
-\usepackage{fontawesome5} % For icons like \faLink
-
-% Ensure that generate pdf is machine readable/ATS parsable:
-\ifPDFTeX
-\input{glyphtounicode}
-\pdfgentounicode=1
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\fi
-
-\usepackage[default, type1]{sourcesanspro}
-
-% Some settings:
-\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
-\pagestyle{empty} % no header or footer
-\setcounter{secnumdepth}{0} % no section numbering
-\setlength{\parindent}{0pt} % no indentation
-\setlength{\topskip}{0pt} % no top skip
-\setlength{\columnsep}{0.15cm} % set column seperation
-\makeatletter
-\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
-\patchcmd{\ps@customFooterStyle}{\thepage}{
-    \color{gray}\textit{\small Page \thepage{} of \pageref*{LastPage}}
-}{}{} % replace number by desired string
-\makeatother
-\pagestyle{customFooterStyle}
-
-\titleformat{\section}{
-% avoid page braking right after the section title
-    \needspace{4\baselineskip}
-    % make the font size of the section title large and color it with the primary color
-    \Large\color{primaryColor}
-}{
-}{
-}{
-% print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
-% from the end of the title to the end of the body
-    \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
-}[] % section title formatting
-
-\titlespacing{\section}{
-% left space:
-    -1pt
-}{
-% top space:
-    0.3 cm
-}{
-% bottom space:
-    0.2 cm
-} % section title spacing
-
-% \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
-\newenvironment{highlights}{
-    \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=0.4 cm + 10pt
-    ]
-    }{
-    \end{itemize}
-} % new environment for highlights
-
-\newenvironment{highlightsforbulletentries}{
-    \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=10pt
-    ]
-    }{
-    \end{itemize}
-} % new environment for highlights for bullet entries
-
-
-\newenvironment{onecolentry}{
-    \begin{adjustwidth}{
-        0.2 cm + 0.00001 cm
-    }{
-        0.2 cm + 0.00001 cm
-    }
-    }{
-    \end{adjustwidth}
-} % new environment for one column entries
-
-\newenvironment{twocolentry}[2][]{
-    \onecolentry
-    \def\secondColumn{#2}
-    \setcolumnwidth{\fill, 4.5 cm}
-    \begin{paracol}{2}
-    }{
-        \switchcolumn \raggedleft \secondColumn
-    \end{paracol}
-    \endonecolentry
-} % new environment for two column entries
-
-\newenvironment{threecolentry}[3][]{
-    \onecolentry
-    \def\thirdColumn{#3}
-    \setcolumnwidth{1 cm, \fill, 4.5 cm}
-    \begin{paracol}{3}
-    {\raggedright #2}
-        \switchcolumn
-        }{
-        \switchcolumn \raggedleft \thirdColumn
-    \end{paracol}
-    \endonecolentry
-} % new environment for three column entries
-
-\newenvironment{header}{
-    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
-    }{
-    \par\kern\topsep
-} % new environment for the header
-
-\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
-    \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
-        \put(
-        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
-        \LenToUnit{\paperheight-1.0 cm}
-        ){\vtop{{\null}\makebox[0pt][c]{
-            \small\color{gray}\textit{Last updated in May 2024}\hspace{\widthof{Last updated in May 2024}}
-        }}}%
-    }%
-}%
-
-% save the original href command in a new command:
-\let\hrefWithoutArrow\href
-
-% new command for external links:
-\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\mbox{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}}
-
+\documentclass[10pt]{article}
+\input{cv-style}
+\hypersetup{pdftitle={Ákos Kappel - CV}, pdfauthor={Ákos Kappel}}
 
 \begin{document}
-    \begin{header}
-    \begin{minipage}[c]{0.15\textwidth}
-        \includegraphics[width=\linewidth]{profile.jpg}
-    \end{minipage}
-    \hspace{0.02\textwidth}
-    \begin{minipage}[c]{0.70\textwidth}
-        \center
-        \fontsize{30 pt}{30 pt}
-        \textbf{Ing. Ákos Kappel}
-        \vspace{0.25 cm}
 
-        \fontsize{14 pt}{14 pt}
-        Full-Stack Software Engineer
-        \vspace{0.25 cm}
-        \normalsize
+\cvheader{profile.jpg}{Ing. Ákos Kappel}{Full-Stack Software Engineer}{%
+  \contact{\faEnvelope[regular]}{mailto:kappelakos@gmail.com}{kappelakos@gmail.com}\quad
+  \contact{\faMapMarker*}{https://www.google.com/maps/place/Bratislava}{Bratislava, Slovakia}\\[2pt]
+  \contact{\faGlobe}{https://portfolio-taupe-eta-51.vercel.app/}{Portfolio}\quad
+  \contact{\faLinkedinIn}{https://www.linkedin.com/in/\%C3\%A1kos-kappel-b53344220/}{LinkedIn}\quad
+  \contact{\faGithub}{https://github.com/AkosKappel}{GitHub}\quad
+  \contact{\faGitlab}{https://gitlab.com/AkosKappel}{GitLab}%
+}
 
-        \mbox{\hrefWithoutArrow{mailto:kappelakos@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}kappelakos@gmail.com}}
-        \kern 0.5 cm
-        \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Bratislava, Slovakia}
-        \kern 0.5 cm
-        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/\%C3\%A1kos-kappel-b53344220/}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}LinkedIn}}
-        \\
-        \mbox{\hrefWithoutArrow{https://portfolio-taupe-eta-51.vercel.app/}{{\footnotesize\faGlobe}\hspace*{0.13cm}Portfolio}}
-        \kern 0.5 cm
-        \mbox{\hrefWithoutArrow{https://github.com/AkosKappel}{{\footnotesize\faGithub}\hspace*{0.13cm}github.com/AkosKappel}}
-        \kern 0.5 cm
-        \mbox{\hrefWithoutArrow{https://gitlab.com/AkosKappel}{{\footnotesize\faGitlab}\hspace*{0.13cm}gitlab.com/AkosKappel}}
-    \end{minipage}
-    \end{header}
+\section{Profile}
+Full-stack software engineer with three years of experience in web and mobile development, from the
+database to the user interface. I build software that is fast, accessible and easy to maintain, and
+I learn new technologies quickly. I work with AI coding agents every day: I plan the work, the agents
+build and test it, and I review every change.
 
-    \section{Summary}
-    \begin{onecolentry}
-        Full-Stack Software Engineer building web and mobile products end to end: React and TypeScript frontends, Kotlin Spring Boot and Elixir Phoenix backends, and Kotlin Multiplatform apps for Android and iOS.
-        I focus on fast, accessible interfaces, type-safe code and architectures that are easy to extend, from finding N+1 queries with flame graphs to polished animations.
-        I pick up new stacks quickly when a project needs them (Elixir, Ruby, KMP), and lately I work more and more with AI.
-    \end{onecolentry}
+\section{Experience}
 
-    \section{Technical Skills}
-    \begin{onecolentry}
-        \begin{highlightsforbulletentries}
-            \item \textbf{Daily:} TypeScript, React, Kotlin, Spring Boot, TanStack (Router, Query, Form, Table, Virtual), Tailwind CSS, PostgreSQL, Git
-            \item \textbf{Mobile:} Kotlin Multiplatform, Compose Multiplatform, Ktor, Koin
-            \item \textbf{Worked with:} Python, Elixir, Phoenix LiveView, Node.js, Express, PHP, Laravel, Nette, Next.js, Vue, Nuxt, MongoDB, MSSQL, Zod, Vitest, Jest, Playwright, Cypress, GitLab CI, Docker Compose, Airflow, Ruby, Linux
-            \item \textbf{AI and ML:} PyTorch, TensorFlow, OpenCV, OpenAI API; AI-assisted development with Claude Code, agent skills and MCP servers
-            \item \textbf{Familiar:} Java, C\#, Django, FastAPI, Redis, Bootstrap, Figma, Jira
-        \end{highlightsforbulletentries}
-    \end{onecolentry}
+\job{Full-Stack Software Engineer}{IGT Systems}{Bratislava, hybrid}{Feb 2025 -- present}
+\begin{itemize}
+  \item Led the project management module of \textbf{Core3}, a business platform for project
+        management, HR and CRM: kanban boards, task permissions, Scrum and Waterfall workflows.
+  \item Made the slowest Core3 pages fast after user complaints by finding and fixing N+1 database
+        queries, adding caching and loading data in the background.
+  \item Started the \textbf{WYDO} sports app for Android and iOS in Kotlin Multiplatform, then its
+        React web app, and added passkey login across the app, the web and the backend.
+  \item Built the \textbf{CleanEEG} web app from scratch, including a WebGL viewer that compares raw
+        and cleaned EEG signals, and the frontend of an analytics dashboard for a large enterprise client.
+\end{itemize}
+\tech{React, TypeScript, TanStack, Kotlin, Spring Boot, Elixir, Phoenix LiveView, PostgreSQL, MongoDB}
 
-    \section{Work Experience}
+\job{Full-Stack Developer}{Švarba s.r.o.}{remote}{Jun 2024 -- Jan 2025}
+\begin{itemize}
+  \item Designed and built the REST API for a new React back-office app that replaced older
+        Laravel and Nette systems of an international direct-sales company.
+  \item Added real-time notifications, scheduled imports and exports, and automatic translations
+        with the OpenAI API; covered the API with more than 200 automated tests.
+\end{itemize}
+\tech{TypeScript, Node.js, Express, React, MSSQL, Redis, Jest, PHP, Nette}
 
-    \begin{twocolentry}{February 2025 - now\\\textit{Bratislava, Hybrid}}
-        \textbf{Full-Stack Software Engineer}, IGT Systems (formerly IGT Consulting)
-        \begin{highlights}
-            \item \textbf{\hrefWithoutArrow{https://www.core3.digital/}{Core3}} (business platform: project management, attendance, CRM, HR, ticketing; team of up to 8): owned the Project Management module, including kanban with drag and drop and per-status rules, task permissions, and Scrum and Waterfall methodologies. Made slow pages fast after user complaints: profiled with flame graphs, removed N+1 queries in PostgreSQL and MongoDB, added caching with invalidation, async streams with infinite scroll, ordered PubSub updates, loading skeletons and optimistic UI. \textit{Elixir, Phoenix LiveView, PostgreSQL, MongoDB, Cypress}
-            \item \textbf{\hrefWithoutArrow{https://wydo.sk/}{WYDO}} (sports activity search, team of 3): started the Kotlin Multiplatform app for Android and iOS (map with clustering, search and filters, groups, chat over WebSockets, 4 languages), then the promo site, then moved the web from KMP to a standalone React app with virtualized feeds, push notifications, passkey login, per-route SEO and PWA support. Backend features in Spring Boot, including full WebAuthn passkey support. \textit{Kotlin, Compose Multiplatform, React, TanStack, Spring Boot, Vitest, Playwright}
-            \item \textbf{\hrefWithoutArrow{https://cleaneeg.com/}{CleanEEG}} (EEG cleaning service, team of 2): built the frontend from scratch, including a fast WebGL EEG viewer that compares raw and cleaned signals with client-side filters, keyboard controls and multi-channel layout, plus signup, billing and the file dashboard. \textit{React, TypeScript, TanStack, Plotly}
-            \item \textbf{Internal analytics dashboard} for a large enterprise client (team of 3): built the frontend for monitoring data pipelines, designed so new sections are added as routes from reusable parts, such as a generic typed data grid with nested rows and table state kept in the URL. \textit{React, TypeScript, TanStack Query, Zod}
-        \end{highlights}
-    \end{twocolentry}
+\job{Junior Python Developer}{SoftPoint s.r.o.}{Bratislava, hybrid}{Oct 2023 -- May 2024}
+\begin{itemize}
+  \item Built data pipelines that import products, prices and stock from more than 20 suppliers
+        into the data warehouse of a large e-commerce retailer.
+  \item Automated ordering on 20 supplier web shops with headless-browser scripts in Ruby, a language
+        I learned for this task.
+\end{itemize}
+\tech{Python, Airflow, pandas, Selenium, Ruby, PostgreSQL, FastAPI}
 
-    \vspace{0.2 cm}
-    \begin{twocolentry}{June 2024 - January 2025\\\textit{Nové Zámky, Remote}}
-        \textbf{Full-Stack Developer}, Švarba s.r.o.
-        \begin{highlights}
-            \item Back-office system for an international direct-sales company: a new React web app that joined and replaced older Laravel and Nette monoliths.
-            \item Designed and built the TypeScript REST API in Express (MSSQL with stored procedures, JWT auth, generated OpenAPI docs, cron jobs, WebSocket notifications over Redis, automatic translations with the OpenAI API).
-            \item Wrote 200+ unit and integration tests (Jest, supertest); maintained and extended the legacy PHP system (reports, grids, T-SQL).
-            \item \textit{TypeScript, Node.js, Express, React, PHP, Nette, MSSQL, Redis}
-        \end{highlights}
-    \end{twocolentry}
+\section{Skills}
+\begin{skills}
+  \skillrow{Frontend}{TypeScript, React, Next.js, TanStack (Query, Router, Table, Form), Tailwind CSS, Vue, Nuxt, accessibility, SEO}
+  \skillrow{Backend}{Kotlin, Spring Boot, Node.js, Express, Elixir, Phoenix, Python, FastAPI, PHP, Laravel, REST APIs}
+  \skillrow{Mobile}{Kotlin Multiplatform, Compose Multiplatform}
+  \skillrow{Data}{PostgreSQL, MongoDB, MSSQL, Redis, Airflow}
+  \skillrow{AI}{Agentic development with Claude Code (custom agents, skills, MCP servers), OpenAI API, PyTorch}
+  \skillrow{DevOps and testing}{Docker, GitLab CI, GitHub Actions, Linux, nginx, Vitest, Jest, Playwright, Cypress}
+  \skillrow{Languages}{Slovak (native), Hungarian (fluent, C2), English (advanced, C1), German (basic, A2)}
+\end{skills}
 
-    \vspace{0.2 cm}
-    \begin{twocolentry}{October 2023 - May 2024\\\textit{Bratislava, Hybrid}}
-        \textbf{Junior Python Developer}, SoftPoint s.r.o.
-        \begin{highlights}
-            \item Built ETL pipelines in Airflow that import product, price and stock data from supplier websites, APIs and XML, XLSX and FTP feeds into the data warehouse for a large e-commerce retailer.
-            \item Automated supplier B2B portals with Selenium scraping and headless-browser ordering scripts, which I wrote in Ruby after learning it for the task.
-            \item \textit{Python, Airflow, pandas, Selenium, Ruby, PostgreSQL, FastAPI}
-        \end{highlights}
-    \end{twocolentry}
+\section{Education}
+\degree{Ing. in Intelligent Software Systems}{Slovak University of Technology in Bratislava}{2022 -- 2024}{%
+  Thesis: neural networks that help detect glaucoma in eye images}
+\degree{Bc. in Computer Science}{Slovak University of Technology in Bratislava}{2019 -- 2022}{}
 
-    \section{Projects}
-
-    \begin{twocolentry}{2026 - now}
-        \textbf{Self-hosted home server}
-        \begin{highlights}
-            \item Run my portfolio demos on my own server: one Docker Compose project per app, published through Tailscale Funnel sidecars, nginx with rate limiting, nightly demo resets, and central traffic monitoring and attack detection (GoAccess, CrowdSec). Static apps deploy to GitHub Pages with GitHub Actions.
-        \end{highlights}
-    \end{twocolentry}
-
-    \vspace{0.2 cm}
-    \begin{twocolentry}{2025, upgraded 2026}
-        \hrefWithoutArrow{https://tagline.tailb52c43.ts.net}{\textbf{Modern Fashion Store}}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/clothing-store}{GitHub}}
-        \begin{highlights}
-            \item Inventory and sales dashboard for a clothing company with live updates between users. Upgraded in 2026 to Phoenix 1.8, LiveView 1.2 and Tailwind 4, with a security review and a public demo that resets every night. \textit{Elixir, Phoenix LiveView, PostgreSQL, Docker}
-        \end{highlights}
-    \end{twocolentry}
-
-    \vspace{0.2 cm}
-    \begin{twocolentry}{2022 - 2024}
-        \textbf{Glaucoma Segmentation (master's thesis)}
-        \hspace{0.5em} | \hspace{0.5em}
-        \textit{\hrefWithoutArrow{https://github.com/AkosKappel/DP-GlaucomaSegmentation}{GitHub}}
-        \begin{highlights}
-            \item Proposed and evaluated two neural network architectures (cascade and dual decoder) for optic disc and cup segmentation in fundus images. Best Dice score 96.8\,\% for the disc and 89.7\,\% for the cup, with the cup-to-disc ratio used for glaucoma screening. \textit{Python, PyTorch, OpenCV, Albumentations}
-        \end{highlights}
-    \end{twocolentry}
-
-    \section{Education}
-
-    \begin{twocolentry}{2022 - 2024}
-        \textbf{Ing., Intelligent Software Systems}, Slovak University of Technology in Bratislava, FIIT
-        \begin{highlights}
-            \item \textit{Thesis:} Neural network based semi-automatic segmentation methods to enhance the detection and monitoring of human eye diseases
-        \end{highlights}
-    \end{twocolentry}
-
-    \vspace{0.2 cm}
-    \begin{twocolentry}{2019 - 2022}
-        \textbf{Bc., Computer Science}, Slovak University of Technology in Bratislava, FIIT
-        \begin{highlights}
-            \item \textit{Thesis:} Problem generator for analytical geometry in the plane: conic sections
-        \end{highlights}
-    \end{twocolentry}
-
-    \section{Languages}
-    \begin{onecolentry}
-        \textbf{Slovak} (native), \textbf{Hungarian} (native), \textbf{English} (C1), \textbf{German} (A2)
-    \end{onecolentry}
-
-    \section{Interests}
-    \begin{onecolentry}
-        Self-hosting, Advent of Code, sports
-    \end{onecolentry}
+\section{Selected projects}
+\begin{itemize}
+  \project{SmartTech e-shop}{https://wtech.tailb52c43.ts.net}{2021, rebuilt 2026}{online shop with fuzzy search, checkout and admin area}{Laravel}
+  \project{Modern Fashion Store}{https://tagline.tailb52c43.ts.net}{2025, rebuilt 2026}{inventory dashboard with live updates}{Elixir, Phoenix}
+  \project{Glaucoma segmentation}{https://github.com/AkosKappel/DP-GlaucomaSegmentation}{master's thesis}{neural networks for eye images, Dice score up to 96.8\,\%}{PyTorch}
+  \project{This portfolio}{https://portfolio-taupe-eta-51.vercel.app/}{2026}{rebuilt with five older projects using AI coding agents}{Next.js}
+\end{itemize}
+{\small More:
+\href{https://akoskappel.github.io/Pokedex/}{Pokédex},
+\href{https://akoskappel.github.io/FakeShop/}{FakeShop},
+\href{https://akoskappel.github.io/FeastFinder/}{Feast Finder},
+\href{https://github.com/AkosKappel/BudgetMaster}{Budget Master},
+\href{https://github.com/AkosKappel/Advent-of-Code}{Advent of Code},
+\href{https://the-norb.itch.io/iridescent}{Iridescent}
+and others on \href{https://portfolio-taupe-eta-51.vercel.app/projects}{\color{accent}my portfolio}.}
 
 \end{document}

@@ -1,0 +1,75 @@
+% Shared layout for the English and Slovak CV. Each main-*.tex sets the texts.
+\usepackage[a4paper, top=1.2cm, bottom=1.3cm, left=1.5cm, right=1.5cm, footskip=0.8cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default, semibold]{sourcesanspro}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[explicit]{titlesec}
+\usepackage{needspace}
+\usepackage{tikz}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{31, 78, 140}
+\definecolor{muted}{RGB}{95, 105, 118}
+\definecolor{rule}{RGB}{205, 212, 220}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.06}
+
+\pagestyle{empty}
+
+% Section heading: accent title followed by a hairline that fills the line.
+\titleformat{\section}{\needspace{4\baselineskip}\large\bfseries\color{accent}}{}{0pt}{#1\hspace{0.6em}{\color{rule}\leaders\hbox{\rule[0.3em]{1pt}{0.6pt}}\hfill\kern0pt}}
+\titlespacing*{\section}{0pt}{0.8\baselineskip}{0.35\baselineskip}
+
+\setlist[itemize]{leftmargin=1.1em, topsep=1pt, itemsep=1pt, parsep=0pt, label={\color{accent}\textbullet}}
+
+\newcommand{\contact}[3]{\mbox{\href{#2}{\color{muted}#1\hspace{0.35em}\color{black}#3}}}
+
+% \cvheader{photo}{name}{headline}{contact line}
+\newcommand{\cvheader}[4]{%
+  \begin{minipage}[c]{2.55cm}
+    \begin{tikzpicture}
+      \clip (0,0) circle (1.2cm);
+      \node at (0,0) {\includegraphics[width=2.4cm]{#1}};
+    \end{tikzpicture}
+  \end{minipage}%
+  \hspace{0.5cm}%
+  \begin{minipage}[c]{\dimexpr\linewidth-3.05cm}
+    {\fontsize{26}{28}\selectfont\bfseries #2}\\[3pt]
+    {\large\color{accent} #3}\\[6pt]
+    {\small #4}
+  \end{minipage}
+  \vspace{0.2cm}
+}
+
+% \job{role}{company}{place}{dates}
+\newcommand{\job}[4]{%
+  \needspace{3\baselineskip}%
+  \vspace{0.35\baselineskip}
+  {\bfseries #1}, #2 {\color{muted}\small(#3)}\hfill{\small\color{muted}#4}\par
+}
+
+% Small grey line with the technologies of a job or project.
+\newcommand{\tech}[1]{{\small\color{muted}#1}\par}
+
+% \skillrow{area}{skills}
+\newcommand{\skillrow}[2]{\textbf{#1} & #2 \\[2pt]}
+\newenvironment{skills}{\small\tabularx{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.1cm}X@{}}}{\endtabularx}
+
+% \project{name}{url}{years}{description}{technologies}
+\newcommand{\project}[5]{%
+  \item {\bfseries\href{#2}{#1}}\hspace{0.3em}{\scriptsize\color{accent}\faExternalLink*}\hspace{0.3em}{\small\color{muted}(#3)}: #4\hfill{\small\color{muted}#5}
+}
+
+% \degree{degree}{school}{years}{thesis}
+\newcommand{\degree}[4]{%
+  \vspace{0.3\baselineskip}
+  {\bfseries #1}, #2\hfill{\small\color{muted}#3}\par
+  \ifx\relax#4\relax\else{\small #4}\par\fi
+}
