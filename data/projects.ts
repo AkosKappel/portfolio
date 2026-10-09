@@ -29,10 +29,10 @@ export const projectsData = [
   {
     title: "FakeShop",
     description:
-      "A mock online store for shopping fake products from a public API.",
+      "Demo online store with 194 products from DummyJSON: instant search, filters and sorting kept in the URL, wishlist, cart with promo codes and a full checkout with card validation. Dark mode, accessible, tested with Vitest and Playwright, deployed to GitHub Pages.",
     image: "/images/projects/eshop.png",
     tag: ["Web", "Solo"],
-    stack: ["React", "Tailwind"],
+    stack: ["React", "React Router", "TypeScript", "Tailwind", "Playwright"],
     gitUrl: "https://github.com/AkosKappel/FakeShop",
     previewUrl: "https://akoskappel.github.io/FakeShop",
   },
