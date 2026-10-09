@@ -60,16 +60,15 @@
 
 % \skillrow{area}{skills}
 \newcommand{\skillrow}[2]{\textbf{#1} & #2 \\[2pt]}
-\newenvironment{skills}{\small\tabularx{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.1cm}X@{}}}{\endtabularx}
+\newenvironment{skills}{\small\tabularx{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.9cm}X@{}}}{\endtabularx}
 
 % \project{name}{url}{years}{description}{technologies}
 \newcommand{\project}[5]{%
   \item {\bfseries\href{#2}{#1}}\hspace{0.3em}{\scriptsize\color{accent}\faExternalLink*}\hspace{0.3em}{\small\color{muted}(#3)}: #4\hfill{\small\color{muted}#5}
 }
 
-% \degree{degree}{school}{years}{thesis}
-\newcommand{\degree}[4]{%
-  \vspace{0.3\baselineskip}
-  {\bfseries #1}, #2\hfill{\small\color{muted}#3}\par
-  \ifx\relax#4\relax\else{\small #4}\par\fi
+% \degree{degree}{thesis}{years}
+\newcommand{\degree}[3]{%
+  \vspace{0.25\baselineskip}
+  {\bfseries #1}: {\small #2}\hfill{\small\color{muted}#3}\par
 }
