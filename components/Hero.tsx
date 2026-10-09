@@ -1,12 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React, { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import personalData from "@/data/personal";
 
 const languageOptions = [
-  // first option is default
   {
     label: "English",
     file: "/CV_Akos_Kappel_(EN).pdf",
@@ -18,27 +16,6 @@ const languageOptions = [
 ];
 
 const Hero = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [hideDropdownTimeout, setHideDropdownTimeout] = useState<number | null>(null);
-
-  const handleMouseEnter = () => {
-    if (hideDropdownTimeout) {
-      clearTimeout(hideDropdownTimeout);
-      setHideDropdownTimeout(null);
-    }
-    setShowDropdown(true);
-  };
-
-  const handleMouseLeave = () => {
-    if (!hideDropdownTimeout) {
-      const timeoutId = window.setTimeout(() => {
-        setShowDropdown(false);
-        setHideDropdownTimeout(null);
-      }, 100);
-      setHideDropdownTimeout(timeoutId);
-    }
-  };
-
   return (
     <section id="hero">
       <div className="grid grid-cols-1 sm:grid-cols-12 md:m-8">
@@ -77,40 +54,24 @@ const Hero = () => {
             >
               <span className="block hover:bg-slate-800 rounded-full px-5 py-2">Contact Me</span>
             </a>
-            <div
-              className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a
-                href={languageOptions[0].file}
-                download={languageOptions[0].file}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-teal-400 to-blue-500 hover:bg-slate-800"
-              >
+            <details className="group relative">
+              <summary className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-teal-400 to-blue-500 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                 <span className="block hover:bg-slate-800 rounded-full px-5 py-2">Download CV</span>
-              </a>
-              {showDropdown && (
-                <div
-                  className="absolute top-full left-0 bg-slate-800 rounded-md p-2"
-                  style={{ marginTop: "0.5rem", width: "fit-content" }}
-                >
-                  {languageOptions.map((option) => (
+              </summary>
+              <ul className="absolute top-full left-0 mt-2 w-max bg-slate-800 rounded-md p-2">
+                {languageOptions.map((option) => (
+                  <li key={option.label}>
                     <a
-                      key={option.label}
                       href={option.file}
-                      download={option.file}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      download
                       className="block py-1 px-5 rounded-md hover:bg-slate-700"
                     >
                       {option.label}
                     </a>
-                  ))}
-                </div>
-              )}
-            </div>
+                  </li>
+                ))}
+              </ul>
+            </details>
           </div>
         </motion.div>
         <motion.div

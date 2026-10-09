@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React, { useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import Education from "@/components/ui/Education";
 import Skills from "@/components/ui/Skills";
 import Socials from "@/components/ui/Socials";

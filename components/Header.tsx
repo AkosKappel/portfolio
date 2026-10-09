@@ -1,7 +1,7 @@
 "use client";
 import { Bars3Icon, FolderIcon, InformationCircleIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import MenuOverlay from "@/components/ui/MenuOverlay";
 import NavItem from "@/components/ui/NavItem";
 
@@ -33,6 +33,7 @@ const Header = () => {
         <div className="mobile-menu block md:hidden">
           {!isNavbarOpen ? (
             <button
+              type="button"
               onClick={() => setNavbarOpen(true)}
               className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
             >
@@ -40,6 +41,7 @@ const Header = () => {
             </button>
           ) : (
             <button
+              type="button"
               onClick={() => setNavbarOpen(false)}
               className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
             >
@@ -49,8 +51,8 @@ const Header = () => {
         </div>
         <div className="menu hidden md:block md:w-auto" id="navbar">
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
-            {navLinks.map((link, index) => (
-              <li key={index}>
+            {navLinks.map((link) => (
+              <li key={link.path}>
                 <NavItem href={link.path} title={link.title} icon={link.icon} />
               </li>
             ))}

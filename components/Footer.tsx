@@ -1,5 +1,4 @@
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
-import React from "react";
 import { FaGithub, FaGitlab, FaLinkedin } from "react-icons/fa";
 import personalData from "@/data/personal";
 

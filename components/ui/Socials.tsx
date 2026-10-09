@@ -1,6 +1,6 @@
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { ClipboardIcon } from "@heroicons/react/24/solid";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaGithub, FaGitlab, FaLinkedin } from "react-icons/fa";
 import personalData from "@/data/personal";
 
@@ -42,7 +42,7 @@ const Socials = () => {
         <FaLinkedin className="h-12 w-12 mr-2" />
         <span>LinkedIn</span>
       </a>
-      <button onClick={copyEmail} className="hover:text-teal-400 flex items-center">
+      <button type="button" onClick={copyEmail} className="hover:text-teal-400 flex items-center">
         <EnvelopeIcon className="h-12 w-12 mr-2" />
         {copied ? (
           <>

@@ -1,13 +1,15 @@
 import { BriefcaseIcon, CalendarIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
-import React from "react";
 import workExperienceData from "@/data/workExperience";
 
 const WorkExperience = () => {
   return (
     <section>
       <div className="space-y-6">
-        {workExperienceData.map((job, index) => (
-          <div key={index} className="p-6 bg-slate-700 shadow-md rounded-md dark:bg-slate-900">
+        {workExperienceData.map((job) => (
+          <div
+            key={`${job.company}-${job.dates}`}
+            className="p-6 bg-slate-700 shadow-md rounded-md dark:bg-slate-900"
+          >
             <h3 className="flex items-center text-2xl font-semibold text-white dark:text-slate-200">
               <BriefcaseIcon className="w-6 h-6 mr-2" />
               {job.position}, {job.company}
@@ -21,8 +23,8 @@ const WorkExperience = () => {
                 Responsibilities:
               </h4>
               <ul className="list-disc ml-6 text-slate-300 dark:text-slate-400">
-                {job.responsibilities.map((task, idx) => (
-                  <li key={idx}>{task}</li>
+                {job.responsibilities.map((task) => (
+                  <li key={task}>{task}</li>
                 ))}
               </ul>
             </div>

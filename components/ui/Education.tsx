@@ -1,13 +1,12 @@
 import { AcademicCapIcon, BookOpenIcon, CalendarIcon } from "@heroicons/react/24/outline";
-import React from "react";
 import educationData from "@/data/education";
 
 const Education = () => {
   return (
     <section>
       <div className="space-y-6">
-        {educationData.map((edu, index: number) => (
-          <div key={index} className="p-6 bg-slate-700 shadow-md rounded-md dark:bg-slate-900">
+        {educationData.map((edu) => (
+          <div key={edu.title} className="p-6 bg-slate-700 shadow-md rounded-md dark:bg-slate-900">
             <h3 className="flex items-center text-2xl font-semibold text-white dark:text-slate-200">
               <AcademicCapIcon className="w-6 h-6 mr-2" />
               {edu.title}

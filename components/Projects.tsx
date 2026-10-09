@@ -1,6 +1,6 @@
 "use client";
 import { motion, useInView } from "framer-motion";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ProjectCard from "@/components/ui/ProjectCard";
 import ProjectTag from "@/components/ui/ProjectTag";
 import projectsData from "@/data/projects";
@@ -82,8 +82,9 @@ const Projects = () => {
       </ul>
       {totalPages > 1 && (
         <div className="flex justify-center mt-8 space-x-2">
-          {Array.from({ length: totalPages }).map((_, pageIndex) => (
+          {Array.from({ length: totalPages }, (_, page) => page).map((pageIndex) => (
             <button
+              type="button"
               key={pageIndex}
               onClick={() => handlePageChange(pageIndex)}
               className={`w-4 h-4 rounded-full ${

@@ -20,7 +20,7 @@ const TabButton = ({
     : "text-gray-400";
 
   return (
-    <button onClick={selectTab} className="mx-2">
+    <button type="button" onClick={selectTab} className="mx-2">
       <p className={`mr-3 font-semibold ${buttonClasses}`}>{children}</p>
       <motion.div
         animate={active ? "active" : "default"}

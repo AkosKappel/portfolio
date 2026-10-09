@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!latex"]
+    "includes": ["**", "!latex", "!public"]
   },
   "formatter": {
     "enabled": true,

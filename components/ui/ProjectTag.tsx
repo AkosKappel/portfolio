@@ -1,5 +1,3 @@
-import React from "react";
-
 const ProjectTag = ({
   name,
   onClick,
@@ -14,6 +12,7 @@ const ProjectTag = ({
     : "text-gray-400 border-slate-600 hover:border-white";
   return (
     <button
+      type="button"
       className={`${buttonStyles} rounded-full border-2 px-8 py-3 text-xl cursor-pointer bg-gray-800`}
       onClick={() => onClick(name)}
     >
