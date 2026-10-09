@@ -49,7 +49,13 @@ export default function HomePage() {
             <SignalCanvas />
           </div>
           <figcaption className="mt-3 text-sm text-muted">
-            <span className="text-raw">Raw</span> and <span className="text-clean">filtered</span>{" "}
+            <span className="text-ink underline decoration-raw decoration-2 underline-offset-4">
+              Raw
+            </span>{" "}
+            and{" "}
+            <span className="text-ink underline decoration-clean decoration-2 underline-offset-4">
+              filtered
+            </span>{" "}
             signals, drawn with WebGL. Move your pointer across them to move the filter.
           </figcaption>
         </figure>

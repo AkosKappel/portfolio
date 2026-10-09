@@ -1,6 +1,6 @@
 "use client";
 
-import { rankItem } from "@tanstack/match-sorter-utils";
+import { rankItem, rankings } from "@tanstack/match-sorter-utils";
 import {
   columnFilteringFeature,
   createColumnHelper,
@@ -38,9 +38,19 @@ const features = tableFeatures({
 
 type Features = typeof features;
 
-/** Typo-tolerant match over title, summary and stack ("pythn" still finds Python). */
-const fuzzyFilter: FilterFn<Features, Project> = (row, columnId, value: string) =>
-  rankItem(row.getValue(columnId), value).passed;
+/**
+ * Ranks each field on its own so a loose match in a long summary cannot win:
+ * titles and technologies allow missing letters ("kotln" finds Kotlin),
+ * the summary only matches whole substrings.
+ */
+const fuzzyFilter: FilterFn<Features, Project> = (row, _columnId, value: string) =>
+  rankItem(row.original, value, {
+    accessors: [
+      (project) => project.title,
+      (project) => project.stack,
+      { accessor: (project) => project.summary, threshold: rankings.CONTAINS },
+    ],
+  }).passed;
 
 const helper = createColumnHelper<Features, Project>();
 const columns = helper.columns([
@@ -48,10 +58,8 @@ const columns = helper.columns([
   helper.accessor("year", { header: "Year", sortFn: "basic", sortDescFirst: true }),
   helper.accessor("area", { header: "Area", filterFn: "equalsString", enableSorting: false }),
   helper.accessor("kind", { header: "Type", enableSorting: false }),
-  helper.accessor((project) => [project.title, project.summary, ...project.stack].join(" "), {
-    id: "search",
-    header: "Search",
-  }),
+  // Target column for the global search; the filter ranks the project's fields itself.
+  helper.accessor((project) => project.title, { id: "search", header: "Search" }),
 ]);
 
 const areas: ProjectArea[] = ["Web", "AI", "Infrastructure", "Games", "Challenges"];

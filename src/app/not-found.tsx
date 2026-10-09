@@ -5,7 +5,7 @@ import { navigation } from "@/content/site";
 export default function NotFound() {
   return (
     <Page className="py-24">
-      <p className="font-display text-xl text-raw">404</p>
+      <p className="font-display text-xl text-muted">Error 404</p>
       <h1 className="mt-2 text-4xl font-semibold sm:text-6xl">This page does not exist</h1>
       <p className="mt-5 max-w-xl text-lg text-muted">
         The link may be old or mistyped. These pages do exist:

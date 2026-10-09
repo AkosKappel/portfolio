@@ -16,7 +16,8 @@ describe("projects", () => {
 
   it("point to images that exist", () => {
     for (const project of projects) {
-      if (project.image) expect(existsSync(join(publicDir, project.image.src)), project.slug).toBe(true);
+      if (project.image)
+        expect(existsSync(join(publicDir, project.image.src)), project.slug).toBe(true);
     }
   });
 

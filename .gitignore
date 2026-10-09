@@ -55,3 +55,7 @@ CV-NOTES.md
 
 # git worktrees
 /.worktrees/
+
+# playwright
+/test-results/
+/playwright-report/
