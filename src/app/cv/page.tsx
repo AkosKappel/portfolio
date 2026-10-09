@@ -63,7 +63,13 @@ export default function CvPage() {
                   <li key={item.name}>
                     <strong className="font-semibold">{item.name}</strong> ({item.context}):{" "}
                     {item.summary}
-                    {item.highlights.length ? ` ${item.highlights.join("; ")}.` : ""}
+                    {item.highlights.length ? (
+                      <ul className="mt-1 list-[circle] space-y-1 pl-5 text-muted">
+                        {item.highlights.map((highlight) => (
+                          <li key={highlight}>{highlight}</li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </li>
                 ))}
               </ul>

@@ -20,9 +20,9 @@ export function CopyButton({ value, label }: { value: string; label: string }) {
     <button
       type="button"
       onClick={copy}
-      className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-4 py-2 text-sm font-medium transition-colors hover:border-ink"
+      className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-medium transition-colors hover:border-ink"
     >
-      {copied ? <Check aria-hidden size={16} /> : <Copy aria-hidden size={16} />}
+      {copied ? <Check aria-hidden size={18} /> : <Copy aria-hidden size={18} />}
       <span aria-live="polite">{copied ? "Copied" : label}</span>
     </button>
   );
