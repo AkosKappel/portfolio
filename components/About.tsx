@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { useState, useTransition } from "react";
 import Education from "@/components/ui/Education";

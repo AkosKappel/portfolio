@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import personalData from "@/data/personal";
