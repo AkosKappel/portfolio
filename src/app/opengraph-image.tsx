@@ -5,15 +5,6 @@ export const alt = `${site.name}, ${site.headline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-function trace(offset: number, noisy: boolean) {
-  return Array.from({ length: 121 }, (_, i) => {
-    const x = i * 10;
-    const clean = Math.sin(i * 0.18 + offset) * 26 + Math.sin(i * 0.47 + offset * 2) * 10;
-    const noise = noisy ? Math.sin(i * 2.7 + offset * 5) * 9 + Math.sin(i * 5.3) * 6 : 0;
-    return `${i === 0 ? "M" : "L"}${x} ${(clean + noise).toFixed(1)}`;
-  }).join(" ");
-}
-
 export default function OpenGraphImage() {
   return new ImageResponse(
     <div
@@ -21,36 +12,33 @@ export default function OpenGraphImage() {
         width: "100%",
         height: "100%",
         display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
+        alignItems: "center",
+        gap: 64,
         background: "#f1f3f6",
         color: "#142233",
-        padding: "72px 80px",
+        padding: "80px",
       }}
     >
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <div style={{ fontSize: 88, fontWeight: 700, letterSpacing: -3 }}>{site.name}</div>
-        <div style={{ fontSize: 44, color: "#2146d0", marginTop: 8 }}>{site.headline}</div>
-      </div>
-      <svg width="1040" height="220" viewBox="0 -110 1200 220" style={{ display: "flex" }}>
-        <title>Signal traces</title>
-        <path
-          d={trace(0, true)}
-          transform="translate(0 -50)"
+      <svg width="260" height="260" viewBox="0 0 512 512" style={{ display: "flex" }}>
+        <title>AK</title>
+        <g
           fill="none"
-          stroke="#d9700f"
-          strokeWidth="4"
-        />
-        <path
-          d={trace(1.3, false)}
-          transform="translate(0 50)"
-          fill="none"
-          stroke="#2146d0"
-          strokeWidth="4"
-        />
+          stroke="#142233"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="35"
+        >
+          <circle cx="254.5" cy="260.5" r="191" strokeWidth="34" />
+          <path d="M130 337 L182 190 Q189 172 196 190 L254 337 M146 298 H238" />
+          <path d="M279.5 176 V337 M370 176 L302 268 M322 266 L381 337" />
+        </g>
       </svg>
-      <div style={{ fontSize: 28, color: "#4f5d6e" }}>
-        React, TypeScript, Kotlin, Elixir and WebGL
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ fontSize: 84, fontWeight: 700, letterSpacing: -3 }}>{site.name}</div>
+        <div style={{ fontSize: 42, color: "#1f3a5f", marginTop: 8 }}>{site.headline}</div>
+        <div style={{ fontSize: 28, color: "#4f5d6e", marginTop: 28 }}>
+          React, TypeScript, Kotlin, Spring Boot, Elixir
+        </div>
       </div>
     </div>,
     size,

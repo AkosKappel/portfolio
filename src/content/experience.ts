@@ -4,38 +4,54 @@ import type { Job } from "./types";
 export const jobs: Job[] = [
   {
     role: "Full-Stack Software Engineer",
-    company: "IGT Systems (formerly IGT Consulting)",
-    location: "Bratislava, hybrid",
+    company: "IGT Systems",
+    location: { en: "Bratislava, hybrid", sk: "Bratislava, hybridne" },
     start: "2025-02",
-    summary:
-      "Product work for several clients in teams of two to eight developers, across web, mobile and backend.",
+    summary: {
+      en: "Web, mobile and backend work on several client products, in teams of two to eight developers.",
+      sk: "Webové, mobilné a backendové projekty pre viacerých klientov v tímoch od dvoch do ôsmich vývojárov.",
+    },
     items: [
       {
         name: "Core3",
         url: "https://www.core3.digital/",
-        context: "Business platform with project management, attendance, CRM, HR and ticketing",
-        summary:
-          "Owned the Project Management module and made slow pages fast after users complained about them.",
+        context: {
+          en: "Business platform for projects, attendance, HR, CRM and ticketing",
+          sk: "Firemná platforma pre projekty, dochádzku, HR, CRM a tikety",
+        },
         highlights: [
-          "Kanban with drag and drop, per-status rules and move permissions",
-          "Task permissions for creators, assignees and project leads; Scrum and Waterfall methodologies",
-          "Profiled with flame graphs and removed N+1 queries in PostgreSQL and MongoDB",
-          "Caching with invalidation, async streams with infinite scroll, ordered PubSub updates",
-          "Loading skeletons and optimistic UI for pending states",
+          {
+            en: "Responsible for the project management module: kanban boards, task permissions, Scrum and Waterfall workflows",
+            sk: "Zodpovedný za modul projektového manažmentu: kanban, oprávnenia k úlohám, postupy Scrum a Waterfall",
+          },
+          {
+            en: "Made the slowest pages fast by fixing N+1 database queries, adding caching and loading data in the background",
+            sk: "Zrýchlil najpomalšie stránky opravou N+1 dopytov do databázy, cache a načítavaním dát na pozadí",
+          },
+          {
+            en: "Loading skeletons and instant feedback while data is being saved",
+            sk: "Skeleton načítanie a okamžitá odozva počas ukladania dát",
+          },
         ],
         stack: ["Elixir", "Phoenix LiveView", "PostgreSQL", "MongoDB", "Cypress"],
       },
       {
         name: "WYDO",
         url: "https://wydo.sk/",
-        context: "App for finding sports activities and people to play with",
-        summary:
-          "Started the mobile app, then the promo site, then moved the web from Kotlin Multiplatform to its own React app.",
+        context: {
+          en: "App for finding sports activities and people to play with",
+          sk: "Aplikácia na hľadanie športových aktivít a spoluhráčov",
+        },
         highlights: [
-          "Kotlin Multiplatform app for Android and iOS: map with clustering, search and filters, groups, chat over WebSockets, four languages",
-          "React web app with virtualized feeds, push notifications, passkey login, per-route SEO and PWA support",
-          "Spring Boot backend features, including full WebAuthn passkey support",
-          "Unit and end-to-end tests with Vitest and Playwright",
+          {
+            en: "Started the Android and iOS app in Kotlin Multiplatform: map, search and filters, groups and chat",
+            sk: "Začal aplikáciu pre Android a iOS v Kotlin Multiplatform: mapa, vyhľadávanie a filtre, skupiny a chat",
+          },
+          {
+            en: "Built the promo site and then the React web app, with SEO and support for four languages",
+            sk: "Vytvoril promo stránku a potom webovú aplikáciu v Reacte s SEO a podporou štyroch jazykov",
+          },
+          { en: "Backend features in Spring Boot", sk: "Funkcie backendu v Spring Boot" },
         ],
         stack: [
           "Kotlin",
@@ -49,87 +65,105 @@ export const jobs: Job[] = [
       {
         name: "CleanEEG",
         url: "https://cleaneeg.com/",
-        context: "Service that removes artifacts from EEG recordings",
-        summary: "Built the frontend from scratch in a team of two.",
+        context: {
+          en: "Service that removes noise from EEG recordings",
+          sk: "Služba, ktorá odstraňuje šum z EEG záznamov",
+        },
         highlights: [
-          "Fast WebGL EEG viewer comparing raw and cleaned signals across many channels",
-          "Client-side high-pass, low-pass and notch filters, keyboard controls, fullscreen",
-          "Signup, billing, notifications and a file dashboard with drag-and-drop upload",
+          {
+            en: "Built the web app from scratch, including a WebGL viewer that compares raw and cleaned signals",
+            sk: "Vytvoril webovú aplikáciu od nuly vrátane WebGL prehliadača pôvodných a vyčistených signálov",
+          },
+          {
+            en: "Signup, billing, notifications and a file dashboard with drag-and-drop upload",
+            sk: "Registrácia, platby, notifikácie a prehľad súborov s nahrávaním cez drag and drop",
+          },
         ],
         stack: ["React", "TypeScript", "TanStack", "Plotly", "Tailwind CSS"],
       },
       {
-        name: "Internal analytics dashboard",
-        context: "Data pipeline monitoring for a large enterprise client",
-        summary: "Built the frontend so that new sections are added as routes from reusable parts.",
+        name: "Analytics dashboard",
+        context: {
+          en: "Data pipeline monitoring for a large enterprise client",
+          sk: "Monitorovanie dátových procesov pre veľkého firemného klienta",
+        },
         highlights: [
-          "Generic typed data grid with nested rows, sorting and resizable columns",
-          "Filters, sorting and pagination kept in the URL",
-          "Role-based read-only mode",
+          {
+            en: "Built the frontend from reusable parts, so a new section is a new route",
+            sk: "Vytvoril frontend zo znovupoužiteľných častí, takže nová sekcia je len nová routa",
+          },
         ],
-        stack: ["React", "TypeScript", "TanStack Query", "Zod", "Tailwind CSS"],
+        stack: ["React", "TypeScript", "TanStack Query", "Zod"],
       },
     ],
   },
   {
     role: "Full-Stack Developer",
     company: "Švarba s.r.o.",
-    location: "Nové Zámky, remote",
+    location: { en: "remote", sk: "na diaľku" },
     start: "2024-06",
     end: "2025-01",
-    summary:
-      "Back-office system for an international direct-sales company: a new React web app that joined and replaced older Laravel and Nette monoliths.",
+    summary: {
+      en: "A new back office for an international direct-sales company.",
+      sk: "Nový back office pre medzinárodnú firmu s priamym predajom.",
+    },
     items: [
       {
-        name: "REST API",
-        context: "TypeScript and Express",
-        summary: "Designed and built the API behind the new web app.",
+        name: "Back office",
+        context: { en: "React app and REST API", sk: "Aplikácia v Reacte a REST API" },
         highlights: [
-          "MSSQL with stored procedures, JWT authentication, generated OpenAPI documentation",
-          "Cron jobs for e-mails, imports and exports, WebSocket notifications over Redis",
-          "Automatic translations with the OpenAI API",
-          "200+ unit and integration tests with Jest and supertest",
+          {
+            en: "Built the REST API behind a new React back office that replaced several older PHP applications",
+            sk: "Vytvoril REST API pre nový back office v Reacte, ktorý nahradil niekoľko starších PHP aplikácií",
+          },
+          {
+            en: "Real-time notifications, scheduled imports and exports, translations with the OpenAI API, automated tests",
+            sk: "Notifikácie v reálnom čase, plánované importy a exporty, preklady cez OpenAI API, automatické testy",
+          },
+          {
+            en: "Maintained the older PHP system: reports, data grids and SQL",
+            sk: "Údržba staršieho PHP systému: reporty, tabuľky a SQL",
+          },
         ],
-        stack: ["TypeScript", "Node.js", "Express", "MSSQL", "Redis", "Jest"],
-      },
-      {
-        name: "Web app and legacy system",
-        context: "React, PHP and Nette",
-        summary: "Worked on the new React app and maintained the legacy PHP system.",
-        highlights: [
-          "Reports, data grids and T-SQL in the legacy system",
-          "React forms for the new web app",
+        stack: [
+          "TypeScript",
+          "Node.js",
+          "Express",
+          "React",
+          "MSSQL",
+          "Redis",
+          "Jest",
+          "PHP",
+          "Nette",
         ],
-        stack: ["React", "PHP", "Nette", "T-SQL"],
       },
     ],
   },
   {
     role: "Junior Python Developer",
     company: "SoftPoint s.r.o.",
-    location: "Bratislava, hybrid",
+    location: { en: "Bratislava, hybrid", sk: "Bratislava, hybridne" },
     start: "2023-10",
     end: "2024-05",
-    summary: "Data integration and automation for a large e-commerce retailer.",
+    summary: {
+      en: "Data integration and automation for a large e-commerce retailer.",
+      sk: "Integrácia dát a automatizácia pre veľký e-shop.",
+    },
     items: [
       {
-        name: "Supplier data pipelines",
-        context: "Python and Airflow",
-        summary:
-          "Built ETL pipelines that import product, price and stock data into the data warehouse.",
+        name: "Supplier data",
+        context: { en: "Python and Airflow", sk: "Python a Airflow" },
         highlights: [
-          "Sources: supplier websites, APIs, and XML, XLSX and FTP feeds",
-          "Selenium scraping of supplier B2B portals",
+          {
+            en: "Built data pipelines that import products, prices and stock from more than 20 suppliers",
+            sk: "Vytvoril dátové pipeline na import produktov, cien a zásob od viac ako 20 dodávateľov",
+          },
+          {
+            en: "Automated ordering on 20 supplier web shops with headless-browser scripts in Ruby, a language I learned for this",
+            sk: "Automatizoval objednávanie v 20 e-shopoch dodávateľov skriptmi v Ruby, ktoré som sa kvôli tomu naučil",
+          },
         ],
-        stack: ["Python", "Airflow", "pandas", "Selenium", "PostgreSQL", "FastAPI"],
-      },
-      {
-        name: "Order automation",
-        context: "Ruby",
-        summary:
-          "Wrote headless-browser scripts that place warehouse orders with suppliers, after learning Ruby for the task.",
-        highlights: [],
-        stack: ["Ruby"],
+        stack: ["Python", "Airflow", "pandas", "Selenium", "Ruby", "PostgreSQL", "FastAPI"],
       },
     ],
   },

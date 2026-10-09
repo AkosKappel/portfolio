@@ -1,59 +1,66 @@
-export type ProjectKind = "Personal" | "University" | "Team";
-export type ProjectArea = "Web" | "AI" | "Games" | "Infrastructure" | "Challenges";
+import type { Locale } from "@/i18n/routing";
+
+/** Text in every language the site supports. */
+export type Text = Record<Locale, string>;
+
+export function pick(text: Text, locale: Locale) {
+  return text[locale];
+}
+
+export type ProjectKind = "personal" | "university" | "team";
+export type ProjectArea = "web" | "ai" | "games" | "infrastructure" | "challenges";
 
 export type Project = {
   slug: string;
   title: string;
   /** One sentence for cards and link previews. */
-  summary: string;
+  summary: Text;
   /** Paragraphs for the project page. */
-  description: string[];
-  highlights?: string[];
+  description: Text[];
+  highlights?: Text[];
   kind: ProjectKind;
   area: ProjectArea;
   /** First year of work. */
   year: number;
-  /** Set when an old project was brought up to date. */
-  upgraded?: number;
-  role?: string;
+  /** Last year of work, when the project ran over several years or was rebuilt. */
+  until?: number;
+  role?: Text;
   stack: string[];
   repoUrl?: string;
   liveUrl?: string;
-  image?: { src: string; width: number; height: number; alt: string };
+  image?: { src: string; width: number; height: number; alt: Text };
   featured?: boolean;
 };
 
 export type WorkItem = {
   name: string;
   url?: string;
-  context: string;
-  summary: string;
-  highlights: string[];
+  context: Text;
+  highlights: Text[];
   stack: string[];
 };
 
 export type Job = {
   role: string;
   company: string;
-  location: string;
+  location: Text;
   start: string;
   end?: string;
-  summary: string;
+  summary: Text;
   items: WorkItem[];
 };
 
 export type Degree = {
-  degree: string;
-  field: string;
-  school: string;
+  degree: Text;
+  field: Text;
+  school: Text;
   url?: string;
   start: number;
   end: number;
-  thesis?: { title: string; url?: string };
+  thesis?: { title: Text; url?: string };
 };
 
 export type SkillGroup = {
-  name: string;
-  description: string;
+  name: Text;
   skills: string[];
 };

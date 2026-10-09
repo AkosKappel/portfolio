@@ -3,7 +3,15 @@
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 
-export function CopyButton({ value, label }: { value: string; label: string }) {
+export function CopyButton({
+  value,
+  label,
+  copiedLabel,
+}: {
+  value: string;
+  label: string;
+  copiedLabel: string;
+}) {
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
@@ -23,7 +31,7 @@ export function CopyButton({ value, label }: { value: string; label: string }) {
       className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-medium transition-colors hover:border-ink"
     >
       {copied ? <Check aria-hidden size={18} /> : <Copy aria-hidden size={18} />}
-      <span aria-live="polite">{copied ? "Copied" : label}</span>
+      <span aria-live="polite">{copied ? copiedLabel : label}</span>
     </button>
   );
 }

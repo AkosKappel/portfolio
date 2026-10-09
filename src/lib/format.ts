@@ -1,13 +1,15 @@
-const monthFormat = new Intl.DateTimeFormat("en-GB", { month: "short", year: "numeric" });
+import type { Locale } from "@/i18n/routing";
 
-/** Formats an ISO month ("2025-02") as "Feb 2025". */
-export function formatMonth(isoMonth: string) {
+/** Formats an ISO month ("2025-02") as "Feb 2025" in English and "02/2025" in Slovak. */
+export function formatMonth(isoMonth: string, locale: Locale) {
   const [year, month] = isoMonth.split("-").map(Number);
-  return monthFormat.format(new Date(Date.UTC(year, month - 1, 1)));
-}
-
-export function formatPeriod(start: string, end?: string) {
-  return `${formatMonth(start)} to ${end ? formatMonth(end) : "now"}`;
+  // Slovak month names change with the grammatical case ("od februára"), so use numbers there.
+  if (locale === "sk") return `${String(month).padStart(2, "0")}/${year}`;
+  return new Intl.DateTimeFormat(locale, {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(Date.UTC(year, month - 1, 1)));
 }
 
 /** Whole months between two ISO months, counting both ends. */
@@ -17,20 +19,6 @@ export function monthsBetween(start: string, end: string) {
   return (endYear - startYear) * 12 + (endMonth - startMonth) + 1;
 }
 
-export function formatDuration(months: number) {
-  const years = Math.floor(months / 12);
-  const rest = months % 12;
-  const parts = [];
-  if (years) parts.push(`${years} yr`);
-  if (rest) parts.push(`${rest} mo`);
-  return parts.join(" ");
-}
-
-export function slugify(value: string) {
-  return value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
+export function yearRange(start: number, end?: number) {
+  return end && end !== start ? `${start} – ${end}` : `${start}`;
 }

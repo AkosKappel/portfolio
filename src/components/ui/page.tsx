@@ -23,18 +23,3 @@ export function PageHeader({ title, lead }: { title: string; lead?: React.ReactN
     </header>
   );
 }
-
-export function StackList({ items, className = "" }: { items: string[]; className?: string }) {
-  return (
-    <ul className={`flex flex-wrap gap-1.5 ${className}`} aria-label="Technologies">
-      {items.map((item) => (
-        <li
-          key={item}
-          className="rounded-full border border-line px-2.5 py-0.5 text-[0.8rem] leading-5 text-muted"
-        >
-          {item}
-        </li>
-      ))}
-    </ul>
-  );
-}

@@ -1,0 +1,156 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "about": "About",
+    "contact": "Contact",
+    "cv": "CV",
+    "main": "Main"
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menu": "Menu",
+    "switchToDark": "Switch to dark theme",
+    "switchToLight": "Switch to light theme",
+    "language": "Language",
+    "downloadCv": "Download CV",
+    "pdf": "PDF",
+    "sourceCode": "Source code",
+    "liveDemo": "Live demo",
+    "copyEmail": "Copy email address",
+    "copied": "Copied",
+    "emailMe": "Email me",
+    "present": "now",
+    "period": "{start} to {end}",
+    "years": "{count, plural, one {# yr} other {# yrs}}",
+    "months": "{count, plural, one {# mo} other {# mos}}",
+    "technologies": "Technologies"
+  },
+  "languages": {
+    "en": "English",
+    "sk": "Slovak"
+  },
+  "footer": {
+    "pages": "Pages",
+    "elsewhere": "Elsewhere",
+    "builtWith": "Built with Next.js, React and Tailwind CSS."
+  },
+  "home": {
+    "viewProjects": "View projects",
+    "contact": "Contact me",
+    "selectedProjects": "Selected projects",
+    "allProjects": "All projects",
+    "currentWork": "What I work on now",
+    "currentRole": "{role} at {company} since {start}.",
+    "fullExperience": "Full experience",
+    "letsTalk": "Let's talk",
+    "otherWays": "Other ways to reach me"
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Personal, university and team projects: web apps, a master's thesis on glaucoma detection, a game and coding challenges.",
+    "lead": "Things I built on my own, at university and in teams. Several were rebuilt in 2026 with current tools, tests and live demos.",
+    "searchLabel": "Search projects",
+    "searchPlaceholder": "Search by name or technology",
+    "area": "Area",
+    "all": "All",
+    "areas": {
+      "web": "Web",
+      "ai": "AI",
+      "games": "Games",
+      "infrastructure": "Infrastructure",
+      "challenges": "Challenges"
+    },
+    "kinds": {
+      "personal": "Personal",
+      "university": "University",
+      "team": "Team"
+    },
+    "sort": "Sort",
+    "sortOptions": {
+      "recommended": "Recommended",
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "name": "Name"
+    },
+    "view": "View",
+    "gridView": "Grid view",
+    "tableView": "Table view",
+    "count": "{count} projects",
+    "countFiltered": "{count} of {total} projects",
+    "clearFilters": "Clear filters",
+    "emptyTitle": "No projects match these filters",
+    "emptyText": "Try another technology, or clear the filters to see everything.",
+    "tableCaption": "Projects, sortable by name and year",
+    "columns": {
+      "title": "Project",
+      "year": "Year",
+      "area": "Area",
+      "kind": "Type",
+      "stack": "Stack"
+    },
+    "back": "All projects",
+    "highlights": "Highlights",
+    "when": "When",
+    "type": "Type",
+    "role": "Supervision",
+    "stack": "Stack",
+    "previous": "Previous project",
+    "next": "Next project",
+    "moreProjects": "More projects"
+  },
+  "experience": {
+    "title": "Experience",
+    "description": "Full-stack work at IGT Systems, Švarba and SoftPoint: web, mobile and backend products and data pipelines.",
+    "lead": "Three companies since 2023, from data pipelines to mobile apps."
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "Frontend, backend, mobile, data, AI, DevOps and testing: the technologies I work with.",
+    "lead": "Grouped by area. Technologies used in my projects link to them.",
+    "practices": "Practices",
+    "projectCount": "{count, plural, one {# project} other {# projects}}"
+  },
+  "education": {
+    "title": "Education",
+    "description": "Master's degree in Intelligent Software Systems and bachelor's degree in Computer Science from the Slovak University of Technology in Bratislava.",
+    "lead": "Computer science and intelligent software systems at the Slovak University of Technology in Bratislava.",
+    "thesis": "Thesis",
+    "languages": "Languages"
+  },
+  "about": {
+    "title": "About me",
+    "description": "About Ákos Kappel: how I work and what I care about.",
+    "howIWork": "How I work",
+    "languages": "Languages",
+    "portrait": "Portrait of Ákos Kappel"
+  },
+  "contact": {
+    "title": "Contact",
+    "profiles": "Profiles",
+    "linkedin": "Work history and recommendations",
+    "github": "Personal projects and Advent of Code",
+    "gitlab": "University and team projects"
+  },
+  "cv": {
+    "title": "CV",
+    "description": "CV of Ákos Kappel, full-stack software engineer, with PDF downloads in English and Slovak.",
+    "lead": "The same content as the PDF, readable in the browser.",
+    "profile": "Profile",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Selected projects",
+    "education": "Education",
+    "languages": "Languages"
+  },
+  "notFound": {
+    "title": "This page does not exist",
+    "text": "The link may be old or mistyped. These pages do exist:",
+    "label": "Error 404"
+  }
+}

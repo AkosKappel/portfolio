@@ -1,0 +1,156 @@
+{
+  "nav": {
+    "home": "Domov",
+    "projects": "Projekty",
+    "experience": "Skúsenosti",
+    "skills": "Zručnosti",
+    "education": "Vzdelanie",
+    "about": "O mne",
+    "contact": "Kontakt",
+    "cv": "Životopis",
+    "main": "Hlavná"
+  },
+  "common": {
+    "skipToContent": "Preskočiť na obsah",
+    "openMenu": "Otvoriť menu",
+    "closeMenu": "Zavrieť menu",
+    "menu": "Menu",
+    "switchToDark": "Prepnúť na tmavý režim",
+    "switchToLight": "Prepnúť na svetlý režim",
+    "language": "Jazyk",
+    "downloadCv": "Stiahnuť životopis",
+    "pdf": "PDF",
+    "sourceCode": "Zdrojový kód",
+    "liveDemo": "Živé demo",
+    "copyEmail": "Kopírovať e-mail",
+    "copied": "Skopírované",
+    "emailMe": "Napíšte mi",
+    "present": "súčasnosť",
+    "period": "{start} až {end}",
+    "years": "{count, plural, one {# rok} few {# roky} other {# rokov}}",
+    "months": "{count, plural, one {# mesiac} few {# mesiace} other {# mesiacov}}",
+    "technologies": "Technológie"
+  },
+  "languages": {
+    "en": "Angličtina",
+    "sk": "Slovenčina"
+  },
+  "footer": {
+    "pages": "Stránky",
+    "elsewhere": "Inde",
+    "builtWith": "Vytvorené v Next.js, React a Tailwind CSS."
+  },
+  "home": {
+    "viewProjects": "Pozrieť projekty",
+    "contact": "Kontaktujte ma",
+    "selectedProjects": "Vybrané projekty",
+    "allProjects": "Všetky projekty",
+    "currentWork": "Na čom práve pracujem",
+    "currentRole": "{role} v {company} od {start}.",
+    "fullExperience": "Všetky skúsenosti",
+    "letsTalk": "Ozvite sa",
+    "otherWays": "Ďalšie kontakty"
+  },
+  "projects": {
+    "title": "Projekty",
+    "description": "Osobné, univerzitné a tímové projekty: webové aplikácie, diplomová práca o detekcii glaukómu, hra a programátorské výzvy.",
+    "lead": "Veci, ktoré som vytvoril sám, na univerzite a v tímoch. Viaceré som v roku 2026 prerobil s aktuálnymi nástrojmi, testami a živými demami.",
+    "searchLabel": "Hľadať projekty",
+    "searchPlaceholder": "Hľadať podľa názvu alebo technológie",
+    "area": "Oblasť",
+    "all": "Všetky",
+    "areas": {
+      "web": "Web",
+      "ai": "AI",
+      "games": "Hry",
+      "infrastructure": "Infraštruktúra",
+      "challenges": "Výzvy"
+    },
+    "kinds": {
+      "personal": "Osobný",
+      "university": "Univerzitný",
+      "team": "Tímový"
+    },
+    "sort": "Triediť",
+    "sortOptions": {
+      "recommended": "Odporúčané",
+      "newest": "Najnovšie",
+      "oldest": "Najstaršie",
+      "name": "Názov"
+    },
+    "view": "Zobrazenie",
+    "gridView": "Mriežka",
+    "tableView": "Tabuľka",
+    "count": "{count, plural, one {# projekt} few {# projekty} other {# projektov}}",
+    "countFiltered": "{count} z {total} projektov",
+    "clearFilters": "Zrušiť filtre",
+    "emptyTitle": "Týmto filtrom nezodpovedá žiadny projekt",
+    "emptyText": "Skúste inú technológiu alebo zrušte filtre a uvidíte všetko.",
+    "tableCaption": "Projekty, triediteľné podľa názvu a roku",
+    "columns": {
+      "title": "Projekt",
+      "year": "Rok",
+      "area": "Oblasť",
+      "kind": "Typ",
+      "stack": "Technológie"
+    },
+    "back": "Všetky projekty",
+    "highlights": "Hlavné body",
+    "when": "Kedy",
+    "type": "Typ",
+    "role": "Vedenie",
+    "stack": "Technológie",
+    "previous": "Predchádzajúci projekt",
+    "next": "Ďalší projekt",
+    "moreProjects": "Ďalšie projekty"
+  },
+  "experience": {
+    "title": "Skúsenosti",
+    "description": "Full-stack práca v IGT Systems, Švarba a SoftPoint: webové, mobilné a backendové produkty a dátové pipeline.",
+    "lead": "Tri firmy od roku 2023, od dátových pipeline po mobilné aplikácie."
+  },
+  "skills": {
+    "title": "Zručnosti",
+    "description": "Frontend, backend, mobilné aplikácie, dáta, AI, DevOps a testovanie: technológie, s ktorými pracujem.",
+    "lead": "Rozdelené podľa oblastí. Technológie použité v mojich projektoch na ne odkazujú.",
+    "practices": "Postupy",
+    "projectCount": "{count, plural, one {# projekt} few {# projekty} other {# projektov}}"
+  },
+  "education": {
+    "title": "Vzdelanie",
+    "description": "Inžinierske štúdium Inteligentné softvérové systémy a bakalárske štúdium Informatika na Slovenskej technickej univerzite v Bratislave.",
+    "lead": "Informatika a inteligentné softvérové systémy na Slovenskej technickej univerzite v Bratislave.",
+    "thesis": "Záverečná práca",
+    "languages": "Jazyky"
+  },
+  "about": {
+    "title": "O mne",
+    "description": "O Ákosovi Kappelovi: ako pracujem a na čom mi záleží.",
+    "howIWork": "Ako pracujem",
+    "languages": "Jazyky",
+    "portrait": "Portrét Ákosa Kappela"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "profiles": "Profily",
+    "linkedin": "Pracovná história a odporúčania",
+    "github": "Osobné projekty a Advent of Code",
+    "gitlab": "Univerzitné a tímové projekty"
+  },
+  "cv": {
+    "title": "Životopis",
+    "description": "Životopis Ákosa Kappela, full-stack vývojára, na stiahnutie v PDF v slovenčine a angličtine.",
+    "lead": "Rovnaký obsah ako v PDF, na čítanie v prehliadači.",
+    "profile": "Profil",
+    "experience": "Pracovné skúsenosti",
+    "skills": "Zručnosti",
+    "projects": "Vybrané projekty",
+    "education": "Vzdelanie",
+    "languages": "Jazyky"
+  },
+  "notFound": {
+    "title": "Táto stránka neexistuje",
+    "text": "Odkaz môže byť starý alebo nesprávny. Tieto stránky existujú:",
+    "label": "Chyba 404"
+  }
+}

@@ -11,6 +11,9 @@ const pages = [
   { path: "/about", heading: "About me" },
   { path: "/contact", heading: "Contact" },
   { path: "/cv", heading: "Ákos Kappel" },
+  { path: "/sk", heading: "Ákos Kappel" },
+  { path: "/sk/projects", heading: "Projekty" },
+  { path: "/sk/experience", heading: "Skúsenosti" },
 ];
 
 for (const theme of ["light", "dark"] as const) {
@@ -36,6 +39,29 @@ test("unknown pages return 404 with links back", async ({ page }) => {
   const response = await page.goto("/does-not-exist");
   expect(response?.status()).toBe(404);
   await expect(page.getByRole("link", { name: "Home" })).toBeVisible();
+
+  const slovak = await page.goto("/sk/neexistuje");
+  expect(slovak?.status()).toBe(404);
+  await expect(page.getByRole("link", { name: "Domov" })).toBeVisible();
+});
+
+test("English lives at the root and /en redirects there", async ({ page }) => {
+  await page.goto("/en/projects");
+  await expect(page).toHaveURL(/\/projects$/);
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await expect(page.locator('link[rel="alternate"][hreflang="sk"]')).toHaveAttribute(
+    "href",
+    /\/sk\/projects$/,
+  );
+});
+
+test("language switcher keeps the current page", async ({ page }) => {
+  await page.goto("/projects/fakeshop");
+  await page.getByLabel("Language").click();
+  await page.getByRole("link", { name: "Slovak" }).click();
+  await expect(page).toHaveURL(/\/sk\/projects\/fakeshop$/);
+  await expect(page.locator("html")).toHaveAttribute("lang", "sk");
+  await expect(page.getByRole("link", { name: "Všetky projekty" })).toBeVisible();
 });
 
 test("project search tolerates typos and keeps state in the URL", async ({ page }) => {
@@ -58,7 +84,14 @@ test("area filter and table view sort projects", async ({ page }) => {
   await page.getByRole("button", { name: "Table view" }).click();
   await page.getByLabel("Sort").selectOption("year-asc");
   await expect(page.getByRole("rowheader")).toHaveText(["PetGuide", "Glaucoma Segmentation"]);
-  await expect(page).toHaveURL(/area=AI/);
+  await expect(page).toHaveURL(/area=ai/);
+});
+
+test("skills link to the projects that use them", async ({ page }) => {
+  await page.goto("/skills");
+  await page.getByRole("link", { name: /^Elixir/ }).click();
+  await expect(page).toHaveURL(/\/projects\?q=Elixir/);
+  await expect(page.getByRole("main").getByRole("heading", { level: 2 }).first()).toBeVisible();
 });
 
 test("project cards open their case study", async ({ page }) => {
@@ -77,11 +110,11 @@ test("theme choice is remembered", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });
 
-test("CV menu offers both languages", async ({ page }) => {
+test("CV menu offers both languages as PDFs", async ({ page }) => {
   await page.goto("/");
   await page.getByText("Download CV").click();
   for (const language of ["English", "Slovak"]) {
-    const link = page.getByRole("link", { name: new RegExp(language) });
+    const link = page.getByRole("main").getByRole("link", { name: new RegExp(language) });
     const href = await link.getAttribute("href");
     const response = await page.request.get(href ?? "");
     expect(response.headers()["content-type"]).toContain("application/pdf");

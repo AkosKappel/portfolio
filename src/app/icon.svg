@@ -1,5 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <title>Ákos Kappel</title>
-  <rect width="32" height="32" rx="8" fill="#142233"/>
-  <path d="M5 20 L9 20 L11 12 L14 25 L17 7 L20 22 L22 16 L27 16" fill="none" stroke="#f1f3f6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <style>g { stroke: #142233; } @media (prefers-color-scheme: dark) { g { stroke: #e3e9f0; } }</style>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="35">
+    <circle cx="254.5" cy="260.5" r="191" stroke-width="34"/>
+    <path d="M130 337 L182 190 Q189 172 196 190 L254 337 M146 298 H238"/>
+    <path d="M279.5 176 V337 M370 176 L302 268 M322 266 L381 337"/>
+  </g>
 </svg>

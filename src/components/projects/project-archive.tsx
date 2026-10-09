@@ -18,13 +18,29 @@ import {
   type Updater,
   useTable,
 } from "@tanstack/react-table";
-import { LayoutGrid, Rows3, Search, X } from "lucide-react";
-import Link from "next/link";
+import {
+  ArrowDown,
+  ArrowUp,
+  Brain,
+  Gamepad2,
+  Globe,
+  LayoutGrid,
+  type LucideIcon,
+  Rows3,
+  Search,
+  Server,
+  Shapes,
+  Trophy,
+  X,
+} from "lucide-react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useId } from "react";
-import { StackList } from "@/components/ui/page";
-import type { Project, ProjectArea } from "@/content/types";
-import { ProjectCard, projectDate } from "./project-card";
+import { useLocale, useTranslations } from "next-intl";
+import { useId, useMemo } from "react";
+import { StackList } from "@/components/ui/tech-badge";
+import { type Project, type ProjectArea, pick } from "@/content/types";
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
+import { ProjectCard, projectYears } from "./project-card";
 
 const features = tableFeatures({
   columnFilteringFeature,
@@ -43,31 +59,41 @@ type Features = typeof features;
  * titles and technologies allow missing letters ("kotln" finds Kotlin),
  * the summary only matches whole substrings.
  */
-const fuzzyFilter: FilterFn<Features, Project> = (row, _columnId, value: string) =>
-  rankItem(row.original, value, {
-    accessors: [
-      (project) => project.title,
-      (project) => project.stack,
-      { accessor: (project) => project.summary, threshold: rankings.CONTAINS },
-    ],
-  }).passed;
+function fuzzyFilter(locale: Locale): FilterFn<Features, Project> {
+  return (row, _columnId, value: string) =>
+    rankItem(row.original, value, {
+      accessors: [
+        (project) => project.title,
+        (project) => project.stack,
+        { accessor: (project) => pick(project.summary, locale), threshold: rankings.CONTAINS },
+      ],
+    }).passed;
+}
 
 const helper = createColumnHelper<Features, Project>();
+// Headers are message keys in "projects.columns".
 const columns = helper.columns([
-  helper.accessor("title", { header: "Project", sortFn: "alphanumeric" }),
-  helper.accessor("year", { header: "Year", sortFn: "basic", sortDescFirst: true }),
-  helper.accessor("area", { header: "Area", filterFn: "equalsString", enableSorting: false }),
-  helper.accessor("kind", { header: "Type", enableSorting: false }),
+  helper.accessor("title", { header: "title", sortFn: "alphanumeric" }),
+  helper.accessor("year", { header: "year", sortFn: "basic", sortDescFirst: true }),
+  helper.accessor("area", { header: "area", filterFn: "equalsString", enableSorting: false }),
+  helper.accessor("kind", { header: "kind", enableSorting: false }),
   // Target column for the global search; the filter ranks the project's fields itself.
-  helper.accessor((project) => project.title, { id: "search", header: "Search" }),
+  helper.accessor((project) => project.title, { id: "search", header: "search" }),
 ]);
 
-const areas: ProjectArea[] = ["Web", "AI", "Infrastructure", "Games", "Challenges"];
+const areas: { value: ProjectArea | ""; Icon: LucideIcon }[] = [
+  { value: "", Icon: Shapes },
+  { value: "web", Icon: Globe },
+  { value: "ai", Icon: Brain },
+  { value: "infrastructure", Icon: Server },
+  { value: "games", Icon: Gamepad2 },
+  { value: "challenges", Icon: Trophy },
+];
 const sortOptions = [
-  { value: "", label: "Recommended" },
-  { value: "year-desc", label: "Newest" },
-  { value: "year-asc", label: "Oldest" },
-  { value: "title-asc", label: "Name" },
+  { value: "", key: "recommended" },
+  { value: "year-desc", key: "newest" },
+  { value: "year-asc", key: "oldest" },
+  { value: "title-asc", key: "name" },
 ] as const;
 
 function toSorting(value: string | null): SortingState {
@@ -81,9 +107,13 @@ function fromSorting(sorting: SortingState) {
 }
 
 export function ProjectArchive({ projects }: { projects: Project[] }) {
+  const t = useTranslations("projects");
+  const locale = useLocale();
+  // The real browser path (with the locale prefix), for history updates.
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const searchId = useId();
+  const globalFilterFn = useMemo(() => fuzzyFilter(locale), [locale]);
 
   const query = searchParams.get("q") ?? "";
   const area = searchParams.get("area") ?? "";
@@ -110,7 +140,7 @@ export function ProjectArchive({ projects }: { projects: Project[] }) {
     },
     onSortingChange: (updater: Updater<SortingState>) =>
       setParam("sort", fromSorting(functionalUpdate(updater, sorting))),
-    globalFilterFn: fuzzyFilter,
+    globalFilterFn,
     getColumnCanGlobalFilter: (column) => column.id === "search",
   });
 
@@ -122,7 +152,7 @@ export function ProjectArchive({ projects }: { projects: Project[] }) {
       <div className="flex flex-col gap-4 border-y border-line py-4 lg:flex-row lg:items-center">
         <div className="relative lg:w-72">
           <label htmlFor={searchId} className="sr-only">
-            Search projects
+            {t("searchLabel")}
           </label>
           <Search
             aria-hidden
@@ -134,27 +164,28 @@ export function ProjectArchive({ projects }: { projects: Project[] }) {
             type="search"
             value={query}
             onChange={(event) => setParam("q", event.target.value)}
-            placeholder="Search by name or technology"
-            className="w-full rounded-full border border-line bg-surface py-2 pr-4 pl-10 placeholder:text-muted focus:border-clean focus:outline-none"
+            placeholder={t("searchPlaceholder")}
+            className="w-full rounded-full border border-line bg-surface py-2 pr-4 pl-10 placeholder:text-muted focus:border-accent focus:outline-none"
           />
         </div>
         <fieldset className="flex flex-wrap gap-1.5">
-          <legend className="sr-only">Area</legend>
-          {["", ...areas].map((value) => (
+          <legend className="sr-only">{t("area")}</legend>
+          {areas.map(({ value, Icon }) => (
             <button
               key={value || "all"}
               type="button"
               aria-pressed={area === value}
               onClick={() => setParam("area", value)}
-              className="rounded-full border border-line px-3.5 py-1.5 text-sm transition-colors hover:border-ink aria-pressed:border-ink aria-pressed:bg-ink aria-pressed:text-paper"
+              className="inline-flex items-center gap-1.5 rounded-full border border-line px-3.5 py-1.5 text-sm transition-colors hover:border-ink aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-on-accent"
             >
-              {value || "All"}
+              <Icon aria-hidden size={15} />
+              {value ? t(`areas.${value}`) : t("all")}
             </button>
           ))}
         </fieldset>
         <div className="flex items-center gap-2 lg:ml-auto">
           <label className="flex items-center gap-2 text-sm text-muted">
-            Sort
+            {t("sort")}
             <select
               value={fromSorting(sorting)}
               onChange={(event) => setParam("sort", event.target.value)}
@@ -162,23 +193,23 @@ export function ProjectArchive({ projects }: { projects: Project[] }) {
             >
               {sortOptions.map((option) => (
                 <option key={option.value} value={option.value}>
-                  {option.label}
+                  {t(`sortOptions.${option.key}`)}
                 </option>
               ))}
             </select>
           </label>
           <fieldset className="flex rounded-full border border-line p-0.5">
-            <legend className="sr-only">View</legend>
+            <legend className="sr-only">{t("view")}</legend>
             <ViewButton
               active={view === "grid"}
-              label="Grid view"
+              label={t("gridView")}
               onClick={() => setParam("view", "")}
             >
               <LayoutGrid aria-hidden size={16} />
             </ViewButton>
             <ViewButton
               active={view === "table"}
-              label="Table view"
+              label={t("tableView")}
               onClick={() => setParam("view", "table")}
             >
               <Rows3 aria-hidden size={16} />
@@ -189,26 +220,24 @@ export function ProjectArchive({ projects }: { projects: Project[] }) {
 
       <p className="mt-4 text-sm text-muted" aria-live="polite">
         {rows.length === projects.length
-          ? `${projects.length} projects`
-          : `${rows.length} of ${projects.length} projects`}
+          ? t("count", { count: projects.length })
+          : t("countFiltered", { count: rows.length, total: projects.length })}
         {filtered ? (
           <button
             type="button"
             onClick={() => window.history.replaceState(null, "", pathname)}
-            className="ml-3 inline-flex items-center gap-1 text-ink hover:text-clean"
+            className="ml-3 inline-flex items-center gap-1 text-ink hover:text-accent"
           >
             <X aria-hidden size={14} />
-            Clear filters
+            {t("clearFilters")}
           </button>
         ) : null}
       </p>
 
       {rows.length === 0 ? (
         <div className="mt-10 rounded-xl border border-dashed border-line px-6 py-12 text-center">
-          <p className="font-display text-xl font-semibold">No projects match these filters</p>
-          <p className="mt-2 text-muted">
-            Try another technology, or clear the filters to see everything.
-          </p>
+          <p className="font-display text-xl font-semibold">{t("emptyTitle")}</p>
+          <p className="mt-2 text-muted">{t("emptyText")}</p>
         </div>
       ) : view === "grid" ? (
         <ul className="mt-6 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -221,7 +250,7 @@ export function ProjectArchive({ projects }: { projects: Project[] }) {
       ) : (
         <div className="mt-6 overflow-x-auto">
           <table className="w-full min-w-[40rem] text-left">
-            <caption className="sr-only">Projects, sortable by name and year</caption>
+            <caption className="sr-only">{t("tableCaption")}</caption>
             <thead className="border-b border-line text-sm text-muted">
               <tr>
                 {table
@@ -244,19 +273,18 @@ export function ProjectArchive({ projects }: { projects: Project[] }) {
                             onClick={header.column.getToggleSortingHandler()}
                             className="inline-flex items-center gap-1 hover:text-ink"
                           >
-                            {String(header.column.columnDef.header)}
-                            <span aria-hidden>
-                              {sorted === "asc" ? "↑" : sorted === "desc" ? "↓" : ""}
-                            </span>
+                            {t(`columns.${header.column.id as "title" | "year"}`)}
+                            {sorted === "asc" ? <ArrowUp aria-hidden size={14} /> : null}
+                            {sorted === "desc" ? <ArrowDown aria-hidden size={14} /> : null}
                           </button>
                         ) : (
-                          String(header.column.columnDef.header)
+                          t(`columns.${header.column.id as "area" | "kind"}`)
                         )}
                       </th>
                     );
                   })}
                 <th scope="col" className="py-3 font-medium">
-                  Stack
+                  {t("columns.stack")}
                 </th>
               </tr>
             </thead>
@@ -264,13 +292,15 @@ export function ProjectArchive({ projects }: { projects: Project[] }) {
               {rows.map(({ original: project }) => (
                 <tr key={project.slug} className="border-b border-line align-top">
                   <th scope="row" className="py-3 pr-4 font-semibold">
-                    <Link href={`/projects/${project.slug}`} className="hover:text-clean">
+                    <Link href={`/projects/${project.slug}`} className="hover:text-accent">
                       {project.title}
                     </Link>
                   </th>
-                  <td className="py-3 pr-4 whitespace-nowrap text-muted">{projectDate(project)}</td>
-                  <td className="py-3 pr-4 text-muted">{project.area}</td>
-                  <td className="py-3 pr-4 text-muted">{project.kind}</td>
+                  <td className="py-3 pr-4 whitespace-nowrap text-muted">
+                    {projectYears(project)}
+                  </td>
+                  <td className="py-3 pr-4 text-muted">{t(`areas.${project.area}`)}</td>
+                  <td className="py-3 pr-4 text-muted">{t(`kinds.${project.kind}`)}</td>
                   <td className="py-3">
                     <StackList items={project.stack} />
                   </td>
@@ -302,7 +332,7 @@ function ViewButton({
       aria-pressed={active}
       aria-label={label}
       title={label}
-      className="grid size-8 place-items-center rounded-full text-muted aria-pressed:bg-ink aria-pressed:text-paper"
+      className="grid size-8 place-items-center rounded-full text-muted aria-pressed:bg-accent aria-pressed:text-on-accent"
     >
       {children}
     </button>

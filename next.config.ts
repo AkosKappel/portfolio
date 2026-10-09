@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
 // Static pages cannot carry per-request nonces, and Next.js streams its payload in
 // inline scripts, so scripts stay limited to this origin plus inline code.
@@ -34,4 +35,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default createNextIntlPlugin("./src/i18n/request.ts")(nextConfig);

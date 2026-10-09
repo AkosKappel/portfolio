@@ -1,12 +1,15 @@
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { useLocale } from "next-intl";
 import { ViewTransition } from "react";
-import { StackList } from "@/components/ui/page";
-import type { Project } from "@/content/types";
+import { StackList } from "@/components/ui/tech-badge";
+import { type Project, pick } from "@/content/types";
+import { Link } from "@/i18n/navigation";
+import { yearRange } from "@/lib/format";
 import { ProjectPlaceholder } from "./project-placeholder";
 
-export function projectDate(project: Project) {
-  return project.upgraded ? `${project.year}, upgraded ${project.upgraded}` : `${project.year}`;
+export function projectYears(project: Project) {
+  return yearRange(project.year, project.until);
 }
 
 export function ProjectMedia({
@@ -21,6 +24,7 @@ export function ProjectMedia({
   /** Show the whole screenshot at its own aspect ratio instead of a cropped 16:10 frame. */
   natural?: boolean;
 }) {
+  const locale = useLocale();
   return (
     <ViewTransition name={`project-${project.slug}`} share="project-media" default="none">
       <div
@@ -35,7 +39,7 @@ export function ProjectMedia({
         {project.image ? (
           <Image
             src={project.image.src}
-            alt={project.image.alt}
+            alt={pick(project.image.alt, locale)}
             fill
             sizes={sizes}
             priority={priority}
@@ -58,6 +62,7 @@ export function ProjectCard({
   headingLevel?: "h2" | "h3";
   sizes?: string;
 }) {
+  const locale = useLocale();
   const Heading = headingLevel;
   return (
     <article className="group relative flex flex-col">
@@ -66,14 +71,19 @@ export function ProjectCard({
         <Heading className="text-xl font-semibold">
           <Link
             href={`/projects/${project.slug}`}
-            className="after:absolute after:inset-0 after:content-[''] group-hover:text-clean"
+            className="inline-flex items-center gap-1 after:absolute after:inset-0 after:content-[''] group-hover:text-accent"
           >
             {project.title}
+            <ArrowUpRight
+              aria-hidden
+              size={18}
+              className="opacity-0 transition-opacity group-hover:opacity-100"
+            />
           </Link>
         </Heading>
-        <p className="shrink-0 text-sm text-muted">{projectDate(project)}</p>
+        <p className="shrink-0 text-sm text-muted">{projectYears(project)}</p>
       </div>
-      <p className="mt-1.5 text-muted">{project.summary}</p>
+      <p className="mt-1.5 text-muted">{pick(project.summary, locale)}</p>
       <StackList items={project.stack.slice(0, 5)} className="mt-3" />
     </article>
   );

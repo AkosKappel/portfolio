@@ -8,7 +8,8 @@ Live: https://portfolio-taupe-eta-51.vercel.app
 
 - Next.js 16 (App Router, every page statically generated), React 19, TypeScript
 - Tailwind CSS 4 with design tokens in `src/app/globals.css`, light and dark themes
-- WebGL2 for the signal animation on the home page
+- next-intl for English (at `/`) and Slovak (at `/sk`), with `hreflang` links and a localized sitemap
+- Simple Icons for technology logos, lucide for UI icons
 - TanStack Table and match-sorter for the projects archive (fuzzy search, filters and sorting kept in the URL)
 - React `ViewTransition` for route and image transitions
 - Biome for linting and formatting, Vitest for content checks, Playwright with axe for end-to-end and accessibility tests, Lighthouse CI
@@ -37,18 +38,23 @@ GitHub Actions runs all of these on every push and pull request. Vercel builds a
 ## Structure
 
 ```text
+messages/       UI text per language (en.json, sk.json)
 src/
-  app/          routes, metadata, sitemap, robots, icon and Open Graph image
-  components/   layout (header, footer, theme), home, projects, ui
-  content/      typed site content: site, projects, experience, education, skills
-  lib/          small helpers (date formatting)
+  app/[locale]/ pages, rendered statically for every language
+  app/          sitemap, robots, icons and Open Graph image
+  components/   layout (header, footer, theme, language), projects, ui
+  content/      typed site content with English and Slovak text
+  i18n/         routing, navigation and request config for next-intl
+  lib/          small helpers (dates, metadata, technology logos)
 test/e2e/       Playwright tests
 latex/          CV source (English and Slovak)
 ```
 
 ## Editing content
 
-All text lives in `src/content/`. Types are in `src/content/types.ts`, and `src/content/content.test.ts` checks slugs, image paths, links and dates.
+Page content lives in `src/content/` with every text in both languages (`{ en, sk }`), and interface text lives in `messages/`. `src/content/content.test.ts` checks slugs, image paths, links, dates, missing translations and that both message files have the same keys.
+
+Technology names in `stack` and `skills` get a logo when they are listed in `src/lib/tech-icons.ts`.
 
 ### Adding a project
 
@@ -58,8 +64,8 @@ All text lives in `src/content/`. Types are in `src/content/types.ts`, and `src/
    magick screenshot.png -resize '1600x>' -quality 80 public/images/projects/<slug>.webp
    ```
 
-2. Add an entry to `src/content/projects.ts`: `slug`, `title`, a one-sentence `summary`, `description` paragraphs, `kind`, `area`, `year`, `stack`, links and `image` with its real width and height. Set `upgraded` when an old project is brought up to date and `featured` to show it on the home page.
-3. Run `npm test`. The card, case-study page, sitemap entry, search and filters follow from the entry.
+2. Add an entry to `src/content/projects.ts`: `slug`, `title`, a one-sentence `summary`, `description` paragraphs, `kind`, `area`, `year`, `stack`, links and `image` with its real width and height. Use `until` for the last year of work (e.g. a 2026 rebuild) and set `featured` to show it on the home page.
+3. Write `summary`, `description` and `highlights` in English and Slovak, then run `npm test`. The card, case-study page, sitemap entry, search and filters follow from the entry.
 
 Projects without a screenshot get a generated placeholder.
 

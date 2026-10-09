@@ -1,47 +1,59 @@
-import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { GitHubIcon, GitLabIcon, LinkedInIcon } from "@/components/ui/brand-icons";
+import { Logo } from "@/components/ui/logo";
 import { navigation, site } from "@/content/site";
+import { pick } from "@/content/types";
+import { Link } from "@/i18n/navigation";
 
 const socials = [
+  { href: site.links.linkedin, label: "LinkedIn", Icon: LinkedInIcon },
   { href: site.links.github, label: "GitHub", Icon: GitHubIcon },
   { href: site.links.gitlab, label: "GitLab", Icon: GitLabIcon },
-  { href: site.links.linkedin, label: "LinkedIn", Icon: LinkedInIcon },
 ];
 
 export function SiteFooter() {
+  const t = useTranslations();
+  const locale = useLocale();
   return (
     <footer className="mt-24 border-t border-line">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="max-w-sm">
-          <p className="font-display text-xl font-semibold">{site.name}</p>
-          <p className="mt-2 text-muted">{site.availability}</p>
+          <p className="flex items-center gap-2.5 font-display text-xl font-semibold">
+            <Logo className="size-8" />
+            {site.name}
+          </p>
+          <p className="mt-3 text-muted">{pick(site.availability, locale)}</p>
           <a href={`mailto:${site.email}`} className="link mt-4 inline-block">
             {site.email}
           </a>
         </div>
-        <nav aria-label="Footer">
-          <h2 className="font-sans text-sm font-semibold tracking-normal text-muted">Pages</h2>
+        <nav aria-label={t("footer.pages")}>
+          <h2 className="font-sans text-sm font-semibold tracking-normal text-muted">
+            {t("footer.pages")}
+          </h2>
           <ul className="mt-3 grid grid-cols-2 gap-x-6 gap-y-2">
             {navigation.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-clean">
-                  {item.label}
+                <Link href={item.href} className="hover:text-accent">
+                  {t(`nav.${item.key}`)}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/cv" className="hover:text-clean">
-                CV
+              <Link href="/cv" className="hover:text-accent">
+                {t("nav.cv")}
               </Link>
             </li>
           </ul>
         </nav>
         <div>
-          <h2 className="font-sans text-sm font-semibold tracking-normal text-muted">Elsewhere</h2>
+          <h2 className="font-sans text-sm font-semibold tracking-normal text-muted">
+            {t("footer.elsewhere")}
+          </h2>
           <ul className="mt-3 space-y-2">
             {socials.map(({ href, label, Icon }) => (
               <li key={label}>
-                <a href={href} className="inline-flex items-center gap-2 hover:text-clean">
+                <a href={href} className="inline-flex items-center gap-2 hover:text-accent">
                   <Icon className="size-4" />
                   {label}
                 </a>
@@ -55,9 +67,9 @@ export function SiteFooter() {
           © {new Date().getFullYear()} {site.name}
         </p>
         <p>
-          Built with Next.js, React and WebGL.{" "}
+          {t("footer.builtWith")}{" "}
           <a href="https://github.com/AkosKappel/portfolio" className="link">
-            Source code
+            {t("common.sourceCode")}
           </a>
         </p>
       </div>
