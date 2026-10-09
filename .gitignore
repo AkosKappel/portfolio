@@ -52,3 +52,6 @@ CV-NOTES.md
 /latex/*.synctex.gz
 /latex/*.out
 /latex/*.pdf
+
+# git worktrees
+/.worktrees/
