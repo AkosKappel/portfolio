@@ -99,8 +99,9 @@ export const skillGroups: SkillGroup[] = [
 /** Ways of working, shown next to the technologies, without logos. */
 export const practices: Text[] = [
   { en: "REST API design", sk: "Návrh REST API" },
-  { en: "Accessibility (A11Y)", sk: "Prístupnosť (A11Y)" },
-  { en: "Localization (I18N)", sk: "Lokalizácia (I18N)" },
+  { en: "Accessibility (a11y)", sk: "Prístupnosť (a11y)" },
+  { en: "Internationalization (i18n)", sk: "Internacionalizácia (i18n)" },
+  { en: "Localization (l10n)", sk: "Lokalizácia (l10n)" },
   { en: "SEO", sk: "SEO" },
   { en: "Performance optimization", sk: "Optimalizácia výkonu" },
   { en: "Responsive design", sk: "Responzívny dizajn" },

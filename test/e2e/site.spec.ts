@@ -113,6 +113,16 @@ test("theme choice is remembered", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });
 
+test("switching language keeps the theme", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Switch to dark theme" }).click();
+  await page.locator("header summary").first().click();
+  await page.getByRole("link", { name: "Slovak" }).click();
+  await expect(page).toHaveURL(/\/sk$/);
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+});
+
 test("CV menu offers both languages as PDFs", async ({ page }) => {
   await page.goto("/");
   await page.getByText("Download CV").click();

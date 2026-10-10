@@ -70,18 +70,26 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
                   })}
                 </p>
               </div>
-              <ul className="mt-2 list-disc space-y-1 pl-5 marker:text-accent">
-                {job.items.flatMap((item) =>
-                  item.highlights.map((highlight) => (
-                    <li key={highlight.en}>
-                      {job.items.length > 1 ? (
-                        <strong className="font-semibold">{pick(item.name, locale)}: </strong>
-                      ) : null}
-                      {pick(highlight, locale)}
-                    </li>
-                  )),
-                )}
-              </ul>
+              <div className="mt-3 grid gap-4">
+                {job.items.map((item) => (
+                  <div key={item.id}>
+                    {job.items.length > 1 ? (
+                      <h4 className="font-semibold">
+                        {pick(item.name, locale)}
+                        <span className="font-normal text-muted">
+                          {" "}
+                          · {pick(item.context, locale)}
+                        </span>
+                      </h4>
+                    ) : null}
+                    <ul className="mt-1 list-disc space-y-1 pl-5 marker:text-accent">
+                      {item.highlights.map((highlight) => (
+                        <li key={highlight.en}>{pick(highlight, locale)}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </CvSection>
