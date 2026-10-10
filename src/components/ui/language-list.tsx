@@ -12,7 +12,10 @@ export function LanguageList({ locale }: { locale: Locale }) {
             <Flag locale={language.flag} className="h-4 w-6" />
             {pick(language.name, locale)}
           </dt>
-          <dd className="mt-0.5 text-muted">{pick(language.level, locale)}</dd>
+          <dd className="mt-0.5 text-muted">
+            {pick(language.level, locale)}
+            {"cefr" in language ? ` (${language.cefr})` : null}
+          </dd>
         </div>
       ))}
     </dl>

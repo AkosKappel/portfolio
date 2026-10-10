@@ -150,13 +150,19 @@
   "cv": {
     "title": "CV",
     "description": "CV of Ákos Kappel, full-stack software engineer, with PDF downloads in English and Slovak.",
-    "lead": "The same content as the PDF, readable in the browser.",
+    "lead": "A longer version of the PDF, with more detail on each job and project.",
     "profile": "Profile",
     "experience": "Experience",
     "skills": "Skills",
     "projects": "Selected projects",
     "education": "Education",
-    "languages": "Languages"
+    "languages": "Languages",
+    "practices": "Practices",
+    "thesis": "Thesis",
+    "secondarySchool": "Secondary school",
+    "otherProjects": "Other projects",
+    "allProjects": "All projects",
+    "contents": "Sections"
   },
   "notFound": {
     "title": "This page does not exist",

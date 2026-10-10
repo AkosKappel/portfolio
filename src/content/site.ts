@@ -24,8 +24,8 @@ export const site = {
           sk: "Pracujem naprieč celým stackom, od databázy a API až po rozhranie, ktoré ľudia naozaj používajú. Kým začnem programovať, chcem pochopiť problém a načrtnúť riešenie, a nechávam po sebe testy, aby bola ďalšia zmena bezpečná.",
         },
         {
-          en: "AI coding agents make me much faster in my daily work. I plan the work, build it with their help and review every change, the same way I would review a colleague's code. I use Claude Code and Codex with my own agents, skills and MCP servers.",
-          sk: "AI agenti na programovanie ma v každodennej práci výrazne zrýchľujú. Prácu naplánujem, s ich pomocou ju vytvorím a každú zmenu skontrolujem rovnako, ako by som kontroloval kód kolegu. Používam Claude Code a Codex s vlastnými agentmi, skills a MCP servermi.",
+          en: "AI coding agents make me much faster in my daily work. I plan the work, build it with their help and review every change, the same way I would review a colleague's code. I work with Claude Code and Codex, using agents, skills and MCP servers.",
+          sk: "AI agenti na programovanie ma v každodennej práci výrazne zrýchľujú. Prácu naplánujem, s ich pomocou ju vytvorím a každú zmenu skontrolujem rovnako, ako by som kontroloval kód kolegu. Pracujem s Claude Code a Codex a využívam agentov, skills a MCP servery.",
         },
       ],
     },
@@ -90,19 +90,22 @@ export const site = {
     {
       flag: "hu",
       name: { en: "Hungarian", sk: "Maďarčina" },
-      level: { en: "Fluent (C2)", sk: "Plynulo (C2)" },
+      level: { en: "Fluent", sk: "Plynulo" },
+      cefr: "C2",
     },
     {
       flag: "en",
       name: { en: "English", sk: "Angličtina" },
-      level: { en: "Advanced (C1)", sk: "Pokročilý (C1)" },
+      level: { en: "Advanced", sk: "Pokročilý" },
+      cefr: "C1",
     },
     {
       flag: "de",
       name: { en: "German", sk: "Nemčina" },
-      level: { en: "Basic (A2)", sk: "Základy (A2)" },
+      level: { en: "Basic", sk: "Základy" },
+      cefr: "A2",
     },
-  ] satisfies { flag: FlagCode; name: Text; level: Text }[],
+  ] satisfies { flag: FlagCode; name: Text; level: Text; cefr?: string }[],
 } as const;
 
 /** Main navigation; labels come from the "nav" messages. */

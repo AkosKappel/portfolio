@@ -150,13 +150,19 @@
   "cv": {
     "title": "Životopis",
     "description": "Životopis Ákosa Kappela, full-stack vývojára, na stiahnutie v PDF v slovenčine a angličtine.",
-    "lead": "Rovnaký obsah ako v PDF, na čítanie v prehliadači.",
+    "lead": "Podrobnejšia verzia PDF s viac detailmi o každej práci a projekte.",
     "profile": "Profil",
     "experience": "Pracovné skúsenosti",
     "skills": "Zručnosti",
     "projects": "Vybrané projekty",
     "education": "Vzdelanie",
-    "languages": "Jazyky"
+    "languages": "Jazyky",
+    "practices": "Postupy",
+    "thesis": "Záverečná práca",
+    "secondarySchool": "Stredná škola",
+    "otherProjects": "Ďalšie projekty",
+    "allProjects": "Všetky projekty",
+    "contents": "Sekcie"
   },
   "notFound": {
     "title": "Táto stránka neexistuje",
