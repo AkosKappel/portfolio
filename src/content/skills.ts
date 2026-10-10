@@ -104,6 +104,7 @@ export const practices: Text[] = [
   { en: "Localization (l10n)", sk: "Lokalizácia (l10n)" },
   { en: "SEO", sk: "SEO" },
   { en: "Performance optimization", sk: "Optimalizácia výkonu" },
+  { en: "UI/UX design", sk: "UI/UX dizajn" },
   { en: "Responsive design", sk: "Responzívny dizajn" },
   { en: "Progressive web apps", sk: "Progresívne webové aplikácie" },
   { en: "Real-time updates (WebSockets)", sk: "Aktualizácie v reálnom čase (WebSockety)" },

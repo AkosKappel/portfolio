@@ -75,7 +75,7 @@ export const site = {
   links: {
     github: "https://github.com/AkosKappel",
     gitlab: "https://gitlab.com/AkosKappel",
-    linkedin: "https://www.linkedin.com/in/%C3%A1kos-kappel-b53344220",
+    linkedin: "https://www.linkedin.com/in/akos-kappel",
   },
   cv: [
     { locale: "en", href: "/CV_Akos_Kappel_(EN).pdf" },
