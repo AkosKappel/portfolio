@@ -31,7 +31,8 @@
     "months": "{count, plural, one {# mesiac} few {# mesiace} other {# mesiacov}}",
     "technologies": "Technológie",
     "anchor": "Odkaz na túto časť",
-    "phone": "Telefón"
+    "phone": "Telefón",
+    "backToTop": "Späť na začiatok"
   },
   "languages": {
     "en": "Angličtina",

@@ -31,7 +31,8 @@
     "months": "{count, plural, one {# mo} other {# mos}}",
     "technologies": "Technologies",
     "anchor": "Link to this section",
-    "phone": "Phone"
+    "phone": "Phone",
+    "backToTop": "Back to top"
   },
   "languages": {
     "en": "English",

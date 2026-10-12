@@ -20,6 +20,7 @@ export function MobileNav({
         onClick={() => dialogRef.current?.showModal()}
         className="grid size-10 place-items-center rounded-full text-muted hover:bg-ink/5 hover:text-ink"
         aria-label={labels.open}
+        title={labels.open}
         aria-haspopup="dialog"
       >
         <Menu aria-hidden size={20} />
@@ -39,6 +40,7 @@ export function MobileNav({
             onClick={close}
             className="grid size-10 place-items-center rounded-full text-muted hover:bg-ink/5 hover:text-ink"
             aria-label={labels.close}
+            title={labels.close}
           >
             <X aria-hidden size={20} />
           </button>

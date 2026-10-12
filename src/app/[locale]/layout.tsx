@@ -7,6 +7,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { themeScript } from "@/components/layout/theme-script";
+import { BackToTop } from "@/components/ui/back-to-top";
 import { site } from "@/content/site";
 import { pick } from "@/content/types";
 import { routing } from "@/i18n/routing";
@@ -91,6 +92,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
             {children}
           </main>
           <SiteFooter />
+          <BackToTop label={t("backToTop")} />
         </NextIntlClientProvider>
         {/* The analytics script only exists on Vercel deployments. */}
         {process.env.VERCEL ? <Analytics /> : null}

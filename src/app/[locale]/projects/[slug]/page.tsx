@@ -14,6 +14,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProjectMedia, projectYears } from "@/components/projects/project-card";
 import { AnchorHeading } from "@/components/ui/anchor-heading";
+import { ReadingProgress } from "@/components/ui/back-to-top";
 import { GitHubIcon, GitLabIcon } from "@/components/ui/brand-icons";
 import { Page } from "@/components/ui/page";
 import { StackList, TechLogo } from "@/components/ui/tech-badge";
@@ -62,6 +63,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
 
   return (
     <Page>
+      <ReadingProgress />
       <nav aria-label="Breadcrumb" className="pt-10">
         <Link
           href="/projects"

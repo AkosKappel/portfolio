@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { projectYears } from "@/components/projects/project-card";
 import { AnchorHeading } from "@/components/ui/anchor-heading";
+import { ReadingProgress } from "@/components/ui/back-to-top";
 import { GitHubIcon, GitLabIcon, LinkedInIcon } from "@/components/ui/brand-icons";
 import { CvMenu } from "@/components/ui/cv-menu";
 import { Page } from "@/components/ui/page";
@@ -43,6 +44,7 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
 
   return (
     <Page className="print:max-w-none print:px-0">
+      <ReadingProgress />
       <div className="flex flex-wrap items-center justify-between gap-4 pt-10 print:hidden">
         <p className="text-muted">{t("lead")}</p>
         <CvMenu />

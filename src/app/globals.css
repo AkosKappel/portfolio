@@ -120,6 +120,37 @@
   }
 }
 
+/*
+  Scroll-driven effects need no JavaScript; browsers without scroll timelines
+  simply keep the back-to-top link visible and skip the progress bar.
+*/
+@supports (animation-timeline: scroll()) {
+  .back-to-top {
+    animation: reveal linear both;
+    animation-timeline: scroll();
+    animation-range: 0 60vh;
+  }
+
+  .reading-progress {
+    display: block;
+    animation: grow linear both;
+    animation-timeline: scroll();
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes grow {
+  from {
+    scale: 0 1;
+  }
+}
+
 @keyframes slide-in {
   from {
     translate: 100% 0;

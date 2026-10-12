@@ -24,6 +24,7 @@ export function AnchorHeading({
       <a
         href={`#${id}`}
         aria-label={label}
+        title={label}
         className="ml-2 inline-flex translate-y-[-0.1em] align-middle text-muted opacity-0 transition-opacity group-hover/anchor:opacity-100 hover:text-accent focus-visible:opacity-100"
       >
         <Link2 aria-hidden className="size-[0.7em]" />
