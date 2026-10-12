@@ -101,6 +101,43 @@ export const smarttechEShop: Project = {
     height: 1000,
     alt: { en: "Smartphone catalog with filters", sk: "Katalóg smartfónov s filtrami" },
   },
+  architecture: [
+    {
+      name: { en: "Browser", sk: "Prehliadač" },
+      detail: {
+        en: "Server-rendered Blade pages styled with Tailwind CSS",
+        sk: "Stránky vykresľované na serveri cez Blade, štýly v Tailwind CSS",
+      },
+    },
+    {
+      name: { en: "Tailscale Funnel", sk: "Tailscale Funnel" },
+      detail: {
+        en: "Public HTTPS from a sidecar container",
+        sk: "Verejné HTTPS zo sidecar kontajnera",
+      },
+    },
+    {
+      name: { en: "nginx", sk: "nginx" },
+      detail: {
+        en: "Web server in front of PHP-FPM",
+        sk: "Webový server pred PHP-FPM",
+      },
+    },
+    {
+      name: { en: "Laravel", sk: "Laravel" },
+      detail: {
+        en: "Catalog, cart, checkout and admin on PHP-FPM; a scheduler container resets the demo every night",
+        sk: "Katalóg, košík, objednávky a administrácia na PHP-FPM; kontajner s plánovačom každú noc obnoví demo",
+      },
+    },
+    {
+      name: { en: "PostgreSQL", sk: "PostgreSQL" },
+      detail: {
+        en: "Products and orders, with trigram search",
+        sk: "Produkty a objednávky, s trigramovým vyhľadávaním",
+      },
+    },
+  ],
   gallery: [
     {
       src: "/images/projects/smarttech-e-shop/home.webp",

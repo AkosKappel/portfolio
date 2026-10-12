@@ -6,6 +6,7 @@ import {
   Info,
   type LucideIcon,
   MousePointerClick,
+  Network,
   RefreshCw,
   Sparkles,
   Wrench,
@@ -166,6 +167,39 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
               Icon={Wrench}
               anchor={tCommon("anchor")}
             />
+            {project.architecture?.length ? (
+              <section aria-labelledby="architecture">
+                <AnchorHeading
+                  id="architecture"
+                  label={tCommon("anchor")}
+                  className="flex items-center gap-2 text-2xl font-semibold"
+                >
+                  <Network aria-hidden className="size-5 shrink-0 text-accent" />
+                  {t("architecture")}
+                </AnchorHeading>
+                <ol className="mt-5 grid gap-0">
+                  {project.architecture.map((node, index, nodes) => (
+                    <li key={node.name.en} className="grid grid-cols-[auto_1fr] gap-x-4">
+                      <span className="flex flex-col items-center">
+                        <span className="grid size-8 place-items-center rounded-full border border-accent bg-accent-soft text-sm font-semibold text-accent">
+                          {index + 1}
+                        </span>
+                        {index < nodes.length - 1 ? (
+                          <span aria-hidden className="w-px flex-1 bg-line" />
+                        ) : null}
+                      </span>
+                      <span className="pb-5">
+                        <span className="flex items-center gap-2 font-semibold">
+                          <TechLogo name={node.name.en} className="size-4" />
+                          {pick(node.name, locale)}
+                        </span>
+                        <span className="block text-muted">{pick(node.detail, locale)}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            ) : null}
             {project.upgrade ? (
               <section
                 aria-labelledby="upgrade"

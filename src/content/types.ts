@@ -45,6 +45,8 @@ export type Project = {
   repoUrl?: string;
   liveUrl?: string;
   image?: { src: string; width: number; height: number; alt: Text };
+  /** Request path from the visitor to the data, drawn as a chain of boxes. */
+  architecture?: { name: Text; detail: Text }[];
   /** More screenshots, diagrams and results for the project page. */
   gallery?: Figure[];
   featured?: boolean;

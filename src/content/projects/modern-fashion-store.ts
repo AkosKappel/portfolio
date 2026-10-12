@@ -100,6 +100,43 @@ export const modernFashionStore: Project = {
       sk: "Dashboard produktov v Modern Fashion Store s fotkami, cenami a zásobami",
     },
   },
+  architecture: [
+    {
+      name: { en: "Browser", sk: "Prehliadač" },
+      detail: {
+        en: "Pages update live over a LiveView WebSocket",
+        sk: "Stránky sa menia naživo cez WebSocket LiveView",
+      },
+    },
+    {
+      name: { en: "Tailscale Funnel", sk: "Tailscale Funnel" },
+      detail: {
+        en: "Public HTTPS from a sidecar container",
+        sk: "Verejné HTTPS zo sidecar kontajnera",
+      },
+    },
+    {
+      name: { en: "nginx", sk: "nginx" },
+      detail: {
+        en: "Security headers and rate limits",
+        sk: "Bezpečnostné hlavičky a obmedzenie počtu požiadaviek",
+      },
+    },
+    {
+      name: { en: "Phoenix LiveView", sk: "Phoenix LiveView" },
+      detail: {
+        en: "Elixir release; PubSub sends every change to all open pages",
+        sk: "Elixir release; PubSub posiela každú zmenu všetkým otvoreným stránkam",
+      },
+    },
+    {
+      name: { en: "PostgreSQL", sk: "PostgreSQL" },
+      detail: {
+        en: "Products, stock and sales",
+        sk: "Produkty, zásoby a predaje",
+      },
+    },
+  ],
   gallery: [
     {
       src: "/images/projects/modern-fashion-store/inventory.webp",
