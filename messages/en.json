@@ -22,7 +22,7 @@
     "pdf": "PDF",
     "sourceCode": "Source code",
     "liveDemo": "Live demo",
-    "thesisRecord": "Full text in CRZP",
+    "thesisRecord": "Read the full thesis",
     "copyEmail": "Copy email address",
     "copied": "Copied",
     "emailMe": "Email me",
@@ -201,7 +201,7 @@
   "cvPdf": {
     "title": "CV (PDF)",
     "description": "The CV of Ákos Kappel, full-stack software engineer, to read in the browser without downloading it.",
-    "lead": "The same PDF I send with applications, to read here without downloading.",
+    "lead": "My CV as a PDF, to read in the browser or download.",
     "download": "Download PDF",
     "open": "Open PDF",
     "webVersion": "Web version",

@@ -22,7 +22,7 @@
     "pdf": "PDF",
     "sourceCode": "Zdrojový kód",
     "liveDemo": "Živé demo",
-    "thesisRecord": "Plný text v CRZP",
+    "thesisRecord": "Prečítať celú prácu",
     "copyEmail": "Kopírovať e-mail",
     "copied": "Skopírované",
     "emailMe": "Napíšte mi",
@@ -201,7 +201,7 @@
   "cvPdf": {
     "title": "Životopis (PDF)",
     "description": "Životopis Ákosa Kappela, full-stack vývojára, na čítanie v prehliadači bez sťahovania.",
-    "lead": "Rovnaké PDF, aké posielam so žiadosťami, na čítanie priamo tu bez sťahovania.",
+    "lead": "Môj životopis vo formáte PDF na čítanie v prehliadači alebo stiahnutie.",
     "download": "Stiahnuť PDF",
     "open": "Otvoriť PDF",
     "webVersion": "Webová verzia",

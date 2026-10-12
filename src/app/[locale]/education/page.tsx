@@ -1,4 +1,4 @@
-import { BookOpen, GraduationCap, School } from "lucide-react";
+import { BookOpen, ExternalLink, GraduationCap, School } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AnchorHeading } from "@/components/ui/anchor-heading";
@@ -76,12 +76,13 @@ export default async function EducationPage({ params }: PageProps<"/[locale]/edu
                       pick(degree.thesis.title, locale)
                     )}
                     {degree.thesis.recordUrl ? (
-                      <>
-                        {" · "}
-                        <a href={degree.thesis.recordUrl} className="link text-muted">
-                          {tCommon("thesisRecord")}
-                        </a>
-                      </>
+                      <a
+                        href={degree.thesis.recordUrl}
+                        className="mt-1 flex w-fit items-center gap-1.5 text-sm text-muted hover:text-accent"
+                      >
+                        <ExternalLink aria-hidden size={14} />
+                        <span className="link">{tCommon("thesisRecord")}</span>
+                      </a>
                     ) : null}
                   </span>
                 </p>
