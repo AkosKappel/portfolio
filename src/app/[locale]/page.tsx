@@ -66,7 +66,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               width={900}
               height={1350}
               sizes="(min-width: 768px) 20rem, 14rem"
-              priority
+              preload
               className="size-56 rounded-full object-cover object-[50%_22%] sm:size-72 lg:size-80"
             />
           </div>
@@ -87,9 +87,13 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           </Link>
         </div>
         <ul className="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2">
-          {featuredProjects.map((project) => (
+          {featuredProjects.map((project, index) => (
             <li key={project.slug}>
-              <ProjectCard project={project} sizes="(min-width: 640px) 50vw, 100vw" />
+              <ProjectCard
+                project={project}
+                sizes="(min-width: 640px) 50vw, 100vw"
+                eager={index < 2}
+              />
             </li>
           ))}
         </ul>

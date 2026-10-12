@@ -122,7 +122,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
         <ProjectMedia
           project={project}
           sizes="(min-width: 1152px) 1088px, 100vw"
-          priority
+          loading="preload"
           natural
         />
 

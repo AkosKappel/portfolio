@@ -105,7 +105,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
             height={1350}
             sizes="(min-width: 1024px) 20rem, 60vw"
             className="w-60 rounded-2xl border border-line lg:w-full"
-            priority
+            preload
           />
         </div>
       </div>

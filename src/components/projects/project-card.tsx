@@ -15,12 +15,13 @@ export function projectYears(project: ProjectSummary) {
 export function ProjectMedia({
   project,
   sizes,
-  priority = false,
+  loading,
   natural = false,
 }: {
   project: ProjectSummary;
   sizes: string;
-  priority?: boolean;
+  /** "preload" for the page's hero image, "eager" for images that start above the fold. */
+  loading?: "preload" | "eager";
   /** Show the whole screenshot at its own aspect ratio instead of a cropped 16:10 frame. */
   natural?: boolean;
 }) {
@@ -42,7 +43,8 @@ export function ProjectMedia({
             alt={pick(project.image.alt, locale)}
             fill
             sizes={sizes}
-            priority={priority}
+            preload={loading === "preload"}
+            loading={loading === "eager" ? "eager" : undefined}
             className={natural ? "object-contain" : "object-cover object-top"}
           />
         ) : (
@@ -57,8 +59,11 @@ export function ProjectCard({
   project,
   headingLevel = "h3",
   sizes = "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+  eager = false,
 }: {
   project: ProjectSummary;
+  /** Load the image right away because the card starts above the fold. */
+  eager?: boolean;
   headingLevel?: "h2" | "h3";
   sizes?: string;
 }) {
@@ -66,7 +71,7 @@ export function ProjectCard({
   const Heading = headingLevel;
   return (
     <article className="group relative flex flex-col">
-      <ProjectMedia project={project} sizes={sizes} />
+      <ProjectMedia project={project} sizes={sizes} loading={eager ? "eager" : undefined} />
       <div className="mt-4 flex items-baseline justify-between gap-3">
         <Heading className="text-xl font-semibold">
           <Link
