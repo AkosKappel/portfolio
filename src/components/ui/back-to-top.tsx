@@ -3,7 +3,10 @@
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 
-/** Fades in once the page is scrolled half a screen down. */
+/**
+ * Fades in once the page is scrolled half a screen down. While hidden, `invisible`
+ * (visibility: hidden) also keeps it out of the tab order and the accessibility tree.
+ */
 export function BackToTop({ label }: { label: string }) {
   const [visible, setVisible] = useState(false);
 
@@ -19,8 +22,6 @@ export function BackToTop({ label }: { label: string }) {
       href="#main"
       aria-label={label}
       title={label}
-      aria-hidden={!visible}
-      tabIndex={visible ? undefined : -1}
       className={`fixed right-5 bottom-5 z-40 grid size-12 place-items-center rounded-full bg-accent text-on-accent shadow-lg transition-[opacity,visibility] duration-200 hover:opacity-90 print:hidden ${visible ? "" : "invisible opacity-0"}`}
     >
       <ArrowUp aria-hidden size={20} />
