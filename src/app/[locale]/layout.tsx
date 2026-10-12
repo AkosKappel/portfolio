@@ -66,7 +66,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "common" });
   // Client components only need these namespaces; the rest stays on the server.
-  const { nav, common, languages, projects, error } = await getMessages();
+  const { nav, common, languages, projects, error, contact } = await getMessages();
 
   return (
     <html
@@ -80,7 +80,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="flex min-h-dvh flex-col antialiased">
-        <NextIntlClientProvider messages={{ nav, common, languages, projects, error }}>
+        <NextIntlClientProvider messages={{ nav, common, languages, projects, error, contact }}>
           <a
             href="#main"
             className="sr-only z-50 rounded bg-ink px-4 py-2 text-paper focus:not-sr-only focus:fixed focus:top-3 focus:left-3"

@@ -146,7 +146,26 @@
     "profiles": "Profiles",
     "linkedin": "Work history and recommendations",
     "github": "Personal projects and Advent of Code",
-    "gitlab": "University and team projects"
+    "gitlab": "University and team projects",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send message",
+      "sending": "Sending…",
+      "sent": "Thank you, your message was sent. I will reply by email.",
+      "invalid": "Please check the highlighted fields.",
+      "limited": "Too many messages in a short time. Please try again later or write an email.",
+      "failed": "The message could not be sent. Please write an email instead.",
+      "title": "Write a message",
+      "errors": {
+        "nameRequired": "Please enter your name.",
+        "nameTooLong": "The name is too long.",
+        "emailInvalid": "Please enter a valid email address.",
+        "messageTooShort": "The message needs at least 10 characters.",
+        "messageTooLong": "The message is too long (5000 characters at most)."
+      }
+    }
   },
   "cv": {
     "title": "CV",

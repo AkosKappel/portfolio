@@ -123,6 +123,20 @@ test("switching language keeps the theme", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });
 
+test("contact form explains invalid fields and clears fixed ones", async ({ page }) => {
+  await page.goto("/contact");
+  const form = page.locator("form");
+  await form.getByRole("button", { name: "Send message" }).click();
+  await expect(form.getByText("Please enter a valid email address.")).toBeVisible();
+  await expect(page.getByRole("textbox", { name: "Email" })).toHaveAttribute(
+    "aria-invalid",
+    "true",
+  );
+
+  await page.getByRole("textbox", { name: "Email" }).fill("jane@example.com");
+  await expect(form.getByText("Please enter a valid email address.")).toBeHidden();
+});
+
 test("CV menu offers both languages as PDFs", async ({ page }) => {
   await page.goto("/");
   await page.getByText("Download CV").click();

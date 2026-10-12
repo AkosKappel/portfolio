@@ -146,7 +146,26 @@
     "profiles": "Profily",
     "linkedin": "Pracovná história a odporúčania",
     "github": "Osobné projekty a Advent of Code",
-    "gitlab": "Univerzitné a tímové projekty"
+    "gitlab": "Univerzitné a tímové projekty",
+    "form": {
+      "name": "Meno",
+      "email": "E-mail",
+      "message": "Správa",
+      "send": "Odoslať správu",
+      "sending": "Odosielam…",
+      "sent": "Ďakujem, správa bola odoslaná. Odpoviem e-mailom.",
+      "invalid": "Skontrolujte označené polia.",
+      "limited": "Príliš veľa správ za krátky čas. Skúste to neskôr alebo napíšte e-mail.",
+      "failed": "Správu sa nepodarilo odoslať. Napíšte mi prosím e-mail.",
+      "title": "Napíšte správu",
+      "errors": {
+        "nameRequired": "Zadajte svoje meno.",
+        "nameTooLong": "Meno je príliš dlhé.",
+        "emailInvalid": "Zadajte platnú e-mailovú adresu.",
+        "messageTooShort": "Správa musí mať aspoň 10 znakov.",
+        "messageTooLong": "Správa je príliš dlhá (najviac 5000 znakov)."
+      }
+    }
   },
   "cv": {
     "title": "Životopis",

@@ -11,6 +11,7 @@ Live: https://portfolio-taupe-eta-51.vercel.app
 - next-intl for English (at `/`) and Slovak (at `/sk`), with `hreflang` links and a localized sitemap
 - Simple Icons for technology logos, lucide for UI icons
 - TanStack Table and match-sorter for the projects archive (fuzzy search, filters and sorting kept in the URL)
+- TanStack Form with a shared Zod schema for the contact form, sent from a Server Action through Resend
 - React `ViewTransition` for route and image transitions
 - Biome for linting and formatting, Vitest for content checks, Playwright with axe for end-to-end and accessibility tests, Lighthouse CI
 
@@ -35,6 +36,18 @@ npm run dev
 | `npm run lighthouse` | Lighthouse CI against the production build, with a 300 KB budget for compressed JavaScript per page |
 
 GitHub Actions runs all of these on every push and pull request. Vercel builds and deploys `main`.
+
+## Contact form
+
+The form on `/contact` sends e-mail through the [Resend](https://resend.com) HTTP API from a Server Action. Set these environment variables in Vercel (or `.env.local`):
+
+| Variable | Required | Default |
+| --- | --- | --- |
+| `RESEND_API_KEY` | yes | none; without it the form answers with an error and points to the e-mail address |
+| `CONTACT_TO_EMAIL` | no | the address in `src/content/site.ts` |
+| `CONTACT_FROM_EMAIL` | no | `Portfolio <onboarding@resend.dev>`, which only delivers to the Resend account owner; set a sender on a verified domain otherwise |
+
+Spam protection: a hidden honeypot field and at most five messages per IP address in ten minutes (counted per server instance).
 
 ## Structure
 
