@@ -115,7 +115,15 @@
     "upgrade": "Čo sa zmenilo v roku 2026",
     "versions": "Verzie",
     "gallery": "Galéria",
-    "architecture": "Architektúra"
+    "architecture": "Architektúra",
+    "lightbox": {
+      "close": "Zavrieť",
+      "previous": "Predchádzajúci obrázok",
+      "next": "Ďalší obrázok",
+      "zoomIn": "Priblížiť",
+      "zoomOut": "Oddialiť",
+      "counter": "{current} z {total}"
+    }
   },
   "experience": {
     "title": "Skúsenosti",

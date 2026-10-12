@@ -184,6 +184,38 @@ test("CV viewer shows the PDF, or page images on touch screens", async ({ page, 
   }
 });
 
+test("gallery opens a lightbox with keyboard, swipe and zoom", async ({ page }) => {
+  await page.goto("/projects/glaucoma-segmentation");
+  // Before hydration the links open the plain image, which is the no-JavaScript fallback.
+  await page.waitForLoadState("networkidle");
+  const gallery = page.getByRole("region", { name: "Gallery" });
+  await gallery.getByRole("figure").first().getByRole("link").click();
+  const lightbox = page.getByRole("dialog");
+  await expect(lightbox).toBeVisible();
+  await expect(lightbox.getByText("1 of 4")).toBeVisible();
+
+  await page.keyboard.press("ArrowRight");
+  await expect(lightbox.getByText("2 of 4")).toBeVisible();
+  await page.keyboard.press("ArrowLeft");
+  await page.keyboard.press("ArrowLeft");
+  await expect(lightbox.getByText("4 of 4")).toBeVisible();
+
+  const image = lightbox.getByRole("img");
+  const box = await image.boundingBox();
+  if (!box) throw new Error("lightbox image has no size");
+  await page.mouse.move(box.x + box.width * 0.8, box.y + box.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width * 0.2, box.y + box.height / 2, { steps: 5 });
+  await page.mouse.up();
+  await expect(lightbox.getByText("1 of 4")).toBeVisible();
+
+  await lightbox.getByRole("button", { name: "Zoom in" }).click();
+  await expect(lightbox.getByRole("button", { name: "Zoom out" })).toBeVisible();
+
+  await page.keyboard.press("Escape");
+  await expect(lightbox).toBeHidden();
+});
+
 test("mobile menu opens, closes with Escape and navigates", async ({ page, isMobile }) => {
   test.skip(!isMobile, "The menu button only shows on small screens");
   await page.goto("/");

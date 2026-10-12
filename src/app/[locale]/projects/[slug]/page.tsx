@@ -13,9 +13,9 @@ import {
   Wrench,
 } from "lucide-react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Gallery } from "@/components/projects/gallery";
 import { ProjectMedia, projectYears } from "@/components/projects/project-card";
 import { AnchorHeading } from "@/components/ui/anchor-heading";
 import { ReadingProgress } from "@/components/ui/back-to-top";
@@ -258,28 +258,21 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
               <Images aria-hidden className="size-5 shrink-0 text-accent" />
               {t("gallery")}
             </AnchorHeading>
-            <div className="mt-6 grid gap-x-8 gap-y-10 sm:grid-cols-2">
-              {project.gallery.map((figure) => (
-                <figure key={figure.src}>
-                  <a
-                    href={figure.src}
-                    className="block overflow-hidden rounded-xl border border-line bg-surface transition-colors hover:border-accent"
-                  >
-                    <Image
-                      src={figure.src}
-                      width={figure.width}
-                      height={figure.height}
-                      alt={pick(figure.alt, locale)}
-                      sizes="(min-width: 1152px) 528px, (min-width: 640px) 50vw, 100vw"
-                      className="h-auto w-full"
-                    />
-                  </a>
-                  <figcaption className="mt-3 text-muted">
-                    {pick(figure.caption, locale)}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
+            <Gallery
+              figures={project.gallery.map((figure) => ({
+                ...figure,
+                alt: pick(figure.alt, locale),
+                caption: pick(figure.caption, locale),
+              }))}
+              labels={{
+                close: t("lightbox.close"),
+                previous: t("lightbox.previous"),
+                next: t("lightbox.next"),
+                zoomIn: t("lightbox.zoomIn"),
+                zoomOut: t("lightbox.zoomOut"),
+                counter: t.raw("lightbox.counter"),
+              }}
+            />
           </section>
         ) : null}
       </article>
