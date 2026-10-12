@@ -15,7 +15,7 @@ export function SiteFooter() {
   const t = useTranslations();
   const locale = useLocale();
   return (
-    <footer className="mt-24 border-t border-line">
+    <footer className="mt-24 border-t border-line print:hidden">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="max-w-sm">
           <p className="flex items-center gap-2.5 font-display text-xl font-semibold">

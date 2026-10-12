@@ -64,7 +64,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
   return (
     <Page>
       <ReadingProgress />
-      <nav aria-label="Breadcrumb" className="pt-10">
+      <nav aria-label="Breadcrumb" className="pt-10 print:hidden">
         <Link
           href="/projects"
           className="inline-flex items-center gap-1.5 text-muted hover:text-ink"
@@ -82,7 +82,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
               {pick(project.summary, locale)}
             </p>
           </div>
-          <div className="flex flex-wrap gap-3 lg:justify-end">
+          <div className="flex flex-wrap gap-3 lg:justify-end print:hidden">
             {project.liveUrl ? (
               <a
                 href={project.liveUrl}
@@ -194,7 +194,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
 
       <nav
         aria-label={t("moreProjects")}
-        className="mt-20 grid gap-4 border-t border-line pt-8 sm:grid-cols-2"
+        className="mt-20 grid gap-4 border-t border-line pt-8 sm:grid-cols-2 print:hidden"
       >
         {previous ? (
           <Link href={`/projects/${previous.slug}`} className="group">

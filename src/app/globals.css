@@ -30,6 +30,36 @@
   color-scheme: dark;
 }
 
+/* Paper is always light, whatever theme is on screen. */
+@media print {
+  [data-theme="dark"] {
+    --paper: #ffffff;
+    --surface: #ffffff;
+    --ink: #142233;
+    --muted: #4b596a;
+    --line: #cdd5df;
+    --accent: #1f3a5f;
+    --accent-soft: #e2e9f2;
+    --on-accent: #ffffff;
+    color-scheme: light;
+  }
+
+  :root {
+    --paper: #ffffff;
+    --surface: #ffffff;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  li,
+  figure {
+    break-inside: avoid;
+  }
+}
+
 @theme inline {
   --color-paper: var(--paper);
   --color-surface: var(--surface);
