@@ -1,8 +1,36 @@
 # Portfolio
 
-Personal website of Ákos Kappel, full-stack software engineer: projects with case studies, experience, skills, education, contact and an HTML CV with PDF downloads in English and Slovak.
+[![CI](https://github.com/AkosKappel/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/AkosKappel/portfolio/actions/workflows/ci.yml)
+[![Live site](https://img.shields.io/badge/live-vercel.app-1f3a5f)](https://portfolio-taupe-eta-51.vercel.app)
+![Next.js 16](https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs)
+![React 19](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-7-3178c6?logo=typescript&logoColor=white)
+![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?logo=tailwindcss&logoColor=white)
 
-Live: https://portfolio-taupe-eta-51.vercel.app
+Personal website of Ákos Kappel, full-stack software engineer: projects with case studies, experience, skills, education, contact and a CV in English and Slovak.
+
+**Live:** https://portfolio-taupe-eta-51.vercel.app · **CV:** [web](https://portfolio-taupe-eta-51.vercel.app/cv) · [PDF](https://portfolio-taupe-eta-51.vercel.app/cv/pdf)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/readme/home-dark.webp">
+  <img src=".github/readme/home-light.webp" alt="Home page with portrait, headline and selected projects">
+</picture>
+
+## Features
+
+- Every page statically generated in English and Slovak, with `hreflang`, a localized sitemap, structured data and a generated link preview per page
+- Case studies with architecture diagrams, galleries in an accessible lightbox and what changed in each 2026 rebuild
+- Projects archive with fuzzy search, filters, sorting, grid and table views, all kept in the URL
+- Light and dark themes without a flash, view transitions between pages and from a project card into its case study
+- Contact form with a shared Zod schema, honeypot and rate limit, sent from a Server Action
+- CV as an HTML page with print styles and as a shareable PDF viewer
+- WCAG 2.2 AA: axe checks every page in both themes on desktop and mobile; Lighthouse CI keeps performance, accessibility, best practices and SEO budgets
+
+## Screenshots
+
+| Case study | Projects archive | CV | Mobile |
+| --- | --- | --- | --- |
+| ![Modern Fashion Store case study](.github/readme/case-study.webp) | ![Projects archive in table view](.github/readme/archive.webp) | ![HTML CV](.github/readme/cv.webp) | ![Home page on a phone in dark mode](.github/readme/mobile.webp) |
 
 ## Stack
 
@@ -63,6 +91,8 @@ src/
   lib/          small helpers (dates, metadata, technology logos)
 test/e2e/       Playwright tests
 latex/          CV source (English and Slovak)
+scripts/        CV build (PDFs and page images)
+.github/        CI, weekly link check, Dependabot, README screenshots
 ```
 
 ## Editing content
