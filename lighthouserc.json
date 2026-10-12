@@ -8,7 +8,8 @@
         "http://localhost:3400/projects",
         "http://localhost:3400/projects/modern-fashion-store",
         "http://localhost:3400/experience",
-        "http://localhost:3400/about"
+        "http://localhost:3400/about",
+        "http://localhost:3400/cv/pdf"
       ],
       "numberOfRuns": 3,
       "settings": {
