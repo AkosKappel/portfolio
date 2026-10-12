@@ -18,7 +18,6 @@ export const petguide: Project = {
   year: 2022,
   until: 2023,
   stack: ["Laravel", "PHP", "FastAPI", "Python", "TensorFlow", "Bootstrap"],
-  repoUrl: "https://github.com/ImMuffin/team_project_14",
   image: {
     src: "/images/projects/petguide.webp",
     width: 1600,
