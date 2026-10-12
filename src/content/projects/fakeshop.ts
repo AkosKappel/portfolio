@@ -74,4 +74,32 @@ export const fakeshop: Project = {
       sk: "Úvodná stránka FakeShopu s produktmi",
     },
   },
+  gallery: [
+    {
+      src: "/images/projects/fakeshop/search.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Product search results with filters",
+        sk: "Výsledky vyhľadávania produktov s filtrami",
+      },
+      caption: {
+        en: "Search with suggestions and filters kept in the URL.",
+        sk: "Vyhľadávanie s návrhmi a filtrami uloženými v URL.",
+      },
+    },
+    {
+      src: "/images/projects/fakeshop/checkout.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Checkout form with the order summary",
+        sk: "Formulár pokladne so súhrnom objednávky",
+      },
+      caption: {
+        en: "Checkout with card number validation and delivery dates in business days.",
+        sk: "Pokladňa s kontrolou čísla karty a termínom doručenia v pracovných dňoch.",
+      },
+    },
+  ],
 };

@@ -92,7 +92,7 @@ export const modernFashionStore: Project = {
   repoUrl: "https://github.com/AkosKappel/clothing-store",
   liveUrl: "https://tagline.tailb52c43.ts.net",
   image: {
-    src: "/images/projects/clothing-store-2026.webp",
+    src: "/images/projects/modern-fashion-store-dashboard-2026.webp",
     width: 1600,
     height: 1000,
     alt: {
@@ -100,5 +100,33 @@ export const modernFashionStore: Project = {
       sk: "Dashboard produktov v Modern Fashion Store s fotkami, cenami a zásobami",
     },
   },
+  gallery: [
+    {
+      src: "/images/projects/modern-fashion-store/inventory.webp",
+      width: 1600,
+      height: 1000,
+      alt: {
+        en: "Inventory table with filters, product photos, categories, prices and stock",
+        sk: "Tabuľka zásob s filtrami, fotkami produktov, kategóriami, cenami a skladom",
+      },
+      caption: {
+        en: "Inventory: search, filters by category, price, tags and stock, sorting, editing and deleting.",
+        sk: "Sklad: vyhľadávanie, filtre podľa kategórie, ceny, štítkov a zásob, triedenie, úpravy a mazanie.",
+      },
+    },
+    {
+      src: "/images/projects/modern-fashion-store/statistics.webp",
+      width: 1600,
+      height: 1000,
+      alt: {
+        en: "Sales statistics with monthly revenue bars and a revenue-by-category donut chart",
+        sk: "Štatistiky predaja so stĺpcami mesačných tržieb a koláčovým grafom tržieb podľa kategórií",
+      },
+      caption: {
+        en: "Statistics: revenue per month and per category, stock warnings and bestsellers.",
+        sk: "Štatistiky: tržby za mesiac a podľa kategórie, upozornenia na zásoby a najpredávanejšie produkty.",
+      },
+    },
+  ],
   featured: true,
 };

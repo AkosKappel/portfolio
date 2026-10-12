@@ -74,4 +74,45 @@ export const feastFinder: Project = {
       sk: "Úvodná stránka Feast Finder s návrhmi jedál",
     },
   },
+  gallery: [
+    {
+      src: "/images/projects/feast-finder/fridge.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Ingredient picker that finds meals from what is in the fridge",
+        sk: "Výber ingrediencií, ktorý nájde jedlá z toho, čo je v chladničke",
+      },
+      caption: {
+        en: '"What is in my fridge": pick several ingredients and get the meals that use all of them.',
+        sk: '„Čo mám v chladničke": vyberte niekoľko ingrediencií a dostanete jedlá, ktoré ich obsahujú všetky.',
+      },
+    },
+    {
+      src: "/images/projects/feast-finder/meal.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Recipe page with a photo, ingredients and instructions",
+        sk: "Stránka receptu s fotkou, ingredienciami a postupom",
+      },
+      caption: {
+        en: "Recipe page with ingredients, steps, favourites, sharing and printing.",
+        sk: "Stránka receptu s ingredienciami, krokmi, obľúbenými, zdieľaním a tlačou.",
+      },
+    },
+    {
+      src: "/images/projects/feast-finder/cooking-mode.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Cooking mode showing one large recipe step at a time",
+        sk: "Režim varenia, ktorý ukazuje jeden veľký krok receptu naraz",
+      },
+      caption: {
+        en: "Cooking mode: one step at a time, with timers and read-aloud.",
+        sk: "Režim varenia: jeden krok naraz, s časovačmi a čítaním nahlas.",
+      },
+    },
+  ],
 };

@@ -78,5 +78,33 @@ export const pokedex: Project = {
       sk: "Zoznam Pokémonov s vyhľadávaním a filtrami",
     },
   },
+  gallery: [
+    {
+      src: "/images/projects/pokedex/pokemon.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Pokémon detail page with stats, types and evolutions",
+        sk: "Detail Pokémona so štatistikami, typmi a evolúciami",
+      },
+      caption: {
+        en: "Pokémon detail with stats, type matchups and the evolution chain.",
+        sk: "Detail Pokémona so štatistikami, typovými výhodami a vývojovým reťazcom.",
+      },
+    },
+    {
+      src: "/images/projects/pokedex/browse-dark.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Grid of Pokémon cards in the dark theme",
+        sk: "Mriežka kariet Pokémonov v tmavom režime",
+      },
+      caption: {
+        en: "Browsing all 1025 Pokémon in the dark theme.",
+        sk: "Prehliadanie všetkých 1025 Pokémonov v tmavom režime.",
+      },
+    },
+  ],
   featured: true,
 };

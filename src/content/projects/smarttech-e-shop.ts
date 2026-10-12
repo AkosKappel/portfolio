@@ -101,5 +101,33 @@ export const smarttechEShop: Project = {
     height: 1000,
     alt: { en: "Smartphone catalog with filters", sk: "Katalóg smartfónov s filtrami" },
   },
+  gallery: [
+    {
+      src: "/images/projects/smarttech-e-shop/home.webp",
+      width: 1600,
+      height: 1000,
+      alt: {
+        en: "Home page of the SmartTech shop with a phone and three reasons to buy",
+        sk: "Úvodná stránka obchodu SmartTech s telefónom a tromi dôvodmi na nákup",
+      },
+      caption: {
+        en: "Home page with the demo banner, search and language switcher.",
+        sk: "Úvodná stránka s bannerom dema, vyhľadávaním a prepínačom jazyka.",
+      },
+    },
+    {
+      src: "/images/projects/smarttech-e-shop/product.webp",
+      width: 1600,
+      height: 1000,
+      alt: {
+        en: "Product page of a Sony phone with quantity, total price and an add to cart button",
+        sk: "Stránka produktu telefónu Sony s množstvom, celkovou cenou a tlačidlom do košíka",
+      },
+      caption: {
+        en: "Product detail with quantity, live total and specifications.",
+        sk: "Detail produktu s množstvom, priebežnou cenou a parametrami.",
+      },
+    },
+  ],
   featured: true,
 };
