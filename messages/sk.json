@@ -168,5 +168,11 @@
     "title": "Táto stránka neexistuje",
     "text": "Odkaz môže byť starý alebo nesprávny. Tieto stránky existujú:",
     "label": "Chyba 404"
+  },
+  "error": {
+    "label": "Chyba",
+    "title": "Niečo sa pokazilo",
+    "text": "Stránku sa nepodarilo zobraziť. Skúste to znova alebo sa vráťte na úvodnú stránku.",
+    "retry": "Skúsiť znova"
   }
 }

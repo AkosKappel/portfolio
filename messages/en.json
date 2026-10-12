@@ -168,5 +168,11 @@
     "title": "This page does not exist",
     "text": "The link may be old or mistyped. These pages do exist:",
     "label": "Error 404"
+  },
+  "error": {
+    "label": "Error",
+    "title": "Something went wrong",
+    "text": "The page could not be shown. Try again, or go back to the home page.",
+    "retry": "Try again"
   }
 }
