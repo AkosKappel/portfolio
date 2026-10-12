@@ -66,5 +66,59 @@ export const glaucomaSegmentation: Project = {
       sk: "Kroky spracovania od snímky oka po nájdený optický disk",
     },
   },
+  gallery: [
+    {
+      src: "/images/projects/glaucoma-segmentation/segmentation-results.webp",
+      width: 1482,
+      height: 1206,
+      alt: {
+        en: "Four eye images with the expert outline, the model prediction and both contours overlaid",
+        sk: "Štyri snímky oka s obrysom od expertov, predikciou modelu a oboma obrysmi cez seba",
+      },
+      caption: {
+        en: "Results of the dual-decoder model: input, ground truth, prediction, and the true (blue) and predicted (black) contours of the optic disc and cup.",
+        sk: "Výsledky modelu s dvoma dekodérmi: vstup, referenčná maska, predikcia a skutočné (modré) a predikované (čierne) obrysy optického disku a jamky.",
+      },
+    },
+    {
+      src: "/images/projects/glaucoma-segmentation/dual-decoder-architecture.webp",
+      width: 1600,
+      height: 927,
+      alt: {
+        en: "Diagram of a network with one shared encoder and two decoders, one for the disc and one for the cup",
+        sk: "Diagram siete s jedným spoločným enkodérom a dvoma dekodérmi, pre disk a pre jamku",
+      },
+      caption: {
+        en: "Dual-decoder architecture: one shared encoder, a decoder for the optic disc and one for the cup. It reached a Dice score of 96.8 % for the disc and 89.7 % for the cup.",
+        sk: "Architektúra s dvoma dekodérmi: jeden spoločný enkodér, dekodér pre optický disk a dekodér pre jamku. Dosiahla Dice skóre 96,8 % pre disk a 89,7 % pre jamku.",
+      },
+    },
+    {
+      src: "/images/projects/glaucoma-segmentation/training-history.webp",
+      width: 1399,
+      height: 788,
+      alt: {
+        en: "Line charts of loss and Dice score over the training epochs",
+        sk: "Čiarové grafy straty a Dice skóre počas epoch trénovania",
+      },
+      caption: {
+        en: "Training history of the dual-decoder model: loss, Dice score and other metrics on the training and validation sets.",
+        sk: "Priebeh trénovania modelu s dvoma dekodérmi: strata, Dice skóre a ďalšie metriky na trénovacích a validačných dátach.",
+      },
+    },
+    {
+      src: "/images/projects/glaucoma-segmentation/vcdr-results.webp",
+      width: 1589,
+      height: 789,
+      alt: {
+        en: "Charts comparing the predicted and the expert cup-to-disc ratio",
+        sk: "Grafy porovnávajúce predikovaný a expertmi nameraný pomer jamky a disku",
+      },
+      caption: {
+        en: "Vertical cup-to-disc ratio, the main sign of glaucoma, computed from the predictions and compared with values measured by experts.",
+        sk: "Vertikálny pomer jamky a disku, hlavný ukazovateľ glaukómu, vypočítaný z predikcií a porovnaný s hodnotami od expertov.",
+      },
+    },
+  ],
   featured: true,
 };

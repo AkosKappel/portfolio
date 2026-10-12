@@ -10,6 +10,14 @@ export function pick(text: Text, locale: Locale) {
 export type ProjectKind = "personal" | "university" | "team";
 export type ProjectArea = "web" | "ai" | "games" | "infrastructure" | "challenges";
 
+export type Figure = {
+  src: string;
+  width: number;
+  height: number;
+  alt: Text;
+  caption: Text;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -37,6 +45,8 @@ export type Project = {
   repoUrl?: string;
   liveUrl?: string;
   image?: { src: string; width: number; height: number; alt: Text };
+  /** More screenshots, diagrams and results for the project page. */
+  gallery?: Figure[];
   featured?: boolean;
 };
 

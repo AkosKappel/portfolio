@@ -2,6 +2,7 @@ import {
   ArrowLeft,
   ArrowRight,
   ExternalLink,
+  Images,
   Info,
   type LucideIcon,
   MousePointerClick,
@@ -10,6 +11,7 @@ import {
   Wrench,
 } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProjectMedia, projectYears } from "@/components/projects/project-card";
@@ -202,6 +204,40 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
             </Fact>
           </dl>
         </div>
+        {project.gallery?.length ? (
+          <section aria-labelledby="gallery" className="mt-16">
+            <AnchorHeading
+              id="gallery"
+              label={tCommon("anchor")}
+              className="flex items-center gap-2 text-2xl font-semibold"
+            >
+              <Images aria-hidden className="size-5 shrink-0 text-accent" />
+              {t("gallery")}
+            </AnchorHeading>
+            <div className="mt-6 grid gap-x-8 gap-y-10 sm:grid-cols-2">
+              {project.gallery.map((figure) => (
+                <figure key={figure.src}>
+                  <a
+                    href={figure.src}
+                    className="block overflow-hidden rounded-xl border border-line bg-surface transition-colors hover:border-accent"
+                  >
+                    <Image
+                      src={figure.src}
+                      width={figure.width}
+                      height={figure.height}
+                      alt={pick(figure.alt, locale)}
+                      sizes="(min-width: 1152px) 528px, (min-width: 640px) 50vw, 100vw"
+                      className="h-auto w-full"
+                    />
+                  </a>
+                  <figcaption className="mt-3 text-muted">
+                    {pick(figure.caption, locale)}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        ) : null}
       </article>
 
       <nav

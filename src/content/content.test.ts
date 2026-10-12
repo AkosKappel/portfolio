@@ -28,8 +28,8 @@ describe("projects", () => {
 
   it("point to images that exist", () => {
     for (const project of projects) {
-      if (project.image) {
-        expect(existsSync(join(publicDir, project.image.src)), project.slug).toBe(true);
+      for (const image of [project.image, ...(project.gallery ?? [])]) {
+        if (image) expect(existsSync(join(publicDir, image.src)), image.src).toBe(true);
       }
     }
   });
@@ -44,7 +44,13 @@ describe("projects", () => {
 
   it("have text in every language", () => {
     for (const project of projects) {
-      for (const text of [project.summary, ...project.description, ...(project.highlights ?? [])]) {
+      const figures = (project.gallery ?? []).flatMap((figure) => [figure.alt, figure.caption]);
+      for (const text of [
+        project.summary,
+        ...project.description,
+        ...(project.highlights ?? []),
+        ...figures,
+      ]) {
         expect(text.en, project.slug).not.toBe("");
         expect(text.sk, project.slug).not.toBe("");
       }
