@@ -72,6 +72,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
     <html
       lang={locale}
       className={`${bricolage.variable} ${plex.variable}`}
+      // Lets Next.js turn smooth scrolling off while it scrolls a new page to the top.
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>
