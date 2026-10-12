@@ -79,8 +79,8 @@ export function SiteFooter() {
             {t("common.sourceCode")}
           </a>
           {" · "}
-          <a href={site.links.buyMeACoffee} className="link inline-flex items-center gap-1">
-            <Coffee aria-hidden size={14} />
+          <Coffee aria-hidden size={14} className="mr-1 inline-block align-[-2px]" />
+          <a href={site.links.buyMeACoffee} className="link">
             {t("footer.coffee")}
           </a>
         </p>
