@@ -33,6 +33,11 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        // The CV viewer at /cv/pdf frames the PDFs; a later match replaces the header above.
+        source: "/:file(CV_.*\\.pdf)",
+        headers: [{ key: "Content-Security-Policy", value: "frame-ancestors 'self'" }],
+      },
     ];
   },
 };

@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     ...navigation.map((item) => item.href),
     "/cv",
+    "/cv/pdf",
     ...projects.map((project) => `/projects/${project.slug}`),
   ];
   const url = (locale: (typeof routing.locales)[number], href: string) =>

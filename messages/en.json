@@ -33,7 +33,8 @@
     "technologies": "Technologies",
     "anchor": "Link to this section",
     "phone": "Phone",
-    "backToTop": "Back to top"
+    "backToTop": "Back to top",
+    "previewCv": "Preview {language} CV"
   },
   "languages": {
     "en": "English",
@@ -188,6 +189,16 @@
     "otherProjects": "Other projects",
     "allProjects": "All projects",
     "contents": "Sections"
+  },
+  "cvPdf": {
+    "title": "CV (PDF)",
+    "description": "The CV of Ákos Kappel, full-stack software engineer, to read in the browser without downloading it.",
+    "lead": "The same PDF I send with applications, to read here without downloading.",
+    "download": "Download PDF",
+    "open": "Open PDF",
+    "webVersion": "Web version",
+    "viewer": "CV in English (PDF)",
+    "pageAlt": "CV of Ákos Kappel, page {page}"
   },
   "notFound": {
     "title": "This page does not exist",

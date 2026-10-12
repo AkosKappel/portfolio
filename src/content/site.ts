@@ -79,10 +79,11 @@ export const site = {
     linkedin: "https://www.linkedin.com/in/akos-kappel",
     buyMeACoffee: "https://buymeacoffee.com/akoskappel",
   },
+  /** PDFs and their page images, both built by `scripts/build-cv.sh`. */
   cv: [
-    { locale: "en", href: "/CV_Akos_Kappel_(EN).pdf" },
-    { locale: "sk", href: "/CV_Akos_Kappel_(SK).pdf" },
-  ] satisfies { locale: Locale; href: string }[],
+    { locale: "en", href: "/CV_Akos_Kappel_(EN).pdf", pages: ["/images/cv/cv-en-1.webp"] },
+    { locale: "sk", href: "/CV_Akos_Kappel_(SK).pdf", pages: ["/images/cv/cv-sk-1.webp"] },
+  ] satisfies { locale: Locale; href: string; pages: string[] }[],
   languages: [
     {
       flag: "sk",

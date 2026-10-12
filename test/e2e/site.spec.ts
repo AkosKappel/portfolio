@@ -11,6 +11,7 @@ const pages = [
   { path: "/about", heading: "About me" },
   { path: "/contact", heading: "Contact" },
   { path: "/cv", heading: "Ákos Kappel" },
+  { path: "/cv/pdf", heading: "CV (PDF)" },
   { path: "/sk", heading: "Ákos Kappel" },
   { path: "/sk/projects", heading: "Projekty" },
   { path: "/sk/experience", heading: "Skúsenosti" },
@@ -151,10 +152,35 @@ test("CV menu offers both languages as PDFs", async ({ page }) => {
   await page.goto("/");
   await page.getByText("Download CV").click();
   for (const language of ["English", "Slovak"]) {
-    const link = page.getByRole("main").getByRole("link", { name: new RegExp(language) });
+    const link = page.getByRole("main").getByRole("link", { name: new RegExp(`^${language}`) });
     const href = await link.getAttribute("href");
     const response = await page.request.get(href ?? "");
     expect(response.headers()["content-type"]).toContain("application/pdf");
+  }
+});
+
+test("CV menu links to the PDF viewer in each language", async ({ page }) => {
+  await page.goto("/");
+  await page.getByText("Download CV").click();
+  await page.getByRole("link", { name: "Preview Slovak CV" }).click();
+  await expect(page).toHaveURL(/\/sk\/cv\/pdf$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Životopis (PDF)");
+});
+
+test("CV viewer shows the PDF, or page images on touch screens", async ({ page, isMobile }) => {
+  await page.goto("/cv/pdf");
+  const download = page.getByRole("link", { name: "Download PDF" });
+  const href = (await download.getAttribute("href")) ?? "";
+  const pdf = await page.request.get(href);
+  expect(pdf.headers()["content-security-policy"]).toBe("frame-ancestors 'self'");
+
+  if (isMobile) {
+    await expect(page.getByRole("img", { name: /page 1/ })).toBeVisible();
+    await expect(page.locator("main iframe")).toHaveCount(0);
+  } else {
+    const inline = await page.evaluate(() => navigator.pdfViewerEnabled);
+    if (inline) await expect(page.locator("main iframe")).toHaveAttribute("src", /\.pdf#/);
+    else await expect(page.getByRole("img", { name: /page 1/ })).toBeVisible();
   }
 });
 

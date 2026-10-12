@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import en from "../../messages/en.json";
@@ -7,6 +7,7 @@ import { formatMonth, monthsBetween, yearRange } from "../lib/format";
 import { techIcon } from "../lib/tech-icons";
 import { jobs } from "./experience";
 import { projects } from "./projects";
+import { site } from "./site";
 import { skillGroups } from "./skills";
 
 const publicDir = join(__dirname, "../../public");
@@ -55,6 +56,15 @@ describe("projects", () => {
         expect(text.sk, project.slug).not.toBe("");
       }
     }
+  });
+});
+
+describe("cv", () => {
+  it("lists every page image the build script rendered", () => {
+    const rendered = readdirSync(join(publicDir, "images/cv")).map((file) => `/images/cv/${file}`);
+    const listed = site.cv.flatMap((cv) => cv.pages);
+    expect(listed.toSorted()).toEqual(rendered.toSorted());
+    for (const cv of site.cv) expect(existsSync(join(publicDir, cv.href)), cv.href).toBe(true);
   });
 });
 

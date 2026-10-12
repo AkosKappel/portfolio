@@ -86,12 +86,15 @@ Projects without a screenshot get a generated placeholder.
 
 ## CV
 
-The CV source is LaTeX in `latex/` (`main-english.tex`, `main-slovak.tex`, A4, two pages). Build it and copy the PDFs to `public/`:
+The CV source is LaTeX in `latex/` (`main-english.tex`, `main-slovak.tex`, A4, one page, shared layout in `cv-style.tex`). Build both PDFs, copy them to `public/` and render the page images for the viewer (needs `latexmk`, `pdftoppm` and ImageMagick):
 
 ```bash
-cd latex && latexmk -pdf main-english.tex main-slovak.tex
-cp main-english.pdf "../public/CV_Akos_Kappel_(EN).pdf"
-cp main-slovak.pdf "../public/CV_Akos_Kappel_(SK).pdf"
+./scripts/build-cv.sh
 ```
 
-The public CV contains no phone number, birth date or street address. The `/cv` page renders the same content from `src/content/`.
+If the page count changes, update `pages` in `site.cv` (`src/content/site.ts`); `npm test` fails until it matches the rendered images.
+
+The public CV contains no birth date or street address. Two pages show it:
+
+- `/cv` renders the same content as HTML from `src/content/`, with print styles.
+- `/cv/pdf` (and `/sk/cv/pdf`) shows the PDF itself, for sharing a link instead of a file. Desktop browsers get their built-in PDF viewer; phones and tablets get the page images.

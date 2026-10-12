@@ -33,7 +33,8 @@
     "technologies": "Technológie",
     "anchor": "Odkaz na túto časť",
     "phone": "Telefón",
-    "backToTop": "Späť na začiatok"
+    "backToTop": "Späť na začiatok",
+    "previewCv": "Ukážka životopisu: {language}"
   },
   "languages": {
     "en": "Angličtina",
@@ -188,6 +189,16 @@
     "otherProjects": "Ďalšie projekty",
     "allProjects": "Všetky projekty",
     "contents": "Sekcie"
+  },
+  "cvPdf": {
+    "title": "Životopis (PDF)",
+    "description": "Životopis Ákosa Kappela, full-stack vývojára, na čítanie v prehliadači bez sťahovania.",
+    "lead": "Rovnaké PDF, aké posielam so žiadosťami, na čítanie priamo tu bez sťahovania.",
+    "download": "Stiahnuť PDF",
+    "open": "Otvoriť PDF",
+    "webVersion": "Webová verzia",
+    "viewer": "Životopis v slovenčine (PDF)",
+    "pageAlt": "Životopis Ákosa Kappela, strana {page}"
   },
   "notFound": {
     "title": "Táto stránka neexistuje",
