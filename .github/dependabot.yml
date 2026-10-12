@@ -1,0 +1,44 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      next-react:
+        patterns:
+          - next
+          - react
+          - react-dom
+          - "@types/react"
+          - "@types/react-dom"
+          - next-intl
+      tooling:
+        patterns:
+          - "@biomejs/biome"
+          - "@lhci/cli"
+          - "@playwright/test"
+          - "@axe-core/playwright"
+          - "@types/node"
+          - typescript
+          - vitest
+          - tailwindcss
+          - "@tailwindcss/postcss"
+          - postcss
+      everything-else:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns:
+          - "*"
