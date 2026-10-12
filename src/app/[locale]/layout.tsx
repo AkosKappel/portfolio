@@ -81,7 +81,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         {/* biome-ignore lint/security/noDangerouslySetInnerHtml: static script defined in this repository */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="flex min-h-dvh flex-col antialiased">
+      {/* Extensions such as Grammarly add attributes to <body> before React hydrates. */}
+      <body className="flex min-h-dvh flex-col antialiased" suppressHydrationWarning>
         <NextIntlClientProvider messages={{ nav, common, languages, projects, error, contact }}>
           <a
             href="#main"
