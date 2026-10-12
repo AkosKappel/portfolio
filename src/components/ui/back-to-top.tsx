@@ -7,7 +7,7 @@ export function BackToTop({ label }: { label: string }) {
       href="#main"
       aria-label={label}
       title={label}
-      className="back-to-top fixed right-5 bottom-5 z-40 grid size-11 place-items-center rounded-full border border-line bg-surface text-muted shadow-lg transition-colors hover:border-accent hover:text-ink print:hidden"
+      className="back-to-top fixed right-5 bottom-5 z-40 grid size-12 place-items-center rounded-full bg-accent text-on-accent shadow-lg transition-opacity hover:opacity-90 print:hidden"
     >
       <ArrowUp aria-hidden size={20} />
     </a>

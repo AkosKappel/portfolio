@@ -158,7 +158,7 @@
   .back-to-top {
     animation: reveal linear both;
     animation-timeline: scroll();
-    animation-range: 0 60vh;
+    animation-range: 20vh 50vh;
   }
 
   .reading-progress {
