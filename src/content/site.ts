@@ -9,6 +9,7 @@ export const site = {
   headline: "Full-Stack Software Engineer",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-taupe-eta-51.vercel.app",
   email: "kappelakos@gmail.com",
+  repository: "https://github.com/AkosKappel/portfolio",
   location: { en: "Bratislava, Slovakia", sk: "Bratislava, Slovensko" } satisfies Text,
   intro: {
     en: "Full-stack software engineer with years of experience in web and mobile development. I build software that is fast, accessible and easy to maintain.",

@@ -11,7 +11,8 @@
     "format": "biome format --write",
     "check": "biome check --write",
     "typecheck": "next typegen && tsc --noEmit",
-    "test": "vitest run",
+    "test": "vitest run --project unit",
+    "check:links": "vitest run --project links",
     "test:e2e": "playwright test",
     "lighthouse": "lhci autorun"
   },

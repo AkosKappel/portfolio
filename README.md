@@ -30,6 +30,7 @@ npm run dev
 | `npm run check` | Biome with safe fixes applied |
 | `npm run typecheck` | TypeScript |
 | `npm test` | Vitest content and helper tests |
+| `npm run check:links` | Requests every external link in `src/content/` (projects, demos, profiles, theses); also runs weekly on GitHub |
 | `npm run build` | Production build |
 | `npm run analyze` | Turbopack bundle analyzer in the browser (per route, client and server) |
 | `npm run test:e2e` | Playwright against the production build (run `npm run build` first) |

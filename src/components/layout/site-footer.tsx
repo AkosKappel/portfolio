@@ -75,7 +75,7 @@ export function SiteFooter() {
         </p>
         <p>
           {t("footer.builtWith")}{" "}
-          <a href="https://github.com/AkosKappel/portfolio" className="link">
+          <a href={site.repository} className="link">
             {t("common.sourceCode")}
           </a>
           {" · "}
