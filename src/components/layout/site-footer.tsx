@@ -1,3 +1,4 @@
+import { Coffee } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { GitHubIcon, GitLabIcon, LinkedInIcon } from "@/components/ui/brand-icons";
 import { Logo } from "@/components/ui/logo";
@@ -76,6 +77,11 @@ export function SiteFooter() {
           {t("footer.builtWith")}{" "}
           <a href="https://github.com/AkosKappel/portfolio" className="link">
             {t("common.sourceCode")}
+          </a>
+          {" · "}
+          <a href={site.links.buyMeACoffee} className="link inline-flex items-center gap-1">
+            <Coffee aria-hidden size={14} />
+            {t("footer.coffee")}
           </a>
         </p>
       </div>

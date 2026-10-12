@@ -42,6 +42,7 @@
   "footer": {
     "pages": "Stránky",
     "elsewhere": "Inde",
+    "coffee": "Kúp mi kávu",
     "builtWith": "Vytvorené v Next.js, React a Tailwind CSS."
   },
   "home": {
@@ -147,6 +148,7 @@
   "contact": {
     "title": "Kontakt",
     "profiles": "Profily",
+    "coffee": "Pomohol vám niektorý z mojich projektov? Môžete mi <link>kúpiť kávu</link>.",
     "linkedin": "Pracovná história a odporúčania",
     "github": "Osobné projekty a Advent of Code",
     "gitlab": "Univerzitné a tímové projekty",

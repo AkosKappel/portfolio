@@ -42,7 +42,8 @@
   "footer": {
     "pages": "Pages",
     "elsewhere": "Elsewhere",
-    "builtWith": "Built with Next.js, React and Tailwind CSS."
+    "builtWith": "Built with Next.js, React and Tailwind CSS.",
+    "coffee": "Buy me a coffee"
   },
   "home": {
     "viewProjects": "View projects",
@@ -147,6 +148,7 @@
   "contact": {
     "title": "Contact",
     "profiles": "Profiles",
+    "coffee": "Did one of my projects help you? You can <link>buy me a coffee</link>.",
     "linkedin": "Work history and recommendations",
     "github": "Personal projects and Advent of Code",
     "gitlab": "University and team projects",

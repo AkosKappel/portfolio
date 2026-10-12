@@ -1,4 +1,4 @@
-import { Mail, MapPin } from "lucide-react";
+import { Coffee, Mail, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { GitHubIcon, GitLabIcon, LinkedInIcon } from "@/components/ui/brand-icons";
@@ -83,6 +83,18 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
                 </li>
               ))}
             </ul>
+            <p className="mt-6 inline-flex items-center gap-2 text-sm text-muted">
+              <Coffee aria-hidden size={16} className="shrink-0" />
+              <span>
+                {t.rich("coffee", {
+                  link: (chunks) => (
+                    <a href={site.links.buyMeACoffee} className="link">
+                      {chunks}
+                    </a>
+                  ),
+                })}
+              </span>
+            </p>
           </section>
         </div>
       </div>
