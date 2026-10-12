@@ -137,6 +137,16 @@ test("contact form explains invalid fields and clears fixed ones", async ({ page
   await expect(form.getByText("Please enter a valid email address.")).toBeHidden();
 });
 
+test("back-to-top link appears after scrolling and returns to the top", async ({ page }) => {
+  await page.goto("/experience");
+  const link = page.getByRole("link", { name: "Back to top" });
+  await expect(link).toBeHidden();
+  await page.evaluate(() => window.scrollTo(0, window.innerHeight));
+  await expect(link).toBeVisible();
+  await link.click();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+});
+
 test("CV menu offers both languages as PDFs", async ({ page }) => {
   await page.goto("/");
   await page.getByText("Download CV").click();
