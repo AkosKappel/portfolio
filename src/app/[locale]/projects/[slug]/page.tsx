@@ -16,13 +16,15 @@ import { ProjectMedia, projectYears } from "@/components/projects/project-card";
 import { AnchorHeading } from "@/components/ui/anchor-heading";
 import { ReadingProgress } from "@/components/ui/back-to-top";
 import { GitHubIcon, GitLabIcon } from "@/components/ui/brand-icons";
+import { JsonLd } from "@/components/ui/json-ld";
 import { Page } from "@/components/ui/page";
 import { StackList, TechLogo } from "@/components/ui/tech-badge";
 import { getProject, projects } from "@/content/projects";
 import { pick, type Text } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import { type Locale, routing } from "@/i18n/routing";
-import { alternates } from "@/lib/metadata";
+import { absoluteUrl, alternates } from "@/lib/metadata";
+import { breadcrumbs, projectData } from "@/lib/structured-data";
 
 export const dynamicParams = false;
 
@@ -55,6 +57,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
   if (!project) notFound();
   const t = await getTranslations("projects");
   const tCommon = await getTranslations("common");
+  const tNav = await getTranslations("nav");
 
   const index = projects.indexOf(project);
   const previous = projects[index - 1];
@@ -64,6 +67,18 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
   return (
     <Page>
       <ReadingProgress />
+      <JsonLd
+        data={{
+          "@graph": [
+            projectData(project, locale, absoluteUrl(locale, `/projects/${project.slug}`)),
+            breadcrumbs([
+              { name: tNav("home"), url: absoluteUrl(locale, "/") },
+              { name: tNav("projects"), url: absoluteUrl(locale, "/projects") },
+              { name: project.title, url: absoluteUrl(locale, `/projects/${project.slug}`) },
+            ]),
+          ],
+        }}
+      />
       <nav aria-label="Breadcrumb" className="pt-10 print:hidden">
         <Link
           href="/projects"

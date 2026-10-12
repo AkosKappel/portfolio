@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProjectCard } from "@/components/projects/project-card";
 import { CvMenu } from "@/components/ui/cv-menu";
+import { JsonLd } from "@/components/ui/json-ld";
 import { Page } from "@/components/ui/page";
 import { StackList } from "@/components/ui/tech-badge";
 import { jobs } from "@/content/experience";
@@ -12,6 +13,7 @@ import { pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { formatMonth } from "@/lib/format";
+import { person } from "@/lib/structured-data";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const locale = (await params).locale as Locale;
@@ -20,26 +22,9 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const tCommon = await getTranslations("common");
   const currentJob = jobs[0];
 
-  const person = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: site.name,
-    jobTitle: site.headline,
-    email: `mailto:${site.email}`,
-    url: site.url,
-    image: new URL("/images/profile.webp", site.url).toString(),
-    address: { "@type": "PostalAddress", addressLocality: "Bratislava", addressCountry: "SK" },
-    alumniOf: "Slovak University of Technology in Bratislava",
-    sameAs: Object.values(site.links),
-  };
-
   return (
     <Page>
-      <script
-        type="application/ld+json"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD built from static site data
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }}
-      />
+      <JsonLd data={person} />
       <section className="grid items-center gap-10 pt-12 pb-20 sm:pt-20 md:grid-cols-[1fr_auto] md:gap-16">
         <div className="order-2 md:order-1">
           <h1 className="text-5xl font-semibold sm:text-7xl">

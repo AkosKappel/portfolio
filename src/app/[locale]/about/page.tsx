@@ -4,13 +4,15 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AnchorHeading } from "@/components/ui/anchor-heading";
 import { CvMenu } from "@/components/ui/cv-menu";
+import { JsonLd } from "@/components/ui/json-ld";
 import { LanguageList } from "@/components/ui/language-list";
 import { Page, PageHeader } from "@/components/ui/page";
 import { site } from "@/content/site";
 import { pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
-import { alternates } from "@/lib/metadata";
+import { absoluteUrl, alternates } from "@/lib/metadata";
+import { person } from "@/lib/structured-data";
 
 export async function generateMetadata({
   params,
@@ -33,6 +35,9 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
 
   return (
     <Page>
+      <JsonLd
+        data={{ "@type": "ProfilePage", url: absoluteUrl(locale, "/about"), mainEntity: person }}
+      />
       <div className="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
         <div>
           <PageHeader title={t("title")} lead={pick(site.intro, locale)} />
