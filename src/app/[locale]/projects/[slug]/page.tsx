@@ -44,9 +44,6 @@ export async function generateMetadata({
     title: project.title,
     description: pick(project.summary, locale),
     alternates: alternates(locale, `/projects/${project.slug}`),
-    openGraph: project.image
-      ? { images: [{ url: project.image.src, alt: pick(project.image.alt, locale) }] }
-      : undefined,
   };
 }
 

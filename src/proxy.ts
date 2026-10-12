@@ -4,6 +4,7 @@ import { routing } from "./i18n/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  // Every page path, but not API routes, Next.js internals or files with an extension.
-  matcher: "/((?!api|_next|_vercel|.*\\..*).*)",
+  // Every page path, but not API routes, Next.js internals, generated Open Graph images
+  // (their URLs already carry the locale) or files with an extension.
+  matcher: "/((?!api|_next|_vercel|.*opengraph-image|.*\\..*).*)",
 };
