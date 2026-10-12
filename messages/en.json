@@ -199,9 +199,8 @@
     "contents": "Sections"
   },
   "cvPdf": {
-    "title": "CV (PDF)",
+    "title": "Curriculum vitae",
     "description": "The CV of Ákos Kappel, full-stack software engineer, to read in the browser without downloading it.",
-    "lead": "My CV as a PDF, to read in the browser or download.",
     "download": "Download PDF",
     "open": "Open PDF",
     "webVersion": "Web version",

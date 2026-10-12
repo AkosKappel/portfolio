@@ -11,7 +11,7 @@ const pages = [
   { path: "/about", heading: "About me" },
   { path: "/contact", heading: "Contact" },
   { path: "/cv", heading: "Ákos Kappel" },
-  { path: "/cv/pdf", heading: "CV (PDF)" },
+  { path: "/cv/pdf", heading: "Curriculum vitae" },
   { path: "/sk", heading: "Ákos Kappel" },
   { path: "/sk/projects", heading: "Projekty" },
   { path: "/sk/experience", heading: "Skúsenosti" },
@@ -164,7 +164,7 @@ test("CV menu links to the PDF viewer in each language", async ({ page }) => {
   await page.getByText("Download CV").click();
   await page.getByRole("link", { name: "Preview Slovak CV" }).click();
   await expect(page).toHaveURL(/\/sk\/cv\/pdf$/);
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Životopis (PDF)");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Životopis");
 });
 
 test("CV viewer shows the PDF, or page images on touch screens", async ({ page, isMobile }) => {

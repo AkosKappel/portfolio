@@ -199,9 +199,8 @@
     "contents": "Sekcie"
   },
   "cvPdf": {
-    "title": "Životopis (PDF)",
+    "title": "Životopis",
     "description": "Životopis Ákosa Kappela, full-stack vývojára, na čítanie v prehliadači bez sťahovania.",
-    "lead": "Môj životopis vo formáte PDF na čítanie v prehliadači alebo stiahnutie.",
     "download": "Stiahnuť PDF",
     "open": "Otvoriť PDF",
     "webVersion": "Webová verzia",

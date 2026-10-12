@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Page, PageHeader } from "@/components/ui/page";
 import { PdfViewer } from "@/components/ui/pdf-viewer";
 import { site } from "@/content/site";
+import { pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { alternates } from "@/lib/metadata";
@@ -29,7 +30,7 @@ export default async function CvPdfPage({ params }: PageProps<"/[locale]/cv/pdf"
 
   return (
     <Page>
-      <PageHeader title={t("title")} lead={t("lead")} />
+      <PageHeader title={t("title")} lead={`${site.headline} · ${pick(site.location, locale)}`} />
       <div className="flex flex-wrap gap-3">
         <a
           href={cv.href}
