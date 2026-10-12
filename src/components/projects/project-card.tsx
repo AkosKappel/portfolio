@@ -3,12 +3,12 @@ import Image from "next/image";
 import { useLocale } from "next-intl";
 import { ViewTransition } from "react";
 import { StackList } from "@/components/ui/tech-badge";
-import { type Project, pick } from "@/content/types";
+import { type ProjectSummary, pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import { yearRange } from "@/lib/format";
 import { ProjectPlaceholder } from "./project-placeholder";
 
-export function projectYears(project: Project) {
+export function projectYears(project: ProjectSummary) {
   return yearRange(project.year, project.until);
 }
 
@@ -18,7 +18,7 @@ export function ProjectMedia({
   priority = false,
   natural = false,
 }: {
-  project: Project;
+  project: ProjectSummary;
   sizes: string;
   priority?: boolean;
   /** Show the whole screenshot at its own aspect ratio instead of a cropped 16:10 frame. */
@@ -58,7 +58,7 @@ export function ProjectCard({
   headingLevel = "h3",
   sizes = "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
 }: {
-  project: Project;
+  project: ProjectSummary;
   headingLevel?: "h2" | "h3";
   sizes?: string;
 }) {

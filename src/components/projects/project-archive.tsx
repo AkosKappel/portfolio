@@ -38,7 +38,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useId, useMemo } from "react";
 import { StackList } from "@/components/ui/tech-badge";
-import { type Project, type ProjectArea, pick } from "@/content/types";
+import { type ProjectArea, type ProjectSummary, pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { ProjectCard, projectYears } from "./project-card";
@@ -60,7 +60,7 @@ type Features = typeof features;
  * titles and technologies allow missing letters ("kotln" finds Kotlin),
  * the summary only matches whole substrings.
  */
-function fuzzyFilter(locale: Locale): FilterFn<Features, Project> {
+function fuzzyFilter(locale: Locale): FilterFn<Features, ProjectSummary> {
   return (row, _columnId, value: string) =>
     rankItem(row.original, value, {
       accessors: [
@@ -71,7 +71,7 @@ function fuzzyFilter(locale: Locale): FilterFn<Features, Project> {
     }).passed;
 }
 
-const helper = createColumnHelper<Features, Project>();
+const helper = createColumnHelper<Features, ProjectSummary>();
 // Headers are message keys in "projects.columns".
 const columns = helper.columns([
   helper.accessor("title", { header: "title", sortFn: "alphanumeric" }),
@@ -107,7 +107,7 @@ function fromSorting(sorting: SortingState) {
   return first ? `${first.id}-${first.desc ? "desc" : "asc"}` : "";
 }
 
-export function ProjectArchive({ projects }: { projects: Project[] }) {
+export function ProjectArchive({ projects }: { projects: ProjectSummary[] }) {
   const t = useTranslations("projects");
   const locale = useLocale();
   // The real browser path (with the locale prefix), for history updates.

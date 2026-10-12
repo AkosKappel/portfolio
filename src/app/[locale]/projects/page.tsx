@@ -5,6 +5,7 @@ import { ProjectArchive } from "@/components/projects/project-archive";
 import { ProjectCard } from "@/components/projects/project-card";
 import { Page, PageHeader } from "@/components/ui/page";
 import { projects } from "@/content/projects";
+import { toSummary } from "@/content/types";
 import type { Locale } from "@/i18n/routing";
 import { alternates } from "@/lib/metadata";
 
@@ -40,7 +41,7 @@ export default async function ProjectsPage({ params }: PageProps<"/[locale]/proj
           </ul>
         }
       >
-        <ProjectArchive projects={projects} />
+        <ProjectArchive projects={projects.map(toSummary)} />
       </Suspense>
     </Page>
   );

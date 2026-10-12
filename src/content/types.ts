@@ -40,6 +40,26 @@ export type Project = {
   featured?: boolean;
 };
 
+/** The fields cards and the archive need; keeps the client payload small. */
+export type ProjectSummary = Pick<
+  Project,
+  "slug" | "title" | "summary" | "kind" | "area" | "year" | "until" | "stack" | "image"
+>;
+
+export function toSummary({
+  slug,
+  title,
+  summary,
+  kind,
+  area,
+  year,
+  until,
+  stack,
+  image,
+}: Project): ProjectSummary {
+  return { slug, title, summary, kind, area, year, until, stack, image };
+}
+
 export type WorkItem = {
   /** Anchor on the experience page. */
   id: string;
