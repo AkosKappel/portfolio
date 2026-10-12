@@ -57,6 +57,7 @@ export const glaucomaSegmentation: Project = {
   },
   stack: ["Python", "PyTorch", "OpenCV", "NumPy", "Albumentations", "Matplotlib"],
   repoUrl: "https://github.com/AkosKappel/DP-GlaucomaSegmentation",
+  paperUrl: "https://opac.crzp.sk/?fn=detailBiblioForm&sid=CC8450CBF10FC669817CF9C1506C",
   image: {
     src: "/images/projects/glaucoma.webp",
     width: 1600,

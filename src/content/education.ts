@@ -30,6 +30,7 @@ export const degrees: Degree[] = [
         sk: "Poloautomatické segmentačné metódy založené na neurónových sieťach na zlepšenie detekcie a monitorovania ochorení ľudského oka",
       },
       url: "/projects/glaucoma-segmentation",
+      recordUrl: "https://opac.crzp.sk/?fn=detailBiblioForm&sid=CC8450CBF10FC669817CF9C1506C",
     },
   },
   {
@@ -48,6 +49,7 @@ export const degrees: Degree[] = [
         sk: "Generátor úloh z analytickej geometrie v rovine: kužeľosečky",
       },
       url: "https://github.com/AkosKappel/BP-ConicShapes",
+      recordUrl: "https://opac.crzp.sk/?fn=detailBiblioForm&sid=4F55101800366CEF5AFDC4DB109A",
     },
   },
 ];

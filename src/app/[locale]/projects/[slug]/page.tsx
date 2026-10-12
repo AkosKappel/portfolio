@@ -2,6 +2,7 @@ import {
   ArrowLeft,
   ArrowRight,
   ExternalLink,
+  FileText,
   Images,
   Info,
   type LucideIcon,
@@ -114,6 +115,15 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
               >
                 <RepoIcon className="size-4" />
                 {tCommon("sourceCode")}
+              </a>
+            ) : null}
+            {project.paperUrl ? (
+              <a
+                href={project.paperUrl}
+                className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-medium transition-colors hover:border-ink"
+              >
+                <FileText aria-hidden size={18} />
+                {tCommon("thesisRecord")}
               </a>
             ) : null}
           </div>

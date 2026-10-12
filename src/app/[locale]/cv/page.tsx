@@ -223,6 +223,14 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
                 ) : (
                   pick(degree.thesis.title, locale)
                 )}
+                {degree.thesis.recordUrl ? (
+                  <>
+                    {" · "}
+                    <a href={degree.thesis.recordUrl} className="link text-muted">
+                      {tCommon("thesisRecord")}
+                    </a>
+                  </>
+                ) : null}
               </p>
             </div>
           ))}

@@ -44,6 +44,8 @@ export type Project = {
   stack: string[];
   repoUrl?: string;
   liveUrl?: string;
+  /** Published paper or thesis, e.g. its record in the Central Register of Theses. */
+  paperUrl?: string;
   image?: { src: string; width: number; height: number; alt: Text };
   /** Request path from the visitor to the data, drawn as a chain of boxes. */
   architecture?: { name: Text; detail: Text }[];
@@ -103,7 +105,8 @@ export type Degree = {
   start: number;
   end: number;
   description: Text;
-  thesis: { title: Text; url?: string };
+  /** `url` is the project page or repository, `recordUrl` the full text in CRZP. */
+  thesis: { title: Text; url?: string; recordUrl?: string };
 };
 
 export type SkillGroup = {

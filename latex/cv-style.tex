@@ -67,6 +67,9 @@
   \item {\bfseries\href{#2}{#1}}\hspace{0.3em}{\scriptsize\color{accent}\faExternalLink*}\hspace{0.3em}{\small\color{muted}(#3)}: #4\hfill{\small\color{muted}#5}
 }
 
+% \thesis{label}{title}{url}
+\newcommand{\thesis}[3]{#1: \href{#3}{#2}\hspace{0.3em}{\scriptsize\color{accent}\faExternalLink*}}
+
 % \degree{degree}{years}{thesis}
 \newcommand{\degree}[3]{%
   \vspace{0.25\baselineskip}

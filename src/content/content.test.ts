@@ -36,7 +36,7 @@ describe("projects", () => {
 
   it("use absolute https links", () => {
     for (const project of projects) {
-      for (const url of [project.repoUrl, project.liveUrl]) {
+      for (const url of [project.repoUrl, project.liveUrl, project.paperUrl]) {
         if (url) expect(new URL(url).protocol, project.slug).toBe("https:");
       }
     }

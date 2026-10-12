@@ -75,6 +75,14 @@ export default async function EducationPage({ params }: PageProps<"/[locale]/edu
                     ) : (
                       pick(degree.thesis.title, locale)
                     )}
+                    {degree.thesis.recordUrl ? (
+                      <>
+                        {" · "}
+                        <a href={degree.thesis.recordUrl} className="link text-muted">
+                          {tCommon("thesisRecord")}
+                        </a>
+                      </>
+                    ) : null}
                   </span>
                 </p>
               </div>
