@@ -18,8 +18,8 @@ import { person } from "@/lib/structured-data";
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
-  const t = await getTranslations("home");
   const tCommon = await getTranslations("common");
+  const t = await getTranslations("home");
   const currentJob = jobs[0];
 
   return (

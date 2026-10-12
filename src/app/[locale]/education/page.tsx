@@ -25,8 +25,8 @@ export async function generateMetadata({
 export default async function EducationPage({ params }: PageProps<"/[locale]/education">) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
-  const t = await getTranslations("education");
   const tCommon = await getTranslations("common");
+  const t = await getTranslations("education");
 
   return (
     <Page>

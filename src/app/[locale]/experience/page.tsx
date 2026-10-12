@@ -25,8 +25,8 @@ export async function generateMetadata({
 export default async function ExperiencePage({ params }: PageProps<"/[locale]/experience">) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
-  const t = await getTranslations("experience");
   const tCommon = await getTranslations("common");
+  const t = await getTranslations("experience");
   const currentMonth = new Date().toISOString().slice(0, 7);
 
   const duration = (start: string, end?: string) => {

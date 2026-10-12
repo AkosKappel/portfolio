@@ -26,8 +26,8 @@ export async function generateMetadata({
 export default async function ContactPage({ params }: PageProps<"/[locale]/contact">) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
-  const t = await getTranslations("contact");
   const tCommon = await getTranslations("common");
+  const t = await getTranslations("contact");
   const profiles = [
     { href: site.links.linkedin, label: "LinkedIn", detail: t("linkedin"), Icon: LinkedInIcon },
     { href: site.links.github, label: "GitHub", detail: t("github"), Icon: GitHubIcon },

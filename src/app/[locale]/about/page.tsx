@@ -29,9 +29,9 @@ export async function generateMetadata({
 export default async function AboutPage({ params }: PageProps<"/[locale]/about">) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
-  const t = await getTranslations("about");
   const tCommon = await getTranslations("common");
   const tNav = await getTranslations("nav");
+  const t = await getTranslations("about");
 
   return (
     <Page>

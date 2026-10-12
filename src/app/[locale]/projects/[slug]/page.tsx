@@ -56,9 +56,9 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
   setRequestLocale(locale);
   const project = getProject(slug);
   if (!project) notFound();
-  const t = await getTranslations("projects");
   const tCommon = await getTranslations("common");
   const tNav = await getTranslations("nav");
+  const t = await getTranslations("projects");
 
   const index = projects.indexOf(project);
   const previous = projects[index - 1];

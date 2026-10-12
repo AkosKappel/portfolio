@@ -33,8 +33,8 @@ function projectCount(skill: string) {
 export default async function SkillsPage({ params }: PageProps<"/[locale]/skills">) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
-  const t = await getTranslations("skills");
   const tCommon = await getTranslations("common");
+  const t = await getTranslations("skills");
 
   return (
     <Page>

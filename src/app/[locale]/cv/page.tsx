@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/cv">): P
 export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
-  const t = await getTranslations("cv");
   const tCommon = await getTranslations("common");
+  const t = await getTranslations("cv");
   const anchor = tCommon("anchor");
   const period = (start: string, end?: string) =>
     tCommon("period", {
