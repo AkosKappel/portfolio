@@ -47,6 +47,7 @@ export const degrees: Degree[] = [
         en: "Problem generator for analytical geometry in the plane: conic sections",
         sk: "Generátor úloh z analytickej geometrie v rovine: kužeľosečky",
       },
+      url: "https://github.com/AkosKappel/BP-ConicShapes",
     },
   },
 ];
