@@ -6,10 +6,10 @@ import { fakeshop } from "./fakeshop";
 import { feastFinder } from "./feast-finder";
 import { glaucomaSegmentation } from "./glaucoma-segmentation";
 import { iridescent } from "./iridescent";
-import { miniProjects } from "./mini-projects";
 import { modernFashionStore } from "./modern-fashion-store";
 import { petguide } from "./petguide";
 import { pokedex } from "./pokedex";
+import { sketchbook } from "./sketchbook";
 import { smarttechEShop } from "./smarttech-e-shop";
 import { wacMicrofrontends } from "./wac-microfrontends";
 
@@ -27,7 +27,7 @@ export const projects: Project[] = [
   iridescent,
   adventOfCode,
   adventOfSql,
-  miniProjects,
+  sketchbook,
 ];
 
 export function getProject(slug: string) {
