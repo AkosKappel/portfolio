@@ -13,8 +13,8 @@ export const wacMicrofrontends: Project = {
       sk: "Tímový projekt z predmetu Webové aplikácie v prostredí cloudu na FIIT STU v roku 2024. Každé zariadenie nemocničného oddelenia má registračné číslo, cenu, dátum konca záruky a vlastný prevádzkový log. Frontend je webový komponent v Stencile načítaný do spoločného portálu predmetu, backend API v Go s MongoDB generované z OpenAPI špecifikácie a oboje nasadzoval Flux CD do Kubernetes v Azure.",
     },
     {
-      en: "In 2026 I brought it back as a live demo on my home server: a homepage with an overview, an About page, English next to Slovak, dark mode, a safer API and CI that builds the images.",
-      sk: "V roku 2026 som ho vrátil ako živé demo na domácom serveri: úvodná stránka s prehľadom, stránka o projekte, angličtina popri slovenčine, tmavý režim, bezpečnejšie API a CI, ktoré zostavuje obrazy.",
+      en: "Today it runs as a live demo on my home server. It has a homepage with an overview, an About page, English next to Slovak, dark mode, a safer API and CI that builds the images.",
+      sk: "Dnes beží ako živé demo na domácom serveri. Má úvodnú stránku s prehľadom, stránku o projekte, angličtinu popri slovenčine, tmavý režim, bezpečnejšie API a CI, ktoré zostavuje obrazy.",
     },
   ],
   features: [
