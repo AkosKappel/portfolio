@@ -132,7 +132,6 @@ export async function sectionOgImage(
     | "about"
     | "contact"
     | "cv"
-    | "lab"
     | "colophon",
 ) {
   const locale = (await params).locale as Locale;

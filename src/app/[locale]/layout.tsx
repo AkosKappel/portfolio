@@ -5,6 +5,7 @@ import { Bricolage_Grotesque, IBM_Plex_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { ParticleField } from "@/components/layout/particle-field";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { themeScript } from "@/components/layout/theme-script";
@@ -91,6 +92,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
           >
             {t("skipToContent")}
           </a>
+          <ParticleField />
           <SiteHeader />
           <main id="main" className="flex-1">
             {children}

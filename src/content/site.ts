@@ -124,6 +124,5 @@ export const navigation = [
 /** Pages linked from the footer only. */
 export const secondaryNavigation = [
   { href: "/cv", key: "cv" },
-  { href: "/lab", key: "lab" },
   { href: "/colophon", key: "colophon" },
 ] as const;

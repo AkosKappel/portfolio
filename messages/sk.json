@@ -9,7 +9,6 @@
     "contact": "Kontakt",
     "cv": "Životopis",
     "main": "Hlavná",
-    "lab": "Laboratórium",
     "colophon": "Ako je stránka postavená"
   },
   "common": {
@@ -238,71 +237,56 @@
     "text": "Stránku sa nepodarilo zobraziť. Skúste to znova alebo sa vráťte na úvodnú stránku.",
     "retry": "Skúsiť znova"
   },
-  "lab": {
-    "title": "Laboratórium",
-    "description": "Malé experimenty s frontendom, na začiatok WebGL2 zobrazenie, ktoré v reálnom čase filtruje zašumené kanály signálu.",
-    "lead": "Malé experimenty s grafikou v prehliadači, oddelené od zvyšku stránky.",
-    "signal": {
-      "title": "Filter signálu",
-      "caption": "Pohybujte kurzorom nad grafom: naľavo od čiary sú kanály filtrované, napravo vidíte surový vstup.",
-      "what": "Šesť kanálov v štýle EEG prehliadača, inšpirované službou CleanEEG, ktorá odstraňuje šum z EEG záznamov. Surová strana obsahuje šum, pomalý drift a artefakt žmurknutia na jednom kanáli; filtrovaná strana ukazuje len signál pod ním.",
-      "how": "Všetko sa kreslí cez WebGL2. Stránka raz nahrá jeden buffer s pozíciami vzoriek a vertex shader vypočíta oba signály, prelína ich okolo čiary a z každej stopy spraví hrubú čiaru. Každý snímok mení len niekoľko čísel.",
-      "cost": "Spustí sa, až keď je stránka nečinná, zastaví sa, keď zmizne z obrazovky alebo je karta skrytá, a pri obmedzení pohybu alebo bez GPU pre WebGL ukáže statický obrázok. Farby sledujú zvolenú tému a paletu.",
-      "noWebgl": "Tento prehliadač nevie zobraziť WebGL2, takže demo tu nie je dostupné."
-    }
-  },
   "colophon": {
     "title": "Ako je táto stránka postavená",
-    "description": "Technológie, architektúra, testy, hosting a prístupnosť tohto portfólia.",
-    "lead": "Inžinierska práca za touto stránkou: na čom beží, ako sa testuje a ako zostáva rýchla a prístupná.",
+    "description": "Technológie, architektúra, dizajn, testovanie, hosting a prístupnosť tohto portfólia.",
+    "lead": "Technológie a inžinierske postupy za touto stránkou.",
     "sourceCode": "Zdrojový kód je na GitHube.",
     "sections": [
       {
         "id": "stack",
         "title": "Technológie",
         "paragraphs": [
-          "Next.js 16 s App Routerom, React 19 a TypeScript, štýly v Tailwind CSS 4. Dizajnové tokeny sú CSS premenné, takže svetlá a tmavá téma aj farebné palety menia len niekoľko hodnôt.",
-          "Archív projektov používa TanStack Table s match-sorter na tolerantné vyhľadávanie, kontaktný formulár TanStack Form so Zod schémou zdieľanou prehliadačom aj serverom a next-intl zabezpečuje angličtinu a slovenčinu. Ikony sú z lucide a Simple Icons."
+          "Next.js 16 s App Routerom, React 19 a TypeScript, štýly v Tailwind CSS 4. Archív projektov používa TanStack Table s match-sorter na tolerantné vyhľadávanie, kontaktný formulár TanStack Form so Zod schémou zdieľanou prehliadačom aj serverom a next-intl zabezpečuje anglickú a slovenskú verziu."
         ]
       },
       {
         "id": "architecture",
         "title": "Architektúra",
         "paragraphs": [
-          "Každá stránka sa generuje pri builde v oboch jazykoch. Obsah je v typovaných súboroch TypeScriptu s každým textom po anglicky aj po slovensky; testy pred buildom kontrolujú slugy, obrázky, odkazy, dátumy a chýbajúce preklady.",
-          "Stránky sú React Server Components. JavaScript posielajú len časti, ktoré potrebujú prehliadač: menu v hlavičke, výber témy a palety, archív projektov, galéria, kontaktný formulár a demo v laboratóriu. Prechody medzi stránkami používajú view transitions a každá stránka má vlastný vygenerovaný náhľad pre zdieľanie."
+          "Každá stránka sa generuje pri builde v oboch jazykoch. Obsah je v typovaných moduloch TypeScriptu a automatické kontroly pred každým buildom overia slugy, obrázky, odkazy, dátumy a preklady.",
+          "Stránky sú React Server Components; JavaScript sa posiela len pre interaktívne časti, napríklad navigačné menu, archív projektov, galériu obrázkov a kontaktný formulár. Každá stránka má vlastný vygenerovaný náhľad pre zdieľanie a štruktúrované dáta pre vyhľadávače."
+        ]
+      },
+      {
+        "id": "design",
+        "title": "Dizajn",
+        "paragraphs": [
+          "Farby sú dizajnové tokeny v CSS premenných. Svetlý aj tmavý režim ponúka niekoľko tém, ktoré sa použijú ešte pred prvým vykreslením, takže stránka nikdy nezabliká v nesprávnych farbách.",
+          "Stránky a obrázky projektov prechádzajú medzi stránkami cez view transitions a obsah sa pri posúvaní plynulo objavuje pomocou CSS. Na väčších obrazovkách reaguje na kurzor jemné pole častíc kreslené cez WebGL2; v skrytej karte sa zastaví a pri obmedzení pohybu sa nezobrazí."
         ]
       },
       {
         "id": "quality",
-        "title": "Testy a CI",
+        "title": "Testovanie a CI",
         "paragraphs": [
-          "GitHub Actions pri každom pushi spúšťa Biome, kompilátor TypeScriptu, Vitest a Playwright. Playwright testy otvoria hlavné stránky v oboch témach na desktope aj mobile a skontrolujú ich nástrojom axe podľa WCAG 2.2 AA.",
-          "Lighthouse CI zastaví build, ak výkon na desktope klesne pod 90, ak prístupnosť, osvedčené postupy alebo SEO klesnú pod 100, alebo ak stránka pošle viac ako 300 KB komprimovaného JavaScriptu. Týždenná úloha kontroluje všetky externé odkazy a Dependabot udržiava závislosti aktuálne."
+          "GitHub Actions pri každom pushi spúšťa Biome, kompilátor TypeScriptu, Vitest a Playwright. End-to-end testy pokrývajú navigáciu, vyhľadávanie, formuláre a témy na desktope aj mobile a kontrolujú prístupnosť nástrojom axe podľa WCAG 2.2 AA.",
+          "Lighthouse CI drží výkon, prístupnosť, osvedčené postupy a SEO v pevných limitoch vrátane limitu na JavaScript, ktorý stránka posiela. Týždenná úloha kontroluje všetky externé odkazy a Dependabot udržiava závislosti aktuálne."
         ]
       },
       {
         "id": "hosting",
         "title": "Hosting a súkromie",
         "paragraphs": [
-          "Stránka beží na Verceli, ktorý nasadí každý push do hlavnej vetvy. Demá projektov bežia na mojom domácom serveri cez Tailscale Funnel.",
-          "Vercel Web Analytics a Speed Insights merajú návštevy a skutočné časy načítania bez cookies. Zvolená téma a paleta sa ukladajú len vo vašom prehliadači."
-        ]
-      },
-      {
-        "id": "workflow",
-        "title": "Ako na nej pracujem",
-        "paragraphs": [
-          "Každú zmenu naplánujem v backlogu, vytvorím ju s pomocou AI agentov na programovanie a každú zmenu pred commitom skontrolujem. Pred nasadením ju overím v skutočnom prehliadači na mobile aj desktope."
+          "Stránka beží na Verceli a nasadzuje sa automaticky z hlavnej vetvy. Vercel Web Analytics a Speed Insights merajú návštevy a skutočné časy načítania bez cookies a zvolená téma sa ukladá len vo vašom prehliadači."
         ]
       },
       {
         "id": "accessibility",
         "title": "Prístupnosť",
         "paragraphs": [
-          "Cieľom je WCAG 2.2 úrovne AA na každej stránke. Všetko funguje s klávesnicou, fokus je vždy viditeľný, animácie sa zastavia, keď systém žiada obmedzenie pohybu, a každá farebná paleta drží kontrast textu nad minimom AA.",
-          "Známe obmedzenia: demo v laboratóriu je len vizuálne a jeho text opisuje, čo ukazuje. PDF životopisy sa generujú z LaTeXu a nie sú plne označené pre čítačky obrazovky; webová stránka so životopisom má rovnaký obsah v prístupnom HTML.",
-          "Ak vám niečo nefunguje, napíšte mi a opravím to."
+          "Stránka sa snaží spĺňať WCAG 2.2 na úrovni AA. Funguje s klávesnicou aj čítačkou obrazovky, fokus je vždy viditeľný, rešpektuje nastavenie obmedzeného pohybu a každá téma spĺňa požiadavky AA na kontrast.",
+          "Ak je niečo ťažko použiteľné, dajte mi prosím vedieť."
         ]
       }
     ]

@@ -9,7 +9,6 @@
     "contact": "Contact",
     "cv": "CV",
     "main": "Main",
-    "lab": "Lab",
     "colophon": "How this site is built"
   },
   "common": {
@@ -238,71 +237,56 @@
     "text": "The page could not be shown. Try again, or go back to the home page.",
     "retry": "Try again"
   },
-  "lab": {
-    "title": "Lab",
-    "description": "Small front-end experiments, starting with a WebGL2 view that filters noisy signal channels in real time.",
-    "lead": "Small experiments with graphics in the browser, kept apart from the rest of the site.",
-    "signal": {
-      "title": "Signal filter",
-      "caption": "Move the pointer over the chart: left of the line the channels are filtered, right of it you see the raw input.",
-      "what": "Six channels in the style of an EEG viewer, a nod to CleanEEG, a service that removes noise from EEG recordings. The raw side carries noise, slow drift and an eye-blink artefact on one channel; the filtered side shows only the signal underneath.",
-      "how": "Everything is drawn with WebGL2. The page uploads one buffer of sample positions once, and the vertex shader computes both signals, blends them around the sweep line and turns each trace into a thick line. Each frame only updates a few numbers.",
-      "cost": "It starts once the page is idle, pauses when it scrolls out of view or the tab is hidden, and shows a still frame with reduced motion or when the browser has no GPU for WebGL. The colours follow the selected theme and palette.",
-      "noWebgl": "This browser cannot show WebGL2, so the demo is not available here."
-    }
-  },
   "colophon": {
     "title": "How this site is built",
-    "description": "The stack, architecture, tests, hosting and accessibility of this portfolio.",
-    "lead": "The engineering behind this site: what it runs on, how it is tested and how it stays fast and accessible.",
+    "description": "The stack, architecture, design, testing, hosting and accessibility of this portfolio.",
+    "lead": "The technology and engineering practices behind this site.",
     "sourceCode": "The source code is on GitHub.",
     "sections": [
       {
         "id": "stack",
         "title": "Stack",
         "paragraphs": [
-          "Next.js 16 with the App Router, React 19 and TypeScript, styled with Tailwind CSS 4. Design tokens are CSS variables, so the light and dark themes and the colour palettes only swap a few values.",
-          "The projects archive uses TanStack Table with match-sorter for fuzzy search, the contact form uses TanStack Form with a Zod schema shared by the browser and the server, and next-intl handles English and Slovak. Icons come from lucide and Simple Icons."
+          "Next.js 16 with the App Router, React 19 and TypeScript, styled with Tailwind CSS 4. The projects archive uses TanStack Table with match-sorter for fuzzy search, the contact form uses TanStack Form with a Zod schema shared by the browser and the server, and next-intl provides the English and Slovak versions."
         ]
       },
       {
         "id": "architecture",
         "title": "Architecture",
         "paragraphs": [
-          "Every page is generated at build time in both languages. Content lives in typed TypeScript files with each text in English and Slovak; tests check slugs, images, links, dates and missing translations before anything is built.",
-          "Pages are React Server Components. Only the parts that need the browser ship JavaScript: the header menus, the theme and palette pickers, the projects archive, the gallery, the contact form and the lab demo. Route changes use view transitions, and every page gets its own generated link preview image."
+          "Every page is generated at build time in both languages. Content lives in typed TypeScript modules, and automated checks verify slugs, images, links, dates and translations before each build.",
+          "Pages are React Server Components; JavaScript is sent only for the interactive parts, such as the navigation menus, the projects archive, the image gallery and the contact form. Each page has its own generated link preview image and structured data for search engines."
+        ]
+      },
+      {
+        "id": "design",
+        "title": "Design",
+        "paragraphs": [
+          "Colours are design tokens in CSS variables. Light and dark mode each offer several themes, applied before the first paint so the page never flashes the wrong colours.",
+          "Pages and project images move between routes with view transitions, and content rises into place as you scroll, driven by CSS. On larger screens a light particle field drawn with WebGL2 reacts to the pointer; it pauses in hidden tabs and stays off when reduced motion is requested."
         ]
       },
       {
         "id": "quality",
-        "title": "Tests and CI",
+        "title": "Testing and CI",
         "paragraphs": [
-          "GitHub Actions runs Biome, the TypeScript compiler, Vitest and Playwright on every push. The Playwright tests open the main pages in both themes on desktop and mobile and run axe against WCAG 2.2 AA.",
-          "Lighthouse CI fails the build if desktop performance drops below 90, if accessibility, best practices or SEO drop below 100, or if a page ships more than 300 KB of compressed JavaScript. A weekly job checks every external link, and Dependabot keeps dependencies current."
+          "GitHub Actions runs Biome, the TypeScript compiler, Vitest and Playwright on every push. The end-to-end tests cover navigation, search, forms and themes on desktop and mobile, and run axe accessibility checks against WCAG 2.2 AA.",
+          "Lighthouse CI keeps performance, accessibility, best practices and SEO within fixed budgets, including a limit on the JavaScript each page ships. A weekly job checks every external link, and Dependabot keeps dependencies up to date."
         ]
       },
       {
         "id": "hosting",
         "title": "Hosting and privacy",
         "paragraphs": [
-          "The site runs on Vercel, which deploys every push to the main branch. Project demos run on my own home server behind Tailscale Funnel.",
-          "Vercel Web Analytics and Speed Insights measure visits and real loading times without cookies. The theme and palette you pick are stored only in your browser."
-        ]
-      },
-      {
-        "id": "workflow",
-        "title": "How I work on it",
-        "paragraphs": [
-          "I plan each change in a backlog, build it with the help of AI coding agents and review every change before it is committed. Each change is checked in a real browser at phone and desktop sizes before it ships."
+          "The site is hosted on Vercel and deployed automatically from the main branch. Vercel Web Analytics and Speed Insights measure visits and real loading times without cookies, and your theme choice is stored only in your browser."
         ]
       },
       {
         "id": "accessibility",
         "title": "Accessibility",
         "paragraphs": [
-          "The goal is WCAG 2.2 level AA on every page. Everything works with a keyboard, focus is always visible, motion stops when your system asks for reduced motion, and every colour palette keeps text contrast above the AA minimum.",
-          "Known limits: the lab demo is visual only, and its text describes what it shows. The CV PDFs are generated from LaTeX and are not fully tagged for screen readers; the CV web page has the same content in accessible HTML.",
-          "If something does not work for you, please write to me and I will fix it."
+          "This site aims to meet WCAG 2.2 at level AA. It works with a keyboard and screen readers, keeps focus visible, respects reduced-motion settings, and every theme meets the AA contrast requirements.",
+          "If anything is difficult to use, please let me know."
         ]
       }
     ]
