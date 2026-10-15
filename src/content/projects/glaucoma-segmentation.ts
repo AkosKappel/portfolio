@@ -93,6 +93,19 @@ export const glaucomaSegmentation: Project = {
       },
     },
     {
+      src: "/images/projects/glaucoma-segmentation/cascade-architecture.webp",
+      width: 1600,
+      height: 1414,
+      alt: {
+        en: "Diagram of two U-Net models in a row: the first outputs the disc mask, which crops the input for the second, which outputs the cup mask",
+        sk: "Diagram dvoch U-Net modelov za sebou: prvý vytvorí masku disku, ktorá oreže vstup pre druhý, a ten vytvorí masku jamky",
+      },
+      caption: {
+        en: "Cascade architecture: a first U-Net segments the optic disc, its mask crops the image, and a second U-Net finds the cup inside it. It reached a Dice score of 96.8 % for the disc and 87.1 % for the cup.",
+        sk: "Kaskádová architektúra: prvý U-Net segmentuje optický disk, jeho maska oreže obrázok a druhý U-Net v ňom nájde jamku. Dosiahla Dice skóre 96,8 % pre disk a 87,1 % pre jamku.",
+      },
+    },
+    {
       src: "/images/projects/glaucoma-segmentation/dual-decoder-architecture.webp",
       width: 1600,
       height: 927,
