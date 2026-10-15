@@ -41,8 +41,16 @@ export const conicSectionsGenerator: Project = {
       sk: "Parametre zostávajú čitateľné: poloosi sú obmedzené, aby elipsa nebola takmer kružnica ani príliš plochá, a všeobecná rovnica sa krátí najväčším spoločným deliteľom",
     },
     {
+      en: "Some problem types are generated backwards: start from a random answer, derive the problem, then reverse the recorded steps and invert each operation",
+      sk: "Niektoré typy úloh sa generujú odzadu: z náhodného výsledku sa odvodí zadanie, potom sa zaznamenané kroky otočia a každá operácia sa nahradí inverznou",
+    },
+    {
       en: "Ellipses with many integer points were found by a brute-force search and stored, so intersections and touching points can be computed by hand",
       sk: "Elipsy s mnohými celočíselnými bodmi som našiel hrubou silou a uložil, aby sa priesečníky a body dotyku dali vypočítať ručne",
+    },
+    {
+      en: "Tested with final-year secondary school students for ease of use and how well the generated solutions matched their own",
+      sk: "Testované so študentmi posledného ročníka strednej školy: jednoduchosť použitia a zhoda vzorových riešení s ich vlastnými",
     },
     {
       en: "The interface and test export were adapted from two fellow students' bachelor's theses and connected to the generators",
@@ -54,8 +62,8 @@ export const conicSectionsGenerator: Project = {
   area: "math",
   year: 2022,
   role: {
-    en: "Supervised by Milada Omachelová",
-    sk: "Vedúca práce Milada Omachelová",
+    en: "Supervised by Mgr. Milada Omachelová, PhD. et PhD.",
+    sk: "Vedúca práce Mgr. Milada Omachelová, PhD. et PhD.",
   },
   stack: ["Wolfram Mathematica"],
   repoUrl: "https://github.com/AkosKappel/BP-ConicShapes",
@@ -70,6 +78,33 @@ export const conicSectionsGenerator: Project = {
     },
   },
   gallery: [
+    {
+      src: "/images/projects/conic-sections-generator/demo.webp",
+      video: "/images/projects/conic-sections-generator/demo.mp4",
+      width: 1032,
+      height: 978,
+      alt: {
+        en: "Screen recording of the generator building a test and solving a tangent problem step by step",
+        sk: "Záznam obrazovky generátora pri zostavovaní testu a riešení úlohy s dotyčnicou po krokoch",
+      },
+      caption: {
+        en: "A 50-second walkthrough: building a test in teacher mode, then a generated tangent problem with its solution steps and plot.",
+        sk: "50-sekundová ukážka: zostavenie testu v režime pre učiteľa a potom vygenerovaná úloha s dotyčnicou, postupom riešenia a grafom.",
+      },
+    },
+    {
+      src: "/images/projects/conic-sections-generator/tangent-transformations.webp",
+      width: 1307,
+      height: 436,
+      alt: {
+        en: "Three plots of an ellipse with two tangents through point M: original, mirrored across x = y, and shifted",
+        sk: "Tri grafy elipsy s dvoma dotyčnicami cez bod M: pôvodný, zrkadlený podľa priamky x = y a posunutý",
+      },
+      caption: {
+        en: "Tangent problems come from stored cases with integer results. Mirroring across x = y and shifting by an integer vector turn each case into many different problems.",
+        sk: "Úlohy s dotyčnicami vychádzajú z uložených prípadov s celočíselnými výsledkami. Zrkadlenie podľa priamky x = y a posunutie o celočíselný vektor z každého prípadu vytvoria mnoho rôznych úloh.",
+      },
+    },
     {
       src: "/images/projects/conic-sections-generator/problem-types.webp",
       width: 1032,

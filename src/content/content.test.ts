@@ -32,6 +32,10 @@ describe("projects", () => {
       for (const image of [project.image, ...(project.gallery ?? [])]) {
         if (image) expect(existsSync(join(publicDir, image.src)), image.src).toBe(true);
       }
+      for (const figure of project.gallery ?? []) {
+        if (figure.video)
+          expect(existsSync(join(publicDir, figure.video)), figure.video).toBe(true);
+      }
     }
   });
 

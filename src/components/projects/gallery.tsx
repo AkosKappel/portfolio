@@ -1,10 +1,17 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, X, ZoomIn, ZoomOut } from "lucide-react";
 import Image from "next/image";
 import { useLayoutEffect, useRef, useState } from "react";
 
-type GalleryFigure = { src: string; width: number; height: number; alt: string; caption: string };
+type GalleryFigure = {
+  src: string;
+  video?: string;
+  width: number;
+  height: number;
+  alt: string;
+  caption: string;
+};
 
 type Labels = {
   close: string;
@@ -20,8 +27,9 @@ const iconButton =
   "grid size-11 cursor-pointer place-items-center rounded-full border border-line bg-surface text-ink shadow-md transition-colors hover:border-accent hover:text-accent";
 
 /**
- * Figures link to the full image, so the gallery works without JavaScript. With it, a
- * modal <dialog> opens instead: arrows, swipe, zoom with drag to pan, Esc to close.
+ * Figures link to the full image or video, so the gallery works without JavaScript. With
+ * it, a modal <dialog> opens instead: arrows, swipe, zoom with drag to pan, Esc to close.
+ * Videos play with native controls and are not zoomable.
  */
 export function Gallery({ figures, labels }: { figures: GalleryFigure[]; labels: Labels }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -80,14 +88,14 @@ export function Gallery({ figures, labels }: { figures: GalleryFigure[]; labels:
         {figures.map((item, itemIndex) => (
           <figure key={item.src}>
             <a
-              href={item.src}
+              href={item.video ?? item.src}
               aria-haspopup="dialog"
               onClick={(event) => {
                 event.preventDefault();
                 show(itemIndex);
                 dialogRef.current?.showModal();
               }}
-              className="block cursor-zoom-in overflow-hidden rounded-xl border border-line bg-surface transition-colors hover:border-accent"
+              className={`relative block overflow-hidden rounded-xl border border-line bg-surface transition-colors hover:border-accent ${item.video ? "cursor-pointer" : "cursor-zoom-in"}`}
             >
               <Image
                 src={item.src}
@@ -97,6 +105,14 @@ export function Gallery({ figures, labels }: { figures: GalleryFigure[]; labels:
                 sizes="(min-width: 1152px) 528px, (min-width: 640px) 50vw, 100vw"
                 className="h-auto w-full"
               />
+              {item.video ? (
+                <span
+                  aria-hidden
+                  className="absolute top-1/2 left-1/2 grid size-16 -translate-1/2 place-items-center rounded-full bg-accent text-on-accent shadow-lg"
+                >
+                  <Play size={28} className="translate-x-0.5" fill="currentColor" />
+                </span>
+              ) : null}
             </a>
             <figcaption className="mt-3 text-muted">{item.caption}</figcaption>
           </figure>
@@ -107,6 +123,7 @@ export function Gallery({ figures, labels }: { figures: GalleryFigure[]; labels:
         ref={dialogRef}
         aria-label={figure.caption}
         className="m-0 h-dvh max-h-none w-screen max-w-none bg-transparent p-0 text-ink backdrop:bg-paper"
+        onClose={() => viewportRef.current?.querySelector("video")?.pause()}
         onKeyDown={(event) => {
           if (event.key === "ArrowLeft") show(index - 1);
           if (event.key === "ArrowRight") show(index + 1);
@@ -120,15 +137,17 @@ export function Gallery({ figures, labels }: { figures: GalleryFigure[]; labels:
                 .replace("{total}", String(figures.length))}
             </p>
             <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={() => toggleZoom()}
-                className={iconButton}
-                aria-label={zoomed ? labels.zoomOut : labels.zoomIn}
-                title={zoomed ? labels.zoomOut : labels.zoomIn}
-              >
-                {zoomed ? <ZoomOut aria-hidden size={20} /> : <ZoomIn aria-hidden size={20} />}
-              </button>
+              {figure.video ? null : (
+                <button
+                  type="button"
+                  onClick={() => toggleZoom()}
+                  className={iconButton}
+                  aria-label={zoomed ? labels.zoomOut : labels.zoomIn}
+                  title={zoomed ? labels.zoomOut : labels.zoomIn}
+                >
+                  {zoomed ? <ZoomOut aria-hidden size={20} /> : <ZoomIn aria-hidden size={20} />}
+                </button>
+              )}
               <button
                 type="button"
                 onClick={close}
@@ -147,6 +166,8 @@ export function Gallery({ figures, labels }: { figures: GalleryFigure[]; labels:
               className={`absolute inset-0 ${zoomed ? "flex overflow-auto overscroll-contain" : "touch-pan-y"}`}
               onPointerDown={(event) => {
                 dragged.current = false;
+                // Dragging along the video's timeline must not swipe to the next figure.
+                if (figure.video) return;
                 if (!zoomed) {
                   swipeStart.current = event.clientX;
                 } else if (event.pointerType === "mouse") {
@@ -180,24 +201,41 @@ export function Gallery({ figures, labels }: { figures: GalleryFigure[]; labels:
                 }
               }}
             >
-              <Image
-                key={figure.src}
-                src={figure.src}
-                width={figure.width}
-                height={figure.height}
-                alt={figure.alt}
-                sizes={zoomed ? `${zoomWidth}px` : "100vw"}
-                draggable={false}
-                onClick={(event) => {
-                  if (!dragged.current) toggleZoom(event.clientX, event.clientY);
-                }}
-                style={zoomed ? { width: zoomWidth } : undefined}
-                className={
-                  zoomed
-                    ? "m-auto h-auto max-w-none shrink-0 cursor-grab select-none active:cursor-grabbing"
-                    : "size-full cursor-zoom-in object-contain px-16 select-none sm:px-20"
-                }
-              />
+              {figure.video ? (
+                <video
+                  key={figure.video}
+                  src={figure.video}
+                  poster={figure.src}
+                  width={figure.width}
+                  height={figure.height}
+                  aria-label={figure.alt}
+                  controls
+                  // Gallery videos are silent screen recordings, so there is nothing to caption.
+                  muted
+                  playsInline
+                  preload="none"
+                  className="absolute inset-0 m-auto h-auto max-h-full w-auto max-w-[calc(100%-8rem)] sm:max-w-[calc(100%-10rem)]"
+                />
+              ) : (
+                <Image
+                  key={figure.src}
+                  src={figure.src}
+                  width={figure.width}
+                  height={figure.height}
+                  alt={figure.alt}
+                  sizes={zoomed ? `${zoomWidth}px` : "100vw"}
+                  draggable={false}
+                  onClick={(event) => {
+                    if (!dragged.current) toggleZoom(event.clientX, event.clientY);
+                  }}
+                  style={zoomed ? { width: zoomWidth } : undefined}
+                  className={
+                    zoomed
+                      ? "m-auto h-auto max-w-none shrink-0 cursor-grab select-none active:cursor-grabbing"
+                      : "size-full cursor-zoom-in object-contain px-16 select-none sm:px-20"
+                  }
+                />
+              )}
             </div>
             <button
               type="button"

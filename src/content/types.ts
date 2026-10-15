@@ -11,7 +11,10 @@ export type ProjectKind = "personal" | "university" | "team";
 export type ProjectArea = "web" | "ai" | "math" | "games" | "infrastructure" | "challenges";
 
 export type Figure = {
+  /** Image, or the poster frame when the figure is a video. */
   src: string;
+  /** MP4 video played in the lightbox. */
+  video?: string;
   width: number;
   height: number;
   alt: Text;
