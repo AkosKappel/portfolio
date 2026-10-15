@@ -9,7 +9,8 @@
     "contact": "Contact",
     "cv": "CV",
     "main": "Main",
-    "lab": "Lab"
+    "lab": "Lab",
+    "colophon": "How this site is built"
   },
   "common": {
     "skipToContent": "Skip to content",
@@ -52,7 +53,8 @@
     "pages": "Pages",
     "elsewhere": "Elsewhere",
     "builtWith": "Built with Next.js, React and Tailwind CSS.",
-    "coffee": "Buy me a coffee"
+    "coffee": "Buy me a coffee",
+    "accessibility": "Accessibility"
   },
   "home": {
     "viewProjects": "View projects",
@@ -238,5 +240,61 @@
       "cost": "It starts once the page is idle, pauses when it scrolls out of view or the tab is hidden, and shows a still frame with reduced motion or when the browser has no GPU for WebGL. The colours follow the selected theme and palette.",
       "noWebgl": "This browser cannot show WebGL2, so the demo is not available here."
     }
+  },
+  "colophon": {
+    "title": "How this site is built",
+    "description": "The stack, architecture, tests, hosting and accessibility of this portfolio.",
+    "lead": "The engineering behind this site: what it runs on, how it is tested and how it stays fast and accessible.",
+    "sourceCode": "The source code is on GitHub.",
+    "sections": [
+      {
+        "id": "stack",
+        "title": "Stack",
+        "paragraphs": [
+          "Next.js 16 with the App Router, React 19 and TypeScript, styled with Tailwind CSS 4. Design tokens are CSS variables, so the light and dark themes and the colour palettes only swap a few values.",
+          "The projects archive uses TanStack Table with match-sorter for fuzzy search, the contact form uses TanStack Form with a Zod schema shared by the browser and the server, and next-intl handles English and Slovak. Icons come from lucide and Simple Icons."
+        ]
+      },
+      {
+        "id": "architecture",
+        "title": "Architecture",
+        "paragraphs": [
+          "Every page is generated at build time in both languages. Content lives in typed TypeScript files with each text in English and Slovak; tests check slugs, images, links, dates and missing translations before anything is built.",
+          "Pages are React Server Components. Only the parts that need the browser ship JavaScript: the header menus, the theme and palette pickers, the projects archive, the gallery, the contact form and the lab demo. Route changes use view transitions, and every page gets its own generated link preview image."
+        ]
+      },
+      {
+        "id": "quality",
+        "title": "Tests and CI",
+        "paragraphs": [
+          "GitHub Actions runs Biome, the TypeScript compiler, Vitest and Playwright on every push. The Playwright tests open the main pages in both themes on desktop and mobile and run axe against WCAG 2.2 AA.",
+          "Lighthouse CI fails the build if desktop performance drops below 90, if accessibility, best practices or SEO drop below 100, or if a page ships more than 300 KB of compressed JavaScript. A weekly job checks every external link, and Dependabot keeps dependencies current."
+        ]
+      },
+      {
+        "id": "hosting",
+        "title": "Hosting and privacy",
+        "paragraphs": [
+          "The site runs on Vercel, which deploys every push to the main branch. Project demos run on my own home server behind Tailscale Funnel.",
+          "Vercel Web Analytics and Speed Insights measure visits and real loading times without cookies. The theme and palette you pick are stored only in your browser."
+        ]
+      },
+      {
+        "id": "workflow",
+        "title": "How I work on it",
+        "paragraphs": [
+          "I plan each change in a backlog, build it with the help of AI coding agents and review every change before it is committed. Each change is checked in a real browser at phone and desktop sizes before it ships."
+        ]
+      },
+      {
+        "id": "accessibility",
+        "title": "Accessibility",
+        "paragraphs": [
+          "The goal is WCAG 2.2 level AA on every page. Everything works with a keyboard, focus is always visible, motion stops when your system asks for reduced motion, and every colour palette keeps text contrast above the AA minimum.",
+          "Known limits: the lab demo is visual only, and its text describes what it shows. The CV PDFs are generated from LaTeX and are not fully tagged for screen readers; the CV web page has the same content in accessible HTML.",
+          "If something does not work for you, please write to me and I will fix it."
+        ]
+      }
+    ]
   }
 }

@@ -9,7 +9,8 @@
     "contact": "Kontakt",
     "cv": "Životopis",
     "main": "Hlavná",
-    "lab": "Laboratórium"
+    "lab": "Laboratórium",
+    "colophon": "Ako je stránka postavená"
   },
   "common": {
     "skipToContent": "Preskočiť na obsah",
@@ -52,7 +53,8 @@
     "pages": "Stránky",
     "elsewhere": "Inde",
     "coffee": "Kúp mi kávu",
-    "builtWith": "Vytvorené v Next.js, React a Tailwind CSS."
+    "builtWith": "Vytvorené v Next.js, React a Tailwind CSS.",
+    "accessibility": "Prístupnosť"
   },
   "home": {
     "viewProjects": "Pozrieť projekty",
@@ -238,5 +240,61 @@
       "cost": "Spustí sa, až keď je stránka nečinná, zastaví sa, keď zmizne z obrazovky alebo je karta skrytá, a pri obmedzení pohybu alebo bez GPU pre WebGL ukáže statický obrázok. Farby sledujú zvolenú tému a paletu.",
       "noWebgl": "Tento prehliadač nevie zobraziť WebGL2, takže demo tu nie je dostupné."
     }
+  },
+  "colophon": {
+    "title": "Ako je táto stránka postavená",
+    "description": "Technológie, architektúra, testy, hosting a prístupnosť tohto portfólia.",
+    "lead": "Inžinierska práca za touto stránkou: na čom beží, ako sa testuje a ako zostáva rýchla a prístupná.",
+    "sourceCode": "Zdrojový kód je na GitHube.",
+    "sections": [
+      {
+        "id": "stack",
+        "title": "Technológie",
+        "paragraphs": [
+          "Next.js 16 s App Routerom, React 19 a TypeScript, štýly v Tailwind CSS 4. Dizajnové tokeny sú CSS premenné, takže svetlá a tmavá téma aj farebné palety menia len niekoľko hodnôt.",
+          "Archív projektov používa TanStack Table s match-sorter na tolerantné vyhľadávanie, kontaktný formulár TanStack Form so Zod schémou zdieľanou prehliadačom aj serverom a next-intl zabezpečuje angličtinu a slovenčinu. Ikony sú z lucide a Simple Icons."
+        ]
+      },
+      {
+        "id": "architecture",
+        "title": "Architektúra",
+        "paragraphs": [
+          "Každá stránka sa generuje pri builde v oboch jazykoch. Obsah je v typovaných súboroch TypeScriptu s každým textom po anglicky aj po slovensky; testy pred buildom kontrolujú slugy, obrázky, odkazy, dátumy a chýbajúce preklady.",
+          "Stránky sú React Server Components. JavaScript posielajú len časti, ktoré potrebujú prehliadač: menu v hlavičke, výber témy a palety, archív projektov, galéria, kontaktný formulár a demo v laboratóriu. Prechody medzi stránkami používajú view transitions a každá stránka má vlastný vygenerovaný náhľad pre zdieľanie."
+        ]
+      },
+      {
+        "id": "quality",
+        "title": "Testy a CI",
+        "paragraphs": [
+          "GitHub Actions pri každom pushi spúšťa Biome, kompilátor TypeScriptu, Vitest a Playwright. Playwright testy otvoria hlavné stránky v oboch témach na desktope aj mobile a skontrolujú ich nástrojom axe podľa WCAG 2.2 AA.",
+          "Lighthouse CI zastaví build, ak výkon na desktope klesne pod 90, ak prístupnosť, osvedčené postupy alebo SEO klesnú pod 100, alebo ak stránka pošle viac ako 300 KB komprimovaného JavaScriptu. Týždenná úloha kontroluje všetky externé odkazy a Dependabot udržiava závislosti aktuálne."
+        ]
+      },
+      {
+        "id": "hosting",
+        "title": "Hosting a súkromie",
+        "paragraphs": [
+          "Stránka beží na Verceli, ktorý nasadí každý push do hlavnej vetvy. Demá projektov bežia na mojom domácom serveri cez Tailscale Funnel.",
+          "Vercel Web Analytics a Speed Insights merajú návštevy a skutočné časy načítania bez cookies. Zvolená téma a paleta sa ukladajú len vo vašom prehliadači."
+        ]
+      },
+      {
+        "id": "workflow",
+        "title": "Ako na nej pracujem",
+        "paragraphs": [
+          "Každú zmenu naplánujem v backlogu, vytvorím ju s pomocou AI agentov na programovanie a každú zmenu pred commitom skontrolujem. Pred nasadením ju overím v skutočnom prehliadači na mobile aj desktope."
+        ]
+      },
+      {
+        "id": "accessibility",
+        "title": "Prístupnosť",
+        "paragraphs": [
+          "Cieľom je WCAG 2.2 úrovne AA na každej stránke. Všetko funguje s klávesnicou, fokus je vždy viditeľný, animácie sa zastavia, keď systém žiada obmedzenie pohybu, a každá farebná paleta drží kontrast textu nad minimom AA.",
+          "Známe obmedzenia: demo v laboratóriu je len vizuálne a jeho text opisuje, čo ukazuje. PDF životopisy sa generujú z LaTeXu a nie sú plne označené pre čítačky obrazovky; webová stránka so životopisom má rovnaký obsah v prístupnom HTML.",
+          "Ak vám niečo nefunguje, napíšte mi a opravím to."
+        ]
+      }
+    ]
   }
 }

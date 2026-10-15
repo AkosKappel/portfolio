@@ -74,6 +74,10 @@ export function SiteFooter() {
             {t("common.sourceCode")}
           </a>
           {" · "}
+          <Link href="/colophon#accessibility" className="link">
+            {t("footer.accessibility")}
+          </Link>
+          {" · "}
           <Coffee aria-hidden size={14} className="mr-1 inline-block align-[-2px]" />
           <a href={site.links.buyMeACoffee} className="link">
             {t("footer.coffee")}
