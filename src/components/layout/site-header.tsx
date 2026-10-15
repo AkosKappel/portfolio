@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "./language-switcher";
 import { MobileNav } from "./mobile-nav";
 import { NavLinks } from "./nav-links";
+import { PalettePicker } from "./palette-picker";
 import { ThemeToggle } from "./theme-toggle";
 
 export function SiteHeader() {
@@ -17,13 +18,14 @@ export function SiteHeader() {
           className="flex items-center gap-2.5 font-display text-lg font-semibold tracking-tight"
         >
           <Logo className="size-9 text-ink" />
-          <span>{site.name}</span>
+          <span className="whitespace-nowrap max-[400px]:sr-only">{site.name}</span>
         </Link>
         <nav aria-label={t("nav.main")} className="ml-auto hidden lg:block">
           <NavLinks className="flex items-center gap-0.5" />
         </nav>
         <div className="ml-auto flex items-center gap-0.5 lg:ml-2">
           <LanguageSwitcher />
+          <PalettePicker />
           <ThemeToggle
             labels={{ dark: t("common.switchToDark"), light: t("common.switchToLight") }}
           />

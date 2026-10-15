@@ -114,6 +114,19 @@ test("theme choice is remembered", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });
 
+test("colour palette is remembered across reloads and languages", async ({ page }) => {
+  await page.goto("/");
+  await page.getByTitle("Colour palette").click();
+  await page.getByRole("button", { name: "Plum" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-palette", "plum");
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-palette", "plum");
+  await page.locator("header summary").first().click();
+  await page.getByRole("link", { name: "Slovak" }).click();
+  await expect(page).toHaveURL(/\/sk$/);
+  await expect(page.locator("html")).toHaveAttribute("data-palette", "plum");
+});
+
 test("switching language keeps the theme", async ({ page }) => {
   await page.emulateMedia({ colorScheme: "light" });
   await page.goto("/");

@@ -34,7 +34,14 @@
     "anchor": "Odkaz na túto časť",
     "phone": "Telefón",
     "backToTop": "Späť na začiatok",
-    "previewCv": "Ukážka životopisu: {language}"
+    "previewCv": "Ukážka životopisu: {language}",
+    "palette": "Farebná paleta",
+    "palettes": {
+      "navy": "Námornícka modrá",
+      "forest": "Lesná zelená",
+      "plum": "Slivková",
+      "copper": "Medená"
+    }
   },
   "languages": {
     "en": "Angličtina",

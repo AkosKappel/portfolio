@@ -34,7 +34,14 @@
     "anchor": "Link to this section",
     "phone": "Phone",
     "backToTop": "Back to top",
-    "previewCv": "Preview {language} CV"
+    "previewCv": "Preview {language} CV",
+    "palette": "Colour palette",
+    "palettes": {
+      "navy": "Navy",
+      "forest": "Forest",
+      "plum": "Plum",
+      "copper": "Copper"
+    }
   },
   "languages": {
     "en": "English",
