@@ -6,7 +6,8 @@
   Calm navy palette built around the charcoal of the AK logo: cool paper,
   deep ink, and one navy accent (a soft steel blue in dark mode).
 */
-:root {
+:root,
+[data-palette="light"] {
   --paper: #e9edf2;
   --surface: #f5f7fa;
   --ink: #142233;
@@ -18,7 +19,8 @@
   color-scheme: light;
 }
 
-[data-theme="dark"] {
+[data-theme="dark"],
+[data-palette="dark"] {
   --paper: #0e1622;
   --surface: #152131;
   --ink: #e3e9f0;
@@ -31,49 +33,97 @@
 }
 
 /*
-  Selectable accent palettes. Each rule also matches swatches that carry the
-  attribute themselves, so the picker can preview every palette in the current theme.
-  Screen only: print always uses the default navy.
+  Extra themes for each mode. The head script puts the chosen one on <html> as
+  data-palette; the picker's swatches carry the attribute too, so each previews its
+  own colours. Screen only: print always uses the light default above.
 */
 @media screen {
-  [data-palette="navy"] {
-    --accent: #1f3a5f;
-    --accent-soft: #e2e9f2;
+  [data-palette="corporate"] {
+    --paper: #ffffff;
+    --surface: #f3f5f8;
+    --ink: #181a2a;
+    --muted: #4b5563;
+    --line: #e2e6ec;
+    --accent: #2b4fc0;
+    --accent-soft: #e8eefc;
+    --on-accent: #ffffff;
   }
 
-  [data-palette="forest"] {
-    --accent: #1d4d33;
-    --accent-soft: #dfeae3;
+  [data-palette="nord"] {
+    --paper: #eceff4;
+    --surface: #f7f9fb;
+    --ink: #2e3440;
+    --muted: #4c566a;
+    --line: #d8dee9;
+    --accent: #3f5f8c;
+    --accent-soft: #e1e8f1;
+    --on-accent: #ffffff;
   }
 
-  [data-palette="plum"] {
-    --accent: #55306a;
-    --accent-soft: #ebe3f0;
+  [data-palette="cupcake"] {
+    --paper: #faf7f5;
+    --surface: #ffffff;
+    --ink: #291334;
+    --muted: #5c4a63;
+    --line: #ece3dd;
+    --accent: #1d7379;
+    --accent-soft: #e3f2f2;
+    --on-accent: #ffffff;
   }
 
-  [data-palette="copper"] {
-    --accent: #853814;
-    --accent-soft: #f2e4da;
+  [data-palette="retro"] {
+    --paper: #ece3ca;
+    --surface: #f5eedb;
+    --ink: #282425;
+    --muted: #5a5045;
+    --line: #d5c7a3;
+    --accent: #a3392b;
+    --accent-soft: #f1dccd;
+    --on-accent: #ffffff;
   }
 
-  :is([data-theme="dark"][data-palette="navy"], [data-theme="dark"] [data-palette="navy"]) {
-    --accent: #a9c1e0;
-    --accent-soft: #1c2b3f;
+  [data-palette="dracula"] {
+    --paper: #282a36;
+    --surface: #313443;
+    --ink: #f8f8f2;
+    --muted: #b6bad3;
+    --line: #44475a;
+    --accent: #bd93f9;
+    --accent-soft: #3a3452;
+    --on-accent: #282a36;
   }
 
-  :is([data-theme="dark"][data-palette="forest"], [data-theme="dark"] [data-palette="forest"]) {
-    --accent: #9fd2b1;
-    --accent-soft: #16302a;
+  [data-palette="dim"] {
+    --paper: #2a303c;
+    --surface: #323946;
+    --ink: #e5e9f0;
+    --muted: #a8b0be;
+    --line: #434b5a;
+    --accent: #9fe88d;
+    --accent-soft: #344236;
+    --on-accent: #1d232a;
   }
 
-  :is([data-theme="dark"][data-palette="plum"], [data-theme="dark"] [data-palette="plum"]) {
-    --accent: #d2b4e6;
-    --accent-soft: #28213a;
+  [data-palette="coffee"] {
+    --paper: #20161f;
+    --surface: #2a1e29;
+    --ink: #eadbc8;
+    --muted: #b9a48e;
+    --line: #40303d;
+    --accent: #e0a061;
+    --accent-soft: #3b2a25;
+    --on-accent: #20161f;
   }
 
-  :is([data-theme="dark"][data-palette="copper"], [data-theme="dark"] [data-palette="copper"]) {
-    --accent: #f0b48f;
-    --accent-soft: #33241c;
+  [data-palette="synthwave"] {
+    --paper: #1a103d;
+    --surface: #22164f;
+    --ink: #f6f3ff;
+    --muted: #bcb2e0;
+    --line: #3b2c76;
+    --accent: #ff7ac6;
+    --accent-soft: #3a1b58;
+    --on-accent: #1a103d;
   }
 }
 

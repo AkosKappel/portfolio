@@ -37,12 +37,22 @@
     "phone": "Telefón",
     "backToTop": "Späť na začiatok",
     "previewCv": "Ukážka životopisu: {language}",
-    "palette": "Farebná paleta",
+    "palette": "Téma",
     "palettes": {
-      "navy": "Námornícka modrá",
-      "forest": "Lesná zelená",
-      "plum": "Slivková",
-      "copper": "Medená"
+      "light": "Predvolená",
+      "corporate": "Firemná",
+      "nord": "Nord",
+      "cupcake": "Cupcake",
+      "retro": "Retro",
+      "dark": "Predvolená",
+      "dracula": "Dracula",
+      "dim": "Tlmená",
+      "coffee": "Káva",
+      "synthwave": "Synthwave"
+    },
+    "modes": {
+      "light": "Svetlé",
+      "dark": "Tmavé"
     }
   },
   "languages": {

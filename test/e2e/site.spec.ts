@@ -116,17 +116,47 @@ test("theme choice is remembered", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });
 
-test("colour palette is remembered across reloads and languages", async ({ page }) => {
+test("each mode remembers its theme across reloads and languages", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "light" });
   await page.goto("/");
-  await page.getByTitle("Colour palette").click();
-  await page.getByRole("button", { name: "Plum" }).click();
-  await expect(page.locator("html")).toHaveAttribute("data-palette", "plum");
+  const html = page.locator("html");
+  await page.getByTitle("Theme", { exact: true }).click();
+  await page.getByRole("button", { name: "Dracula" }).click();
+  await expect(html).toHaveAttribute("data-theme", "dark");
+  await expect(html).toHaveAttribute("data-palette", "dracula");
+  await page.getByRole("button", { name: "Switch to light theme" }).click();
+  await expect(html).toHaveAttribute("data-palette", "light");
+  await page.getByRole("button", { name: "Switch to dark theme" }).click();
+  await expect(html).toHaveAttribute("data-palette", "dracula");
   await page.reload();
-  await expect(page.locator("html")).toHaveAttribute("data-palette", "plum");
+  await expect(html).toHaveAttribute("data-palette", "dracula");
   await page.locator("header summary").first().click();
   await page.getByRole("link", { name: "Slovak" }).click();
   await expect(page).toHaveURL(/\/sk$/);
-  await expect(page.locator("html")).toHaveAttribute("data-palette", "plum");
+  await expect(html).toHaveAttribute("data-palette", "dracula");
+});
+
+test("every theme passes the accessibility checks", async ({ page, isMobile }) => {
+  test.skip(isMobile, "colours do not depend on the viewport");
+  const themes = {
+    light: ["light", "corporate", "nord", "cupcake", "retro"],
+    dark: ["dark", "dracula", "dim", "coffee", "synthwave"],
+  };
+  for (const [mode, palettes] of Object.entries(themes)) {
+    for (const palette of palettes) {
+      await page.addInitScript(
+        ([mode, palette]) => {
+          localStorage.setItem("theme", mode);
+          localStorage.setItem(`palette-${mode}`, palette);
+        },
+        [mode, palette],
+      );
+      await page.goto("/projects/glaucoma-segmentation");
+      await expect(page.locator("html")).toHaveAttribute("data-palette", palette);
+      const results = await new AxeBuilder({ page }).withTags(["wcag2aa"]).analyze();
+      expect(results.violations.map((violation) => `${palette}: ${violation.id}`)).toEqual([]);
+    }
+  }
 });
 
 test("switching language keeps the theme", async ({ page }) => {

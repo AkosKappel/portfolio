@@ -37,12 +37,22 @@
     "phone": "Phone",
     "backToTop": "Back to top",
     "previewCv": "Preview {language} CV",
-    "palette": "Colour palette",
+    "palette": "Theme",
     "palettes": {
-      "navy": "Navy",
-      "forest": "Forest",
-      "plum": "Plum",
-      "copper": "Copper"
+      "light": "Default",
+      "corporate": "Corporate",
+      "nord": "Nord",
+      "cupcake": "Cupcake",
+      "retro": "Retro",
+      "dark": "Default",
+      "dracula": "Dracula",
+      "dim": "Dim",
+      "coffee": "Coffee",
+      "synthwave": "Synthwave"
+    },
+    "modes": {
+      "light": "Light",
+      "dark": "Dark"
     }
   },
   "languages": {
