@@ -242,13 +242,13 @@ test("gallery opens a lightbox with keyboard, swipe and zoom", async ({ page }) 
   await gallery.getByRole("figure").first().getByRole("link").click();
   const lightbox = page.getByRole("dialog");
   await expect(lightbox).toBeVisible();
-  await expect(lightbox.getByText("1 of 4")).toBeVisible();
+  await expect(lightbox.getByText("1 of 5")).toBeVisible();
 
   await page.keyboard.press("ArrowRight");
-  await expect(lightbox.getByText("2 of 4")).toBeVisible();
+  await expect(lightbox.getByText("2 of 5")).toBeVisible();
   await page.keyboard.press("ArrowLeft");
   await page.keyboard.press("ArrowLeft");
-  await expect(lightbox.getByText("4 of 4")).toBeVisible();
+  await expect(lightbox.getByText("5 of 5")).toBeVisible();
 
   const image = lightbox.getByRole("img");
   const box = await image.boundingBox();
@@ -257,7 +257,7 @@ test("gallery opens a lightbox with keyboard, swipe and zoom", async ({ page }) 
   await page.mouse.down();
   await page.mouse.move(box.x + box.width * 0.2, box.y + box.height / 2, { steps: 5 });
   await page.mouse.up();
-  await expect(lightbox.getByText("1 of 4")).toBeVisible();
+  await expect(lightbox.getByText("1 of 5")).toBeVisible();
 
   await lightbox.getByRole("button", { name: "Zoom in" }).click();
   await expect(lightbox.getByRole("button", { name: "Zoom out" })).toBeVisible();
