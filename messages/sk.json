@@ -8,7 +8,8 @@
     "about": "O mne",
     "contact": "Kontakt",
     "cv": "Životopis",
-    "main": "Hlavná"
+    "main": "Hlavná",
+    "lab": "Laboratórium"
   },
   "common": {
     "skipToContent": "Preskočiť na obsah",
@@ -224,5 +225,18 @@
     "title": "Niečo sa pokazilo",
     "text": "Stránku sa nepodarilo zobraziť. Skúste to znova alebo sa vráťte na úvodnú stránku.",
     "retry": "Skúsiť znova"
+  },
+  "lab": {
+    "title": "Laboratórium",
+    "description": "Malé experimenty s frontendom, na začiatok WebGL2 zobrazenie, ktoré v reálnom čase filtruje zašumené kanály signálu.",
+    "lead": "Malé experimenty s grafikou v prehliadači, oddelené od zvyšku stránky.",
+    "signal": {
+      "title": "Filter signálu",
+      "caption": "Pohybujte kurzorom nad grafom: naľavo od čiary sú kanály filtrované, napravo vidíte surový vstup.",
+      "what": "Šesť kanálov v štýle EEG prehliadača, inšpirované službou CleanEEG, ktorá odstraňuje šum z EEG záznamov. Surová strana obsahuje šum, pomalý drift a artefakt žmurknutia na jednom kanáli; filtrovaná strana ukazuje len signál pod ním.",
+      "how": "Všetko sa kreslí cez WebGL2. Stránka raz nahrá jeden buffer s pozíciami vzoriek a vertex shader vypočíta oba signály, prelína ich okolo čiary a z každej stopy spraví hrubú čiaru. Každý snímok mení len niekoľko čísel.",
+      "cost": "Spustí sa, až keď je stránka nečinná, zastaví sa, keď zmizne z obrazovky alebo je karta skrytá, a pri obmedzení pohybu alebo bez GPU pre WebGL ukáže statický obrázok. Farby sledujú zvolenú tému a paletu.",
+      "noWebgl": "Tento prehliadač nevie zobraziť WebGL2, takže demo tu nie je dostupné."
+    }
   }
 }

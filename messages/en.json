@@ -8,7 +8,8 @@
     "about": "About",
     "contact": "Contact",
     "cv": "CV",
-    "main": "Main"
+    "main": "Main",
+    "lab": "Lab"
   },
   "common": {
     "skipToContent": "Skip to content",
@@ -224,5 +225,18 @@
     "title": "Something went wrong",
     "text": "The page could not be shown. Try again, or go back to the home page.",
     "retry": "Try again"
+  },
+  "lab": {
+    "title": "Lab",
+    "description": "Small front-end experiments, starting with a WebGL2 view that filters noisy signal channels in real time.",
+    "lead": "Small experiments with graphics in the browser, kept apart from the rest of the site.",
+    "signal": {
+      "title": "Signal filter",
+      "caption": "Move the pointer over the chart: left of the line the channels are filtered, right of it you see the raw input.",
+      "what": "Six channels in the style of an EEG viewer, a nod to CleanEEG, a service that removes noise from EEG recordings. The raw side carries noise, slow drift and an eye-blink artefact on one channel; the filtered side shows only the signal underneath.",
+      "how": "Everything is drawn with WebGL2. The page uploads one buffer of sample positions once, and the vertex shader computes both signals, blends them around the sweep line and turns each trace into a thick line. Each frame only updates a few numbers.",
+      "cost": "It starts once the page is idle, pauses when it scrolls out of view or the tab is hidden, and shows a still frame with reduced motion or when the browser has no GPU for WebGL. The colours follow the selected theme and palette.",
+      "noWebgl": "This browser cannot show WebGL2, so the demo is not available here."
+    }
   }
 }

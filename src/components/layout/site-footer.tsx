@@ -2,7 +2,7 @@ import { Coffee } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { GitHubIcon, GitLabIcon, LinkedInIcon } from "@/components/ui/brand-icons";
 import { Logo } from "@/components/ui/logo";
-import { navigation, site } from "@/content/site";
+import { navigation, secondaryNavigation, site } from "@/content/site";
 import { pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 
@@ -33,7 +33,7 @@ export function SiteFooter() {
             {t("footer.pages")}
           </h2>
           <ul className="mt-3 grid grid-cols-2 gap-x-6 gap-y-2">
-            {navigation.map((item) => (
+            {[...navigation, ...secondaryNavigation].map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -43,11 +43,6 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/cv" className="hover:text-accent hover:underline underline-offset-4">
-                {t("nav.cv")}
-              </Link>
-            </li>
           </ul>
         </nav>
         <div>

@@ -120,3 +120,9 @@ export const navigation = [
   { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },
 ] as const;
+
+/** Pages linked from the footer only. */
+export const secondaryNavigation = [
+  { href: "/cv", key: "cv" },
+  { href: "/lab", key: "lab" },
+] as const;

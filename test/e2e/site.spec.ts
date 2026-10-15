@@ -12,6 +12,7 @@ const pages = [
   { path: "/contact", heading: "Contact" },
   { path: "/cv", heading: "Ákos Kappel" },
   { path: "/cv/pdf", heading: "Curriculum vitae" },
+  { path: "/lab", heading: "Lab" },
   { path: "/sk", heading: "Ákos Kappel" },
   { path: "/sk/projects", heading: "Projekty" },
   { path: "/sk/experience", heading: "Skúsenosti" },

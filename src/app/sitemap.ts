@@ -1,14 +1,13 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/content/projects";
-import { navigation, site } from "@/content/site";
+import { navigation, secondaryNavigation, site } from "@/content/site";
 import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const hrefs = [
     "/",
-    ...navigation.map((item) => item.href),
-    "/cv",
+    ...[...navigation, ...secondaryNavigation].map((item) => item.href),
     "/cv/pdf",
     ...projects.map((project) => `/projects/${project.slug}`),
   ];
