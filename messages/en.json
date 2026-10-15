@@ -87,6 +87,7 @@
     "areas": {
       "web": "Web",
       "ai": "AI",
+      "math": "Math",
       "games": "Games",
       "infrastructure": "Infrastructure",
       "challenges": "Challenges"

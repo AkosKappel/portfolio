@@ -8,7 +8,7 @@ export function pick(text: Text, locale: Locale) {
 }
 
 export type ProjectKind = "personal" | "university" | "team";
-export type ProjectArea = "web" | "ai" | "games" | "infrastructure" | "challenges";
+export type ProjectArea = "web" | "ai" | "math" | "games" | "infrastructure" | "challenges";
 
 export type Figure = {
   src: string;

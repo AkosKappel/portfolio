@@ -2,6 +2,7 @@ import type { Project } from "../types";
 import { adventOfCode } from "./advent-of-code";
 import { adventOfSql } from "./advent-of-sql";
 import { budgetMaster } from "./budget-master";
+import { conicSectionsGenerator } from "./conic-sections-generator";
 import { fakeshop } from "./fakeshop";
 import { feastFinder } from "./feast-finder";
 import { glaucomaSegmentation } from "./glaucoma-segmentation";
@@ -24,6 +25,7 @@ export const projects: Project[] = [
   budgetMaster,
   wacMicrofrontends,
   petguide,
+  conicSectionsGenerator,
   iridescent,
   adventOfCode,
   adventOfSql,

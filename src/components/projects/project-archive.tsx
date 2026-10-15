@@ -31,6 +31,7 @@ import {
   Search,
   Server,
   Shapes,
+  Sigma,
   Trophy,
   X,
 } from "lucide-react";
@@ -86,6 +87,7 @@ const areas: { value: ProjectArea | ""; Icon: LucideIcon }[] = [
   { value: "", Icon: Shapes },
   { value: "web", Icon: Globe },
   { value: "ai", Icon: Brain },
+  { value: "math", Icon: Sigma },
   { value: "infrastructure", Icon: Server },
   { value: "games", Icon: Gamepad2 },
   { value: "challenges", Icon: Trophy },
