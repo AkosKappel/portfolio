@@ -220,8 +220,9 @@
 }
 
 /*
-  Cards and timeline entries rise into place as they scroll into view. Without
-  scroll timelines, with reduced motion and in print they are simply there.
+  Cards and timeline entries rise into place as they scroll into view. No fade:
+  a card resting at the bottom edge of the screen would keep low-contrast text.
+  Without scroll timelines, with reduced motion and in print they are simply there.
 */
 @supports (animation-timeline: view()) {
   @media screen and (prefers-reduced-motion: no-preference) {
@@ -235,8 +236,8 @@
 
 @keyframes reveal {
   from {
-    opacity: 0;
-    translate: 0 1.5rem;
+    translate: 0 2.5rem;
+    scale: 0.96;
   }
 }
 
