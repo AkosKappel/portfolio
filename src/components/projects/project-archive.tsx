@@ -7,7 +7,7 @@ import {
   createFilteredRowModel,
   createSortedRowModel,
   type FilterFn,
-  filterFn_equalsString,
+  filterFn_arrIncludes,
   functionalUpdate,
   globalFilteringFeature,
   rowSortingFeature,
@@ -50,7 +50,7 @@ const features = tableFeatures({
   rowSortingFeature,
   filteredRowModel: createFilteredRowModel(),
   sortedRowModel: createSortedRowModel(),
-  filterFns: { equalsString: filterFn_equalsString },
+  filterFns: { arrIncludes: filterFn_arrIncludes },
   sortFns: { alphanumeric: sortFn_alphanumeric, basic: sortFn_basic },
 });
 
@@ -77,7 +77,7 @@ const helper = createColumnHelper<Features, ProjectSummary>();
 const columns = helper.columns([
   helper.accessor("title", { header: "title", sortFn: "alphanumeric" }),
   helper.accessor("year", { header: "year", sortFn: "basic", sortDescFirst: true }),
-  helper.accessor("area", { header: "area", filterFn: "equalsString", enableSorting: false }),
+  helper.accessor("areas", { header: "area", filterFn: "arrIncludes", enableSorting: false }),
   helper.accessor("kind", { header: "kind", enableSorting: false }),
   // Target column for the global search; the filter ranks the project's fields itself.
   helper.accessor((project) => project.title, { id: "search", header: "search" }),
@@ -138,7 +138,7 @@ export function ProjectArchive({ projects }: { projects: ProjectSummary[] }) {
     data: projects,
     state: {
       globalFilter: query,
-      columnFilters: area ? [{ id: "area", value: area }] : [],
+      columnFilters: area ? [{ id: "areas", value: [area] }] : [],
       sorting,
     },
     onSortingChange: (updater: Updater<SortingState>) =>
@@ -291,7 +291,9 @@ export function ProjectArchive({ projects }: { projects: ProjectSummary[] }) {
                             {sorted === "desc" ? <ArrowDown aria-hidden size={14} /> : null}
                           </button>
                         ) : (
-                          t(`columns.${header.column.id as "area" | "kind"}`)
+                          t(
+                            `columns.${header.column.id === "areas" ? "area" : (header.column.id as "kind")}`,
+                          )
                         )}
                       </th>
                     );
@@ -312,7 +314,9 @@ export function ProjectArchive({ projects }: { projects: ProjectSummary[] }) {
                   <td className="py-3 pr-4 whitespace-nowrap text-muted">
                     {projectYears(project)}
                   </td>
-                  <td className="py-3 pr-4 text-muted">{t(`areas.${project.area}`)}</td>
+                  <td className="py-3 pr-4 text-muted">
+                    {project.areas.map((value) => t(`areas.${value}`)).join(", ")}
+                  </td>
                   <td className="py-3 pr-4 text-muted">{t(`kinds.${project.kind}`)}</td>
                   <td className="py-3">
                     <StackList items={project.stack} />

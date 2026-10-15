@@ -13,8 +13,8 @@ export const modernFashionStore: Project = {
       sk: "Vznikol v januári 2025 ako zadanie pri pohovore: dashboard skladu pre manažéra obchodu s oblečením v Elixire a Phoenixe, teda v technológiách, ktoré som dovtedy nepoužil. Dokončil som obe povinné úlohy, všetky štyri voliteľné aj bonusové nasadenie.",
     },
     {
-      en: 'In 2026 I upgraded it, reviewed its security and turned it into a public demo on my own server. Press "Try the demo" to log in; the data resets every night.',
-      sk: "V roku 2026 som ho aktualizoval, skontroloval jeho bezpečnosť a spravil z neho verejné demo na vlastnom serveri. Prihlásite sa tlačidlom „Try the demo“ a dáta sa každú noc obnovia.",
+      en: 'Later I upgraded it, reviewed its security and turned it into a public demo on my own server. Press "Try the demo" to log in; the data resets every night.',
+      sk: "Neskôr som ho aktualizoval, skontroloval jeho bezpečnosť a spravil z neho verejné demo na vlastnom serveri. Prihlásite sa tlačidlom „Try the demo“ a dáta sa každú noc obnovia.",
     },
   ],
   highlights: [
@@ -67,8 +67,8 @@ export const modernFashionStore: Project = {
       sk: "Asi 240 testov v 32 súboroch; kontrola pred commitom spúšťa kompilátor s varovaniami ako chybami, Credo, bezpečnostný skener Sobelow a testy",
     },
     {
-      en: "Security review in 2026: strict Content Security Policy, an allowlist for photo hosts, limits on WebSocket messages and inputs, server-side demo login with CSRF protection",
-      sk: "Bezpečnostná kontrola v roku 2026: prísna Content Security Policy, povolené zdroje fotiek, limity WebSocket správ a vstupov, prihlásenie do dema na serveri s ochranou CSRF",
+      en: "Security review: strict Content Security Policy, an allowlist for photo hosts, limits on WebSocket messages and inputs, server-side demo login with CSRF protection",
+      sk: "Bezpečnostná kontrola: prísna Content Security Policy, povolené zdroje fotiek, limity WebSocket správ a vstupov, prihlásenie do dema na serveri s ochranou CSRF",
     },
     {
       en: "Built as a release in a multi-stage Docker image, behind nginx with security headers and rate limits, published through a Tailscale Funnel sidecar with health checks",
@@ -79,16 +79,38 @@ export const modernFashionStore: Project = {
       sk: "View Transitions, oznamy pre čítačky obrazovky pri živých zmenách a podpora obmedzeného pohybu",
     },
   ],
-  upgrade: {
-    en: "Phoenix 1.7 to 1.8, LiveView 1.0 to 1.2 and Tailwind CSS 3 to 4. Unused libraries removed, and the demo data grew from 10 to 24 products with local photos and a year of sales.",
-    sk: "Phoenix 1.7 na 1.8, LiveView 1.0 na 1.2 a Tailwind CSS 3 na 4. Nepoužívané knižnice som odstránil a demo dáta narástli z 10 na 24 produktov s vlastnými fotkami a rokom predajov.",
-  },
+  changelog: [
+    {
+      en: "Phoenix 1.7 to 1.8 and LiveView 1.0 to 1.2",
+      sk: "Phoenix 1.7 na 1.8 a LiveView 1.0 na 1.2",
+    },
+    {
+      en: "Tailwind CSS 3 to 4",
+      sk: "Tailwind CSS 3 na 4",
+    },
+    {
+      en: "Unused libraries removed",
+      sk: "Odstránené nepoužívané knižnice",
+    },
+    {
+      en: "Demo data grew from 10 to 24 products with local photos and a year of sales",
+      sk: "Demo dáta narástli z 10 na 24 produktov s vlastnými fotkami a rokom predajov",
+    },
+  ],
   versions: ["Elixir 1.20", "Phoenix 1.8", "LiveView 1.2", "PostgreSQL 18", "Tailwind CSS 4"],
   kind: "personal",
-  area: "web",
+  areas: ["web"],
   year: 2025,
   until: 2026,
-  stack: ["Elixir", "Phoenix LiveView", "PostgreSQL", "Tailwind CSS", "Docker", "nginx"],
+  stack: [
+    "Elixir",
+    "Phoenix LiveView",
+    "PostgreSQL",
+    "Tailwind CSS",
+    "Docker",
+    "nginx",
+    "Tailscale",
+  ],
   repoUrl: "https://github.com/AkosKappel/clothing-store",
   liveUrl: "https://tagline.tailb52c43.ts.net",
   image: {

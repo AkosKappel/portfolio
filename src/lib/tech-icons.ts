@@ -3,6 +3,18 @@ import { type TechIcon, techIcons } from "./tech-icons.data";
 /** Logos whose brand is not in Simple Icons, kept as files in public/icons. */
 const imageIcons: Record<string, string> = {
   "C#": "/icons/csharp.svg",
+  Matplotlib: "/icons/matplotlib.svg",
+  Playwright: "/icons/playwright.svg",
+};
+
+/** Names used in versions and architecture steps that share another entry's logo. */
+const aliases: Record<string, string> = {
+  LiveView: "Phoenix LiveView",
+  Stencil: "Stencil.js",
+  "Vue Router": "Vue",
+  "Go API": "Go",
+  Mathematica: "Wolfram Mathematica",
+  "Tailscale Funnel": "Tailscale",
 };
 
 export type ResolvedIcon =
@@ -22,7 +34,8 @@ function luminance(hex: string) {
  * Logo for a technology name, in its brand colour. Black or white brand colours
  * (Next.js, Express, ...) would vanish on one of the themes, so they use the text colour.
  */
-export function techIcon(name: string): ResolvedIcon | undefined {
+export function techIcon(alias: string): ResolvedIcon | undefined {
+  const name = aliases[alias] ?? alias;
   if (imageIcons[name]) return { kind: "image", src: imageIcons[name] };
   const icon = techIcons[name];
   if (!icon) return undefined;

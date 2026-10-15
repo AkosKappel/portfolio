@@ -41,7 +41,7 @@ describe("projects", () => {
 
   it("use absolute https links", () => {
     for (const project of projects) {
-      for (const url of [project.repoUrl, project.liveUrl, project.paperUrl]) {
+      for (const url of [project.repoUrl, project.liveUrl, project.paperUrl, project.websiteUrl]) {
         if (url) expect(new URL(url).protocol, project.slug).toBe("https:");
       }
     }
@@ -98,7 +98,7 @@ describe("skills", () => {
   it("mostly have logos", () => {
     const skills = skillGroups.flatMap((group) => group.skills);
     const withoutLogo = skills.filter((skill) => !techIcon(skill));
-    expect(withoutLogo).toEqual(["MSSQL", "Codex", "OpenAI API", "Playwright"]);
+    expect(withoutLogo).toEqual(["MSSQL", "Codex", "OpenAI API"]);
   });
 });
 

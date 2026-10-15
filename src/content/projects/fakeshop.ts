@@ -9,8 +9,8 @@ export const fakeshop: Project = {
   },
   description: [
     {
-      en: "A personal project from 2024 that I rebuilt in 2026 into a realistic demo store with 194 products from DummyJSON. Nothing is sold and no payment is taken.",
-      sk: "Osobný projekt z roku 2024, ktorý som v roku 2026 prerobil na realistický demo e-shop so 194 produktmi z DummyJSON. Nič sa nepredáva a neplatí sa.",
+      en: "A personal project from 2024 that I later rebuilt into a realistic demo store with 194 products from DummyJSON. Nothing is sold and no payment is taken.",
+      sk: "Osobný projekt z roku 2024, ktorý som neskôr prerobil na realistický demo e-shop so 194 produktmi z DummyJSON. Nič sa nepredáva a neplatí sa.",
     },
   ],
   features: [
@@ -53,16 +53,37 @@ export const fakeshop: Project = {
       sk: "Lighthouse CI zlyhá pod 100 bodov v prístupnosti, osvedčených postupoch a SEO; nasadenie na GitHub Pages cez GitHub Actions",
     },
   ],
-  upgrade: {
-    en: "React 18 to 19, React Router 6 to 8, Vite 5 to 8, Tailwind CSS 3 to 4, TypeScript 5 to 6. The data source moved from Fake Store API to DummyJSON.",
-    sk: "React 18 na 19, React Router 6 na 8, Vite 5 na 8, Tailwind CSS 3 na 4, TypeScript 5 na 6. Zdroj dát sa zmenil z Fake Store API na DummyJSON.",
-  },
+  changelog: [
+    {
+      en: "React 18 to 19, React Router 6 to 8 and Vite 5 to 8",
+      sk: "React 18 na 19, React Router 6 na 8 a Vite 5 na 8",
+    },
+    {
+      en: "Tailwind CSS 3 to 4 and TypeScript 5 to 6",
+      sk: "Tailwind CSS 3 na 4 a TypeScript 5 na 6",
+    },
+    {
+      en: "Data source moved from Fake Store API to DummyJSON",
+      sk: "Zdroj dát sa zmenil z Fake Store API na DummyJSON",
+    },
+  ],
   versions: ["React 19", "React Router 8", "Vite 8", "Tailwind CSS 4"],
   kind: "personal",
-  area: "web",
+  areas: ["web"],
   year: 2024,
   until: 2026,
-  stack: ["React", "React Router", "TypeScript", "Tailwind CSS", "Playwright"],
+  stack: [
+    "React",
+    "React Router",
+    "TypeScript",
+    "React Hook Form",
+    "Tailwind CSS",
+    "Vite",
+    "Vitest",
+    "Playwright",
+    "ESLint",
+    "GitHub Pages",
+  ],
   repoUrl: "https://github.com/AkosKappel/FakeShop",
   liveUrl: "https://akoskappel.github.io/FakeShop",
   image: {

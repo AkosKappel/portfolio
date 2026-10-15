@@ -9,8 +9,8 @@ export const pokedex: Project = {
   },
   description: [
     {
-      en: "A personal project from 2024 that started as a simple paged list in Vue CLI. In 2026 I rebuilt it as a fast Pokédex for all 1025 Pokémon, without ads, using data from PokéAPI.",
-      sk: "Osobný projekt z roku 2024, ktorý začal ako jednoduchý zoznam v Vue CLI. V roku 2026 som ho prerobil na rýchly Pokédex všetkých 1025 Pokémonov bez reklám, s dátami z PokéAPI.",
+      en: "A personal project from 2024 that started as a simple paged list in Vue CLI. Later I rebuilt it as a fast Pokédex for all 1025 Pokémon, without ads, using data from PokéAPI.",
+      sk: "Osobný projekt z roku 2024, ktorý začal ako jednoduchý zoznam v Vue CLI. Neskôr som ho prerobil na rýchly Pokédex všetkých 1025 Pokémonov bez reklám, s dátami z PokéAPI.",
     },
   ],
   features: [
@@ -57,16 +57,30 @@ export const pokedex: Project = {
       sk: "Unit testy vo Vitest, end-to-end testy v Playwright s kontrolou prístupnosti, Lighthouse v CI, nasadenie na GitHub Pages",
     },
   ],
-  upgrade: {
-    en: "Vue CLI to Vite, Vue 3.2 to 3.5, Vue Router 4 to 5 and TypeScript 4.5 to 6. Axios and the pagination library removed, Docker replaced by GitHub Pages.",
-    sk: "Vue CLI na Vite, Vue 3.2 na 3.5, Vue Router 4 na 5 a TypeScript 4.5 na 6. Odstránené Axios a knižnica na stránkovanie, Docker nahradený GitHub Pages.",
-  },
+  changelog: [
+    {
+      en: "Vue CLI replaced by Vite",
+      sk: "Vue CLI nahradil Vite",
+    },
+    {
+      en: "Vue 3.2 to 3.5, Vue Router 4 to 5 and TypeScript 4.5 to 6",
+      sk: "Vue 3.2 na 3.5, Vue Router 4 na 5 a TypeScript 4.5 na 6",
+    },
+    {
+      en: "Axios and the pagination library removed",
+      sk: "Odstránené Axios a knižnica na stránkovanie",
+    },
+    {
+      en: "Docker replaced by GitHub Pages",
+      sk: "Docker nahradili GitHub Pages",
+    },
+  ],
   versions: ["Vue 3.5", "Vue Router 5", "Vite 8", "TypeScript 6"],
   kind: "personal",
-  area: "web",
+  areas: ["web"],
   year: 2024,
   until: 2026,
-  stack: ["Vue", "TypeScript", "Vite", "Vitest", "Playwright"],
+  stack: ["Vue", "TypeScript", "Vite", "PWA", "Vitest", "Playwright", "ESLint", "GitHub Pages"],
   repoUrl: "https://github.com/AkosKappel/Pokedex",
   liveUrl: "https://akoskappel.github.io/Pokedex",
   image: {

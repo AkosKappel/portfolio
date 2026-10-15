@@ -59,8 +59,9 @@ export const conicSectionsGenerator: Project = {
   ],
   versions: ["Mathematica 12.3"],
   kind: "university",
-  area: "math",
-  year: 2022,
+  areas: ["math"],
+  year: 2021,
+  until: 2022,
   role: {
     en: "Supervised by Mgr. Milada Omachelová, PhD. et PhD.",
     sk: "Vedúca práce Mgr. Milada Omachelová, PhD. et PhD.",

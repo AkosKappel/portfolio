@@ -33,12 +33,13 @@ export type Project = {
   features?: Text[];
   /** Engineering details: architecture, testing, deployment. */
   technical?: Text[];
-  /** What the 2026 rebuild changed. */
-  upgrade?: Text;
+  /** What the later rebuild changed, one entry per change. */
+  changelog?: Text[];
   /** Main framework versions, e.g. "Phoenix 1.8". */
   versions?: string[];
   kind: ProjectKind;
-  area: ProjectArea;
+  /** Filters the project appears under; the first is shown in the table. */
+  areas: ProjectArea[];
   /** First year of work. */
   year: number;
   /** Last year of work, when the project ran over several years or was rebuilt. */
@@ -49,6 +50,8 @@ export type Project = {
   liveUrl?: string;
   /** Published paper or thesis, e.g. its record in the Central Register of Theses. */
   paperUrl?: string;
+  /** Home page of the event or service the project is built for. */
+  websiteUrl?: string;
   image?: { src: string; width: number; height: number; alt: Text };
   /** Request path from the visitor to the data, drawn as a chain of boxes. */
   architecture?: { name: Text; detail: Text }[];
@@ -60,7 +63,7 @@ export type Project = {
 /** The fields cards and the archive need; keeps the client payload small. */
 export type ProjectSummary = Pick<
   Project,
-  "slug" | "title" | "summary" | "kind" | "area" | "year" | "until" | "stack" | "image"
+  "slug" | "title" | "summary" | "kind" | "areas" | "year" | "until" | "stack" | "image"
 >;
 
 export function toSummary({
@@ -68,13 +71,13 @@ export function toSummary({
   title,
   summary,
   kind,
-  area,
+  areas,
   year,
   until,
   stack,
   image,
 }: Project): ProjectSummary {
-  return { slug, title, summary, kind, area, year, until, stack, image };
+  return { slug, title, summary, kind, areas, year, until, stack, image };
 }
 
 export type WorkItem = {

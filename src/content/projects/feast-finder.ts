@@ -9,8 +9,8 @@ export const feastFinder: Project = {
   },
   description: [
     {
-      en: 'A personal recipe finder from 2024 that answers "what should I cook today?" with data from TheMealDB. In 2026 I rebuilt it on Nuxt 4 with tests, accessibility work and a new design.',
-      sk: "Osobný projekt z roku 2024 na hľadanie receptov, ktorý odpovedá na otázku „čo dnes uvariť?“ s dátami z TheMealDB. V roku 2026 som ho prerobil na Nuxt 4 s testami, prístupnosťou a novým dizajnom.",
+      en: 'A personal recipe finder from 2024 that answers "what should I cook today?" with data from TheMealDB. Later I rebuilt it on Nuxt 4 with tests, accessibility work and a new design.',
+      sk: "Osobný projekt z roku 2024 na hľadanie receptov, ktorý odpovedá na otázku „čo dnes uvariť?“ s dátami z TheMealDB. Neskôr som ho prerobil na Nuxt 4 s testami, prístupnosťou a novým dizajnom.",
     },
   ],
   features: [
@@ -53,16 +53,36 @@ export const feastFinder: Project = {
       sk: "Predgenerované stránky so štruktúrovanými dátami receptov a sitemap; CI raz týždenne obnoví index",
     },
   ],
-  upgrade: {
-    en: "Nuxt 3.9 to 4.6 with the new app structure, Vue 3.4 to 3.5 and Tailwind CSS 3 to 4. Axios removed.",
-    sk: "Nuxt 3.9 na 4.6 s novou štruktúrou aplikácie, Vue 3.4 na 3.5 a Tailwind CSS 3 na 4. Odstránené Axios.",
-  },
+  changelog: [
+    {
+      en: "Nuxt 3.9 to 4.6 with the new app structure",
+      sk: "Nuxt 3.9 na 4.6 s novou štruktúrou aplikácie",
+    },
+    {
+      en: "Vue 3.4 to 3.5 and Tailwind CSS 3 to 4",
+      sk: "Vue 3.4 na 3.5 a Tailwind CSS 3 na 4",
+    },
+    {
+      en: "Axios removed",
+      sk: "Odstránené Axios",
+    },
+  ],
   versions: ["Nuxt 4.6", "Vue 3.5", "Tailwind CSS 4", "TypeScript 6"],
   kind: "personal",
-  area: "web",
+  areas: ["web"],
   year: 2024,
   until: 2026,
-  stack: ["Nuxt", "Vue", "TypeScript", "Tailwind CSS", "Playwright"],
+  stack: [
+    "Nuxt",
+    "Vue",
+    "TypeScript",
+    "VueUse",
+    "Tailwind CSS",
+    "Vitest",
+    "Playwright",
+    "ESLint",
+    "GitHub Pages",
+  ],
   repoUrl: "https://github.com/AkosKappel/FeastFinder",
   liveUrl: "https://akoskappel.github.io/FeastFinder",
   image: {

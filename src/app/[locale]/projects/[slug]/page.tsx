@@ -3,6 +3,7 @@ import {
   ArrowRight,
   ExternalLink,
   FileText,
+  Globe,
   Images,
   Info,
   type LucideIcon,
@@ -126,6 +127,15 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
                 {tCommon("thesisRecord")}
               </a>
             ) : null}
+            {project.websiteUrl ? (
+              <a
+                href={project.websiteUrl}
+                className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-medium transition-colors hover:border-ink"
+              >
+                <Globe aria-hidden size={18} />
+                {tCommon("officialWebsite")}
+              </a>
+            ) : null}
           </div>
         </header>
 
@@ -210,22 +220,14 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
                 </ol>
               </section>
             ) : null}
-            {project.upgrade ? (
-              <section
-                aria-labelledby="upgrade"
-                className="rounded-xl border border-line bg-surface p-6"
-              >
-                <AnchorHeading
-                  id="upgrade"
-                  label={tCommon("anchor")}
-                  className="flex items-center gap-2 text-2xl font-semibold"
-                >
-                  <RefreshCw aria-hidden className="size-5 shrink-0 text-accent" />
-                  {t("upgrade")}
-                </AnchorHeading>
-                <p className="mt-3 text-lg">{pick(project.upgrade, locale)}</p>
-              </section>
-            ) : null}
+            <DetailList
+              id="changelog"
+              title={t("changelog")}
+              items={project.changelog}
+              locale={locale}
+              Icon={RefreshCw}
+              anchor={tCommon("anchor")}
+            />
           </div>
           <dl className="grid content-start gap-5 border-t border-line pt-5 lg:sticky lg:top-24 lg:self-start lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
             <Fact label={t("when")}>{projectYears(project)}</Fact>

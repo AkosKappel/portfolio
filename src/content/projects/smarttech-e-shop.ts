@@ -13,8 +13,8 @@ export const smarttechEShop: Project = {
       sk: "Semestrálny projekt z predmetu Webové technológie na FIIT STU v zime 2021, robený vo dvojici, a môj prvý projekt v Laraveli. Zadaním bol e-shop vykresľovaný na serveri s filtrami, vyhľadávaním, košíkom, ktorý prežije odhlásenie, nákupom bez registrácie, účtami a administráciou.",
     },
     {
-      en: "In 2025 I redesigned it, and in 2026 I upgraded it step by step to Laravel 13, covered it with tests first and moved it to my home server.",
-      sk: "V roku 2025 som mu dal nový dizajn a v roku 2026 som ho postupne aktualizoval na Laravel 13, najprv som ho pokryl testami a presunul na domáci server.",
+      en: "Later I redesigned it, then upgraded it step by step to Laravel 13, covered it with tests first and moved it to my home server.",
+      sk: "Neskôr som mu dal nový dizajn a potom som ho postupne aktualizoval na Laravel 13, najprv som ho pokryl testami a presunul na domáci server.",
     },
   ],
   highlights: [
@@ -83,16 +83,35 @@ export const smarttechEShop: Project = {
       sk: "Docker Compose s PHP-FPM, nginx a PostgreSQL, nočný reset dema, obmedzenie počtu požiadaviek a kontrola stavu",
     },
   ],
-  upgrade: {
-    en: "Laravel 8 and PHP 8.1 to Laravel 13 and PHP 8.5, one major version at a time, after writing the tests. Tailwind CSS from the CDN to a local Tailwind 4 build, PostgreSQL 18.",
-    sk: "Laravel 8 a PHP 8.1 na Laravel 13 a PHP 8.5, po jednej hlavnej verzii, až keď boli hotové testy. Tailwind CSS z CDN na lokálny build Tailwind 4, PostgreSQL 18.",
-  },
+  changelog: [
+    {
+      en: "Tests written first, then Laravel 8 and PHP 8.1 to Laravel 13 and PHP 8.5, one major version at a time",
+      sk: "Najprv testy, potom Laravel 8 a PHP 8.1 na Laravel 13 a PHP 8.5, po jednej hlavnej verzii",
+    },
+    {
+      en: "Tailwind CSS from the CDN to a local Tailwind 4 build",
+      sk: "Tailwind CSS z CDN na lokálny build Tailwind 4",
+    },
+    {
+      en: "PostgreSQL 18",
+      sk: "PostgreSQL 18",
+    },
+  ],
   versions: ["Laravel 13", "PHP 8.5", "PostgreSQL 18", "Tailwind CSS 4"],
   kind: "team",
-  area: "web",
+  areas: ["web"],
   year: 2021,
   until: 2026,
-  stack: ["Laravel", "PHP", "PostgreSQL", "Tailwind CSS", "Docker", "nginx"],
+  stack: [
+    "Laravel",
+    "PHP",
+    "PostgreSQL",
+    "Tailwind CSS",
+    "Docker",
+    "nginx",
+    "Tailscale",
+    "GitHub Actions",
+  ],
   repoUrl: "https://github.com/AkosKappel/WTECH-Laravel",
   liveUrl: "https://wtech.tailb52c43.ts.net",
   image: {

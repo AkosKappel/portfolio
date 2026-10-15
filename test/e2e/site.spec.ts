@@ -80,7 +80,7 @@ test("project search tolerates typos and keeps state in the URL", async ({ page 
   await page.reload();
   await expect(page.getByLabel("Search projects")).toHaveValue("phoenx");
   await page.getByRole("button", { name: "Clear filters" }).click();
-  await expect(page.getByText("13 projects")).toBeVisible();
+  await expect(page.getByText("14 projects")).toBeVisible();
 });
 
 test("area filter and table view sort projects", async ({ page }) => {
@@ -90,6 +90,11 @@ test("area filter and table view sort projects", async ({ page }) => {
   await page.getByLabel("Sort").selectOption("year-asc");
   await expect(page.getByRole("rowheader")).toHaveText(["PetGuide", "Glaucoma Segmentation"]);
   await expect(page).toHaveURL(/area=ai/);
+});
+
+test("projects appear under every area they belong to", async ({ page }) => {
+  await page.goto("/projects?area=games&view=table");
+  await expect(page.getByRole("rowheader")).toContainText(["Iridescent", "SketchBook"]);
 });
 
 test("skills link to the projects that use them", async ({ page }) => {

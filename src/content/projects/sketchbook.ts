@@ -9,8 +9,8 @@ export const sketchbook: Project = {
   },
   description: [
     {
-      en: "Small projects I wrote in 2021 while learning JavaScript, mostly by following tutorials. In 2026 I fixed their bugs, gave them one shared design that works on phones, and added five new ones.",
-      sk: "Malé projekty, ktoré som napísal v roku 2021, keď som sa učil JavaScript, väčšinou podľa tutoriálov. V roku 2026 som opravil ich chyby, dal im spoločný dizajn, ktorý funguje aj na mobile, a pridal päť nových.",
+      en: "Small projects I wrote in 2021 while learning JavaScript, mostly by following tutorials. Later I fixed their bugs, gave them one shared design that works on phones, and added five new ones.",
+      sk: "Malé projekty, ktoré som napísal v roku 2021, keď som sa učil JavaScript, väčšinou podľa tutoriálov. Neskôr som opravil ich chyby, dal im spoločný dizajn, ktorý funguje aj na mobile, a pridal päť nových.",
     },
   ],
   features: [
@@ -49,16 +49,34 @@ export const sketchbook: Project = {
       sk: "Efekty s veľa pixelmi zapisujú priamo do obrazových bufferov a Mandelbrotova množina sa vykresľuje po niekoľkých riadkoch na snímku, aby stránka reagovala",
     },
   ],
-  upgrade: {
-    en: "p5.js 1.3 to 1.11, one shared dark design, canvases that fit any screen and work with touch, about a dozen bug fixes, and five new projects.",
-    sk: "p5.js 1.3 na 1.11, jeden spoločný tmavý dizajn, plátna, ktoré sa prispôsobia každej obrazovke a fungujú s dotykom, asi tucet opráv chýb a päť nových projektov.",
-  },
+  changelog: [
+    {
+      en: "p5.js 1.3 to 1.11",
+      sk: "p5.js 1.3 na 1.11",
+    },
+    {
+      en: "One shared dark design",
+      sk: "Jeden spoločný tmavý dizajn",
+    },
+    {
+      en: "Canvases that fit any screen and work with touch",
+      sk: "Plátna, ktoré sa prispôsobia každej obrazovke a fungujú s dotykom",
+    },
+    {
+      en: "About a dozen bug fixes",
+      sk: "Asi tucet opráv chýb",
+    },
+    {
+      en: "Five new projects",
+      sk: "Päť nových projektov",
+    },
+  ],
   versions: ["p5.js 1.11"],
   kind: "personal",
-  area: "web",
+  areas: ["web", "games"],
   year: 2021,
   until: 2026,
-  stack: ["JavaScript", "p5.js", "Canvas", "HTML", "CSS"],
+  stack: ["JavaScript", "p5.js", "Canvas", "HTML", "CSS", "GitHub Pages"],
   repoUrl: "https://github.com/AkosKappel/sketchbook",
   liveUrl: "https://akoskappel.github.io/sketchbook/",
   image: {
