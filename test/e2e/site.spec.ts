@@ -135,14 +135,15 @@ test("each mode remembers its theme across reloads and languages", async ({ page
   await expect(html).toHaveAttribute("data-palette", "dracula");
 });
 
-test("every theme passes the accessibility checks", async ({ page, isMobile }) => {
-  test.skip(isMobile, "colours do not depend on the viewport");
-  const themes = {
-    light: ["light", "corporate", "nord", "cupcake", "retro"],
-    dark: ["dark", "dracula", "dim", "coffee", "synthwave"],
-  };
-  for (const [mode, palettes] of Object.entries(themes)) {
-    for (const palette of palettes) {
+const themes = {
+  light: ["light", "corporate", "nord", "cupcake", "retro"],
+  dark: ["dark", "dracula", "dim", "coffee", "synthwave"],
+};
+
+for (const [mode, palettes] of Object.entries(themes)) {
+  for (const palette of palettes) {
+    test(`${palette} theme passes the accessibility checks`, async ({ page, isMobile }) => {
+      test.skip(isMobile, "colours do not depend on the viewport");
       await page.addInitScript(
         ([mode, palette]) => {
           localStorage.setItem("theme", mode);
@@ -153,10 +154,10 @@ test("every theme passes the accessibility checks", async ({ page, isMobile }) =
       await page.goto("/projects/glaucoma-segmentation");
       await expect(page.locator("html")).toHaveAttribute("data-palette", palette);
       const results = await new AxeBuilder({ page }).withTags(["wcag2aa"]).analyze();
-      expect(results.violations.map((violation) => `${palette}: ${violation.id}`)).toEqual([]);
-    }
+      expect(results.violations.map((violation) => violation.id)).toEqual([]);
+    });
   }
-});
+}
 
 test("switching language keeps the theme", async ({ page }) => {
   await page.emulateMedia({ colorScheme: "light" });
