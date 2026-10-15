@@ -88,7 +88,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         </div>
         <ul className="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2">
           {featuredProjects.map((project, index) => (
-            <li key={project.slug}>
+            <li key={project.slug} className="reveal">
               <ProjectCard
                 project={project}
                 sizes="(min-width: 640px) 50vw, 100vw"
@@ -124,7 +124,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         </div>
         <ul className="grid gap-8 sm:grid-cols-2">
           {currentJob.items.map((item) => (
-            <li key={item.id}>
+            <li key={item.id} className="reveal">
               <h3 className="text-xl font-semibold">
                 <Link
                   href={`/experience#${item.id}`}

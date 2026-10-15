@@ -253,7 +253,7 @@ export function ProjectArchive({ projects }: { projects: ProjectSummary[] }) {
       ) : view === "grid" ? (
         <ul className="mt-6 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {rows.map((row) => (
-            <li key={row.original.slug}>
+            <li key={row.original.slug} className="reveal">
               <ProjectCard project={row.original} headingLevel="h2" />
             </li>
           ))}

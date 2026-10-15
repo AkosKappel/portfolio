@@ -58,7 +58,7 @@ export default async function ExperiencePage({ params }: PageProps<"/[locale]/ex
       </nav>
       <ol>
         {jobs.map((job) => (
-          <li key={job.id} className="grid gap-4 pb-16 md:grid-cols-[11rem_1fr] md:gap-10">
+          <li key={job.id} className="reveal grid gap-4 pb-16 md:grid-cols-[11rem_1fr] md:gap-10">
             <div className="md:pt-1 md:text-right">
               <p className="font-medium">
                 {tCommon("period", {

@@ -24,9 +24,16 @@ export function NavLinks({
               href={item.href}
               onClick={onNavigate}
               aria-current={active ? "page" : undefined}
-              className="relative block rounded-md px-3 py-2 text-[0.95rem] text-muted transition-colors hover:bg-accent-soft hover:text-ink aria-[current=page]:font-medium aria-[current=page]:text-ink aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-3 aria-[current=page]:after:-bottom-[13px] aria-[current=page]:after:h-0.5 aria-[current=page]:after:bg-accent max-md:aria-[current=page]:after:hidden"
+              className="relative block rounded-md px-3 py-2 text-[0.95rem] text-muted transition-colors hover:bg-accent-soft hover:text-ink aria-[current=page]:font-medium aria-[current=page]:text-ink"
             >
               {t(item.key)}
+              {active ? (
+                // A named view transition element, so the underline slides between pages.
+                <span
+                  aria-hidden
+                  className="absolute inset-x-3 -bottom-[13px] hidden h-0.5 bg-accent [view-transition-name:nav-indicator] lg:block"
+                />
+              ) : null}
             </Link>
           </li>
         );

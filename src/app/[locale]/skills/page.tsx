@@ -55,7 +55,7 @@ export default async function SkillsPage({ params }: PageProps<"/[locale]/skills
       </nav>
       <div className="grid gap-x-12 gap-y-14 md:grid-cols-2">
         {skillGroups.map((group) => (
-          <section key={group.id} aria-labelledby={group.id}>
+          <section key={group.id} aria-labelledby={group.id} className="reveal">
             <AnchorHeading
               id={group.id}
               label={tCommon("anchor")}
