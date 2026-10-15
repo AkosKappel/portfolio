@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, IBM_Plex_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
@@ -97,8 +98,13 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
           <SiteFooter />
           <BackToTop label={t("backToTop")} />
         </NextIntlClientProvider>
-        {/* The analytics script only exists on Vercel deployments. */}
-        {process.env.VERCEL ? <Analytics /> : null}
+        {/* The analytics scripts only exist on Vercel deployments. */}
+        {process.env.VERCEL ? (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        ) : null}
       </body>
     </html>
   );
