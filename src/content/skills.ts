@@ -106,7 +106,7 @@ export const practices: Text[] = [
   { en: "Performance optimization", sk: "Optimalizácia výkonu" },
   { en: "UI/UX design", sk: "UI/UX dizajn" },
   { en: "Responsive design", sk: "Responzívny dizajn" },
-  { en: "Progressive web apps", sk: "Progresívne webové aplikácie" },
+  { en: "Progressive web apps (PWA)", sk: "Progresívne webové aplikácie (PWA)" },
   { en: "Real-time updates (WebSockets)", sk: "Aktualizácie v reálnom čase (WebSockety)" },
   { en: "Authentication (JWT, passkeys)", sk: "Autentifikácia (JWT, passkeys)" },
   { en: "Caching", sk: "Cache" },
