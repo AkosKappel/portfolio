@@ -23,6 +23,7 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 - Projects archive with fuzzy search, filters, sorting, grid and table views, all kept in the URL
 - Light and dark mode with five themes each, without a flash, view transitions between pages and from a project card into its case study, scroll-driven reveals in CSS
 - A WebGL2 particle background that reacts to the pointer, and a colophon page on how the site is built, with an accessibility statement
+- An activity page with one contribution calendar across personal GitHub and GitLab and the GitLab of every job, with filters, streaks and breakdowns by type and source
 - Contact form with a shared Zod schema, honeypot and rate limit, sent from a Server Action
 - CV as an HTML page with print styles and as a shareable PDF viewer
 - WCAG 2.2 AA: axe checks every page in both themes on desktop and mobile; Lighthouse CI keeps performance, accessibility, best practices and SEO budgets
@@ -63,6 +64,7 @@ npm run dev
 | `npm run build` | Production build |
 | `npm run analyze` | Turbopack bundle analyzer in the browser (per route, client and server) |
 | `npm run test:e2e` | Playwright against the production build (run `npm run build` first) |
+| `npm run activity` | Refreshes `src/content/activity.json` for the activity page (see below) |
 | `npm run lighthouse` | Lighthouse CI against the production build, with a 300 KB budget for compressed JavaScript per page |
 
 GitHub Actions runs all of these on every push and pull request. Vercel builds and deploys `main`.
@@ -78,6 +80,16 @@ The form on `/contact` sends e-mail through the [Resend](https://resend.com) HTT
 | `CONTACT_FROM_EMAIL` | no | `Portfolio <onboarding@resend.dev>`, which only delivers to the Resend account owner; set a sender on a verified domain otherwise |
 
 Spam protection: a hidden honeypot field and at most five messages per IP address in ten minutes (counted per server instance).
+
+## Activity
+
+`/activity` renders `src/content/activity.json`, which `npm run activity` (`scripts/activity.mts`) writes from:
+
+- GitHub GraphQL: commits, pull requests, reviews, issues and new repositories. Uses `GITHUB_TOKEN` or the `gh` CLI login.
+- GitLab events API on gitlab.com (`GITLAB_TOKEN`) and the IGT instance (`IGT_GITLAB_TOKEN`), both with the `read_api` scope: merge requests, approvals, issues and comments. GitLab keeps events for three years.
+- Local clones of work repositories next to this project (`../IGT-systems`, `../Svarba`, `../SoftPoint`): commits by author, counted once across clones and rebases.
+
+The file is public, so it holds only counts per day, source and type, never repository or project names. A collector without its token is skipped; a source that fails keeps its previous data, so jobs without access stay in the history. Run it locally (work instances need the VPN or the clones), then commit the JSON.
 
 ## Structure
 

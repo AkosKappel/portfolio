@@ -14,7 +14,8 @@
     "test": "vitest run --project unit",
     "check:links": "vitest run --project links",
     "test:e2e": "playwright test",
-    "lighthouse": "lhci autorun"
+    "lighthouse": "lhci autorun",
+    "activity": "node --env-file-if-exists=.env.local scripts/activity.mts"
   },
   "dependencies": {
     "@tanstack/match-sorter-utils": "^9.2.6",

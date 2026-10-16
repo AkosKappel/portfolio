@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!latex", "!public"]
+    "includes": ["**", "!latex", "!public", "!src/content/activity.json"]
   },
   "formatter": {
     "enabled": true,
