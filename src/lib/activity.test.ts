@@ -5,6 +5,8 @@ import {
   addDays,
   calendarWeeks,
   categories,
+  commitHours,
+  languageYears,
   level,
   summarize,
 } from "./activity";
@@ -21,6 +23,18 @@ const data: ActivityData = {
     "2026-10-12": { work: { pullRequests: 1 } },
     "2026-10-14": { work: { commits: 8 } },
     "2026-10-15": { github: { issues: 1 } },
+  },
+  hours: {
+    github: Array.from({ length: 7 }, (_, weekday) =>
+      Array.from({ length: 24 }, (_, hour) => (weekday === 1 && hour === 10 ? 3 : 0)),
+    ),
+    work: Array.from({ length: 7 }, () =>
+      Array.from({ length: 24 }, (_, hour) => (hour === 10 ? 1 : 0)),
+    ),
+  },
+  languages: {
+    github: { "2025": { TypeScript: 3, Go: 1 } },
+    work: { "2025": { Kotlin: 4 }, "2026": { Kotlin: 1, TeX: 1 } },
   },
 };
 
@@ -63,6 +77,28 @@ describe("summarize", () => {
 
   it("ignores days outside the range", () => {
     expect(summarize(data, ["github", "work"], "2026-10-12", "2026-10-13").total).toBe(1);
+  });
+});
+
+describe("commitHours", () => {
+  it("sums the grids of the selected sources", () => {
+    expect(commitHours(data, ["github", "work"])[1][10]).toBe(4);
+    expect(commitHours(data, ["work"])[6][10]).toBe(1);
+    expect(
+      commitHours(data, ["missing"])
+        .flat()
+        .every((count) => count === 0),
+    ).toBe(true);
+  });
+});
+
+describe("languageYears", () => {
+  it("names the top languages and sums the rest as other", () => {
+    const { languages, rows } = languageYears(data, ["github", "work"], 2);
+    expect(languages).toEqual(["Kotlin", "TypeScript"]);
+    expect(rows.map((row) => row.year)).toEqual(["2025", "2026"]);
+    expect(rows[0]).toEqual({ year: "2025", commits: 8, shares: [0.5, 0.375, 0.125] });
+    expect(rows[1].shares).toEqual([0.5, 0, 0.5]);
   });
 });
 

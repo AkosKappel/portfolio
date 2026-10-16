@@ -159,8 +159,15 @@
     "range": "Obdobie",
     "lastYear": "Posledných 12 mesiacov",
     "sources": "Zdroje",
-    "personal": "osobné",
-    "work": "práca",
+    "presets": {
+      "all": "Všetko",
+      "personal": "Osobné",
+      "work": "Práca"
+    },
+    "kinds": {
+      "personal": "osobné",
+      "work": "práca"
+    },
     "total": "{total} {count, plural, one {príspevok} few {príspevky} other {príspevkov}} {period}",
     "inLastYear": "za posledných 12 mesiacov",
     "inYear": "v roku {year}",
@@ -193,7 +200,25 @@
       "comments": "{count, plural, one {# komentár} few {# komentáre} other {# komentárov}}",
       "other": "{count, plural, one {# ďalšia} few {# ďalšie} other {# ďalších}}"
     },
-    "updated": "Aktualizované {date}. Zozbierané z API GitHubu a GitLabu a z mojich pracovných repozitárov. GitHub a GitLab počítajú príspevky trochu inak, takže súčty sú približné."
+    "updated": "Aktualizované {date}. Zozbierané z API GitHubu a GitLabu a z mojich pracovných repozitárov. GitHub a GitLab počítajú príspevky trochu inak, takže súčty sú približné.",
+    "pattern": {
+      "title": "Kedy commitujem",
+      "summary": "Najrušnejší deň je {weekday} a najrušnejšia hodina okolo {hour}:00. {weekend} % commitov pripadá na víkendy a {evening} % na čas po 19:00.",
+      "cell": "{weekday}, {hour}:00: {count, plural, one {# commit} few {# commity} other {# commitov}}",
+      "note": "Všetky roky, v stredoeurópskom čase. Časy commitov pochádzajú z GitHubu a z mojich lokálnych klonov; GitLab hlási iba pushe, preto tu chýba.",
+      "empty": "Pre tieto zdroje nie sú údaje o commitoch."
+    },
+    "languages": {
+      "title": "Jazyky v čase",
+      "lead": "Každý commit rozdelený podľa jazykov, ktoré menil (lokálne klony), alebo podľa jazykov jeho repozitára (GitHub).",
+      "legend": "Jazyky",
+      "other": "Ostatné"
+    },
+    "card": {
+      "title": "Aktivita",
+      "lead": "{total} {count, plural, one {príspevok} few {príspevky} other {príspevkov}} za posledných 12 mesiacov z osobného GitHubu a GitLabu aj z GitLabu každej práce.",
+      "link": "Celá aktivita"
+    }
   },
   "skills": {
     "title": "Zručnosti",

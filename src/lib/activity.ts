@@ -20,6 +20,13 @@ export type ActivityData = {
   sources: ActivitySource[];
   /** ISO date, then source id; days and types without activity are left out. */
   days: Record<string, Record<string, Counts>>;
+  /** Source id, then commits per weekday (Monday first) and hour, in Central European time. */
+  hours: Record<string, number[][]>;
+  /**
+   * Source id, year, then language. Each commit adds up to one, split by the lines it changed
+   * per language (local clones) or by the repository's languages (GitHub).
+   */
+  languages: Record<string, Record<string, Record<string, number>>>;
 };
 
 export function addDays(isoDate: string, days: number) {
@@ -81,7 +88,7 @@ export function summarize(data: ActivityData, sourceIds: string[], start: string
     day = addDays(day, -1);
   }
 
-  const active = [...totals.values()].filter(Boolean).sort((a, b) => a - b);
+  const active = [...totals.values()].filter(Boolean);
   let busiest = { date: "", count: 0 };
   for (const [date, count] of totals) if (count > busiest.count) busiest = { date, count };
 
@@ -94,13 +101,68 @@ export function summarize(data: ActivityData, sourceIds: string[], start: string
     busiest,
     byCategory,
     bySource,
-    // Quartiles of the active days, so one busy day doesn't wash out the rest of the calendar.
-    thresholds: [0.25, 0.5, 0.75].map((q) => active[Math.floor(q * (active.length - 1))] ?? 0),
+    thresholds: quartiles(active),
   };
 }
+
+/** Quartiles of the non-zero values, so one busy day doesn't wash out the rest of a heatmap. */
+export function quartiles(values: number[]) {
+  const active = values.filter(Boolean).sort((a, b) => a - b);
+  return [0.25, 0.5, 0.75].map((q) => active[Math.floor(q * (active.length - 1))] ?? 0);
+}
+
+/** Heatmap background per level, from no activity to the busiest quarter. */
+export const shades = ["bg-ink/8", "bg-accent/30", "bg-accent/55", "bg-accent/80", "bg-accent"];
 
 /** Heatmap shade from 0 (no activity) to 4. */
 export function level(count: number, thresholds: number[]) {
   if (!count) return 0;
   return 1 + thresholds.filter((threshold) => count > threshold).length;
+}
+
+/** Commits per weekday (Monday first) and hour, summed over the selected sources. */
+export function commitHours(data: ActivityData, sourceIds: string[]) {
+  const grid = Array.from({ length: 7 }, () => Array<number>(24).fill(0));
+  for (const id of sourceIds) {
+    data.hours[id]?.forEach((row, weekday) => {
+      row.forEach((count, hour) => {
+        grid[weekday][hour] += count;
+      });
+    });
+  }
+  return grid;
+}
+
+/**
+ * Each year's share per language for the selected sources, with the `top` languages overall
+ * named and the rest summed as "other".
+ */
+export function languageYears(data: ActivityData, sourceIds: string[], top = 6) {
+  const years: Record<string, Record<string, number>> = {};
+  const overall: Record<string, number> = {};
+  for (const id of sourceIds) {
+    for (const [year, shares] of Object.entries(data.languages[id] ?? {})) {
+      years[year] ??= {};
+      for (const [language, share] of Object.entries(shares)) {
+        years[year][language] = (years[year][language] ?? 0) + share;
+        overall[language] = (overall[language] ?? 0) + share;
+      }
+    }
+  }
+  const languages = Object.entries(overall)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, top)
+    .map(([language]) => language);
+  const rows = Object.entries(years)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([year, shares]) => {
+      const total = Object.values(shares).reduce((sum, share) => sum + share, 0);
+      const named = languages.map((language) => (shares[language] ?? 0) / total);
+      return {
+        year,
+        commits: Math.round(total),
+        shares: [...named, Math.max(0, 1 - named.reduce((sum, share) => sum + share, 0))],
+      };
+    });
+  return { languages, rows };
 }

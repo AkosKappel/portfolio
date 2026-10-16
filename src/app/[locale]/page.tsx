@@ -1,6 +1,7 @@
 import { ArrowRight, FolderOpen, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { ActivityCard } from "@/components/activity/activity-card";
 import { ProjectCard } from "@/components/projects/project-card";
 import { CvMenu } from "@/components/ui/cv-menu";
 import { JsonLd } from "@/components/ui/json-ld";
@@ -140,6 +141,8 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           ))}
         </ul>
       </section>
+
+      <ActivityCard locale={locale} />
 
       <section
         aria-labelledby="contact"

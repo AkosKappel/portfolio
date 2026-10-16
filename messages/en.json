@@ -159,8 +159,15 @@
     "range": "Period",
     "lastYear": "Last 12 months",
     "sources": "Sources",
-    "personal": "personal",
-    "work": "work",
+    "presets": {
+      "all": "All",
+      "personal": "Personal",
+      "work": "Work"
+    },
+    "kinds": {
+      "personal": "personal",
+      "work": "work"
+    },
     "total": "{total} {count, plural, one {contribution} other {contributions}} {period}",
     "inLastYear": "in the last 12 months",
     "inYear": "in {year}",
@@ -193,7 +200,25 @@
       "comments": "{count, plural, one {# comment} other {# comments}}",
       "other": "{count, plural, one {# other} other {# other}}"
     },
-    "updated": "Updated {date}. Collected from the GitHub and GitLab APIs and from my work repositories. GitHub and GitLab count contributions a little differently, so totals are approximate."
+    "updated": "Updated {date}. Collected from the GitHub and GitLab APIs and from my work repositories. GitHub and GitLab count contributions a little differently, so totals are approximate.",
+    "pattern": {
+      "title": "When I commit",
+      "summary": "Most commits land on {weekday}s around {hour}:00. {weekend} % fall on weekends and {evening} % after 19:00.",
+      "cell": "{weekday}, {hour}:00: {count, plural, one {# commit} other {# commits}}",
+      "note": "All years, in Central European time. Commit times come from GitHub and my local clones; GitLab only reports pushes, so it is left out here.",
+      "empty": "No commit data for these sources."
+    },
+    "languages": {
+      "title": "Languages over time",
+      "lead": "Each commit split by the languages it changed (local clones) or by its repository's languages (GitHub).",
+      "legend": "Languages",
+      "other": "Other"
+    },
+    "card": {
+      "title": "Activity",
+      "lead": "{total} {count, plural, one {contribution} other {contributions}} in the last 12 months, across personal GitHub and GitLab and the GitLab of every job.",
+      "link": "See the full activity"
+    }
   },
   "skills": {
     "title": "Skills",

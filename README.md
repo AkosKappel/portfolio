@@ -23,7 +23,7 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 - Projects archive with fuzzy search, filters, sorting, grid and table views, all kept in the URL
 - Light and dark mode with five themes each, without a flash, view transitions between pages and from a project card into its case study, scroll-driven reveals in CSS
 - A WebGL2 particle background that reacts to the pointer, and a colophon page on how the site is built, with an accessibility statement
-- An activity page with one contribution calendar across personal GitHub and GitLab and the GitLab of every job, with filters, streaks and breakdowns by type and source
+- An activity page with one contribution calendar across personal GitHub and GitLab and the GitLab of every job, with filters, streaks, breakdowns by type and source, commit times and languages per year, refreshed weekly by a workflow
 - Contact form with a shared Zod schema, honeypot and rate limit, sent from a Server Action
 - CV as an HTML page with print styles and as a shareable PDF viewer
 - WCAG 2.2 AA: axe checks every page in both themes on desktop and mobile; Lighthouse CI keeps performance, accessibility, best practices and SEO budgets
@@ -89,7 +89,11 @@ Spam protection: a hidden honeypot field and at most five messages per IP addres
 - GitLab events API on gitlab.com (`GITLAB_TOKEN`) and the IGT instance (`IGT_GITLAB_TOKEN`), both with the `read_api` scope: merge requests, approvals, issues and comments. GitLab keeps events for three years.
 - Local clones of work repositories next to this project (`../IGT-systems`, `../Svarba`, `../SoftPoint`): commits by author, counted once across clones and rebases.
 
-The file is public, so it holds only counts per day, source and type, never repository or project names. A collector without its token is skipped; a source that fails keeps its previous data, so jobs without access stay in the history. Run it locally (work instances need the VPN or the clones), then commit the JSON.
+Besides daily counts, it stores commits per weekday and hour (from GitHub and the clones, in Central European time) and each year's languages: lines changed per language for clones, the repository's languages for GitHub.
+
+The file is public, so it holds only counts, never repository or project names. A collector without its token or clone folder is skipped and its source keeps the previous data, so jobs without access stay in the history. Run it locally for the work sources (they need the VPN or the clones), then commit the JSON.
+
+The `Activity` workflow refreshes the personal sources every Monday and commits the JSON, which Vercel then deploys. It needs two repository secrets: `ACTIVITY_GITHUB_TOKEN` (a classic token with `read:user` and `repo`, so private contributions count) and `ACTIVITY_GITLAB_TOKEN` (a gitlab.com token with read access to events).
 
 ## Structure
 

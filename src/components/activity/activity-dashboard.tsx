@@ -10,13 +10,22 @@ import {
   type Category,
   calendarWeeks,
   categories,
+  commitHours,
+  languageYears,
   level,
+  quartiles,
+  shades,
   summarize,
 } from "@/lib/activity";
 
-const shades = ["bg-ink/8", "bg-accent/30", "bg-accent/55", "bg-accent/80", "bg-accent"];
-
-export function ActivityDashboard({ data }: { data: ActivityData }) {
+export function ActivityDashboard({
+  data,
+  languageColors,
+}: {
+  data: ActivityData;
+  /** Brand colour per language name, where the site has its logo. */
+  languageColors: Record<string, string>;
+}) {
   const t = useTranslations("activity");
   const locale = useLocale();
   const [year, setYear] = useState<number | null>(null);
@@ -71,6 +80,17 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
     );
   }
 
+  const allIds = data.sources.map((source) => source.id);
+  const presets = [
+    { key: "all" as const, ids: allIds },
+    ...(["personal", "work"] as const).map((kind) => ({
+      key: kind,
+      ids: data.sources.filter((source) => source.kind === kind).map((source) => source.id),
+    })),
+  ].filter((preset) => preset.ids.length);
+  const isSelection = (ids: string[]) =>
+    ids.length === sourceIds.length && ids.every((id) => sourceIds.includes(id));
+
   function onCalendarKey(event: React.KeyboardEvent) {
     const step = { ArrowUp: -1, ArrowDown: 1, ArrowLeft: -7, ArrowRight: 7 }[event.key];
     if (!step) return;
@@ -106,6 +126,18 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
         </fieldset>
         <fieldset className="flex flex-wrap items-center gap-2">
           <legend className="mb-2 text-sm font-medium text-muted">{t("sources")}</legend>
+          {presets.map((preset) => (
+            <button
+              key={preset.key}
+              type="button"
+              aria-pressed={isSelection(preset.ids)}
+              onClick={() => setSourceIds(preset.ids)}
+              className="rounded-full border border-line px-3.5 py-1.5 text-sm transition-colors hover:bg-accent-soft aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-on-accent"
+            >
+              {t(`presets.${preset.key}`)}
+            </button>
+          ))}
+          <span aria-hidden className="mx-1 h-6 w-px bg-line" />
           {data.sources.map((source) => (
             <button
               key={source.id}
@@ -116,7 +148,7 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
             >
               <Check aria-hidden size={14} className="hidden group-aria-pressed:block" />
               {source.label}
-              <span className="text-xs text-muted">{t(source.kind)}</span>
+              <span className="text-xs text-muted">{t(`kinds.${source.kind}`)}</span>
             </button>
           ))}
         </fieldset>
@@ -294,6 +326,19 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
         </section>
       </div>
 
+      <CommitPattern
+        grid={commitHours(data, sourceIds)}
+        formatWeekday={(weekday, style) =>
+          formatDate(addDays("2024-01-01", weekday), { weekday: style })
+        }
+      />
+
+      <LanguagesOverTime
+        {...languageYears(data, sourceIds)}
+        colors={languageColors}
+        highlight={year ? String(year) : null}
+      />
+
       <p className="text-sm text-muted">
         {t("updated", { date: formatDate(data.generatedAt, { dateStyle: "long" }) })}
       </p>
@@ -327,5 +372,150 @@ function Bars({
         </li>
       ))}
     </ul>
+  );
+}
+
+function CommitPattern({
+  grid,
+  formatWeekday,
+}: {
+  grid: number[][];
+  formatWeekday: (weekday: number, style: "short" | "long") => string;
+}) {
+  const t = useTranslations("activity");
+  const total = grid.flat().reduce((sum, count) => sum + count, 0);
+  const thresholds = quartiles(grid.flat());
+  const byWeekday = grid.map((row) => row.reduce((sum, count) => sum + count, 0));
+  const byHour = grid[0].map((_, hour) => grid.reduce((sum, row) => sum + row[hour], 0));
+  const percent = (part: number) => Math.round((part / Math.max(1, total)) * 100);
+
+  return (
+    <section aria-labelledby="commit-pattern">
+      <h2 id="commit-pattern" className="text-2xl font-semibold">
+        {t("pattern.title")}
+      </h2>
+      <p className="mt-2 text-muted">
+        {total
+          ? t("pattern.summary", {
+              weekday: formatWeekday(byWeekday.indexOf(Math.max(...byWeekday)), "long"),
+              hour: byHour.indexOf(Math.max(...byHour)),
+              weekend: percent(byWeekday[5] + byWeekday[6]),
+              evening: percent(byHour.slice(19).reduce((sum, count) => sum + count, 0)),
+            })
+          : t("pattern.empty")}
+      </p>
+      <div className="mt-4 overflow-x-auto rounded-2xl border border-line bg-surface p-4 sm:p-6">
+        <div
+          aria-hidden
+          className="grid min-w-[36rem] gap-[3px] text-xs text-muted"
+          style={{ gridTemplateColumns: "auto repeat(24, minmax(0, 1fr))" }}
+        >
+          {grid.map((row, weekday) => [
+            <span
+              key={`label-${formatWeekday(weekday, "short")}`}
+              className="self-center pr-2 leading-none"
+            >
+              {formatWeekday(weekday, "short")}
+            </span>,
+            ...row.map((count, hour) => (
+              <span
+                // biome-ignore lint/suspicious/noArrayIndexKey: the grid is a fixed 7 by 24
+                key={`${weekday}-${hour}`}
+                title={t("pattern.cell", { weekday: formatWeekday(weekday, "long"), hour, count })}
+                className={`h-4 rounded-[3px] sm:h-5 ${shades[level(count, thresholds)]}`}
+              />
+            )),
+          ])}
+          <span />
+          {byHour.map((_, hour) => (
+            <span
+              // biome-ignore lint/suspicious/noArrayIndexKey: one label per hour
+              key={hour}
+              className="pt-1 text-center whitespace-nowrap"
+            >
+              {hour % 3 === 0 ? hour : ""}
+            </span>
+          ))}
+        </div>
+        <p className="mt-4 text-xs text-muted">{t("pattern.note")}</p>
+      </div>
+    </section>
+  );
+}
+
+function LanguagesOverTime({
+  languages,
+  rows,
+  colors,
+  highlight,
+}: {
+  languages: string[];
+  rows: { year: string; commits: number; shares: number[] }[];
+  colors: Record<string, string>;
+  highlight: string | null;
+}) {
+  const t = useTranslations("activity");
+  const names = [...languages, t("languages.other")];
+  const color = (index: number) =>
+    index < languages.length ? (colors[languages[index]] ?? "var(--muted)") : "var(--line)";
+  const percent = (share: number) => `${Math.round(share * 100)} %`;
+
+  return (
+    <section aria-labelledby="languages-over-time">
+      <h2 id="languages-over-time" className="text-2xl font-semibold">
+        {t("languages.title")}
+      </h2>
+      <p className="mt-2 text-muted">{t("languages.lead")}</p>
+      {rows.length ? (
+        <div className="mt-4 rounded-2xl border border-line bg-surface p-4 sm:p-6">
+          <ul aria-label={t("languages.legend")} className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+            {names.map((name, index) => (
+              <li key={name} className="inline-flex items-center gap-1.5">
+                <span
+                  aria-hidden
+                  className="size-3 rounded-[3px]"
+                  style={{ backgroundColor: color(index) }}
+                />
+                {name}
+              </li>
+            ))}
+          </ul>
+          <ul className="mt-5 grid gap-3">
+            {rows.map((row) => (
+              <li
+                key={row.year}
+                className={`grid grid-cols-[3rem_1fr] items-center gap-3 text-sm sm:grid-cols-[3rem_1fr_6rem] ${row.year === highlight ? "font-semibold" : ""}`}
+              >
+                <span className="tabular-nums">{row.year}</span>
+                <div aria-hidden className="flex h-3 gap-px overflow-hidden rounded-full">
+                  {row.shares.map((share, index) =>
+                    share > 0 ? (
+                      <span
+                        key={names[index]}
+                        title={`${names[index]} ${percent(share)}`}
+                        style={{ width: `${share * 100}%`, backgroundColor: color(index) }}
+                      />
+                    ) : null,
+                  )}
+                </div>
+                <span className="sr-only">
+                  {row.shares
+                    .map((share, index) =>
+                      share >= 0.005 ? `${names[index]} ${percent(share)}` : "",
+                    )
+                    .filter(Boolean)
+                    .join(", ")}
+                </span>
+                <span className="hidden text-right text-muted tabular-nums sm:block">
+                  {t("counts.commits", { count: row.commits })}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p className="mt-4 text-muted">{t("pattern.empty")}</p>
+      )}
+    </section>
   );
 }

@@ -7,6 +7,23 @@ import activity from "@/content/activity.json";
 import type { Locale } from "@/i18n/routing";
 import type { ActivityData } from "@/lib/activity";
 import { alternates } from "@/lib/metadata";
+import { techIcon } from "@/lib/tech-icons";
+
+const data = activity as ActivityData;
+
+/** Language bars use the brand colour of the logo the site already has for the language. */
+const languageColors = Object.fromEntries(
+  [
+    ...new Set(
+      Object.values(data.languages).flatMap((years) =>
+        Object.values(years).flatMap((shares) => Object.keys(shares)),
+      ),
+    ),
+  ].flatMap((language) => {
+    const icon = techIcon(language);
+    return icon?.kind === "path" && icon.color ? [[language, icon.color]] : [];
+  }),
+);
 
 export async function generateMetadata({
   params,
@@ -31,7 +48,7 @@ export default async function ActivityPage({ params }: PageProps<"/[locale]/acti
       <PageHeader title={t("title")} lead={t("lead")} />
       {/* Only this page needs these messages on the client. */}
       <NextIntlClientProvider messages={{ activity: messages.activity }}>
-        <ActivityDashboard data={activity as ActivityData} />
+        <ActivityDashboard data={data} languageColors={languageColors} />
       </NextIntlClientProvider>
     </Page>
   );

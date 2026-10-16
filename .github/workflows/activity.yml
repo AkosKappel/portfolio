@@ -1,0 +1,31 @@
+name: Activity
+
+# Refreshes the personal sources of the activity page every week. Work sources need the
+# local clones and the company VPN, so CI keeps their data from the last local run.
+on:
+  schedule:
+    - cron: "0 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+      - run: npm run activity
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIVITY_GITHUB_TOKEN }}
+          GITLAB_TOKEN: ${{ secrets.ACTIVITY_GITLAB_TOKEN }}
+      - name: Commit the refreshed data
+        run: |
+          git diff --quiet src/content/activity.json && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Refresh activity data"
+          git push
