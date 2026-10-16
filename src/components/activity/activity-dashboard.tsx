@@ -26,6 +26,9 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
     year && year < Number(data.generatedAt.slice(0, 4)) ? `${year}-12-31` : data.generatedAt;
   const start = year ? `${year}-01-01` : addDays(end, -364);
   const [selected, setSelected] = useState(end);
+  // Hovering previews a day in the details; clicking or the arrow keys pin it.
+  const [hovered, setHovered] = useState<string | null>(null);
+  const shown = hovered ?? selected;
   const summary = summarize(data, sourceIds, start, end);
   const weeks = calendarWeeks(start, end);
 
@@ -80,7 +83,7 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
 
   const days = (count: number) => t("days", { count });
   const selectedSources = data.sources.filter((source) => sourceIds.includes(source.id));
-  const dayCounts = data.days[selected] ?? {};
+  const dayCounts = data.days[shown] ?? {};
   const maxCategory = Math.max(1, ...Object.values(summary.byCategory));
   const maxSource = Math.max(1, ...Object.values(summary.bySource));
 
@@ -132,6 +135,7 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
             <fieldset
               aria-describedby="calendar-hint"
               onKeyDown={onCalendarKey}
+              onMouseLeave={() => setHovered(null)}
               className="grid min-w-[44rem] gap-[3px] text-xs text-muted"
               style={{ gridTemplateColumns: `auto repeat(${weeks.length}, minmax(0, 1fr))` }}
             >
@@ -175,9 +179,9 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
                       })}
                       aria-pressed={date === selected}
                       onClick={() => setSelected(date)}
-                      onMouseEnter={() => setSelected(date)}
+                      onMouseEnter={() => setHovered(date)}
                       style={{ gridColumn: column + 2, gridRow: weekday + 2 }}
-                      className={`aspect-square rounded-[3px] ${shades[level(count, summary.thresholds)]} outline-offset-1 aria-pressed:outline-2 aria-pressed:outline-ink`}
+                      className={`aspect-square rounded-[3px] ${shades[level(count, summary.thresholds)]} outline-offset-1 hover:outline-2 hover:outline-muted aria-pressed:outline-2 aria-pressed:outline-ink`}
                     />
                   );
                 }),
@@ -201,10 +205,10 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
           className="mt-4 rounded-2xl border border-line bg-surface p-4 sm:p-6"
         >
           <p className="font-medium">
-            {formatDate(selected, { dateStyle: "full" })}
+            {formatDate(shown, { dateStyle: "full" })}
             <span className="text-muted">
               {" · "}
-              {t("contributions", { count: summary.totals.get(selected) ?? 0 })}
+              {t("contributions", { count: summary.totals.get(shown) ?? 0 })}
             </span>
           </p>
           <ul className="mt-2 grid gap-1 text-muted">
