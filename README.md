@@ -87,11 +87,11 @@ Spam protection: a hidden honeypot field and at most five messages per IP addres
 
 - GitHub GraphQL: commits, pull requests, reviews, issues and new repositories. Uses `GITHUB_TOKEN` or the `gh` CLI login.
 - GitLab events API on gitlab.com (`GITLAB_TOKEN`) and the IGT instance (`IGT_GITLAB_TOKEN`), both with the `read_api` scope: merge requests, approvals, issues and comments. GitLab keeps events for three years.
-- Local clones of work repositories next to this project (`../IGT-systems`, `../Svarba`, `../SoftPoint`): commits by author, counted once across clones and rebases.
+- Work repositories checked out next to this project (`../IGT-systems`, `../Svarba`, `../SoftPoint`): commits by author, each counted once even after a rebase.
 
-Besides daily counts, it stores commits per weekday and hour (from GitHub and the clones, in Central European time) and each year's languages: lines changed per language for clones, the repository's languages for GitHub.
+Besides daily counts, it stores commits per weekday and hour (from GitHub and the work repositories, in Central European time) and each year's languages: lines changed per language for work repositories, the repository's languages for GitHub.
 
-The file is public, so it holds only counts, never repository or project names. A collector without its token or clone folder is skipped and its source keeps the previous data, so jobs without access stay in the history. Run it locally for the work sources (they need the VPN or the clones), then commit the JSON.
+The file is public, so it holds only counts, never repository or project names. A collector without its token or repository folder is skipped and its source keeps the previous data, so jobs without access stay in the history. Run it locally for the work sources (they need the VPN or the repositories), then commit the JSON.
 
 The `Activity` workflow refreshes the personal sources every Monday and commits the JSON, which Vercel then deploys. It needs two repository secrets: `ACTIVITY_GITHUB_TOKEN` (a classic token with `read:user` and `repo`, so private contributions count) and `ACTIVITY_GITLAB_TOKEN` (a gitlab.com token with read access to events).
 

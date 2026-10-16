@@ -205,12 +205,12 @@
       "title": "When I commit",
       "summary": "Most commits land on {weekday}s around {hour}:00. {weekend} % fall on weekends and {evening} % after 19:00.",
       "cell": "{weekday}, {hour}:00: {count, plural, one {# commit} other {# commits}}",
-      "note": "All years, in Central European time. Commit times come from GitHub and my local clones; GitLab only reports pushes, so it is left out here.",
+      "note": "All years, in Central European time. GitLab only reports pushes, not commit times, so its personal account is left out here.",
       "empty": "No commit data for these sources."
     },
     "languages": {
       "title": "Languages over time",
-      "lead": "Each commit split by the languages it changed (local clones) or by its repository's languages (GitHub).",
+      "lead": "Each year's commits, split by the languages they changed.",
       "legend": "Languages",
       "other": "Other"
     },

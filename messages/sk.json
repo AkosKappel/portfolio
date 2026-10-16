@@ -205,12 +205,12 @@
       "title": "Kedy commitujem",
       "summary": "Najrušnejší deň je {weekday} a najrušnejšia hodina okolo {hour}:00. {weekend} % commitov pripadá na víkendy a {evening} % na čas po 19:00.",
       "cell": "{weekday}, {hour}:00: {count, plural, one {# commit} few {# commity} other {# commitov}}",
-      "note": "Všetky roky, v stredoeurópskom čase. Časy commitov pochádzajú z GitHubu a z mojich lokálnych klonov; GitLab hlási iba pushe, preto tu chýba.",
+      "note": "Všetky roky, v stredoeurópskom čase. GitLab hlási iba pushe, nie časy commitov, preto tu jeho osobný účet chýba.",
       "empty": "Pre tieto zdroje nie sú údaje o commitoch."
     },
     "languages": {
       "title": "Jazyky v čase",
-      "lead": "Každý commit rozdelený podľa jazykov, ktoré menil (lokálne klony), alebo podľa jazykov jeho repozitára (GitHub).",
+      "lead": "Commity každého roka rozdelené podľa jazykov, ktoré menili.",
       "legend": "Jazyky",
       "other": "Ostatné"
     },
