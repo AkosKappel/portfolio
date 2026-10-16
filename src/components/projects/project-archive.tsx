@@ -37,8 +37,7 @@ import {
 } from "lucide-react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { useId, useMemo } from "react";
-import { StackList } from "@/components/ui/tech-badge";
+import { type ReactNode, useId, useMemo } from "react";
 import { type ProjectArea, type ProjectSummary, pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -109,7 +108,14 @@ function fromSorting(sorting: SortingState) {
   return first ? `${first.id}-${first.desc ? "desc" : "asc"}` : "";
 }
 
-export function ProjectArchive({ projects }: { projects: ProjectSummary[] }) {
+export function ProjectArchive({
+  projects,
+  stacks,
+}: {
+  projects: ProjectSummary[];
+  /** Stack badges per slug, rendered on the server so the logo data stays out of this bundle. */
+  stacks: Record<string, { card: ReactNode; full: ReactNode }>;
+}) {
   const t = useTranslations("projects");
   const locale = useLocale();
   // The real browser path (with the locale prefix), for history updates.
@@ -256,7 +262,11 @@ export function ProjectArchive({ projects }: { projects: ProjectSummary[] }) {
         <ul className="mt-6 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {rows.map((row) => (
             <li key={row.original.slug} className="reveal">
-              <ProjectCard project={row.original} headingLevel="h2" />
+              <ProjectCard
+                project={row.original}
+                headingLevel="h2"
+                stack={stacks[row.original.slug].card}
+              />
             </li>
           ))}
         </ul>
@@ -318,9 +328,7 @@ export function ProjectArchive({ projects }: { projects: ProjectSummary[] }) {
                     {project.areas.map((value) => t(`areas.${value}`)).join(", ")}
                   </td>
                   <td className="py-3 pr-4 text-muted">{t(`kinds.${project.kind}`)}</td>
-                  <td className="py-3">
-                    <StackList items={project.stack} />
-                  </td>
+                  <td className="py-3">{stacks[project.slug].full}</td>
                 </tr>
               ))}
             </tbody>

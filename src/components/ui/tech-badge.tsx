@@ -34,3 +34,8 @@ export function StackList({ items, className = "" }: { items: string[]; classNam
     </ul>
   );
 }
+
+/** The first few technologies, as shown on project cards. */
+export function CardStack({ items }: { items: string[] }) {
+  return <StackList items={items.slice(0, 5)} className="mt-3" />;
+}

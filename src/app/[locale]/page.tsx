@@ -5,7 +5,7 @@ import { ProjectCard } from "@/components/projects/project-card";
 import { CvMenu } from "@/components/ui/cv-menu";
 import { JsonLd } from "@/components/ui/json-ld";
 import { Page } from "@/components/ui/page";
-import { StackList } from "@/components/ui/tech-badge";
+import { CardStack, StackList } from "@/components/ui/tech-badge";
 import { jobs } from "@/content/experience";
 import { featuredProjects } from "@/content/projects";
 import { site } from "@/content/site";
@@ -93,6 +93,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                 project={project}
                 sizes="(min-width: 640px) 50vw, 100vw"
                 eager={index < 2}
+                stack={<CardStack items={project.stack} />}
               />
             </li>
           ))}

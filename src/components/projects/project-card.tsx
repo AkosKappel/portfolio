@@ -1,8 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import { ViewTransition } from "react";
-import { StackList } from "@/components/ui/tech-badge";
+import { type ReactNode, ViewTransition } from "react";
 import { type ProjectSummary, pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import { yearRange } from "@/lib/format";
@@ -60,8 +59,11 @@ export function ProjectCard({
   headingLevel = "h3",
   sizes = "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
   eager = false,
+  stack,
 }: {
   project: ProjectSummary;
+  /** Rendered on the server with `CardStack`, so the logo data stays out of client bundles. */
+  stack: ReactNode;
   /** Load the image right away because the card starts above the fold. */
   eager?: boolean;
   headingLevel?: "h2" | "h3";
@@ -89,7 +91,7 @@ export function ProjectCard({
         <p className="shrink-0 text-sm text-muted">{projectYears(project)}</p>
       </div>
       <p className="mt-1.5 text-muted">{pick(project.summary, locale)}</p>
-      <StackList items={project.stack.slice(0, 5)} className="mt-3" />
+      {stack}
     </article>
   );
 }
