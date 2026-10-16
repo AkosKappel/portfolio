@@ -74,6 +74,10 @@ export function SiteFooter() {
             {t("common.sourceCode")}
           </a>
           {" · "}
+          <a href={site.links.status} className="link">
+            {t("footer.status")}
+          </a>
+          {" · "}
           <Link href="/colophon#accessibility" className="link">
             {t("footer.accessibility")}
           </Link>

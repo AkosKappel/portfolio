@@ -78,6 +78,7 @@ export const site = {
     gitlab: "https://gitlab.com/AkosKappel",
     linkedin: "https://www.linkedin.com/in/akos-kappel",
     buyMeACoffee: "https://buymeacoffee.com/akoskappel",
+    status: "https://stats.uptimerobot.com/ij6rbxvfcb",
   },
   /** PDFs and their page images, both built by `scripts/build-cv.sh`. */
   cv: [

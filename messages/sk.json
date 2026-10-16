@@ -65,7 +65,8 @@
     "elsewhere": "Inde",
     "coffee": "Kúp mi kávu",
     "builtWith": "Vytvorené v Next.js, React a Tailwind CSS.",
-    "accessibility": "Prístupnosť"
+    "accessibility": "Prístupnosť",
+    "status": "Stav projektov"
   },
   "home": {
     "viewProjects": "Pozrieť projekty",
