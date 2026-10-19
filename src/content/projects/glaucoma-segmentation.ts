@@ -70,15 +70,28 @@ export const glaucomaSegmentation: Project = {
   repoUrl: "https://github.com/AkosKappel/DP-GlaucomaSegmentation",
   paperUrl: "https://opac.crzp.sk/?fn=detailBiblioForm&sid=CC8450CBF10FC669817CF9C1506C",
   image: {
-    src: "/images/projects/glaucoma.webp",
+    src: "/images/projects/glaucoma-segmentation/thumbnail.webp",
     width: 1600,
-    height: 784,
+    height: 1000,
     alt: {
-      en: "Processing steps from a raw eye image to the detected optic disc",
-      sk: "Kroky spracovania od snímky oka po nájdený optický disk",
+      en: "Dual-decoder U-Net: one encoder feeds two decoder branches that output the optic disc and optic cup masks",
+      sk: "U-Net s dvoma dekodérmi: jeden enkóder napája dve vetvy dekodéra, ktoré vrátia masky optického disku a jamky",
     },
   },
   gallery: [
+    {
+      src: "/images/projects/glaucoma.webp",
+      width: 1600,
+      height: 784,
+      alt: {
+        en: "Processing steps from a raw eye image to the detected optic disc",
+        sk: "Kroky spracovania od snímky oka po nájdený optický disk",
+      },
+      caption: {
+        en: "Preprocessing: black edges are removed, the image is padded and resized, and CenterNet finds the optic disc to crop the region of interest.",
+        sk: "Predspracovanie: odstránia sa čierne okraje, snímka sa doplní na štvorec a zmenší a CenterNet nájde optický disk, podľa ktorého sa vyreže oblasť záujmu.",
+      },
+    },
     {
       src: "/images/projects/glaucoma-segmentation/segmentation-results.webp",
       width: 1482,
