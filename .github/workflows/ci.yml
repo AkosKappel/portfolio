@@ -14,7 +14,8 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-# Vercel builds and deploys on its own; this workflow only guards quality.
+# Vercel builds and deploys on its own; this workflow only guards quality. The jobs run in
+# parallel, and each one rebuilds because the build is faster than passing `.next` around.
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -28,19 +29,53 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm test
-      - run: npm run build
+
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - run: npm run build
       - run: npm run test:e2e
       - if: ${{ failure() }}
         uses: actions/upload-artifact@v7
         with:
           name: playwright-traces
           path: test-results/
-      # Desktop Lighthouse: performance 90, accessibility, best practices and SEO 100,
-      # and at most 300 KB of compressed JavaScript per page.
-      - run: npm run lighthouse
+
+  # Desktop Lighthouse: performance 90, accessibility, best practices and SEO 100,
+  # and at most 300 KB of compressed JavaScript per page. The pages are split into two
+  # shards that override the URL list in lighthouserc.json.
+  lighthouse:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - shard: 1
+            pages: / /projects /projects/modern-fashion-store
+          - shard: 2
+            pages: /experience /about /cv/pdf
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: npm run lighthouse
+        run: |
+          urls=()
+          for page in ${{ matrix.pages }}; do urls+=("--collect.url=http://localhost:3400$page"); done
+          npm run lighthouse -- "${urls[@]}"
       - if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7
         with:
-          name: lighthouse-report
+          name: lighthouse-report-${{ matrix.shard }}
           path: lighthouse-report/
