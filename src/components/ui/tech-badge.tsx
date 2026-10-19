@@ -14,7 +14,7 @@ export function TechLogo({ name, className = "size-3.5" }: { name: string; class
       fill={icon.color ?? "currentColor"}
       aria-hidden
     >
-      <path d={icon.path} />
+      <use href={`/tech-icons.svg#${icon.id}`} />
     </svg>
   );
 }

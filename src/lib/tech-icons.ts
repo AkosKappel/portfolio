@@ -18,8 +18,13 @@ const aliases: Record<string, string> = {
 };
 
 export type ResolvedIcon =
-  | (TechIcon & { kind: "path"; color: string | undefined })
+  | (TechIcon & { kind: "path"; id: string; color: string | undefined })
   | { kind: "image"; src: string };
+
+/** Element id of a logo in the `/tech-icons.svg` sprite. */
+export function iconId(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
 
 /** Relative luminance of a hex colour, 0 (black) to 1 (white). */
 function luminance(hex: string) {
@@ -40,5 +45,10 @@ export function techIcon(alias: string): ResolvedIcon | undefined {
   const icon = techIcons[name];
   if (!icon) return undefined;
   const l = luminance(icon.hex);
-  return { kind: "path", ...icon, color: l < 0.04 || l > 0.85 ? undefined : `#${icon.hex}` };
+  return {
+    kind: "path",
+    ...icon,
+    id: iconId(name),
+    color: l < 0.04 || l > 0.85 ? undefined : `#${icon.hex}`,
+  };
 }

@@ -34,6 +34,13 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Logos change only with a deploy; a day in the cache spares a request per page load.
+        source: "/tech-icons.svg",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" },
+        ],
+      },
+      {
         // The CV viewer at /cv/pdf frames the PDFs; a later match replaces the header above.
         source: "/:file(CV_.*\\.pdf)",
         headers: [{ key: "Content-Security-Policy", value: "frame-ancestors 'self'" }],
