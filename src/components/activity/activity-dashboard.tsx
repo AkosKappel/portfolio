@@ -39,7 +39,8 @@ export function ActivityDashboard({
   const [hovered, setHovered] = useState<string | null>(null);
   const shown = hovered ?? selected;
   const summary = summarize(data, sourceIds, start, end);
-  const weeks = calendarWeeks(start, end);
+  // A year always spans its full grid, so the current one doesn't start as a few lone columns.
+  const weeks = calendarWeeks(start, year ? `${year}-12-31` : end);
 
   const firstYear = Number(
     Object.keys(data.days).sort()[0]?.slice(0, 4) ?? data.generatedAt.slice(0, 4),
@@ -198,6 +199,16 @@ export function ActivityDashboard({
               {weeks.flatMap((week, column) =>
                 week.map((date, weekday) => {
                   if (!date) return null;
+                  if (date > end) {
+                    return (
+                      <span
+                        key={date}
+                        aria-hidden
+                        style={{ gridColumn: column + 2, gridRow: weekday + 2 }}
+                        className="aspect-square rounded-[3px] border border-ink/8"
+                      />
+                    );
+                  }
                   const count = summary.totals.get(date) ?? 0;
                   return (
                     <button
