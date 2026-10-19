@@ -66,6 +66,7 @@ npm run dev
 | `npm run test:e2e` | Playwright against the production build (run `npm run build` first) |
 | `npm run activity` | Refreshes `src/content/activity.json` for the activity page (see below) |
 | `npm run lighthouse` | Lighthouse CI against the production build, with a 300 KB budget for compressed JavaScript per page |
+| `npm run lighthouse -- --config=lighthouserc.mobile.json` | Mobile Lighthouse report (throttled phone); CI shows its scores in the run summary without failing |
 
 GitHub Actions runs all of these on every push and pull request. Vercel builds and deploys `main`.
 

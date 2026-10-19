@@ -49,18 +49,32 @@ jobs:
           path: test-results/
 
   # Desktop Lighthouse: performance 90, accessibility, best practices and SEO 100,
-  # and at most 300 KB of compressed JavaScript per page. The pages are split into two
-  # shards that override the URL list in lighthouserc.json.
+  # and at most 300 KB of compressed JavaScript per page. Mobile Lighthouse only reports
+  # (performance below 90 is a warning) until the mobile scores reach the budget.
+  # The pages are split into shards that override the URL list in the config.
   lighthouse:
+    name: lighthouse (${{ matrix.form }} ${{ matrix.shard }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         include:
-          - shard: 1
+          - form: desktop
+            shard: 1
+            config: lighthouserc.json
             pages: / /projects /projects/modern-fashion-store
-          - shard: 2
+          - form: desktop
+            shard: 2
+            config: lighthouserc.json
             pages: /experience /about /cv/pdf
+          - form: mobile
+            shard: 1
+            config: lighthouserc.mobile.json
+            pages: / /projects /activity
+          - form: mobile
+            shard: 2
+            config: lighthouserc.mobile.json
+            pages: /projects/modern-fashion-store /experience /about
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -73,9 +87,19 @@ jobs:
         run: |
           urls=()
           for page in ${{ matrix.pages }}; do urls+=("--collect.url=http://localhost:3400$page"); done
-          npm run lighthouse -- "${urls[@]}"
+          npm run lighthouse -- --config=${{ matrix.config }} "${urls[@]}"
+      - name: Summarize the median runs
+        if: ${{ !cancelled() }}
+        run: |
+          {
+            echo "### Lighthouse ${{ matrix.form }} ${{ matrix.shard }}"
+            echo "| Page | Performance | LCP | TBT | CLS |"
+            echo "|---|---|---|---|---|"
+            jq -r '.[] | select(.isRepresentativeRun) | .jsonPath' lighthouse-report/manifest.json |
+              xargs -I{} jq -r '"| \(.finalDisplayedUrl | sub("http://localhost:3400"; "")) | \(.categories.performance.score * 100 | round) | \(.audits["largest-contentful-paint"].displayValue) | \(.audits["total-blocking-time"].displayValue) | \(.audits["cumulative-layout-shift"].displayValue) |"' {}
+          } >> "$GITHUB_STEP_SUMMARY"
       - if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7
         with:
-          name: lighthouse-report-${{ matrix.shard }}
+          name: lighthouse-report-${{ matrix.form }}-${{ matrix.shard }}
           path: lighthouse-report/
