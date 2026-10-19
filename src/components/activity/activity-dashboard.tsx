@@ -18,6 +18,18 @@ import {
   summarize,
 } from "@/lib/activity";
 
+// Creating a formatter is slow, and the calendar labels a few hundred days on every render.
+const dateFormats = new Map<string, Intl.DateTimeFormat>();
+function dateFormat(locale: string, options: Intl.DateTimeFormatOptions) {
+  const key = `${locale} ${JSON.stringify(options)}`;
+  let format = dateFormats.get(key);
+  if (!format) {
+    format = new Intl.DateTimeFormat(locale, { ...options, timeZone: "UTC" });
+    dateFormats.set(key, format);
+  }
+  return format;
+}
+
 export function ActivityDashboard({
   data,
   languageColors,
@@ -52,9 +64,7 @@ export function ActivityDashboard({
 
   const number = new Intl.NumberFormat(locale);
   const formatDate = (date: string, options: Intl.DateTimeFormatOptions) =>
-    new Intl.DateTimeFormat(locale, { ...options, timeZone: "UTC" }).format(
-      new Date(`${date}T00:00:00Z`),
-    );
+    dateFormat(locale, options).format(new Date(`${date}T00:00:00Z`));
 
   // The newest days are on the right; show them first when the calendar has to scroll.
   const scroller = useRef<HTMLDivElement>(null);
