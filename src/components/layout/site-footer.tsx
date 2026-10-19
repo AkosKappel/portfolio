@@ -1,4 +1,3 @@
-import { Coffee } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { GitHubIcon, GitLabIcon, LinkedInIcon } from "@/components/ui/brand-icons";
 import { Logo } from "@/components/ui/logo";
@@ -81,11 +80,6 @@ export function SiteFooter() {
           <Link href="/colophon#accessibility" className="link">
             {t("footer.accessibility")}
           </Link>
-          {" · "}
-          <Coffee aria-hidden size={14} className="mr-1 inline-block align-[-2px]" />
-          <a href={site.links.buyMeACoffee} className="link">
-            {t("footer.coffee")}
-          </a>
         </p>
       </div>
     </footer>

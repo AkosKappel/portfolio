@@ -63,7 +63,6 @@
   "footer": {
     "pages": "Stránky",
     "elsewhere": "Inde",
-    "coffee": "Kúp mi kávu",
     "builtWith": "Vytvorené v Next.js, React a Tailwind CSS.",
     "accessibility": "Prístupnosť",
     "status": "Stav projektov"
