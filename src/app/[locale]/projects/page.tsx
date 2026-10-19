@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Suspense } from "react";
 import { ProjectArchive } from "@/components/projects/project-archive";
-import { ProjectCard } from "@/components/projects/project-card";
 import { Page, PageHeader } from "@/components/ui/page";
 import { CardStack, StackList } from "@/components/ui/tech-badge";
 import { projects } from "@/content/projects";
@@ -30,35 +28,18 @@ export default async function ProjectsPage({ params }: PageProps<"/[locale]/proj
   return (
     <Page>
       <PageHeader title={t("title")} lead={t("lead")} />
-      {/* The fallback is the full list, so the page is complete without JavaScript. */}
-      <Suspense
-        fallback={
-          <ul className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <li key={project.slug}>
-                <ProjectCard
-                  project={project}
-                  headingLevel="h2"
-                  stack={<CardStack items={project.stack} />}
-                />
-              </li>
-            ))}
-          </ul>
-        }
-      >
-        <ProjectArchive
-          projects={projects.map(toSummary)}
-          stacks={Object.fromEntries(
-            projects.map((project) => [
-              project.slug,
-              {
-                card: <CardStack items={project.stack} />,
-                full: <StackList items={project.stack} />,
-              },
-            ]),
-          )}
-        />
-      </Suspense>
+      <ProjectArchive
+        projects={projects.map(toSummary)}
+        stacks={Object.fromEntries(
+          projects.map((project) => [
+            project.slug,
+            {
+              card: <CardStack items={project.stack} />,
+              full: <StackList items={project.stack} />,
+            },
+          ]),
+        )}
+      />
     </Page>
   );
 }

@@ -35,9 +35,9 @@ import {
   Trophy,
   X,
 } from "lucide-react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { type ReactNode, useId, useMemo } from "react";
+import { type ReactNode, useId, useMemo, useSyncExternalStore } from "react";
 import { type ProjectArea, type ProjectSummary, pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -98,6 +98,27 @@ const sortOptions = [
   { value: "title-asc", key: "name" },
 ] as const;
 
+/*
+  The filters live in the query string. Reading it from `location` instead of `useSearchParams`
+  lets the server render the full list and the client hydrate it; `useSearchParams` makes a
+  static page skip server rendering of the archive and build it again on the client.
+*/
+const searchListeners = new Set<() => void>();
+
+function subscribeToSearch(listener: () => void) {
+  searchListeners.add(listener);
+  window.addEventListener("popstate", listener);
+  return () => {
+    searchListeners.delete(listener);
+    window.removeEventListener("popstate", listener);
+  };
+}
+
+function replaceUrl(url: string) {
+  window.history.replaceState(null, "", url);
+  for (const listener of searchListeners) listener();
+}
+
 function toSorting(value: string | null): SortingState {
   const [id, direction] = (value ?? "").split("-");
   return id && direction ? [{ id, desc: direction === "desc" }] : [];
@@ -120,7 +141,12 @@ export function ProjectArchive({
   const locale = useLocale();
   // The real browser path (with the locale prefix), for history updates.
   const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const search = useSyncExternalStore(
+    subscribeToSearch,
+    () => window.location.search,
+    () => "",
+  );
+  const searchParams = useMemo(() => new URLSearchParams(search), [search]);
   const searchId = useId();
   const globalFilterFn = useMemo(() => fuzzyFilter(locale), [locale]);
 
@@ -133,9 +159,9 @@ export function ProjectArchive({
     const params = new URLSearchParams(searchParams);
     if (value) params.set(key, value);
     else params.delete(key);
-    const search = params.toString();
-    // Native history updates keep useSearchParams in sync without a server round trip.
-    window.history.replaceState(null, "", search ? `${pathname}?${search}` : pathname);
+    const next = params.toString();
+    // Native history updates change the filters without a server round trip.
+    replaceUrl(next ? `${pathname}?${next}` : pathname);
   };
 
   const table = useTable({
@@ -244,7 +270,7 @@ export function ProjectArchive({
         {filtered ? (
           <button
             type="button"
-            onClick={() => window.history.replaceState(null, "", pathname)}
+            onClick={() => replaceUrl(pathname)}
             className="ml-3 inline-flex items-center gap-1 text-ink hover:text-accent"
           >
             <X aria-hidden size={14} />
