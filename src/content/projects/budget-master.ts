@@ -113,4 +113,84 @@ export const budgetMaster: Project = {
       sk: "Úvodná stránka BudgetMaster so zvyškom mesačného rozpočtu a tempom míňania",
     },
   },
+  gallery: [
+    {
+      src: "/images/projects/budget-master/quick-add.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Quick add with a typed line that filled in the amount and payee",
+        sk: "Rýchle pridanie s napísaným riadkom, ktorý doplnil sumu a príjemcu",
+      },
+      caption: {
+        en: 'Quick add: type "coffee 3.20 cash yesterday" and the form fills itself; known payees bring their category.',
+        sk: "Rýchle pridanie: napíšte „káva 3,20 hotovosť včera“ a formulár sa vyplní sám; známi príjemcovia doplnia kategóriu.",
+      },
+    },
+    {
+      src: "/images/projects/budget-master/activity.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Activity list grouped by day with search and filters",
+        sk: "Zoznam pohybov zoskupený podľa dní s vyhľadávaním a filtrami",
+      },
+      caption: {
+        en: "Activity: every transaction grouped by day, with search and filters that stay in the link.",
+        sk: "Pohyby: všetky transakcie zoskupené podľa dní, s vyhľadávaním a filtrami, ktoré zostanú v odkaze.",
+      },
+    },
+    {
+      src: "/images/projects/budget-master/budgets.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Budgets page with the spending pace chart and category budgets",
+        sk: "Stránka rozpočtov s grafom tempa míňania a rozpočtami kategórií",
+      },
+      caption: {
+        en: "Budgets: the spending pace against last month and a limit per category, warned before it runs out.",
+        sk: "Rozpočty: tempo míňania oproti minulému mesiacu a limit pre každú kategóriu s upozornením skôr, než sa minie.",
+      },
+    },
+    {
+      src: "/images/projects/budget-master/reports.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Reports with income and spending per month",
+        sk: "Prehľady s príjmami a výdavkami po mesiacoch",
+      },
+      caption: {
+        en: "Reports: a year of income and spending, money flow, net worth, trends and a spending calendar.",
+        sk: "Prehľady: rok príjmov a výdavkov, tok peňazí, čistý majetok, trendy a kalendár výdavkov.",
+      },
+    },
+    {
+      src: "/images/projects/budget-master/recurring.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Recurring payments with their schedule and yearly cost",
+        sk: "Pravidelné platby s rozvrhom a ročnou cenou",
+      },
+      caption: {
+        en: "Recurring payments record themselves on their due date; subscriptions show what they cost a year.",
+        sk: "Pravidelné platby sa zapíšu samy v deň splatnosti; predplatné ukazujú, koľko stoja za rok.",
+      },
+    },
+    {
+      src: "/images/projects/budget-master/home-hu.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Home in Hungarian with the monthly budget and spending pace",
+        sk: "Domovská stránka v maďarčine s mesačným rozpočtom a tempom míňania",
+      },
+      caption: {
+        en: "The whole app also runs in Hungarian and Slovak, with local number and date formats.",
+        sk: "Celá aplikácia funguje aj po maďarsky a slovensky, s miestnymi formátmi čísel a dátumov.",
+      },
+    },
+  ],
 };
