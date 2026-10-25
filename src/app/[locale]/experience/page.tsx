@@ -7,7 +7,7 @@ import { StackList } from "@/components/ui/tech-badge";
 import { jobs } from "@/content/experience";
 import { pick } from "@/content/types";
 import type { Locale } from "@/i18n/routing";
-import { formatMonth, monthsBetween } from "@/lib/format";
+import { formatDuration, formatMonth } from "@/lib/format";
 import { alternates } from "@/lib/metadata";
 
 export async function generateMetadata({
@@ -27,19 +27,7 @@ export default async function ExperiencePage({ params }: PageProps<"/[locale]/ex
   setRequestLocale(locale);
   const tCommon = await getTranslations("common");
   const t = await getTranslations("experience");
-  const currentMonth = new Date().toISOString().slice(0, 7);
-
-  const duration = (start: string, end?: string) => {
-    const months = monthsBetween(start, end ?? currentMonth);
-    const years = Math.floor(months / 12);
-    const rest = months % 12;
-    return [
-      years ? tCommon("years", { count: years }) : "",
-      rest ? tCommon("months", { count: rest }) : "",
-    ]
-      .filter(Boolean)
-      .join(" ");
-  };
+  const duration = (start: string, end?: string) => formatDuration(start, end, tCommon);
 
   return (
     <Page>

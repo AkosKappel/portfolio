@@ -288,7 +288,14 @@
     "secondarySchool": "Stredná škola",
     "otherProjects": "Ďalšie projekty",
     "allProjects": "Všetky projekty",
-    "contents": "Sekcie"
+    "contents": "Sekcie",
+    "contact": "Kontakt",
+    "facts": {
+      "experience": "Prax",
+      "companies": "Firmy",
+      "projects": "Projekty",
+      "languages": "Jazyky"
+    }
   },
   "cvPdf": {
     "title": "Životopis",

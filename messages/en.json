@@ -288,7 +288,14 @@
     "secondarySchool": "Secondary school",
     "otherProjects": "Other projects",
     "allProjects": "All projects",
-    "contents": "Sections"
+    "contents": "Sections",
+    "contact": "Contact",
+    "facts": {
+      "experience": "Experience",
+      "companies": "Companies",
+      "projects": "Projects",
+      "languages": "Languages"
+    }
   },
   "cvPdf": {
     "title": "Curriculum vitae",

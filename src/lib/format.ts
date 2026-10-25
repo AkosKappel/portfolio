@@ -19,6 +19,24 @@ export function monthsBetween(start: string, end: string) {
   return (endYear - startYear) * 12 + (endMonth - startMonth) + 1;
 }
 
+/** Length of a period as whole years and the months left over; an open end means this month. */
+export function yearsAndMonths(start: string, end?: string) {
+  const months = monthsBetween(start, end ?? new Date().toISOString().slice(0, 7));
+  return { years: Math.floor(months / 12), months: months % 12 };
+}
+
+/** "2 yrs 3 mos", with the unit labels from the "common" messages. */
+export function formatDuration(
+  start: string,
+  end: string | undefined,
+  t: (key: "years" | "months", values: { count: number }) => string,
+) {
+  const { years, months } = yearsAndMonths(start, end);
+  return [years ? t("years", { count: years }) : "", months ? t("months", { count: months }) : ""]
+    .filter(Boolean)
+    .join(" ");
+}
+
 export function yearRange(start: number, end?: number) {
   return end && end !== start ? `${start} – ${end}` : `${start}`;
 }
