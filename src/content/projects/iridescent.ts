@@ -17,8 +17,8 @@ export const iridescent: Project = {
       sk: "Každý hráč nesie farbu. Hráči v leveli zbierajú farby, miešajú z nich nové a používajú ich na prekážky, ktoré reagujú len na určitú farbu, takže väčšina hádaniek si vyžaduje spoluprácu oboch hráčov. Prejdenie hry trvá asi pol hodiny.",
     },
     {
-      en: "I programmed most of the obstacle and interaction system and built parts of the levels. The game is released on itch.io for the browser, Windows, macOS and Linux.",
-      sk: "Naprogramoval som väčšinu systému prekážok a interakcií a postavil časti levelov. Hra je vydaná na itch.io pre prehliadač, Windows, macOS a Linux.",
+      en: "I was responsible for the obstacles: buttons, levers, doors and the special blocks the levels are built from. I also built most of the second level and fixed bugs in jumping and collisions. My teammates handled the player controls, colour mixing, camera, menus and the other levels. The game is released on itch.io for the browser, Windows, macOS and Linux.",
+      sk: "Bol som zodpovedný za prekážky: tlačidlá, páky, dvere a špeciálne bloky, z ktorých sú levely poskladané. Postavil som aj väčšinu druhého levelu a opravoval chyby v skákaní a kolíziách. Ostatní členovia tímu mali na starosti ovládanie postáv, miešanie farieb, kameru, menu a ďalšie levely. Hra je vydaná na itch.io pre prehliadač, Windows, macOS a Linux.",
     },
   ],
   features: [
@@ -37,23 +37,36 @@ export const iridescent: Project = {
   ],
   highlights: [
     {
-      en: "Push buttons, timed buttons and levers that only work with the right colour, with weight limits so a player or a cube can hold them down",
-      sk: "Tlačidlá, časované tlačidlá a páky, ktoré fungujú len so správnou farbou, s limitom váhy, aby ich mohol podržať hráč alebo kocka",
+      en: "Push buttons, timed buttons and levers that only react to the right colour; bigger buttons need a player who has absorbed several colours, and a cube of the right colour can hold a button down",
+      sk: "Tlačidlá, časované tlačidlá a páky, ktoré reagujú len na správnu farbu; väčšie tlačidlá potrebujú hráča, ktorý pohltil viac farieb, a tlačidlo môže podržať aj kocka správnej farby",
     },
     {
-      en: "Doors linked to any number of buttons, and one button able to open several doors",
-      sk: "Dvere prepojené s ľubovoľným počtom tlačidiel a jedno tlačidlo, ktoré otvorí viacero dverí",
+      en: "A button stays pressed while anyone stands on it, and lets go when the player on it loses the right colour",
+      sk: "Tlačidlo zostane stlačené, kým na ňom niekto stojí, a uvoľní sa, keď hráč na ňom stratí správnu farbu",
+    },
+    {
+      en: "Doors linked to any number of buttons, and one button able to open several doors; a door stays open while any of its buttons is pressed",
+      sk: "Dvere prepojené s ľubovoľným počtom tlačidiel a jedno tlačidlo, ktoré otvorí viacero dverí; dvere zostanú otvorené, kým je stlačené aspoň jedno z ich tlačidiel",
     },
     {
       en: "Coloured doors that only a player of the same colour can pass, shadow blocks on a timer and destructible obstacles, all as reusable prefabs",
       sk: "Farebné dvere, cez ktoré prejde len hráč rovnakej farby, tieňové bloky s časovačom a zničiteľné prekážky, všetko ako opakovane použiteľné prefaby",
     },
     {
-      en: "Parts of the first two levels, including checkpoints, and fixes to jumping and collisions",
-      sk: "Časti prvých dvoch levelov vrátane checkpointov a opravy skákania a kolízií",
+      en: "Most of the second level and the last checkpoint of the first one",
+      sk: "Väčšina druhého levelu a posledný checkpoint prvého",
+    },
+    {
+      en: "Fixes to the double jump, walking through walls and buttons pressed by both players at once",
+      sk: "Opravy dvojitého skoku, prechádzania cez steny a tlačidiel stlačených oboma hráčmi naraz",
     },
   ],
+  versions: ["Unity 2021.3"],
   kind: "team",
+  role: {
+    en: "Obstacles, the second level and bug fixes in a team of three",
+    sk: "Prekážky, druhý level a opravy chýb v trojčlennom tíme",
+  },
   areas: ["games"],
   year: 2022,
   stack: ["Unity", "C#"],

@@ -17,8 +17,8 @@ export const petguide: Project = {
       sk: "Návštevníci môžu opísať mačku, ktorú chcú, podľa jej vlastností, alebo nahrať fotku mačky, ktorá sa im páči, a stránka im odporučí vhodné plemená. Fotka ide do samostatnej služby v Pythone, kde plemeno určí neurónová sieť v TensorFlow.",
     },
     {
-      en: "The web application is built with Laravel and Bootstrap, the breed classifier runs behind a FastAPI endpoint, and the whole site is available in Slovak and English.",
-      sk: "Webová aplikácia je postavená na Laraveli a Bootstrape, klasifikátor plemien beží za FastAPI endpointom a celá stránka je dostupná po slovensky aj po anglicky.",
+      en: "The web application is built with Laravel and Bootstrap, and the breed classifier is served through a FastAPI endpoint. The whole site is available in Slovak and English.",
+      sk: "Webová aplikácia je postavená na Laraveli a Bootstrape a klasifikátor plemien je dostupný cez FastAPI endpoint. Celá stránka je po slovensky aj po anglicky.",
     },
     {
       en: "We were a team of seven and worked in Scrum, with sprints, planning and reviews. I helped train the neural network that recognises cat breeds, and built parts of the backend and frontend of the Laravel application.",
@@ -39,8 +39,8 @@ export const petguide: Project = {
       sk: "Zoznam chovateľských staníc s vyhľadávaním podľa názvu a plemena",
     },
     {
-      en: "Registration and login, in Slovak and English",
-      sk: "Registrácia a prihlásenie, po slovensky aj po anglicky",
+      en: "User registration and login",
+      sk: "Registrácia a prihlásenie používateľov",
     },
   ],
   kind: "team",

@@ -34,16 +34,36 @@ export const glaucomaSegmentation: Project = {
       sk: "Prieskumná analýza dát ukázala nevyváženosť tried a veľmi rozdielnu kvalitu snímok, čo určilo predspracovanie",
     },
     {
+      en: "Before settling on CenterNet I tried simpler ways of finding the optic disc: thresholding, an intensity-weighted centroid, the brightest spot and template matching",
+      sk: "Kým som sa rozhodol pre CenterNet, skúšal som jednoduchšie spôsoby hľadania optického disku: prahovanie, ťažisko vážené jasom, najjasnejší bod a porovnávanie so vzorom",
+    },
+    {
       en: "A CenterNet model first finds the region of interest around the optic disc, and the segmentation runs on that crop in polar coordinates",
       sk: "Model CenterNet najprv nájde oblasť okolo optického disku a segmentácia beží na tomto výreze v polárnych súradniciach",
     },
     {
-      en: "The vertical cup-to-disc ratio from the predictions was compared with values measured by experts",
-      sk: "Vertikálny pomer jamky a disku z predikcií som porovnal s hodnotami nameranými odborníkmi",
+      en: "Both architectures were built on three U-Net variants (Residual Attention U-Net++, Refined U-Net 3+ with CBAM and Swin-Unet) and trained on polar as well as Cartesian images",
+      sk: "Obe architektúry som postavil na troch variantoch U-Net (Residual Attention U-Net++, Refined U-Net 3+ s CBAM a Swin-Unet) a trénoval ich na snímkach v polárnych aj karteziánskych súradniciach",
+    },
+    {
+      en: "The loss combines Dice and cross-entropy; in the dual-decoder network the cup counts five times more than the disc",
+      sk: "Chybová funkcia spája Dice a krížovú entropiu; v sieti s dvoma dekodérmi má jamka päťkrát väčšiu váhu ako disk",
+    },
+    {
+      en: "Predictions are cleaned up afterwards: holes are filled, only the largest region is kept and an ellipse is fitted to each mask",
+      sk: "Predikcie sa potom upravia: vyplnia sa diery, ponechá sa len najväčšia oblasť a na každú masku sa napasuje elipsa",
+    },
+    {
+      en: "The vertical cup-to-disc ratio from the predictions was compared with values measured by experts, and a threshold of 0.63 taken from the ROC curve sorts eyes into glaucoma and healthy",
+      sk: "Vertikálny pomer jamky a disku z predikcií som porovnal s hodnotami nameranými odborníkmi a prah 0,63 určený z ROC krivky rozdelí oči na zdravé a s glaukómom",
     },
     {
       en: "Probability maps, activation maps and Grad-CAM show what the networks look at",
       sk: "Mapy pravdepodobnosti, aktivačné mapy a Grad-CAM ukazujú, na čo sa siete pozerajú",
+    },
+    {
+      en: "Command-line scripts train and evaluate the models and segment new images with any of the architectures",
+      sk: "Skripty pre príkazový riadok trénujú a vyhodnocujú modely a segmentujú nové snímky ktoroukoľvek z architektúr",
     },
   ],
   versions: ["Python 3.10", "PyTorch 2.0"],

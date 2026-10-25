@@ -37,6 +37,14 @@ export const conicSectionsGenerator: Project = {
       sk: "Každý typ úlohy je samostatný modul v Mathematice, ktorý vráti zadanie, postup riešenia, graf a výsledok",
     },
     {
+      en: "The difficulty sets the ranges for the centre and the semi-axes: the easy level keeps the centre at the origin, the harder ones move it further away",
+      sk: "Náročnosť určuje rozsahy pre stred a poloosi: ľahká úroveň necháva stred v začiatku súradníc, ťažšie ho posúvajú ďalej",
+    },
+    {
+      en: "The solver works on a real Mathematica equation and records each intermediate form with the operation that leads to the next line (·16, −16, :2)",
+      sk: "Riešiteľ pracuje so skutočnou rovnicou v Mathematice a zaznamená každý medzikrok spolu s operáciou, ktorá vedie k ďalšiemu riadku (·16, −16, :2)",
+    },
+    {
       en: "Parameters are kept readable: semi-axes are clamped so the ellipse is neither a near-circle nor too flat, and the general equation is reduced by its greatest common divisor",
       sk: "Parametre zostávajú čitateľné: poloosi sú obmedzené, aby elipsa nebola takmer kružnica ani príliš plochá, a všeobecná rovnica sa krátí najväčším spoločným deliteľom",
     },
@@ -47,6 +55,14 @@ export const conicSectionsGenerator: Project = {
     {
       en: "Ellipses with many integer points were found by a brute-force search and stored, so intersections and touching points can be computed by hand",
       sk: "Elipsy s mnohými celočíselnými bodmi som našiel hrubou silou a uložil, aby sa priesečníky a body dotyku dali vypočítať ručne",
+    },
+    {
+      en: "In problems about the position of a point or a line every outcome is equally likely (inside, on or outside; secant, tangent or non-secant); for a line the answer is chosen first and a matching line is built",
+      sk: "V úlohách o polohe bodu alebo priamky je každý výsledok rovnako pravdepodobný (vnútri, na elipse alebo mimo nej; sečnica, dotyčnica alebo nesečnica); pri priamke sa najprv zvolí výsledok a potom sa zostrojí priamka, ktorá mu zodpovedá",
+    },
+    {
+      en: "The interface and all generated text are in Slovak, the language the course was taught in",
+      sk: "Rozhranie aj všetky vygenerované texty sú po slovensky, v jazyku, v ktorom sa predmet vyučoval",
     },
     {
       en: "Tested with final-year secondary school students for ease of use and how well the generated solutions matched their own",

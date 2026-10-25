@@ -13,8 +13,8 @@ export const adventOfSql: Project = {
       sk: "Advent of SQL je decembrová výzva v štýle Advent of Code, ale každá úloha je databáza: každý deň prinesie PostgreSQL dump o Santovej dielni a otázku, na ktorú treba odpovedať dotazom.",
     },
     {
-      en: "I solved the first twelve days of the 2024 edition in plain SQL. The puzzles go beyond joins and grouping and call for window functions, recursive queries and working with JSON and XML.",
-      sk: "Vyriešil som prvých dvanásť dní ročníka 2024 v čistom SQL. Úlohy idú nad rámec spájania a zoskupovania tabuliek a vyžadujú okenné funkcie, rekurzívne dotazy a prácu s JSON a XML.",
+      en: "I solved the first eleven days of the 2024 edition in plain SQL, one file per day with the answer noted under the query. The puzzles go beyond joins and grouping and call for window functions, recursive queries and working with JSON and XML.",
+      sk: "Vyriešil som prvých jedenásť dní ročníka 2024 v čistom SQL, každý deň v jednom súbore s odpoveďou zapísanou pod dotazom. Úlohy idú nad rámec spájania a zoskupovania tabuliek a vyžadujú okenné funkcie, rekurzívne dotazy a prácu s JSON a XML.",
     },
   ],
   technical: [
@@ -23,12 +23,24 @@ export const adventOfSql: Project = {
       sk: "Okenné funkcie ako LAG a ROW_NUMBER na porovnanie riadkov so susedmi a poradie v rámci skupín",
     },
     {
-      en: "A recursive CTE to walk a management hierarchy",
-      sk: "Rekurzívne CTE na prechod hierarchiou manažérov",
+      en: "A moving average over the last three seasons with a ROWS BETWEEN window frame",
+      sk: "Kĺzavý priemer za posledné tri sezóny pomocou okna ROWS BETWEEN",
     },
     {
-      en: "Querying JSONB columns and XML documents with XPath, and unnesting arrays into rows",
-      sk: "Dotazy nad JSONB stĺpcami a XML dokumentmi cez XPath a rozbalenie polí do riadkov",
+      en: "A recursive CTE to walk a management hierarchy and find how deep it goes",
+      sk: "Rekurzívne CTE na prechod hierarchiou manažérov a zistenie jej hĺbky",
+    },
+    {
+      en: "XML menus stored in three different schema versions, told apart with xpath_exists and read with XPath",
+      sk: "XML menu uložené v troch rôznych verziách schémy, rozlíšené cez xpath_exists a čítané cez XPath",
+    },
+    {
+      en: "Reading values from JSONB columns, and comparing arrays with EXCEPT and INTERSECT to find added, kept and removed tags",
+      sk: "Čítanie hodnôt z JSONB stĺpcov a porovnanie polí cez EXCEPT a INTERSECT na nájdenie pridaných, zachovaných a odstránených značiek",
+    },
+    {
+      en: "Decoding a hidden message by filtering character codes and joining them with string_agg",
+      sk: "Dekódovanie skrytej správy filtrovaním kódov znakov a ich spojením cez string_agg",
     },
   ],
   kind: "personal",
