@@ -68,8 +68,8 @@ export const skillGroups: SkillGroup[] = [
     id: "ai",
     name: { en: "AI", sk: "AI" },
     description: {
-      en: "I develop with AI coding agents every day, through the whole project: planning, implementation, tests, code review and deployment. I make the decisions and review every change. I also trained neural networks for my master's thesis and integrated the OpenAI API into products.",
-      sk: "Denne vyvíjam s AI agentmi počas celého projektu: plánovanie, implementácia, testy, code review aj nasadenie. Rozhodnutia robím ja a každú zmenu skontrolujem. Pre diplomovú prácu som trénoval neurónové siete a OpenAI API som integroval do produktov.",
+      en: "I develop with AI coding agents every day, through the whole project: planning, implementation, tests, code review and deployment. I make the decisions and review every change, and I maintain context files, skills and hooks so agents follow each project's rules and do not repeat mistakes. I also trained neural networks for my master's thesis and integrated the OpenAI API into products.",
+      sk: "Denne vyvíjam s AI agentmi počas celého projektu: plánovanie, implementácia, testy, code review aj nasadenie. Rozhodnutia robím ja, každú zmenu skontrolujem a udržiavam kontextové súbory, skills a hooky, aby agenti dodržiavali pravidlá projektu a neopakovali chyby. Pre diplomovú prácu som trénoval neurónové siete a OpenAI API som integroval do produktov.",
     },
     skills: ["Claude Code", "Codex", "MCP", "OpenAI API", "PyTorch", "TensorFlow", "OpenCV"],
   },

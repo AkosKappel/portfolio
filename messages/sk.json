@@ -73,7 +73,7 @@
     "selectedProjects": "Hlavné projekty",
     "allProjects": "Všetky projekty",
     "workflow": "Od nápadu po produkciu",
-    "workflowLead": "Projekt prevediem všetkými fázami sám. AI agenti každú z nich zrýchlia, rozhodnutia však robím ja a každú zmenu skontrolujem.",
+    "workflowLead": "Projekt dotiahnem od zadania až do produkcie sám. AI agenti zrýchlia každú fázu, rozhodnutia však robím ja a za výsledok zodpovedám. Ich prácu overujem testami, kontrolou typov a kontrolami v CI, pretože viem, kde agenti robia chyby: logika, ktorá vyzerá správne, ale nie je, vymyslené balíčky, prehliadnuté okrajové prípady. Časti citlivé na bezpečnosť, ako autentifikáciu a migrácie dát, kontrolujem riadok po riadku.",
     "currentWork": "Na čom práve pracujem",
     "currentRole": "{role} v {company} od {start}.",
     "fullExperience": "Všetky skúsenosti",

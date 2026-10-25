@@ -18,7 +18,6 @@ import type { Locale } from "@/i18n/routing";
 import { formatMonth } from "@/lib/format";
 import { alternates } from "@/lib/metadata";
 
-/** Every entry on the CV uses the card of a job, so the sections read the same way. */
 const card =
   "break-inside-avoid-page rounded-xl border border-line border-l-4 border-l-accent bg-paper p-5 sm:p-6";
 
