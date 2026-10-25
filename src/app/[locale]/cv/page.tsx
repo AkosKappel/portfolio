@@ -61,8 +61,6 @@ const groupIcons: Record<string, typeof Monitor> = {
   devops: Container,
 };
 
-const cefrLevels = ["A1", "A2", "B1", "B2", "C1", "C2"];
-
 export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
@@ -103,11 +101,13 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
       icon: <Mail aria-hidden size={16} />,
       label: site.email,
       href: `mailto:${site.email}`,
+      wide: true,
     },
     {
       icon: <Phone aria-hidden size={16} />,
       label: site.phone,
       href: `tel:${site.phone.replaceAll(" ", "")}`,
+      wide: true,
     },
     {
       icon: <LinkedInIcon className="size-4" />,
@@ -122,46 +122,44 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
     <Page className="print:max-w-none print:px-0">
       <ReadingProgress />
       <div className="grid gap-10 pt-10 pb-6 lg:grid-cols-[17rem_1fr] lg:gap-14 print:block print:pt-0">
-        <aside className="lg:sticky lg:top-24 lg:max-h-[calc(100dvh-7rem)] lg:self-start lg:overflow-y-auto lg:pb-6">
-          <div className="flex items-center gap-5 lg:flex-col lg:items-start">
-            <div className="shrink-0 rounded-full border-4 border-ink p-1">
+        {/* Sticky like the portrait on the about page, but only when the screen is tall enough to show all of it. */}
+        <aside className="lg:self-start lg:[@media(min-height:44rem)]:sticky lg:[@media(min-height:44rem)]:top-24">
+          <div className="flex items-center gap-4">
+            <div className="shrink-0 rounded-full border-[3px] border-ink p-0.5">
               <Image
                 src="/images/profile.webp"
                 alt={pick({ en: `Portrait of ${site.name}`, sk: `Portrét: ${site.name}` }, locale)}
                 width={900}
                 height={1350}
-                sizes="8rem"
-                className="size-24 rounded-full object-cover object-[50%_22%] sm:size-32"
+                sizes="6rem"
+                className="size-20 rounded-full object-cover object-[50%_22%] sm:size-24 lg:size-20"
               />
             </div>
             <div>
-              <h1 className="text-3xl font-semibold leading-tight sm:text-4xl">
-                <span className="block text-lg font-medium text-muted">{site.title}</span>
+              <h1 className="text-2xl font-semibold leading-tight sm:text-3xl lg:text-2xl">
+                <span className="block text-base font-medium text-muted">{site.title}</span>
                 {site.name}
               </h1>
-              <p className="mt-1 font-display text-lg text-accent">{site.headline}</p>
+              <p className="mt-0.5 font-display text-accent">{site.headline}</p>
             </div>
           </div>
 
           <p className="mt-5 flex items-start gap-2 rounded-lg border border-line bg-surface px-3 py-2 text-sm">
-            <span aria-hidden className="relative mt-1.5 flex size-2 shrink-0">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-60 motion-reduce:animate-none" />
-              <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-            </span>
+            <span aria-hidden className="mt-1.5 size-2 shrink-0 rounded-full bg-emerald-500" />
             {pick(site.availability, locale)}
           </p>
 
           <h2 className="sr-only">{t("contact")}</h2>
-          <ul className="mt-5 grid gap-2 text-sm">
-            <li className="flex items-center gap-2.5 text-muted">
+          <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted lg:gap-x-3.5">
+            <li className="flex w-full items-center gap-2.5">
               <MapPin aria-hidden size={16} />
               {pick(site.location, locale)}
             </li>
             {contacts.map((contact) => (
-              <li key={contact.href}>
+              <li key={contact.href} className={contact.wide ? "w-full" : undefined}>
                 <a
                   href={contact.href}
-                  className="flex items-center gap-2.5 text-muted transition-colors hover:text-accent"
+                  className="flex items-center gap-2 transition-colors hover:text-accent"
                 >
                   {contact.icon}
                   <span className="link">{contact.label}</span>
@@ -170,44 +168,11 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
             ))}
           </ul>
 
-          <div className="mt-6 hidden border-t border-line pt-5 lg:block">
+          <div className="mt-5 hidden border-t border-line pt-4 lg:block">
             <CvNav label={t("contents")} sections={sections} />
           </div>
 
-          <div className="mt-6 border-t border-line pt-5">
-            <h2 className="flex items-center gap-2 text-sm font-semibold">
-              <Languages aria-hidden size={16} className="text-muted" />
-              {t("languages")}
-            </h2>
-            <ul className="mt-3 grid gap-3 text-sm">
-              {site.languages.map((language) => {
-                const level =
-                  "cefr" in language && language.cefr ? cefrLevels.indexOf(language.cefr) + 1 : 6;
-                return (
-                  <li key={language.flag}>
-                    <div className="flex items-center gap-2">
-                      <Flag locale={language.flag} />
-                      <span className="flex-1 font-medium">{pick(language.name, locale)}</span>
-                      <span className="text-xs text-muted">
-                        {pick(language.level, locale)}
-                        {"cefr" in language ? `, ${language.cefr}` : null}
-                      </span>
-                    </div>
-                    <div aria-hidden className="mt-1.5 grid grid-cols-6 gap-1">
-                      {cefrLevels.map((cefr, index) => (
-                        <span
-                          key={cefr}
-                          className={`h-1.5 rounded-full ${index < level ? "bg-accent" : "bg-line"}`}
-                        />
-                      ))}
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
-          <div className="mt-6 print:hidden">
+          <div className="mt-5 print:hidden">
             <CvMenu />
           </div>
         </aside>
@@ -230,7 +195,9 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
                   <dt className="text-xs font-medium tracking-wide text-muted uppercase">
                     {fact.label}
                   </dt>
-                  <dd className="mt-1 font-display text-xl font-semibold sm:text-2xl">{fact.value}</dd>
+                  <dd className="mt-1 font-display text-xl font-semibold sm:text-2xl">
+                    {fact.value}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -340,6 +307,25 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
                 );
               })}
             </div>
+            <h3 className="mt-6 flex items-center gap-2 font-semibold">
+              <Languages aria-hidden size={18} className="text-accent" />
+              {t("languages")}
+            </h3>
+            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+              {site.languages.map((language) => (
+                <li
+                  key={language.flag}
+                  className="flex items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3"
+                >
+                  <Flag locale={language.flag} />
+                  <span className="flex-1 font-medium">{pick(language.name, locale)}</span>
+                  <span className="text-sm text-muted">
+                    {pick(language.level, locale)}
+                    {"cefr" in language ? ` (${language.cefr})` : null}
+                  </span>
+                </li>
+              ))}
+            </ul>
             <h3 className="mt-6 font-semibold">{t("practices")}</h3>
             <ul className="mt-3 flex flex-wrap gap-1.5">
               {practices.map((practice) => (

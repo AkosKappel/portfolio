@@ -113,8 +113,8 @@ export const site = {
     },
   ] satisfies { id: string; title: Text; paragraphs: Text[] }[],
   availability: {
-    en: "Open to remote roles in the EU and hybrid roles in Slovakia.",
-    sk: "Otvorený pracovným ponukám na diaľku v rámci EÚ a hybridne na Slovensku.",
+    en: "Open to remote roles in the EU or hybrid roles in Slovakia.",
+    sk: "Otvorený pracovným ponukám na diaľku v rámci EÚ alebo hybridne na Slovensku.",
   } satisfies Text,
   links: {
     github: "https://github.com/AkosKappel",
