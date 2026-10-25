@@ -12,9 +12,52 @@ export const site = {
   repository: "https://github.com/AkosKappel/portfolio",
   location: { en: "Bratislava, Slovakia", sk: "Bratislava, Slovensko" } satisfies Text,
   intro: {
-    en: "Full-stack software engineer with years of experience in web and mobile development. I build software that is fast, accessible and easy to maintain.",
-    sk: "Full-stack vývojár s viacročnou praxou vo vývoji webových a mobilných aplikácií. Tvorím softvér, ktorý je rýchly, prístupný a ľahko udržiavateľný.",
+    en: "Full-stack software engineer with years of experience in web and mobile development. I take projects from planning through implementation and testing to deployment, and AI coding agents help me move faster at every step.",
+    sk: "Full-stack vývojár s viacročnou praxou vo vývoji webových a mobilných aplikácií. Projekty dotiahnem od plánovania cez implementáciu a testovanie až po nasadenie a AI agenti ma pri každom kroku zrýchľujú.",
   } satisfies Text,
+  /** The stages shown on the home page, each one done with AI coding agents. */
+  workflow: [
+    {
+      id: "plan",
+      title: { en: "Plan", sk: "Plánovanie" },
+      text: {
+        en: "Understand the problem, split it into tasks and sketch the architecture.",
+        sk: "Pochopiť problém, rozdeliť ho na úlohy a navrhnúť architektúru.",
+      },
+    },
+    {
+      id: "build",
+      title: { en: "Build", sk: "Vývoj" },
+      text: {
+        en: "Frontend, backend and database, with types checked from end to end.",
+        sk: "Frontend, backend aj databáza, s typmi kontrolovanými od začiatku do konca.",
+      },
+    },
+    {
+      id: "test",
+      title: { en: "Test", sk: "Testovanie" },
+      text: {
+        en: "Unit, integration and end-to-end tests, plus accessibility checks.",
+        sk: "Unit, integračné a end-to-end testy, plus kontrola prístupnosti.",
+      },
+    },
+    {
+      id: "ship",
+      title: { en: "Ship", sk: "Nasadenie" },
+      text: {
+        en: "Containers, CI/CD pipelines and deployments to the cloud or my own server.",
+        sk: "Kontajnery, CI/CD pipeline a nasadenie do cloudu alebo na vlastný server.",
+      },
+    },
+    {
+      id: "run",
+      title: { en: "Run", sk: "Prevádzka" },
+      text: {
+        en: "Monitoring, updates and the next round of improvements.",
+        sk: "Monitorovanie, aktualizácie a ďalšie vylepšenia.",
+      },
+    },
+  ] satisfies { id: string; title: Text; text: Text }[],
   about: [
     {
       id: "how-i-work",

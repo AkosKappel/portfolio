@@ -23,7 +23,7 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 - Projects archive with fuzzy search, filters, sorting, grid and table views, all kept in the URL
 - Light and dark mode with five themes each, without a flash, view transitions between pages and from a project card into its case study, scroll-driven reveals in CSS
 - A WebGL2 particle background that reacts to the pointer, and a colophon page on how the site is built, with an accessibility statement
-- An activity page with one contribution calendar across personal GitHub and GitLab and the GitLab of every job, with filters, streaks, breakdowns by type and source, commit times and languages per year, refreshed weekly by a workflow
+- An activity page with one contribution calendar across personal and work GitHub and GitLab activity, with filters, streaks, breakdowns by type and source, commit times and languages per year, refreshed weekly by a workflow
 - Contact form with a shared Zod schema, honeypot and rate limit, sent from a Server Action
 - CV as an HTML page with print styles and as a shareable PDF viewer
 - WCAG 2.2 AA: axe checks every page in both themes on desktop and mobile; Lighthouse CI keeps performance, accessibility, best practices and SEO budgets

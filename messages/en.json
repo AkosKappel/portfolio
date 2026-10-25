@@ -3,10 +3,10 @@
     "home": "Home",
     "projects": "Projects",
     "experience": "Experience",
-    "activity": "Activity",
+    "activity": "My activity",
     "skills": "Skills",
     "education": "Education",
-    "about": "About",
+    "about": "About me",
     "contact": "Contact",
     "cv": "CV",
     "main": "Main",
@@ -70,8 +70,10 @@
   "home": {
     "viewProjects": "View projects",
     "contact": "Contact me",
-    "selectedProjects": "Selected projects",
+    "selectedProjects": "Featured projects",
     "allProjects": "All projects",
+    "workflow": "From idea to production",
+    "workflowLead": "I take a project through every stage myself. AI coding agents speed up each one, while I make the decisions and review every change.",
     "currentWork": "What I work on now",
     "currentRole": "{role} at {company} since {start}.",
     "fullExperience": "Full experience",
@@ -154,8 +156,8 @@
   },
   "activity": {
     "title": "Activity",
-    "description": "My contributions across personal GitHub and GitLab and the GitLab of every job, in one calendar.",
-    "lead": "One calendar for every account I commit with: personal GitHub and GitLab, and the GitLab of each job. Work activity shows only daily counts, no client projects.",
+    "description": "My personal and work GitHub and GitLab activity in one calendar.",
+    "lead": "My personal and work GitHub and GitLab activity in one calendar. Work activity shows only daily counts, no project names.",
     "range": "Period",
     "lastYear": "Last 12 months",
     "sources": "Sources",
@@ -216,7 +218,7 @@
     },
     "card": {
       "title": "Activity",
-      "lead": "{total} {count, plural, one {contribution} other {contributions}} in the last 12 months, across personal GitHub and GitLab and the GitLab of every job.",
+      "lead": "{total} {count, plural, one {contribution} other {contributions}} in the last 12 months, across my personal and work GitHub and GitLab activity.",
       "link": "See the full activity"
     }
   },
@@ -278,7 +280,7 @@
     "profile": "Profile",
     "experience": "Experience",
     "skills": "Skills",
-    "projects": "Selected projects",
+    "projects": "Featured projects",
     "education": "Education",
     "languages": "Languages",
     "practices": "Practices",

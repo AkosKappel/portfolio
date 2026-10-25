@@ -3,7 +3,7 @@
     "home": "Domov",
     "projects": "Projekty",
     "experience": "Skúsenosti",
-    "activity": "Aktivita",
+    "activity": "Moja aktivita",
     "skills": "Zručnosti",
     "education": "Vzdelanie",
     "about": "O mne",
@@ -70,8 +70,10 @@
   "home": {
     "viewProjects": "Pozrieť projekty",
     "contact": "Kontaktujte ma",
-    "selectedProjects": "Vybrané projekty",
+    "selectedProjects": "Hlavné projekty",
     "allProjects": "Všetky projekty",
+    "workflow": "Od nápadu po produkciu",
+    "workflowLead": "Projekt prevediem všetkými fázami sám. AI agenti každú z nich zrýchlia, rozhodnutia však robím ja a každú zmenu skontrolujem.",
     "currentWork": "Na čom práve pracujem",
     "currentRole": "{role} v {company} od {start}.",
     "fullExperience": "Všetky skúsenosti",
@@ -154,8 +156,8 @@
   },
   "activity": {
     "title": "Aktivita",
-    "description": "Moje príspevky z osobného GitHubu a GitLabu aj z GitLabu každej práce v jednom kalendári.",
-    "lead": "Jeden kalendár pre všetky účty, z ktorých commitujem: osobný GitHub a GitLab aj GitLab každej práce. Pracovná aktivita ukazuje iba počty za deň, žiadne projekty klientov.",
+    "description": "Moja osobná aj pracovná aktivita na GitHube a GitLabe v jednom kalendári.",
+    "lead": "Moja osobná aj pracovná aktivita na GitHube a GitLabe v jednom kalendári. Pracovná aktivita ukazuje iba počty za deň, žiadne názvy projektov.",
     "range": "Obdobie",
     "lastYear": "Posledných 12 mesiacov",
     "sources": "Zdroje",
@@ -216,7 +218,7 @@
     },
     "card": {
       "title": "Aktivita",
-      "lead": "{total} {count, plural, one {príspevok} few {príspevky} other {príspevkov}} za posledných 12 mesiacov z osobného GitHubu a GitLabu aj z GitLabu každej práce.",
+      "lead": "{total} {count, plural, one {príspevok} few {príspevky} other {príspevkov}} za posledných 12 mesiacov z mojej osobnej aj pracovnej aktivity na GitHube a GitLabe.",
       "link": "Celá aktivita"
     }
   },
@@ -278,7 +280,7 @@
     "profile": "Profil",
     "experience": "Pracovné skúsenosti",
     "skills": "Zručnosti",
-    "projects": "Vybrané projekty",
+    "projects": "Hlavné projekty",
     "education": "Vzdelanie",
     "languages": "Jazyky",
     "practices": "Postupy",

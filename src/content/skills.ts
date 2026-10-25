@@ -68,8 +68,8 @@ export const skillGroups: SkillGroup[] = [
     id: "ai",
     name: { en: "AI", sk: "AI" },
     description: {
-      en: "I develop with AI coding agents every day: I plan the work, build it with their help and review every change. I also trained neural networks for my master's thesis and integrated the OpenAI API into products.",
-      sk: "Denne vyvíjam s AI agentmi: prácu naplánujem, s ich pomocou ju vytvorím a každú zmenu skontrolujem. Pre diplomovú prácu som trénoval neurónové siete a OpenAI API som integroval do produktov.",
+      en: "I develop with AI coding agents every day, through the whole project: planning, implementation, tests, code review and deployment. I make the decisions and review every change. I also trained neural networks for my master's thesis and integrated the OpenAI API into products.",
+      sk: "Denne vyvíjam s AI agentmi počas celého projektu: plánovanie, implementácia, testy, code review aj nasadenie. Rozhodnutia robím ja a každú zmenu skontrolujem. Pre diplomovú prácu som trénoval neurónové siete a OpenAI API som integroval do produktov.",
     },
     skills: ["Claude Code", "Codex", "MCP", "OpenAI API", "PyTorch", "TensorFlow", "OpenCV"],
   },
@@ -98,20 +98,31 @@ export const skillGroups: SkillGroup[] = [
 
 /** Ways of working, shown next to the technologies, without logos. */
 export const practices: Text[] = [
+  { en: "AI-assisted development", sk: "Vývoj s pomocou AI" },
+  { en: "System design and architecture", sk: "Návrh systémov a architektúra" },
   { en: "REST API design", sk: "Návrh REST API" },
+  { en: "Type-safe development", sk: "Typovo bezpečný vývoj" },
+  {
+    en: "Unit, integration and end-to-end testing",
+    sk: "Unit, integračné a end-to-end testovanie",
+  },
+  { en: "Containerization", sk: "Kontajnerizácia" },
+  { en: "CI/CD", sk: "CI/CD" },
+  { en: "Observability and monitoring", sk: "Monitorovanie a observabilita" },
+  {
+    en: "Authentication and authorization (JWT, passkeys, RBAC)",
+    sk: "Autentifikácia a autorizácia (JWT, passkeys, RBAC)",
+  },
+  { en: "Rate limiting", sk: "Obmedzenie počtu požiadaviek (rate limiting)" },
   { en: "Accessibility (a11y)", sk: "Prístupnosť (a11y)" },
-  { en: "Internationalization (i18n)", sk: "Internacionalizácia (i18n)" },
-  { en: "Localization (l10n)", sk: "Lokalizácia (l10n)" },
+  { en: "Internationalization (i18n, l10n)", sk: "Internacionalizácia (i18n, l10n)" },
   { en: "SEO", sk: "SEO" },
   { en: "Performance optimization", sk: "Optimalizácia výkonu" },
+  { en: "Caching", sk: "Cache" },
   { en: "UI/UX design", sk: "UI/UX dizajn" },
   { en: "Responsive design", sk: "Responzívny dizajn" },
   { en: "Progressive web apps (PWA)", sk: "Progresívne webové aplikácie (PWA)" },
   { en: "Real-time updates (WebSockets)", sk: "Aktualizácie v reálnom čase (WebSockety)" },
-  { en: "Authentication (JWT, passkeys)", sk: "Autentifikácia (JWT, passkeys)" },
-  { en: "Caching", sk: "Cache" },
-  { en: "Automated testing", sk: "Automatické testovanie" },
-  { en: "CI/CD", sk: "CI/CD" },
   { en: "Code review", sk: "Code review" },
   { en: "Scrum", sk: "Scrum" },
 ];
