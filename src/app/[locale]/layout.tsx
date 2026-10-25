@@ -5,6 +5,7 @@ import { Bricolage_Grotesque, IBM_Plex_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { DetailsDismiss } from "@/components/layout/details-dismiss";
 import { ParticleField } from "@/components/layout/particle-field";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -99,6 +100,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
           </main>
           <SiteFooter />
           <BackToTop label={t("backToTop")} />
+          <DetailsDismiss />
         </NextIntlClientProvider>
         {/* The analytics scripts only exist on Vercel deployments. */}
         {process.env.VERCEL ? (

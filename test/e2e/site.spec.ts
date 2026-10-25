@@ -218,6 +218,19 @@ test("CV menu links to the PDF viewer in each language", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Životopis");
 });
 
+test("CV menu closes on a click outside and on Escape", async ({ page }) => {
+  await page.goto("/");
+  const preview = page.getByRole("link", { name: "Preview Slovak CV" });
+  await page.getByText("Download CV").click();
+  await expect(preview).toBeVisible();
+  await page.getByRole("heading", { level: 1 }).click();
+  await expect(preview).toBeHidden();
+
+  await page.getByText("Download CV").click();
+  await page.keyboard.press("Escape");
+  await expect(preview).toBeHidden();
+});
+
 test("CV viewer shows the PDF, or page images on touch screens", async ({ page, isMobile }) => {
   await page.goto("/cv/pdf");
   const download = page.getByRole("link", { name: "Download PDF" });
