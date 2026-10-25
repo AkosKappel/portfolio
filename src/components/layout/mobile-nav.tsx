@@ -46,7 +46,7 @@ export function MobileNav({
           </button>
         </div>
         <nav aria-label={labels.nav} className="mt-4">
-          <NavLinks className="flex flex-col gap-1 text-lg" onNavigate={close} />
+          <NavLinks className="flex flex-col gap-1 text-lg" onNavigate={close} menu />
         </nav>
       </dialog>
     </div>
