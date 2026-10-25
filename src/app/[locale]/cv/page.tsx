@@ -18,6 +18,10 @@ import type { Locale } from "@/i18n/routing";
 import { formatMonth } from "@/lib/format";
 import { alternates } from "@/lib/metadata";
 
+/** Every entry on the CV uses the card of a job, so the sections read the same way. */
+const card =
+  "break-inside-avoid-page rounded-xl border border-line border-l-4 border-l-accent bg-paper p-5 sm:p-6";
+
 export async function generateMetadata({ params }: PageProps<"/[locale]/cv">): Promise<Metadata> {
   const locale = (await params).locale as Locale;
   const t = await getTranslations({ locale, namespace: "cv" });
@@ -106,7 +110,7 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
         </header>
 
         <CvSection id="profile" title={t("profile")} anchor={anchor}>
-          <div className="grid max-w-3xl gap-3">
+          <div className={`${card} grid gap-3`}>
             <p>{pick(site.intro, locale)}</p>
             {site.about[0].paragraphs.map((paragraph) => (
               <p key={paragraph.en} className="text-muted">
@@ -119,11 +123,7 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
 
         <CvSection id="experience" title={t("experience")} anchor={anchor}>
           {jobs.map((job) => (
-            <section
-              key={job.id}
-              aria-labelledby={`cv-${job.id}`}
-              className="break-inside-avoid-page rounded-xl border border-line border-l-4 border-l-accent bg-paper p-5 sm:p-6"
-            >
+            <section key={job.id} aria-labelledby={`cv-${job.id}`} className={card}>
               <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                 <AnchorHeading
                   id={`cv-${job.id}`}
@@ -171,7 +171,7 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
         </CvSection>
 
         <CvSection id="skills" title={t("skills")} anchor={anchor}>
-          <dl className="grid gap-3">
+          <dl className={`${card} grid gap-3`}>
             {skillGroups.map((group) => (
               <div key={group.id} className="grid gap-1 sm:grid-cols-[11rem_1fr]">
                 <dt className="font-semibold">{pick(group.name, locale)}</dt>
@@ -200,11 +200,8 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
         </CvSection>
 
         <CvSection id="education" title={t("education")} anchor={anchor}>
-          <p className="text-muted">
-            {pick(university.name, locale)}, {pick(university.faculty, locale)}
-          </p>
           {degrees.map((degree) => (
-            <div key={degree.id}>
+            <div key={degree.id} className={card}>
               <div className="flex flex-wrap items-baseline justify-between gap-x-6">
                 <h3 className="text-lg font-semibold">
                   {pick(degree.degree, locale)}, {pick(degree.field, locale)}
@@ -213,7 +210,10 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
                   {degree.start} – {degree.end}
                 </p>
               </div>
-              <p className="mt-1 text-muted">{pick(degree.description, locale)}</p>
+              <p className="mt-1 text-muted">
+                {pick(university.name, locale)}, {pick(university.faculty, locale)}
+              </p>
+              <p className="mt-3">{pick(degree.description, locale)}</p>
               <p className="mt-1">
                 <span className="font-medium">{t("thesis")}: </span>
                 {degree.thesis.url ? (
@@ -235,7 +235,7 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
               </p>
             </div>
           ))}
-          <div>
+          <div className={card}>
             <div className="flex flex-wrap items-baseline justify-between gap-x-6">
               <h3 className="text-lg font-semibold">
                 {t("secondarySchool")}: {pick(secondarySchool.name, locale)}
@@ -253,9 +253,9 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
         <CvSection id="projects" title={t("projects")} anchor={anchor}>
           <ul className="grid gap-4">
             {featuredProjects.map((project) => (
-              <li key={project.slug}>
+              <li key={project.slug} className={card}>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-6">
-                  <Link href={`/projects/${project.slug}`} className="link font-semibold">
+                  <Link href={`/projects/${project.slug}`} className="link text-lg font-semibold">
                     {project.title}
                   </Link>
                   <span className="text-sm text-muted">{projectYears(project)}</span>
@@ -265,7 +265,7 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
               </li>
             ))}
           </ul>
-          <p>
+          <p className={card}>
             <span className="font-semibold">{t("otherProjects")}: </span>
             {otherProjects.map((project, index) => (
               <span key={project.slug}>
