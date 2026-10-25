@@ -57,18 +57,54 @@ export const smarttechEShop: Project = {
       sk: "Košík sa uloží pri odhlásení a spojí pri ďalšom prihlásení",
     },
     {
-      en: "The whole shop in English, German and Slovak",
-      sk: "Celý e-shop v angličtine, nemčine a slovenčine",
+      en: "The whole shop in English, German and Slovak, each language under its own URL",
+      sk: "Celý e-shop v angličtine, nemčine a slovenčine, každý jazyk na vlastnej URL",
     },
     {
-      en: "Admin area for products and photos",
-      sk: "Administrácia produktov a fotiek",
+      en: "Sale prices and discount codes; the cart suggests one to try in the demo",
+      sk: "Zľavnené ceny a zľavové kódy; košík v deme ponúkne jeden na vyskúšanie",
+    },
+    {
+      en: "Reviews with star ratings, a wishlist and a side-by-side comparison of up to four phones",
+      sk: "Recenzie s hviezdičkami, zoznam želaní a porovnanie až štyroch telefónov vedľa seba",
+    },
+    {
+      en: "Order history with the status of each order",
+      sk: "História objednávok so stavom každej z nich",
+    },
+    {
+      en: "Ctrl+K quick find for pages and phones, and a dark mode",
+      sk: "Rýchle hľadanie stránok a telefónov cez Ctrl+K a tmavý režim",
+    },
+    {
+      en: "Admin area for products and photos, orders and their status, discount codes, visitor statistics without cookies, translations and planned maintenance",
+      sk: "Administrácia produktov a fotiek, objednávok a ich stavu, zľavových kódov, štatistík návštev bez cookies, prekladov a plánovanej údržby",
+    },
+    {
+      en: 'Try the admin area with "Try the admin demo": a throwaway account whose products only it can see, deleted every night',
+      sk: "Administráciu si vyskúšate cez „Try the admin demo“: dočasný účet, ktorého produkty vidí len on a každú noc sa zmažú",
     },
   ],
   technical: [
     {
-      en: "About 84 feature tests run against PostgreSQL in GitHub Actions",
-      sk: "Asi 84 testov funkcionality beží proti PostgreSQL v GitHub Actions",
+      en: "About 140 tests run against PostgreSQL in GitHub Actions",
+      sk: "Asi 140 testov beží proti PostgreSQL v GitHub Actions",
+    },
+    {
+      en: "Admin routes protected by gates and a policy; demo admins have their own rate limit and never touch the shop's products or orders",
+      sk: "Administrácia chránená cez gates a policy; demo administrátori majú vlastný limit požiadaviek a nikdy nezasiahnu do produktov ani objednávok obchodu",
+    },
+    {
+      en: "A read-only JSON API for the catalog, public and rate-limited per visitor",
+      sk: "JSON API katalógu len na čítanie, verejné a s limitom požiadaviek na návštevníka",
+    },
+    {
+      en: "Canonical links, structured data for products and breadcrumbs, a sitemap and hreflang links between languages",
+      sk: "Kanonické odkazy, štruktúrované dáta pre produkty a navigáciu, sitemap a hreflang odkazy medzi jazykmi",
+    },
+    {
+      en: "Uploaded photos are re-encoded, scaled down and get WebP thumbnails; unexpected errors show a reference code that is also written to the log",
+      sk: "Nahrané fotky sa znovu zakódujú, zmenšia a dostanú WebP náhľady; neočakávané chyby ukážu referenčný kód, ktorý sa zapíše aj do logu",
     },
     {
       en: "I replaced the cart library with my own class after finding that saved carts could never be restored: PostgreSQL cut the serialized text at the first null byte",
@@ -182,6 +218,58 @@ export const smarttechEShop: Project = {
       caption: {
         en: "Product detail with quantity, live total and specifications.",
         sk: "Detail produktu s množstvom, priebežnou cenou a parametrami.",
+      },
+    },
+    {
+      src: "/images/projects/smarttech-e-shop/search.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Search suggestions for the misspelt query samsng, listing Samsung phones with photos and prices",
+        sk: "Návrhy vyhľadávania pre preklep samsng so zoznamom telefónov Samsung s fotkami a cenami",
+      },
+      caption: {
+        en: 'Live suggestions find Samsung phones even for "samsng".',
+        sk: "Návrhy počas písania nájdu telefóny Samsung aj pre „samsng“.",
+      },
+    },
+    {
+      src: "/images/projects/smarttech-e-shop/catalog-dark.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Smartphone catalog in the dark theme filtered to Apple, Google and Samsung, sorted by price",
+        sk: "Katalóg smartfónov v tmavom režime filtrovaný na Apple, Google a Samsung, zoradený podľa ceny",
+      },
+      caption: {
+        en: "The catalog in the dark theme, with brand filters shown as removable chips.",
+        sk: "Katalóg v tmavom režime, s filtrami značiek ako odstrániteľnými štítkami.",
+      },
+    },
+    {
+      src: "/images/projects/smarttech-e-shop/cart.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Shopping cart with one phone, a quantity selector, a discount code field and the total",
+        sk: "Košík s jedným telefónom, výberom množstva, poľom na zľavový kód a celkovou sumou",
+      },
+      caption: {
+        en: "The cart with a field for discount codes.",
+        sk: "Košík s poľom na zľavový kód.",
+      },
+    },
+    {
+      src: "/images/projects/smarttech-e-shop/admin-products.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Admin product list with search, sorting, thumbnails, prices and stock badges, and a demo admin notice",
+        sk: "Zoznam produktov v administrácii s vyhľadávaním, triedením, náhľadmi, cenami a stavom zásob a upozornením pre demo administrátora",
+      },
+      caption: {
+        en: "The admin product list, opened with a throwaway demo admin account.",
+        sk: "Zoznam produktov v administrácii, otvorený cez dočasný demo účet administrátora.",
       },
     },
   ],

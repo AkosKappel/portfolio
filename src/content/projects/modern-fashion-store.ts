@@ -60,11 +60,47 @@ export const modernFashionStore: Project = {
       en: "Charts can be switched to a table for screen readers",
       sk: "Grafy sa dajú prepnúť na tabuľku pre čítačky obrazovky",
     },
+    {
+      en: "Sizes and colours with their own stock, and discounts planned for a date range with a sale badge and price history",
+      sk: "Veľkosti a farby s vlastnými zásobami a zľavy naplánované na obdobie so značkou výpredaja a históriou cien",
+    },
+    {
+      en: "Edit history with versions you can restore, and Undo for a few minutes after deleting a product",
+      sk: "História úprav s verziami, ktoré sa dajú obnoviť, a možnosť vrátiť zmazaný produkt ešte niekoľko minút",
+    },
+    {
+      en: "An activity feed of edits, restocks and sales; a simulated customer buys something every few minutes",
+      sk: "Prehľad aktivity s úpravami, doplneniami zásob a predajmi; simulovaný zákazník každých pár minút niečo kúpi",
+    },
+    {
+      en: "See how many visitors are online, with a warning when someone else is editing the same product",
+      sk: "Počet ľudí online a upozornenie, keď ten istý produkt práve upravuje niekto iný",
+    },
+    {
+      en: "CSV import that checks every row before saving anything, CSV export of the inventory and transactions",
+      sk: "Import z CSV, ktorý skontroluje každý riadok skôr, než niečo uloží, a export skladu aj transakcií do CSV",
+    },
+    {
+      en: "A printable shelf label with a QR code for every product",
+      sk: "Štítok na regál s QR kódom pre každý produkt",
+    },
+    {
+      en: "Ctrl+K command palette, dark mode, English, German and Slovak, and installable as an app",
+      sk: "Príkazová paleta cez Ctrl+K, tmavý režim, angličtina, nemčina a slovenčina a inštalácia ako aplikácia",
+    },
   ],
   technical: [
     {
-      en: "About 240 tests in 32 test files; a pre-commit check runs the compiler with warnings as errors, Credo, the Sobelow security scanner and the tests",
-      sk: "Asi 240 testov v 32 súboroch; kontrola pred commitom spúšťa kompilátor s varovaniami ako chybami, Credo, bezpečnostný skener Sobelow a testy",
+      en: "About 320 tests in 46 test files; a pre-commit check runs the compiler with warnings as errors, Credo, the Sobelow security scanner and the tests",
+      sk: "Asi 320 testov v 46 súboroch; kontrola pred commitom spúšťa kompilátor s varovaniami ako chybami, Credo, bezpečnostný skener Sobelow a testy",
+    },
+    {
+      en: "GitHub Actions also runs Dialyzer, builds the release image, scans it with Trivy and publishes it to GHCR; the server only pulls and runs that image",
+      sk: "GitHub Actions spúšťa aj Dialyzer, zostaví release image, preskenuje ho nástrojom Trivy a nahrá do GHCR; server tento image len stiahne a spustí",
+    },
+    {
+      en: "Write requests rate-limited in nginx, an atomic cap on the number of products, Erlang distribution bound to localhost and an optional database role without superuser rights",
+      sk: "Obmedzený počet zapisovacích požiadaviek v nginx, atomický limit počtu produktov, Erlang distribúcia viazaná na localhost a voliteľná databázová rola bez práv superusera",
     },
     {
       en: "Security review: strict Content Security Policy, an allowlist for photo hosts, limits on WebSocket messages and inputs, server-side demo login with CSRF protection",
@@ -93,8 +129,8 @@ export const modernFashionStore: Project = {
       sk: "Odstránené nepoužívané knižnice",
     },
     {
-      en: "Demo data grew from 10 to 24 products with local photos and a year of sales",
-      sk: "Demo dáta narástli z 10 na 24 produktov s vlastnými fotkami a rokom predajov",
+      en: "Demo data grew from 10 to 34 products with local photos and a year of sales",
+      sk: "Demo dáta narástli z 10 na 34 produktov s vlastnými fotkami a rokom predajov",
     },
   ],
   versions: ["Elixir 1.20", "Phoenix 1.8", "LiveView 1.2", "PostgreSQL 18", "Tailwind CSS 4"],
@@ -162,21 +198,73 @@ export const modernFashionStore: Project = {
   gallery: [
     {
       src: "/images/projects/modern-fashion-store/inventory.webp",
-      width: 1600,
-      height: 1000,
+      width: 1280,
+      height: 800,
       alt: {
-        en: "Inventory table with filters, product photos, categories, prices and stock",
-        sk: "Tabuľka zásob s filtrami, fotkami produktov, kategóriami, cenami a skladom",
+        en: "Inventory table filtered by the winter tag, with product photos, categories, prices and stock badges",
+        sk: "Tabuľka skladu filtrovaná podľa štítku winter, s fotkami produktov, kategóriami, cenami a stavom zásob",
       },
       caption: {
-        en: "Inventory: search, filters by category, price, tags and stock, sorting, editing and deleting.",
-        sk: "Sklad: vyhľadávanie, filtre podľa kategórie, ceny, štítkov a zásob, triedenie, úpravy a mazanie.",
+        en: "Inventory filtered by a tag, with sale prices and low or empty stock marked.",
+        sk: "Sklad filtrovaný podľa štítku, so zľavnenými cenami a označenými nízkymi alebo minutými zásobami.",
+      },
+    },
+    {
+      src: "/images/projects/modern-fashion-store/product-drawer.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Product details of a trench coat in a side drawer over the inventory, with a 20 % discount and stock per size",
+        sk: "Detail trenčkotu v bočnom paneli nad skladom, so zľavou 20 % a zásobami podľa veľkostí",
+      },
+      caption: {
+        en: "A product opens in a side drawer that has its own link.",
+        sk: "Produkt sa otvorí v bočnom paneli, ktorý má vlastný odkaz.",
+      },
+    },
+    {
+      src: "/images/projects/modern-fashion-store/product-dark.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Product page of slim fit jeans in the dark theme with stock per size, a sales forecast and a QR code",
+        sk: "Stránka produktu džínsov v tmavom režime so zásobami podľa veľkostí, odhadom predaja a QR kódom",
+      },
+      caption: {
+        en: "Product page in the dark theme: stock per size, recent sales and a QR code for the shelf.",
+        sk: "Stránka produktu v tmavom režime: zásoby podľa veľkostí, nedávne predaje a QR kód na regál.",
+      },
+    },
+    {
+      src: "/images/projects/modern-fashion-store/shelf-label.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Printable shelf label with the product name, price, category and a QR code",
+        sk: "Štítok na regál na tlač s názvom produktu, cenou, kategóriou a QR kódom",
+      },
+      caption: {
+        en: "A printable shelf label; the QR code opens the product on a phone.",
+        sk: "Štítok na regál na tlač; QR kód otvorí produkt v mobile.",
+      },
+    },
+    {
+      src: "/images/projects/modern-fashion-store/transactions.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Transactions page with a month picker, sales totals and sales grouped by month",
+        sk: "Stránka transakcií s výberom mesiaca, súčtami predaja a predajmi zoskupenými po mesiacoch",
+      },
+      caption: {
+        en: "Transactions grouped by month, with totals and CSV export.",
+        sk: "Transakcie zoskupené po mesiacoch, so súčtami a exportom do CSV.",
       },
     },
     {
       src: "/images/projects/modern-fashion-store/statistics.webp",
-      width: 1600,
-      height: 1000,
+      width: 1280,
+      height: 800,
       alt: {
         en: "Sales statistics with monthly revenue bars and a revenue-by-category donut chart",
         sk: "Štatistiky predaja so stĺpcami mesačných tržieb a koláčovým grafom tržieb podľa kategórií",

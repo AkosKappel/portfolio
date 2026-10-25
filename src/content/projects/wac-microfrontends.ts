@@ -35,6 +35,22 @@ export const wacMicrofrontends: Project = {
       sk: "Formulár zariadenia a prevádzkový log s kontrolou v prehliadači aj v API",
     },
     {
+      en: "A change history of each device's fields, and log entries typed as purchase, installation, service, calibration or repair",
+      sk: "História zmien polí každého zariadenia a záznamy v logu podľa typu: kúpa, inštalácia, servis, kalibrácia alebo oprava",
+    },
+    {
+      en: "A service plan: a service log entry moves the next date, due devices show in a calendar and in the header, and the dates export to a calendar app",
+      sk: "Servisný plán: záznam o servise posunie ďalší termín, zariadenia na servis sú v kalendári aj v hlavičke a termíny sa dajú exportovať do kalendára",
+    },
+    {
+      en: "Departments with floor and head of department; one that still has devices can't be deleted",
+      sk: "Oddelenia s poschodím a vedúcim; oddelenie, ktoré ešte má zariadenia, sa nedá zmazať",
+    },
+    {
+      en: "A printable device label with a QR code, a Ctrl+K command palette, and an installable app whose visited pages work offline",
+      sk: "Štítok zariadenia na tlač s QR kódom, príkazová paleta cez Ctrl+K a inštalovateľná aplikácia, v ktorej navštívené stránky fungujú aj offline",
+    },
+    {
       en: "CSV export, Slovak and English, dark mode, and the API documentation in Swagger UI",
       sk: "Export do CSV, slovenčina a angličtina, tmavý režim a dokumentácia API v Swagger UI",
     },
@@ -55,6 +71,14 @@ export const wacMicrofrontends: Project = {
     {
       en: "Docker Compose with nginx (Content-Security-Policy, rate limits), a non-root API, structured JSON logs and a nightly demo reset",
       sk: "Docker Compose s nginx (Content-Security-Policy, obmedzenie požiadaviek), API bez root práv, štruktúrované JSON logy a nočný reset dema",
+    },
+    {
+      en: "The service plan is a second micro-frontend with its own Stencil build; the overview comes from one MongoDB aggregation and the list of due devices is also computed in the database",
+      sk: "Servisný plán je druhý micro-frontend s vlastným buildom v Stencile; prehľad pochádza z jednej agregácie v MongoDB a aj zoznam zariadení na servis sa počíta priamo v databáze",
+    },
+    {
+      en: "The API and the reset job connect to MongoDB as a user limited to their own database, not as root",
+      sk: "API aj úloha na reset sa pripájajú do MongoDB ako používateľ obmedzený na vlastnú databázu, nie ako root",
     },
   ],
   changelog: [
@@ -147,8 +171,8 @@ export const wacMicrofrontends: Project = {
       width: 1280,
       height: 800,
       alt: {
-        en: "Device list filtered to warranties ending within 90 days, sorted by warranty end",
-        sk: "Zoznam zariadení filtrovaný na záruky končiace do 90 dní, zoradený podľa konca záruky",
+        en: "Device list filtered to warranties ending within 90 days, sorted by warranty end, with service dates",
+        sk: "Zoznam zariadení filtrovaný na záruky končiace do 90 dní, zoradený podľa konca záruky, s termínmi servisu",
       },
       caption: {
         en: "The device list filtered to warranties ending soon; the filters stay in the URL.",
@@ -160,12 +184,51 @@ export const wacMicrofrontends: Project = {
       width: 1280,
       height: 800,
       alt: {
-        en: "Device page of an MRI scanner in the dark theme with its form and operations log",
-        sk: "Stránka zariadenia magnetickej rezonancie v tmavom režime s formulárom a prevádzkovým logom",
+        en: "Device page of an MRI scanner in the dark theme with its form, service interval and next service date",
+        sk: "Stránka zariadenia magnetickej rezonancie v tmavom režime s formulárom, servisným intervalom a dátumom ďalšieho servisu",
       },
       caption: {
-        en: "A device page in the dark theme, with the form and the operations log.",
-        sk: "Stránka zariadenia v tmavom režime, s formulárom a prevádzkovým logom.",
+        en: "A device page in the dark theme, with the form and its service plan.",
+        sk: "Stránka zariadenia v tmavom režime, s formulárom a servisným plánom.",
+      },
+    },
+    {
+      src: "/images/projects/wac-microfrontends/operations-log.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Change history and operations log of a device, with entries for purchase, installation and service",
+        sk: "História zmien a prevádzkový log zariadenia so záznamami o kúpe, inštalácii a servise",
+      },
+      caption: {
+        en: "The change history and the operations log, filterable by entry type.",
+        sk: "História zmien a prevádzkový log, ktorý sa dá filtrovať podľa typu záznamu.",
+      },
+    },
+    {
+      src: "/images/projects/wac-microfrontends/service-calendar.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Service plan as a month calendar with devices due for service and an export to calendar button",
+        sk: "Servisný plán ako mesačný kalendár so zariadeniami, ktorým sa blíži servis, a tlačidlom na export do kalendára",
+      },
+      caption: {
+        en: "The service plan as a calendar, with an export to calendar apps.",
+        sk: "Servisný plán ako kalendár, s exportom do kalendárových aplikácií.",
+      },
+    },
+    {
+      src: "/images/projects/wac-microfrontends/departments.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Departments as cards with code, floor, head of department and number of devices",
+        sk: "Oddelenia ako karty s kódom, poschodím, vedúcim oddelenia a počtom zariadení",
+      },
+      caption: {
+        en: "Departments with floor and head of department, each linking to its devices.",
+        sk: "Oddelenia s poschodím a vedúcim, každé s odkazom na svoje zariadenia.",
       },
     },
   ],

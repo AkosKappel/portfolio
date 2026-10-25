@@ -43,6 +43,26 @@ export const budgetMaster: Project = {
       sk: "Prehľady: peňažný tok, čistý majetok, kalendár výdavkov, mesačný prehľad a zhrnutie roka",
     },
     {
+      en: "Wallets in their own currencies; totals, budgets and reports convert them at ECB exchange rates",
+      sk: "Peňaženky vo vlastných menách; súčty, rozpočty a prehľady ich prepočítajú kurzami ECB",
+    },
+    {
+      en: "Optional help from Claude, off until you switch it on: read a receipt photo or a PDF bank statement, suggest a category, answer questions about your money or sum up a month",
+      sk: "Voliteľná pomoc od Clauda, vypnutá, kým ju nezapnete: prečíta fotku bločku alebo bankový výpis v PDF, navrhne kategóriu, odpovie na otázky o financiách alebo zhrnie mesiac",
+    },
+    {
+      en: "Bill reminders as push notifications and an optional weekly email summary",
+      sk: "Pripomienky platieb cez push notifikácie a voliteľné týždenné zhrnutie e-mailom",
+    },
+    {
+      en: "A log of who changed what, with restore for deleted transactions and undo for changes",
+      sk: "Záznam o tom, kto čo zmenil, s obnovením zmazaných transakcií a vrátením zmien",
+    },
+    {
+      en: "Export everything as JSON or CSV, or delete the account",
+      sk: "Export všetkých dát do JSON alebo CSV, prípadne zmazanie účtu",
+    },
+    {
       en: "English, Hungarian and Slovak, installable on a phone, light and dark mode",
       sk: "Angličtina, maďarčina a slovenčina, inštalovateľná do mobilu, svetlý a tmavý režim",
     },
@@ -55,6 +75,14 @@ export const budgetMaster: Project = {
     {
       en: "Better Auth with passkeys, two-step sign-in and social sign-in; strict Content Security Policy and CSRF checks",
       sk: "Better Auth s prístupovými kľúčmi, dvojstupňovým prihlásením a prihlásením cez sociálne siete; prísna Content Security Policy a ochrana proti CSRF",
+    },
+    {
+      en: "Sign-in attempts rate-limited with the limits kept in the database; invites are sent only from verified accounts, at most 10 an hour",
+      sk: "Obmedzený počet pokusov o prihlásenie s limitmi uloženými v databáze; pozvánky posielajú len overené účty, najviac 10 za hodinu",
+    },
+    {
+      en: "Changes reach other devices and members through Server-Sent Events; server-only modules keep the database driver out of the browser bundle",
+      sk: "Zmeny sa dostanú na ostatné zariadenia a k ostatným členom cez Server-Sent Events; moduly len pre server držia databázový ovládač mimo balíka pre prehliadač",
     },
     {
       en: "Playwright tests with axe accessibility checks on desktop and mobile; Docker image built in GitHub Actions and deployed with nightly database backups",
