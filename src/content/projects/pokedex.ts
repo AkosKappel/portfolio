@@ -31,12 +31,16 @@ export const pokedex: Project = {
       sk: "Skladač tímu, ktorý ukáže spoločné slabiny a pokrytie útokmi",
     },
     {
+      en: "Searchable lists of moves, abilities and items; each move and ability page lists the Pokémon that learn or have it",
+      sk: "Zoznamy útokov, schopností a predmetov s vyhľadávaním; stránka každého útoku a schopnosti ukáže Pokémonov, ktorí ho poznajú alebo ju majú",
+    },
+    {
       en: 'Compare up to three Pokémon, play "Who\'s that Pokémon?" and see the Pokémon of the day',
       sk: "Porovnanie až troch Pokémonov, hra „Who's that Pokémon?“ a Pokémon dňa",
     },
     {
-      en: "Names in nine languages, favourites with export and import, dark mode, keyboard shortcuts",
-      sk: "Mená v deviatich jazykoch, obľúbené s exportom a importom, tmavý režim, klávesové skratky",
+      en: "Names in nine languages, favourites with export and import, dark mode, keyboard shortcuts and a quick find (Ctrl+K)",
+      sk: "Mená v deviatich jazykoch, obľúbené s exportom a importom, tmavý režim, klávesové skratky a rýchle hľadanie (Ctrl+K)",
     },
   ],
   technical: [
@@ -55,6 +59,14 @@ export const pokedex: Project = {
     {
       en: "Unit tests in Vitest, end-to-end tests in Playwright with accessibility checks, Lighthouse in CI, deployed to GitHub Pages",
       sk: "Unit testy vo Vitest, end-to-end testy v Playwright s kontrolou prístupnosti, Lighthouse v CI, nasadenie na GitHub Pages",
+    },
+    {
+      en: "Pokémon details load from the PokéAPI REST endpoints when a page is opened, and the service worker caches them with the artwork for 30 days",
+      sk: "Detaily Pokémona sa načítajú z REST API PokéAPI až pri otvorení stránky a service worker ich spolu s ilustráciami uchová 30 dní",
+    },
+    {
+      en: "A script refreshes the data snapshots from PokéAPI through GraphQL when new games come out",
+      sk: "Skript obnoví dátové snímky z PokéAPI cez GraphQL, keď vyjdú nové hry",
     },
   ],
   changelog: [
@@ -117,6 +129,58 @@ export const pokedex: Project = {
       caption: {
         en: "Browsing all 1025 Pokémon in the dark theme.",
         sk: "Prehliadanie všetkých 1025 Pokémonov v tmavom režime.",
+      },
+    },
+    {
+      src: "/images/projects/pokedex/team-builder.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Team builder with six Pokémon and an analysis of weaknesses and coverage",
+        sk: "Skladač tímu so šiestimi Pokémonmi a rozborom slabín a pokrytia",
+      },
+      caption: {
+        en: "Team builder: shared weaknesses, attack coverage and a table per attack type.",
+        sk: "Skladač tímu: spoločné slabiny, pokrytie útokmi a tabuľka pre každý typ útoku.",
+      },
+    },
+    {
+      src: "/images/projects/pokedex/compare.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Venusaur, Charizard and Blastoise compared stat by stat",
+        sk: "Venusaur, Charizard a Blastoise porovnaní podľa štatistík",
+      },
+      caption: {
+        en: "Comparing up to three Pokémon, with the highest value in each row marked.",
+        sk: "Porovnanie až troch Pokémonov, najvyššia hodnota v každom riadku je označená.",
+      },
+    },
+    {
+      src: "/images/projects/pokedex/quiz.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Black silhouette of a Pokémon with a field for the guess",
+        sk: "Čierna silueta Pokémona s políčkom na tip",
+      },
+      caption: {
+        en: "Who's that Pokémon? Wrong guesses unlock hints, and the best streak is saved.",
+        sk: "Who's that Pokémon? Nesprávne tipy odomknú nápovedy a najlepšia séria sa uloží.",
+      },
+    },
+    {
+      src: "/images/projects/pokedex/move.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Flamethrower move page with power, accuracy and the Pokémon that learn it",
+        sk: "Stránka útoku Flamethrower so silou, presnosťou a Pokémonmi, ktorí ho poznajú",
+      },
+      caption: {
+        en: "Every move has its own page with its stats and the Pokémon that learn it.",
+        sk: "Každý útok má vlastnú stránku so štatistikami a Pokémonmi, ktorí ho poznajú.",
       },
     },
   ],

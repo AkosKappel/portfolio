@@ -38,6 +38,14 @@ export const feastFinder: Project = {
       en: "Favourites, share and print, dark mode, works offline",
       sk: "Obľúbené, zdieľanie a tlač, tmavý režim, funguje offline",
     },
+    {
+      en: "A weekly meal planner with lunch and dinner for each day; the whole week goes to the shopping list in one go",
+      sk: "Týždenný plánovač jedál s obedom a večerou na každý deň; celý týždeň sa dá naraz pridať do nákupného zoznamu",
+    },
+    {
+      en: "Voice search, a quick find (Ctrl+K), cuisines from 63 countries with flags and meals from your own country on the home page",
+      sk: "Hlasové vyhľadávanie, rýchle hľadanie (Ctrl+K), kuchyne zo 63 krajín s vlajkami a jedlá z vašej krajiny na úvodnej stránke",
+    },
   ],
   technical: [
     {
@@ -51,6 +59,14 @@ export const feastFinder: Project = {
     {
       en: "Prerendered pages with recipe structured data and a sitemap; a weekly CI run refreshes the index",
       sk: "Predgenerované stránky so štruktúrovanými dátami receptov a sitemap; CI raz týždenne obnoví index",
+    },
+    {
+      en: "API responses are cached in memory for 30 minutes and identical requests are merged",
+      sk: "Odpovede API sa ukladajú do pamäte na 30 minút a rovnaké požiadavky sa zlúčia do jednej",
+    },
+    {
+      en: "A small service worker keeps the app shell, recipes and images, so visited pages open offline",
+      sk: "Malý service worker uchováva základ aplikácie, recepty a obrázky, takže navštívené stránky sa otvoria aj offline",
     },
   ],
   changelog: [
@@ -132,6 +148,45 @@ export const feastFinder: Project = {
       caption: {
         en: "Cooking mode: one step at a time, with timers and read-aloud.",
         sk: "Režim varenia: jeden krok naraz, s časovačmi a čítaním nahlas.",
+      },
+    },
+    {
+      src: "/images/projects/feast-finder/planner.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Weekly meal planner with meals for lunch and dinner",
+        sk: "Týždenný plánovač s jedlami na obed a večeru",
+      },
+      caption: {
+        en: "Meal planner: lunch and dinner for each day, saved in the browser.",
+        sk: "Plánovač jedál: obed a večera na každý deň, uložené v prehliadači.",
+      },
+    },
+    {
+      src: "/images/projects/feast-finder/cuisines.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Grid of countries with flags and meal counts",
+        sk: "Mriežka krajín s vlajkami a počtom jedál",
+      },
+      caption: {
+        en: "Cuisines from 63 countries, each with its flag.",
+        sk: "Kuchyne zo 63 krajín, každá so svojou vlajkou.",
+      },
+    },
+    {
+      src: "/images/projects/feast-finder/ingredients-dark.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Ingredient cards with photos in the dark theme",
+        sk: "Karty surovín s fotkami v tmavom režime",
+      },
+      caption: {
+        en: "Ingredients by letter and type, in the dark theme.",
+        sk: "Suroviny podľa písmena a typu, v tmavom režime.",
       },
     },
   ],

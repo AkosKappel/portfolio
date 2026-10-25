@@ -38,6 +38,14 @@ export const fakeshop: Project = {
       en: "Dark mode, image transitions from card to product page, installable as an app",
       sk: "Tmavý režim, prechod obrázka z karty na stránku produktu, inštalácia ako aplikácia",
     },
+    {
+      en: "Optional demo sign-in with DummyJSON accounts; checkout then fills in the account's address",
+      sk: "Voliteľné demo prihlásenie s účtami z DummyJSON; pokladňa potom vyplní adresu z účtu",
+    },
+    {
+      en: "Quick find (Ctrl+K) to jump to a page or category or open a product from the keyboard",
+      sk: "Rýchle hľadanie (Ctrl+K): z klávesnice sa dá prejsť na stránku alebo kategóriu či otvoriť produkt",
+    },
   ],
   technical: [
     {
@@ -51,6 +59,14 @@ export const fakeshop: Project = {
     {
       en: "Lighthouse CI fails below 100 for accessibility, best practices and SEO; deployed to GitHub Pages with GitHub Actions",
       sk: "Lighthouse CI zlyhá pod 100 bodov v prístupnosti, osvedčených postupoch a SEO; nasadenie na GitHub Pages cez GitHub Actions",
+    },
+    {
+      en: "The catalog is fetched once and cached for the session, so search, filters, sorting and paging run in the browser",
+      sk: "Katalóg sa stiahne raz a ostane v pamäti počas relácie, takže vyhľadávanie, filtre, triedenie a stránkovanie bežia v prehliadači",
+    },
+    {
+      en: "Cart, wishlist, orders and theme are small stores saved to localStorage and read with useSyncExternalStore; the storage event keeps open tabs in sync",
+      sk: "Košík, zoznam želaní, objednávky a téma sú malé úložiská v localStorage čítané cez useSyncExternalStore; udalosť storage udržiava otvorené karty v synchronizácii",
     },
   ],
   changelog: [
@@ -120,6 +136,58 @@ export const fakeshop: Project = {
       caption: {
         en: "Checkout with card number validation and delivery dates in business days.",
         sk: "Pokladňa s kontrolou čísla karty a termínom doručenia v pracovných dňoch.",
+      },
+    },
+    {
+      src: "/images/projects/fakeshop/product.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Product page with a large photo, price, stock and add to cart button",
+        sk: "Stránka produktu s veľkou fotkou, cenou, dostupnosťou a tlačidlom do košíka",
+      },
+      caption: {
+        en: "Product page with the discount, stock, shipping and return details.",
+        sk: "Stránka produktu so zľavou, dostupnosťou, dopravou a podmienkami vrátenia.",
+      },
+    },
+    {
+      src: "/images/projects/fakeshop/compare.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Three beauty products compared side by side",
+        sk: "Tri kozmetické produkty porovnané vedľa seba",
+      },
+      caption: {
+        en: "Comparing up to three products, with the best price and rating highlighted.",
+        sk: "Porovnanie až troch produktov so zvýraznenou najlepšou cenou a hodnotením.",
+      },
+    },
+    {
+      src: "/images/projects/fakeshop/cart.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Cart with two items, a promo code field and the order summary",
+        sk: "Košík s dvoma položkami, políčkom na zľavový kód a súhrnom objednávky",
+      },
+      caption: {
+        en: "Cart with a promo code field and the free delivery threshold.",
+        sk: "Košík s políčkom na zľavový kód a hranicou dopravy zadarmo.",
+      },
+    },
+    {
+      src: "/images/projects/fakeshop/quick-find-dark.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Quick find dialog in the dark theme with results for “phone”",
+        sk: "Dialóg rýchleho hľadania v tmavom režime s výsledkami pre „phone“",
+      },
+      caption: {
+        en: "Quick find (Ctrl+K) in the dark theme: categories and products as you type.",
+        sk: "Rýchle hľadanie (Ctrl+K) v tmavom režime: kategórie a produkty počas písania.",
       },
     },
   ],

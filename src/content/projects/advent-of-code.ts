@@ -30,6 +30,14 @@ export const adventOfCode: Project = {
       en: "Hover or click a door to preview the puzzle and open its solution; the arrow keys work too",
       sk: "Po prejdení myšou alebo kliknutí na okienko sa zobrazí náhľad úlohy a odkaz na riešenie; fungujú aj šípky",
     },
+    {
+      en: "A table of all years with stars, lines of code and the live CI status of each year's example tests",
+      sk: "Tabuľka všetkých ročníkov s hviezdami, počtom riadkov kódu a aktuálnym stavom testov na príkladoch v CI",
+    },
+    {
+      en: "Light and dark theme that follows the system setting",
+      sk: "Svetlá a tmavá téma podľa nastavenia systému",
+    },
   ],
   technical: [
     {
@@ -43,6 +51,10 @@ export const adventOfCode: Project = {
     {
       en: "A Python script builds the dashboard from the README and the solution files, and a workflow deploys it on every push",
       sk: "Python skript zostaví nástenku z README a súborov s riešeniami a workflow ju nasadí pri každom pushi",
+    },
+    {
+      en: "Each year has its own README with the toolchain, how to run a day and its tests, and a day index",
+      sk: "Každý ročník má vlastné README s nástrojmi, návodom na spustenie dňa a jeho testov a zoznamom dní",
     },
   ],
   kind: "personal",
@@ -85,6 +97,32 @@ export const adventOfCode: Project = {
       caption: {
         en: "The official calendar for 2020, completed with all 50 stars.",
         sk: "Oficiálny kalendár ročníka 2020, dokončený so všetkými 50 hviezdami.",
+      },
+    },
+    {
+      src: "/images/projects/advent-of-code/dashboard-door.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Dashboard with a selected door and the preview of its puzzle",
+        sk: "Nástenka s vybraným okienkom a náhľadom jeho úlohy",
+      },
+      caption: {
+        en: "A selected door shows the puzzle title, the solution length and links to the puzzle, solution and tests.",
+        sk: "Vybrané okienko ukáže názov úlohy, dĺžku riešenia a odkazy na zadanie, riešenie a testy.",
+      },
+    },
+    {
+      src: "/images/projects/advent-of-code/dashboard-light.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Advent calendar of all eight years in the light theme",
+        sk: "Adventný kalendár všetkých ôsmich ročníkov vo svetlej téme",
+      },
+      caption: {
+        en: "The calendar in the light theme; each row is one year in a different language.",
+        sk: "Kalendár vo svetlej téme; každý riadok je jeden ročník v inom jazyku.",
       },
     },
   ],
