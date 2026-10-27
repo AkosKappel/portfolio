@@ -30,8 +30,8 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 
 ## Screenshots
 
-| Case study | Projects archive | CV | Mobile |
-| --- | --- | --- | --- |
+| Case study                                                         | Projects archive                                               | CV                                 | Mobile                                                           |
+| ------------------------------------------------------------------ | -------------------------------------------------------------- | ---------------------------------- | ---------------------------------------------------------------- |
 | ![Modern Fashion Store case study](.github/readme/case-study.webp) | ![Projects archive in table view](.github/readme/archive.webp) | ![HTML CV](.github/readme/cv.webp) | ![Home page on a phone in dark mode](.github/readme/mobile.webp) |
 
 ## Stack
@@ -54,19 +54,19 @@ npm install
 npm run dev
 ```
 
-| Script | What it does |
-| --- | --- |
-| `npm run lint` | Biome lint and format check |
-| `npm run check` | Biome with safe fixes applied |
-| `npm run typecheck` | TypeScript |
-| `npm test` | Vitest content and helper tests |
-| `npm run check:links` | Requests every external link in `src/content/` (projects, demos, profiles, theses); also runs weekly on GitHub |
-| `npm run build` | Production build |
-| `npm run analyze` | Turbopack bundle analyzer in the browser (per route, client and server) |
-| `npm run test:e2e` | Playwright against the production build (run `npm run build` first) |
-| `npm run activity` | Refreshes `src/content/activity.json` for the activity page (see below) |
-| `npm run lighthouse` | Lighthouse CI against the production build, with a 300 KB budget for compressed JavaScript per page |
-| `npm run lighthouse -- --config=lighthouserc.mobile.json` | Mobile Lighthouse report (throttled phone); CI shows its scores in the run summary without failing |
+| Script                                                    | What it does                                                                                                   |
+| --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `npm run lint`                                            | Biome lint and format check                                                                                    |
+| `npm run check`                                           | Biome with safe fixes applied                                                                                  |
+| `npm run typecheck`                                       | TypeScript                                                                                                     |
+| `npm test`                                                | Vitest content and helper tests                                                                                |
+| `npm run check:links`                                     | Requests every external link in `src/content/` (projects, demos, profiles, theses); also runs weekly on GitHub |
+| `npm run build`                                           | Production build                                                                                               |
+| `npm run analyze`                                         | Turbopack bundle analyzer in the browser (per route, client and server)                                        |
+| `npm run test:e2e`                                        | Playwright against the production build (run `npm run build` first)                                            |
+| `npm run activity`                                        | Refreshes `src/content/activity.json` for the activity page (see below)                                        |
+| `npm run lighthouse`                                      | Lighthouse CI against the production build, with a 300 KB budget for compressed JavaScript per page            |
+| `npm run lighthouse -- --config=lighthouserc.mobile.json` | Mobile Lighthouse report (throttled phone); CI shows its scores in the run summary without failing             |
 
 GitHub Actions runs all of these on every push and pull request. Vercel builds and deploys `main`.
 
@@ -74,11 +74,11 @@ GitHub Actions runs all of these on every push and pull request. Vercel builds a
 
 The form on `/contact` sends e-mail through the [Resend](https://resend.com) HTTP API from a Server Action. Set these environment variables in Vercel (or `.env.local`):
 
-| Variable | Required | Default |
-| --- | --- | --- |
-| `RESEND_API_KEY` | yes | none; without it the form answers with an error and points to the e-mail address |
-| `CONTACT_TO_EMAIL` | no | the address in `src/content/site.ts` |
-| `CONTACT_FROM_EMAIL` | no | `Portfolio <onboarding@resend.dev>`, which only delivers to the Resend account owner; set a sender on a verified domain otherwise |
+| Variable             | Required | Default                                                                                                                           |
+| -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `RESEND_API_KEY`     | yes      | none; without it the form answers with an error and points to the e-mail address                                                  |
+| `CONTACT_TO_EMAIL`   | no       | the address in `src/content/site.ts`                                                                                              |
+| `CONTACT_FROM_EMAIL` | no       | `Portfolio <onboarding@resend.dev>`, which only delivers to the Resend account owner; set a sender on a verified domain otherwise |
 
 Spam protection: a hidden honeypot field and at most five messages per IP address in ten minutes (counted per server instance).
 
