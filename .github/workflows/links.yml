@@ -1,7 +1,7 @@
 name: Links
 
 # External sites go down on their own schedule, so this runs weekly and on demand
-# instead of blocking pushes.
+# instead of blocking pushes. A broken link only warns, since the fix is usually on the other site.
 on:
   schedule:
     - cron: "0 6 * * 1"
@@ -20,4 +20,4 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
-      - run: npm run check:links
+      - run: npm run check:links || echo "::warning title=Broken external links::Some external links failed; see the test output for which ones."
