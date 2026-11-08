@@ -8,6 +8,7 @@ import { feastFinder } from "./feast-finder";
 import { glaucomaSegmentation } from "./glaucoma-segmentation";
 import { iridescent } from "./iridescent";
 import { modernFashionStore } from "./modern-fashion-store";
+import { oriel } from "./oriel";
 import { petguide } from "./petguide";
 import { pokedex } from "./pokedex";
 import { sketchbook } from "./sketchbook";
@@ -23,6 +24,7 @@ export const projects: Project[] = [
   fakeshop,
   feastFinder,
   budgetMaster,
+  oriel,
   wacMicrofrontends,
   petguide,
   conicSectionsGenerator,
