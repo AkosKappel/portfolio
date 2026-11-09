@@ -13,6 +13,7 @@
     "check": "biome check --write",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run --project unit",
+    "cv:tex": "vitest run --project unit --update src/lib/cv-latex.test.ts",
     "check:links": "vitest run --project links",
     "test:e2e": "playwright test",
     "lighthouse": "lhci autorun",

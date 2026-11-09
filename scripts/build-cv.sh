@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# Builds both CVs from LaTeX, copies the PDFs to public/ and renders the page images
-# that the CV viewer shows on phones and tablets.
+# Generates both CVs from src/content, builds them with LaTeX, copies the PDFs to public/
+# and renders the page images that the CV viewer shows on phones and tablets.
 set -euo pipefail
 cd "$(dirname "$0")/.."
+
+pnpm cv:tex
 
 (cd latex && latexmk -pdf -interaction=nonstopmode -quiet main-english.tex main-slovak.tex)
 

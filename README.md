@@ -135,7 +135,9 @@ Projects without a screenshot get a generated placeholder.
 
 ## CV
 
-The CV source is LaTeX in `latex/` (`main-english.tex`, `main-slovak.tex`, A4, one page, shared layout in `cv-style.tex`). Build both PDFs, copy them to `public/` and render the page images for the viewer (needs `latexmk`, `pdftoppm` and ImageMagick):
+The PDF CV is generated from the same content as the site: contacts, jobs, skills, languages, degrees and project links come from `src/content/`, and the short wording that only the CV uses (profile, condensed bullets, project one-liners) lives in `src/content/cv.ts`. `src/lib/cv-latex.ts` renders it into `latex/main-english.tex` and `latex/main-slovak.tex` (A4, one page, shared layout in `cv-style.tex`). Do not edit those two files by hand: `pnpm cv:tex` rewrites them, and `pnpm test` fails when they are out of date.
+
+Generate the LaTeX, build both PDFs, copy them to `public/` and render the page images for the viewer (needs `latexmk`, `pdftoppm` and ImageMagick):
 
 ```bash
 ./scripts/build-cv.sh
