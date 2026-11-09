@@ -16,6 +16,7 @@ import {
   quartiles,
   shades,
   summarize,
+  yearTotals,
 } from "@/lib/activity";
 
 // Creating a formatter is slow, and the calendar labels a few hundred days on every render.
@@ -42,6 +43,7 @@ export function ActivityDashboard({
   const locale = useLocale();
   const [year, setYear] = useState<number | null>(null);
   const [sourceIds, setSourceIds] = useState(data.sources.map((source) => source.id));
+  const [category, setCategory] = useState<Category | null>(null);
 
   const end =
     year && year < Number(data.generatedAt.slice(0, 4)) ? `${year}-12-31` : data.generatedAt;
@@ -50,7 +52,7 @@ export function ActivityDashboard({
   // Hovering previews a day in the details; clicking or the arrow keys pin it.
   const [hovered, setHovered] = useState<string | null>(null);
   const shown = hovered ?? selected;
-  const summary = summarize(data, sourceIds, start, end);
+  const summary = summarize(data, sourceIds, start, end, category);
   // A year always spans its full grid, so the current one doesn't start as a few lone columns.
   const weeks = calendarWeeks(start, year ? `${year}-12-31` : end);
 
@@ -117,9 +119,15 @@ export function ActivityDashboard({
   const dayCounts = data.days[shown] ?? {};
   const maxCategory = Math.max(1, ...Object.values(summary.byCategory));
   const maxSource = Math.max(1, ...Object.values(summary.bySource));
+  const perYear = yearTotals(data, sourceIds, category);
+  const maxYear = Math.max(1, ...perYear.values());
+  const period = year ? t("inYear", { year }) : t("inLastYear");
+  const rowButton =
+    "text-left underline-offset-4 hover:underline disabled:no-underline disabled:opacity-60 aria-pressed:font-semibold aria-pressed:underline";
 
   return (
-    <div className="grid gap-8">
+    // One explicit column, so a wide chart scrolls inside its card instead of widening the page.
+    <div className="grid grid-cols-1 gap-8">
       <div className="grid gap-4 rounded-2xl border border-line bg-surface p-4 sm:p-6">
         <fieldset className="flex flex-wrap items-center gap-2">
           <legend className="mb-2 text-sm font-medium text-muted">{t("range")}</legend>
@@ -167,11 +175,9 @@ export function ActivityDashboard({
 
       <section aria-labelledby="calendar-heading" className="min-w-0">
         <h2 id="calendar-heading" className="text-2xl font-semibold">
-          {t("total", {
-            count: summary.total,
-            total: number.format(summary.total),
-            period: year ? t("inYear", { year }) : t("inLastYear"),
-          })}
+          {category
+            ? `${t(`counts.${category}`, { count: summary.total })} ${period}`
+            : t("total", { count: summary.total, total: number.format(summary.total), period })}
         </h2>
         <div className="mt-5 rounded-2xl border border-line bg-surface p-4 sm:p-6">
           <div ref={scroller} className="overflow-x-auto">
@@ -306,19 +312,31 @@ export function ActivityDashboard({
         ))}
       </dl>
 
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <section aria-labelledby="by-type">
           <h2 id="by-type" className="text-2xl font-semibold">
             {t("byType")}
           </h2>
+          <p className="mt-1 text-sm text-muted">{t("byTypeHint")}</p>
           <Bars
-            rows={categories.map((category: Category) => ({
-              key: category,
-              label: t(`categories.${category}`),
-              value: summary.byCategory[category],
+            rows={categories.map((type) => ({
+              key: type,
+              label: (
+                <button
+                  type="button"
+                  aria-pressed={category === type}
+                  disabled={!summary.byCategory[type] && category !== type}
+                  onClick={() => setCategory(category === type ? null : type)}
+                  className={rowButton}
+                >
+                  {t(`categories.${type}`)}
+                </button>
+              ),
+              value: summary.byCategory[type],
             }))}
             max={maxCategory}
             format={number.format}
+            selected={category}
           />
         </section>
         <section aria-labelledby="by-source">
@@ -343,6 +361,31 @@ export function ActivityDashboard({
             }))}
             max={maxSource}
             format={number.format}
+          />
+        </section>
+        <section aria-labelledby="by-year">
+          <h2 id="by-year" className="text-2xl font-semibold">
+            {t("byYear")}
+          </h2>
+          <p className="mt-1 text-sm text-muted">{t("byYearHint")}</p>
+          <Bars
+            rows={years.map((option) => ({
+              key: String(option),
+              label: (
+                <button
+                  type="button"
+                  aria-pressed={year === option}
+                  onClick={() => selectRange(year === option ? null : option)}
+                  className={rowButton}
+                >
+                  {option}
+                </button>
+              ),
+              value: perYear.get(option) ?? 0,
+            }))}
+            max={maxYear}
+            format={number.format}
+            selected={year ? String(year) : null}
           />
         </section>
       </div>
@@ -371,10 +414,13 @@ function Bars({
   rows,
   max,
   format,
+  selected = null,
 }: {
   rows: { key: string; label: React.ReactNode; value: number }[];
   max: number;
   format: (value: number) => string;
+  /** Row to emphasise; the others fade while one is selected. */
+  selected?: string | null;
 }) {
   return (
     <ul className="mt-4 grid gap-3">
@@ -386,7 +432,7 @@ function Bars({
           </div>
           <div className="mt-1 h-2 rounded-full bg-ink/8">
             <div
-              className="h-full rounded-full bg-accent"
+              className={`h-full rounded-full bg-accent transition-opacity ${selected && selected !== row.key ? "opacity-30" : ""}`}
               style={{ width: `${(row.value / max) * 100}%` }}
             />
           </div>
@@ -425,10 +471,10 @@ function CommitPattern({
             })
           : t("pattern.empty")}
       </p>
-      <div className="mt-4 overflow-x-auto rounded-2xl border border-line bg-surface p-4 sm:p-6">
+      <div className="mt-4 rounded-2xl border border-line bg-surface p-4 sm:p-6">
         <div
           aria-hidden
-          className="grid min-w-[36rem] gap-[3px] text-xs text-muted"
+          className="grid gap-px text-xs text-muted sm:gap-[3px]"
           style={{ gridTemplateColumns: "auto repeat(24, minmax(0, 1fr))" }}
         >
           {grid.map((row, weekday) => [

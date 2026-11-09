@@ -9,6 +9,7 @@ import {
   languageYears,
   level,
   summarize,
+  yearTotals,
 } from "./activity";
 
 const data: ActivityData = {
@@ -77,6 +78,28 @@ describe("summarize", () => {
 
   it("ignores days outside the range", () => {
     expect(summarize(data, ["github", "work"], "2026-10-12", "2026-10-13").total).toBe(1);
+  });
+
+  it("limits everything but the type breakdown to one type", () => {
+    const commits = summarize(data, ["github", "work"], "2026-10-01", "2026-10-16", "commits");
+    expect(commits.total).toBe(14);
+    expect(commits.activeDays).toBe(3);
+    expect(commits.bySource).toEqual({ github: 3, work: 11 });
+    expect(commits.longestStreak).toBe(2);
+    expect(commits.byCategory).toMatchObject({ commits: 14, reviews: 1, issues: 1 });
+  });
+});
+
+describe("yearTotals", () => {
+  it("sums each year for the selected sources and type", () => {
+    const withOldDay = { ...data, days: { ...data.days, "2025-03-01": { work: { commits: 2 } } } };
+    expect(yearTotals(withOldDay, ["github", "work"], null)).toEqual(
+      new Map([
+        [2026, 17],
+        [2025, 2],
+      ]),
+    );
+    expect(yearTotals(withOldDay, ["github"], "commits")).toEqual(new Map([[2026, 3]]));
   });
 });
 

@@ -122,6 +122,18 @@ test("only home-server demos warn that they may be offline", async ({ page }) =>
   await expect(note).toHaveCount(0);
 });
 
+test("activity filters by type and year without widening the page", async ({ page }) => {
+  await page.goto("/activity");
+  const total = page.locator("#calendar-heading");
+  await page.getByRole("button", { name: "Commits", exact: true }).click();
+  await expect(total).toContainText(/commits? in the last 12 months/);
+  await page.getByRole("region", { name: "By year" }).getByRole("button").last().click();
+  await expect(total).toContainText(/commits? in \d{4}/);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+    await page.evaluate(() => document.documentElement.clientWidth),
+  );
+});
+
 test("theme choice is remembered", async ({ page }) => {
   await page.emulateMedia({ colorScheme: "light" });
   await page.goto("/");

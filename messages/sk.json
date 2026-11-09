@@ -187,6 +187,9 @@
     "days": "{count, plural, one {# deň} few {# dni} other {# dní}}",
     "byType": "Podľa typu",
     "bySource": "Podľa zdroja",
+    "byTypeHint": "Vyberte typ a kalendár so súčtami ukáže len ten.",
+    "byYear": "Podľa roka",
+    "byYearHint": "Vyberte rok a kalendár ho zobrazí.",
     "categories": {
       "commits": "Commity",
       "pullRequests": "Pull a merge requesty",
@@ -201,7 +204,7 @@
       "reviews": "{count, plural, one {# revízia} few {# revízie} other {# revízií}}",
       "issues": "{count, plural, one {# issue} other {# issues}}",
       "comments": "{count, plural, one {# komentár} few {# komentáre} other {# komentárov}}",
-      "other": "{count, plural, one {# ďalšia} few {# ďalšie} other {# ďalších}}"
+      "other": "{count, plural, one {# ďalší príspevok} few {# ďalšie príspevky} other {# ďalších príspevkov}}"
     },
     "updated": "Aktualizované {date}. Zozbierané z API GitHubu a GitLabu a z mojich pracovných repozitárov. GitHub a GitLab počítajú príspevky trochu inak, takže súčty sú približné.",
     "pattern": {

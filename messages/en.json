@@ -187,6 +187,9 @@
     "days": "{count, plural, one {# day} other {# days}}",
     "byType": "By type",
     "bySource": "By source",
+    "byTypeHint": "Select a type to show only it in the calendar and totals.",
+    "byYear": "By year",
+    "byYearHint": "Select a year to show it in the calendar.",
     "categories": {
       "commits": "Commits",
       "pullRequests": "Pull and merge requests",
@@ -201,7 +204,7 @@
       "reviews": "{count, plural, one {# review} other {# reviews}}",
       "issues": "{count, plural, one {# issue} other {# issues}}",
       "comments": "{count, plural, one {# comment} other {# comments}}",
-      "other": "{count, plural, one {# other} other {# other}}"
+      "other": "{count, plural, one {# other contribution} other {# other contributions}}"
     },
     "updated": "Updated {date}. Collected from the GitHub and GitLab APIs and from my work repositories. GitHub and GitLab count contributions a little differently, so totals are approximate.",
     "pattern": {

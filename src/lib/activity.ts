@@ -39,6 +39,11 @@ export function sum(counts: Counts) {
   return categories.reduce((total, category) => total + (counts[category] ?? 0), 0);
 }
 
+/** One type's count, or every type's when `category` is null. */
+function count(counts: Counts, category: Category | null) {
+  return category ? (counts[category] ?? 0) : sum(counts);
+}
+
 /** Columns of seven days, Monday first; days outside the range are null. */
 export function calendarWeeks(start: string, end: string) {
   const weekday = (new Date(`${start}T00:00:00Z`).getUTCDay() + 6) % 7;
@@ -54,8 +59,17 @@ export function calendarWeeks(start: string, end: string) {
   return weeks;
 }
 
-/** Totals, streaks and breakdowns for the selected sources between two dates. */
-export function summarize(data: ActivityData, sourceIds: string[], start: string, end: string) {
+/**
+ * Totals, streaks and breakdowns for the selected sources between two dates. A `category` limits
+ * everything except `byCategory` to that type, so the type breakdown stays complete.
+ */
+export function summarize(
+  data: ActivityData,
+  sourceIds: string[],
+  start: string,
+  end: string,
+  category: Category | null = null,
+) {
   const totals = new Map<string, number>();
   const byCategory = Object.fromEntries(categories.map((category) => [category, 0])) as Record<
     Category,
@@ -68,9 +82,11 @@ export function summarize(data: ActivityData, sourceIds: string[], start: string
     for (const id of sourceIds) {
       const counts = sources[id];
       if (!counts) continue;
-      for (const category of categories) byCategory[category] += counts[category] ?? 0;
-      bySource[id] += sum(counts);
-      totals.set(date, (totals.get(date) ?? 0) + sum(counts));
+      for (const type of categories) byCategory[type] += counts[type] ?? 0;
+      const value = count(counts, category);
+      if (!value) continue;
+      bySource[id] += value;
+      totals.set(date, (totals.get(date) ?? 0) + value);
     }
   }
 
@@ -103,6 +119,18 @@ export function summarize(data: ActivityData, sourceIds: string[], start: string
     bySource,
     thresholds: quartiles(active),
   };
+}
+
+/** Contributions per calendar year for the selected sources and type. */
+export function yearTotals(data: ActivityData, sourceIds: string[], category: Category | null) {
+  const totals = new Map<number, number>();
+  for (const [date, sources] of Object.entries(data.days)) {
+    const year = Number(date.slice(0, 4));
+    for (const id of sourceIds) {
+      if (sources[id]) totals.set(year, (totals.get(year) ?? 0) + count(sources[id], category));
+    }
+  }
+  return totals;
 }
 
 /** Quartiles of the non-zero values, so one busy day doesn't wash out the rest of a heatmap. */
