@@ -117,7 +117,7 @@ export const oriel: Project = {
     "Docker",
   ],
   repoUrl: "https://github.com/AkosKappel/oriel",
-  liveUrl: "https://oriel.tailb52c43.ts.net",
+  liveUrl: "https://oriel.akoskappel.dev",
   image: {
     src: "/images/projects/oriel-2026.webp",
     width: 1600,

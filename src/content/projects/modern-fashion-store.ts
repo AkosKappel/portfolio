@@ -148,7 +148,7 @@ export const modernFashionStore: Project = {
     "Tailscale",
   ],
   repoUrl: "https://github.com/AkosKappel/clothing-store",
-  liveUrl: "https://tagline.tailb52c43.ts.net",
+  liveUrl: "https://tagline.akoskappel.dev",
   image: {
     src: "/images/projects/modern-fashion-store-dashboard-2026.webp",
     width: 1600,

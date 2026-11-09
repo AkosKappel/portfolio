@@ -131,7 +131,7 @@ export const budgetMaster: Project = {
     "Docker",
   ],
   repoUrl: "https://github.com/AkosKappel/BudgetMaster",
-  liveUrl: "https://budgetmaster.tailb52c43.ts.net",
+  liveUrl: "https://budgetmaster.akoskappel.dev",
   image: {
     src: "/images/projects/budget-master-2026.webp",
     width: 1600,
