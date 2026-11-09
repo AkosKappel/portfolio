@@ -72,6 +72,7 @@ test("language switcher keeps the current page", async ({ page }) => {
 
 test("project search tolerates typos and keeps state in the URL", async ({ page }) => {
   await page.goto("/projects");
+  const total = await page.getByText(/^\d+ projects$/).textContent();
   await page.getByLabel("Search projects").fill("phoenx");
   await expect(page.getByRole("main").getByRole("heading", { level: 2 })).toHaveText([
     "Modern Fashion Store",
@@ -81,7 +82,7 @@ test("project search tolerates typos and keeps state in the URL", async ({ page 
   await page.reload();
   await expect(page.getByLabel("Search projects")).toHaveValue("phoenx");
   await page.getByRole("button", { name: "Clear filters" }).click();
-  await expect(page.getByText("14 projects")).toBeVisible();
+  await expect(page.getByText(total ?? "")).toBeVisible();
 });
 
 test("area filter and table view sort projects", async ({ page }) => {
