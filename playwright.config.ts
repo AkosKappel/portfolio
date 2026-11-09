@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
-// End-to-end tests run against the production build (`npm run build` first).
+// End-to-end tests run against the production build (`pnpm build` first).
 export default defineConfig({
   testDir: "test/e2e",
   timeout: 60_000,
@@ -20,7 +20,7 @@ export default defineConfig({
     { name: "mobile", use: { ...devices["Pixel 7"] } },
   ],
   webServer: {
-    command: "npx next start --port 3200",
+    command: "pnpm exec next start --port 3200",
     url: "http://localhost:3200",
     reuseExistingServer: !process.env.CI,
   },

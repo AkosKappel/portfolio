@@ -1,7 +1,7 @@
 {
   "ci": {
     "collect": {
-      "startServerCommand": "npx next start --port 3400",
+      "startServerCommand": "pnpm exec next start --port 3400",
       "startServerReadyPattern": "Ready",
       "url": [
         "http://localhost:3400/",

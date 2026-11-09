@@ -15,9 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 12
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
-          cache: npm
-      - run: npm ci
-      - run: npm run check:links || echo "::warning title=Broken external links::Some external links failed; see the test output for which ones."
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check:links || echo "::warning title=Broken external links::Some external links failed; see the test output for which ones."

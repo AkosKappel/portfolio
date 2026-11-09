@@ -47,26 +47,26 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 
 ## Development
 
-Requires Node 24 (see `.nvmrc`).
+Requires Node 24 (see `.nvmrc`) and pnpm.
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
-| Script                                                    | What it does                                                                                                   |
-| --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `npm run lint`                                            | Biome lint and format check                                                                                    |
-| `npm run check`                                           | Biome with safe fixes applied                                                                                  |
-| `npm run typecheck`                                       | TypeScript                                                                                                     |
-| `npm test`                                                | Vitest content and helper tests                                                                                |
-| `npm run check:links`                                     | Requests every external link in `src/content/` (projects, demos, profiles, theses); also runs weekly on GitHub |
-| `npm run build`                                           | Production build                                                                                               |
-| `npm run analyze`                                         | Turbopack bundle analyzer in the browser (per route, client and server)                                        |
-| `npm run test:e2e`                                        | Playwright against the production build (run `npm run build` first)                                            |
-| `npm run activity`                                        | Refreshes `src/content/activity.json` for the activity page (see below)                                        |
-| `npm run lighthouse`                                      | Lighthouse CI against the production build, with a 300 KB budget for compressed JavaScript per page            |
-| `npm run lighthouse -- --config=lighthouserc.mobile.json` | Mobile Lighthouse report (throttled phone); CI shows its scores in the run summary without failing             |
+| Script                                              | What it does                                                                                                   |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `pnpm lint`                                         | Biome lint and format check                                                                                    |
+| `pnpm check`                                        | Biome with safe fixes applied                                                                                  |
+| `pnpm typecheck`                                    | TypeScript                                                                                                     |
+| `pnpm test`                                         | Vitest content and helper tests                                                                                |
+| `pnpm check:links`                                  | Requests every external link in `src/content/` (projects, demos, profiles, theses); also runs weekly on GitHub |
+| `pnpm build`                                        | Production build                                                                                               |
+| `pnpm analyze`                                      | Turbopack bundle analyzer in the browser (per route, client and server)                                        |
+| `pnpm test:e2e`                                     | Playwright against the production build (run `pnpm build` first)                                               |
+| `pnpm activity`                                     | Refreshes `src/content/activity.json` for the activity page (see below)                                        |
+| `pnpm lighthouse`                                   | Lighthouse CI against the production build, with a 300 KB budget for compressed JavaScript per page            |
+| `pnpm lighthouse --config=lighthouserc.mobile.json` | Mobile Lighthouse report (throttled phone); CI shows its scores in the run summary without failing             |
 
 GitHub Actions runs all of these on every push and pull request. Vercel builds and deploys `main`.
 
@@ -84,7 +84,7 @@ Spam protection: a hidden honeypot field and at most five messages per IP addres
 
 ## Activity
 
-`/activity` renders `src/content/activity.json`, which `npm run activity` (`scripts/activity.mts`) writes from:
+`/activity` renders `src/content/activity.json`, which `pnpm activity` (`scripts/activity.mts`) writes from:
 
 - GitHub GraphQL: commits, pull requests, reviews, issues and new repositories. Uses `GITHUB_TOKEN` or the `gh` CLI login.
 - GitLab events API on gitlab.com (`GITLAB_TOKEN`) and the IGT instance (`IGT_GITLAB_TOKEN`), both with the `read_api` scope: merge requests, approvals, issues and comments. GitLab keeps events for three years.
@@ -128,7 +128,7 @@ Technology names in `stack` and `skills` get a logo when they are listed in `src
    ```
 
 2. Add an entry to `src/content/projects.ts`: `slug`, `title`, a one-sentence `summary`, `description` paragraphs, `kind`, `area`, `year`, `stack`, links and `image` with its real width and height. Use `until` for the last year of work (e.g. a 2026 rebuild) and set `featured` to show it on the home page.
-3. Write `summary`, `description` and `highlights` in English and Slovak, then run `npm test`. The card, case-study page, sitemap entry, search and filters follow from the entry.
+3. Write `summary`, `description` and `highlights` in English and Slovak, then run `pnpm test`. The card, case-study page, sitemap entry, search and filters follow from the entry.
 
 Projects without a screenshot get a generated placeholder.
 
@@ -140,7 +140,7 @@ The CV source is LaTeX in `latex/` (`main-english.tex`, `main-slovak.tex`, A4, o
 ./scripts/build-cv.sh
 ```
 
-If the page count changes, update `pages` in `site.cv` (`src/content/site.ts`); `npm test` fails until it matches the rendered images.
+If the page count changes, update `pages` in `site.cv` (`src/content/site.ts`); `pnpm test` fails until it matches the rendered images.
 
 The public CV contains no birth date or street address. Two pages show it:
 
