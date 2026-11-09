@@ -1,7 +1,7 @@
 # Portfolio
 
 [![CI](https://github.com/AkosKappel/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/AkosKappel/portfolio/actions/workflows/ci.yml)
-[![Live site](https://img.shields.io/badge/live-vercel.app-1f3a5f)](https://portfolio-taupe-eta-51.vercel.app)
+[![Live site](https://img.shields.io/badge/live-akoskappel.dev-1f3a5f)](https://akoskappel.dev)
 ![Next.js 16](https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs)
 ![React 19](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-7-3178c6?logo=typescript&logoColor=white)
@@ -9,7 +9,7 @@
 
 Personal website of Ákos Kappel, full-stack software engineer: projects with case studies, experience, skills, education, contact and a CV in English and Slovak.
 
-**Live:** https://portfolio-taupe-eta-51.vercel.app · **CV:** [web](https://portfolio-taupe-eta-51.vercel.app/cv) · [PDF](https://portfolio-taupe-eta-51.vercel.app/cv/pdf)
+**Live:** https://akoskappel.dev · **CV:** [web](https://akoskappel.dev/cv) · [PDF](https://akoskappel.dev/cv/pdf)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".github/readme/home-dark.webp">
