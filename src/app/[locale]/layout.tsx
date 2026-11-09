@@ -69,7 +69,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "common" });
   // Client components only need these namespaces; the rest stays on the server.
-  const { nav, common, languages, projects, error, contact } = await getMessages();
+  const { nav, common, commands, languages, projects, error, contact } = await getMessages();
 
   return (
     <html
@@ -86,7 +86,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
       </head>
       {/* Extensions such as Grammarly add attributes to <body> before React hydrates. */}
       <body className="flex min-h-dvh flex-col antialiased" suppressHydrationWarning>
-        <NextIntlClientProvider messages={{ nav, common, languages, projects, error, contact }}>
+        <NextIntlClientProvider
+          messages={{ nav, common, commands, languages, projects, error, contact }}
+        >
           <a
             href="#main"
             className="sr-only z-50 rounded bg-ink px-4 py-2 text-paper focus:not-sr-only focus:fixed focus:top-3 focus:left-3"

@@ -61,6 +61,18 @@
     "en": "Angličtina",
     "sk": "Slovenčina"
   },
+  "commands": {
+    "open": "Hľadať a príkazy",
+    "title": "Paleta príkazov",
+    "close": "Zavrieť",
+    "placeholder": "Prejsť na stránku, projekt alebo nastavenie",
+    "results": "Výsledky",
+    "pages": "Stránky",
+    "loading": "Načítava sa",
+    "empty": "Nič nezodpovedá hľadaniu.",
+    "error": "Zoznam sa nepodarilo načítať. Skontrolujte pripojenie a skúste to znova.",
+    "hint": "Šípkami sa presúvate, Enter vyberie, Esc zavrie"
+  },
   "footer": {
     "pages": "Stránky",
     "elsewhere": "Inde",

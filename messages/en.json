@@ -61,6 +61,18 @@
     "en": "English",
     "sk": "Slovak"
   },
+  "commands": {
+    "open": "Search and commands",
+    "title": "Command palette",
+    "close": "Close",
+    "placeholder": "Go to a page, project or setting",
+    "results": "Results",
+    "pages": "Pages",
+    "loading": "Loading",
+    "empty": "Nothing matches your search.",
+    "error": "The list could not be loaded. Check your connection and try again.",
+    "hint": "Arrow keys to move, Enter to choose, Esc to close"
+  },
   "footer": {
     "pages": "Pages",
     "elsewhere": "Elsewhere",

@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Logo } from "@/components/ui/logo";
 import { site } from "@/content/site";
 import { Link } from "@/i18n/navigation";
+import { CommandTrigger } from "./command-trigger";
 import { LanguageSwitcher } from "./language-switcher";
 import { MobileNav } from "./mobile-nav";
 import { NavLinks } from "./nav-links";
@@ -24,6 +25,7 @@ export function SiteHeader() {
           <NavLinks className="flex items-center gap-0.5" />
         </nav>
         <div className="ml-auto flex items-center gap-0.5 lg:ml-2">
+          <CommandTrigger />
           <LanguageSwitcher />
           <PalettePicker />
           <ThemeToggle

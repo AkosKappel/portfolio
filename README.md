@@ -21,6 +21,7 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 - Every page statically generated in English and Slovak, with `hreflang`, a localized sitemap, structured data and a generated link preview per page
 - Case studies with architecture diagrams, galleries in an accessible lightbox and what changed in each 2026 rebuild
 - Projects archive with fuzzy search, filters, sorting, grid and table views, all kept in the URL
+- Command palette (Ctrl+K or ⌘K, or the search button) to jump to any page, project or section, switch theme or language and copy the e-mail; it loads on first use
 - Light and dark mode with five themes each, without a flash, view transitions between pages and from a project card into its case study, scroll-driven reveals in CSS
 - A WebGL2 particle background that reacts to the pointer, and a colophon page on how the site is built, with an accessibility statement
 - An activity page with one contribution calendar across personal and work GitHub and GitLab activity, with filters, streaks, breakdowns by type and source, commit times and languages per year, refreshed weekly by a workflow
