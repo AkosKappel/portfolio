@@ -24,6 +24,7 @@
     "pdf": "PDF",
     "sourceCode": "Source code",
     "liveDemo": "Live demo",
+    "selfHostedNote": "Runs on my home server, so it may be offline now and then (for example during a power or internet outage).",
     "thesisRecord": "Read the full thesis",
     "officialWebsite": "Official website",
     "copyEmail": "Copy email address",

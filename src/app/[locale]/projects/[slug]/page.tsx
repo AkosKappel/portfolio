@@ -136,6 +136,12 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
                 {tCommon("officialWebsite")}
               </a>
             ) : null}
+            {project.liveUrl && new URL(project.liveUrl).hostname.endsWith(".ts.net") ? (
+              <p className="flex w-full items-start gap-1.5 text-sm text-muted lg:justify-end">
+                <Info aria-hidden size={16} className="mt-0.5 shrink-0" />
+                {tCommon("selfHostedNote")}
+              </p>
+            ) : null}
           </div>
         </header>
 

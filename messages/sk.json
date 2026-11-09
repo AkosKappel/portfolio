@@ -24,6 +24,7 @@
     "pdf": "PDF",
     "sourceCode": "Zdrojový kód",
     "liveDemo": "Živé demo",
+    "selfHostedNote": "Beží na mojom domácom serveri, takže môže byť občas nedostupné (napríklad pri výpadku elektriny alebo internetu).",
     "thesisRecord": "Prečítať celú prácu",
     "officialWebsite": "Oficiálna stránka",
     "copyEmail": "Kopírovať e-mail",

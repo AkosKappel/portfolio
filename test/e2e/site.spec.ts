@@ -113,6 +113,15 @@ test("project cards open their case study", async ({ page }) => {
   await expect(page.getByText("96.8 %").first()).toBeVisible();
 });
 
+test("only home-server demos warn that they may be offline", async ({ page }) => {
+  const note = page.getByText("Runs on my home server");
+  await page.goto("/projects/budget-master");
+  await expect(note).toBeVisible();
+  await page.goto("/projects/pokedex");
+  await expect(page.getByRole("link", { name: "Live demo" })).toBeVisible();
+  await expect(note).toHaveCount(0);
+});
+
 test("theme choice is remembered", async ({ page }) => {
   await page.emulateMedia({ colorScheme: "light" });
   await page.goto("/");
