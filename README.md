@@ -47,7 +47,7 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 
 ## Development
 
-Requires Node 24 (see `.nvmrc`) and pnpm.
+Requires Node 24 (see `.nvmrc`) and pnpm 12 (pinned in `package.json` as `packageManager`).
 
 ```bash
 pnpm install
