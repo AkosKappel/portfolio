@@ -19,6 +19,17 @@ const contentSecurityPolicy = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
+  // Skills and Education became sections of About and Experience; old links and the CV keep working.
+  async redirects() {
+    return ["", "/sk"].flatMap((prefix) => [
+      { source: `${prefix}/skills`, destination: `${prefix}/about#skills`, permanent: true },
+      {
+        source: `${prefix}/education`,
+        destination: `${prefix}/experience#education`,
+        permanent: true,
+      },
+    ]);
+  },
   async headers() {
     return [
       {

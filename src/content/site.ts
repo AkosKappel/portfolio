@@ -155,12 +155,13 @@ export const site = {
   ] satisfies { flag: FlagCode; name: Text; level: Text; cefr?: string }[],
 } as const;
 
-/** Main navigation; labels come from the "nav" messages. */
+/**
+ * Main navigation; labels come from the "nav" messages. On wide screens the header shows
+ * Contact as a button next to the other links, the mobile menu lists it with them.
+ */
 export const navigation = [
   { href: "/projects", key: "projects" },
   { href: "/experience", key: "experience" },
-  { href: "/skills", key: "skills" },
-  { href: "/education", key: "education" },
   { href: "/activity", key: "activity" },
   { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },

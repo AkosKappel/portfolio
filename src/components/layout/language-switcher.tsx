@@ -15,7 +15,7 @@ export function LanguageSwitcher() {
   return (
     <details className="group relative">
       <summary className="inline-flex h-9 cursor-pointer list-none items-center gap-2 rounded-full border border-line px-3 text-sm font-medium leading-none text-muted transition-colors hover:border-accent hover:bg-accent-soft hover:text-ink group-open:border-accent group-open:text-ink [&::-webkit-details-marker]:hidden">
-        <Flag locale={locale} />
+        <Flag locale={locale} className="h-3.5 w-[1.3125rem] max-[359px]:hidden" />
         <span className="sr-only">{t("common.language")}: </span>
         <span className="uppercase">{locale}</span>
         <ChevronDown

@@ -16,6 +16,8 @@ export function buildCommandIndex(locale: Locale, m: Messages): Command[] {
   const pages: Command[] = [
     { href: "/", key: "home" } as const,
     ...navigation,
+    { href: "/about#skills", key: "skills" } as const,
+    { href: "/experience#education", key: "education" } as const,
     ...secondaryNavigation,
   ].map(({ href, key }) => ({
     id: `page:${key}`,
@@ -54,14 +56,14 @@ export function buildCommandIndex(locale: Locale, m: Messages): Command[] {
       group: m.nav.skills,
       label: pick(group.name, locale),
       keywords: group.skills,
-      href: `/skills#${group.id}`,
+      href: `/about#${group.id}`,
     })),
     ...degrees.map((degree) => ({
       id: `section:${degree.id}`,
       group: m.nav.education,
       label: pick(degree.degree, locale),
       keywords: [pick(degree.field, locale)],
-      href: `/education#${degree.id}`,
+      href: `/experience#${degree.id}`,
     })),
     ...site.about.map((section) => ({
       id: `section:${section.id}`,

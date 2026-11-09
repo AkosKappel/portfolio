@@ -124,16 +124,7 @@ export async function pageOgImage({
 /** Card for a top-level page, from its translated title and description. */
 export async function sectionOgImage(
   params: Promise<{ locale: string }>,
-  namespace:
-    | "projects"
-    | "experience"
-    | "skills"
-    | "education"
-    | "about"
-    | "contact"
-    | "cv"
-    | "colophon"
-    | "activity",
+  namespace: "projects" | "experience" | "about" | "contact" | "cv" | "colophon" | "activity",
 ) {
   const locale = (await params).locale as Locale;
   const t = await getTranslations({ locale, namespace });

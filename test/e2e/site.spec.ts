@@ -7,8 +7,6 @@ const pages = [
   { path: "/projects/glaucoma-segmentation", heading: "Glaucoma Segmentation" },
   { path: "/experience", heading: "Experience" },
   { path: "/activity", heading: "Activity" },
-  { path: "/skills", heading: "Skills" },
-  { path: "/education", heading: "Education" },
   { path: "/about", heading: "About me" },
   { path: "/contact", heading: "Contact" },
   { path: "/cv", heading: "Ákos Kappel" },
@@ -99,9 +97,21 @@ test("projects appear under every area they belong to", async ({ page }) => {
   await expect(page.getByRole("rowheader")).toContainText(["Iridescent", "SketchBook"]);
 });
 
-test("skills link to the projects that use them", async ({ page }) => {
+test("old skills and education pages redirect to their sections", async ({ page }) => {
   await page.goto("/skills");
-  await page.getByRole("link", { name: /^Elixir/ }).click();
+  await expect(page).toHaveURL(/\/about#skills$/);
+  await expect(page.getByRole("heading", { level: 2, name: "Skills" })).toBeVisible();
+  await page.goto("/sk/education");
+  await expect(page).toHaveURL(/\/sk\/experience#education$/);
+  await expect(page.getByRole("heading", { level: 2, name: "Vzdelanie" })).toBeVisible();
+});
+
+test("skills link to the projects that use them", async ({ page }) => {
+  await page.goto("/about#skills");
+  await expect(
+    page.getByRole("link", { name: "Elixir website (opens in a new tab)" }),
+  ).toHaveAttribute("href", "https://elixir-lang.org");
+  await page.getByRole("link", { name: /^Elixir \(/ }).click();
   await expect(page).toHaveURL(/\/projects\?q=Elixir/);
   await expect(page.getByRole("main").getByRole("heading", { level: 2 }).first()).toBeVisible();
 });
