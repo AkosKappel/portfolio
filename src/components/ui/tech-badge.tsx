@@ -50,19 +50,13 @@ export function TechLink({
   );
 }
 
-const tagClass =
-  "inline-flex items-center gap-1.5 rounded-md border border-line bg-surface px-2 py-0.5 text-[0.8rem] leading-5 text-muted";
-
 /** Technology tags, each linked to its official site. */
 export function StackList({ items, className = "" }: { items: string[]; className?: string }) {
   return (
     <ul className={`flex flex-wrap gap-1.5 ${className}`}>
       {items.map((item) => (
         <li key={item}>
-          <TechLink
-            name={item}
-            className={`${tagClass} [&[href]]:hover:border-accent [&[href]]:hover:text-accent`}
-          >
+          <TechLink name={item} className="tech-tag">
             <TechLogo name={item} />
             {item}
           </TechLink>
@@ -80,7 +74,7 @@ export function CardStack({ items }: { items: string[] }) {
   return (
     <ul className="mt-3 flex flex-wrap gap-1.5">
       {items.slice(0, 5).map((item) => (
-        <li key={item} className={tagClass}>
+        <li key={item} className="tech-tag">
           <TechLogo name={item} />
           {item}
         </li>

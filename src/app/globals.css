@@ -240,6 +240,19 @@
   }
 }
 
+/*
+  A technology tag. One class instead of a list of utilities, because tags repeat on every
+  card and each one is sent twice (HTML and React payload).
+*/
+@utility tech-tag {
+  @apply inline-flex items-center gap-1.5 rounded-md border border-line bg-surface px-2 py-0.5 text-[0.8rem] leading-5 text-muted;
+
+  &:is(a):hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
 /* Interactive surfaces (cards, chips, list rows) lift a little and take the accent border on hover. */
 @utility hover-lift {
   transition:

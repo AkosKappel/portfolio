@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProjectArchive } from "@/components/projects/project-archive";
 import { Page, PageHeader } from "@/components/ui/page";
-import { CardStack, StackList } from "@/components/ui/tech-badge";
+import { CardStack } from "@/components/ui/tech-badge";
 import { projects } from "@/content/projects";
 import { toSummary } from "@/content/types";
 import type { Locale } from "@/i18n/routing";
@@ -33,10 +33,7 @@ export default async function ProjectsPage({ params }: PageProps<"/[locale]/proj
         stacks={Object.fromEntries(
           projects.map((project) => [
             project.slug,
-            {
-              card: <CardStack items={project.stack} />,
-              full: <StackList items={project.stack} />,
-            },
+            <CardStack key={project.slug} items={project.stack} />,
           ]),
         )}
       />

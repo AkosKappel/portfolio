@@ -134,8 +134,8 @@ export function ProjectArchive({
   stacks,
 }: {
   projects: ProjectSummary[];
-  /** Stack badges per slug, rendered on the server so the logo data stays out of this bundle. */
-  stacks: Record<string, { card: ReactNode; full: ReactNode }>;
+  /** Card stack badges per slug, rendered on the server so the logo data stays out of this bundle. */
+  stacks: Record<string, ReactNode>;
 }) {
   const t = useTranslations("projects");
   const locale = useLocale();
@@ -286,12 +286,14 @@ export function ProjectArchive({
         </div>
       ) : view === "grid" ? (
         <ul className="mt-6 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-          {rows.map((row) => (
+          {rows.map((row, index) => (
             <li key={row.original.slug} className="reveal">
               <ProjectCard
                 project={row.original}
                 headingLevel="h2"
-                stack={stacks[row.original.slug].card}
+                // The first card is the largest image on phones, so it is fetched with the page.
+                loading={index === 0 ? "preload" : index < 3 ? "eager" : undefined}
+                stack={stacks[row.original.slug]}
               />
             </li>
           ))}
@@ -354,7 +356,8 @@ export function ProjectArchive({
                     {project.areas.map((value) => t(`areas.${value}`)).join(", ")}
                   </td>
                   <td className="py-3 pr-4 text-muted">{t(`kinds.${project.kind}`)}</td>
-                  <td className="py-3">{stacks[project.slug].full}</td>
+                  {/* Plain names: logos for every row would weigh more than the rest of the page. */}
+                  <td className="py-3 text-sm text-muted">{project.stack.join(", ")}</td>
                 </tr>
               ))}
             </tbody>

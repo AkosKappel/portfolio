@@ -112,7 +112,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               <ProjectCard
                 project={project}
                 sizes="(min-width: 640px) 50vw, 100vw"
-                eager={index < 2}
+                loading={index < 2 ? "eager" : undefined}
                 stack={<CardStack items={project.stack} />}
               />
             </li>

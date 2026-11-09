@@ -58,14 +58,14 @@ export function ProjectCard({
   project,
   headingLevel = "h3",
   sizes = "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
-  eager = false,
+  loading,
   stack,
 }: {
   project: ProjectSummary;
   /** Rendered on the server with `CardStack`, so the logo data stays out of client bundles. */
   stack: ReactNode;
-  /** Load the image right away because the card starts above the fold. */
-  eager?: boolean;
+  /** "eager" for cards that start above the fold, "preload" for the page's main image. */
+  loading?: "preload" | "eager";
   headingLevel?: "h2" | "h3";
   sizes?: string;
 }) {
@@ -73,7 +73,7 @@ export function ProjectCard({
   const Heading = headingLevel;
   return (
     <article className="group relative flex flex-col">
-      <ProjectMedia project={project} sizes={sizes} loading={eager ? "eager" : undefined} />
+      <ProjectMedia project={project} sizes={sizes} loading={loading} />
       <div className="mt-4 flex items-baseline justify-between gap-3">
         <Heading className="text-xl font-semibold">
           <Link
