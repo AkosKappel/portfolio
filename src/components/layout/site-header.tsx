@@ -19,7 +19,7 @@ export function SiteHeader() {
           className="flex items-center gap-2.5 font-display text-lg font-semibold tracking-tight"
         >
           <Logo className="size-9 text-ink" />
-          <span className="whitespace-nowrap max-[400px]:sr-only">{site.name}</span>
+          <span className="whitespace-nowrap max-[460px]:sr-only">{site.name}</span>
         </Link>
         <nav aria-label={t("nav.main")} className="ml-auto hidden lg:block">
           <NavLinks className="flex items-center gap-0.5" />
