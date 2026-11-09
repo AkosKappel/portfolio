@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { techIcons, techLinks } from "../lib/tech-icons.data";
 import { degrees, university } from "./education";
 import { jobs } from "./experience";
 import { projects } from "./projects";
@@ -15,6 +16,8 @@ const links = [
   ...degrees.flatMap(({ thesis }) => [thesis.url, thesis.recordUrl]),
   ...jobs.flatMap((job) => job.items.map((item) => item.url)),
   ...projects.flatMap((project) => [project.repoUrl, project.liveUrl, project.paperUrl]),
+  ...Object.values(techIcons).map((icon) => icon.url),
+  ...Object.values(techLinks),
 ].filter((url): url is string => url?.startsWith("https://") ?? false);
 
 describe("external links", () => {

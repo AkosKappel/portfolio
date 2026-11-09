@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import en from "../../messages/en.json";
 import sk from "../../messages/sk.json";
 import { formatMonth, monthsBetween, yearRange } from "../lib/format";
-import { techIcon } from "../lib/tech-icons";
+import { techIcon, techUrl } from "../lib/tech-icons";
 import { jobs } from "./experience";
 import { projects } from "./projects";
 import { site } from "./site";
@@ -99,6 +99,18 @@ describe("skills", () => {
     const skills = skillGroups.flatMap((group) => group.skills);
     const withoutLogo = skills.filter((skill) => !techIcon(skill));
     expect(withoutLogo).toEqual(["MSSQL", "Codex", "OpenAI API"]);
+  });
+
+  it("link every skill, stack item and version to its official site", () => {
+    const names = [
+      ...skillGroups.flatMap((group) => group.skills),
+      ...projects.flatMap((project) => [
+        ...project.stack,
+        ...(project.versions ?? []).map((version) => version.replace(/\s[\d.]+$/, "")),
+      ]),
+      ...jobs.flatMap((job) => job.items.flatMap((item) => item.stack ?? [])),
+    ];
+    expect(names.filter((name) => !techUrl(name))).toEqual([]);
   });
 });
 

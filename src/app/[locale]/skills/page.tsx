@@ -1,3 +1,4 @@
+import { ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AnchorHeading } from "@/components/ui/anchor-heading";
@@ -9,6 +10,7 @@ import { pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { alternates } from "@/lib/metadata";
+import { techUrl } from "@/lib/tech-icons";
 
 export async function generateMetadata({
   params,
@@ -73,22 +75,40 @@ export default async function SkillsPage({ params }: PageProps<"/[locale]/skills
                     {skill}
                   </>
                 );
+                const url = techUrl(skill);
                 return (
-                  <li key={skill}>
+                  <li
+                    key={skill}
+                    className={`inline-flex items-center rounded-lg border border-line ${count ? "hover-lift bg-surface" : "bg-surface/60"}`}
+                  >
                     {count ? (
                       <Link
                         href={{ pathname: "/projects", query: { q: skill } }}
                         title={t("projectCount", { count })}
-                        className="hover-lift inline-flex items-center gap-2 rounded-lg border border-line bg-surface px-3 py-1.5 hover:text-accent"
+                        className={`inline-flex items-center gap-2 py-1.5 pl-3 hover:text-accent ${url ? "pr-1" : "pr-3"}`}
                       >
                         {content}
                         <span className="sr-only">({t("projectCount", { count })})</span>
                       </Link>
                     ) : (
-                      <span className="inline-flex items-center gap-2 rounded-lg border border-line bg-surface/60 px-3 py-1.5">
+                      <span
+                        className={`inline-flex items-center gap-2 py-1.5 pl-3 ${url ? "pr-1" : "pr-3"}`}
+                      >
                         {content}
                       </span>
                     )}
+                    {url ? (
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={tCommon("techWebsite", { name: skill })}
+                        title={tCommon("techWebsite", { name: skill })}
+                        className="grid size-7 place-items-center rounded-md text-muted hover:text-accent"
+                      >
+                        <ExternalLink aria-hidden size={13} />
+                      </a>
+                    ) : null}
                   </li>
                 );
               })}

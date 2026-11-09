@@ -118,7 +118,7 @@ scripts/        CV build (PDFs and page images)
 
 Page content lives in `src/content/` with every text in both languages (`{ en, sk }`), and interface text lives in `messages/`. `src/content/content.test.ts` checks slugs, image paths, links, dates, missing translations and that both message files have the same keys.
 
-Technology names in `stack` and `skills` get a logo when they are listed in `src/lib/tech-icons.ts`.
+Technology names in `stack` and `skills` get a logo when they are listed in `src/lib/tech-icons.ts`, and a link to their official site from the `url` next to each logo (or `techLinks`) in `src/lib/tech-icons.data.ts`.
 
 ### Adding a project
 

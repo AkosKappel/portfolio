@@ -23,7 +23,7 @@ import { ReadingProgress } from "@/components/ui/back-to-top";
 import { GitHubIcon, GitLabIcon } from "@/components/ui/brand-icons";
 import { JsonLd } from "@/components/ui/json-ld";
 import { Page } from "@/components/ui/page";
-import { StackList, TechLogo } from "@/components/ui/tech-badge";
+import { StackList, TechLink, TechLogo } from "@/components/ui/tech-badge";
 import { getProject, projects } from "@/content/projects";
 import { pick, type Text } from "@/content/types";
 import { Link } from "@/i18n/navigation";
@@ -243,12 +243,21 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
             {project.versions?.length ? (
               <Fact label={t("versions")}>
                 <ul className="mt-1 space-y-1">
-                  {project.versions.map((version) => (
-                    <li key={version} className="inline-flex w-full items-center gap-2">
-                      <TechLogo name={version.replace(/\s[\d.]+$/, "")} className="size-4" />
-                      {version}
-                    </li>
-                  ))}
+                  {project.versions.map((version) => {
+                    const name = version.replace(/\s[\d.]+$/, "");
+                    return (
+                      <li key={version}>
+                        <TechLink
+                          name={name}
+                          label={version}
+                          className="inline-flex items-center gap-2 underline-offset-4 [&[href]]:hover:text-accent [&[href]]:hover:underline"
+                        >
+                          <TechLogo name={name} className="size-4" />
+                          {version}
+                        </TechLink>
+                      </li>
+                    );
+                  })}
                 </ul>
               </Fact>
             ) : null}

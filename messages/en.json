@@ -27,6 +27,7 @@
     "selfHostedNote": "Runs on my home server, so it may be offline now and then (for example during a power or internet outage).",
     "thesisRecord": "Read the full thesis",
     "officialWebsite": "Official website",
+    "techWebsite": "{name} website (opens in a new tab)",
     "copyEmail": "Copy email address",
     "copied": "Copied",
     "emailMe": "Email me",

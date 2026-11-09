@@ -27,6 +27,7 @@
     "selfHostedNote": "Beží na mojom domácom serveri, takže môže byť občas nedostupné (napríklad pri výpadku elektriny alebo internetu).",
     "thesisRecord": "Prečítať celú prácu",
     "officialWebsite": "Oficiálna stránka",
+    "techWebsite": "{name}: oficiálna stránka (otvorí sa na novej karte)",
     "copyEmail": "Kopírovať e-mail",
     "copied": "Skopírované",
     "emailMe": "Napíšte mi",

@@ -1,4 +1,4 @@
-import { type TechIcon, techIcons } from "./tech-icons.data";
+import { type TechIcon, techIcons, techLinks } from "./tech-icons.data";
 
 /** Logos whose brand is not in Simple Icons, kept as files in public/icons. */
 const imageIcons: Record<string, string> = {
@@ -51,4 +51,10 @@ export function techIcon(alias: string): ResolvedIcon | undefined {
     id: iconId(name),
     color: l < 0.04 || l > 0.85 ? undefined : `#${icon.hex}`,
   };
+}
+
+/** Official site of a technology, if known. */
+export function techUrl(alias: string): string | undefined {
+  const name = aliases[alias] ?? alias;
+  return techLinks[alias] ?? techLinks[name] ?? techIcons[name]?.url;
 }
