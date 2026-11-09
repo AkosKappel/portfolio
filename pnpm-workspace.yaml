@@ -1,3 +1,6 @@
+# Vercel installs with pnpm 9 or 10, and pnpm 9 rejects this file without a package list.
+packages:
+  - "."
 # Both install scripts only build native binaries from source as a fallback; the prebuilt packages are installed.
 allowBuilds:
   "@parcel/watcher": false
