@@ -1,6 +1,6 @@
 import type { FlagCode } from "@/components/ui/flags";
 import type { Locale } from "@/i18n/routing";
-import type { Text } from "./types";
+import type { Text, WorkflowStep } from "./types";
 
 export const site = {
   name: "Ákos Kappel",
@@ -18,11 +18,19 @@ export const site = {
   /** The stages shown on the home page, each one done with AI coding agents. */
   workflow: [
     {
+      id: "define",
+      title: { en: "Define", sk: "Zadanie" },
+      text: {
+        en: "Understand the problem and agree on what to build and how we will know it works.",
+        sk: "Pochopiť problém a dohodnúť sa, čo postaviť a podľa čoho spoznáme, že to funguje.",
+      },
+    },
+    {
       id: "plan",
       title: { en: "Plan", sk: "Plánovanie" },
       text: {
-        en: "Understand the problem, split it into tasks and sketch the architecture.",
-        sk: "Pochopiť problém, rozdeliť ho na úlohy a navrhnúť architektúru.",
+        en: "Split the work into small tasks and sketch the architecture.",
+        sk: "Rozdeliť prácu na malé úlohy a navrhnúť architektúru.",
       },
     },
     {
@@ -57,7 +65,7 @@ export const site = {
         sk: "Monitorovanie, aktualizácie a ďalšie vylepšenia.",
       },
     },
-  ] satisfies { id: string; title: Text; text: Text }[],
+  ] satisfies WorkflowStep[],
   about: [
     {
       id: "how-i-work",

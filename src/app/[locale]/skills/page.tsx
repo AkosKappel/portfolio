@@ -1,10 +1,12 @@
 import { ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { workflowIcons } from "@/components/home/workflow-icons";
 import { AnchorHeading } from "@/components/ui/anchor-heading";
 import { Page, PageHeader } from "@/components/ui/page";
 import { TechLogo } from "@/components/ui/tech-badge";
 import { projects } from "@/content/projects";
+import { site } from "@/content/site";
 import { practices, skillGroups } from "@/content/skills";
 import { pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
@@ -44,6 +46,7 @@ export default async function SkillsPage({ params }: PageProps<"/[locale]/skills
       <nav aria-label={t("title")} className="-mt-4 mb-12 flex flex-wrap gap-2">
         {[
           ...skillGroups.map((group) => ({ id: group.id, name: pick(group.name, locale) })),
+          { id: "workflow", name: t("workflow") },
           { id: "practices", name: t("practices") },
         ].map((section) => (
           <a
@@ -116,6 +119,24 @@ export default async function SkillsPage({ params }: PageProps<"/[locale]/skills
           </section>
         ))}
       </div>
+      <section aria-labelledby="workflow" className="mt-16 border-t border-line pt-12">
+        <AnchorHeading id="workflow" label={tCommon("anchor")} className="text-2xl font-semibold">
+          {t("workflow")}
+        </AnchorHeading>
+        <p className="mt-2 text-muted">{t("workflowLead")}</p>
+        <ol className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {site.workflow.map((step) => {
+            const Icon = workflowIcons[step.id];
+            return (
+              <li key={step.id} className="reveal rounded-xl border border-line bg-surface p-5">
+                <Icon aria-hidden size={22} className="text-accent" />
+                <h3 className="mt-3 text-lg font-semibold">{pick(step.title, locale)}</h3>
+                <p className="mt-1 text-sm text-muted">{pick(step.text, locale)}</p>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
       <section aria-labelledby="practices" className="mt-16 border-t border-line pt-12">
         <AnchorHeading id="practices" label={tCommon("anchor")} className="text-2xl font-semibold">
           {t("practices")}

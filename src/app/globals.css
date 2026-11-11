@@ -297,6 +297,79 @@
   }
 }
 
+/*
+  The workflow walkthrough on the home page. Every animation only runs from a start
+  state to the element's normal look, so without motion each scene is simply complete.
+  The progress line drives the auto-advance and is not drawn at all with reduced motion.
+*/
+.wf-progress {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .wf-progress {
+    display: block;
+    animation: grow 6s linear both;
+  }
+
+  .wf:hover .wf-progress,
+  .wf:has(:focus-visible) .wf-progress,
+  .wf[data-paused] .wf-progress {
+    animation-play-state: paused;
+  }
+
+  .wf-scene {
+    animation: wf-scene 300ms ease-out both;
+  }
+
+  .wf-scene .wf-in {
+    animation: wf-in 450ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--d, 0) * 110ms + 120ms);
+  }
+
+  .wf-scene .wf-line {
+    transform-origin: left;
+    animation: grow 300ms ease-out both;
+    animation-delay: calc(var(--d, 0) * 110ms + 230ms);
+  }
+
+  .wf-scene .wf-draw {
+    stroke-dasharray: 1;
+    animation: wf-draw 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--d, 0) * 110ms + 200ms);
+  }
+
+  .wf-scene .wf-ping {
+    animation: wf-ping 2s ease-out infinite;
+  }
+}
+
+@keyframes wf-scene {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes wf-in {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+
+@keyframes wf-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
+@keyframes wf-ping {
+  to {
+    scale: 2.4;
+    opacity: 0;
+  }
+}
+
 @keyframes reveal {
   from {
     translate: 0 2.5rem;

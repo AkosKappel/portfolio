@@ -1,18 +1,8 @@
-import {
-  ArrowRight,
-  ClipboardList,
-  Code,
-  FlaskConical,
-  FolderOpen,
-  Gauge,
-  type LucideIcon,
-  Mail,
-  MapPin,
-  Rocket,
-} from "lucide-react";
+import { ArrowRight, FolderOpen, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ActivityCard } from "@/components/activity/activity-card";
+import { WorkflowShowcase } from "@/components/home/workflow-showcase";
 import { ProjectCard } from "@/components/projects/project-card";
 import { CvMenu } from "@/components/ui/cv-menu";
 import { JsonLd } from "@/components/ui/json-ld";
@@ -26,14 +16,6 @@ import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { formatMonth } from "@/lib/format";
 import { person } from "@/lib/structured-data";
-
-const workflowIcons: Record<string, LucideIcon> = {
-  plan: ClipboardList,
-  build: Code,
-  test: FlaskConical,
-  ship: Rocket,
-  run: Gauge,
-};
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const locale = (await params).locale as Locale;
@@ -125,18 +107,15 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           {t("workflow")}
         </h2>
         <p className="mt-3 max-w-2xl text-muted">{t("workflowLead")}</p>
-        <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {site.workflow.map((step) => {
-            const Icon = workflowIcons[step.id];
-            return (
-              <li key={step.id} className="reveal rounded-xl border border-line bg-surface p-5">
-                <Icon aria-hidden size={22} className="text-accent" />
-                <h3 className="mt-3 text-lg font-semibold">{pick(step.title, locale)}</h3>
-                <p className="mt-1 text-sm text-muted">{pick(step.text, locale)}</p>
-              </li>
-            );
-          })}
-        </ol>
+        <WorkflowShowcase
+          steps={site.workflow.map((step) => ({
+            id: step.id,
+            title: pick(step.title, locale),
+            text: pick(step.text, locale),
+          }))}
+          pauseLabel={t("workflowPause")}
+          playLabel={t("workflowPlay")}
+        />
       </section>
 
       <section

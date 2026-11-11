@@ -88,6 +88,8 @@
     "allProjects": "All projects",
     "workflow": "From idea to production",
     "workflowLead": "I take a project from requirement to production myself. AI coding agents speed up every stage, while I make the decisions and own the result. I check their work with tests, type checks and CI quality gates, because I know where agents go wrong: logic that looks right but is not, made-up packages, missed edge cases. Security-sensitive parts such as authentication and data migrations I review line by line.",
+    "workflowPause": "Pause the walkthrough",
+    "workflowPlay": "Play the walkthrough",
     "currentWork": "What I work on now",
     "currentRole": "{role} at {company} since {start}.",
     "fullExperience": "Full experience",
@@ -245,6 +247,8 @@
     "lead": "Grouped by area, without made-up skill levels. Technologies used in my projects link to them, the arrow icon opens the official site.",
     "practices": "Practices",
     "projectCount": "{count, plural, one {# project} other {# projects}}",
+    "workflow": "From idea to production",
+    "workflowLead": "The stages every project goes through, from the first conversation to running in production.",
     "practicesLead": "How I work, apart from the tools."
   },
   "education": {

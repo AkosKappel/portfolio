@@ -124,3 +124,10 @@ export type SkillGroup = {
   description: Text;
   skills: string[];
 };
+
+/** One stage of the "From idea to production" section on the home page. */
+export type WorkflowStep = {
+  id: "define" | "plan" | "build" | "test" | "ship" | "run";
+  title: Text;
+  text: Text;
+};
