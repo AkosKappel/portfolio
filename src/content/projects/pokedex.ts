@@ -94,7 +94,7 @@ export const pokedex: Project = {
   until: 2026,
   stack: ["Vue", "TypeScript", "Vite", "PWA", "Vitest", "Playwright", "ESLint", "GitHub Pages"],
   repoUrl: "https://github.com/AkosKappel/Pokedex",
-  liveUrl: "https://akoskappel.github.io/Pokedex",
+  liveUrl: "https://pokedex.akoskappel.dev",
   image: {
     src: "/images/projects/pokedex-2026.webp",
     width: 1600,

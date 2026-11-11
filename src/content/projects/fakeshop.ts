@@ -101,7 +101,7 @@ export const fakeshop: Project = {
     "GitHub Pages",
   ],
   repoUrl: "https://github.com/AkosKappel/FakeShop",
-  liveUrl: "https://akoskappel.github.io/FakeShop",
+  liveUrl: "https://fakeshop.akoskappel.dev",
   image: {
     src: "/images/projects/eshop-2026.webp",
     width: 1600,

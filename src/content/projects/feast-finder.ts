@@ -100,7 +100,7 @@ export const feastFinder: Project = {
     "GitHub Pages",
   ],
   repoUrl: "https://github.com/AkosKappel/FeastFinder",
-  liveUrl: "https://akoskappel.github.io/FeastFinder",
+  liveUrl: "https://feastfinder.akoskappel.dev",
   image: {
     src: "/images/projects/feast-finder-2026.webp",
     width: 1600,

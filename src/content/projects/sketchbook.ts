@@ -90,7 +90,7 @@ export const sketchbook: Project = {
   until: 2026,
   stack: ["JavaScript", "p5.js", "Canvas", "HTML", "CSS", "GitHub Pages"],
   repoUrl: "https://github.com/AkosKappel/sketchbook",
-  liveUrl: "https://akoskappel.github.io/sketchbook/",
+  liveUrl: "https://sketchbook.akoskappel.dev",
   image: {
     src: "/images/projects/sketchbook-2026.webp",
     width: 1600,

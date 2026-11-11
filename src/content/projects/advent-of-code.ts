@@ -74,7 +74,7 @@ export const adventOfCode: Project = {
     "GitHub Pages",
   ],
   repoUrl: "https://github.com/AkosKappel/Advent-of-Code",
-  liveUrl: "https://akoskappel.github.io/Advent-of-Code/",
+  liveUrl: "https://aoc.akoskappel.dev",
   websiteUrl: "https://adventofcode.com",
   image: {
     src: "/images/projects/advent-of-code-2026.webp",
