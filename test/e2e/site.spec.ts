@@ -21,7 +21,8 @@ const pages = [
 
 for (const theme of ["light", "dark"] as const) {
   test.describe(`${theme} theme`, () => {
-    test.use({ colorScheme: theme });
+    // Reduced motion lets axe check the settled look, not text partway through a fade-in.
+    test.use({ colorScheme: theme, reducedMotion: "reduce" });
 
     for (const { path, heading } of pages) {
       test(`${path} renders without accessibility violations`, async ({ page }) => {
