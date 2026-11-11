@@ -162,6 +162,8 @@ export const site = {
 export const navigation = [
   { href: "/projects", key: "projects" },
   { href: "/experience", key: "experience" },
+  { href: "/skills", key: "skills" },
+  { href: "/education", key: "education" },
   { href: "/activity", key: "activity" },
   { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },

@@ -165,7 +165,7 @@
   },
   "experience": {
     "title": "Skúsenosti",
-    "description": "Full-stack práca v IGT Systems, Švarba a SoftPoint a štúdium informatiky na Slovenskej technickej univerzite.",
+    "description": "Full-stack práca v IGT Systems, Švarba a SoftPoint: webové, mobilné a backendové produkty a dátové pipeline.",
     "lead": "Tri firmy od roku 2023, od dátových pipeline po mobilné aplikácie."
   },
   "activity": {
@@ -241,6 +241,7 @@
   },
   "skills": {
     "title": "Zručnosti",
+    "description": "Frontend, backend, mobilné aplikácie, dáta, AI, DevOps a testovanie: technológie, s ktorými pracujem.",
     "lead": "Rozdelené podľa oblastí, bez vymyslených úrovní. Technológie použité v mojich projektoch na ne odkazujú, ikona šípky otvorí oficiálnu stránku.",
     "practices": "Postupy",
     "projectCount": "{count, plural, one {# projekt} few {# projekty} other {# projektov}}",
@@ -248,13 +249,16 @@
   },
   "education": {
     "title": "Vzdelanie",
+    "description": "Inžinierske štúdium Inteligentné softvérové systémy a bakalárske štúdium Informatika na Slovenskej technickej univerzite v Bratislave.",
     "lead": "Informatika a inteligentné softvérové systémy na Slovenskej technickej univerzite v Bratislave, predtým gymnázium v Nových Zámkoch.",
     "thesis": "Záverečná práca",
+    "languages": "Jazyky",
+    "university": "Univerzita",
     "secondarySchool": "Stredná škola"
   },
   "about": {
     "title": "O mne",
-    "description": "O Ákosovi Kappelovi: ako pracujem, na čom mi záleží a s akými technológiami.",
+    "description": "O Ákosovi Kappelovi: ako pracujem a na čom mi záleží.",
     "howIWork": "Ako pracujem",
     "languages": "Jazyky",
     "portrait": "Portrét Ákosa Kappela"

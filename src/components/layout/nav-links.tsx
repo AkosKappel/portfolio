@@ -1,6 +1,15 @@
 "use client";
 
-import { Activity, Briefcase, FolderGit2, type LucideIcon, Mail, User } from "lucide-react";
+import {
+  Activity,
+  Briefcase,
+  FolderGit2,
+  GraduationCap,
+  type LucideIcon,
+  Mail,
+  User,
+  Wrench,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { navigation } from "@/content/site";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -8,6 +17,8 @@ import { Link, usePathname } from "@/i18n/navigation";
 const icons: Record<(typeof navigation)[number]["key"], LucideIcon> = {
   projects: FolderGit2,
   experience: Briefcase,
+  skills: Wrench,
+  education: GraduationCap,
   activity: Activity,
   about: User,
   contact: Mail,

@@ -165,7 +165,7 @@
   },
   "experience": {
     "title": "Experience",
-    "description": "Full-stack work at IGT Systems, Švarba and SoftPoint, and degrees in computer science from the Slovak University of Technology.",
+    "description": "Full-stack work at IGT Systems, Švarba and SoftPoint: web, mobile and backend products and data pipelines.",
     "lead": "Three companies since 2023, from data pipelines to mobile apps."
   },
   "activity": {
@@ -241,6 +241,7 @@
   },
   "skills": {
     "title": "Skills",
+    "description": "Frontend, backend, mobile, data, AI, DevOps and testing: the technologies I work with.",
     "lead": "Grouped by area, without made-up skill levels. Technologies used in my projects link to them, the arrow icon opens the official site.",
     "practices": "Practices",
     "projectCount": "{count, plural, one {# project} other {# projects}}",
@@ -248,13 +249,16 @@
   },
   "education": {
     "title": "Education",
+    "description": "Master's degree in Intelligent Software Systems and bachelor's degree in Computer Science from the Slovak University of Technology in Bratislava.",
     "lead": "Computer science and intelligent software systems at the Slovak University of Technology in Bratislava, after a grammar school in Nové Zámky.",
     "thesis": "Thesis",
+    "languages": "Languages",
+    "university": "University",
     "secondarySchool": "Secondary school"
   },
   "about": {
     "title": "About me",
-    "description": "About Ákos Kappel: how I work, what I care about and the technologies I use.",
+    "description": "About Ákos Kappel: how I work and what I care about.",
     "howIWork": "How I work",
     "languages": "Languages",
     "portrait": "Portrait of Ákos Kappel"
