@@ -149,6 +149,7 @@ export const modernFashionStore: Project = {
   ],
   repoUrl: "https://github.com/AkosKappel/clothing-store",
   liveUrl: "https://tagline.akoskappel.dev",
+  selfHosted: true,
   image: {
     src: "/images/projects/modern-fashion-store-dashboard-2026.webp",
     width: 1600,

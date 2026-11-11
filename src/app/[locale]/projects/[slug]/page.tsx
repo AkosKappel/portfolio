@@ -136,8 +136,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
                 {tCommon("officialWebsite")}
               </a>
             ) : null}
-            {/* Subdomains of akoskappel.dev are the apps on the home server. */}
-            {project.liveUrl && new URL(project.liveUrl).hostname.endsWith(".akoskappel.dev") ? (
+            {project.selfHosted ? (
               <p className="flex w-full items-start gap-1.5 text-sm text-muted lg:justify-end">
                 <Info aria-hidden size={16} className="mt-0.5 shrink-0" />
                 {tCommon("selfHostedNote")}

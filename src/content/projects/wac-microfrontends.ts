@@ -119,6 +119,7 @@ export const wacMicrofrontends: Project = {
   ],
   repoUrl: "https://github.com/AkosKappel/wac",
   liveUrl: "https://ambulance.akoskappel.dev",
+  selfHosted: true,
   image: {
     src: "/images/projects/wac-microfrontends-2026.webp",
     width: 1600,

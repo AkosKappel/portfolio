@@ -132,6 +132,7 @@ export const budgetMaster: Project = {
   ],
   repoUrl: "https://github.com/AkosKappel/BudgetMaster",
   liveUrl: "https://budgetmaster.akoskappel.dev",
+  selfHosted: true,
   image: {
     src: "/images/projects/budget-master-2026.webp",
     width: 1600,

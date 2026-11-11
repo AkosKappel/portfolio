@@ -118,6 +118,7 @@ export const oriel: Project = {
   ],
   repoUrl: "https://github.com/AkosKappel/oriel",
   liveUrl: "https://oriel.akoskappel.dev",
+  selfHosted: true,
   image: {
     src: "/images/projects/oriel-2026.webp",
     width: 1600,

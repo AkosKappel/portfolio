@@ -150,6 +150,7 @@ export const smarttechEShop: Project = {
   ],
   repoUrl: "https://github.com/AkosKappel/WTECH-Laravel",
   liveUrl: "https://wtech.akoskappel.dev",
+  selfHosted: true,
   image: {
     src: "/images/projects/wtech-2026.webp",
     width: 1600,

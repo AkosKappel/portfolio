@@ -48,6 +48,8 @@ export type Project = {
   stack: string[];
   repoUrl?: string;
   liveUrl?: string;
+  /** The live demo runs on the home server, so the project page warns that it may be offline. */
+  selfHosted?: boolean;
   /** Published paper or thesis, e.g. its record in the Central Register of Theses. */
   paperUrl?: string;
   /** Home page of the event or service the project is built for. */
