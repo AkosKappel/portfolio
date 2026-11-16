@@ -3,6 +3,7 @@
 import { Check, Search, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
+import { site } from "@/content/site";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { type Command, filterCommands } from "@/lib/commands";
 import { getTheme, setPalette, setTheme, subscribe } from "./appearance";
@@ -79,9 +80,9 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
 
   const run = async (command: Command) => {
     const { action, href } = command;
-    if (action?.type === "copy") {
+    if (action?.type === "copyEmail") {
       try {
-        await navigator.clipboard.writeText(action.text);
+        await navigator.clipboard.writeText(site.email);
         setCopied(true);
       } catch {
         // Clipboard access can be denied; the address is also on the contact page.
@@ -186,9 +187,9 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
             className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm aria-selected:bg-accent-soft aria-selected:text-ink"
           >
             <span className="flex-1 truncate">
-              {command.action?.type === "copy" && copied ? tCommon("copied") : command.label}
+              {command.action?.type === "copyEmail" && copied ? tCommon("copied") : command.label}
             </span>
-            {command.action?.type === "copy" && copied ? (
+            {command.action?.type === "copyEmail" && copied ? (
               <Check aria-hidden size={15} className="text-accent" />
             ) : null}
             <span className="shrink-0 text-xs text-muted">{command.group}</span>

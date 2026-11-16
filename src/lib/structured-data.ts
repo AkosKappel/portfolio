@@ -7,7 +7,6 @@ export const person = {
   "@type": "Person",
   name: site.name,
   jobTitle: site.headline,
-  email: `mailto:${site.email}`,
   url: site.url,
   image: new URL("/images/profile.webp", site.url).toString(),
   address: { "@type": "PostalAddress", addressLocality: "Bratislava", addressCountry: "SK" },

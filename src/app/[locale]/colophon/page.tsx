@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AnchorHeading } from "@/components/ui/anchor-heading";
+import { EmailLink } from "@/components/ui/email-link";
 import { Page, PageHeader } from "@/components/ui/page";
 import { site } from "@/content/site";
 import type { Locale } from "@/i18n/routing";
@@ -57,9 +58,7 @@ export default async function ColophonPage({ params }: PageProps<"/[locale]/colo
               ))}
               {section.id === "accessibility" ? (
                 <p>
-                  <a href={`mailto:${site.email}`} className="link">
-                    {site.email}
-                  </a>
+                  <EmailLink className="link" />
                 </p>
               ) : null}
             </div>

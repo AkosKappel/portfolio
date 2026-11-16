@@ -97,8 +97,8 @@ export function buildCommandIndex(locale: Locale, m: Messages): Command[] {
       id: "copy:email",
       group: m.nav.contact,
       label: m.common.copyEmail,
-      keywords: [site.email],
-      action: { type: "copy", text: site.email },
+      keywords: ["email", "e-mail"],
+      action: { type: "copyEmail" },
     },
   ];
 

@@ -5,6 +5,7 @@ import { ActivityCard } from "@/components/activity/activity-card";
 import { WorkflowShowcase } from "@/components/home/workflow-showcase";
 import { ProjectCard } from "@/components/projects/project-card";
 import { CvMenu } from "@/components/ui/cv-menu";
+import { EmailLink } from "@/components/ui/email-link";
 import { JsonLd } from "@/components/ui/json-ld";
 import { Page } from "@/components/ui/page";
 import { CardStack, StackList } from "@/components/ui/tech-badge";
@@ -170,13 +171,12 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         </h2>
         <p className="mt-3 max-w-xl opacity-80">{pick(site.availability, locale)}</p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <a
-            href={`mailto:${site.email}`}
+          <EmailLink
+            label={tCommon("emailMe")}
             className="inline-flex items-center gap-2 rounded-full bg-on-accent px-5 py-2.5 font-medium text-accent transition-opacity hover:opacity-90 dark:bg-accent dark:text-on-accent"
           >
             <Mail aria-hidden size={18} />
-            {tCommon("emailMe")}
-          </a>
+          </EmailLink>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 rounded-full border border-on-accent/40 px-5 py-2.5 font-medium hover:border-on-accent dark:border-ink/30 dark:hover:border-ink"

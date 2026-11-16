@@ -28,6 +28,7 @@ import { ReadingProgress } from "@/components/ui/back-to-top";
 import { GitHubIcon, GitLabIcon, LinkedInIcon } from "@/components/ui/brand-icons";
 import { CvMenu } from "@/components/ui/cv-menu";
 import { CvNav } from "@/components/ui/cv-nav";
+import { EmailLink } from "@/components/ui/email-link";
 import { Flag } from "@/components/ui/flags";
 import { Page } from "@/components/ui/page";
 import { CardStack, StackList, TechLogo } from "@/components/ui/tech-badge";
@@ -98,12 +99,6 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
 
   const contacts = [
     {
-      icon: <Mail aria-hidden size={16} />,
-      label: site.email,
-      href: `mailto:${site.email}`,
-      wide: true,
-    },
-    {
       icon: <Phone aria-hidden size={16} />,
       label: site.phone,
       href: `tel:${site.phone.replaceAll(" ", "")}`,
@@ -154,6 +149,14 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
             <li className="flex w-full items-center gap-2.5">
               <MapPin aria-hidden size={16} />
               {pick(site.location, locale)}
+            </li>
+            <li className="w-full">
+              <EmailLink
+                className="flex items-center gap-2 transition-colors hover:text-accent"
+                textClassName="link"
+              >
+                <Mail aria-hidden size={16} />
+              </EmailLink>
             </li>
             {contacts.map((contact) => (
               <li key={contact.href} className={contact.wide ? "w-full" : undefined}>

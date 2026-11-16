@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { GitHubIcon, GitLabIcon, LinkedInIcon } from "@/components/ui/brand-icons";
 import { ContactForm } from "@/components/ui/contact-form";
-import { CopyButton } from "@/components/ui/copy-button";
 import { CvMenu } from "@/components/ui/cv-menu";
+import { CopyEmailButton, EmailLink } from "@/components/ui/email-link";
 import { Page, PageHeader } from "@/components/ui/page";
 import { site } from "@/content/site";
 import { pick } from "@/content/types";
@@ -46,19 +46,11 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
         </section>
         <div className="grid content-start gap-12">
           <section aria-label="Email">
-            <a
-              href={`mailto:${site.email}`}
-              className="inline-flex items-center gap-3 font-display text-xl font-semibold break-all hover:text-accent sm:text-2xl"
-            >
+            <EmailLink className="inline-flex items-center gap-3 font-display text-xl font-semibold break-all hover:text-accent sm:text-2xl">
               <Mail aria-hidden className="size-6 shrink-0" />
-              {site.email}
-            </a>
+            </EmailLink>
             <div className="mt-6 flex flex-wrap gap-3">
-              <CopyButton
-                value={site.email}
-                label={tCommon("copyEmail")}
-                copiedLabel={tCommon("copied")}
-              />
+              <CopyEmailButton label={tCommon("copyEmail")} copiedLabel={tCommon("copied")} />
               <CvMenu />
             </div>
             <p className="mt-10 inline-flex items-center gap-2 text-muted">

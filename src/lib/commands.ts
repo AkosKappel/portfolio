@@ -6,7 +6,7 @@ export type CommandAction =
   | { type: "theme"; theme: Theme }
   | { type: "palette"; theme: Theme; palette: Palette }
   | { type: "locale"; locale: Locale }
-  | { type: "copy"; text: string };
+  | { type: "copyEmail" };
 
 /** One entry of the command palette: a link (`href`) or an action. Labels are already translated. */
 export type Command = {

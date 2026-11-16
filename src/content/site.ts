@@ -8,7 +8,12 @@ export const site = {
   phone: "+421 918 727 886",
   headline: "Full-Stack Software Engineer",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://akoskappel.dev",
-  email: "kappelakos@gmail.com",
+  // Kept apart and joined in a getter, which the minifier cannot fold, so the bundled
+  // JavaScript never holds the address as one string. Pages render it through EmailLink.
+  emailParts: ["kappelakos", "gmail.com"],
+  get email() {
+    return this.emailParts.join("@");
+  },
   repository: "https://github.com/AkosKappel/portfolio",
   location: { en: "Bratislava, Slovakia", sk: "Bratislava, Slovensko" } satisfies Text,
   intro: {

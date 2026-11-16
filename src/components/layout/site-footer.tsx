@@ -1,5 +1,6 @@
 import { useLocale, useTranslations } from "next-intl";
 import { GitHubIcon, GitLabIcon, LinkedInIcon } from "@/components/ui/brand-icons";
+import { EmailLink } from "@/components/ui/email-link";
 import { Logo } from "@/components/ui/logo";
 import { navigation, secondaryNavigation, site } from "@/content/site";
 import { pick } from "@/content/types";
@@ -23,9 +24,7 @@ export function SiteFooter() {
             {site.name}
           </p>
           <p className="mt-3 text-muted">{pick(site.availability, locale)}</p>
-          <a href={`mailto:${site.email}`} className="link mt-4 inline-block">
-            {site.email}
-          </a>
+          <EmailLink className="link mt-4 inline-block" />
         </div>
         <nav aria-label={t("footer.pages")}>
           <h2 className="font-sans text-sm font-semibold tracking-normal text-muted">
