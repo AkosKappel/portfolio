@@ -116,7 +116,7 @@ scripts/        CV build (PDFs and page images)
 
 ## Editing content
 
-Page content lives in `src/content/` with every text in both languages (`{ en, sk }`), and interface text lives in `messages/`. `src/content/content.test.ts` checks slugs, image paths, links, dates, missing translations and that both message files have the same keys.
+Page content lives in `src/content/` with every text in each language (`{ en, sk, de, cs, hu }`), and interface text lives in `messages/`. `src/content/content.test.ts` checks slugs, image paths, links, dates, missing translations and that all message files have the same keys.
 
 Technology names in `stack` and `skills` get a logo when they are listed in `src/lib/tech-icons.ts`, and a link to their official site from the `url` next to each logo (or `techLinks`) in `src/lib/tech-icons.data.ts`.
 
@@ -129,7 +129,7 @@ Technology names in `stack` and `skills` get a logo when they are listed in `src
    ```
 
 2. Add an entry to `src/content/projects.ts`: `slug`, `title`, a one-sentence `summary`, `description` paragraphs, `kind`, `area`, `year`, `stack`, links and `image` with its real width and height. Use `until` for the last year of work (e.g. a 2026 rebuild) and set `featured` to show it on the home page.
-3. Write `summary`, `description` and `highlights` in English and Slovak, then run `pnpm test`. The card, case-study page, sitemap entry, search and filters follow from the entry.
+3. Write `summary`, `description` and `highlights` in every language (`en`, `sk`, `de`, `cs`, `hu`), then run `pnpm test`. The card, case-study page, sitemap entry, search and filters follow from the entry.
 
 Projects without a screenshot get a generated placeholder.
 
