@@ -8,10 +8,12 @@ import { feastFinder } from "./feast-finder";
 import { glaucomaSegmentation } from "./glaucoma-segmentation";
 import { iridescent } from "./iridescent";
 import { modernFashionStore } from "./modern-fashion-store";
+import { oasis } from "./oasis";
 import { oriel } from "./oriel";
 import { petguide } from "./petguide";
 import { pokedex } from "./pokedex";
 import { sketchbook } from "./sketchbook";
+import { skysense } from "./skysense";
 import { smarttechEShop } from "./smarttech-e-shop";
 import { wacMicrofrontends } from "./wac-microfrontends";
 
@@ -25,6 +27,8 @@ export const projects: Project[] = [
   feastFinder,
   budgetMaster,
   oriel,
+  skysense,
+  oasis,
   wacMicrofrontends,
   petguide,
   conicSectionsGenerator,

@@ -11,6 +11,7 @@ const imageIcons: Record<string, string> = {
 const aliases: Record<string, string> = {
   LiveView: "Phoenix LiveView",
   Stencil: "Stencil.js",
+  SvelteKit: "Svelte",
   "Vue Router": "Vue",
   "Go API": "Go",
   Mathematica: "Wolfram Mathematica",
