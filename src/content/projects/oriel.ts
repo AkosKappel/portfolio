@@ -20,6 +20,10 @@ export const oriel: Project = {
       en: "The hard part was keeping the server in charge without slowing the device down. Changes are applied locally at once, then each one is checked on the server against the member's role before it reaches anyone else; a refused change is dropped and the device gets the server's version back.",
       sk: "Najťažšie bolo nechať rozhodovanie na serveri bez spomalenia zariadenia. Zmeny sa hneď uložia lokálne a potom server každú z nich overí podľa roly člena, kým sa dostane k ostatným; odmietnutá zmena sa zahodí a zariadenie dostane späť verziu zo servera.",
     },
+    {
+      en: "Day to day it is meant to stay out of the way. One capture field at the bottom of the screen turns a line into a note, a list or a task, tasks can repeat or be snoozed until they matter, and notes are written in Markdown with earlier versions to go back to. On a phone it uses what the platform offers: sharing text in from other apps, dictation, scanning a barcode into a list and a morning reminder of the day's tasks.",
+      sk: "V bežný deň má byť nenápadný. Jedno pole na zápis v spodnej časti obrazovky zmení riadok na poznámku, zoznam alebo úlohu, úlohy sa môžu opakovať alebo odložiť, kým nebudú aktuálne, a poznámky sa píšu v Markdowne s predchádzajúcimi verziami, ku ktorým sa dá vrátiť. V mobile využíva to, čo platforma ponúka: zdieľanie textu z iných aplikácií, diktovanie, naskenovanie čiarového kódu do zoznamu a rannú pripomienku úloh na daný deň.",
+    },
   ],
   features: [
     {
@@ -196,6 +200,58 @@ export const oriel: Project = {
       caption: {
         en: "On a wide screen the notebook stays on the left and the open item reads beside it.",
         sk: "Na širokej obrazovke zostáva zápisník vľavo a otvorená položka sa číta vedľa neho.",
+      },
+    },
+    {
+      src: "/images/projects/oriel/phone-tasks.webp",
+      width: 520,
+      height: 1125,
+      alt: {
+        en: "Tasks on a phone with due days, priorities and repeats, filtered by Today, Upcoming, In progress and Waiting",
+        sk: "Úlohy v mobile s termínmi, prioritami a opakovaním, s filtrami Dnes, Nadchádzajúce, Prebieha a Čaká sa",
+      },
+      caption: {
+        en: "Tasks: priority, status, due days and repeats, sorted so the urgent ones come first.",
+        sk: "Úlohy: priorita, stav, termíny a opakovanie, zoradené tak, aby naliehavé boli prvé.",
+      },
+    },
+    {
+      src: "/images/projects/oriel/phone-note.webp",
+      width: 520,
+      height: 1125,
+      alt: {
+        en: "A trip plan written in Markdown, open on a phone",
+        sk: "Plán výletu napísaný v Markdowne, otvorený v mobile",
+      },
+      caption: {
+        en: "Notes are written in Markdown and read like a page, with tools to share, copy, archive, pin or snooze.",
+        sk: "Poznámky sa píšu v Markdowne a čítajú sa ako stránka, s nástrojmi na zdieľanie, kopírovanie, archiváciu, pripnutie či odloženie.",
+      },
+    },
+    {
+      src: "/images/projects/oriel/desktop-note-dark.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "The notebook and a Markdown note side by side in dark mode",
+        sk: "Zápisník a poznámka v Markdowne vedľa seba v tmavom režime",
+      },
+      caption: {
+        en: "Dark mode on a wide screen, following the device or chosen in Settings.",
+        sk: "Tmavý režim na širokej obrazovke, podľa zariadenia alebo zvolený v nastaveniach.",
+      },
+    },
+    {
+      src: "/images/projects/oriel/command-palette.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "The command palette with recently changed items and commands",
+        sk: "Príkazová paleta s nedávno zmenenými položkami a príkazmi",
+      },
+      caption: {
+        en: "Ctrl+K finds any item or runs a command without leaving the keyboard.",
+        sk: "Ctrl+K nájde akúkoľvek položku alebo spustí príkaz bez opustenia klávesnice.",
       },
     },
   ],

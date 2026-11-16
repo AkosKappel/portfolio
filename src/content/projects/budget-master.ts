@@ -16,6 +16,14 @@ export const budgetMaster: Project = {
       en: "It answers three questions: where did my money go, how much can I still spend this month, and what is coming up. A couple can keep a shared household space while personal money stays personal. The demo gives every visitor a private copy of 14 months of sample data.",
       sk: "Odpovedá na tri otázky: kam išli moje peniaze, koľko ešte môžem minúť tento mesiac a čo ma čaká. Pár si môže viesť spoločný priestor domácnosti, pričom osobné peniaze zostanú osobné. Demo dá každému návštevníkovi súkromnú kópiu 14 mesiacov vzorových dát.",
     },
+    {
+      en: "A budget app only works if entering a purchase is faster than forgetting it, so much of the work went into capture. Quick add takes a few seconds, a single typed line fills the whole form, amount fields accept sums like 12+4.50, a receipt can be split across categories, and recurring payments record themselves on their due date. A bank statement comes in from CSV with a review step, so a month of history takes a few clicks.",
+      sk: "Aplikácia na rozpočet funguje, len keď je zapísanie nákupu rýchlejšie ako naň zabudnúť, preto veľa práce išlo do zapisovania. Rýchle pridanie trvá pár sekúnd, jeden napísaný riadok vyplní celý formulár, polia na sumu zvládnu výpočty ako 12+4,50, bloček sa dá rozdeliť medzi kategórie a pravidelné platby sa zapíšu samy v deň splatnosti. Bankový výpis sa načíta z CSV s kontrolou, takže mesiac histórie je otázkou pár kliknutí.",
+    },
+    {
+      en: "On top of the numbers, Home points out what is worth a look: a possible double charge, a subscription that got pricier or a category on the rise. Sharing took the most care: every request checks the member's role on the server, changes appear on the other phones live, and a log shows who changed what, with undo.",
+      sk: "Okrem čísel Domov upozorní na to, čo stojí za pozornosť: možnú dvojitú platbu, zdražené predplatné alebo kategóriu, v ktorej míňate čoraz viac. Najviac starostlivosti si vyžiadalo zdieľanie: každá požiadavka overí rolu člena na serveri, zmeny sa hneď objavia na ostatných mobiloch a záznam ukáže, kto čo zmenil, s možnosťou vrátiť to späť.",
+    },
   ],
   features: [
     {
@@ -41,6 +49,10 @@ export const budgetMaster: Project = {
     {
       en: "Reports: cash flow, net worth, spending calendar, monthly report and a year in review",
       sk: "Prehľady: peňažný tok, čistý majetok, kalendár výdavkov, mesačný prehľad a zhrnutie roka",
+    },
+    {
+      en: "Hints on Home about possible double charges, pricier subscriptions and categories on the rise, and how prices at regular payees changed in a year",
+      sk: "Tipy na úvodnej stránke o možných dvojitých platbách, zdražených predplatných a rastúcich kategóriách a ako sa za rok zmenili ceny u pravidelných príjemcov",
     },
     {
       en: "Wallets in their own currencies; totals, budgets and reports convert them at ECB exchange rates",
@@ -108,7 +120,7 @@ export const budgetMaster: Project = {
     "React 19.2",
     "PostgreSQL 18",
     "Tailwind CSS 4",
-    "TypeScript 6",
+    "TypeScript 7",
   ],
   kind: "personal",
   areas: ["web"],
@@ -143,6 +155,32 @@ export const budgetMaster: Project = {
     },
   },
   gallery: [
+    {
+      src: "/images/projects/budget-master/phone-home.webp",
+      width: 520,
+      height: 1125,
+      alt: {
+        en: "Home on a phone: the month over budget and the categories that need attention",
+        sk: "Domovská obrazovka v mobile: mesiac nad rozpočtom a kategórie, ktoré si vyžadujú pozornosť",
+      },
+      caption: {
+        en: "Built for the phone first: how the month is going and which budgets need attention, at a glance.",
+        sk: "Navrhnuté najprv pre mobil: ako sa darí tento mesiac a ktoré rozpočty si vyžadujú pozornosť, na prvý pohľad.",
+      },
+    },
+    {
+      src: "/images/projects/budget-master/phone-home-dark.webp",
+      width: 520,
+      height: 1125,
+      alt: {
+        en: "Home on a phone in dark mode",
+        sk: "Domovská obrazovka v mobile v tmavom režime",
+      },
+      caption: {
+        en: "Dark mode, switchable from every page and installable like an app.",
+        sk: "Tmavý režim, prepínateľný z každej stránky, a inštalácia ako aplikácia.",
+      },
+    },
     {
       src: "/images/projects/budget-master/quick-add.webp",
       width: 1280,
