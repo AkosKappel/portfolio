@@ -104,8 +104,8 @@ export const skysense: Project = {
     width: 1440,
     height: 900,
     alt: {
-      en: "SkySense for Bratislava on a wide screen: the summary, an air quality notice and tiles for the current weather, umbrella, darkness and wind",
-      sk: "SkySense pre Bratislavu na širokej obrazovke: zhrnutie, upozornenie na kvalitu vzduchu a dlaždice s aktuálnym počasím, dáždnikom, tmou a vetrom",
+      en: "SkySense for a hot, sunny afternoon in Madrid on a wide screen: the summary, 35 degrees, the umbrella answer and the best times to go out",
+      sk: "SkySense pre horúce slnečné popoludnie v Madride na širokej obrazovke: zhrnutie, 35 stupňov, odpoveď o dáždniku a najlepšie časy na von",
     },
   },
   architecture: [
@@ -133,29 +133,42 @@ export const skysense: Project = {
   ],
   gallery: [
     {
-      src: "/images/projects/skysense/phone-overview.webp",
+      src: "/images/projects/skysense/phone-heat.webp",
       width: 520,
       height: 1125,
       alt: {
-        en: "Bratislava on a phone: the summary, an air quality notice and 6 degrees with rain",
-        sk: "Bratislava v mobile: zhrnutie, upozornenie na kvalitu vzduchu a 6 stupňov s dažďom",
+        en: "Madrid on a phone: sunny and 35 degrees, dry for the next 24 hours",
+        sk: "Madrid v mobile: slnečno a 35 stupňov, sucho na ďalších 24 hodín",
       },
       caption: {
-        en: "The answer comes first: a sentence about the day, then what to wear.",
-        sk: "Odpoveď je na prvom mieste: veta o dni a potom čo si obliecť.",
+        en: "A hot day: the summary warns about the heat and the clothing tip asks for sun cream.",
+        sk: "Horúci deň: zhrnutie upozorní na horúčavu a tip na oblečenie pripomenie opaľovací krém.",
       },
     },
     {
-      src: "/images/projects/skysense/phone-activities.webp",
+      src: "/images/projects/skysense/phone-storm.webp",
       width: 520,
       height: 1125,
       alt: {
-        en: "The activity tile with a run scored 97 of 100 and a bar for each factor",
-        sk: "Dlaždica aktivít s behom ohodnoteným 97 zo 100 a pruhom pre každý faktor",
+        en: "Tromsø on a phone: rain until 03:00 and gusts up to 77 km/h",
+        sk: "Tromsø v mobile: dážď do 03:00 a nárazy vetra až 77 km/h",
       },
       caption: {
-        en: "Every activity score opens into the factors behind it, and the good times go straight to a calendar.",
-        sk: "Každé skóre aktivity sa dá rozbaliť na faktory, ktoré zaň stoja, a dobré časy idú rovno do kalendára.",
+        en: "A stormy day: strong gusts make it into the first sentence, and the clothing tip adds something windproof.",
+        sk: "Búrlivý deň: silné nárazy vetra sa dostanú do prvej vety a tip na oblečenie pridá niečo proti vetru.",
+      },
+    },
+    {
+      src: "/images/projects/skysense/desktop-rain.webp",
+      width: 1280,
+      height: 800,
+      alt: {
+        en: "Bratislava on a wide screen with rain until 16:00 and tiles for the umbrella, darkness and wind",
+        sk: "Bratislava na širokej obrazovke s dažďom do 16:00 a dlaždicami pre dáždnik, tmu a vietor",
+      },
+      caption: {
+        en: "A rainy morning: the umbrella tile says until when, and how many model runs agree.",
+        sk: "Daždivé ráno: dlaždica s dáždnikom povie, dokedy prší a koľko behov modelu sa zhoduje.",
       },
     },
     {
@@ -163,12 +176,25 @@ export const skysense: Project = {
       width: 520,
       height: 1125,
       alt: {
-        en: "Norilsk at night: dry for the next 24 hours, though some model runs show snow",
-        sk: "Norilsk v noci: sucho na ďalších 24 hodín, hoci niektoré behy modelu ukazujú sneh",
+        en: "Norilsk at night on a phone: dry for the next 24 hours, though some model runs show snow",
+        sk: "Norilsk v noci v mobile: sucho na ďalších 24 hodín, hoci niektoré behy modelu ukazujú sneh",
       },
       caption: {
-        en: "When the model runs disagree, the summary says so instead of pretending to be sure.",
-        sk: "Keď sa behy modelu nezhodujú, zhrnutie to povie namiesto predstieranej istoty.",
+        en: "At night the sky turns dark, and when the model runs disagree the summary says so.",
+        sk: "V noci sa obloha stmavne a keď sa behy modelu nezhodujú, zhrnutie to povie.",
+      },
+    },
+    {
+      src: "/images/projects/skysense/phone-midnight-sun.webp",
+      width: 520,
+      height: 1125,
+      alt: {
+        en: "Tromsø at 23:00 under the midnight sun: sunny and 10 degrees",
+        sk: "Tromsø o 23:00 pod polnočným slnkom: slnečno a 10 stupňov",
+      },
+      caption: {
+        en: "The midnight sun: sunny at 23:00, because the app follows the real sun, not the clock.",
+        sk: "Polnočné slnko: slnečno o 23:00, lebo aplikácia sa riadi skutočným slnkom, nie hodinami.",
       },
     },
     {
@@ -182,6 +208,19 @@ export const skysense: Project = {
       caption: {
         en: "Five forecasting centres side by side: where they agree, the forecast is solid.",
         sk: "Päť predpovedných centier vedľa seba: kde sa zhodujú, predpoveď je spoľahlivá.",
+      },
+    },
+    {
+      src: "/images/projects/skysense/phone-activities.webp",
+      width: 520,
+      height: 1125,
+      alt: {
+        en: "The activity tile with a run scored 97 of 100 and a bar for each factor",
+        sk: "Dlaždica aktivít s behom ohodnoteným 97 zo 100 a pruhom pre každý faktor",
+      },
+      caption: {
+        en: "Every activity score opens into the factors behind it, and the good times go straight to a calendar.",
+        sk: "Každé skóre aktivity sa dá rozbaliť na faktory, ktoré zaň stoja, a dobré časy idú rovno do kalendára.",
       },
     },
   ],
