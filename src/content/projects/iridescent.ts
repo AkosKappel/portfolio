@@ -6,59 +6,98 @@ export const iridescent: Project = {
   summary: {
     en: "Cooperative puzzle game for two players who collect and mix colours to get past obstacles.",
     sk: "Kooperatívna hádanková hra pre dvoch hráčov, ktorí zbierajú a miešajú farby, aby prekonali prekážky.",
+    de: "Kooperatives Puzzlespiel für zwei Spieler, die Farben sammeln und mischen, um Hindernisse zu überwinden.",
+    cs: "Kooperativní logická hra pro dva hráče, kteří sbírají a míchají barvy, aby překonali překážky.",
+    hu: "Kooperatív logikai játék két játékosnak, akik színeket gyűjtenek és kevernek, hogy leküzdjék az akadályokat.",
   },
   description: [
     {
       en: "A 3D split-screen puzzle platformer for two players, made by a team of three for the Game Development course at FIIT STU in 2022. Students from the Academy of Performing Arts in Bratislava contributed 3D models.",
       sk: "3D hádanková plošinovka pre dvoch hráčov na rozdelenej obrazovke, ktorú vytvoril trojčlenný tím v predmete Vývoj hier na FIIT STU v roku 2022. 3D modely prispeli aj študenti Vysokej školy múzických umení v Bratislave.",
+      de: "Ein 3D-Puzzle-Plattformer mit geteiltem Bildschirm für zwei Spieler, entwickelt von einem dreiköpfigen Team im Kurs Spieleentwicklung an der FIIT STU im Jahr 2022. Studierende der Hochschule für Musische Künste in Bratislava haben 3D-Modelle beigesteuert.",
+      cs: "3D logická plošinovka pro dva hráče na rozdělené obrazovce, kterou vytvořil tříčlenný tým v předmětu Vývoj her na FIIT STU v roce 2022. 3D modely přispěli i studenti Vysoké školy múzických umění v Bratislavě.",
+      hu: "Osztott képernyős 3D-s logikai platformjáték két játékosnak, amelyet egy háromfős csapat készített a FIIT STU Játékfejlesztés tárgyán 2022-ben. A 3D-modellekhez a pozsonyi Előadóművészeti Főiskola hallgatói is hozzájárultak.",
     },
     {
       en: "Each player carries a colour. Players collect colours in the level, mix them into new ones and use them on obstacles that only react to a certain colour, so most puzzles need both players working together. A playthrough takes about half an hour.",
       sk: "Každý hráč nesie farbu. Hráči v leveli zbierajú farby, miešajú z nich nové a používajú ich na prekážky, ktoré reagujú len na určitú farbu, takže väčšina hádaniek si vyžaduje spoluprácu oboch hráčov. Prejdenie hry trvá asi pol hodiny.",
+      de: "Jeder Spieler trägt eine Farbe. Die Spieler sammeln im Level Farben, mischen daraus neue und setzen sie an Hindernissen ein, die nur auf eine bestimmte Farbe reagieren, sodass die meisten Rätsel beide Spieler gemeinsam brauchen. Ein Durchlauf dauert etwa eine halbe Stunde.",
+      cs: "Každý hráč nese barvu. Hráči v levelu sbírají barvy, míchají z nich nové a používají je na překážky, které reagují jen na určitou barvu, takže většina hádanek vyžaduje spolupráci obou hráčů. Dohrání hry trvá asi půl hodiny.",
+      hu: "Minden játékos egy színt hordoz. A játékosok a pályán színeket gyűjtenek, újakat kevernek belőlük, és olyan akadályokon használják őket, amelyek csak egy bizonyos színre reagálnak, így a legtöbb fejtörőhöz mindkét játékos együttműködése kell. Egy végigjátszás nagyjából fél óra.",
     },
     {
       en: "I was responsible for the obstacles: buttons, levers, doors and the special blocks the levels are built from. I also built most of the second level and fixed bugs in jumping and collisions. My teammates handled the player controls, colour mixing, camera, menus and the other levels. The game is released on itch.io for the browser, Windows, macOS and Linux.",
       sk: "Bol som zodpovedný za prekážky: tlačidlá, páky, dvere a špeciálne bloky, z ktorých sú levely poskladané. Postavil som aj väčšinu druhého levelu a opravoval chyby v skákaní a kolíziách. Ostatní členovia tímu mali na starosti ovládanie postáv, miešanie farieb, kameru, menu a ďalšie levely. Hra je vydaná na itch.io pre prehliadač, Windows, macOS a Linux.",
+      de: "Ich war für die Hindernisse zuständig: Knöpfe, Hebel, Türen und die speziellen Blöcke, aus denen die Level aufgebaut sind. Außerdem habe ich den Großteil des zweiten Levels gebaut und Fehler beim Springen und bei Kollisionen behoben. Meine Teamkollegen kümmerten sich um die Steuerung, das Farbmischen, die Kamera, die Menüs und die anderen Level. Das Spiel ist auf itch.io für den Browser, Windows, macOS und Linux erschienen.",
+      cs: "Byl jsem zodpovědný za překážky: tlačítka, páky, dveře a speciální bloky, ze kterých jsou levely složené. Postavil jsem také většinu druhého levelu a opravoval chyby ve skákání a kolizích. Ostatní členové týmu měli na starosti ovládání postav, míchání barev, kameru, menu a další levely. Hra je vydaná na itch.io pro prohlížeč, Windows, macOS a Linux.",
+      hu: "Én feleltem az akadályokért: gombokért, karokért, ajtókért és azokért a speciális blokkokért, amelyekből a pályák felépülnek. Én építettem a második pálya nagy részét is, és javítottam az ugrás és az ütközések hibáit. A csapattársaim a karakterek irányításával, a színkeveréssel, a kamerával, a menükkel és a többi pályával foglalkoztak. A játék az itch.io-n jelent meg böngészőre, Windowsra, macOS-re és Linuxra.",
     },
   ],
   features: [
     {
       en: "Local co-op on one screen, with keyboard or Xbox and PlayStation controllers",
       sk: "Lokálna kooperácia na jednej obrazovke, s klávesnicou alebo ovládačmi Xbox a PlayStation",
+      de: "Lokaler Koop-Modus an einem Bildschirm, mit Tastatur oder Xbox- und PlayStation-Controllern",
+      cs: "Lokální kooperace na jedné obrazovce, s klávesnicí nebo ovladači Xbox a PlayStation",
+      hu: "Helyi kooperatív mód egy képernyőn, billentyűzettel vagy Xbox és PlayStation kontrollerrel",
     },
     {
       en: "Colour mixing: combine collected colours to unlock obstacles that need a new one",
       sk: "Miešanie farieb: spojením nazbieraných farieb vzniknú nové, ktoré otvoria ďalšie prekážky",
+      de: "Farbmischen: Gesammelte Farben werden kombiniert, um Hindernisse zu öffnen, die eine neue Farbe brauchen",
+      cs: "Míchání barev: spojením nasbíraných barev vzniknou nové, které otevřou další překážky",
+      hu: "Színkeverés: az összegyűjtött színek kombinálásával új színek jönnek létre, amelyek további akadályokat nyitnak meg",
     },
     {
       en: "Doors, buttons, levers, shadow blocks and destructible walls that react to colour",
       sk: "Dvere, tlačidlá, páky, tieňové bloky a zničiteľné steny, ktoré reagujú na farbu",
+      de: "Türen, Knöpfe, Hebel, Schattenblöcke und zerstörbare Wände, die auf Farbe reagieren",
+      cs: "Dveře, tlačítka, páky, stínové bloky a zničitelné stěny, které reagují na barvu",
+      hu: "Ajtók, gombok, karok, árnyékblokkok és lerombolható falak, amelyek a színre reagálnak",
     },
   ],
   highlights: [
     {
       en: "Push buttons, timed buttons and levers that only react to the right colour; bigger buttons need a player who has absorbed several colours, and a cube of the right colour can hold a button down",
       sk: "Tlačidlá, časované tlačidlá a páky, ktoré reagujú len na správnu farbu; väčšie tlačidlá potrebujú hráča, ktorý pohltil viac farieb, a tlačidlo môže podržať aj kocka správnej farby",
+      de: "Druckknöpfe, zeitgesteuerte Knöpfe und Hebel, die nur auf die richtige Farbe reagieren; größere Knöpfe brauchen einen Spieler, der mehrere Farben aufgenommen hat, und ein Würfel in der richtigen Farbe kann einen Knopf gedrückt halten",
+      cs: "Tlačítka, časovaná tlačítka a páky, které reagují jen na správnou barvu; větší tlačítka potřebují hráče, který pohltil více barev, a tlačítko může podržet i kostka správné barvy",
+      hu: "Nyomógombok, időzített gombok és karok, amelyek csak a megfelelő színre reagálnak; a nagyobb gombokhoz olyan játékos kell, aki több színt is magába szívott, és egy megfelelő színű kocka is lenyomva tarthat egy gombot",
     },
     {
       en: "A button stays pressed while anyone stands on it, and lets go when the player on it loses the right colour",
       sk: "Tlačidlo zostane stlačené, kým na ňom niekto stojí, a uvoľní sa, keď hráč na ňom stratí správnu farbu",
+      de: "Ein Knopf bleibt gedrückt, solange jemand darauf steht, und löst sich, wenn der Spieler darauf die richtige Farbe verliert",
+      cs: "Tlačítko zůstane stisknuté, dokud na něm někdo stojí, a uvolní se, když hráč na něm ztratí správnou barvu",
+      hu: "A gomb lenyomva marad, amíg valaki áll rajta, és felenged, ha a rajta álló játékos elveszíti a megfelelő színt",
     },
     {
       en: "Doors linked to any number of buttons, and one button able to open several doors; a door stays open while any of its buttons is pressed",
       sk: "Dvere prepojené s ľubovoľným počtom tlačidiel a jedno tlačidlo, ktoré otvorí viacero dverí; dvere zostanú otvorené, kým je stlačené aspoň jedno z ich tlačidiel",
+      de: "Türen, die mit beliebig vielen Knöpfen verbunden sind, und ein Knopf, der mehrere Türen öffnen kann; eine Tür bleibt offen, solange einer ihrer Knöpfe gedrückt ist",
+      cs: "Dveře propojené s libovolným počtem tlačítek a jedno tlačítko, které otevře více dveří; dveře zůstanou otevřené, dokud je stisknuté alespoň jedno z jejich tlačítek",
+      hu: "Tetszőleges számú gombhoz kötött ajtók, és egy gomb, amely több ajtót is kinyithat; az ajtó nyitva marad, amíg legalább az egyik gombja le van nyomva",
     },
     {
       en: "Coloured doors that only a player of the same colour can pass, shadow blocks on a timer and destructible obstacles, all as reusable prefabs",
       sk: "Farebné dvere, cez ktoré prejde len hráč rovnakej farby, tieňové bloky s časovačom a zničiteľné prekážky, všetko ako opakovane použiteľné prefaby",
+      de: "Farbige Türen, die nur ein Spieler gleicher Farbe passieren kann, Schattenblöcke mit Timer und zerstörbare Hindernisse, alles als wiederverwendbare Prefabs",
+      cs: "Barevné dveře, kterými projde jen hráč stejné barvy, stínové bloky s časovačem a zničitelné překážky, vše jako znovupoužitelné prefaby",
+      hu: "Színes ajtók, amelyeken csak azonos színű játékos mehet át, időzített árnyékblokkok és lerombolható akadályok, mind újrahasználható prefabként",
     },
     {
       en: "Most of the second level and the last checkpoint of the first one",
       sk: "Väčšina druhého levelu a posledný checkpoint prvého",
+      de: "Der Großteil des zweiten Levels und der letzte Checkpoint des ersten",
+      cs: "Většina druhého levelu a poslední checkpoint prvního",
+      hu: "A második pálya nagy része és az első pálya utolsó ellenőrzőpontja",
     },
     {
       en: "Fixes to the double jump, walking through walls and buttons pressed by both players at once",
       sk: "Opravy dvojitého skoku, prechádzania cez steny a tlačidiel stlačených oboma hráčmi naraz",
+      de: "Korrekturen am Doppelsprung, am Laufen durch Wände und an Knöpfen, die von beiden Spielern gleichzeitig gedrückt werden",
+      cs: "Opravy dvojitého skoku, procházení zdmi a tlačítek stisknutých oběma hráči najednou",
+      hu: "Javítások a dupla ugrásnál, a falakon való átsétálásnál és a mindkét játékos által egyszerre lenyomott gomboknál",
     },
   ],
   versions: ["Unity 2021.3"],
@@ -66,6 +105,9 @@ export const iridescent: Project = {
   role: {
     en: "Obstacles, the second level and bug fixes in a team of three",
     sk: "Prekážky, druhý level a opravy chýb v trojčlennom tíme",
+    de: "Hindernisse, das zweite Level und Fehlerbehebungen in einem dreiköpfigen Team",
+    cs: "Překážky, druhý level a opravy chyb v tříčlenném týmu",
+    hu: "Akadályok, a második pálya és hibajavítások egy háromfős csapatban",
   },
   areas: ["games"],
   year: 2022,
@@ -79,6 +121,9 @@ export const iridescent: Project = {
     alt: {
       en: "Iridescent title screen with two characters",
       sk: "Úvodná obrazovka hry Iridescent s dvoma postavami",
+      de: "Titelbildschirm von Iridescent mit zwei Figuren",
+      cs: "Úvodní obrazovka hry Iridescent se dvěma postavami",
+      hu: "Az Iridescent kezdőképernyője két szereplővel",
     },
   },
   gallery: [
@@ -89,10 +134,16 @@ export const iridescent: Project = {
       alt: {
         en: "Split-screen view of a colourless character next to a storybook on a bed",
         sk: "Rozdelená obrazovka s bezfarebnou postavou pri rozprávkovej knihe na posteli",
+        de: "Geteilter Bildschirm mit einer farblosen Figur neben einem Märchenbuch auf einem Bett",
+        cs: "Rozdělená obrazovka s bezbarvou postavou u pohádkové knihy na posteli",
+        hu: "Osztott képernyő egy színtelen szereplővel egy mesekönyv mellett az ágyon",
       },
       caption: {
         en: "The story opens in a bedroom: both characters start without colour.",
         sk: "Príbeh sa začína v spálni: obe postavy začínajú bez farby.",
+        de: "Die Geschichte beginnt in einem Schlafzimmer: Beide Figuren starten ohne Farbe.",
+        cs: "Příběh začíná v ložnici: obě postavy začínají bez barvy.",
+        hu: "A történet egy hálószobában kezdődik: mindkét szereplő szín nélkül indul.",
       },
     },
     {
@@ -102,10 +153,16 @@ export const iridescent: Project = {
       alt: {
         en: "Both players standing on pressure plates in stone ruins",
         sk: "Obaja hráči stoja na tlakových doskách v kamenných ruinách",
+        de: "Beide Spieler stehen auf Druckplatten in Steinruinen",
+        cs: "Oba hráči stojí na tlakových deskách v kamenných ruinách",
+        hu: "Mindkét játékos nyomólapokon áll kőromok között",
       },
       caption: {
         en: "Many puzzles need both players at once, for example on two pressure plates.",
         sk: "Mnohé hádanky potrebujú oboch hráčov naraz, napríklad na dvoch tlakových doskách.",
+        de: "Viele Rätsel brauchen beide Spieler gleichzeitig, zum Beispiel auf zwei Druckplatten.",
+        cs: "Mnoho hádanek potřebuje oba hráče najednou, například na dvou tlakových deskách.",
+        hu: "Sok fejtörőhöz egyszerre kell mindkét játékos, például két nyomólapon.",
       },
     },
     {
@@ -115,10 +172,16 @@ export const iridescent: Project = {
       alt: {
         en: "A see-through shadow block next to a player on a button",
         sk: "Priehľadný tieňový blok vedľa hráča na tlačidle",
+        de: "Ein durchsichtiger Schattenblock neben einem Spieler auf einem Knopf",
+        cs: "Průhledný stínový blok vedle hráče na tlačítku",
+        hu: "Átlátszó árnyékblokk egy gombon álló játékos mellett",
       },
       caption: {
         en: "A see-through block that turns solid while a button is held down.",
         sk: "Priehľadný blok, ktorý spevnie, kým je tlačidlo stlačené.",
+        de: "Ein durchsichtiger Block, der fest wird, solange ein Knopf gedrückt ist.",
+        cs: "Průhledný blok, který ztuhne, dokud je tlačítko stisknuté.",
+        hu: "Átlátszó blokk, amely szilárddá válik, amíg egy gomb le van nyomva.",
       },
     },
     {
@@ -128,10 +191,16 @@ export const iridescent: Project = {
       alt: {
         en: "Red player next to a blue colour source in a wall, the other player still colourless",
         sk: "Červený hráč pri modrom zdroji farby v stene, druhý hráč je ešte bez farby",
+        de: "Roter Spieler neben einer blauen Farbquelle in einer Wand, der andere Spieler noch farblos",
+        cs: "Červený hráč u modrého zdroje barvy ve zdi, druhý hráč je ještě bez barvy",
+        hu: "Piros játékos egy falba épített kék színforrás mellett, a másik játékos még színtelen",
       },
       caption: {
         en: "Colour sources in the walls give a player their colour.",
         sk: "Zdroje farby v stenách dajú hráčovi jeho farbu.",
+        de: "Farbquellen in den Wänden geben einem Spieler seine Farbe.",
+        cs: "Zdroje barvy ve zdech dají hráči jeho barvu.",
+        hu: "A falakban lévő színforrások adják meg a játékos színét.",
       },
     },
     {
@@ -141,10 +210,16 @@ export const iridescent: Project = {
       alt: {
         en: "Blue player next to a blue see-through area of water with a ball",
         sk: "Modrý hráč pri modrej priehľadnej vodnej ploche s loptičkou",
+        de: "Blauer Spieler neben einer blauen, durchsichtigen Wasserfläche mit einem Ball",
+        cs: "Modrý hráč u modré průhledné vodní plochy s míčkem",
+        hu: "Kék játékos egy kék, átlátszó vízfelület mellett, rajta egy labdával",
       },
       caption: {
         en: "Obstacles only react to a player of the matching colour.",
         sk: "Prekážky reagujú len na hráča zodpovedajúcej farby.",
+        de: "Hindernisse reagieren nur auf einen Spieler der passenden Farbe.",
+        cs: "Překážky reagují jen na hráče odpovídající barvy.",
+        hu: "Az akadályok csak a megfelelő színű játékosra reagálnak.",
       },
     },
     {
@@ -154,10 +229,16 @@ export const iridescent: Project = {
       alt: {
         en: "Yellow player in a light level with lock signs and a rainbow in the distance",
         sk: "Žltý hráč vo svetlom leveli so značkami zámkov a dúhou v diaľke",
+        de: "Gelber Spieler in einem hellen Level mit Schlosssymbolen und einem Regenbogen in der Ferne",
+        cs: "Žlutý hráč ve světlém levelu se značkami zámků a duhou v dálce",
+        hu: "Sárga játékos egy világos pályán lakatjelekkel és szivárvánnyal a távolban",
       },
       caption: {
         en: "A later level, with a rainbow on the horizon.",
         sk: "Neskorší level s dúhou na obzore.",
+        de: "Ein späteres Level mit einem Regenbogen am Horizont.",
+        cs: "Pozdější level s duhou na obzoru.",
+        hu: "Egy későbbi pálya, szivárvánnyal a láthatáron.",
       },
     },
   ],

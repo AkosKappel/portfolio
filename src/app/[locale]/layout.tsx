@@ -13,7 +13,7 @@ import { themeScript } from "@/components/layout/theme-script";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { site } from "@/content/site";
 import { pick } from "@/content/types";
-import { routing } from "@/i18n/routing";
+import { type Locale, routing } from "@/i18n/routing";
 import { alternates } from "@/lib/metadata";
 import "../globals.css";
 
@@ -49,12 +49,20 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
     openGraph: {
       type: "website",
       siteName: site.name,
-      locale: locale === "sk" ? "sk_SK" : "en_GB",
+      locale: openGraphLocales[locale],
     },
     twitter: { card: "summary_large_image" },
     alternates: alternates(locale, "/"),
   };
 }
+
+const openGraphLocales = {
+  en: "en_GB",
+  sk: "sk_SK",
+  de: "de_DE",
+  cs: "cs_CZ",
+  hu: "hu_HU",
+} satisfies Record<Locale, string>;
 
 export const viewport: Viewport = {
   themeColor: [

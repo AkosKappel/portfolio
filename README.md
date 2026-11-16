@@ -7,7 +7,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-7-3178c6?logo=typescript&logoColor=white)
 ![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?logo=tailwindcss&logoColor=white)
 
-Personal website of Ákos Kappel, full-stack software engineer: projects with case studies, experience, skills, education, contact and a CV in English and Slovak.
+Personal website of Ákos Kappel, full-stack software engineer: projects with case studies, experience, skills, education and contact in English, Slovak, German, Czech and Hungarian, with a PDF CV in English and Slovak.
 
 **Live:** https://akoskappel.dev · **CV:** [web](https://akoskappel.dev/cv) · [PDF](https://akoskappel.dev/cv/pdf)
 
@@ -18,7 +18,7 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 
 ## Features
 
-- Every page statically generated in English and Slovak, with `hreflang`, a localized sitemap, structured data and a generated link preview per page
+- Every page statically generated in English, Slovak, German, Czech and Hungarian, with `hreflang`, a localized sitemap, structured data and a generated link preview per page
 - Case studies with architecture diagrams, galleries in an accessible lightbox and what changed in each 2026 rebuild
 - Projects archive with fuzzy search, filters, sorting, grid and table views, all kept in the URL
 - Command palette (Ctrl+K or ⌘K, or the search button) to jump to any page, project or section, switch theme or language and copy the e-mail; it loads on first use
@@ -39,7 +39,7 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 
 - Next.js 16 (App Router, every page statically generated), React 19, TypeScript
 - Tailwind CSS 4 with design tokens in `src/app/globals.css`, light and dark themes
-- next-intl for English (at `/`) and Slovak (at `/sk`), with `hreflang` links and a localized sitemap
+- next-intl for English (at `/`) and Slovak, German, Czech and Hungarian (at `/sk`, `/de`, `/cs`, `/hu`), with `hreflang` links and a localized sitemap
 - Simple Icons for technology logos, lucide for UI icons
 - TanStack Table and match-sorter for the projects archive (fuzzy search, filters and sorting kept in the URL)
 - TanStack Form with a shared Zod schema for the contact form, sent from a Server Action through Resend
@@ -100,12 +100,12 @@ The `Activity` workflow refreshes the personal sources every Monday and commits 
 ## Structure
 
 ```text
-messages/       UI text per language (en.json, sk.json)
+messages/       UI text per language (en.json, sk.json, de.json, cs.json, hu.json)
 src/
   app/[locale]/ pages, rendered statically for every language
   app/          sitemap, robots, icons and Open Graph image
   components/   layout (header, footer, theme, language), projects, ui
-  content/      typed site content with English and Slovak text
+  content/      typed site content with text in every language
   i18n/         routing, navigation and request config for next-intl
   lib/          small helpers (dates, metadata, technology logos)
 test/e2e/       Playwright tests

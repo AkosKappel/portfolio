@@ -6,55 +6,91 @@ export const adventOfCode: Project = {
   summary: {
     en: "All 374 stars from 2018 to 2025, in a different language every year, tested in CI and shown on an advent calendar dashboard.",
     sk: "Všetkých 374 hviezd z rokov 2018 až 2025, každý rok v inom jazyku, testované v CI a zobrazené na nástenke v podobe adventného kalendára.",
+    de: "Alle 374 Sterne von 2018 bis 2025, jedes Jahr in einer anderen Sprache, in CI getestet und auf einem Dashboard im Stil eines Adventskalenders dargestellt.",
+    cs: "Všech 374 hvězd z let 2018 až 2025, každý rok v jiném jazyce, testované v CI a zobrazené na nástěnce v podobě adventního kalendáře.",
+    hu: "Mind a 374 csillag 2018 és 2025 között, minden évben más nyelven, CI-ban tesztelve és egy adventi naptár formájú dashboardon bemutatva.",
   },
   description: [
     {
       en: "Advent of Code is a yearly event by Eric Wastl: from 1 December, a new programming puzzle unlocks every day, each in two parts, the second a twist on the first. The puzzles start simple and grow into graph search, simulation, dynamic programming and number theory, often with inputs too large for a naive approach.",
       sk: "Advent of Code je každoročné podujatie, ktoré pripravuje Eric Wastl: od 1. decembra sa každý deň odomkne nová programátorská úloha s dvoma časťami, pričom druhá je obmenou prvej. Úlohy začínajú jednoducho a prerastajú do prehľadávania grafov, simulácií, dynamického programovania a teórie čísel, často so vstupmi príliš veľkými na naivný prístup.",
+      de: "Advent of Code ist ein jährliches Event von Eric Wastl: Ab dem 1. Dezember wird jeden Tag ein neues Programmierrätsel freigeschaltet, jeweils in zwei Teilen, wobei der zweite den ersten abwandelt. Die Rätsel beginnen einfach und führen zu Graphensuche, Simulation, dynamischer Programmierung und Zahlentheorie, oft mit Eingaben, die für einen naiven Ansatz zu groß sind.",
+      cs: "Advent of Code je každoroční akce, kterou připravuje Eric Wastl: od 1. prosince se každý den odemkne nová programátorská úloha o dvou částech, přičemž druhá je obměnou první. Úlohy začínají jednoduše a přerůstají do prohledávání grafů, simulací, dynamického programování a teorie čísel, často se vstupy příliš velkými na naivní přístup.",
+      hu: "Az Advent of Code Eric Wastl évente megrendezett eseménye: december 1-jétől minden nap megnyílik egy új programozási feladvány, mindegyik két részből áll, a második az első egy csavaros változata. A feladványok egyszerűen indulnak, majd gráfkeresésbe, szimulációba, dinamikus programozásba és számelméletbe torkollanak, gyakran olyan nagy bemenetekkel, hogy a naiv megközelítés nem elég.",
     },
     {
       en: "I use it to learn a new language each December, and I went back to finish the earlier years too: Go for 2018, Java for 2019, Kotlin for 2020, Python for 2021, TypeScript for 2022, JavaScript for 2023, C# for 2024 and Elixir for 2025. Every puzzle of all eight years is solved, 374 stars in total.",
       sk: "Využívam ho na to, aby som sa každý december naučil nový jazyk, a dokončil som aj staršie ročníky: Go pre 2018, Java pre 2019, Kotlin pre 2020, Python pre 2021, TypeScript pre 2022, JavaScript pre 2023, C# pre 2024 a Elixir pre 2025. Vyriešené sú všetky úlohy všetkých ôsmich ročníkov, spolu 374 hviezd.",
+      de: "Ich nutze es, um jeden Dezember eine neue Sprache zu lernen, und habe auch die früheren Jahre nachgeholt: Go für 2018, Java für 2019, Kotlin für 2020, Python für 2021, TypeScript für 2022, JavaScript für 2023, C# für 2024 und Elixir für 2025. Jedes Rätsel aller acht Jahre ist gelöst, insgesamt 374 Sterne.",
+      cs: "Využívám ho k tomu, abych se každý prosinec naučil nový jazyk, a dokončil jsem i starší ročníky: Go pro 2018, Java pro 2019, Kotlin pro 2020, Python pro 2021, TypeScript pro 2022, JavaScript pro 2023, C# pro 2024 a Elixir pro 2025. Vyřešené jsou všechny úlohy všech osmi ročníků, celkem 374 hvězd.",
+      hu: "Arra használom, hogy minden decemberben megtanuljak egy új nyelvet, és a korábbi éveket is utólag befejeztem: Go 2018-ra, Java 2019-re, Kotlin 2020-ra, Python 2021-re, TypeScript 2022-re, JavaScript 2023-ra, C# 2024-re és Elixir 2025-re. Mind a nyolc év minden feladványa megoldva, összesen 374 csillag.",
     },
     {
       en: "Each year is a self-contained project with that language's usual tooling and tests. A GitHub Pages dashboard shows every puzzle as a door of an advent calendar, with links to the puzzle, the solution and its tests.",
       sk: "Každý ročník je samostatný projekt s bežnými nástrojmi a testami daného jazyka. Nástenka na GitHub Pages zobrazuje každú úlohu ako okienko adventného kalendára s odkazmi na zadanie, riešenie a jeho testy.",
+      de: "Jedes Jahr ist ein eigenständiges Projekt mit den üblichen Tools und Tests der jeweiligen Sprache. Ein Dashboard auf GitHub Pages zeigt jedes Rätsel als Türchen eines Adventskalenders, mit Links zum Rätsel, zur Lösung und zu ihren Tests.",
+      cs: "Každý ročník je samostatný projekt s běžnými nástroji a testy daného jazyka. Nástěnka na GitHub Pages zobrazuje každou úlohu jako okénko adventního kalendáře s odkazy na zadání, řešení a jeho testy.",
+      hu: "Minden év önálló projekt az adott nyelv megszokott eszközeivel és tesztjeivel. Egy GitHub Pages-en futó dashboard minden feladványt egy adventi naptár ablakaként mutat, a feladványra, a megoldásra és annak tesztjeire mutató linkekkel.",
     },
   ],
   features: [
     {
       en: "Advent calendar of all eight years, where the fill of each door shows how long the solution is",
       sk: "Adventný kalendár všetkých ôsmich ročníkov, v ktorom výplň okienka ukazuje dĺžku riešenia",
+      de: "Adventskalender aller acht Jahre, in dem die Füllung jedes Türchens zeigt, wie lang die Lösung ist",
+      cs: "Adventní kalendář všech osmi ročníků, ve kterém výplň okénka ukazuje délku řešení",
+      hu: "Mind a nyolc év adventi naptára, ahol az ablakok kitöltése a megoldás hosszát mutatja",
     },
     {
       en: "Hover or click a door to preview the puzzle and open its solution; the arrow keys work too",
       sk: "Po prejdení myšou alebo kliknutí na okienko sa zobrazí náhľad úlohy a odkaz na riešenie; fungujú aj šípky",
+      de: "Ein Türchen mit der Maus berühren oder anklicken, um das Rätsel in der Vorschau zu sehen und die Lösung zu öffnen; die Pfeiltasten funktionieren auch",
+      cs: "Po najetí myší nebo kliknutí na okénko se zobrazí náhled úlohy a odkaz na řešení; fungují i šipky",
+      hu: "Ha az egeret egy ablak fölé viszi vagy rákattint, megjelenik a feladvány előnézete és a megoldás linkje; a nyílbillentyűk is működnek",
     },
     {
       en: "A table of all years with stars, lines of code and the live CI status of each year's example tests",
       sk: "Tabuľka všetkých ročníkov s hviezdami, počtom riadkov kódu a aktuálnym stavom testov na príkladoch v CI",
+      de: "Eine Tabelle aller Jahre mit Sternen, Codezeilen und dem aktuellen CI-Status der Beispieltests jedes Jahres",
+      cs: "Tabulka všech ročníků s hvězdami, počtem řádků kódu a aktuálním stavem testů na příkladech v CI",
+      hu: "Az összes év táblázata a csillagokkal, a kódsorok számával és az egyes évek példatesztjeinek aktuális CI-állapotával",
     },
     {
       en: "Light and dark theme that follows the system setting",
       sk: "Svetlá a tmavá téma podľa nastavenia systému",
+      de: "Helles und dunkles Theme, das der Systemeinstellung folgt",
+      cs: "Světlé a tmavé téma podle nastavení systému",
+      hu: "Világos és sötét téma a rendszerbeállítás szerint",
     },
   ],
   technical: [
     {
       en: "Every day is tested against the examples from the puzzle and against my own input",
       sk: "Každý deň sa testuje na príkladoch zo zadania aj na mojom vlastnom vstupe",
+      de: "Jeder Tag wird mit den Beispielen aus dem Rätsel und mit meiner eigenen Eingabe getestet",
+      cs: "Každý den se testuje na příkladech ze zadání i na mém vlastním vstupu",
+      hu: "Minden napot a feladvány példáin és a saját bemenetemen is tesztelek",
     },
     {
       en: "One GitHub Actions workflow per year runs the example tests with that language's test framework: go test, JUnit, Kotlin test, pytest, Jest, NUnit and ExUnit",
       sk: "Pre každý ročník jeden GitHub Actions workflow spúšťa testy na príkladoch v testovacom nástroji daného jazyka: go test, JUnit, Kotlin test, pytest, Jest, NUnit a ExUnit",
+      de: "Ein GitHub Actions-Workflow pro Jahr führt die Beispieltests mit dem Test-Framework der jeweiligen Sprache aus: go test, JUnit, Kotlin test, pytest, Jest, NUnit und ExUnit",
+      cs: "Pro každý ročník jeden GitHub Actions workflow spouští testy na příkladech v testovacím nástroji daného jazyka: go test, JUnit, Kotlin test, pytest, Jest, NUnit a ExUnit",
+      hu: "Évente egy GitHub Actions workflow futtatja a példateszteket az adott nyelv tesztkeretrendszerével: go test, JUnit, Kotlin test, pytest, Jest, NUnit és ExUnit",
     },
     {
       en: "A Python script builds the dashboard from the README and the solution files, and a workflow deploys it on every push",
       sk: "Python skript zostaví nástenku z README a súborov s riešeniami a workflow ju nasadí pri každom pushi",
+      de: "Ein Python-Skript erzeugt das Dashboard aus der README und den Lösungsdateien, und ein Workflow deployt es bei jedem Push",
+      cs: "Python skript sestaví nástěnku z README a souborů s řešeními a workflow ji nasadí při každém pushi",
+      hu: "Egy Python-szkript a README-ből és a megoldásfájlokból állítja össze a dashboardot, egy workflow pedig minden pushnál telepíti",
     },
     {
       en: "Each year has its own README with the toolchain, how to run a day and its tests, and a day index",
       sk: "Každý ročník má vlastné README s nástrojmi, návodom na spustenie dňa a jeho testov a zoznamom dní",
+      de: "Jedes Jahr hat eine eigene README mit der Toolchain, einer Anleitung zum Ausführen eines Tages und seiner Tests sowie einer Übersicht der Tage",
+      cs: "Každý ročník má vlastní README s nástroji, návodem ke spuštění dne a jeho testů a seznamem dní",
+      hu: "Minden évnek saját README-je van az eszközökkel, egy nap és tesztjei futtatásának leírásával és a napok listájával",
     },
   ],
   kind: "personal",
@@ -83,6 +119,9 @@ export const adventOfCode: Project = {
     alt: {
       en: "Advent of Code dashboard with a calendar of all eight years",
       sk: "Nástenka Advent of Code s kalendárom všetkých ôsmich ročníkov",
+      de: "Advent of Code-Dashboard mit einem Kalender aller acht Jahre",
+      cs: "Nástěnka Advent of Code s kalendářem všech osmi ročníků",
+      hu: "Advent of Code dashboard mind a nyolc év naptárával",
     },
   },
   gallery: [
@@ -93,10 +132,16 @@ export const adventOfCode: Project = {
       alt: {
         en: "Completed Advent of Code 2020 calendar with 50 stars",
         sk: "Dokončený kalendár Advent of Code 2020 s 50 hviezdami",
+        de: "Vollständiger Advent of Code 2020-Kalender mit 50 Sternen",
+        cs: "Dokončený kalendář Advent of Code 2020 s 50 hvězdami",
+        hu: "Teljesített Advent of Code 2020 naptár 50 csillaggal",
       },
       caption: {
         en: "The official calendar for 2020, completed with all 50 stars.",
         sk: "Oficiálny kalendár ročníka 2020, dokončený so všetkými 50 hviezdami.",
+        de: "Der offizielle Kalender für 2020, abgeschlossen mit allen 50 Sternen.",
+        cs: "Oficiální kalendář ročníku 2020, dokončený se všemi 50 hvězdami.",
+        hu: "A 2020-as hivatalos naptár, mind az 50 csillaggal teljesítve.",
       },
     },
     {
@@ -106,10 +151,16 @@ export const adventOfCode: Project = {
       alt: {
         en: "Dashboard with a selected door and the preview of its puzzle",
         sk: "Nástenka s vybraným okienkom a náhľadom jeho úlohy",
+        de: "Dashboard mit einem ausgewählten Türchen und der Vorschau seines Rätsels",
+        cs: "Nástěnka s vybraným okénkem a náhledem jeho úlohy",
+        hu: "Dashboard egy kiválasztott ablakkal és a feladvány előnézetével",
       },
       caption: {
         en: "A selected door shows the puzzle title, the solution length and links to the puzzle, solution and tests.",
         sk: "Vybrané okienko ukáže názov úlohy, dĺžku riešenia a odkazy na zadanie, riešenie a testy.",
+        de: "Ein ausgewähltes Türchen zeigt den Titel des Rätsels, die Länge der Lösung und Links zum Rätsel, zur Lösung und zu den Tests.",
+        cs: "Vybrané okénko ukáže název úlohy, délku řešení a odkazy na zadání, řešení a testy.",
+        hu: "A kiválasztott ablak megmutatja a feladvány címét, a megoldás hosszát, valamint a feladványra, a megoldásra és a tesztekre mutató linkeket.",
       },
     },
     {
@@ -119,10 +170,16 @@ export const adventOfCode: Project = {
       alt: {
         en: "Advent calendar of all eight years in the light theme",
         sk: "Adventný kalendár všetkých ôsmich ročníkov vo svetlej téme",
+        de: "Adventskalender aller acht Jahre im hellen Theme",
+        cs: "Adventní kalendář všech osmi ročníků ve světlém tématu",
+        hu: "Mind a nyolc év adventi naptára világos témában",
       },
       caption: {
         en: "The calendar in the light theme; each row is one year in a different language.",
         sk: "Kalendár vo svetlej téme; každý riadok je jeden ročník v inom jazyku.",
+        de: "Der Kalender im hellen Theme; jede Zeile ist ein Jahr in einer anderen Sprache.",
+        cs: "Kalendář ve světlém tématu; každý řádek je jeden ročník v jiném jazyce.",
+        hu: "A naptár világos témában; minden sor egy év, mindegyik más nyelven.",
       },
     },
   ],

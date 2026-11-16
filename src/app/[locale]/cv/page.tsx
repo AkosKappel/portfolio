@@ -66,6 +66,7 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
   const tCommon = await getTranslations("common");
+  const tAbout = await getTranslations("about");
   const t = await getTranslations("cv");
   const anchor = tCommon("anchor");
   const period = (start: string, end?: string) =>
@@ -123,7 +124,7 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
             <div className="shrink-0 rounded-full border-[3px] border-ink p-0.5">
               <Image
                 src="/images/profile.webp"
-                alt={pick({ en: `Portrait of ${site.name}`, sk: `Portrét: ${site.name}` }, locale)}
+                alt={tAbout("portrait")}
                 width={900}
                 height={1350}
                 sizes="6rem"

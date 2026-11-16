@@ -1,9 +1,9 @@
 import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
-  locales: ["en", "sk"],
+  locales: ["en", "sk", "de", "cs", "hu"],
   defaultLocale: "en",
-  // English lives at "/", Slovak at "/sk".
+  // English lives at "/", the other languages under their code, e.g. "/sk".
   localePrefix: "as-needed",
   // Keep URLs predictable for visitors and search engines: no redirect by browser language.
   localeDetection: false,

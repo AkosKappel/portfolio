@@ -6,64 +6,112 @@ export const glaucomaSegmentation: Project = {
   summary: {
     en: "Master's thesis: neural networks that outline the optic disc and cup in eye images.",
     sk: "Diplomová práca: neurónové siete, ktoré vyznačia optický disk a jamku na snímkach oka.",
+    de: "Masterarbeit: neuronale Netze, die Papille und Exkavation in Augenbildern umreißen.",
+    cs: "Diplomová práce: neuronové sítě, které vyznačí optický disk a jamku na snímcích oka.",
+    hu: "Diplomamunka: neurális hálózatok, amelyek kijelölik a látóidegfőt és az excavatiót a szemfelvételeken.",
   },
   description: [
     {
       en: "Glaucoma is diagnosed partly from the ratio between the optic cup and the optic disc. For my master's thesis I designed, implemented and evaluated two network architectures for finding them: a cascade, where a second network looks for the cup inside the disc found by the first, and a dual-decoder network with one shared encoder.",
       sk: "Glaukóm sa diagnostikuje aj podľa pomeru optickej jamky a optického disku. V diplomovej práci som navrhol, implementoval a vyhodnotil dve architektúry sietí na ich nájdenie: kaskádu, kde druhá sieť hľadá jamku vo vnútri disku nájdeného prvou, a sieť s dvoma dekodérmi a spoločným enkodérom.",
+      de: "Ein Glaukom wird unter anderem anhand des Verhältnisses zwischen Exkavation und Papille diagnostiziert. Für meine Masterarbeit habe ich zwei Netzarchitekturen entworfen, implementiert und ausgewertet, die beide finden: eine Kaskade, bei der ein zweites Netz die Exkavation innerhalb der vom ersten gefundenen Papille sucht, und ein Netz mit zwei Decodern und einem gemeinsamen Encoder.",
+      cs: "Glaukom se diagnostikuje mimo jiné podle poměru optické jamky a optického disku. V diplomové práci jsem navrhl, implementoval a vyhodnotil dvě architektury sítí pro jejich nalezení: kaskádu, kde druhá síť hledá jamku uvnitř disku nalezeného první, a síť se dvěma dekodéry a společným enkodérem.",
+      hu: "A glaukóma diagnózisa részben az excavatio és a látóidegfő arányán alapul. A diplomamunkámban két hálózati architektúrát terveztem, valósítottam meg és értékeltem ki a megtalálásukra: egy kaszkádot, amelyben egy második hálózat az első által talált látóidegfőn belül keresi az excavatiót, és egy kétdekóderes hálózatot közös enkóderrel.",
     },
     {
       en: "The models were trained on the ORIGA dataset and tested on DRISHTI-GS. The best one reached a Dice score of 96.8 % for the disc and 89.7 % for the cup.",
       sk: "Modely som trénoval na dátach ORIGA a testoval na DRISHTI-GS. Najlepší dosiahol Dice skóre 96,8 % pre disk a 89,7 % pre jamku.",
+      de: "Die Modelle wurden auf dem ORIGA-Datensatz trainiert und auf DRISHTI-GS getestet. Das beste erreichte einen Dice-Score von 96,8 % für die Papille und 89,7 % für die Exkavation.",
+      cs: "Modely jsem trénoval na datech ORIGA a testoval na DRISHTI-GS. Nejlepší dosáhl Dice skóre 96,8 % pro disk a 89,7 % pro jamku.",
+      hu: "A modelleket az ORIGA adathalmazon tanítottam és a DRISHTI-GS-en teszteltem. A legjobb 96,8%-os Dice-pontszámot ért el a látóidegfőre és 89,7%-ot az excavatióra.",
     },
   ],
   highlights: [
     {
       en: "Cascade and dual-decoder architectures in PyTorch",
       sk: "Kaskádová architektúra a architektúra s dvoma dekodérmi v PyTorch",
+      de: "Kaskaden- und Dual-Decoder-Architektur in PyTorch",
+      cs: "Kaskádová architektura a architektura se dvěma dekodéry v PyTorch",
+      hu: "Kaszkád és kétdekóderes architektúra PyTorchban",
     },
     {
       en: "Region-of-interest detection and training in polar coordinates",
       sk: "Detekcia oblasti záujmu a trénovanie v polárnych súradniciach",
+      de: "Erkennung des relevanten Bildbereichs und Training in Polarkoordinaten",
+      cs: "Detekce oblasti zájmu a trénování v polárních souřadnicích",
+      hu: "Az érdeklődési terület felismerése és tanítás polárkoordinátákban",
     },
-    { en: "Explainability with Grad-CAM", sk: "Vysvetliteľnosť pomocou Grad-CAM" },
+    {
+      en: "Explainability with Grad-CAM",
+      sk: "Vysvetliteľnosť pomocou Grad-CAM",
+      de: "Erklärbarkeit mit Grad-CAM",
+      cs: "Vysvětlitelnost pomocí Grad-CAM",
+      hu: "Magyarázhatóság Grad-CAM segítségével",
+    },
   ],
   technical: [
     {
       en: "Exploratory data analysis showed class imbalance and very different image quality, which shaped the preprocessing",
       sk: "Prieskumná analýza dát ukázala nevyváženosť tried a veľmi rozdielnu kvalitu snímok, čo určilo predspracovanie",
+      de: "Die explorative Datenanalyse zeigte ein Klassenungleichgewicht und sehr unterschiedliche Bildqualität, was die Vorverarbeitung bestimmt hat",
+      cs: "Průzkumná analýza dat ukázala nevyváženost tříd a velmi rozdílnou kvalitu snímků, což určilo předzpracování",
+      hu: "A feltáró adatelemzés osztályegyensúlytalanságot és nagyon eltérő képminőséget mutatott ki, ez határozta meg az előfeldolgozást",
     },
     {
       en: "Before settling on CenterNet I tried simpler ways of finding the optic disc: thresholding, an intensity-weighted centroid, the brightest spot and template matching",
       sk: "Kým som sa rozhodol pre CenterNet, skúšal som jednoduchšie spôsoby hľadania optického disku: prahovanie, ťažisko vážené jasom, najjasnejší bod a porovnávanie so vzorom",
+      de: "Bevor ich mich für CenterNet entschieden habe, habe ich einfachere Wege ausprobiert, die Papille zu finden: Schwellenwertverfahren, einen helligkeitsgewichteten Schwerpunkt, den hellsten Punkt und Template Matching",
+      cs: "Než jsem se rozhodl pro CenterNet, zkoušel jsem jednodušší způsoby hledání optického disku: prahování, těžiště vážené jasem, nejjasnější bod a porovnávání se vzorem",
+      hu: "Mielőtt a CenterNet mellett döntöttem, egyszerűbb módszereket is kipróbáltam a látóidegfő megtalálására: küszöbölést, fényességgel súlyozott súlypontot, a legfényesebb pontot és mintaillesztést",
     },
     {
       en: "A CenterNet model first finds the region of interest around the optic disc, and the segmentation runs on that crop in polar coordinates",
       sk: "Model CenterNet najprv nájde oblasť okolo optického disku a segmentácia beží na tomto výreze v polárnych súradniciach",
+      de: "Ein CenterNet-Modell findet zuerst den relevanten Bereich um die Papille, und die Segmentierung läuft auf diesem Ausschnitt in Polarkoordinaten",
+      cs: "Model CenterNet nejdřív najde oblast kolem optického disku a segmentace běží na tomto výřezu v polárních souřadnicích",
+      hu: "Egy CenterNet modell először megtalálja a látóidegfő körüli érdeklődési területet, a szegmentálás pedig ezen a kivágáson fut polárkoordinátákban",
     },
     {
       en: "Both architectures were built on three U-Net variants (Residual Attention U-Net++, Refined U-Net 3+ with CBAM and Swin-Unet) and trained on polar as well as Cartesian images",
       sk: "Obe architektúry som postavil na troch variantoch U-Net (Residual Attention U-Net++, Refined U-Net 3+ s CBAM a Swin-Unet) a trénoval ich na snímkach v polárnych aj karteziánskych súradniciach",
+      de: "Beide Architekturen habe ich auf drei U-Net-Varianten aufgebaut (Residual Attention U-Net++, Refined U-Net 3+ mit CBAM und Swin-Unet) und sowohl auf polaren als auch auf kartesischen Bildern trainiert",
+      cs: "Obě architektury jsem postavil na třech variantách U-Net (Residual Attention U-Net++, Refined U-Net 3+ s CBAM a Swin-Unet) a trénoval je na snímcích v polárních i kartézských souřadnicích",
+      hu: "Mindkét architektúrát három U-Net-változatra építettem (Residual Attention U-Net++, Refined U-Net 3+ CBAM-mel és Swin-Unet), és polár- valamint derékszögű koordinátás képeken is tanítottam őket",
     },
     {
       en: "The loss combines Dice and cross-entropy; in the dual-decoder network the cup counts five times more than the disc",
       sk: "Chybová funkcia spája Dice a krížovú entropiu; v sieti s dvoma dekodérmi má jamka päťkrát väčšiu váhu ako disk",
+      de: "Die Verlustfunktion kombiniert Dice und Kreuzentropie; im Dual-Decoder-Netz zählt die Exkavation fünfmal so viel wie die Papille",
+      cs: "Chybová funkce spojuje Dice a křížovou entropii; v síti se dvěma dekodéry má jamka pětkrát větší váhu než disk",
+      hu: "A veszteségfüggvény a Dice-t és a keresztentrópiát ötvözi; a kétdekóderes hálózatban az excavatio ötször nagyobb súllyal számít, mint a látóidegfő",
     },
     {
       en: "Predictions are cleaned up afterwards: holes are filled, only the largest region is kept and an ellipse is fitted to each mask",
       sk: "Predikcie sa potom upravia: vyplnia sa diery, ponechá sa len najväčšia oblasť a na každú masku sa napasuje elipsa",
+      de: "Die Vorhersagen werden danach bereinigt: Löcher werden gefüllt, nur die größte Region bleibt erhalten und an jede Maske wird eine Ellipse angepasst",
+      cs: "Predikce se pak upraví: vyplní se díry, ponechá se jen největší oblast a na každou masku se napasuje elipsa",
+      hu: "Az előrejelzéseket utána megtisztítom: a lyukak kitöltődnek, csak a legnagyobb terület marad meg, és minden maszkra ellipszis illeszkedik",
     },
     {
       en: "The vertical cup-to-disc ratio from the predictions was compared with values measured by experts, and a threshold of 0.63 taken from the ROC curve sorts eyes into glaucoma and healthy",
       sk: "Vertikálny pomer jamky a disku z predikcií som porovnal s hodnotami nameranými odborníkmi a prah 0,63 určený z ROC krivky rozdelí oči na zdravé a s glaukómom",
+      de: "Das vertikale Cup-to-Disc-Verhältnis aus den Vorhersagen wurde mit von Fachleuten gemessenen Werten verglichen, und ein aus der ROC-Kurve abgeleiteter Schwellenwert von 0,63 teilt die Augen in gesund und mit Glaukom ein",
+      cs: "Vertikální poměr jamky a disku z predikcí jsem porovnal s hodnotami naměřenými odborníky a práh 0,63 určený z ROC křivky rozdělí oči na zdravé a s glaukomem",
+      hu: "Az előrejelzésekből számolt vertikális cup/disc arányt szakértők által mért értékekkel vetettem össze, a ROC-görbéből meghatározott 0,63-as küszöb pedig egészséges és glaukómás szemekre osztja a felvételeket",
     },
     {
       en: "Probability maps, activation maps and Grad-CAM show what the networks look at",
       sk: "Mapy pravdepodobnosti, aktivačné mapy a Grad-CAM ukazujú, na čo sa siete pozerajú",
+      de: "Wahrscheinlichkeitskarten, Aktivierungskarten und Grad-CAM zeigen, worauf die Netze achten",
+      cs: "Mapy pravděpodobnosti, aktivační mapy a Grad-CAM ukazují, na co se sítě dívají",
+      hu: "Valószínűségi térképek, aktivációs térképek és a Grad-CAM mutatják meg, mire figyelnek a hálózatok",
     },
     {
       en: "Command-line scripts train and evaluate the models and segment new images with any of the architectures",
       sk: "Skripty pre príkazový riadok trénujú a vyhodnocujú modely a segmentujú nové snímky ktoroukoľvek z architektúr",
+      de: "Kommandozeilenskripte trainieren und bewerten die Modelle und segmentieren neue Bilder mit jeder der Architekturen",
+      cs: "Skripty pro příkazovou řádku trénují a vyhodnocují modely a segmentují nové snímky kteroukoli z architektur",
+      hu: "Parancssori szkriptek tanítják és értékelik a modelleket, és bármelyik architektúrával szegmentálnak új képeket",
     },
   ],
   versions: ["Python 3.10", "PyTorch 2.0"],
@@ -74,6 +122,9 @@ export const glaucomaSegmentation: Project = {
   role: {
     en: "Supervised by doc. RNDr. Silvester Czanner, PhD.",
     sk: "Vedúci práce doc. RNDr. Silvester Czanner, PhD.",
+    de: "Betreut von doc. RNDr. Silvester Czanner, PhD.",
+    cs: "Vedoucí práce doc. RNDr. Silvester Czanner, PhD.",
+    hu: "Témavezető: doc. RNDr. Silvester Czanner, PhD.",
   },
   stack: [
     "Python",
@@ -96,6 +147,9 @@ export const glaucomaSegmentation: Project = {
     alt: {
       en: "Dual-decoder U-Net: one encoder feeds two decoder branches that output the optic disc and optic cup masks",
       sk: "U-Net s dvoma dekodérmi: jeden enkóder napája dve vetvy dekodéra, ktoré vrátia masky optického disku a jamky",
+      de: "U-Net mit zwei Decodern: ein Encoder speist zwei Decoder-Zweige, die die Masken für Papille und Exkavation ausgeben",
+      cs: "U-Net se dvěma dekodéry: jeden enkodér napájí dvě větve dekodéru, které vrátí masky optického disku a jamky",
+      hu: "Kétdekóderes U-Net: egy enkóder két dekóderágat táplál, amelyek a látóidegfő és az excavatio maszkját adják ki",
     },
   },
   gallery: [
@@ -106,10 +160,16 @@ export const glaucomaSegmentation: Project = {
       alt: {
         en: "Processing steps from a raw eye image to the detected optic disc",
         sk: "Kroky spracovania od snímky oka po nájdený optický disk",
+        de: "Verarbeitungsschritte vom rohen Augenbild bis zur erkannten Papille",
+        cs: "Kroky zpracování od snímku oka po nalezený optický disk",
+        hu: "Feldolgozási lépések a nyers szemfelvételtől a megtalált látóidegfőig",
       },
       caption: {
         en: "Preprocessing: black edges are removed, the image is padded and resized, and CenterNet finds the optic disc to crop the region of interest.",
         sk: "Predspracovanie: odstránia sa čierne okraje, snímka sa doplní na štvorec a zmenší a CenterNet nájde optický disk, podľa ktorého sa vyreže oblasť záujmu.",
+        de: "Vorverarbeitung: schwarze Ränder werden entfernt, das Bild wird aufgefüllt und skaliert, und CenterNet findet die Papille, um den relevanten Bereich auszuschneiden.",
+        cs: "Předzpracování: odstraní se černé okraje, snímek se doplní na čtverec a zmenší a CenterNet najde optický disk, podle kterého se vyřízne oblast zájmu.",
+        hu: "Előfeldolgozás: a fekete szélek eltávolítása, a kép négyzetesre kiegészítése és átméretezése, majd a CenterNet megtalálja a látóidegfőt, amely alapján kivágható az érdeklődési terület.",
       },
     },
     {
@@ -119,10 +179,16 @@ export const glaucomaSegmentation: Project = {
       alt: {
         en: "Four eye images with the expert outline, the model prediction and both contours overlaid",
         sk: "Štyri snímky oka s obrysom od expertov, predikciou modelu a oboma obrysmi cez seba",
+        de: "Vier Augenbilder mit der Kontur der Fachleute, der Modellvorhersage und beiden Konturen übereinander",
+        cs: "Čtyři snímky oka s obrysem od expertů, predikcí modelu a oběma obrysy přes sebe",
+        hu: "Négy szemfelvétel a szakértői körvonallal, a modell előrejelzésével és a két kontúr egymásra helyezve",
       },
       caption: {
         en: "Results of the dual-decoder model: input, ground truth, prediction, and the true (blue) and predicted (black) contours of the optic disc and cup.",
         sk: "Výsledky modelu s dvoma dekodérmi: vstup, referenčná maska, predikcia a skutočné (modré) a predikované (čierne) obrysy optického disku a jamky.",
+        de: "Ergebnisse des Dual-Decoder-Modells: Eingabe, Referenzmaske, Vorhersage sowie die tatsächlichen (blau) und vorhergesagten (schwarz) Konturen von Papille und Exkavation.",
+        cs: "Výsledky modelu se dvěma dekodéry: vstup, referenční maska, predikce a skutečné (modré) a predikované (černé) obrysy optického disku a jamky.",
+        hu: "A kétdekóderes modell eredményei: bemenet, referenciamaszk, előrejelzés, valamint a látóidegfő és az excavatio valódi (kék) és előrejelzett (fekete) kontúrja.",
       },
     },
     {
@@ -132,10 +198,16 @@ export const glaucomaSegmentation: Project = {
       alt: {
         en: "Diagram of two U-Net models in a row: the first outputs the disc mask, which crops the input for the second, which outputs the cup mask",
         sk: "Diagram dvoch U-Net modelov za sebou: prvý vytvorí masku disku, ktorá oreže vstup pre druhý, a ten vytvorí masku jamky",
+        de: "Diagramm zweier U-Net-Modelle hintereinander: das erste liefert die Papillenmaske, die die Eingabe für das zweite zuschneidet, das die Exkavationsmaske liefert",
+        cs: "Diagram dvou U-Net modelů za sebou: první vytvoří masku disku, která ořízne vstup pro druhý, a ten vytvoří masku jamky",
+        hu: "Két egymás utáni U-Net modell ábrája: az első a látóidegfő maszkját adja, amely kivágja a második bemenetét, a második pedig az excavatio maszkját adja",
       },
       caption: {
         en: "Cascade architecture: a first U-Net segments the optic disc, its mask crops the image, and a second U-Net finds the cup inside it. It reached a Dice score of 96.8 % for the disc and 87.1 % for the cup.",
         sk: "Kaskádová architektúra: prvý U-Net segmentuje optický disk, jeho maska oreže obrázok a druhý U-Net v ňom nájde jamku. Dosiahla Dice skóre 96,8 % pre disk a 87,1 % pre jamku.",
+        de: "Kaskadenarchitektur: ein erstes U-Net segmentiert die Papille, ihre Maske schneidet das Bild zu, und ein zweites U-Net findet darin die Exkavation. Sie erreichte einen Dice-Score von 96,8 % für die Papille und 87,1 % für die Exkavation.",
+        cs: "Kaskádová architektura: první U-Net segmentuje optický disk, jeho maska ořízne obrázek a druhý U-Net v něm najde jamku. Dosáhla Dice skóre 96,8 % pro disk a 87,1 % pro jamku.",
+        hu: "Kaszkád architektúra: az első U-Net szegmentálja a látóidegfőt, a maszkja kivágja a képet, a második U-Net pedig megtalálja benne az excavatiót. 96,8%-os Dice-pontszámot ért el a látóidegfőre és 87,1%-ot az excavatióra.",
       },
     },
     {
@@ -145,10 +217,16 @@ export const glaucomaSegmentation: Project = {
       alt: {
         en: "Diagram of a network with one shared encoder and two decoders, one for the disc and one for the cup",
         sk: "Diagram siete s jedným spoločným enkodérom a dvoma dekodérmi, pre disk a pre jamku",
+        de: "Diagramm eines Netzes mit einem gemeinsamen Encoder und zwei Decodern, einem für die Papille und einem für die Exkavation",
+        cs: "Diagram sítě s jedním společným enkodérem a dvěma dekodéry, pro disk a pro jamku",
+        hu: "Egy közös enkóderrel és két dekóderrel (egy a látóidegfőhöz, egy az excavatióhoz) felépített hálózat ábrája",
       },
       caption: {
         en: "Dual-decoder architecture: one shared encoder, a decoder for the optic disc and one for the cup. It reached a Dice score of 96.8 % for the disc and 89.7 % for the cup.",
         sk: "Architektúra s dvoma dekodérmi: jeden spoločný enkodér, dekodér pre optický disk a dekodér pre jamku. Dosiahla Dice skóre 96,8 % pre disk a 89,7 % pre jamku.",
+        de: "Dual-Decoder-Architektur: ein gemeinsamer Encoder, ein Decoder für die Papille und einer für die Exkavation. Sie erreichte einen Dice-Score von 96,8 % für die Papille und 89,7 % für die Exkavation.",
+        cs: "Architektura se dvěma dekodéry: jeden společný enkodér, dekodér pro optický disk a dekodér pro jamku. Dosáhla Dice skóre 96,8 % pro disk a 89,7 % pro jamku.",
+        hu: "Kétdekóderes architektúra: egy közös enkóder, egy dekóder a látóidegfőhöz és egy az excavatióhoz. 96,8%-os Dice-pontszámot ért el a látóidegfőre és 89,7%-ot az excavatióra.",
       },
     },
     {
@@ -158,10 +236,16 @@ export const glaucomaSegmentation: Project = {
       alt: {
         en: "Line charts of loss and Dice score over the training epochs",
         sk: "Čiarové grafy straty a Dice skóre počas epoch trénovania",
+        de: "Liniendiagramme von Verlust und Dice-Score über die Trainingsepochen",
+        cs: "Čárové grafy ztráty a Dice skóre během epoch trénování",
+        hu: "A veszteség és a Dice-pontszám vonaldiagramjai a tanítási epochok során",
       },
       caption: {
         en: "Training history of the dual-decoder model: loss, Dice score and other metrics on the training and validation sets.",
         sk: "Priebeh trénovania modelu s dvoma dekodérmi: strata, Dice skóre a ďalšie metriky na trénovacích a validačných dátach.",
+        de: "Trainingsverlauf des Dual-Decoder-Modells: Verlust, Dice-Score und weitere Metriken auf Trainings- und Validierungsdaten.",
+        cs: "Průběh trénování modelu se dvěma dekodéry: ztráta, Dice skóre a další metriky na trénovacích a validačních datech.",
+        hu: "A kétdekóderes modell tanítási folyamata: veszteség, Dice-pontszám és további metrikák a tanító és a validációs adatokon.",
       },
     },
     {
@@ -171,10 +255,16 @@ export const glaucomaSegmentation: Project = {
       alt: {
         en: "Charts comparing the predicted and the expert cup-to-disc ratio",
         sk: "Grafy porovnávajúce predikovaný a expertmi nameraný pomer jamky a disku",
+        de: "Diagramme, die das vorhergesagte und das von Fachleuten gemessene Cup-to-Disc-Verhältnis vergleichen",
+        cs: "Grafy porovnávající predikovaný a experty naměřený poměr jamky a disku",
+        hu: "Az előrejelzett és a szakértők által mért cup/disc arányt összevető diagramok",
       },
       caption: {
         en: "Vertical cup-to-disc ratio, the main sign of glaucoma, computed from the predictions and compared with values measured by experts.",
         sk: "Vertikálny pomer jamky a disku, hlavný ukazovateľ glaukómu, vypočítaný z predikcií a porovnaný s hodnotami od expertov.",
+        de: "Das vertikale Cup-to-Disc-Verhältnis, das wichtigste Anzeichen für ein Glaukom, aus den Vorhersagen berechnet und mit von Fachleuten gemessenen Werten verglichen.",
+        cs: "Vertikální poměr jamky a disku, hlavní ukazatel glaukomu, vypočítaný z predikcí a porovnaný s hodnotami od expertů.",
+        hu: "A vertikális cup/disc arány, a glaukóma fő jele, az előrejelzésekből számolva és szakértők által mért értékekkel összevetve.",
       },
     },
   ],

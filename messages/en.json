@@ -60,7 +60,10 @@
   },
   "languages": {
     "en": "English",
-    "sk": "Slovak"
+    "sk": "Slovak",
+    "de": "German",
+    "cs": "Czech",
+    "hu": "Hungarian"
   },
   "commands": {
     "open": "Search and commands",
@@ -348,14 +351,14 @@
         "id": "stack",
         "title": "Stack",
         "paragraphs": [
-          "Next.js 16 with the App Router, React 19 and TypeScript, styled with Tailwind CSS 4. The projects archive uses TanStack Table with match-sorter for fuzzy search, the contact form uses TanStack Form with a Zod schema shared by the browser and the server, and next-intl provides the English and Slovak versions."
+          "Next.js 16 with the App Router, React 19 and TypeScript, styled with Tailwind CSS 4. The projects archive uses TanStack Table with match-sorter for fuzzy search, the contact form uses TanStack Form with a Zod schema shared by the browser and the server, and next-intl provides the language versions."
         ]
       },
       {
         "id": "architecture",
         "title": "Architecture",
         "paragraphs": [
-          "Every page is generated at build time in both languages. Content lives in typed TypeScript modules, and automated checks verify slugs, images, links, dates and translations before each build.",
+          "Every page is generated at build time in every language. Content lives in typed TypeScript modules, and automated checks verify slugs, images, links, dates and translations before each build.",
           "Pages are React Server Components; JavaScript is sent only for the interactive parts, such as the navigation menus, the projects archive, the image gallery and the contact form. Each page has its own generated link preview image and structured data for search engines."
         ]
       },

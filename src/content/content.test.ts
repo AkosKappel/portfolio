@@ -1,8 +1,12 @@
 import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import cs from "../../messages/cs.json";
+import de from "../../messages/de.json";
 import en from "../../messages/en.json";
+import hu from "../../messages/hu.json";
 import sk from "../../messages/sk.json";
+import { routing } from "../i18n/routing";
 import { formatMonth, monthsBetween, yearRange } from "../lib/format";
 import { techIcon, techUrl } from "../lib/tech-icons";
 import { jobs } from "./experience";
@@ -56,8 +60,7 @@ describe("projects", () => {
         ...(project.highlights ?? []),
         ...figures,
       ]) {
-        expect(text.en, project.slug).not.toBe("");
-        expect(text.sk, project.slug).not.toBe("");
+        for (const locale of routing.locales) expect(text[locale], project.slug).toBeTruthy();
       }
     }
   });
@@ -84,8 +87,8 @@ describe("experience", () => {
 });
 
 describe("messages", () => {
-  it("have the same keys in English and Slovak", () => {
-    expect(keys(sk).sort()).toEqual(keys(en).sort());
+  it("have the same keys in every language", () => {
+    for (const messages of [sk, de, cs, hu]) expect(keys(messages).sort()).toEqual(keys(en).sort());
   });
 });
 
@@ -118,6 +121,7 @@ describe("format", () => {
   it("formats months and ranges", () => {
     expect(formatMonth("2024-06", "en")).toBe("Jun 2024");
     expect(formatMonth("2024-06", "sk")).toBe("06/2024");
+    expect(formatMonth("2024-06", "cs")).toBe("06/2024");
     expect(monthsBetween("2024-06", "2025-01")).toBe(8);
     expect(yearRange(2021, 2026)).toBe("2021 – 2026");
     expect(yearRange(2024)).toBe("2024");

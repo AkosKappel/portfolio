@@ -60,7 +60,10 @@
   },
   "languages": {
     "en": "Angličtina",
-    "sk": "Slovenčina"
+    "sk": "Slovenčina",
+    "de": "Nemčina",
+    "cs": "Čeština",
+    "hu": "Maďarčina"
   },
   "commands": {
     "open": "Hľadať a príkazy",
@@ -348,14 +351,14 @@
         "id": "stack",
         "title": "Technológie",
         "paragraphs": [
-          "Next.js 16 s App Routerom, React 19 a TypeScript, štýly v Tailwind CSS 4. Archív projektov používa TanStack Table s match-sorter na tolerantné vyhľadávanie, kontaktný formulár TanStack Form so Zod schémou zdieľanou prehliadačom aj serverom a next-intl zabezpečuje anglickú a slovenskú verziu."
+          "Next.js 16 s App Routerom, React 19 a TypeScript, štýly v Tailwind CSS 4. Archív projektov používa TanStack Table s match-sorter na tolerantné vyhľadávanie, kontaktný formulár TanStack Form so Zod schémou zdieľanou prehliadačom aj serverom a next-intl zabezpečuje jazykové verzie."
         ]
       },
       {
         "id": "architecture",
         "title": "Architektúra",
         "paragraphs": [
-          "Každá stránka sa generuje pri builde v oboch jazykoch. Obsah je v typovaných moduloch TypeScriptu a automatické kontroly pred každým buildom overia slugy, obrázky, odkazy, dátumy a preklady.",
+          "Každá stránka sa generuje pri builde vo všetkých jazykoch. Obsah je v typovaných moduloch TypeScriptu a automatické kontroly pred každým buildom overia slugy, obrázky, odkazy, dátumy a preklady.",
           "Stránky sú React Server Components; JavaScript sa posiela len pre interaktívne časti, napríklad navigačné menu, archív projektov, galériu obrázkov a kontaktný formulár. Každá stránka má vlastný vygenerovaný náhľad pre zdieľanie a štruktúrované dáta pre vyhľadávače."
         ]
       },

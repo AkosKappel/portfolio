@@ -1,0 +1,398 @@
+{
+  "nav": {
+    "home": "Start",
+    "projects": "Projekte",
+    "experience": "Berufserfahrung",
+    "activity": "Aktivität",
+    "skills": "Kenntnisse",
+    "education": "Ausbildung",
+    "about": "Über mich",
+    "contact": "Kontakt",
+    "cv": "Lebenslauf",
+    "main": "Hauptmenü",
+    "colophon": "Über diese Seite"
+  },
+  "common": {
+    "skipToContent": "Zum Inhalt springen",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "menu": "Menü",
+    "switchToDark": "Zum dunklen Design wechseln",
+    "switchToLight": "Zum hellen Design wechseln",
+    "language": "Sprache",
+    "downloadCv": "Lebenslauf herunterladen",
+    "pdf": "PDF",
+    "sourceCode": "Quellcode",
+    "liveDemo": "Live-Demo",
+    "selfHostedNote": "Läuft auf meinem Heimserver und kann daher ab und zu offline sein (zum Beispiel bei einem Strom- oder Internetausfall).",
+    "thesisRecord": "Die ganze Abschlussarbeit lesen",
+    "officialWebsite": "Offizielle Website",
+    "techWebsite": "{name}: offizielle Website (öffnet in einem neuen Tab)",
+    "copyEmail": "E-Mail-Adresse kopieren",
+    "copied": "Kopiert",
+    "emailMe": "E-Mail schreiben",
+    "present": "heute",
+    "period": "{start} bis {end}",
+    "years": "{count, plural, one {# Jahr} other {# Jahre}}",
+    "months": "{count, plural, one {# Monat} other {# Monate}}",
+    "technologies": "Technologien",
+    "anchor": "Link zu diesem Abschnitt",
+    "phone": "Telefon",
+    "backToTop": "Nach oben",
+    "previewCv": "Lebenslauf ansehen: {language}",
+    "palette": "Design",
+    "palettes": {
+      "light": "Standard",
+      "corporate": "Corporate",
+      "nord": "Nord",
+      "cupcake": "Cupcake",
+      "retro": "Retro",
+      "dark": "Standard",
+      "dracula": "Dracula",
+      "dim": "Gedämpft",
+      "coffee": "Kaffee",
+      "synthwave": "Synthwave"
+    },
+    "modes": {
+      "light": "Hell",
+      "dark": "Dunkel"
+    }
+  },
+  "languages": {
+    "en": "Englisch",
+    "sk": "Slowakisch",
+    "de": "Deutsch",
+    "cs": "Tschechisch",
+    "hu": "Ungarisch"
+  },
+  "commands": {
+    "open": "Suche und Befehle",
+    "title": "Befehlspalette",
+    "close": "Schließen",
+    "placeholder": "Zu einer Seite, einem Projekt oder einer Einstellung",
+    "results": "Ergebnisse",
+    "pages": "Seiten",
+    "loading": "Wird geladen",
+    "empty": "Keine Treffer für Ihre Suche.",
+    "error": "Die Liste konnte nicht geladen werden. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+    "hint": "Pfeiltasten zum Bewegen, Enter zum Auswählen, Esc zum Schließen"
+  },
+  "footer": {
+    "pages": "Seiten",
+    "elsewhere": "Anderswo",
+    "builtWith": "Erstellt mit Next.js, React und Tailwind CSS.",
+    "accessibility": "Barrierefreiheit",
+    "status": "Projektstatus"
+  },
+  "home": {
+    "viewProjects": "Projekte ansehen",
+    "contact": "Kontakt aufnehmen",
+    "selectedProjects": "Ausgewählte Projekte",
+    "allProjects": "Alle Projekte",
+    "workflow": "Von der Idee bis zur Produktion",
+    "workflowLead": "Ich bringe ein Projekt selbst von der Anforderung bis in die Produktion. KI-Coding-Agenten beschleunigen jede Phase, die Entscheidungen treffe aber ich, und für das Ergebnis bin ich verantwortlich. Ihre Arbeit prüfe ich mit Tests, Typprüfungen und Qualitätskontrollen in der CI, denn ich weiß, wo Agenten Fehler machen: Logik, die richtig aussieht, es aber nicht ist, erfundene Pakete, übersehene Randfälle. Sicherheitskritische Teile wie Authentifizierung und Datenmigrationen prüfe ich Zeile für Zeile.",
+    "workflowPause": "Ablauf anhalten",
+    "workflowPlay": "Ablauf abspielen",
+    "currentWork": "Woran ich gerade arbeite",
+    "currentRole": "{role} bei {company} seit {start}.",
+    "fullExperience": "Gesamte Berufserfahrung",
+    "letsTalk": "Schreiben Sie mir",
+    "otherWays": "Weitere Kontaktmöglichkeiten"
+  },
+  "projects": {
+    "title": "Projekte",
+    "description": "Private, universitäre und Teamprojekte: Webanwendungen, eine Masterarbeit zur Glaukomerkennung, ein Spiel und Programmieraufgaben.",
+    "lead": "Dinge, die ich allein, an der Universität und im Team gebaut habe. Einige habe ich später mit aktuellen Werkzeugen, Tests und Live-Demos neu aufgebaut.",
+    "searchLabel": "Projekte durchsuchen",
+    "searchPlaceholder": "Nach Name oder Technologie suchen",
+    "area": "Bereich",
+    "all": "Alle",
+    "areas": {
+      "web": "Web",
+      "ai": "KI",
+      "math": "Mathematik",
+      "games": "Spiele",
+      "infrastructure": "Infrastruktur",
+      "challenges": "Aufgaben"
+    },
+    "kinds": {
+      "personal": "Privat",
+      "university": "Universität",
+      "team": "Team"
+    },
+    "sort": "Sortierung",
+    "sortOptions": {
+      "recommended": "Empfohlen",
+      "newest": "Neueste",
+      "oldest": "Älteste",
+      "name": "Name"
+    },
+    "view": "Ansicht",
+    "gridView": "Rasteransicht",
+    "tableView": "Tabellenansicht",
+    "count": "{count, plural, one {# Projekt} other {# Projekte}}",
+    "countFiltered": "{count} von {total} Projekten",
+    "clearFilters": "Filter zurücksetzen",
+    "emptyTitle": "Keine Projekte passen zu diesen Filtern",
+    "emptyText": "Versuchen Sie eine andere Technologie oder setzen Sie die Filter zurück, um alles zu sehen.",
+    "tableCaption": "Projekte, sortierbar nach Name und Jahr",
+    "columns": {
+      "title": "Projekt",
+      "year": "Jahr",
+      "area": "Bereich",
+      "kind": "Art",
+      "stack": "Technologien"
+    },
+    "back": "Alle Projekte",
+    "highlights": "Highlights",
+    "when": "Wann",
+    "type": "Art",
+    "role": "Betreuung",
+    "stack": "Technologien",
+    "previous": "Vorheriges Projekt",
+    "next": "Nächstes Projekt",
+    "moreProjects": "Weitere Projekte",
+    "about": "Über das Projekt",
+    "features": "Was Sie ausprobieren können",
+    "technical": "Unter der Haube",
+    "changelog": "Änderungsprotokoll",
+    "versions": "Versionen",
+    "gallery": "Galerie",
+    "architecture": "Architektur",
+    "lightbox": {
+      "close": "Schließen",
+      "previous": "Vorheriges Bild",
+      "next": "Nächstes Bild",
+      "zoomIn": "Vergrößern",
+      "zoomOut": "Verkleinern",
+      "counter": "{current} von {total}"
+    }
+  },
+  "experience": {
+    "title": "Berufserfahrung",
+    "description": "Full-Stack-Arbeit bei IGT Systems, Švarba und SoftPoint: Web-, Mobil- und Backend-Produkte sowie Datenpipelines.",
+    "lead": "Drei Firmen seit 2023, von Datenpipelines bis zu mobilen Apps."
+  },
+  "activity": {
+    "title": "Aktivität",
+    "description": "Meine private und berufliche Aktivität auf GitHub und GitLab in einem Kalender.",
+    "lead": "Meine private und berufliche Aktivität auf GitHub und GitLab in einem Kalender. Bei der beruflichen Aktivität sind nur die Tageszahlen zu sehen, keine Projektnamen.",
+    "range": "Zeitraum",
+    "lastYear": "Letzte 12 Monate",
+    "sources": "Quellen",
+    "presets": {
+      "all": "Alle",
+      "personal": "Privat",
+      "work": "Beruflich"
+    },
+    "kinds": {
+      "personal": "privat",
+      "work": "beruflich"
+    },
+    "total": "{total} {count, plural, one {Beitrag} other {Beiträge}} {period}",
+    "inLastYear": "in den letzten 12 Monaten",
+    "inYear": "im Jahr {year}",
+    "calendar": "Beitragskalender",
+    "day": "{date}: {count, plural, =0 {keine Beiträge} one {# Beitrag} other {# Beiträge}}",
+    "contributions": "{count, plural, =0 {keine Beiträge} one {# Beitrag} other {# Beiträge}}",
+    "keyboardHint": "Fahren Sie mit der Maus über einen Tag oder wählen Sie ihn aus, um Details zu sehen; mit den Pfeiltasten wechseln Sie zwischen den Tagen.",
+    "less": "Weniger",
+    "more": "Mehr",
+    "activeDays": "Aktive Tage",
+    "longestStreak": "Längste Serie",
+    "currentStreak": "Aktuelle Serie",
+    "busiestDay": "Aktivster Tag",
+    "days": "{count, plural, one {# Tag} other {# Tage}}",
+    "byType": "Nach Art",
+    "bySource": "Nach Quelle",
+    "byTypeHint": "Wählen Sie eine Art, um nur diese im Kalender und in den Summen zu zeigen.",
+    "byYear": "Nach Jahr",
+    "byYearHint": "Wählen Sie ein Jahr, um es im Kalender zu zeigen.",
+    "categories": {
+      "commits": "Commits",
+      "pullRequests": "Pull- und Merge-Requests",
+      "reviews": "Reviews und Freigaben",
+      "issues": "Issues",
+      "comments": "Kommentare",
+      "other": "Sonstiges"
+    },
+    "counts": {
+      "commits": "{count, plural, one {# Commit} other {# Commits}}",
+      "pullRequests": "{count, plural, one {# Pull- oder Merge-Request} other {# Pull- oder Merge-Requests}}",
+      "reviews": "{count, plural, one {# Review} other {# Reviews}}",
+      "issues": "{count, plural, one {# Issue} other {# Issues}}",
+      "comments": "{count, plural, one {# Kommentar} other {# Kommentare}}",
+      "other": "{count, plural, one {# sonstiger Beitrag} other {# sonstige Beiträge}}"
+    },
+    "updated": "Aktualisiert am {date}. Gesammelt über die APIs von GitHub und GitLab und aus meinen beruflichen Repositorys. GitHub und GitLab zählen Beiträge etwas unterschiedlich, die Summen sind daher Näherungswerte.",
+    "pattern": {
+      "title": "Wann ich committe",
+      "summary": "Die meisten Commits entstehen am {weekday} gegen {hour}:00 Uhr. {weekend} % fallen aufs Wochenende und {evening} % auf die Zeit nach 19:00 Uhr.",
+      "cell": "{weekday}, {hour}:00 Uhr: {count, plural, one {# Commit} other {# Commits}}",
+      "note": "Alle Jahre, in mitteleuropäischer Zeit. GitLab meldet nur Pushes, keine Commit-Zeiten, deshalb fehlt hier das private GitLab-Konto.",
+      "empty": "Keine Commit-Daten für diese Quellen."
+    },
+    "languages": {
+      "title": "Sprachen im Zeitverlauf",
+      "lead": "Die Commits jedes Jahres, aufgeteilt nach den Sprachen, die sie geändert haben.",
+      "legend": "Sprachen",
+      "other": "Sonstige"
+    },
+    "card": {
+      "title": "Aktivität",
+      "lead": "{total} {count, plural, one {Beitrag} other {Beiträge}} in den letzten 12 Monaten, aus meiner privaten und beruflichen Aktivität auf GitHub und GitLab.",
+      "link": "Gesamte Aktivität ansehen"
+    }
+  },
+  "skills": {
+    "title": "Kenntnisse",
+    "description": "Frontend, Backend, Mobil, Daten, KI, DevOps und Testen: die Technologien, mit denen ich arbeite.",
+    "lead": "Nach Bereichen gruppiert, ohne erfundene Kenntnisstufen. Technologien aus meinen Projekten verlinken auf diese, das Pfeilsymbol öffnet die offizielle Website.",
+    "practices": "Arbeitsweisen",
+    "projectCount": "{count, plural, one {# Projekt} other {# Projekte}}",
+    "workflow": "Von der Idee bis zur Produktion",
+    "workflowLead": "Die Phasen, die jedes Projekt durchläuft, vom ersten Gespräch bis zum Betrieb in der Produktion.",
+    "practicesLead": "Wie ich arbeite, abgesehen von den Werkzeugen."
+  },
+  "education": {
+    "title": "Ausbildung",
+    "description": "Masterabschluss in Intelligenten Softwaresystemen und Bachelorabschluss in Informatik an der Slowakischen Technischen Universität in Bratislava.",
+    "lead": "Informatik und intelligente Softwaresysteme an der Slowakischen Technischen Universität in Bratislava, nach dem Gymnasium in Nové Zámky.",
+    "thesis": "Abschlussarbeit",
+    "languages": "Sprachen",
+    "university": "Universität",
+    "secondarySchool": "Gymnasium"
+  },
+  "about": {
+    "title": "Über mich",
+    "description": "Über Ákos Kappel: wie ich arbeite und was mir wichtig ist.",
+    "howIWork": "Wie ich arbeite",
+    "languages": "Sprachen",
+    "portrait": "Porträt von Ákos Kappel"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "profiles": "Profile",
+    "coffee": "Hat Ihnen eines meiner Projekte geholfen? Sie können mir gern <link>einen Kaffee spendieren</link>.",
+    "linkedin": "Berufliche Stationen und Empfehlungen",
+    "github": "Private Projekte und Advent of Code",
+    "gitlab": "Universitäts- und Teamprojekte",
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Nachricht",
+      "send": "Nachricht senden",
+      "sending": "Wird gesendet…",
+      "sent": "Vielen Dank, Ihre Nachricht wurde gesendet. Ich antworte per E-Mail.",
+      "invalid": "Bitte prüfen Sie die markierten Felder.",
+      "limited": "Zu viele Nachrichten in kurzer Zeit. Bitte versuchen Sie es später noch einmal oder schreiben Sie eine E-Mail.",
+      "failed": "Die Nachricht konnte nicht gesendet werden. Bitte schreiben Sie mir stattdessen eine E-Mail.",
+      "title": "Nachricht schreiben",
+      "errors": {
+        "nameRequired": "Bitte geben Sie Ihren Namen ein.",
+        "nameTooLong": "Der Name ist zu lang.",
+        "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "messageTooShort": "Die Nachricht muss mindestens 10 Zeichen lang sein.",
+        "messageTooLong": "Die Nachricht ist zu lang (höchstens 5000 Zeichen)."
+      }
+    }
+  },
+  "cv": {
+    "title": "Lebenslauf",
+    "description": "Lebenslauf von Ákos Kappel, Full-Stack-Softwareentwickler, mit PDF-Downloads auf Englisch und Slowakisch.",
+    "lead": "Eine längere Fassung des PDFs, mit mehr Details zu jeder Stelle und jedem Projekt.",
+    "profile": "Profil",
+    "experience": "Berufserfahrung",
+    "skills": "Kenntnisse",
+    "projects": "Ausgewählte Projekte",
+    "education": "Ausbildung",
+    "languages": "Sprachen",
+    "practices": "Arbeitsweisen",
+    "thesis": "Abschlussarbeit",
+    "secondarySchool": "Gymnasium",
+    "otherProjects": "Weitere Projekte",
+    "allProjects": "Alle Projekte",
+    "contents": "Abschnitte",
+    "contact": "Kontakt",
+    "facts": {
+      "experience": "Berufserfahrung",
+      "companies": "Firmen",
+      "projects": "Projekte",
+      "languages": "Sprachen"
+    }
+  },
+  "cvPdf": {
+    "title": "Lebenslauf",
+    "description": "Der Lebenslauf von Ákos Kappel, Full-Stack-Softwareentwickler, zum Lesen im Browser ohne Download.",
+    "download": "PDF herunterladen",
+    "open": "PDF öffnen",
+    "webVersion": "Webversion",
+    "viewer": "Lebenslauf auf Englisch (PDF)",
+    "pageAlt": "Lebenslauf von Ákos Kappel, Seite {page}"
+  },
+  "notFound": {
+    "title": "Diese Seite gibt es nicht",
+    "text": "Der Link ist vielleicht veraltet oder falsch geschrieben. Diese Seiten gibt es:",
+    "label": "Fehler 404"
+  },
+  "error": {
+    "label": "Fehler",
+    "title": "Etwas ist schiefgelaufen",
+    "text": "Die Seite konnte nicht angezeigt werden. Versuchen Sie es erneut oder kehren Sie zur Startseite zurück.",
+    "retry": "Erneut versuchen"
+  },
+  "colophon": {
+    "title": "Wie diese Seite gebaut ist",
+    "description": "Technologien, Architektur, Design, Tests, Hosting und Barrierefreiheit dieses Portfolios.",
+    "lead": "Die Technik und die Arbeitsweisen hinter dieser Seite.",
+    "sourceCode": "Der Quellcode liegt auf GitHub.",
+    "sections": [
+      {
+        "id": "stack",
+        "title": "Technologien",
+        "paragraphs": [
+          "Next.js 16 mit dem App Router, React 19 und TypeScript, gestaltet mit Tailwind CSS 4. Das Projektarchiv nutzt TanStack Table mit match-sorter für eine fehlertolerante Suche, das Kontaktformular nutzt TanStack Form mit einem Zod-Schema, das Browser und Server gemeinsam verwenden, und next-intl stellt die Sprachversionen bereit."
+        ]
+      },
+      {
+        "id": "architecture",
+        "title": "Architektur",
+        "paragraphs": [
+          "Jede Seite wird beim Build in allen Sprachen erzeugt. Die Inhalte liegen in typisierten TypeScript-Modulen, und automatische Prüfungen kontrollieren vor jedem Build Slugs, Bilder, Links, Datumsangaben und Übersetzungen.",
+          "Die Seiten sind React Server Components; JavaScript wird nur für die interaktiven Teile ausgeliefert, etwa die Navigationsmenüs, das Projektarchiv, die Bildergalerie und das Kontaktformular. Jede Seite hat ein eigenes generiertes Vorschaubild für Links und strukturierte Daten für Suchmaschinen."
+        ]
+      },
+      {
+        "id": "design",
+        "title": "Design",
+        "paragraphs": [
+          "Die Farben sind Design-Tokens in CSS-Variablen. Der helle und der dunkle Modus bieten jeweils mehrere Designs, die vor dem ersten Rendern angewendet werden, damit die Seite nie kurz in den falschen Farben aufblitzt.",
+          "Seiten und Projektbilder wechseln mit View Transitions zwischen den Routen, und Inhalte gleiten beim Scrollen an ihren Platz, gesteuert über CSS. Auf größeren Bildschirmen reagiert ein dezentes, mit WebGL2 gezeichnetes Partikelfeld auf den Mauszeiger; in ausgeblendeten Tabs pausiert es, und bei aktivierter Einstellung für reduzierte Bewegung bleibt es aus."
+        ]
+      },
+      {
+        "id": "quality",
+        "title": "Tests und CI",
+        "paragraphs": [
+          "GitHub Actions führt bei jedem Push Biome, den TypeScript-Compiler, Vitest und Playwright aus. Die End-to-End-Tests decken Navigation, Suche, Formulare und Designs auf Desktop und Mobilgeräten ab und prüfen mit axe die Barrierefreiheit nach WCAG 2.2 AA.",
+          "Lighthouse CI hält Performance, Barrierefreiheit, Best Practices und SEO innerhalb fester Budgets, einschließlich einer Grenze für das JavaScript, das jede Seite ausliefert. Ein wöchentlicher Job prüft alle externen Links, und Dependabot hält die Abhängigkeiten aktuell."
+        ]
+      },
+      {
+        "id": "hosting",
+        "title": "Hosting und Datenschutz",
+        "paragraphs": [
+          "Die Seite läuft auf Vercel und wird automatisch aus dem Hauptzweig bereitgestellt. Vercel Web Analytics und Speed Insights messen Besuche und echte Ladezeiten ohne Cookies, und Ihre Designauswahl wird nur in Ihrem Browser gespeichert."
+        ]
+      },
+      {
+        "id": "accessibility",
+        "title": "Barrierefreiheit",
+        "paragraphs": [
+          "Diese Seite soll WCAG 2.2 auf Stufe AA erfüllen. Sie funktioniert mit Tastatur und Screenreadern, hält den Fokus sichtbar, berücksichtigt die Einstellung für reduzierte Bewegung, und jedes Design erfüllt die AA-Kontrastanforderungen.",
+          "Wenn etwas schwer zu bedienen ist, sagen Sie mir bitte Bescheid."
+        ]
+      }
+    ]
+  }
+}

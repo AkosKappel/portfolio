@@ -22,6 +22,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
   const tCommon = await getTranslations("common");
+  const tAbout = await getTranslations("about");
   const t = await getTranslations("home");
   const currentJob = jobs[0];
 
@@ -65,7 +66,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           <div className="rounded-full border-[6px] border-ink p-2 sm:border-8">
             <Image
               src="/images/profile.webp"
-              alt={pick({ en: `Portrait of ${site.name}`, sk: `Portrét: ${site.name}` }, locale)}
+              alt={tAbout("portrait")}
               width={900}
               height={1350}
               sizes="(min-width: 768px) 20rem, 14rem"

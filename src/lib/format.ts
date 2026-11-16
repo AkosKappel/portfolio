@@ -1,10 +1,10 @@
 import type { Locale } from "@/i18n/routing";
 
-/** Formats an ISO month ("2025-02") as "Feb 2025" in English and "02/2025" in Slovak. */
+/** Formats an ISO month ("2025-02") as "Feb 2025" in English and "02/2025" in Slovak and Czech. */
 export function formatMonth(isoMonth: string, locale: Locale) {
   const [year, month] = isoMonth.split("-").map(Number);
-  // Slovak month names change with the grammatical case ("od februára"), so use numbers there.
-  if (locale === "sk") return `${String(month).padStart(2, "0")}/${year}`;
+  // Slovak and Czech month names change with the grammatical case ("od februára"), so use numbers there.
+  if (locale === "sk" || locale === "cs") return `${String(month).padStart(2, "0")}/${year}`;
   return new Intl.DateTimeFormat(locale, {
     month: "short",
     year: "numeric",

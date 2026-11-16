@@ -1,0 +1,398 @@
+{
+  "nav": {
+    "home": "Kezdőlap",
+    "projects": "Projektek",
+    "experience": "Szakmai tapasztalat",
+    "activity": "Aktivitás",
+    "skills": "Készségek",
+    "education": "Tanulmányok",
+    "about": "Rólam",
+    "contact": "Kapcsolat",
+    "cv": "Önéletrajz",
+    "main": "Főmenü",
+    "colophon": "Az oldalról"
+  },
+  "common": {
+    "skipToContent": "Ugrás a tartalomra",
+    "openMenu": "Menü megnyitása",
+    "closeMenu": "Menü bezárása",
+    "menu": "Menü",
+    "switchToDark": "Váltás sötét témára",
+    "switchToLight": "Váltás világos témára",
+    "language": "Nyelv",
+    "downloadCv": "Önéletrajz letöltése",
+    "pdf": "PDF",
+    "sourceCode": "Forráskód",
+    "liveDemo": "Élő demó",
+    "selfHostedNote": "Az otthoni szerveremen fut, ezért időnként elérhetetlen lehet (például áram- vagy internetkimaradás idején).",
+    "thesisRecord": "A teljes szakdolgozat elolvasása",
+    "officialWebsite": "Hivatalos weboldal",
+    "techWebsite": "{name}: hivatalos weboldal (új lapon nyílik meg)",
+    "copyEmail": "E-mail-cím másolása",
+    "copied": "Másolva",
+    "emailMe": "Írjon e-mailt",
+    "present": "jelenleg",
+    "period": "{start} – {end}",
+    "years": "{count, plural, one {# év} other {# év}}",
+    "months": "{count, plural, one {# hónap} other {# hónap}}",
+    "technologies": "Technológiák",
+    "anchor": "Hivatkozás erre a részre",
+    "phone": "Telefon",
+    "backToTop": "Vissza az oldal tetejére",
+    "previewCv": "Önéletrajz megtekintése: {language}",
+    "palette": "Téma",
+    "palettes": {
+      "light": "Alapértelmezett",
+      "corporate": "Céges",
+      "nord": "Nord",
+      "cupcake": "Cupcake",
+      "retro": "Retro",
+      "dark": "Alapértelmezett",
+      "dracula": "Dracula",
+      "dim": "Tompa",
+      "coffee": "Kávé",
+      "synthwave": "Synthwave"
+    },
+    "modes": {
+      "light": "Világos",
+      "dark": "Sötét"
+    }
+  },
+  "languages": {
+    "en": "Angol",
+    "sk": "Szlovák",
+    "de": "Német",
+    "cs": "Cseh",
+    "hu": "Magyar"
+  },
+  "commands": {
+    "open": "Keresés és parancsok",
+    "title": "Parancspaletta",
+    "close": "Bezárás",
+    "placeholder": "Oldal, projekt vagy beállítás keresése",
+    "results": "Találatok",
+    "pages": "Oldalak",
+    "loading": "Betöltés",
+    "empty": "Nincs találat.",
+    "error": "A listát nem sikerült betölteni. Ellenőrizze a kapcsolatot, és próbálja újra.",
+    "hint": "Mozgás a nyilakkal, kiválasztás Enterrel, bezárás Esc-vel"
+  },
+  "footer": {
+    "pages": "Oldalak",
+    "elsewhere": "Máshol",
+    "builtWith": "Next.js, React és Tailwind CSS felhasználásával készült.",
+    "accessibility": "Akadálymentesség",
+    "status": "Projektek állapota"
+  },
+  "home": {
+    "viewProjects": "Projektek megtekintése",
+    "contact": "Kapcsolatfelvétel",
+    "selectedProjects": "Kiemelt projektek",
+    "allProjects": "Összes projekt",
+    "workflow": "Az ötlettől az éles üzemig",
+    "workflowLead": "Egy projektet egyedül viszek végig a követelményektől az éles üzemig. Az AI kódoló ágensek minden szakaszt felgyorsítanak, de a döntéseket én hozom, és az eredményért én felelek. A munkájukat tesztekkel, típusellenőrzéssel és CI minőségi ellenőrzésekkel vizsgálom, mert tudom, hol hibáznak az ágensek: helyesnek látszó, de hibás logika, kitalált csomagok, kihagyott szélső esetek. A biztonság szempontjából érzékeny részeket, például a hitelesítést és az adatmigrációkat, sorról sorra átnézem.",
+    "workflowPause": "Bemutató szüneteltetése",
+    "workflowPlay": "Bemutató lejátszása",
+    "currentWork": "Min dolgozom most",
+    "currentRole": "{company}: {role}, {start} óta.",
+    "fullExperience": "Teljes szakmai tapasztalat",
+    "letsTalk": "Beszéljünk",
+    "otherWays": "További elérhetőségek"
+  },
+  "projects": {
+    "title": "Projektek",
+    "description": "Saját, egyetemi és csapatprojektek: webalkalmazások, diplomamunka a glaukóma felismeréséről, egy játék és programozási feladatok.",
+    "lead": "Amit egyedül, az egyetemen és csapatban készítettem. Többet később újraépítettem mai eszközökkel, tesztekkel és élő demókkal.",
+    "searchLabel": "Projektek keresése",
+    "searchPlaceholder": "Keresés név vagy technológia szerint",
+    "area": "Terület",
+    "all": "Mind",
+    "areas": {
+      "web": "Web",
+      "ai": "AI",
+      "math": "Matematika",
+      "games": "Játékok",
+      "infrastructure": "Infrastruktúra",
+      "challenges": "Feladatok"
+    },
+    "kinds": {
+      "personal": "Saját",
+      "university": "Egyetemi",
+      "team": "Csapat"
+    },
+    "sort": "Rendezés",
+    "sortOptions": {
+      "recommended": "Ajánlott",
+      "newest": "Legújabb",
+      "oldest": "Legrégebbi",
+      "name": "Név"
+    },
+    "view": "Nézet",
+    "gridView": "Rácsnézet",
+    "tableView": "Táblázatnézet",
+    "count": "{count} projekt",
+    "countFiltered": "{count} / {total} projekt",
+    "clearFilters": "Szűrők törlése",
+    "emptyTitle": "Egy projekt sem felel meg ezeknek a szűrőknek",
+    "emptyText": "Próbáljon másik technológiát, vagy törölje a szűrőket, hogy mindent lásson.",
+    "tableCaption": "Projektek, név és év szerint rendezhetők",
+    "columns": {
+      "title": "Projekt",
+      "year": "Év",
+      "area": "Terület",
+      "kind": "Típus",
+      "stack": "Technológiák"
+    },
+    "back": "Összes projekt",
+    "highlights": "A lényeg",
+    "when": "Mikor",
+    "type": "Típus",
+    "role": "Témavezetés",
+    "stack": "Technológiák",
+    "previous": "Előző projekt",
+    "next": "Következő projekt",
+    "moreProjects": "További projektek",
+    "about": "A projektről",
+    "features": "Amit kipróbálhat",
+    "technical": "A motorháztető alatt",
+    "changelog": "Változásnapló",
+    "versions": "Verziók",
+    "gallery": "Galéria",
+    "architecture": "Architektúra",
+    "lightbox": {
+      "close": "Bezárás",
+      "previous": "Előző kép",
+      "next": "Következő kép",
+      "zoomIn": "Nagyítás",
+      "zoomOut": "Kicsinyítés",
+      "counter": "{current} / {total}"
+    }
+  },
+  "experience": {
+    "title": "Szakmai tapasztalat",
+    "description": "Full-stack munka az IGT Systemsnél, a Švarbánál és a SoftPointnál: webes, mobilos és backend termékek, valamint adatfeldolgozó pipeline-ok.",
+    "lead": "Három cég 2023 óta, az adatfeldolgozó pipeline-októl a mobilalkalmazásokig."
+  },
+  "activity": {
+    "title": "Aktivitás",
+    "description": "Saját és munkahelyi aktivitásom a GitHubon és a GitLabon, egy naptárban.",
+    "lead": "Saját és munkahelyi aktivitásom a GitHubon és a GitLabon, egy naptárban. A munkahelyi aktivitásnál csak a napi számok látszanak, projektnevek nélkül.",
+    "range": "Időszak",
+    "lastYear": "Elmúlt 12 hónap",
+    "sources": "Források",
+    "presets": {
+      "all": "Mind",
+      "personal": "Saját",
+      "work": "Munkahelyi"
+    },
+    "kinds": {
+      "personal": "saját",
+      "work": "munkahelyi"
+    },
+    "total": "{total} {count, plural, one {hozzájárulás} other {hozzájárulás}} {period}",
+    "inLastYear": "az elmúlt 12 hónapban",
+    "inYear": "{year} során",
+    "calendar": "Hozzájárulási naptár",
+    "day": "{date}: {count, plural, =0 {nincs hozzájárulás} one {# hozzájárulás} other {# hozzájárulás}}",
+    "contributions": "{count, plural, =0 {nincs hozzájárulás} one {# hozzájárulás} other {# hozzájárulás}}",
+    "keyboardHint": "A részletekért vigye az egeret egy napra, vagy válassza ki; a nyilakkal napról napra léphet.",
+    "less": "Kevesebb",
+    "more": "Több",
+    "activeDays": "Aktív napok",
+    "longestStreak": "Leghosszabb sorozat",
+    "currentStreak": "Jelenlegi sorozat",
+    "busiestDay": "Legaktívabb nap",
+    "days": "{count, plural, one {# nap} other {# nap}}",
+    "byType": "Típus szerint",
+    "bySource": "Forrás szerint",
+    "byTypeHint": "Válasszon egy típust, hogy a naptárban és az összesítésben csak az látsszon.",
+    "byYear": "Év szerint",
+    "byYearHint": "Válasszon egy évet, hogy megjelenjen a naptárban.",
+    "categories": {
+      "commits": "Commitok",
+      "pullRequests": "Pull és merge requestek",
+      "reviews": "Átnézések és jóváhagyások",
+      "issues": "Issue-k",
+      "comments": "Hozzászólások",
+      "other": "Egyéb"
+    },
+    "counts": {
+      "commits": "{count, plural, one {# commit} other {# commit}}",
+      "pullRequests": "{count, plural, one {# pull vagy merge request} other {# pull vagy merge request}}",
+      "reviews": "{count, plural, one {# átnézés} other {# átnézés}}",
+      "issues": "{count, plural, one {# issue} other {# issue}}",
+      "comments": "{count, plural, one {# hozzászólás} other {# hozzászólás}}",
+      "other": "{count, plural, one {# egyéb hozzájárulás} other {# egyéb hozzájárulás}}"
+    },
+    "updated": "Frissítve: {date}. A GitHub és a GitLab API-jából, valamint a munkahelyi repozitóriumaimból gyűjtve. A GitHub és a GitLab kicsit eltérően számolja a hozzájárulásokat, ezért az összegek közelítőek.",
+    "pattern": {
+      "title": "Mikor commitolok",
+      "summary": "A legaktívabb nap: {weekday}, a legaktívabb óra {hour}:00 körül. A commitok {weekend}%-a esik hétvégére, {evening}%-a 19:00 utánra.",
+      "cell": "{weekday}, {hour}:00: {count, plural, one {# commit} other {# commit}}",
+      "note": "Minden év, közép-európai idő szerint. A GitLab csak a pusht jelzi, a commitok idejét nem, ezért a saját GitLab-fiókom itt nem szerepel.",
+      "empty": "Ezekhez a forrásokhoz nincs commitadat."
+    },
+    "languages": {
+      "title": "Nyelvek az idő során",
+      "lead": "Az egyes évek commitjai aszerint felosztva, hogy milyen nyelvű kódot módosítottak.",
+      "legend": "Nyelvek",
+      "other": "Egyéb"
+    },
+    "card": {
+      "title": "Aktivitás",
+      "lead": "{total} {count, plural, one {hozzájárulás} other {hozzájárulás}} az elmúlt 12 hónapban, a saját és munkahelyi GitHub- és GitLab-aktivitásomból.",
+      "link": "A teljes aktivitás megtekintése"
+    }
+  },
+  "skills": {
+    "title": "Készségek",
+    "description": "Frontend, backend, mobil, adatok, AI, DevOps és tesztelés: a technológiák, amelyekkel dolgozom.",
+    "lead": "Területek szerint csoportosítva, kitalált szintek nélkül. A projektjeimben használt technológiák azokra hivatkoznak, a nyíl ikon a hivatalos oldalt nyitja meg.",
+    "practices": "Gyakorlatok",
+    "projectCount": "{count, plural, one {# projekt} other {# projekt}}",
+    "workflow": "Az ötlettől az éles üzemig",
+    "workflowLead": "A szakaszok, amelyeken minden projekt végigmegy, az első beszélgetéstől az éles üzemig.",
+    "practicesLead": "Hogyan dolgozom, az eszközökön túl."
+  },
+  "education": {
+    "title": "Tanulmányok",
+    "description": "Mesterdiploma intelligens szoftverrendszerek szakon és alapdiploma informatika szakon a pozsonyi Szlovák Műszaki Egyetemen.",
+    "lead": "Informatika és intelligens szoftverrendszerek a pozsonyi Szlovák Műszaki Egyetemen, az érsekújvári gimnázium után.",
+    "thesis": "Szakdolgozat",
+    "languages": "Nyelvek",
+    "university": "Egyetem",
+    "secondarySchool": "Középiskola"
+  },
+  "about": {
+    "title": "Rólam",
+    "description": "Kappel Ákosról: hogyan dolgozom, és mi fontos nekem.",
+    "howIWork": "Hogyan dolgozom",
+    "languages": "Nyelvek",
+    "portrait": "Kappel Ákos portréja"
+  },
+  "contact": {
+    "title": "Kapcsolat",
+    "profiles": "Profilok",
+    "coffee": "Segített valamelyik projektem? <link>Meghívhat egy kávéra</link>.",
+    "linkedin": "Szakmai előzmények és ajánlások",
+    "github": "Saját projektek és Advent of Code",
+    "gitlab": "Egyetemi és csapatprojektek",
+    "form": {
+      "name": "Név",
+      "email": "E-mail",
+      "message": "Üzenet",
+      "send": "Üzenet küldése",
+      "sending": "Küldés…",
+      "sent": "Köszönöm, az üzenete megérkezett. E-mailben válaszolok.",
+      "invalid": "Kérem, ellenőrizze a megjelölt mezőket.",
+      "limited": "Túl sok üzenet rövid idő alatt. Kérem, próbálja újra később, vagy írjon e-mailt.",
+      "failed": "Az üzenetet nem sikerült elküldeni. Kérem, írjon inkább e-mailt.",
+      "title": "Üzenet írása",
+      "errors": {
+        "nameRequired": "Kérem, adja meg a nevét.",
+        "nameTooLong": "A név túl hosszú.",
+        "emailInvalid": "Kérem, adjon meg érvényes e-mail-címet.",
+        "messageTooShort": "Az üzenetnek legalább 10 karakteresnek kell lennie.",
+        "messageTooLong": "Az üzenet túl hosszú (legfeljebb 5000 karakter)."
+      }
+    }
+  },
+  "cv": {
+    "title": "Önéletrajz",
+    "description": "Kappel Ákos full-stack szoftvermérnök önéletrajza, angol és szlovák nyelvű PDF-letöltéssel.",
+    "lead": "A PDF hosszabb változata, több részlettel az egyes munkahelyekről és projektekről.",
+    "profile": "Profil",
+    "experience": "Szakmai tapasztalat",
+    "skills": "Készségek",
+    "projects": "Kiemelt projektek",
+    "education": "Tanulmányok",
+    "languages": "Nyelvek",
+    "practices": "Gyakorlatok",
+    "thesis": "Szakdolgozat",
+    "secondarySchool": "Középiskola",
+    "otherProjects": "További projektek",
+    "allProjects": "Összes projekt",
+    "contents": "Részek",
+    "contact": "Kapcsolat",
+    "facts": {
+      "experience": "Tapasztalat",
+      "companies": "Cégek",
+      "projects": "Projektek",
+      "languages": "Nyelvek"
+    }
+  },
+  "cvPdf": {
+    "title": "Önéletrajz",
+    "description": "Kappel Ákos full-stack szoftvermérnök önéletrajza, letöltés nélkül olvasható a böngészőben.",
+    "download": "PDF letöltése",
+    "open": "PDF megnyitása",
+    "webVersion": "Webes változat",
+    "viewer": "Angol nyelvű önéletrajz (PDF)",
+    "pageAlt": "Kappel Ákos önéletrajza, {page}. oldal"
+  },
+  "notFound": {
+    "title": "Ez az oldal nem létezik",
+    "text": "Lehet, hogy a hivatkozás régi vagy elgépelt. Ezek az oldalak léteznek:",
+    "label": "404-es hiba"
+  },
+  "error": {
+    "label": "Hiba",
+    "title": "Valami hiba történt",
+    "text": "Az oldalt nem sikerült megjeleníteni. Próbálja újra, vagy térjen vissza a kezdőlapra.",
+    "retry": "Újrapróbálás"
+  },
+  "colophon": {
+    "title": "Hogyan készült ez az oldal",
+    "description": "A portfólió technológiái, architektúrája, dizájnja, tesztelése, hosztingja és akadálymentessége.",
+    "lead": "Az oldal mögötti technológia és mérnöki gyakorlat.",
+    "sourceCode": "A forráskód a GitHubon érhető el.",
+    "sections": [
+      {
+        "id": "stack",
+        "title": "Technológiák",
+        "paragraphs": [
+          "Next.js 16 App Routerrel, React 19 és TypeScript, a stílusokhoz Tailwind CSS 4. A projektarchívum TanStack Table-t használ match-sorterrel a hibatűrő kereséshez, a kapcsolatfelvételi űrlap TanStack Formot egy Zod sémával, amelyet a böngésző és a szerver is használ, a nyelvi változatokat pedig a next-intl biztosítja."
+        ]
+      },
+      {
+        "id": "architecture",
+        "title": "Architektúra",
+        "paragraphs": [
+          "Minden oldal buildeléskor készül el, minden nyelven. A tartalom típusos TypeScript-modulokban van, és minden build előtt automatikus ellenőrzések vizsgálják a slugokat, képeket, hivatkozásokat, dátumokat és fordításokat.",
+          "Az oldalak React Server Componentek; JavaScript csak az interaktív részekhez töltődik le, például a navigációs menükhöz, a projektarchívumhoz, a képgalériához és a kapcsolatfelvételi űrlaphoz. Minden oldalnak saját generált előnézeti képe van a hivatkozásokhoz, és strukturált adatai a keresőmotoroknak."
+        ]
+      },
+      {
+        "id": "design",
+        "title": "Dizájn",
+        "paragraphs": [
+          "A színek design tokenek CSS-változókban. A világos és a sötét mód több témát is kínál, és ezek már az első kirajzolás előtt érvényesülnek, így az oldal soha nem villan fel rossz színekkel.",
+          "Az oldalak és a projektképek view transitionökkel váltanak az útvonalak között, a tartalom pedig görgetéskor a helyére úszik, CSS vezérlésével. Nagyobb képernyőn egy WebGL2-vel rajzolt, könnyed részecskemező reagál a mutatóra; rejtett lapokon szünetel, és ha csökkentett mozgás van beállítva, kikapcsolva marad."
+        ]
+      },
+      {
+        "id": "quality",
+        "title": "Tesztelés és CI",
+        "paragraphs": [
+          "A GitHub Actions minden pushnál lefuttatja a Biome-ot, a TypeScript-fordítót, a Vitestet és a Playwrightot. Az end-to-end tesztek asztali gépen és mobilon is lefedik a navigációt, a keresést, az űrlapokat és a témákat, és axe segítségével ellenőrzik az akadálymentességet a WCAG 2.2 AA szerint.",
+          "A Lighthouse CI rögzített kereteken belül tartja a teljesítményt, az akadálymentességet, a bevált gyakorlatokat és a SEO-t, beleértve az egyes oldalak által küldött JavaScript mennyiségének korlátját is. Egy heti feladat minden külső hivatkozást ellenőriz, a Dependabot pedig naprakészen tartja a függőségeket."
+        ]
+      },
+      {
+        "id": "hosting",
+        "title": "Hoszting és adatvédelem",
+        "paragraphs": [
+          "Az oldal a Vercelen fut, és automatikusan települ a fő ágból. A Vercel Web Analytics és a Speed Insights sütik nélkül méri a látogatásokat és a valós betöltési időket, a választott téma pedig csak az Ön böngészőjében tárolódik."
+        ]
+      },
+      {
+        "id": "accessibility",
+        "title": "Akadálymentesség",
+        "paragraphs": [
+          "Az oldal célja, hogy megfeleljen a WCAG 2.2 AA szintjének. Billentyűzettel és képernyőolvasóval is használható, a fókusz mindig látható, figyelembe veszi a csökkentett mozgás beállítását, és minden téma teljesíti az AA kontrasztkövetelményeit.",
+          "Ha valamit nehéz használni, kérem, jelezze nekem."
+        ]
+      }
+    ]
+  }
+}

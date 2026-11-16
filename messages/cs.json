@@ -1,0 +1,398 @@
+{
+  "nav": {
+    "home": "Úvod",
+    "projects": "Projekty",
+    "experience": "Praxe",
+    "activity": "Aktivita",
+    "skills": "Dovednosti",
+    "education": "Vzdělání",
+    "about": "O mně",
+    "contact": "Kontakt",
+    "cv": "Životopis",
+    "main": "Hlavní",
+    "colophon": "O tomto webu"
+  },
+  "common": {
+    "skipToContent": "Přejít na obsah",
+    "openMenu": "Otevřít menu",
+    "closeMenu": "Zavřít menu",
+    "menu": "Menu",
+    "switchToDark": "Přepnout na tmavý motiv",
+    "switchToLight": "Přepnout na světlý motiv",
+    "language": "Jazyk",
+    "downloadCv": "Stáhnout životopis",
+    "pdf": "PDF",
+    "sourceCode": "Zdrojový kód",
+    "liveDemo": "Živé demo",
+    "selfHostedNote": "Běží na mém domácím serveru, takže může být občas nedostupné (například při výpadku proudu nebo internetu).",
+    "thesisRecord": "Přečíst celou práci",
+    "officialWebsite": "Oficiální web",
+    "techWebsite": "{name}: oficiální web (otevře se na nové kartě)",
+    "copyEmail": "Zkopírovat e-mailovou adresu",
+    "copied": "Zkopírováno",
+    "emailMe": "Napište mi",
+    "present": "současnost",
+    "period": "{start} až {end}",
+    "years": "{count, plural, one {# rok} few {# roky} other {# let}}",
+    "months": "{count, plural, one {# měsíc} few {# měsíce} other {# měsíců}}",
+    "technologies": "Technologie",
+    "anchor": "Odkaz na tuto sekci",
+    "phone": "Telefon",
+    "backToTop": "Zpět nahoru",
+    "previewCv": "Ukázka životopisu: {language}",
+    "palette": "Motiv",
+    "palettes": {
+      "light": "Výchozí",
+      "corporate": "Firemní",
+      "nord": "Nord",
+      "cupcake": "Cupcake",
+      "retro": "Retro",
+      "dark": "Výchozí",
+      "dracula": "Dracula",
+      "dim": "Tlumený",
+      "coffee": "Káva",
+      "synthwave": "Synthwave"
+    },
+    "modes": {
+      "light": "Světlý",
+      "dark": "Tmavý"
+    }
+  },
+  "languages": {
+    "en": "Angličtina",
+    "sk": "Slovenština",
+    "de": "Němčina",
+    "cs": "Čeština",
+    "hu": "Maďarština"
+  },
+  "commands": {
+    "open": "Hledání a příkazy",
+    "title": "Paleta příkazů",
+    "close": "Zavřít",
+    "placeholder": "Přejít na stránku, projekt nebo nastavení",
+    "results": "Výsledky",
+    "pages": "Stránky",
+    "loading": "Načítání",
+    "empty": "Hledání nic nenašlo.",
+    "error": "Seznam se nepodařilo načíst. Zkontrolujte připojení a zkuste to znovu.",
+    "hint": "Šipkami se pohybujete, Enter vybere, Esc zavře"
+  },
+  "footer": {
+    "pages": "Stránky",
+    "elsewhere": "Jinde",
+    "builtWith": "Vytvořeno v Next.js, Reactu a Tailwind CSS.",
+    "accessibility": "Přístupnost",
+    "status": "Stav projektů"
+  },
+  "home": {
+    "viewProjects": "Zobrazit projekty",
+    "contact": "Kontaktujte mě",
+    "selectedProjects": "Vybrané projekty",
+    "allProjects": "Všechny projekty",
+    "workflow": "Od nápadu po produkci",
+    "workflowLead": "Projekt dotáhnu sám od zadání až do produkce. AI agenti zrychlí každou fázi, rozhodnutí ale dělám já a za výsledek odpovídám. Jejich práci ověřuji testy, kontrolou typů a kontrolami v CI, protože vím, kde agenti dělají chyby: logika, která vypadá správně, ale není, vymyšlené balíčky, přehlédnuté okrajové případy. Části citlivé na bezpečnost, jako autentizaci a migrace dat, kontroluji řádek po řádku.",
+    "workflowPause": "Pozastavit ukázku",
+    "workflowPlay": "Přehrát ukázku",
+    "currentWork": "Na čem teď pracuji",
+    "currentRole": "{role} ve firmě {company} od {start}.",
+    "fullExperience": "Celá praxe",
+    "letsTalk": "Ozvěte se",
+    "otherWays": "Další možnosti kontaktu"
+  },
+  "projects": {
+    "title": "Projekty",
+    "description": "Osobní, univerzitní a týmové projekty: webové aplikace, diplomová práce o detekci glaukomu, hra a programátorské úlohy.",
+    "lead": "Věci, které jsem vytvořil sám, na univerzitě a v týmech. Několik z nich jsem později přestavěl se současnými nástroji, testy a živými ukázkami.",
+    "searchLabel": "Hledat projekty",
+    "searchPlaceholder": "Hledat podle názvu nebo technologie",
+    "area": "Oblast",
+    "all": "Vše",
+    "areas": {
+      "web": "Web",
+      "ai": "AI",
+      "math": "Matematika",
+      "games": "Hry",
+      "infrastructure": "Infrastruktura",
+      "challenges": "Úlohy"
+    },
+    "kinds": {
+      "personal": "Osobní",
+      "university": "Univerzitní",
+      "team": "Týmový"
+    },
+    "sort": "Řazení",
+    "sortOptions": {
+      "recommended": "Doporučené",
+      "newest": "Nejnovější",
+      "oldest": "Nejstarší",
+      "name": "Název"
+    },
+    "view": "Zobrazení",
+    "gridView": "Mřížka",
+    "tableView": "Tabulka",
+    "count": "{count, plural, one {# projekt} few {# projekty} other {# projektů}}",
+    "countFiltered": "{count} z {total} projektů",
+    "clearFilters": "Zrušit filtry",
+    "emptyTitle": "Těmto filtrům neodpovídá žádný projekt",
+    "emptyText": "Zkuste jinou technologii nebo zrušte filtry a uvidíte vše.",
+    "tableCaption": "Projekty, řaditelné podle názvu a roku",
+    "columns": {
+      "title": "Projekt",
+      "year": "Rok",
+      "area": "Oblast",
+      "kind": "Typ",
+      "stack": "Technologie"
+    },
+    "back": "Všechny projekty",
+    "highlights": "To hlavní",
+    "when": "Kdy",
+    "type": "Typ",
+    "role": "Vedení",
+    "stack": "Technologie",
+    "previous": "Předchozí projekt",
+    "next": "Další projekt",
+    "moreProjects": "Další projekty",
+    "about": "O projektu",
+    "features": "Co si můžete vyzkoušet",
+    "technical": "Pod kapotou",
+    "changelog": "Seznam změn",
+    "versions": "Verze",
+    "gallery": "Galerie",
+    "architecture": "Architektura",
+    "lightbox": {
+      "close": "Zavřít",
+      "previous": "Předchozí obrázek",
+      "next": "Další obrázek",
+      "zoomIn": "Přiblížit",
+      "zoomOut": "Oddálit",
+      "counter": "{current} z {total}"
+    }
+  },
+  "experience": {
+    "title": "Praxe",
+    "description": "Full-stack práce v IGT Systems, Švarba a SoftPoint: webové, mobilní a backendové produkty a datové pipeline.",
+    "lead": "Tři firmy od roku 2023, od datových pipeline po mobilní aplikace."
+  },
+  "activity": {
+    "title": "Aktivita",
+    "description": "Moje osobní i pracovní aktivita na GitHubu a GitLabu v jednom kalendáři.",
+    "lead": "Moje osobní i pracovní aktivita na GitHubu a GitLabu v jednom kalendáři. U pracovní aktivity jsou vidět jen denní počty, bez názvů projektů.",
+    "range": "Období",
+    "lastYear": "Posledních 12 měsíců",
+    "sources": "Zdroje",
+    "presets": {
+      "all": "Vše",
+      "personal": "Osobní",
+      "work": "Pracovní"
+    },
+    "kinds": {
+      "personal": "osobní",
+      "work": "pracovní"
+    },
+    "total": "{total} {count, plural, one {příspěvek} few {příspěvky} other {příspěvků}} {period}",
+    "inLastYear": "za posledních 12 měsíců",
+    "inYear": "v roce {year}",
+    "calendar": "Kalendář příspěvků",
+    "day": "{date}: {count, plural, =0 {žádné příspěvky} one {# příspěvek} few {# příspěvky} other {# příspěvků}}",
+    "contributions": "{count, plural, =0 {žádné příspěvky} one {# příspěvek} few {# příspěvky} other {# příspěvků}}",
+    "keyboardHint": "Podrobnosti zobrazíte najetím myší nebo výběrem dne; šipkami se přesouváte mezi dny.",
+    "less": "Méně",
+    "more": "Více",
+    "activeDays": "Aktivní dny",
+    "longestStreak": "Nejdelší série",
+    "currentStreak": "Aktuální série",
+    "busiestDay": "Nejrušnější den",
+    "days": "{count, plural, one {# den} few {# dny} other {# dní}}",
+    "byType": "Podle typu",
+    "bySource": "Podle zdroje",
+    "byTypeHint": "Vyberte typ a v kalendáři i součtech se zobrazí jen on.",
+    "byYear": "Podle roku",
+    "byYearHint": "Vyberte rok a zobrazí se v kalendáři.",
+    "categories": {
+      "commits": "Commity",
+      "pullRequests": "Pull a merge requesty",
+      "reviews": "Revize a schválení",
+      "issues": "Issues",
+      "comments": "Komentáře",
+      "other": "Ostatní"
+    },
+    "counts": {
+      "commits": "{count, plural, one {# commit} few {# commity} other {# commitů}}",
+      "pullRequests": "{count, plural, one {# pull nebo merge request} few {# pull nebo merge requesty} other {# pull nebo merge requestů}}",
+      "reviews": "{count, plural, one {# revize} few {# revize} other {# revizí}}",
+      "issues": "{count, plural, one {# issue} few {# issues} other {# issues}}",
+      "comments": "{count, plural, one {# komentář} few {# komentáře} other {# komentářů}}",
+      "other": "{count, plural, one {# jiný příspěvek} few {# jiné příspěvky} other {# jiných příspěvků}}"
+    },
+    "updated": "Aktualizováno {date}. Shromážděno z API GitHubu a GitLabu a z mých pracovních repozitářů. GitHub a GitLab počítají příspěvky trochu jinak, takže součty jsou přibližné.",
+    "pattern": {
+      "title": "Kdy commituji",
+      "summary": "Nejrušnější den je {weekday} a nejrušnější hodina kolem {hour}:00. {weekend} % commitů připadá na víkendy a {evening} % na dobu po 19:00.",
+      "cell": "{weekday}, {hour}:00: {count, plural, one {# commit} few {# commity} other {# commitů}}",
+      "note": "Všechny roky, ve středoevropském čase. GitLab hlásí jen pushe, ne časy commitů, proto tu osobní účet na GitLabu chybí.",
+      "empty": "Pro tyto zdroje nejsou žádná data o commitech."
+    },
+    "languages": {
+      "title": "Jazyky v čase",
+      "lead": "Commity každého roku rozdělené podle jazyků, které měnily.",
+      "legend": "Jazyky",
+      "other": "Ostatní"
+    },
+    "card": {
+      "title": "Aktivita",
+      "lead": "{total} {count, plural, one {příspěvek} few {příspěvky} other {příspěvků}} za posledních 12 měsíců, z mé osobní i pracovní aktivity na GitHubu a GitLabu.",
+      "link": "Zobrazit celou aktivitu"
+    }
+  },
+  "skills": {
+    "title": "Dovednosti",
+    "description": "Frontend, backend, mobilní vývoj, data, AI, DevOps a testování: technologie, se kterými pracuji.",
+    "lead": "Rozdělené podle oblastí, bez vymyšlených úrovní. Technologie použité v mých projektech na ně odkazují, ikona šipky otevře oficiální web.",
+    "practices": "Postupy",
+    "projectCount": "{count, plural, one {# projekt} few {# projekty} other {# projektů}}",
+    "workflow": "Od nápadu po produkci",
+    "workflowLead": "Fáze, kterými projde každý projekt, od prvního rozhovoru až po provoz v produkci.",
+    "practicesLead": "Jak pracuji, kromě nástrojů."
+  },
+  "education": {
+    "title": "Vzdělání",
+    "description": "Magisterský titul v oboru Inteligentní softwarové systémy a bakalářský titul v oboru Informatika na Slovenské technické univerzitě v Bratislavě.",
+    "lead": "Informatika a inteligentní softwarové systémy na Slovenské technické univerzitě v Bratislavě, po gymnáziu v Nových Zámcích.",
+    "thesis": "Závěrečná práce",
+    "languages": "Jazyky",
+    "university": "Vysoká škola",
+    "secondarySchool": "Střední škola"
+  },
+  "about": {
+    "title": "O mně",
+    "description": "O Ákosovi Kappelovi: jak pracuji a na čem mi záleží.",
+    "howIWork": "Jak pracuji",
+    "languages": "Jazyky",
+    "portrait": "Portrét Ákose Kappela"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "profiles": "Profily",
+    "coffee": "Pomohl vám některý z mých projektů? Můžete mi <link>koupit kávu</link>.",
+    "linkedin": "Pracovní historie a doporučení",
+    "github": "Osobní projekty a Advent of Code",
+    "gitlab": "Univerzitní a týmové projekty",
+    "form": {
+      "name": "Jméno",
+      "email": "E-mail",
+      "message": "Zpráva",
+      "send": "Odeslat zprávu",
+      "sending": "Odesílání…",
+      "sent": "Děkuji, zpráva byla odeslána. Odpovím e-mailem.",
+      "invalid": "Zkontrolujte označená pole.",
+      "limited": "Příliš mnoho zpráv za krátkou dobu. Zkuste to později nebo napište e-mail.",
+      "failed": "Zprávu se nepodařilo odeslat. Napište mi prosím e-mail.",
+      "title": "Napsat zprávu",
+      "errors": {
+        "nameRequired": "Zadejte své jméno.",
+        "nameTooLong": "Jméno je příliš dlouhé.",
+        "emailInvalid": "Zadejte platnou e-mailovou adresu.",
+        "messageTooShort": "Zpráva musí mít alespoň 10 znaků.",
+        "messageTooLong": "Zpráva je příliš dlouhá (nejvýše 5000 znaků)."
+      }
+    }
+  },
+  "cv": {
+    "title": "Životopis",
+    "description": "Životopis Ákose Kappela, full-stack softwarového inženýra, s PDF ke stažení v angličtině a slovenštině.",
+    "lead": "Delší verze PDF s podrobnostmi o každé práci a projektu.",
+    "profile": "Profil",
+    "experience": "Praxe",
+    "skills": "Dovednosti",
+    "projects": "Vybrané projekty",
+    "education": "Vzdělání",
+    "languages": "Jazyky",
+    "practices": "Postupy",
+    "thesis": "Závěrečná práce",
+    "secondarySchool": "Střední škola",
+    "otherProjects": "Další projekty",
+    "allProjects": "Všechny projekty",
+    "contents": "Sekce",
+    "contact": "Kontakt",
+    "facts": {
+      "experience": "Praxe",
+      "companies": "Firmy",
+      "projects": "Projekty",
+      "languages": "Jazyky"
+    }
+  },
+  "cvPdf": {
+    "title": "Životopis",
+    "description": "Životopis Ákose Kappela, full-stack softwarového inženýra, ke čtení v prohlížeči bez stahování.",
+    "download": "Stáhnout PDF",
+    "open": "Otevřít PDF",
+    "webVersion": "Webová verze",
+    "viewer": "Životopis v angličtině (PDF)",
+    "pageAlt": "Životopis Ákose Kappela, strana {page}"
+  },
+  "notFound": {
+    "title": "Tato stránka neexistuje",
+    "text": "Odkaz může být starý nebo chybně napsaný. Tyto stránky existují:",
+    "label": "Chyba 404"
+  },
+  "error": {
+    "label": "Chyba",
+    "title": "Něco se pokazilo",
+    "text": "Stránku se nepodařilo zobrazit. Zkuste to znovu nebo se vraťte na úvodní stránku.",
+    "retry": "Zkusit znovu"
+  },
+  "colophon": {
+    "title": "Jak je tento web postavený",
+    "description": "Technologie, architektura, design, testování, hosting a přístupnost tohoto portfolia.",
+    "lead": "Technologie a inženýrské postupy, na kterých tento web stojí.",
+    "sourceCode": "Zdrojový kód je na GitHubu.",
+    "sections": [
+      {
+        "id": "stack",
+        "title": "Technologie",
+        "paragraphs": [
+          "Next.js 16 s App Routerem, React 19 a TypeScript, styly v Tailwind CSS 4. Archiv projektů používá TanStack Table s match-sorter pro tolerantní vyhledávání, kontaktní formulář TanStack Form se Zod schématem sdíleným prohlížečem i serverem a next-intl zajišťuje jazykové verze."
+        ]
+      },
+      {
+        "id": "architecture",
+        "title": "Architektura",
+        "paragraphs": [
+          "Každá stránka se generuje při buildu ve všech jazycích. Obsah je v typovaných modulech TypeScriptu a automatické kontroly před každým buildem ověří slugy, obrázky, odkazy, data a překlady.",
+          "Stránky jsou React Server Components; JavaScript se posílá jen pro interaktivní části, jako jsou navigační menu, archiv projektů, galerie obrázků a kontaktní formulář. Každá stránka má vlastní vygenerovaný náhledový obrázek pro odkazy a strukturovaná data pro vyhledávače."
+        ]
+      },
+      {
+        "id": "design",
+        "title": "Design",
+        "paragraphs": [
+          "Barvy jsou design tokeny v CSS proměnných. Světlý i tmavý režim nabízí několik motivů, které se použijí ještě před prvním vykreslením, takže stránka nikdy neblikne nesprávnými barvami.",
+          "Stránky a obrázky projektů přecházejí mezi routami pomocí view transitions a obsah se při posouvání plynule objevuje na svém místě, řízeno CSS. Na větších obrazovkách reaguje na ukazatel jemné pole částic vykreslené přes WebGL2; ve skrytých kartách se pozastaví a při požadavku na omezení pohybu zůstane vypnuté."
+        ]
+      },
+      {
+        "id": "quality",
+        "title": "Testování a CI",
+        "paragraphs": [
+          "GitHub Actions při každém pushi spouští Biome, kompilátor TypeScriptu, Vitest a Playwright. End-to-end testy pokrývají navigaci, vyhledávání, formuláře a motivy na počítači i mobilu a pomocí axe kontrolují přístupnost podle WCAG 2.2 AA.",
+          "Lighthouse CI drží výkon, přístupnost, osvědčené postupy a SEO v pevných limitech, včetně limitu na JavaScript, který každá stránka posílá. Týdenní úloha kontroluje všechny externí odkazy a Dependabot udržuje závislosti aktuální."
+        ]
+      },
+      {
+        "id": "hosting",
+        "title": "Hosting a soukromí",
+        "paragraphs": [
+          "Web běží na Vercelu a nasazuje se automaticky z hlavní větve. Vercel Web Analytics a Speed Insights měří návštěvy a skutečné doby načítání bez cookies a zvolený motiv se ukládá jen ve vašem prohlížeči."
+        ]
+      },
+      {
+        "id": "accessibility",
+        "title": "Přístupnost",
+        "paragraphs": [
+          "Tento web se snaží splnit WCAG 2.2 na úrovni AA. Funguje s klávesnicí i čtečkami obrazovky, zachovává viditelné zaměření, respektuje nastavení omezeného pohybu a každý motiv splňuje požadavky AA na kontrast.",
+          "Pokud je něco obtížné používat, dejte mi prosím vědět."
+        ]
+      }
+    ]
+  }
+}

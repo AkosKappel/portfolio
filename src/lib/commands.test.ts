@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
+import cs from "../../messages/cs.json";
+import de from "../../messages/de.json";
 import en from "../../messages/en.json";
+import hu from "../../messages/hu.json";
 import sk from "../../messages/sk.json";
 import { projects } from "../content/projects";
 import { buildCommandIndex } from "./command-index";
@@ -53,10 +56,13 @@ describe("filterCommands", () => {
 });
 
 describe("buildCommandIndex", () => {
-  it("lists every project and has unique ids in both languages", () => {
+  it("lists every project and has unique ids in every language", () => {
     for (const [locale, messages] of [
       ["en", en],
       ["sk", sk],
+      ["de", de],
+      ["cs", cs],
+      ["hu", hu],
     ] as const) {
       const index = buildCommandIndex(locale, messages);
       expect(new Set(index.map((command) => command.id)).size).toBe(index.length);

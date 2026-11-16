@@ -6,81 +6,135 @@ export const sketchbook: Project = {
   summary: {
     en: "21 small browser sketches: classic games, simulations, fractals and canvas effects.",
     sk: "21 malých skíc v prehliadači: klasické hry, simulácie, fraktály a efekty na plátne.",
+    de: "21 kleine Browser-Sketches: klassische Spiele, Simulationen, Fraktale und Canvas-Effekte.",
+    cs: "21 malých skic v prohlížeči: klasické hry, simulace, fraktály a efekty na plátně.",
+    hu: "21 kis böngészős vázlat: klasszikus játékok, szimulációk, fraktálok és canvas-effektek.",
   },
   description: [
     {
       en: "Small projects I wrote in 2021 while learning JavaScript, mostly by following tutorials. Later I fixed their bugs, gave them one shared design that works on phones, and added nine new ones.",
       sk: "Malé projekty, ktoré som napísal v roku 2021, keď som sa učil JavaScript, väčšinou podľa tutoriálov. Neskôr som opravil ich chyby, dal im spoločný dizajn, ktorý funguje aj na mobile, a pridal deväť nových.",
+      de: "Kleine Projekte, die ich 2021 geschrieben habe, als ich JavaScript lernte, meist nach Tutorials. Später habe ich ihre Fehler behoben, ihnen ein gemeinsames Design gegeben, das auch auf dem Handy funktioniert, und neun neue hinzugefügt.",
+      cs: "Malé projekty, které jsem napsal v roce 2021, když jsem se učil JavaScript, většinou podle tutoriálů. Později jsem opravil jejich chyby, dal jim společný design, který funguje i na mobilu, a přidal devět nových.",
+      hu: "Kis projektek, amelyeket 2021-ben írtam, amikor a JavaScriptet tanultam, többnyire oktatóanyagok alapján. Később kijavítottam a hibáikat, közös, telefonon is működő dizájnt adtam nekik, és kilenc újat is hozzáadtam.",
     },
   ],
   features: [
     {
       en: "Games: Snake, Pong against the computer or a friend, Tic Tac Toe with an unbeatable bot, Minesweeper, 2048",
       sk: "Hry: Snake, Pong proti počítaču alebo kamarátovi, piškvorky s neporaziteľným botom, Mínolovka, 2048",
+      de: "Spiele: Snake, Pong gegen den Computer oder einen Freund, Tic Tac Toe mit unschlagbarem Bot, Minesweeper, 2048",
+      cs: "Hry: Snake, Pong proti počítači nebo kamarádovi, piškvorky s neporazitelným botem, Hledání min, 2048",
+      hu: "Játékok: Snake, Pong a gép vagy egy barát ellen, amőba legyőzhetetlen bottal, Aknakereső, 2048",
     },
     {
       en: "Simulations and algorithms: Game of Life, flocking boids, a genetic algorithm, a quadtree, maze generation and solving, sorting, Langton's Ant, reaction-diffusion",
       sk: "Simulácie a algoritmy: Game of Life, kŕdeľ boidov, genetický algoritmus, quadtree, generovanie a riešenie bludiska, triedenie, Langtonov mravec, reakcia a difúzia",
+      de: "Simulationen und Algorithmen: Game of Life, Boids im Schwarm, ein genetischer Algorithmus, ein Quadtree, Labyrinth-Erzeugung und -Lösung, Sortieren, Langtons Ameise, Reaktion-Diffusion",
+      cs: "Simulace a algoritmy: Game of Life, hejno boidů, genetický algoritmus, quadtree, generování a řešení bludiště, řazení, Langtonův mravenec, reakce a difuze",
+      hu: "Szimulációk és algoritmusok: Game of Life, rajban mozgó boidok, genetikus algoritmus, quadtree, labirintus generálása és megoldása, rendezés, Langton hangyája, reakció-diffúzió",
     },
     {
       en: "Math: a Mandelbrot explorer with zoom, Fourier series, the chaos game, the Barnsley fern, fractal trees and a double pendulum",
       sk: "Matematika: Mandelbrotova množina s priblížením, Fourierove rady, chaos game, Barnsleyho papraď, fraktálové stromy a dvojité kyvadlo",
+      de: "Mathematik: ein Mandelbrot-Explorer mit Zoom, Fourierreihen, das Chaosspiel, der Barnsley-Farn, Fraktalbäume und ein Doppelpendel",
+      cs: "Matematika: Mandelbrotova množina s přiblížením, Fourierovy řady, chaos game, Barnsleyho kapradí, fraktálové stromy a dvojité kyvadlo",
+      hu: "Matematika: Mandelbrot-halmaz nagyítással, Fourier-sorok, a káoszjáték, a Barnsley-páfrány, fraktálfák és egy kettős inga",
     },
     {
       en: "Effects that react to the pointer or touch, two of them built from your own uploaded image",
       sk: "Efekty, ktoré reagujú na kurzor alebo dotyk, dva z nich zostavené z vlastného nahraného obrázka",
+      de: "Effekte, die auf Mauszeiger oder Berührung reagieren, zwei davon aus einem eigenen hochgeladenen Bild",
+      cs: "Efekty, které reagují na kurzor nebo dotyk, dva z nich sestavené z vlastního nahraného obrázku",
+      hu: "Egérmutatóra vagy érintésre reagáló effektek, ezek közül kettő a saját feltöltött képből épül fel",
     },
     {
       en: "Every project has a short explanation of how it works",
       sk: "Každý projekt má krátke vysvetlenie, ako funguje",
+      de: "Jedes Projekt hat eine kurze Erklärung, wie es funktioniert",
+      cs: "Každý projekt má krátké vysvětlení, jak funguje",
+      hu: "Minden projekthez tartozik egy rövid magyarázat a működéséről",
     },
     {
       en: "A landing page with category filters and a preview of every project",
       sk: "Úvodná stránka s filtrom podľa kategórií a náhľadom každého projektu",
+      de: "Eine Startseite mit Kategoriefiltern und einer Vorschau für jedes Projekt",
+      cs: "Úvodní stránka s filtrem podle kategorií a náhledem každého projektu",
+      hu: "Kezdőlap kategóriaszűrőkkel és minden projekt előnézetével",
     },
   ],
   technical: [
     {
       en: "Plain HTML, CSS and JavaScript without a build step, hosted on GitHub Pages",
       sk: "Čisté HTML, CSS a JavaScript bez zostavovania, hostované na GitHub Pages",
+      de: "Reines HTML, CSS und JavaScript ohne Build-Schritt, gehostet auf GitHub Pages",
+      cs: "Čisté HTML, CSS a JavaScript bez sestavování, hostované na GitHub Pages",
+      hu: "Sima HTML, CSS és JavaScript build lépés nélkül, GitHub Pagesen hosztolva",
     },
     {
       en: "Maze solvers and sorting algorithms are written as generators that pause after every step, so the animation can show them one step at a time",
       sk: "Riešiče bludiska a triediace algoritmy sú napísané ako generátory, ktoré sa po každom kroku zastavia, takže animácia ich ukáže krok po kroku",
+      de: "Labyrinth-Löser und Sortieralgorithmen sind als Generatoren geschrieben, die nach jedem Schritt pausieren, damit die Animation sie Schritt für Schritt zeigen kann",
+      cs: "Řešiče bludiště a řadicí algoritmy jsou napsané jako generátory, které se po každém kroku zastaví, takže je animace ukáže krok po kroku",
+      hu: "A labirintusmegoldók és a rendezőalgoritmusok generátorként vannak megírva, amelyek minden lépés után megállnak, így az animáció lépésenként mutatja őket",
     },
     {
       en: "Pixel-heavy effects write straight into image buffers, and the Mandelbrot set renders a few rows per frame to keep the page responsive",
       sk: "Efekty s veľa pixelmi zapisujú priamo do obrazových bufferov a Mandelbrotova množina sa vykresľuje po niekoľkých riadkoch na snímku, aby stránka reagovala",
+      de: "Pixelintensive Effekte schreiben direkt in Bildpuffer, und die Mandelbrot-Menge wird pro Frame nur einige Zeilen weit gezeichnet, damit die Seite reaktionsfähig bleibt",
+      cs: "Efekty s mnoha pixely zapisují přímo do obrazových bufferů a Mandelbrotova množina se vykresluje po několika řádcích na snímek, aby stránka reagovala",
+      hu: "A sok pixelt kezelő effektek közvetlenül a képpufferekbe írnak, a Mandelbrot-halmaz pedig képkockánként csak néhány sort rajzol ki, hogy az oldal reszponzív maradjon",
     },
     {
       en: "The double pendulum is integrated with RK4, and several copies start 0.001° apart to show how quickly they drift apart",
       sk: "Dvojité kyvadlo sa počíta metódou RK4 a niekoľko kópií začína 0,001° od seba, aby bolo vidno, ako rýchlo sa rozídu",
+      de: "Das Doppelpendel wird mit RK4 integriert, und mehrere Kopien starten 0,001° voneinander entfernt, um zu zeigen, wie schnell sie auseinanderlaufen",
+      cs: "Dvojité kyvadlo se počítá metodou RK4 a několik kopií začíná 0,001° od sebe, aby bylo vidět, jak rychle se rozejdou",
+      hu: "A kettős ingát RK4 módszer számolja, és több példány 0,001° eltéréssel indul, hogy látszódjon, milyen gyorsan távolodnak el egymástól",
     },
     {
       en: "Reaction-diffusion follows the Gray-Scott model",
       sk: "Reakcia a difúzia vychádza z Gray-Scottovho modelu",
+      de: "Reaktion-Diffusion folgt dem Gray-Scott-Modell",
+      cs: "Reakce a difuze vychází z Gray-Scottova modelu",
+      hu: "A reakció-diffúzió a Gray-Scott-modellt követi",
     },
   ],
   changelog: [
     {
       en: "p5.js 1.3 to 1.11",
       sk: "p5.js 1.3 na 1.11",
+      de: "p5.js 1.3 auf 1.11",
+      cs: "p5.js 1.3 na 1.11",
+      hu: "p5.js 1.3-ról 1.11-re",
     },
     {
       en: "One shared dark design",
       sk: "Jeden spoločný tmavý dizajn",
+      de: "Ein gemeinsames dunkles Design",
+      cs: "Jeden společný tmavý design",
+      hu: "Egy közös sötét dizájn",
     },
     {
       en: "Canvases that fit any screen and work with touch",
       sk: "Plátna, ktoré sa prispôsobia každej obrazovke a fungujú s dotykom",
+      de: "Canvas-Flächen, die sich jedem Bildschirm anpassen und mit Touch funktionieren",
+      cs: "Plátna, která se přizpůsobí každé obrazovce a fungují s dotykem",
+      hu: "Bármilyen képernyőhöz igazodó, érintéssel is működő vásznak",
     },
     {
       en: "About a dozen bug fixes",
       sk: "Asi tucet opráv chýb",
+      de: "Etwa ein Dutzend Fehlerbehebungen",
+      cs: "Asi tucet oprav chyb",
+      hu: "Nagyjából egy tucat hibajavítás",
     },
     {
       en: "Nine new projects",
       sk: "Deväť nových projektov",
+      de: "Neun neue Projekte",
+      cs: "Devět nových projektů",
+      hu: "Kilenc új projekt",
     },
   ],
   versions: ["p5.js 1.11"],
@@ -98,6 +152,9 @@ export const sketchbook: Project = {
     alt: {
       en: "SketchBook landing page with the title drawn by particles and project previews",
       sk: "Úvodná stránka SketchBook s nadpisom z častíc a náhľadmi projektov",
+      de: "SketchBook-Startseite mit einem aus Partikeln gezeichneten Titel und Projektvorschauen",
+      cs: "Úvodní stránka SketchBook s nadpisem z částic a náhledy projektů",
+      hu: "A SketchBook kezdőlapja részecskékből rajzolt címmel és projektelőnézetekkel",
     },
   },
   gallery: [
@@ -108,10 +165,16 @@ export const sketchbook: Project = {
       alt: {
         en: "Blue spirals at the edge of the Mandelbrot set",
         sk: "Modré špirály na okraji Mandelbrotovej množiny",
+        de: "Blaue Spiralen am Rand der Mandelbrot-Menge",
+        cs: "Modré spirály na okraji Mandelbrotovy množiny",
+        hu: "Kék spirálok a Mandelbrot-halmaz szélén",
       },
       caption: {
         en: "Mandelbrot explorer: click, drag and scroll to zoom into the fractal.",
         sk: "Mandelbrotova množina: kliknutím, ťahaním a skrolovaním sa dá fraktál približovať.",
+        de: "Mandelbrot-Explorer: Klicken, Ziehen und Scrollen zoomt in das Fraktal.",
+        cs: "Mandelbrotova množina: kliknutím, tažením a scrollováním lze fraktál přibližovat.",
+        hu: "Mandelbrot-halmaz: kattintással, húzással és görgetéssel lehet a fraktálba nagyítani.",
       },
     },
     {
@@ -121,10 +184,16 @@ export const sketchbook: Project = {
       alt: {
         en: "A generated maze with the explored cells colored and the shortest path drawn in green",
         sk: "Vygenerované bludisko s farebne označenými preskúmanými políčkami a najkratšou cestou zelenou",
+        de: "Ein erzeugtes Labyrinth mit eingefärbten besuchten Zellen und dem kürzesten Weg in Grün",
+        cs: "Vygenerované bludiště s barevně označenými prozkoumanými políčky a nejkratší cestou zeleně",
+        hu: "Generált labirintus színezett bejárt cellákkal és zölddel rajzolt legrövidebb úttal",
       },
       caption: {
         en: "Maze: generated step by step, then solved by breadth-first search, depth-first search or A*.",
         sk: "Bludisko: generované krok po kroku a potom vyriešené prehľadávaním do šírky, do hĺbky alebo A*.",
+        de: "Labyrinth: Schritt für Schritt erzeugt, dann mit Breitensuche, Tiefensuche oder A* gelöst.",
+        cs: "Bludiště: generované krok po kroku a pak vyřešené prohledáváním do šířky, do hloubky nebo A*.",
+        hu: "Labirintus: lépésről lépésre generálva, majd szélességi kereséssel, mélységi kereséssel vagy A*-gal megoldva.",
       },
     },
     {
@@ -134,10 +203,16 @@ export const sketchbook: Project = {
       alt: {
         en: "Colorful flowing lines drawn by particles following Perlin noise",
         sk: "Farebné plynulé čiary nakreslené časticami, ktoré sledujú Perlinov šum",
+        de: "Bunte fließende Linien, gezeichnet von Partikeln, die Perlin-Noise folgen",
+        cs: "Barevné plynulé čáry nakreslené částicemi, které sledují Perlinův šum",
+        hu: "Színes, áramló vonalak, amelyeket Perlin-zajt követő részecskék rajzolnak",
       },
       caption: {
         en: "Flow Field: thousands of particles following Perlin noise, stirred by the pointer.",
         sk: "Flow Field: tisíce častíc, ktoré sledujú Perlinov šum a dajú sa rozvíriť kurzorom.",
+        de: "Flow Field: Tausende Partikel folgen Perlin-Noise und lassen sich mit dem Zeiger aufwirbeln.",
+        cs: "Flow Field: tisíce částic, které sledují Perlinův šum a dají se rozvířit kurzorem.",
+        hu: "Flow Field: Perlin-zajt követő részecskék ezrei, amelyeket az egérmutatóval fel lehet kavarni.",
       },
     },
     {
@@ -147,10 +222,16 @@ export const sketchbook: Project = {
       alt: {
         en: "Glowing green rings and cells grown by a reaction-diffusion simulation",
         sk: "Žiariace zelené prstence a bunky vytvorené simuláciou reakcie a difúzie",
+        de: "Leuchtende grüne Ringe und Zellen aus einer Reaktion-Diffusion-Simulation",
+        cs: "Zářící zelené prstence a buňky vytvořené simulací reakce a difuze",
+        hu: "Világító zöld gyűrűk és sejtek egy reakció-diffúziós szimulációból",
       },
       caption: {
         en: "Reaction-Diffusion: patterns grown by the Gray-Scott model; draw to add chemical.",
         sk: "Reakcia a difúzia: vzory, ktoré rastú podľa Gray-Scottovho modelu; kreslením sa pridáva chemikália.",
+        de: "Reaktion-Diffusion: Muster nach dem Gray-Scott-Modell; durch Zeichnen kommt Chemikalie hinzu.",
+        cs: "Reakce a difuze: vzory, které rostou podle Gray-Scottova modelu; kreslením se přidává chemikálie.",
+        hu: "Reakció-diffúzió: a Gray-Scott-modell szerint növekvő minták; rajzolással vegyszer adható hozzá.",
       },
     },
     {
@@ -160,10 +241,16 @@ export const sketchbook: Project = {
       alt: {
         en: "Many colored double pendulums with tangled trails",
         sk: "Veľa farebných dvojitých kyvadiel so spletenými stopami",
+        de: "Viele farbige Doppelpendel mit verschlungenen Spuren",
+        cs: "Mnoho barevných dvojitých kyvadel se spletenými stopami",
+        hu: "Sok színes kettős inga összegabalyodott nyomvonalakkal",
       },
       caption: {
         en: "Double Pendulum: copies that start 0.001° apart end up in completely different places.",
         sk: "Dvojité kyvadlo: kópie, ktoré začnú 0,001° od seba, skončia úplne inde.",
+        de: "Doppelpendel: Kopien, die 0,001° voneinander entfernt starten, landen an völlig verschiedenen Stellen.",
+        cs: "Dvojité kyvadlo: kopie, které začnou 0,001° od sebe, skončí úplně jinde.",
+        hu: "Kettős inga: a 0,001° eltéréssel induló példányok teljesen máshol kötnek ki.",
       },
     },
     {
@@ -173,10 +260,16 @@ export const sketchbook: Project = {
       alt: {
         en: "Bars being sorted by quicksort, with comparison and write counters",
         sk: "Stĺpce triedené algoritmom quicksort s počítadlom porovnaní a zápisov",
+        de: "Balken, die von Quicksort sortiert werden, mit Zählern für Vergleiche und Schreibvorgänge",
+        cs: "Sloupce řazené algoritmem quicksort s počítadlem porovnání a zápisů",
+        hu: "Quicksorttal rendezett oszlopok az összehasonlítások és írások számlálójával",
       },
       caption: {
         en: "Sorting: six algorithms animated step by step, with comparisons and writes counted.",
         sk: "Triedenie: šesť algoritmov animovaných krok po kroku, s počítaním porovnaní a zápisov.",
+        de: "Sortieren: sechs Algorithmen Schritt für Schritt animiert, mit gezählten Vergleichen und Schreibvorgängen.",
+        cs: "Řazení: šest algoritmů animovaných krok po kroku, s počítáním porovnání a zápisů.",
+        hu: "Rendezés: hat algoritmus lépésről lépésre animálva, az összehasonlítások és írások számlálásával.",
       },
     },
   ],

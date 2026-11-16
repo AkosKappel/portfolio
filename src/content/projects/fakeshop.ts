@@ -6,81 +6,135 @@ export const fakeshop: Project = {
   summary: {
     en: "Demo online store with instant search, filters in the URL, a wishlist and a full checkout.",
     sk: "Demo e-shop s okamžitým vyhľadávaním, filtrami v URL, zoznamom želaní a celým nákupným procesom.",
+    de: "Demo-Onlineshop mit Sofortsuche, Filtern in der URL, Wunschliste und vollständigem Checkout.",
+    cs: "Demo e-shop s okamžitým vyhledáváním, filtry v URL, seznamem přání a celým nákupním procesem.",
+    hu: "Demó webáruház azonnali kereséssel, URL-ben tárolt szűrőkkel, kívánságlistával és teljes fizetési folyamattal.",
   },
   description: [
     {
       en: "A personal project from 2024 that I later rebuilt into a realistic demo store with 194 products from DummyJSON. Nothing is sold and no payment is taken.",
       sk: "Osobný projekt z roku 2024, ktorý som neskôr prerobil na realistický demo e-shop so 194 produktmi z DummyJSON. Nič sa nepredáva a neplatí sa.",
+      de: "Ein persönliches Projekt aus dem Jahr 2024, das ich später zu einem realistischen Demo-Shop mit 194 Produkten von DummyJSON umgebaut habe. Es wird nichts verkauft und nichts bezahlt.",
+      cs: "Osobní projekt z roku 2024, který jsem později přestavěl na realistický demo e-shop se 194 produkty z DummyJSON. Nic se neprodává a nic se neplatí.",
+      hu: "Egy 2024-es saját projekt, amelyet később valósághű demó webáruházzá építettem át 194 termékkel a DummyJSON-ból. Semmit nem árul, és fizetni sem kell.",
     },
   ],
   features: [
     {
       en: "Search with suggestions and filters for price, rating, brand, stock and discounts, all kept in the URL",
       sk: "Vyhľadávanie s návrhmi a filtre podľa ceny, hodnotenia, značky, dostupnosti a zliav, všetko v URL",
+      de: "Suche mit Vorschlägen und Filtern nach Preis, Bewertung, Marke, Verfügbarkeit und Rabatten, alles in der URL gespeichert",
+      cs: "Vyhledávání s návrhy a filtry podle ceny, hodnocení, značky, dostupnosti a slev, vše uložené v URL",
+      hu: "Keresés javaslatokkal, valamint ár, értékelés, márka, készlet és kedvezmények szerinti szűrők, mind az URL-ben tárolva",
     },
     {
       en: "Product pages with a zoomable gallery, reviews and related products",
       sk: "Stránky produktov s galériou so zoomom, recenziami a podobnými produktmi",
+      de: "Produktseiten mit zoombarer Galerie, Bewertungen und ähnlichen Produkten",
+      cs: "Stránky produktů s galerií s přiblížením, recenzemi a podobnými produkty",
+      hu: "Termékoldalak nagyítható galériával, értékelésekkel és kapcsolódó termékekkel",
     },
     {
       en: "A cart with undo, the promo codes FAKE10 and FREESHIP, and a free-delivery threshold",
       sk: "Košík s krokom späť, zľavovými kódmi FAKE10 a FREESHIP a hranicou dopravy zadarmo",
+      de: "Ein Warenkorb mit Rückgängig-Funktion, den Gutscheincodes FAKE10 und FREESHIP und einer Grenze für kostenlosen Versand",
+      cs: "Košík s krokem zpět, slevovými kódy FAKE10 a FREESHIP a hranicí pro dopravu zdarma",
+      hu: "Kosár visszavonással, FAKE10 és FREESHIP kuponkódokkal és ingyenes szállítási határral",
     },
     {
       en: "Checkout with card number validation and delivery dates in business days; only the last four digits are kept",
       sk: "Pokladňa s kontrolou čísla karty a termínom doručenia v pracovných dňoch; ukladajú sa len posledné štyri číslice",
+      de: "Checkout mit Prüfung der Kartennummer und Lieferterminen in Werktagen; gespeichert werden nur die letzten vier Ziffern",
+      cs: "Pokladna s kontrolou čísla karty a termínem doručení v pracovních dnech; ukládají se jen poslední čtyři číslice",
+      hu: "Fizetés kártyaszám-ellenőrzéssel és munkanapokban számolt szállítási időpontokkal; csak az utolsó négy számjegy marad meg",
     },
     {
       en: "Compare products, wishlist, recently viewed and order history, synced across open tabs",
       sk: "Porovnanie produktov, zoznam želaní, naposledy pozreté a história objednávok, synchronizované medzi kartami",
+      de: "Produktvergleich, Wunschliste, zuletzt angesehene Produkte und Bestellverlauf, synchronisiert zwischen offenen Tabs",
+      cs: "Porovnání produktů, seznam přání, naposledy zobrazené a historie objednávek, synchronizované mezi otevřenými kartami",
+      hu: "Termék-összehasonlítás, kívánságlista, legutóbb megtekintett termékek és rendelési előzmények, szinkronban a megnyitott lapok között",
     },
     {
       en: "Dark mode, image transitions from card to product page, installable as an app",
       sk: "Tmavý režim, prechod obrázka z karty na stránku produktu, inštalácia ako aplikácia",
+      de: "Dunkelmodus, Bildübergänge von der Karte zur Produktseite, als App installierbar",
+      cs: "Tmavý režim, přechod obrázku z karty na stránku produktu, instalace jako aplikace",
+      hu: "Sötét mód, képátmenet a kártyáról a termékoldalra, alkalmazásként telepíthető",
     },
     {
       en: "Optional demo sign-in with DummyJSON accounts; checkout then fills in the account's address",
       sk: "Voliteľné demo prihlásenie s účtami z DummyJSON; pokladňa potom vyplní adresu z účtu",
+      de: "Optionale Demo-Anmeldung mit DummyJSON-Konten; der Checkout übernimmt dann die Adresse des Kontos",
+      cs: "Volitelné demo přihlášení s účty z DummyJSON; pokladna pak vyplní adresu z účtu",
+      hu: "Opcionális demó bejelentkezés DummyJSON-fiókokkal; a fizetésnél ilyenkor a fiók címe töltődik ki",
     },
     {
       en: "Quick find (Ctrl+K) to jump to a page or category or open a product from the keyboard",
       sk: "Rýchle hľadanie (Ctrl+K): z klávesnice sa dá prejsť na stránku alebo kategóriu či otvoriť produkt",
+      de: "Schnellsuche (Ctrl+K), um per Tastatur zu einer Seite oder Kategorie zu springen oder ein Produkt zu öffnen",
+      cs: "Rychlé hledání (Ctrl+K): z klávesnice lze přejít na stránku nebo kategorii či otevřít produkt",
+      hu: "Gyorskeresés (Ctrl+K): billentyűzetről oldalra vagy kategóriára ugorhat, vagy megnyithat egy terméket",
     },
   ],
   technical: [
     {
       en: "React Router in data mode with loaders, actions and lazy routes; product details stream in with Suspense",
       sk: "React Router v dátovom režime s loadermi, akciami a lenivými routami; detaily produktu sa streamujú cez Suspense",
+      de: "React Router im Data Mode mit Loadern, Actions und Lazy Routes; Produktdetails werden mit Suspense gestreamt",
+      cs: "React Router v datovém režimu s loadery, akcemi a líně načítanými routami; detaily produktu se streamují přes Suspense",
+      hu: "React Router adat módban loaderekkel, actionökkel és lusta betöltésű útvonalakkal; a termékadatok Suspense-szel streamelődnek",
     },
     {
       en: "End-to-end tests on desktop and phone sizes with accessibility checks, including tests that no card data is stored",
       sk: "End-to-end testy na veľkosti počítača aj telefónu s kontrolou prístupnosti, vrátane testov, že sa neukladajú údaje karty",
+      de: "End-to-End-Tests in Desktop- und Smartphone-Größe mit Barrierefreiheitsprüfungen, darunter Tests, dass keine Kartendaten gespeichert werden",
+      cs: "End-to-end testy ve velikosti počítače i telefonu s kontrolou přístupnosti, včetně testů, že se neukládají údaje karty",
+      hu: "End-to-end tesztek asztali és telefonos méretben akadálymentességi ellenőrzéssel, köztük olyanokkal, amelyek azt nézik, hogy nem tárolódnak kártyaadatok",
     },
     {
       en: "Lighthouse CI fails below 100 for accessibility, best practices and SEO; deployed to GitHub Pages with GitHub Actions",
       sk: "Lighthouse CI zlyhá pod 100 bodov v prístupnosti, osvedčených postupoch a SEO; nasadenie na GitHub Pages cez GitHub Actions",
+      de: "Lighthouse CI schlägt bei weniger als 100 in Barrierefreiheit, Best Practices und SEO fehl; Deployment auf GitHub Pages mit GitHub Actions",
+      cs: "Lighthouse CI selže pod 100 body v přístupnosti, osvědčených postupech a SEO; nasazení na GitHub Pages přes GitHub Actions",
+      hu: "A Lighthouse CI 100 pont alatt hibát jelez akadálymentességben, bevált gyakorlatokban és SEO-ban; telepítés GitHub Pagesre GitHub Actionsszel",
     },
     {
       en: "The catalog is fetched once and cached for the session, so search, filters, sorting and paging run in the browser",
       sk: "Katalóg sa stiahne raz a ostane v pamäti počas relácie, takže vyhľadávanie, filtre, triedenie a stránkovanie bežia v prehliadači",
+      de: "Der Katalog wird einmal geladen und für die Sitzung zwischengespeichert, sodass Suche, Filter, Sortierung und Seitenwechsel im Browser laufen",
+      cs: "Katalog se stáhne jednou a zůstane v paměti po dobu relace, takže vyhledávání, filtry, řazení a stránkování běží v prohlížeči",
+      hu: "A katalógus egyszer töltődik le, és a munkamenet végéig gyorsítótárban marad, így a keresés, a szűrés, a rendezés és a lapozás a böngészőben fut",
     },
     {
       en: "Cart, wishlist, orders and theme are small stores saved to localStorage and read with useSyncExternalStore; the storage event keeps open tabs in sync",
       sk: "Košík, zoznam želaní, objednávky a téma sú malé úložiská v localStorage čítané cez useSyncExternalStore; udalosť storage udržiava otvorené karty v synchronizácii",
+      de: "Warenkorb, Wunschliste, Bestellungen und Theme sind kleine Stores in localStorage, gelesen mit useSyncExternalStore; das storage-Event hält offene Tabs synchron",
+      cs: "Košík, seznam přání, objednávky a motiv jsou malá úložiště v localStorage čtená přes useSyncExternalStore; událost storage udržuje otevřené karty synchronizované",
+      hu: "A kosár, a kívánságlista, a rendelések és a téma kis tárolók a localStorage-ban, amelyeket a useSyncExternalStore olvas; a storage esemény szinkronban tartja a megnyitott lapokat",
     },
   ],
   changelog: [
     {
       en: "React 18 to 19, React Router 6 to 8 and Vite 5 to 8",
       sk: "React 18 na 19, React Router 6 na 8 a Vite 5 na 8",
+      de: "React 18 auf 19, React Router 6 auf 8 und Vite 5 auf 8",
+      cs: "React 18 na 19, React Router 6 na 8 a Vite 5 na 8",
+      hu: "React 18-ról 19-re, React Router 6-ról 8-ra és Vite 5-ről 8-ra",
     },
     {
       en: "Tailwind CSS 3 to 4 and TypeScript 5 to 6",
       sk: "Tailwind CSS 3 na 4 a TypeScript 5 na 6",
+      de: "Tailwind CSS 3 auf 4 und TypeScript 5 auf 6",
+      cs: "Tailwind CSS 3 na 4 a TypeScript 5 na 6",
+      hu: "Tailwind CSS 3-ról 4-re és TypeScript 5-ről 6-ra",
     },
     {
       en: "Data source moved from Fake Store API to DummyJSON",
       sk: "Zdroj dát sa zmenil z Fake Store API na DummyJSON",
+      de: "Datenquelle von Fake Store API auf DummyJSON umgestellt",
+      cs: "Zdroj dat se změnil z Fake Store API na DummyJSON",
+      hu: "Az adatforrás a Fake Store API-ról DummyJSON-ra változott",
     },
   ],
   versions: ["React 19", "React Router 8", "Vite 8", "Tailwind CSS 4"],
@@ -109,6 +163,9 @@ export const fakeshop: Project = {
     alt: {
       en: "FakeShop home page with product cards",
       sk: "Úvodná stránka FakeShopu s produktmi",
+      de: "FakeShop-Startseite mit Produktkarten",
+      cs: "Úvodní stránka FakeShopu s produkty",
+      hu: "A FakeShop kezdőlapja termékkártyákkal",
     },
   },
   gallery: [
@@ -119,10 +176,16 @@ export const fakeshop: Project = {
       alt: {
         en: "Product search results with filters",
         sk: "Výsledky vyhľadávania produktov s filtrami",
+        de: "Suchergebnisse mit Filtern",
+        cs: "Výsledky vyhledávání produktů s filtry",
+        hu: "Termékkeresési találatok szűrőkkel",
       },
       caption: {
         en: "Search with suggestions and filters kept in the URL.",
         sk: "Vyhľadávanie s návrhmi a filtrami uloženými v URL.",
+        de: "Suche mit Vorschlägen und Filtern, die in der URL gespeichert sind.",
+        cs: "Vyhledávání s návrhy a filtry uloženými v URL.",
+        hu: "Keresés javaslatokkal és az URL-ben tárolt szűrőkkel.",
       },
     },
     {
@@ -132,10 +195,16 @@ export const fakeshop: Project = {
       alt: {
         en: "Checkout form with the order summary",
         sk: "Formulár pokladne so súhrnom objednávky",
+        de: "Checkout-Formular mit Bestellübersicht",
+        cs: "Formulář pokladny se souhrnem objednávky",
+        hu: "Fizetési űrlap a rendelés összesítőjével",
       },
       caption: {
         en: "Checkout with card number validation and delivery dates in business days.",
         sk: "Pokladňa s kontrolou čísla karty a termínom doručenia v pracovných dňoch.",
+        de: "Checkout mit Prüfung der Kartennummer und Lieferterminen in Werktagen.",
+        cs: "Pokladna s kontrolou čísla karty a termínem doručení v pracovních dnech.",
+        hu: "Fizetés kártyaszám-ellenőrzéssel és munkanapokban számolt szállítási időpontokkal.",
       },
     },
     {
@@ -145,10 +214,16 @@ export const fakeshop: Project = {
       alt: {
         en: "Product page with a large photo, price, stock and add to cart button",
         sk: "Stránka produktu s veľkou fotkou, cenou, dostupnosťou a tlačidlom do košíka",
+        de: "Produktseite mit großem Foto, Preis, Verfügbarkeit und Button zum Warenkorb",
+        cs: "Stránka produktu s velkou fotkou, cenou, dostupností a tlačítkem do košíku",
+        hu: "Termékoldal nagy fotóval, árral, készletinformációval és kosárba gombbal",
       },
       caption: {
         en: "Product page with the discount, stock, shipping and return details.",
         sk: "Stránka produktu so zľavou, dostupnosťou, dopravou a podmienkami vrátenia.",
+        de: "Produktseite mit Rabatt, Verfügbarkeit, Versand- und Rückgabeinformationen.",
+        cs: "Stránka produktu se slevou, dostupností, dopravou a podmínkami vrácení.",
+        hu: "Termékoldal a kedvezménnyel, a készlettel, a szállítási és visszaküldési feltételekkel.",
       },
     },
     {
@@ -158,10 +233,16 @@ export const fakeshop: Project = {
       alt: {
         en: "Three beauty products compared side by side",
         sk: "Tri kozmetické produkty porovnané vedľa seba",
+        de: "Drei Kosmetikprodukte im direkten Vergleich",
+        cs: "Tři kosmetické produkty porovnané vedle sebe",
+        hu: "Három szépségápolási termék egymás mellett összehasonlítva",
       },
       caption: {
         en: "Comparing up to three products, with the best price and rating highlighted.",
         sk: "Porovnanie až troch produktov so zvýraznenou najlepšou cenou a hodnotením.",
+        de: "Vergleich von bis zu drei Produkten, bester Preis und beste Bewertung hervorgehoben.",
+        cs: "Porovnání až tří produktů se zvýrazněnou nejlepší cenou a hodnocením.",
+        hu: "Legfeljebb három termék összehasonlítása, kiemelve a legjobb árat és értékelést.",
       },
     },
     {
@@ -171,10 +252,16 @@ export const fakeshop: Project = {
       alt: {
         en: "Cart with two items, a promo code field and the order summary",
         sk: "Košík s dvoma položkami, políčkom na zľavový kód a súhrnom objednávky",
+        de: "Warenkorb mit zwei Artikeln, einem Feld für Gutscheincodes und der Bestellübersicht",
+        cs: "Košík se dvěma položkami, polem pro slevový kód a souhrnem objednávky",
+        hu: "Kosár két tétellel, kuponkódmezővel és a rendelés összesítőjével",
       },
       caption: {
         en: "Cart with a promo code field and the free delivery threshold.",
         sk: "Košík s políčkom na zľavový kód a hranicou dopravy zadarmo.",
+        de: "Warenkorb mit Gutscheinfeld und Grenze für kostenlosen Versand.",
+        cs: "Košík s polem pro slevový kód a hranicí pro dopravu zdarma.",
+        hu: "Kosár kuponkódmezővel és az ingyenes szállítás határával.",
       },
     },
     {
@@ -184,10 +271,16 @@ export const fakeshop: Project = {
       alt: {
         en: "Quick find dialog in the dark theme with results for “phone”",
         sk: "Dialóg rýchleho hľadania v tmavom režime s výsledkami pre „phone“",
+        de: "Schnellsuche im dunklen Theme mit Ergebnissen für „phone“",
+        cs: "Dialog rychlého hledání v tmavém režimu s výsledky pro „phone“",
+        hu: "Gyorskereső ablak sötét témában a „phone” találataival",
       },
       caption: {
         en: "Quick find (Ctrl+K) in the dark theme: categories and products as you type.",
         sk: "Rýchle hľadanie (Ctrl+K) v tmavom režime: kategórie a produkty počas písania.",
+        de: "Schnellsuche (Ctrl+K) im dunklen Theme: Kategorien und Produkte schon beim Tippen.",
+        cs: "Rychlé hledání (Ctrl+K) v tmavém režimu: kategorie a produkty už během psaní.",
+        hu: "Gyorskeresés (Ctrl+K) sötét témában: kategóriák és termékek már gépelés közben.",
       },
     },
   ],

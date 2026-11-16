@@ -6,81 +6,135 @@ export const feastFinder: Project = {
   summary: {
     en: "Recipe finder for almost 800 meals: search by name, ingredient, category or what is in your fridge.",
     sk: "Hľadanie receptov medzi takmer 800 jedlami: podľa názvu, suroviny, kategórie alebo toho, čo máte v chladničke.",
+    de: "Rezeptsuche für fast 800 Gerichte: nach Name, Zutat, Kategorie oder dem, was in Ihrem Kühlschrank ist.",
+    cs: "Hledání receptů mezi téměř 800 jídly: podle názvu, suroviny, kategorie nebo toho, co máte v lednici.",
+    hu: "Receptkereső közel 800 ételhez: név, hozzávaló, kategória vagy aszerint, ami a hűtőjében van.",
   },
   description: [
     {
       en: 'A personal recipe finder from 2024 that answers "what should I cook today?" with data from TheMealDB. Later I rebuilt it on Nuxt 4 with tests, accessibility work and a new design.',
       sk: "Osobný projekt z roku 2024 na hľadanie receptov, ktorý odpovedá na otázku „čo dnes uvariť?“ s dátami z TheMealDB. Neskôr som ho prerobil na Nuxt 4 s testami, prístupnosťou a novým dizajnom.",
+      de: "Eine persönliche Rezeptsuche aus dem Jahr 2024, die mit Daten von TheMealDB die Frage „Was koche ich heute?“ beantwortet. Später habe ich sie mit Tests, Arbeit an der Barrierefreiheit und einem neuen Design auf Nuxt 4 neu aufgebaut.",
+      cs: "Osobní projekt z roku 2024 na hledání receptů, který s daty z TheMealDB odpovídá na otázku „co dnes uvařit?“. Později jsem ho přestavěl na Nuxt 4 s testy, přístupností a novým designem.",
+      hu: "Egy 2024-es saját receptkereső, amely a TheMealDB adataival válaszol arra a kérdésre, hogy „mit főzzek ma?”. Később Nuxt 4-re építettem át tesztekkel, akadálymentességi fejlesztésekkel és új dizájnnal.",
     },
   ],
   features: [
     {
       en: "Search by name, or browse by first letter, category, ingredient or cuisine",
       sk: "Vyhľadávanie podľa názvu alebo prehliadanie podľa písmena, kategórie, suroviny či kuchyne",
+      de: "Suche nach Name oder Stöbern nach Anfangsbuchstabe, Kategorie, Zutat oder Küche",
+      cs: "Vyhledávání podle názvu nebo procházení podle písmena, kategorie, suroviny či kuchyně",
+      hu: "Keresés név szerint, vagy böngészés kezdőbetű, kategória, hozzávaló vagy konyha szerint",
     },
     {
       en: '"What\'s in my fridge": pick several ingredients and find meals that use all of them, or all but one',
       sk: "„Čo mám v chladničke“: vyberte viac surovín a nájdite jedlá, ktoré ich použijú všetky alebo všetky okrem jednej",
+      de: "„Was ist in meinem Kühlschrank“: mehrere Zutaten wählen und Gerichte finden, die alle davon verwenden oder alle bis auf eine",
+      cs: "„Co mám v lednici“: vyberte více surovin a najděte jídla, která je použijí všechna nebo všechna kromě jedné",
+      hu: "„Mi van a hűtőmben”: válasszon ki több hozzávalót, és keressen olyan ételeket, amelyek mindet felhasználják, vagy egy kivételével mindet",
     },
     {
       en: "Cooking mode: one step at a time, full screen, the screen stays on, timers taken from the recipe",
       sk: "Režim varenia: jeden krok naraz, celá obrazovka, displej nezhasne, časovače z receptu",
+      de: "Kochmodus: ein Schritt nach dem anderen, Vollbild, der Bildschirm bleibt an, Timer aus dem Rezept",
+      cs: "Režim vaření: jeden krok najednou, celá obrazovka, displej nezhasne, časovače z receptu",
+      hu: "Főzési mód: egyszerre egy lépés, teljes képernyő, a kijelző nem alszik el, időzítők a receptből",
     },
     {
       en: "Instructions read aloud with the current step highlighted",
       sk: "Predčítanie postupu so zvýraznením aktuálneho kroku",
+      de: "Vorlesen der Anleitung mit Hervorhebung des aktuellen Schritts",
+      cs: "Předčítání postupu se zvýrazněním aktuálního kroku",
+      hu: "Az elkészítés felolvasása az aktuális lépés kiemelésével",
     },
     {
       en: "Ingredient checklist, a shopping list for several meals, metric or US units",
       sk: "Kontrolný zoznam surovín, nákupný zoznam pre viac jedál, metrické alebo americké jednotky",
+      de: "Checkliste für Zutaten, eine Einkaufsliste für mehrere Gerichte, metrische oder US-Einheiten",
+      cs: "Kontrolní seznam surovin, nákupní seznam pro více jídel, metrické nebo americké jednotky",
+      hu: "Kipipálható hozzávalólista, bevásárlólista több ételhez, metrikus vagy amerikai mértékegységek",
     },
     {
       en: "Favourites, share and print, dark mode, works offline",
       sk: "Obľúbené, zdieľanie a tlač, tmavý režim, funguje offline",
+      de: "Favoriten, Teilen und Drucken, Dunkelmodus, funktioniert offline",
+      cs: "Oblíbené, sdílení a tisk, tmavý režim, funguje offline",
+      hu: "Kedvencek, megosztás és nyomtatás, sötét mód, offline is működik",
     },
     {
       en: "A weekly meal planner with lunch and dinner for each day; the whole week goes to the shopping list in one go",
       sk: "Týždenný plánovač jedál s obedom a večerou na každý deň; celý týždeň sa dá naraz pridať do nákupného zoznamu",
+      de: "Ein Wochenplaner mit Mittag- und Abendessen für jeden Tag; die ganze Woche lässt sich auf einmal auf die Einkaufsliste setzen",
+      cs: "Týdenní plánovač jídel s obědem a večeří na každý den; celý týden lze najednou přidat do nákupního seznamu",
+      hu: "Heti étrendtervező ebéddel és vacsorával minden napra; az egész hét egyszerre felkerülhet a bevásárlólistára",
     },
     {
       en: "Voice search, a quick find (Ctrl+K), cuisines from 63 countries with flags and meals from your own country on the home page",
       sk: "Hlasové vyhľadávanie, rýchle hľadanie (Ctrl+K), kuchyne zo 63 krajín s vlajkami a jedlá z vašej krajiny na úvodnej stránke",
+      de: "Sprachsuche, eine Schnellsuche (Ctrl+K), Küchen aus 63 Ländern mit Flaggen und Gerichte aus Ihrem Land auf der Startseite",
+      cs: "Hlasové vyhledávání, rychlé hledání (Ctrl+K), kuchyně z 63 zemí s vlajkami a jídla z vaší země na úvodní stránce",
+      hu: "Hangalapú keresés, gyorskeresés (Ctrl+K), 63 ország konyhája zászlókkal, a kezdőlapon pedig az Ön országának ételei",
     },
   ],
   technical: [
     {
       en: "A small meal index built at build time makes multi-ingredient search possible, although the free API cannot filter by several ingredients",
       sk: "Malý index jedál vytvorený pri zostavení umožňuje hľadať podľa viacerých surovín, hoci bezplatné API to nevie",
+      de: "Ein kleiner Index der Gerichte, der beim Build erstellt wird, ermöglicht die Suche nach mehreren Zutaten, obwohl die kostenlose API nicht nach mehreren Zutaten filtern kann",
+      cs: "Malý index jídel vytvořený při sestavení umožňuje hledat podle více surovin, přestože bezplatné API to neumí",
+      hu: "Egy buildeléskor készülő kis ételindex teszi lehetővé a több hozzávalós keresést, pedig az ingyenes API nem tud több hozzávaló szerint szűrni",
     },
     {
       en: "Playwright tests use a fake clock for timers and a fake speech engine for read-aloud, with accessibility checks in both themes",
       sk: "Playwright testy používajú falošné hodiny pre časovače a falošný hlasový modul pre predčítanie, s kontrolou prístupnosti v oboch témach",
+      de: "Playwright-Tests nutzen eine simulierte Uhr für Timer und eine simulierte Sprachausgabe fürs Vorlesen, mit Barrierefreiheitsprüfungen in beiden Themes",
+      cs: "Playwright testy používají falešné hodiny pro časovače a falešný hlasový modul pro předčítání, s kontrolou přístupnosti v obou motivech",
+      hu: "A Playwright-tesztek álórát használnak az időzítőkhöz és ál-beszédmotort a felolvasáshoz, akadálymentességi ellenőrzéssel mindkét témában",
     },
     {
       en: "Prerendered pages with recipe structured data and a sitemap; a weekly CI run refreshes the index",
       sk: "Predgenerované stránky so štruktúrovanými dátami receptov a sitemap; CI raz týždenne obnoví index",
+      de: "Vorgerenderte Seiten mit strukturierten Rezeptdaten und einer Sitemap; ein wöchentlicher CI-Lauf aktualisiert den Index",
+      cs: "Předgenerované stránky se strukturovanými daty receptů a sitemapou; CI jednou týdně obnoví index",
+      hu: "Előre renderelt oldalak strukturált receptadatokkal és sitemappel; egy heti CI-futás frissíti az indexet",
     },
     {
       en: "API responses are cached in memory for 30 minutes and identical requests are merged",
       sk: "Odpovede API sa ukladajú do pamäte na 30 minút a rovnaké požiadavky sa zlúčia do jednej",
+      de: "API-Antworten werden 30 Minuten im Speicher gecacht und identische Anfragen zusammengeführt",
+      cs: "Odpovědi API se ukládají do paměti na 30 minut a stejné požadavky se sloučí do jednoho",
+      hu: "Az API-válaszok 30 percig a memóriában maradnak, az azonos kérések pedig összevonódnak",
     },
     {
       en: "A small service worker keeps the app shell, recipes and images, so visited pages open offline",
       sk: "Malý service worker uchováva základ aplikácie, recepty a obrázky, takže navštívené stránky sa otvoria aj offline",
+      de: "Ein kleiner Service Worker speichert App-Shell, Rezepte und Bilder, sodass besuchte Seiten auch offline öffnen",
+      cs: "Malý service worker uchovává základ aplikace, recepty a obrázky, takže navštívené stránky se otevřou i offline",
+      hu: "Egy kis service worker tárolja az alkalmazás vázát, a recepteket és a képeket, így a meglátogatott oldalak offline is megnyílnak",
     },
   ],
   changelog: [
     {
       en: "Nuxt 3.9 to 4.6 with the new app structure",
       sk: "Nuxt 3.9 na 4.6 s novou štruktúrou aplikácie",
+      de: "Nuxt 3.9 auf 4.6 mit der neuen App-Struktur",
+      cs: "Nuxt 3.9 na 4.6 s novou strukturou aplikace",
+      hu: "Nuxt 3.9-ről 4.6-ra az új alkalmazásstruktúrával",
     },
     {
       en: "Vue 3.4 to 3.5 and Tailwind CSS 3 to 4",
       sk: "Vue 3.4 na 3.5 a Tailwind CSS 3 na 4",
+      de: "Vue 3.4 auf 3.5 und Tailwind CSS 3 auf 4",
+      cs: "Vue 3.4 na 3.5 a Tailwind CSS 3 na 4",
+      hu: "Vue 3.4-ről 3.5-re és Tailwind CSS 3-ról 4-re",
     },
     {
       en: "Axios removed",
       sk: "Odstránené Axios",
+      de: "Axios entfernt",
+      cs: "Odstraněn Axios",
+      hu: "Az Axios kikerült",
     },
   ],
   versions: ["Nuxt 4.6", "Vue 3.5", "Tailwind CSS 4", "TypeScript 6"],
@@ -108,6 +162,9 @@ export const feastFinder: Project = {
     alt: {
       en: "Feast Finder home page with meal suggestions",
       sk: "Úvodná stránka Feast Finder s návrhmi jedál",
+      de: "Feast-Finder-Startseite mit Gerichtvorschlägen",
+      cs: "Úvodní stránka Feast Finder s návrhy jídel",
+      hu: "A Feast Finder kezdőlapja ételjavaslatokkal",
     },
   },
   gallery: [
@@ -118,10 +175,16 @@ export const feastFinder: Project = {
       alt: {
         en: "Ingredient picker that finds meals from what is in the fridge",
         sk: "Výber ingrediencií, ktorý nájde jedlá z toho, čo je v chladničke",
+        de: "Zutatenauswahl, die Gerichte aus dem Kühlschrankinhalt findet",
+        cs: "Výběr ingrediencí, který najde jídla z toho, co je v lednici",
+        hu: "Hozzávaló-választó, amely a hűtő tartalmából talál ételeket",
       },
       caption: {
         en: '"What is in my fridge": pick several ingredients and get the meals that use all of them.',
         sk: '„Čo mám v chladničke": vyberte niekoľko ingrediencií a dostanete jedlá, ktoré ich obsahujú všetky.',
+        de: "„Was ist in meinem Kühlschrank“: mehrere Zutaten wählen und Gerichte erhalten, die alle davon enthalten.",
+        cs: "„Co mám v lednici“: vyberte několik ingrediencí a dostanete jídla, která je obsahují všechna.",
+        hu: "„Mi van a hűtőmben”: válasszon ki több hozzávalót, és megkapja azokat az ételeket, amelyek mindet tartalmazzák.",
       },
     },
     {
@@ -131,10 +194,16 @@ export const feastFinder: Project = {
       alt: {
         en: "Recipe page with a photo, ingredients and instructions",
         sk: "Stránka receptu s fotkou, ingredienciami a postupom",
+        de: "Rezeptseite mit Foto, Zutaten und Anleitung",
+        cs: "Stránka receptu s fotkou, ingrediencemi a postupem",
+        hu: "Receptoldal fotóval, hozzávalókkal és elkészítési útmutatóval",
       },
       caption: {
         en: "Recipe page with ingredients, steps, favourites, sharing and printing.",
         sk: "Stránka receptu s ingredienciami, krokmi, obľúbenými, zdieľaním a tlačou.",
+        de: "Rezeptseite mit Zutaten, Schritten, Favoriten, Teilen und Drucken.",
+        cs: "Stránka receptu s ingrediencemi, kroky, oblíbenými, sdílením a tiskem.",
+        hu: "Receptoldal hozzávalókkal, lépésekkel, kedvencekkel, megosztással és nyomtatással.",
       },
     },
     {
@@ -144,10 +213,16 @@ export const feastFinder: Project = {
       alt: {
         en: "Cooking mode showing one large recipe step at a time",
         sk: "Režim varenia, ktorý ukazuje jeden veľký krok receptu naraz",
+        de: "Kochmodus, der jeweils einen großen Rezeptschritt zeigt",
+        cs: "Režim vaření, který ukazuje jeden velký krok receptu najednou",
+        hu: "Főzési mód, amely egyszerre egy nagy receptlépést mutat",
       },
       caption: {
         en: "Cooking mode: one step at a time, with timers and read-aloud.",
         sk: "Režim varenia: jeden krok naraz, s časovačmi a čítaním nahlas.",
+        de: "Kochmodus: ein Schritt nach dem anderen, mit Timern und Vorlesen.",
+        cs: "Režim vaření: jeden krok najednou, s časovači a čtením nahlas.",
+        hu: "Főzési mód: egyszerre egy lépés, időzítőkkel és felolvasással.",
       },
     },
     {
@@ -157,10 +232,16 @@ export const feastFinder: Project = {
       alt: {
         en: "Weekly meal planner with meals for lunch and dinner",
         sk: "Týždenný plánovač s jedlami na obed a večeru",
+        de: "Wochenplaner mit Gerichten für Mittag- und Abendessen",
+        cs: "Týdenní plánovač s jídly na oběd a večeři",
+        hu: "Heti étrendtervező ebéd- és vacsoraételekkel",
       },
       caption: {
         en: "Meal planner: lunch and dinner for each day, saved in the browser.",
         sk: "Plánovač jedál: obed a večera na každý deň, uložené v prehliadači.",
+        de: "Essensplaner: Mittag- und Abendessen für jeden Tag, im Browser gespeichert.",
+        cs: "Plánovač jídel: oběd a večeře na každý den, uložené v prohlížeči.",
+        hu: "Étrendtervező: ebéd és vacsora minden napra, a böngészőben mentve.",
       },
     },
     {
@@ -170,10 +251,16 @@ export const feastFinder: Project = {
       alt: {
         en: "Grid of countries with flags and meal counts",
         sk: "Mriežka krajín s vlajkami a počtom jedál",
+        de: "Raster aus Ländern mit Flaggen und Anzahl der Gerichte",
+        cs: "Mřížka zemí s vlajkami a počtem jídel",
+        hu: "Országok rácsa zászlókkal és az ételek számával",
       },
       caption: {
         en: "Cuisines from 63 countries, each with its flag.",
         sk: "Kuchyne zo 63 krajín, každá so svojou vlajkou.",
+        de: "Küchen aus 63 Ländern, jede mit ihrer Flagge.",
+        cs: "Kuchyně z 63 zemí, každá se svou vlajkou.",
+        hu: "63 ország konyhája, mindegyik a saját zászlajával.",
       },
     },
     {
@@ -183,10 +270,16 @@ export const feastFinder: Project = {
       alt: {
         en: "Ingredient cards with photos in the dark theme",
         sk: "Karty surovín s fotkami v tmavom režime",
+        de: "Zutatenkarten mit Fotos im dunklen Theme",
+        cs: "Karty surovin s fotkami v tmavém režimu",
+        hu: "Hozzávalókártyák fotókkal sötét témában",
       },
       caption: {
         en: "Ingredients by letter and type, in the dark theme.",
         sk: "Suroviny podľa písmena a typu, v tmavom režime.",
+        de: "Zutaten nach Buchstabe und Typ, im dunklen Theme.",
+        cs: "Suroviny podle písmena a typu, v tmavém režimu.",
+        hu: "Hozzávalók betű és típus szerint, sötét témában.",
       },
     },
   ],
