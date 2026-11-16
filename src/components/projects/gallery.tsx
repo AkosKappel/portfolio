@@ -23,6 +23,8 @@ type Labels = {
   counter: string;
 };
 
+const isPortrait = (figure: GalleryFigure) => figure.height > figure.width;
+
 const iconButton =
   "grid size-11 cursor-pointer place-items-center rounded-full border border-line bg-surface text-ink shadow-md transition-colors hover:border-accent hover:text-accent";
 
@@ -84,9 +86,10 @@ export function Gallery({ figures, labels }: { figures: GalleryFigure[]; labels:
 
   return (
     <>
-      <div className="mt-6 grid gap-x-8 gap-y-10 sm:grid-cols-2">
+      {/* Phone screenshots take half the width of wide ones, so they do not tower over them. */}
+      <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
         {figures.map((item, itemIndex) => (
-          <figure key={item.src}>
+          <figure key={item.src} className={isPortrait(item) ? "col-span-1" : "col-span-2"}>
             <a
               href={item.video ?? item.src}
               aria-haspopup="dialog"
@@ -102,7 +105,11 @@ export function Gallery({ figures, labels }: { figures: GalleryFigure[]; labels:
                 width={item.width}
                 height={item.height}
                 alt={item.alt}
-                sizes="(min-width: 1152px) 528px, (min-width: 640px) 50vw, 100vw"
+                sizes={
+                  isPortrait(item)
+                    ? "(min-width: 1152px) 252px, (min-width: 1024px) 25vw, 50vw"
+                    : "(min-width: 1152px) 528px, (min-width: 1024px) 50vw, 100vw"
+                }
                 className="h-auto w-full"
               />
               {item.video ? (
