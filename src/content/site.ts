@@ -119,8 +119,12 @@ export const site = {
       title: { en: "Outside work", sk: "Mimo práce" },
       paragraphs: [
         {
-          en: "I run my project demos on my own home server with Docker, Tailscale and monitoring, and their data resets every night. Every December I solve Advent of Code, each year in a different language. I do sports to balance the screen time, and I am relearning German.",
-          sk: "Demá svojich projektov prevádzkujem na vlastnom domácom serveri s Dockerom, Tailscale a monitorovaním a ich dáta sa každú noc obnovujú. Každý december riešim Advent of Code, každý rok v inom jazyku. Športujem, aby som vyvážil čas pred obrazovkou, a znova sa učím nemčinu.",
+          en: "I run my project demos on my own home server with Docker, Tailscale and monitoring, and their data resets every night. Every December I solve Advent of Code, each year in a different language.",
+          sk: "Demá svojich projektov prevádzkujem na vlastnom domácom serveri s Dockerom, Tailscale a monitorovaním a ich dáta sa každú noc obnovujú. Každý december riešim Advent of Code, každý rok v inom jazyku.",
+        },
+        {
+          en: "Away from the screen I do sports and travel whenever I can, and I am learning Spanish.",
+          sk: "Mimo obrazovky športujem a cestujem, kedykoľvek sa dá, a učím sa španielčinu.",
         },
       ],
     },
