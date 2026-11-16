@@ -123,8 +123,8 @@ export const site = {
           sk: "Technika ma baví aj mimo práce. Sledujem nové technológie a technologické novinky, demá svojich projektov prevádzkujem na vlastnom domácom serveri s Dockerom, Tailscale a monitorovaním a každý december riešim Advent of Code, každý rok v inom programovacom jazyku. Nedávno som si pre zábavu začal staviať malé zariadenia, lákajú ma najmä Raspberry Pi a 3D tlač, a tak lepšie spoznávam aj hardvér.",
         },
         {
-          en: "I like to stay active, whether it is football, climbing or another sport. Whenever I get the chance, I travel: wandering through a city I have never seen, discovering how people live somewhere else and coming home with a few new ideas is my favourite way to recharge. And just for fun, I am learning Spanish.",
-          sk: "Rád sa hýbem, či už pri futbale, lezení alebo inom športe. Keď sa naskytne príležitosť, cestujem: túlať sa mestom, ktoré som ešte nevidel, spoznávať, ako ľudia žijú inde, a vrátiť sa domov s pár novými nápadmi je pre mňa najlepší spôsob, ako si oddýchnuť. A len tak pre radosť sa učím španielčinu.",
+          en: "I like to stay active, whether it is football, climbing or another sport. Travelling is one of my favourite things. I enjoy exploring places I have not been to yet and seeing how life works there. On the side, I am learning Spanish, just for the joy of it.",
+          sk: "Rád sa hýbem, či už pri futbale, lezení alebo inom športe. Cestovanie patrí k mojim najobľúbenejším veciam. Rád objavujem miesta, kde som ešte nebol, a spoznávam, ako sa tam žije. Popritom sa učím španielčinu, len tak pre radosť.",
         },
       ],
     },
