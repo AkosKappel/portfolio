@@ -119,12 +119,12 @@ export const site = {
       title: { en: "Outside work", sk: "Mimo práce" },
       paragraphs: [
         {
-          en: "I run my project demos on my own home server with Docker, Tailscale and monitoring, and their data resets every night. Every December I solve Advent of Code, each year in a different language.",
-          sk: "Demá svojich projektov prevádzkujem na vlastnom domácom serveri s Dockerom, Tailscale a monitorovaním a ich dáta sa každú noc obnovujú. Každý december riešim Advent of Code, každý rok v inom jazyku.",
+          en: "I like tech beyond my job too. I follow new technologies and tech news, run my project demos on my own home server with Docker, Tailscale and monitoring, and every December I solve Advent of Code, each year in a different programming language. Lately I have started building small gadgets for fun, drawn to things like Raspberry Pi and 3D printing, to learn more about the hardware side.",
+          sk: "Technika ma baví aj mimo práce. Sledujem nové technológie a technologické novinky, demá svojich projektov prevádzkujem na vlastnom domácom serveri s Dockerom, Tailscale a monitorovaním a každý december riešim Advent of Code, každý rok v inom programovacom jazyku. Nedávno som si pre zábavu začal staviať malé zariadenia, lákajú ma najmä Raspberry Pi a 3D tlač, a tak lepšie spoznávam aj hardvér.",
         },
         {
-          en: "Away from the screen I do sports and travel whenever I can, and I am learning Spanish.",
-          sk: "Mimo obrazovky športujem a cestujem, kedykoľvek sa dá, a učím sa španielčinu.",
+          en: "I like to stay active, whether it is football, climbing or another sport. Whenever I get the chance, I travel: wandering through a city I have never seen, discovering how people live somewhere else and coming home with a few new ideas is my favourite way to recharge. And just for fun, I am learning Spanish.",
+          sk: "Rád sa hýbem, či už pri futbale, lezení alebo inom športe. Keď sa naskytne príležitosť, cestujem: túlať sa mestom, ktoré som ešte nevidel, spoznávať, ako ľudia žijú inde, a vrátiť sa domov s pár novými nápadmi je pre mňa najlepší spôsob, ako si oddýchnuť. A len tak pre radosť sa učím španielčinu.",
         },
       ],
     },
