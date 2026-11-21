@@ -71,7 +71,7 @@ pnpm dev
 | `pnpm lighthouse`                                   | Lighthouse CI against the production build, with a 300 KB budget for compressed JavaScript per page            |
 | `pnpm lighthouse --config=lighthouserc.mobile.json` | Mobile Lighthouse report (throttled phone); CI shows its scores in the run summary without failing             |
 
-GitHub Actions runs all of these on every push and pull request. Vercel builds and deploys `main`.
+GitHub Actions runs all of these on every push and pull request. Vercel builds and deploys `main` to production, and every other branch and pull request to its own preview URL (linked from the pull request, behind Vercel login and marked `noindex`).
 
 ## Contact form
 
