@@ -159,15 +159,26 @@ export const cv = {
 
   projects: [
     {
-      slug: "smarttech-e-shop",
+      slug: "skysense",
       summary: {
-        en: "online shop with fuzzy search, checkout and admin area",
-        sk: "e-shop s vyhľadávaním, košíkom a administráciou",
-        de: "Onlineshop mit unscharfer Suche, Checkout und Adminbereich",
-        cs: "e-shop s vyhledáváním, košíkem a administrací",
-        hu: "webáruház hibatűrő kereséssel, fizetéssel és adminfelülettel",
+        en: "weather app that answers when to go out and how sure the forecast is",
+        sk: "aplikácia o počasí, ktorá odpovedá, kedy ísť von a ako istá je predpoveď",
+        de: "Wetter-App, die beantwortet, wann man rausgeht und wie sicher die Vorhersage ist",
+        cs: "aplikace o počasí, která odpovídá, kdy jít ven a jak jistá je předpověď",
+        hu: "időjárás-app, amely megmondja, mikor érdemes kimenni és mennyire biztos az előrejelzés",
       },
-      stack: "Laravel",
+      stack: "SvelteKit",
+    },
+    {
+      slug: "feast-finder",
+      summary: {
+        en: "recipe finder that also searches by what is in your fridge",
+        sk: "vyhľadávač receptov aj podľa toho, čo je v chladničke",
+        de: "Rezeptsuche, auch nach dem, was im Kühlschrank ist",
+        cs: "vyhledávač receptů i podle toho, co je v lednici",
+        hu: "receptkereső, akár a hűtő tartalma alapján is",
+      },
+      stack: "Nuxt",
     },
     {
       slug: "modern-fashion-store",
@@ -181,52 +192,26 @@ export const cv = {
       stack: "Elixir, Phoenix",
     },
     {
-      slug: "glaucoma-segmentation",
-      title: {
-        en: "Glaucoma segmentation",
-        sk: "Segmentácia glaukómu",
-        de: "Glaukom-Segmentierung",
-        cs: "Segmentace glaukomu",
-        hu: "Glaukóma-szegmentáció",
-      },
+      slug: "budget-master",
       summary: {
-        en: "master's thesis, neural networks for eye images",
-        sk: "diplomová práca, neurónové siete pre snímky oka",
-        de: "Masterarbeit, neuronale Netze für Augenaufnahmen",
-        cs: "diplomová práce, neuronové sítě pro snímky oka",
-        hu: "diplomamunka, neurális hálók szemfelvételekhez",
+        en: "personal finance app with shared budgets and live sync",
+        sk: "aplikácia na osobné financie so zdieľanými rozpočtami",
+        de: "Finanz-App mit geteilten Budgets und Live-Synchronisierung",
+        cs: "aplikace na osobní finance se sdílenými rozpočty a živou synchronizací",
+        hu: "személyes pénzügyi app megosztott költségvetésekkel és élő szinkronnal",
       },
-      stack: "PyTorch",
-    },
-    {
-      title: {
-        en: "Portfolio website",
-        sk: "Webová stránka portfólia",
-        de: "Portfolio-Website",
-        cs: "Webová stránka portfolia",
-        hu: "Portfólió weboldal",
-      },
-      url: "https://akoskappel.dev/",
-      years: "2026",
-      summary: {
-        en: "rebuilt with five older projects using AI coding agents",
-        sk: "obnovené spolu s piatimi projektmi pomocou AI agentov",
-        de: "zusammen mit fünf älteren Projekten mithilfe von KI-Coding-Agenten neu gebaut",
-        cs: "přestavěno spolu s pěti staršími projekty pomocí AI agentů",
-        hu: "öt régebbi projekttel együtt újraépítve AI kódoló ágensek segítségével",
-      },
-      stack: "Next.js",
+      stack: "React, PostgreSQL",
     },
   ] as CvProject[],
 
   /** Linked by name in the closing line. */
   otherProjects: [
-    "pokedex",
+    "oriel",
     "fakeshop",
-    "feast-finder",
-    "budget-master",
+    "wac-microfrontends",
+    "smarttech-e-shop",
+    "pokedex",
     "advent-of-code",
-    "iridescent",
   ],
 
   labels: {
