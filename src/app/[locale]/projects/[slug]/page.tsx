@@ -106,6 +106,8 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
             {project.liveUrl ? (
               <a
                 href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 font-medium text-on-accent transition-opacity hover:opacity-90"
               >
                 <ExternalLink aria-hidden size={18} />

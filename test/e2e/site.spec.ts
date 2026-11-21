@@ -123,7 +123,7 @@ test("only home-server demos warn that they may be offline", async ({ page }) =>
   await page.goto("/projects/budget-master");
   await expect(note).toBeVisible();
   await page.goto("/projects/pokedex");
-  await expect(page.getByRole("link", { name: "Live demo" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Live demo" })).toHaveAttribute("target", "_blank");
   await expect(note).toHaveCount(0);
 });
 

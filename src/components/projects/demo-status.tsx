@@ -15,7 +15,10 @@ function loadStatus() {
   return request;
 }
 
-/** "Demo online" or "Demo offline" under the project's links; nothing until the check answers. */
+/**
+ * "Demo online" or "Demo offline" under the project's links. The line keeps its height while
+ * the check runs, so the buttons above it do not move when the answer arrives.
+ */
 export function DemoStatus({ slug }: { slug: string }) {
   const t = useTranslations("common");
   const [status, setStatus] = useState<Status>();
@@ -30,14 +33,17 @@ export function DemoStatus({ slug }: { slug: string }) {
     };
   }, [slug]);
 
-  if (!status) return null;
   return (
-    <p className="flex w-full items-center gap-2 text-sm text-muted lg:justify-end">
-      <span
-        aria-hidden
-        className={`size-2 rounded-full ${status === "up" ? "bg-emerald-500" : "bg-rose-500"}`}
-      />
-      {t(status === "up" ? "demoOnline" : "demoOffline")}
+    <p className="flex min-h-5 w-full items-center gap-2 text-sm text-muted lg:justify-end">
+      {status ? (
+        <>
+          <span
+            aria-hidden
+            className={`size-2 rounded-full ${status === "up" ? "bg-emerald-500" : "bg-rose-500"}`}
+          />
+          {t(status === "up" ? "demoOnline" : "demoOffline")}
+        </>
+      ) : null}
     </p>
   );
 }
