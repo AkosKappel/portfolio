@@ -19,23 +19,23 @@ import { wacMicrofrontends } from "./wac-microfrontends";
 
 /** Order is the "Recommended" order on the projects page. */
 export const projects: Project[] = [
-  modernFashionStore,
-  smarttechEShop,
-  glaucomaSegmentation,
-  pokedex,
-  fakeshop,
+  skysense,
   feastFinder,
+  modernFashionStore,
   budgetMaster,
   oriel,
-  skysense,
-  oasis,
+  fakeshop,
   wacMicrofrontends,
-  petguide,
-  conicSectionsGenerator,
-  iridescent,
+  pokedex,
+  oasis,
+  smarttechEShop,
+  glaucomaSegmentation,
+  sketchbook,
   adventOfCode,
   adventOfSql,
-  sketchbook,
+  iridescent,
+  petguide,
+  conicSectionsGenerator,
 ];
 
 export function getProject(slug: string) {

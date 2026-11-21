@@ -451,5 +451,4 @@ export const smarttechEShop: Project = {
       },
     },
   ],
-  featured: true,
 };

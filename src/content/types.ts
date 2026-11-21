@@ -33,6 +33,10 @@ export type Project = {
   features?: Text[];
   /** Engineering details: architecture, testing, deployment. */
   technical?: Text[];
+  /** Case study: the choices that shaped the project, each with its alternative and its cost. */
+  decisions?: { title: Text; text: Text }[];
+  /** Case study: what went wrong or was redone, and what I do differently since. */
+  lessons?: Text[];
   /** What the later rebuild changed, one entry per change. */
   changelog?: Text[];
   /** Main framework versions, e.g. "Phoenix 1.8". */

@@ -283,4 +283,71 @@ export const feastFinder: Project = {
       },
     },
   ],
+  decisions: [
+    {
+      title: {
+        en: "A prebuilt meal index for the fridge search",
+        sk: "Predpripravený index jedál pre hľadanie podľa chladničky",
+        de: "Ein vorab gebauter Rezeptindex für die Kühlschranksuche",
+        cs: "Předpřipravený index jídel pro hledání podle lednice",
+        hu: "Előre elkészített ételindex a hűtős kereséshez",
+      },
+      text: {
+        en: 'TheMealDB\'s free API filters by one ingredient at a time, so "what can I cook with these five things" would mean a request per ingredient. Instead a build script collects every meal with its ingredients and country into one small JSON file, and the matching runs in the browser: meals with all your ingredients, or all but one. A weekly CI run refreshes the file, so new recipes can be up to a week late.',
+        sk: "Bezplatné API TheMealDB filtruje vždy len podľa jednej suroviny, takže „čo uvarím z týchto piatich vecí“ by znamenalo požiadavku na každú surovinu. Namiesto toho skript pri zostavení zozbiera všetky jedlá so surovinami a krajinou do jedného malého JSON súboru a porovnávanie beží v prehliadači: jedlá so všetkými surovinami alebo so všetkými okrem jednej. Týždenný beh v CI súbor obnovuje, takže nové recepty môžu meškať až týždeň.",
+        de: "Die kostenlose API von TheMealDB filtert immer nur nach einer Zutat, „was koche ich aus diesen fünf Dingen“ hieße also eine Anfrage pro Zutat. Stattdessen sammelt ein Build-Skript alle Gerichte mit Zutaten und Land in einer kleinen JSON-Datei, und der Abgleich läuft im Browser: Gerichte mit allen Zutaten oder allen bis auf eine. Ein wöchentlicher CI-Lauf erneuert die Datei, neue Rezepte können also bis zu einer Woche später erscheinen.",
+        cs: "Bezplatné API TheMealDB filtruje vždy jen podle jedné suroviny, takže „co uvařím z těchto pěti věcí“ by znamenalo požadavek na každou surovinu. Místo toho skript při sestavení posbírá všechna jídla se surovinami a zemí do jednoho malého JSON souboru a porovnávání běží v prohlížeči: jídla se všemi surovinami, nebo se všemi kromě jedné. Týdenní běh v CI soubor obnovuje, takže nové recepty mohou mít zpoždění až týden.",
+        hu: "A TheMealDB ingyenes API-ja egyszerre csak egy hozzávalóra szűr, így a „mit főzzek ebből az öt dologból” hozzávalónként egy kérést jelentene. Ehelyett egy build-szkript minden ételt a hozzávalóival és az országával egyetlen kis JSON-fájlba gyűjt, az egyeztetés pedig a böngészőben fut: az összes hozzávalót tartalmazó ételek, vagy azok, amelyekből csak egy hiányzik. Egy heti CI-futás frissíti a fájlt, így az új receptek akár egy hetet is késhetnek.",
+      },
+    },
+    {
+      title: {
+        en: "A hand-written service worker",
+        sk: "Ručne napísaný service worker",
+        de: "Ein handgeschriebener Service Worker",
+        cs: "Ručně napsaný service worker",
+        hu: "Kézzel írt service worker",
+      },
+      text: {
+        en: "The plan was a PWA plugin with Workbox, but the caching rules fit in about 90 lines: pages from the network with the app shell as a fallback, images and assets from the cache, recipe data shown from the cache while it refreshes in the background. The cost is that offline only works from the second visit and I test it by hand, because the end-to-end tests block service workers.",
+        sk: "Plánom bol PWA plugin s Workboxom, no pravidlá cache sa zmestili do približne 90 riadkov: stránky zo siete so záložnou kostrou aplikácie, obrázky a súbory z cache a dáta receptov z cache, kým sa na pozadí obnovujú. Cenou je, že offline režim funguje až od druhej návštevy a testujem ho ručne, lebo end-to-end testy service workery blokujú.",
+        de: "Geplant war ein PWA-Plugin mit Workbox, doch die Cache-Regeln passen in etwa 90 Zeilen: Seiten aus dem Netz mit dem App-Shell als Rückfall, Bilder und Assets aus dem Cache, Rezeptdaten aus dem Cache, während sie im Hintergrund aktualisiert werden. Der Preis: Offline funktioniert erst ab dem zweiten Besuch, und ich teste es von Hand, weil die End-to-End-Tests Service Worker blockieren.",
+        cs: "Plánem byl PWA plugin s Workboxem, ale pravidla cache se vešla do zhruba 90 řádků: stránky ze sítě se záložní kostrou aplikace, obrázky a soubory z cache a data receptů z cache, zatímco se na pozadí obnovují. Cenou je, že offline režim funguje až od druhé návštěvy a testuji ho ručně, protože end-to-end testy service workery blokují.",
+        hu: "A terv egy PWA-bővítmény volt Workboxszal, de a gyorsítótár szabályai nagyjából 90 sorba is belefértek: az oldalak a hálózatról jönnek, tartalékként az alkalmazásvázzal, a képek és fájlok a gyorsítótárból, a receptadatok pedig a gyorsítótárból, miközben a háttérben frissülnek. Az ára, hogy offline csak a második látogatástól működik, és kézzel tesztelem, mert az end-to-end tesztek blokkolják a service workereket.",
+      },
+    },
+    {
+      title: {
+        en: "A static site with prerendered pages",
+        sk: "Statický web s predgenerovanými stránkami",
+        de: "Eine statische Seite mit vorgerenderten Seiten",
+        cs: "Statický web s předgenerovanými stránkami",
+        hu: "Statikus oldal előre renderelt lapokkal",
+      },
+      text: {
+        en: "The app needs no server of its own, so it is a static Nuxt build. Meal, category and cuisine pages are prerendered as shells with titles, canonical links, a sitemap and recipe structured data, so links open directly and search engines understand them. The trade-off: the recipe text itself loads in the browser, not in the prerendered HTML.",
+        sk: "Aplikácia nepotrebuje vlastný server, preto je to statický build v Nuxte. Stránky jedál, kategórií a kuchýň sú predgenerované ako kostry s titulkami, kanonickými odkazmi, sitemapou a štruktúrovanými dátami receptov, takže odkazy sa otvoria priamo a vyhľadávače im rozumejú. Kompromis: samotný text receptu sa načíta v prehliadači, nie v predgenerovanom HTML.",
+        de: "Die App braucht keinen eigenen Server, daher ist sie ein statischer Nuxt-Build. Gerichts-, Kategorie- und Küchenseiten werden als Gerüste mit Titeln, kanonischen Links, Sitemap und strukturierten Rezeptdaten vorgerendert, sodass Links direkt funktionieren und Suchmaschinen sie verstehen. Der Kompromiss: Der Rezepttext selbst lädt im Browser, nicht im vorgerenderten HTML.",
+        cs: "Aplikace nepotřebuje vlastní server, proto je to statický build v Nuxtu. Stránky jídel, kategorií a kuchyní jsou předgenerované jako kostry s titulky, kanonickými odkazy, sitemapou a strukturovanými daty receptů, takže odkazy se otevřou přímo a vyhledávače jim rozumějí. Kompromis: samotný text receptu se načte v prohlížeči, ne v předgenerovaném HTML.",
+        hu: "Az alkalmazásnak nincs szüksége saját szerverre, ezért statikus Nuxt build. Az étel-, kategória- és konyhaoldalak előre renderelt vázként készülnek címekkel, kanonikus linkekkel, oldaltérképpel és strukturált receptadatokkal, így a linkek közvetlenül megnyílnak, és a keresők is értik őket. A kompromisszum: maga a recept szövege a böngészőben töltődik be, nem az előre renderelt HTML-ben.",
+      },
+    },
+  ],
+  lessons: [
+    {
+      en: "Links to single meals returned 404 on the live site, because only the pages the build happened to crawl were prerendered. Locally everything worked. Since then I check deep links on the deployed site, and end-to-end tests cover them.",
+      sk: "Odkazy na jednotlivé jedlá vracali na živom webe 404, lebo sa predgenerovali len stránky, na ktoré build náhodou narazil. Lokálne všetko fungovalo. Odvtedy kontrolujem priame odkazy na nasadenom webe a pokrývajú ich aj end-to-end testy.",
+      de: "Links zu einzelnen Gerichten lieferten auf der Live-Seite 404, weil nur die Seiten vorgerendert wurden, auf die der Build zufällig stieß. Lokal funktionierte alles. Seitdem prüfe ich Direktlinks auf der veröffentlichten Seite, und End-to-End-Tests decken sie ab.",
+      cs: "Odkazy na jednotlivá jídla vracely na živém webu 404, protože se předgenerovaly jen stránky, na které build náhodou narazil. Lokálně vše fungovalo. Od té doby kontroluji přímé odkazy na nasazeném webu a pokrývají je i end-to-end testy.",
+      hu: "Az egyes ételekre mutató linkek az élő oldalon 404-et adtak, mert csak azok az oldalak készültek el előre, amelyekre a build véletlenül rátalált. Helyben minden működött. Azóta az élesített oldalon is ellenőrzöm a közvetlen linkeket, és end-to-end tesztek is lefedik őket.",
+    },
+    {
+      en: "A review of the old code found bugs I had shipped: a spinner that never stopped when the API failed, ingredients dropped when they had no amount, and a biased random shuffle. Each fix now has a unit test, and I look at error and empty states as carefully as the happy path.",
+      sk: "Revízia starého kódu našla chyby, ktoré som nasadil: načítavanie, ktoré sa pri chybe API nikdy nezastavilo, vynechané suroviny bez uvedeného množstva a skreslené náhodné premiešanie. Každá oprava má teraz unit test a chybové a prázdne stavy kontrolujem rovnako dôkladne ako bežný priebeh.",
+      de: "Ein Review des alten Codes fand Fehler, die ich ausgeliefert hatte: einen Ladekreis, der bei API-Fehlern nie stoppte, Zutaten ohne Mengenangabe, die verschwanden, und ein verzerrtes Zufallsmischen. Jede Korrektur hat jetzt einen Unit-Test, und Fehler- und Leerzustände prüfe ich so genau wie den Normalfall.",
+      cs: "Revize starého kódu našla chyby, které jsem nasadil: načítání, které se při chybě API nikdy nezastavilo, vynechané suroviny bez uvedeného množství a zkreslené náhodné zamíchání. Každá oprava má teď unit test a chybové a prázdné stavy kontroluji stejně pečlivě jako běžný průběh.",
+      hu: "A régi kód átnézése olyan hibákat talált, amelyeket élesbe engedtem: egy töltésjelzőt, amely API-hiba esetén sosem állt le, a mennyiség nélküli hozzávalók eltűnését és egy torz véletlen keverést. Minden javításhoz van már unit teszt, és a hiba- és üres állapotokat ugyanolyan alaposan nézem, mint a normál működést.",
+    },
+  ],
+  featured: true,
 };

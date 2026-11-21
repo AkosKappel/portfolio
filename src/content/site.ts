@@ -7,6 +7,8 @@ export const site = {
   title: "Ing.",
   phone: "+421 918 727 886",
   headline: "Full-Stack Software Engineer",
+  /** The main stack, shown under the headline. */
+  stack: ["TypeScript", "React", "TanStack", "Tailwind CSS", "Node.js", "PostgreSQL"],
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://akoskappel.dev",
   // Kept apart and joined in a getter, which the minifier cannot fold, so the bundled
   // JavaScript never holds the address as one string. Pages render it through EmailLink.
@@ -23,11 +25,11 @@ export const site = {
     hu: "Pozsony, Szlovákia",
   } satisfies Text,
   intro: {
-    en: "Full-stack software engineer with years of experience in web and mobile development. I take projects from planning through implementation and testing to deployment, and AI coding agents help me move faster at every step.",
-    sk: "Full-stack vývojár s viacročnou praxou vo vývoji webových a mobilných aplikácií. Projekty dotiahnem od plánovania cez implementáciu a testovanie až po nasadenie a AI agenti ma pri každom kroku zrýchľujú.",
-    de: "Full-Stack-Entwickler mit mehrjähriger Erfahrung in der Web- und Mobile-Entwicklung. Ich begleite Projekte von der Planung über Umsetzung und Tests bis zum Deployment, und KI-Coding-Agenten machen mich dabei in jedem Schritt schneller.",
-    cs: "Full-stack vývojář s několikaletou praxí ve vývoji webových a mobilních aplikací. Projekty dotáhnu od plánování přes implementaci a testování až po nasazení a AI agenti mě v každém kroku zrychlují.",
-    hu: "Full-stack fejlesztő, többéves tapasztalattal webes és mobilalkalmazások fejlesztésében. A projekteket a tervezéstől a megvalósításon és a tesztelésen át az élesítésig viszem végig, és az AI kódoló ágensek minden lépésben gyorsabbá tesznek.",
+    en: "Full-stack software engineer with years of experience in web and mobile development. I take projects from planning through implementation and testing to deployment. AI coding agents help me work faster, but I review every change and the result is my responsibility.",
+    sk: "Full-stack vývojár s viacročnou praxou vo vývoji webových a mobilných aplikácií. Projekty dotiahnem od plánovania cez implementáciu a testovanie až po nasadenie. AI agenti mi pomáhajú pracovať rýchlejšie, no každú zmenu kontrolujem a za výsledok zodpovedám ja.",
+    de: "Full-Stack-Entwickler mit mehrjähriger Erfahrung in der Web- und Mobile-Entwicklung. Ich begleite Projekte von der Planung über Umsetzung und Tests bis zum Deployment. KI-Coding-Agenten helfen mir, schneller zu arbeiten, doch jede Änderung prüfe ich selbst und trage die Verantwortung für das Ergebnis.",
+    cs: "Full-stack vývojář s několikaletou praxí ve vývoji webových a mobilních aplikací. Projekty dotáhnu od plánování přes implementaci a testování až po nasazení. AI agenti mi pomáhají pracovat rychleji, ale každou změnu kontroluji a za výsledek odpovídám já.",
+    hu: "Full-stack fejlesztő, többéves tapasztalattal webes és mobilalkalmazások fejlesztésében. A projekteket a tervezéstől a megvalósításon és a tesztelésen át az élesítésig viszem végig. Az AI kódoló ágensek segítenek gyorsabban dolgozni, de minden változtatást átnézek, és az eredményért én felelek.",
   } satisfies Text,
   /** The stages shown on the home page, each one done with AI coding agents. */
   workflow: [
@@ -205,11 +207,11 @@ export const site = {
     },
   ] satisfies { id: string; title: Text; paragraphs: Text[] }[],
   availability: {
-    en: "Open to remote roles in the EU or hybrid roles in Slovakia.",
-    sk: "Otvorený pracovným ponukám na diaľku v rámci EÚ alebo hybridne na Slovensku.",
-    de: "Offen für Remote-Stellen in der EU oder hybride Stellen in der Slowakei.",
-    cs: "Otevřený pracovním nabídkám na dálku v rámci EU nebo hybridně na Slovensku.",
-    hu: "Nyitott vagyok távmunkára az EU-n belül vagy hibrid munkára Szlovákiában.",
+    en: "Open to remote roles anywhere, hybrid roles in the EU and relocation.",
+    sk: "Otvorený pracovným ponukám na diaľku odkiaľkoľvek, hybridne v rámci EÚ aj relokácii.",
+    de: "Offen für Remote-Stellen weltweit, hybride Stellen in der EU und einen Umzug.",
+    cs: "Otevřený pracovním nabídkám na dálku odkudkoli, hybridně v rámci EU i relokaci.",
+    hu: "Nyitott vagyok távmunkára bárhonnan, hibrid munkára az EU-n belül és költözésre is.",
   } satisfies Text,
   links: {
     github: "https://github.com/AkosKappel",

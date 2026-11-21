@@ -377,4 +377,70 @@ export const wacMicrofrontends: Project = {
       },
     },
   ],
+  decisions: [
+    {
+      title: {
+        en: "One OpenAPI spec for both sides",
+        sk: "Jedna OpenAPI špecifikácia pre obe strany",
+        de: "Eine OpenAPI-Spezifikation für beide Seiten",
+        cs: "Jedna OpenAPI specifikace pro obě strany",
+        hu: "Egy OpenAPI-specifikáció mindkét oldalnak",
+      },
+      text: {
+        en: "In the course version the spec had a second copy in the frontend and a hand-written axios client, so the two could drift apart. Now one spec generates the Go server stubs and the TypeScript client, and CI regenerates the code and fails when it differs from what is committed. The cost is generated code in the repository and a toolchain needed to regenerate it.",
+        sk: "V školskej verzii mala špecifikácia druhú kópiu vo frontende a ručne písaného axios klienta, takže sa mohli rozísť. Teraz jedna špecifikácia generuje serverové stuby v Go aj klienta v TypeScripte a CI kód pregeneruje a zlyhá, ak sa líši od commitnutého. Cenou je generovaný kód v repozitári a nástroje potrebné na jeho pregenerovanie.",
+        de: "In der Kursversion hatte die Spezifikation eine zweite Kopie im Frontend und einen handgeschriebenen axios-Client, sodass beide auseinanderlaufen konnten. Jetzt erzeugt eine Spezifikation die Go-Server-Stubs und den TypeScript-Client, und die CI erzeugt den Code neu und schlägt fehl, wenn er vom Commit abweicht. Der Preis ist generierter Code im Repository und eine Toolchain, um ihn neu zu erzeugen.",
+        cs: "Ve školní verzi měla specifikace druhou kopii ve frontendu a ručně psaného axios klienta, takže se mohly rozejít. Teď jedna specifikace generuje serverové stuby v Go i klienta v TypeScriptu a CI kód přegeneruje a selže, pokud se liší od commitnutého. Cenou je generovaný kód v repozitáři a nástroje potřebné k jeho přegenerování.",
+        hu: "A kurzusbeli változatban a specifikációnak volt egy második példánya a frontendben és egy kézzel írt axios-kliens, így a kettő elcsúszhatott egymástól. Most egy specifikációból készülnek a Go szervercsonkok és a TypeScript-kliens, a CI pedig újragenerálja a kódot, és hibát jelez, ha eltér a commitolttól. Az ára a generált kód a repóban és az újrageneráláshoz szükséges eszközök.",
+      },
+    },
+    {
+      title: {
+        en: "Atomic updates instead of read and replace",
+        sk: "Atomické zmeny namiesto prečítania a nahradenia",
+        de: "Atomare Updates statt Lesen und Ersetzen",
+        cs: "Atomické změny místo přečtení a nahrazení",
+        hu: "Atomi frissítések olvasás és csere helyett",
+      },
+      text: {
+        en: "The original API read a whole device, changed it in memory and wrote it back, which lost edits made at the same time. Now log entries are added, changed and removed with single MongoDB updates, a unique index replaces find-then-insert, and an integration test runs against a real database. Stats and due services are computed in MongoDB too, instead of sending every device to the browser.",
+        sk: "Pôvodné API načítalo celé zariadenie, zmenilo ho v pamäti a zapísalo späť, čím sa strácali súbežné úpravy. Teraz sa záznamy pridávajú, menia a mažú jednou zmenou v MongoDB, unikátny index nahrádza hľadanie pred vložením a integračný test beží proti skutočnej databáze. Aj štatistiky a servisy po termíne sa počítajú v MongoDB, namiesto posielania všetkých zariadení do prehliadača.",
+        de: "Die ursprüngliche API las ein ganzes Gerät, änderte es im Speicher und schrieb es zurück, wodurch gleichzeitige Änderungen verloren gingen. Jetzt werden Logeinträge mit einzelnen MongoDB-Updates hinzugefügt, geändert und entfernt, ein eindeutiger Index ersetzt Suchen-dann-Einfügen, und ein Integrationstest läuft gegen eine echte Datenbank. Auch Statistiken und fällige Wartungen berechnet MongoDB, statt alle Geräte an den Browser zu schicken.",
+        cs: "Původní API načetlo celé zařízení, změnilo ho v paměti a zapsalo zpět, čímž se ztrácely souběžné úpravy. Teď se záznamy přidávají, mění a mažou jednou změnou v MongoDB, unikátní index nahrazuje hledání před vložením a integrační test běží proti skutečné databázi. I statistiky a servisy po termínu se počítají v MongoDB, místo posílání všech zařízení do prohlížeče.",
+        hu: "Az eredeti API beolvasta a teljes eszközt, a memóriában módosította és visszaírta, így elvesztek az egyidejű módosítások. Most a naplóbejegyzések egyetlen MongoDB-frissítéssel kerülnek hozzáadásra, módosításra és törlésre, egy egyedi index váltja ki a keresés utáni beszúrást, és egy integrációs teszt valódi adatbázison fut. A statisztikákat és az esedékes szervizeket is a MongoDB számolja, ahelyett hogy minden eszköz a böngészőbe kerülne.",
+      },
+    },
+    {
+      title: {
+        en: "From Kubernetes to Docker Compose",
+        sk: "Z Kubernetes na Docker Compose",
+        de: "Von Kubernetes zu Docker Compose",
+        cs: "Z Kubernetes na Docker Compose",
+        hu: "Kubernetesről Docker Compose-ra",
+      },
+      text: {
+        en: "In the course I set up the GitOps side: Flux, image automation and routing on Kubernetes. For a long-running demo on a home server that was more than needed, so it now runs on Docker Compose with nginx, and images are built in CI because building on the server slowed down the other live apps. The cost: the demo is no longer loaded through the course's shared portal.",
+        sk: "V predmete som pripravil GitOps časť: Flux, automatické aktualizácie obrazov a routing na Kubernetes. Pre dlhodobé demo na domácom serveri to bolo viac, než treba, preto teraz beží na Docker Compose s nginx a obrazy sa zostavujú v CI, lebo zostavovanie na serveri spomaľovalo ostatné živé aplikácie. Cena: demo sa už nenačítava cez spoločný portál predmetu.",
+        de: "Im Kurs habe ich die GitOps-Seite aufgebaut: Flux, Image-Automatisierung und Routing auf Kubernetes. Für eine dauerhafte Demo auf einem Heimserver war das mehr als nötig, daher läuft sie jetzt auf Docker Compose mit nginx, und Images werden in der CI gebaut, weil Builds auf dem Server die anderen Live-Apps ausbremsten. Der Preis: Die Demo wird nicht mehr über das gemeinsame Kursportal geladen.",
+        cs: "V předmětu jsem připravil GitOps část: Flux, automatické aktualizace obrazů a routing na Kubernetes. Pro dlouhodobé demo na domácím serveru to bylo víc, než je třeba, proto teď běží na Docker Compose s nginx a obrazy se sestavují v CI, protože sestavování na serveru zpomalovalo ostatní živé aplikace. Cena: demo se už nenačítá přes společný portál předmětu.",
+        hu: "A kurzuson én építettem fel a GitOps részt: Flux, képfrissítési automatizálás és útválasztás Kubernetesen. Egy otthoni szerveren futó, hosszú távú demóhoz ez több volt a szükségesnél, ezért most Docker Compose-on fut nginx-szel, a képek pedig a CI-ben készülnek, mert a szerveren buildelés lelassította a többi élő alkalmazást. Az ára: a demó már nem a kurzus közös portálján keresztül töltődik be.",
+      },
+    },
+  ],
+  lessons: [
+    {
+      en: 'Our first releases were trial and error, with rollbacks and "attempt 2" commits around the GitOps setup. Today I would get the whole stack running locally in containers first and automate the release after.',
+      sk: "Naše prvé vydania boli pokus-omyl, s návratmi k starším verziám a commitmi typu „pokus 2“ okolo GitOps nastavenia. Dnes by som najprv rozbehal celý stack lokálne v kontajneroch a až potom automatizoval vydávanie.",
+      de: "Unsere ersten Releases waren Versuch und Irrtum, mit Rollbacks und „Versuch 2“-Commits rund um das GitOps-Setup. Heute würde ich zuerst den ganzen Stack lokal in Containern zum Laufen bringen und das Release erst danach automatisieren.",
+      cs: "Naše první vydání byla pokus-omyl, s návraty ke starším verzím a commity typu „pokus 2“ kolem GitOps nastavení. Dnes bych nejdřív rozjel celý stack lokálně v kontejnerech a až potom automatizoval vydávání.",
+      hu: "Az első kiadásaink próba-szerencse alapon mentek, visszaállításokkal és „2. próbálkozás” commitokkal a GitOps-beállítás körül. Ma először a teljes stacket futtatnám helyben konténerekben, és csak utána automatizálnám a kiadást.",
+    },
+    {
+      en: "The first API had no server-side validation, sent raw errors to the client and allowed requests from any origin. I fixed all three when I came back to the project; now they are among the first things I set up in a new API.",
+      sk: "Prvé API nemalo validáciu na serveri, posielalo klientovi surové chyby a prijímalo požiadavky z akéhokoľvek pôvodu. Všetky tri veci som opravil, keď som sa k projektu vrátil; dnes patria medzi prvé, čo v novom API nastavím.",
+      de: "Die erste API hatte keine serverseitige Validierung, schickte rohe Fehler an den Client und erlaubte Anfragen von jedem Ursprung. Alle drei habe ich behoben, als ich zum Projekt zurückkam; heute gehören sie zu den ersten Dingen, die ich in einer neuen API einrichte.",
+      cs: "První API nemělo validaci na serveru, posílalo klientovi syrové chyby a přijímalo požadavky z jakéhokoli původu. Všechny tři věci jsem opravil, když jsem se k projektu vrátil; dnes patří mezi první, co v novém API nastavím.",
+      hu: "Az első API-ban nem volt szerveroldali validáció, nyers hibákat küldött a kliensnek, és bármilyen eredetről fogadott kéréseket. Mindhármat kijavítottam, amikor visszatértem a projekthez; ma ezek az elsők között vannak, amiket egy új API-ban beállítok.",
+    },
+  ],
 };

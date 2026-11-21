@@ -85,6 +85,14 @@
     "status": "Projektstatus"
   },
   "home": {
+    "openTo": "Offen für",
+    "remoteWork": "Remote-Arbeit",
+    "hybridEu": "Hybride Stellen in der EU",
+    "relocation": "Umzug",
+    "stackTitle": "Womit ich arbeite",
+    "stackLead": "Die meisten meiner Projekte sind durchgehend TypeScript: React und die TanStack-Bibliotheken im Browser, gestylt mit Tailwind CSS, Node.js auf dem Server und PostgreSQL für die Daten. Die Typen reichen von der Datenbank bis zur Oberfläche, sodass viele Fehler auffallen, bevor die App überhaupt läuft.",
+    "stackMore": "Im Job entwickle ich außerdem mit Elixir und Phoenix sowie mit Kotlin, und einen neuen Stack lerne ich, wenn ein Projekt ihn braucht. Weitere Sprachen und Tools, mit denen ich gearbeitet habe:",
+    "allSkills": "Alle Skills",
     "viewProjects": "Projekte ansehen",
     "contact": "Kontakt aufnehmen",
     "selectedProjects": "Ausgewählte Projekte",
@@ -155,6 +163,8 @@
     "about": "Über das Projekt",
     "features": "Was Sie ausprobieren können",
     "technical": "Unter der Haube",
+    "decisions": "Wichtige Entscheidungen",
+    "lessons": "Was ich gelernt habe",
     "changelog": "Änderungsprotokoll",
     "versions": "Versionen",
     "gallery": "Galerie",

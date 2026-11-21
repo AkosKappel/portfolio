@@ -284,4 +284,70 @@ export const fakeshop: Project = {
       },
     },
   ],
+  decisions: [
+    {
+      title: {
+        en: "A bigger catalog from DummyJSON",
+        sk: "Väčší katalóg z DummyJSON",
+        de: "Ein größerer Katalog von DummyJSON",
+        cs: "Větší katalog z DummyJSON",
+        hu: "Nagyobb katalógus a DummyJSON-ból",
+      },
+      text: {
+        en: "The original Fake Store API had 20 products in 4 categories, too few for search, filters and paging to mean anything. DummyJSON has around 200 products with real discounts, stock and reviews. Its discounts are often tiny, so anything under 10% shows as the regular price; otherwise almost every product would look like it is on sale.",
+        sk: "Pôvodné Fake Store API malo 20 produktov v 4 kategóriách, príliš málo na to, aby vyhľadávanie, filtre a stránkovanie dávali zmysel. DummyJSON má okolo 200 produktov so skutočnými zľavami, skladom a recenziami. Jeho zľavy sú často drobné, preto sa všetko pod 10 % zobrazí ako bežná cena; inak by takmer každý produkt vyzeral ako v akcii.",
+        de: "Die ursprüngliche Fake Store API hatte 20 Produkte in 4 Kategorien, zu wenig, damit Suche, Filter und Seitenaufteilung Sinn ergeben. DummyJSON hat rund 200 Produkte mit echten Rabatten, Lagerbestand und Bewertungen. Die Rabatte sind oft winzig, daher wird alles unter 10 % als regulärer Preis angezeigt; sonst sähe fast jedes Produkt wie ein Angebot aus.",
+        cs: "Původní Fake Store API mělo 20 produktů ve 4 kategoriích, příliš málo na to, aby vyhledávání, filtry a stránkování dávaly smysl. DummyJSON má kolem 200 produktů se skutečnými slevami, skladem a recenzemi. Jeho slevy jsou často drobné, proto se vše pod 10 % zobrazí jako běžná cena; jinak by téměř každý produkt vypadal jako v akci.",
+        hu: "Az eredeti Fake Store API-ban 20 termék volt 4 kategóriában, ez túl kevés ahhoz, hogy a keresésnek, a szűrőknek és a lapozásnak értelme legyen. A DummyJSON-ban körülbelül 200 termék van valódi kedvezményekkel, készlettel és értékelésekkel. A kedvezmények gyakran aprók, ezért a 10% alattiak rendes árként jelennek meg; különben szinte minden termék akciósnak tűnne.",
+      },
+    },
+    {
+      title: {
+        en: "Load the catalog once, filter in the browser",
+        sk: "Katalóg načítaný raz, filtrovanie v prehliadači",
+        de: "Katalog einmal laden, im Browser filtern",
+        cs: "Katalog načtený jednou, filtrování v prohlížeči",
+        hu: "A katalógus egyszer töltődik be, a szűrés a böngészőben fut",
+      },
+      text: {
+        en: "The whole catalog is one request of about 8 kB, cached for the session, so search, filters and sorting react instantly without a request per keystroke. I left TanStack Query out until the app needs it. The limit is clear: this only works while the catalog stays small.",
+        sk: "Celý katalóg je jedna požiadavka s veľkosťou asi 8 kB, uložená v cache počas relácie, takže vyhľadávanie, filtre a triedenie reagujú okamžite bez požiadavky pri každom stlačení klávesu. TanStack Query som vynechal, kým ho aplikácia nebude potrebovať. Limit je jasný: funguje to len dovtedy, kým je katalóg malý.",
+        de: "Der ganze Katalog ist eine Anfrage von etwa 8 kB, für die Sitzung zwischengespeichert, sodass Suche, Filter und Sortierung sofort reagieren, ohne Anfrage pro Tastendruck. TanStack Query habe ich weggelassen, bis die App es braucht. Die Grenze ist klar: Das funktioniert nur, solange der Katalog klein bleibt.",
+        cs: "Celý katalog je jeden požadavek o velikosti asi 8 kB, uložený v cache po dobu relace, takže vyhledávání, filtry a řazení reagují okamžitě bez požadavku při každém stisku klávesy. TanStack Query jsem vynechal, dokud ho aplikace nebude potřebovat. Limit je jasný: funguje to jen do té doby, dokud je katalog malý.",
+        hu: "A teljes katalógus egyetlen, körülbelül 8 kB-os kérés, amely a munkamenet idejére gyorsítótárba kerül, így a keresés, a szűrők és a rendezés azonnal reagálnak, billentyűleütésenkénti kérés nélkül. A TanStack Queryt kihagytam, amíg az alkalmazásnak nincs rá szüksége. A korlát egyértelmű: ez csak addig működik, amíg a katalógus kicsi.",
+      },
+    },
+    {
+      title: {
+        en: "Tests that don't depend on someone else's API",
+        sk: "Testy nezávislé od cudzieho API",
+        de: "Tests, die nicht von einer fremden API abhängen",
+        cs: "Testy nezávislé na cizím API",
+        hu: "Tesztek, amelyek nem függenek más API-jától",
+      },
+      text: {
+        en: "Playwright runs against the production build with the API served from recorded fixtures, so CI never fails just because a third party is down. Lighthouse CI runs as a separate job and fails below 100 for accessibility, best practices and SEO.",
+        sk: "Playwright beží proti produkčnému buildu a API sa podáva z nahratých dát, takže CI nikdy nezlyhá len preto, že cudzia služba nefunguje. Lighthouse CI beží ako samostatný job a zlyhá pod 100 bodov v prístupnosti, osvedčených postupoch a SEO.",
+        de: "Playwright läuft gegen den Produktions-Build, und die API wird aus aufgezeichneten Daten bedient, sodass die CI nie nur deshalb fehlschlägt, weil ein fremder Dienst ausfällt. Lighthouse CI läuft als eigener Job und schlägt unter 100 bei Barrierefreiheit, Best Practices und SEO fehl.",
+        cs: "Playwright běží proti produkčnímu buildu a API se podává z nahraných dat, takže CI nikdy neselže jen proto, že cizí služba nefunguje. Lighthouse CI běží jako samostatný job a selže pod 100 body v přístupnosti, osvědčených postupech a SEO.",
+        hu: "A Playwright az éles build ellen fut, az API pedig rögzített adatokból szolgál ki, így a CI sosem bukik el csak azért, mert egy külső szolgáltatás nem elérhető. A Lighthouse CI külön jobként fut, és 100 alatt hibát jelez akadálymentességre, bevált gyakorlatokra és SEO-ra.",
+      },
+    },
+  ],
+  lessons: [
+    {
+      en: "The old cart reducer changed items in place, which is why React's StrictMode had been switched off. Turning it back on exposed the bug. Now state updates are immutable and StrictMode stays on.",
+      sk: "Starý reducer košíka menil položky priamo na mieste, a preto bol StrictMode v Reacte vypnutý. Jeho opätovné zapnutie chybu odhalilo. Dnes sú zmeny stavu nemenné a StrictMode zostáva zapnutý.",
+      de: "Der alte Warenkorb-Reducer änderte Einträge direkt, deshalb war Reacts StrictMode abgeschaltet. Als ich ihn wieder einschaltete, kam der Fehler ans Licht. Heute sind Zustandsänderungen unveränderlich, und StrictMode bleibt an.",
+      cs: "Starý reducer košíku měnil položky přímo na místě, a proto byl StrictMode v Reactu vypnutý. Jeho opětovné zapnutí chybu odhalilo. Dnes jsou změny stavu neměnné a StrictMode zůstává zapnutý.",
+      hu: "A régi kosár-reducer helyben módosította a tételeket, ezért volt kikapcsolva a React StrictMode. Amikor visszakapcsoltam, előjött a hiba. Ma az állapotfrissítések megváltoztathatatlanok, és a StrictMode bekapcsolva marad.",
+    },
+    {
+      en: "The first checkout saved the card number and CVV to localStorage on every keystroke. Even in a demo that teaches a bad habit, so now only the shipping address is remembered and an end-to-end test checks that no card number reaches storage.",
+      sk: "Prvá pokladňa ukladala číslo karty a CVV do localStorage pri každom stlačení klávesu. Aj v deme to učí zlý návyk, preto si dnes pamätá len doručovaciu adresu a end-to-end test overuje, že sa číslo karty do úložiska nedostane.",
+      de: "Der erste Checkout speicherte Kartennummer und CVV bei jedem Tastendruck in localStorage. Auch in einer Demo ist das eine schlechte Angewohnheit, daher wird jetzt nur die Lieferadresse gemerkt, und ein End-to-End-Test prüft, dass keine Kartennummer im Speicher landet.",
+      cs: "První pokladna ukládala číslo karty a CVV do localStorage při každém stisku klávesy. I v demu to učí špatný návyk, proto si dnes pamatuje jen doručovací adresu a end-to-end test ověřuje, že se číslo karty do úložiště nedostane.",
+      hu: "Az első pénztár minden billentyűleütéskor elmentette a kártyaszámot és a CVV-t a localStorage-ba. Ez egy demóban is rossz szokást tanít, ezért ma csak a szállítási címet jegyzi meg, egy end-to-end teszt pedig ellenőrzi, hogy kártyaszám nem kerül a tárolóba.",
+    },
+  ],
 };

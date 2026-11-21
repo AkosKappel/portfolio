@@ -6,10 +6,12 @@ import {
   Globe,
   Images,
   Info,
+  Lightbulb,
   type LucideIcon,
   MousePointerClick,
   Network,
   RefreshCw,
+  Scale,
   Sparkles,
   Wrench,
 } from "lucide-react";
@@ -169,6 +171,29 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
                 ))}
               </div>
             </section>
+            {project.decisions?.length ? (
+              <section aria-labelledby="decisions">
+                <AnchorHeading
+                  id="decisions"
+                  label={tCommon("anchor")}
+                  className="flex items-center gap-2 text-2xl font-semibold"
+                >
+                  <Scale aria-hidden className="size-5 shrink-0 text-accent" />
+                  {t("decisions")}
+                </AnchorHeading>
+                <ol className="mt-5 grid gap-4">
+                  {project.decisions.map((decision) => (
+                    <li
+                      key={decision.title.en}
+                      className="rounded-xl border border-line bg-surface p-5"
+                    >
+                      <h3 className="text-lg font-semibold">{pick(decision.title, locale)}</h3>
+                      <p className="mt-2 text-muted">{pick(decision.text, locale)}</p>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            ) : null}
             <DetailList
               id="features"
               title={t("features")}
@@ -226,6 +251,14 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
                 </ol>
               </section>
             ) : null}
+            <DetailList
+              id="lessons"
+              title={t("lessons")}
+              items={project.lessons}
+              locale={locale}
+              Icon={Lightbulb}
+              anchor={tCommon("anchor")}
+            />
             <DetailList
               id="changelog"
               title={t("changelog")}

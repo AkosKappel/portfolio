@@ -350,4 +350,71 @@ export const skysense: Project = {
       },
     },
   ],
+  decisions: [
+    {
+      title: {
+        en: "Explicit rules instead of a model",
+        sk: "Jasné pravidlá namiesto modelu",
+        de: "Klare Regeln statt eines Modells",
+        cs: "Jasná pravidla místo modelu",
+        hu: "Egyértelmű szabályok modell helyett",
+      },
+      text: {
+        en: "A trained model would need accounts and data the app doesn't collect. An LLM summary costs money per request, can say things the data doesn't, and is hard to test in five languages. So every answer comes from pure functions with named thresholds, unit-tested on recorded forecasts. The thresholds are my opinions, but they are visible and easy to tune.",
+        sk: "Natrénovaný model by potreboval účty a dáta, ktoré aplikácia nezbiera. Zhrnutie od LLM stojí peniaze pri každej požiadavke, môže tvrdiť niečo, čo v dátach nie je, a ťažko sa testuje v piatich jazykoch. Preto každá odpoveď pochádza z čistých funkcií s pomenovanými prahmi, testovaných na nahratých predpovediach. Prahy sú môj názor, ale sú viditeľné a ľahko sa ladia.",
+        de: "Ein trainiertes Modell bräuchte Konten und Daten, die die App nicht sammelt. Eine LLM-Zusammenfassung kostet pro Anfrage Geld, kann Dinge behaupten, die nicht in den Daten stehen, und ist in fünf Sprachen schwer zu testen. Deshalb kommt jede Antwort aus reinen Funktionen mit benannten Schwellenwerten, getestet mit aufgezeichneten Vorhersagen. Die Schwellenwerte sind meine Einschätzung, aber sie sind sichtbar und leicht anzupassen.",
+        cs: "Natrénovaný model by potřeboval účty a data, která aplikace nesbírá. Shrnutí od LLM stojí peníze při každém požadavku, může tvrdit něco, co v datech není, a těžko se testuje v pěti jazycích. Proto každá odpověď pochází z čistých funkcí s pojmenovanými prahy, testovaných na nahraných předpovědích. Prahy jsou můj názor, ale jsou viditelné a snadno se ladí.",
+        hu: "Egy betanított modellhez fiókok és olyan adatok kellenének, amelyeket az alkalmazás nem gyűjt. Egy LLM-összefoglaló kérésenként pénzbe kerül, állíthat olyat, ami nincs az adatokban, és öt nyelven nehéz tesztelni. Ezért minden válasz tiszta függvényekből jön elnevezett küszöbértékekkel, rögzített előrejelzéseken tesztelve. A küszöbök az én véleményemet tükrözik, de láthatók és könnyen hangolhatók.",
+      },
+    },
+    {
+      title: {
+        en: "One data source behind the app's own routes",
+        sk: "Jeden zdroj dát za vlastnými routami",
+        de: "Eine Datenquelle hinter eigenen Routen",
+        cs: "Jeden zdroj dat za vlastními routami",
+        hu: "Egy adatforrás saját útvonalak mögött",
+      },
+      text: {
+        en: "Open-Meteo was the only free source with ensemble runs and decades of history without an API key. The browser talks only to SkySense: server routes round coordinates to about 1 km for privacy and cache hits, shrink the 51 ensemble runs to a range, and cache each kind of data for as long as it stays fresh. The cost is a single provider, and its free tier is for non-commercial use only.",
+        sk: "Open-Meteo bol jediný bezplatný zdroj s ensemble predpoveďami a desaťročiami histórie bez API kľúča. Prehliadač komunikuje len so SkySense: serverové routy zaokrúhlia súradnice na asi 1 km kvôli súkromiu a cache, zúžia 51 behov ensemble na rozsah a každý druh dát držia v cache, kým je aktuálny. Cenou je jediný poskytovateľ, ktorého bezplatné použitie je len nekomerčné.",
+        de: "Open-Meteo war die einzige kostenlose Quelle mit Ensemble-Läufen und jahrzehntelanger Historie ohne API-Schlüssel. Der Browser spricht nur mit SkySense: Serverrouten runden Koordinaten auf etwa 1 km für Datenschutz und Cache-Treffer, fassen die 51 Ensemble-Läufe zu einer Spanne zusammen und cachen jede Datenart, solange sie aktuell bleibt. Der Preis ist ein einziger Anbieter, dessen kostenlose Nutzung nur nichtkommerziell erlaubt ist.",
+        cs: "Open-Meteo byl jediný bezplatný zdroj s ensemble předpověďmi a desetiletími historie bez API klíče. Prohlížeč komunikuje jen se SkySense: serverové routy zaokrouhlí souřadnice na asi 1 km kvůli soukromí a cache, zúží 51 běhů ensemble na rozsah a každý druh dat drží v cache, dokud je aktuální. Cenou je jediný poskytovatel, jehož bezplatné použití je jen nekomerční.",
+        hu: "Az Open-Meteo volt az egyetlen ingyenes forrás ensemble-futásokkal és évtizedes előzményekkel, API-kulcs nélkül. A böngésző csak a SkySense-szel kommunikál: a szerverútvonalak a koordinátákat kb. 1 km-re kerekítik az adatvédelem és a gyorsítótár miatt, az 51 ensemble-futást egy tartományra szűkítik, és minden adatfajtát addig tárolnak, amíg friss. Az ára egyetlen szolgáltató, amelynek ingyenes használata csak nem kereskedelmi célra szól.",
+      },
+    },
+    {
+      title: {
+        en: "Leaflet instead of MapLibre",
+        sk: "Leaflet namiesto MapLibre",
+        de: "Leaflet statt MapLibre",
+        cs: "Leaflet místo MapLibre",
+        hu: "Leaflet MapLibre helyett",
+      },
+      text: {
+        en: "The radar and the map tiles are plain images, so the lighter map library is enough. I measured both: MapLibre would have added about ten times more JavaScript for vector features the app doesn't use.",
+        sk: "Radar aj mapové dlaždice sú obyčajné obrázky, takže ľahšia knižnica na mapy stačí. Zmeral som obe: MapLibre by pridala asi desaťkrát viac JavaScriptu kvôli vektorovým funkciám, ktoré aplikácia nepoužíva.",
+        de: "Radar und Kartenkacheln sind einfache Bilder, daher reicht die leichtere Kartenbibliothek. Ich habe beide gemessen: MapLibre hätte etwa zehnmal mehr JavaScript für Vektorfunktionen hinzugefügt, die die App nicht nutzt.",
+        cs: "Radar i mapové dlaždice jsou obyčejné obrázky, takže lehčí knihovna na mapy stačí. Změřil jsem obě: MapLibre by přidala asi desetkrát víc JavaScriptu kvůli vektorovým funkcím, které aplikace nepoužívá.",
+        hu: "A radar és a térképcsempék egyszerű képek, így elég a könnyebb térképkönyvtár. Mindkettőt lemértem: a MapLibre nagyjából tízszer több JavaScriptet hozott volna olyan vektoros funkciókért, amelyeket az alkalmazás nem használ.",
+      },
+    },
+  ],
+  lessons: [
+    {
+      en: "I first decided against an astronomy library, then added one for moonrise and eclipses, and every forecast failed in production because the server loaded it the wrong way. Bundling it into the server build fixed it. Now I check how a new dependency is loaded in the production build before I ship it.",
+      sk: "Najprv som sa rozhodol nepoužiť astronomickú knižnicu, potom som ju pridal kvôli východu Mesiaca a zatmeniam a v produkcii zlyhala každá predpoveď, lebo ju server načítal nesprávne. Opravilo to jej zabalenie do serverového buildu. Dnes pred nasadením overím, ako sa nová závislosť načíta v produkčnom builde.",
+      de: "Zuerst habe ich mich gegen eine Astronomie-Bibliothek entschieden, dann eine für Mondaufgang und Finsternisse hinzugefügt, und in Produktion schlug jede Vorhersage fehl, weil der Server sie falsch lud. Das Einbinden in den Server-Build hat es behoben. Heute prüfe ich vor dem Ausliefern, wie eine neue Abhängigkeit im Produktions-Build geladen wird.",
+      cs: "Nejdřív jsem se rozhodl nepoužít astronomickou knihovnu, pak jsem ji přidal kvůli východu Měsíce a zatměním a v produkci selhala každá předpověď, protože ji server načetl špatně. Opravilo to její zabalení do serverového buildu. Dnes před nasazením ověřím, jak se nová závislost načte v produkčním buildu.",
+      hu: "Először úgy döntöttem, nem használok csillagászati könyvtárat, aztán felvettem egyet a holdkelte és a fogyatkozások miatt, és élesben minden előrejelzés hibára futott, mert a szerver rosszul töltötte be. A szerver buildjébe csomagolás megoldotta. Ma már élesítés előtt ellenőrzöm, hogyan töltődik be egy új függőség az éles buildben.",
+    },
+    {
+      en: "My first architecture note said the app keeps no state between requests and relies on the CDN alone. Measuring later showed a small in-memory cache was worth adding. I would measure first and write such rules after.",
+      sk: "Moja prvá poznámka k architektúre hovorila, že aplikácia si medzi požiadavkami nič nedrží a spolieha sa len na CDN. Neskoršie meranie ukázalo, že malá cache v pamäti sa oplatí. Dnes by som najprv meral a až potom písal takéto pravidlá.",
+      de: "Meine erste Architekturnotiz sagte, die App halte zwischen Anfragen keinen Zustand und verlasse sich allein auf das CDN. Spätere Messungen zeigten, dass sich ein kleiner Cache im Speicher lohnt. Ich würde zuerst messen und solche Regeln danach schreiben.",
+      cs: "Moje první poznámka k architektuře říkala, že si aplikace mezi požadavky nic nedrží a spoléhá se jen na CDN. Pozdější měření ukázalo, že malá cache v paměti se vyplatí. Dnes bych nejdřív měřil a až potom psal taková pravidla.",
+      hu: "Az első architektúra-jegyzetem szerint az alkalmazás nem tart állapotot a kérések között, és csak a CDN-re támaszkodik. A későbbi mérések megmutatták, hogy megéri egy kis memóriabeli gyorsítótár. Ma előbb mérnék, és csak utána írnék ilyen szabályokat.",
+    },
+  ],
+  featured: true,
 };

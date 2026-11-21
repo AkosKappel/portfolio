@@ -280,5 +280,4 @@ export const pokedex: Project = {
       },
     },
   ],
-  featured: true,
 };

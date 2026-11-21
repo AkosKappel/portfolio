@@ -431,3 +431,51 @@
     animation: none;
   }
 }
+
+/*
+  The skills strip on the home page scrolls like a sponsor band. The list is rendered
+  twice so the loop has no seam; the copy is hidden from screen readers. With reduced
+  motion the strip stands still, the copy is hidden and the tags wrap instead.
+*/
+.marquee-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  gap: 0.5rem;
+}
+
+.marquee-list[aria-hidden] {
+  display: none;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 70s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .marquee-list {
+    flex-wrap: nowrap;
+    padding-right: 0.5rem;
+  }
+
+  .marquee-list[aria-hidden] {
+    display: flex;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

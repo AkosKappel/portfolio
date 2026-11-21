@@ -1,4 +1,4 @@
-import { ArrowRight, FolderOpen, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Building2, FolderOpen, Globe, Mail, MapPin, Plane } from "lucide-react";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ActivityCard } from "@/components/activity/activity-card";
@@ -8,10 +8,11 @@ import { CvMenu } from "@/components/ui/cv-menu";
 import { EmailLink } from "@/components/ui/email-link";
 import { JsonLd } from "@/components/ui/json-ld";
 import { Page } from "@/components/ui/page";
-import { CardStack, StackList } from "@/components/ui/tech-badge";
+import { CardStack, StackList, TechLogo } from "@/components/ui/tech-badge";
 import { jobs } from "@/content/experience";
 import { featuredProjects } from "@/content/projects";
 import { site } from "@/content/site";
+import { skillGroups } from "@/content/skills";
 import { pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -25,6 +26,10 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const tAbout = await getTranslations("about");
   const t = await getTranslations("home");
   const currentJob = jobs[0];
+  const mainStack = new Set<string>(site.stack);
+  const otherSkills = [...new Set(skillGroups.flatMap((group) => group.skills))].filter(
+    (skill) => !mainStack.has(skill),
+  );
 
   return (
     <Page>
@@ -39,10 +44,30 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           </h1>
           <p className="mt-4 font-display text-2xl text-accent sm:text-3xl">{site.headline}</p>
           <p className="mt-6 max-w-xl text-lg text-muted">{pick(site.intro, locale)}</p>
-          <p className="mt-4 inline-flex items-center gap-2 text-muted">
+          <p className="mt-5 inline-flex items-center gap-2 text-muted">
             <MapPin aria-hidden size={18} />
             {pick(site.location, locale)}
           </p>
+          <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
+            <span id="open-to" className="font-medium text-muted">
+              {t("openTo")}:
+            </span>
+            <ul aria-labelledby="open-to" className="flex flex-wrap gap-2">
+              {[
+                { icon: Globe, label: t("remoteWork") },
+                { icon: Building2, label: t("hybridEu") },
+                { icon: Plane, label: t("relocation") },
+              ].map(({ icon: Icon, label }) => (
+                <li
+                  key={label}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 font-medium text-ink"
+                >
+                  <Icon aria-hidden size={15} className="text-accent" />
+                  {label}
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="mt-8 flex flex-wrap items-start gap-3">
             <Link
               href="/projects"
@@ -73,6 +98,48 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               preload
               className="size-56 rounded-full object-cover object-[50%_22%] sm:size-72 lg:size-80"
             />
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="stack" className="border-t border-line py-14">
+        <div className="flex items-end justify-between gap-6">
+          <h2 id="stack" className="text-3xl font-semibold sm:text-4xl">
+            {t("stackTitle")}
+          </h2>
+          <Link
+            href="/skills"
+            className="inline-flex shrink-0 items-center gap-1.5 text-muted hover:text-ink"
+          >
+            {t("allSkills")}
+            <ArrowRight aria-hidden size={16} />
+          </Link>
+        </div>
+        <p className="mt-3 max-w-2xl text-muted">{t("stackLead")}</p>
+        <ul className="mt-6 flex flex-wrap gap-3">
+          {site.stack.map((item) => (
+            <li
+              key={item}
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-lg font-medium"
+            >
+              <TechLogo name={item} className="size-5" />
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-8 max-w-2xl text-muted">{t("stackMore")}</p>
+        <div className="marquee mt-4">
+          <div className="marquee-track">
+            {[false, true].map((copy) => (
+              <ul key={String(copy)} aria-hidden={copy || undefined} className="marquee-list">
+                {otherSkills.map((item) => (
+                  <li key={item} className="tech-tag">
+                    <TechLogo name={item} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            ))}
           </div>
         </div>
       </section>

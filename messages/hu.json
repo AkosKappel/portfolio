@@ -85,6 +85,14 @@
     "status": "Projektek állapota"
   },
   "home": {
+    "openTo": "Nyitott vagyok",
+    "remoteWork": "Távmunkára",
+    "hybridEu": "Hibrid munkára az EU-ban",
+    "relocation": "Költözésre",
+    "stackTitle": "Amivel dolgozom",
+    "stackLead": "A legtöbb projektem elejétől a végéig TypeScript: React és a TanStack könyvtárak a böngészőben Tailwind CSS stílusokkal, Node.js a szerveren és PostgreSQL az adatokhoz. A típusok az adatbázistól a felületig érnek, így sok hiba már azelőtt kiderül, hogy az alkalmazás elindulna.",
+    "stackMore": "A munkámban Elixirrel és Phoenixszel, valamint Kotlinnal is fejlesztek, és ha egy projektnek új stack kell, megtanulom. További nyelvek és eszközök, amelyekkel dolgoztam:",
+    "allSkills": "Összes készség",
     "viewProjects": "Projektek megtekintése",
     "contact": "Kapcsolatfelvétel",
     "selectedProjects": "Kiemelt projektek",
@@ -155,6 +163,8 @@
     "about": "A projektről",
     "features": "Amit kipróbálhat",
     "technical": "A motorháztető alatt",
+    "decisions": "Fő döntések",
+    "lessons": "Amit megtanultam",
     "changelog": "Változásnapló",
     "versions": "Verziók",
     "gallery": "Galéria",

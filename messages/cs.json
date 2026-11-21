@@ -85,6 +85,14 @@
     "status": "Stav projektů"
   },
   "home": {
+    "openTo": "Mám zájem o",
+    "remoteWork": "Práci na dálku",
+    "hybridEu": "Hybridní práci v EU",
+    "relocation": "Relokaci",
+    "stackTitle": "S čím pracuji",
+    "stackLead": "Většina mých projektů je v TypeScriptu od začátku do konce: React a knihovny TanStack v prohlížeči se styly v Tailwind CSS, Node.js na serveru a PostgreSQL pro data. Typy sahají od databáze až po rozhraní, takže mnoho chyb se ukáže dřív, než se aplikace vůbec spustí.",
+    "stackMore": "V práci vyvíjím také v Elixiru s Phoenixem a v Kotlinu a nový stack si osvojím, když ho projekt potřebuje. Další jazyky a nástroje, se kterými jsem pracoval:",
+    "allSkills": "Všechny dovednosti",
     "viewProjects": "Zobrazit projekty",
     "contact": "Kontaktujte mě",
     "selectedProjects": "Vybrané projekty",
@@ -155,6 +163,8 @@
     "about": "O projektu",
     "features": "Co si můžete vyzkoušet",
     "technical": "Pod kapotou",
+    "decisions": "Klíčová rozhodnutí",
+    "lessons": "Co jsem se naučil",
     "changelog": "Seznam změn",
     "versions": "Verze",
     "gallery": "Galerie",

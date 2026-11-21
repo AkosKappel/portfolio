@@ -450,5 +450,71 @@ export const modernFashionStore: Project = {
       },
     },
   ],
+  decisions: [
+    {
+      title: {
+        en: "Optimistic locking instead of last write wins",
+        sk: "Optimistické zamykanie namiesto „posledný vyhráva“",
+        de: "Optimistisches Sperren statt „der Letzte gewinnt“",
+        cs: "Optimistické zamykání místo „poslední vyhrává“",
+        hu: "Optimista zárolás „az utolsó nyer” helyett",
+      },
+      text: {
+        en: "Two managers can edit the same product at once, and a plain form save would silently overwrite the other person's change. So every product has a version number: a save over a newer version is refused, the typed values stay, and the manager chooses to load the newer one or keep theirs. Phoenix Presence also shows when someone else is editing. The cost is that every write path has to bump the version.",
+        sk: "Ten istý produkt môžu naraz upravovať dvaja manažéri a obyčajné uloženie formulára by potichu prepísalo zmenu toho druhého. Preto má každý produkt číslo verzie: uloženie nad novšou verziou sa odmietne, napísané hodnoty zostanú a manažér si vyberie, či načíta novšiu verziu, alebo ponechá svoju. Phoenix Presence navyše ukáže, keď produkt upravuje niekto iný. Cenou je, že každá cesta zápisu musí verziu zvýšiť.",
+        de: "Zwei Manager können dasselbe Produkt gleichzeitig bearbeiten, und ein einfaches Formular-Speichern würde die Änderung des anderen stillschweigend überschreiben. Deshalb hat jedes Produkt eine Versionsnummer: Speichern über eine neuere Version wird abgelehnt, die eingegebenen Werte bleiben, und der Manager wählt, ob er die neuere Version lädt oder seine behält. Phoenix Presence zeigt außerdem, wenn jemand anderes gerade bearbeitet. Der Preis: Jeder Schreibpfad muss die Version erhöhen.",
+        cs: "Stejný produkt mohou naráz upravovat dva manažeři a obyčejné uložení formuláře by potichu přepsalo změnu toho druhého. Proto má každý produkt číslo verze: uložení nad novější verzí se odmítne, napsané hodnoty zůstanou a manažer si vybere, zda načte novější verzi, nebo ponechá svou. Phoenix Presence navíc ukáže, když produkt upravuje někdo jiný. Cenou je, že každá cesta zápisu musí verzi zvýšit.",
+        hu: "Ugyanazt a terméket két menedzser is szerkesztheti egyszerre, és egy egyszerű űrlapmentés csendben felülírná a másik változtatását. Ezért minden terméknek verziószáma van: egy újabb verzió fölé mentést a rendszer elutasít, a beírt értékek megmaradnak, a menedzser pedig eldönti, hogy betölti az újabbat vagy megtartja a sajátját. A Phoenix Presence azt is jelzi, ha valaki más éppen szerkeszt. Az ára, hogy minden írási útvonalnak növelnie kell a verziót.",
+      },
+    },
+    {
+      title: {
+        en: "Live dashboards with LiveView",
+        sk: "Živé dashboardy s LiveView",
+        de: "Live-Dashboards mit LiveView",
+        cs: "Živé dashboardy s LiveView",
+        hu: "Élő irányítópultok LiveView-val",
+      },
+      text: {
+        en: "The inventory and product pages are LiveViews, so sales and stock changes appear on every open dashboard through the existing connection, without a separate API or a client-side state library. The trade-off is that each open page keeps a connection and a process on the server.",
+        sk: "Stránky skladu a produktov sú LiveViews, takže predaje a zmeny skladu sa zobrazia na každom otvorenom dashboarde cez existujúce spojenie, bez samostatného API či knižnice na stav v prehliadači. Kompromisom je, že každá otvorená stránka drží na serveri spojenie a proces.",
+        de: "Die Lager- und Produktseiten sind LiveViews, sodass Verkäufe und Bestandsänderungen über die bestehende Verbindung auf jedem offenen Dashboard erscheinen, ohne separate API oder State-Bibliothek im Client. Der Kompromiss: Jede offene Seite hält auf dem Server eine Verbindung und einen Prozess.",
+        cs: "Stránky skladu a produktů jsou LiveViews, takže prodeje a změny skladu se zobrazí na každém otevřeném dashboardu přes existující spojení, bez samostatného API či knihovny na stav v prohlížeči. Kompromisem je, že každá otevřená stránka drží na serveru spojení a proces.",
+        hu: "A készlet- és termékoldalak LiveView-k, így az eladások és a készletváltozások a meglévő kapcsolaton át minden nyitott irányítópulton megjelennek, külön API és kliensoldali állapotkezelő könyvtár nélkül. A kompromisszum, hogy minden nyitott oldal egy kapcsolatot és egy folyamatot tart fenn a szerveren.",
+      },
+    },
+    {
+      title: {
+        en: "A public demo anyone can edit",
+        sk: "Verejné demo, ktoré môže upravovať ktokoľvek",
+        de: "Eine öffentliche Demo, die jeder bearbeiten kann",
+        cs: "Veřejné demo, které může upravovat kdokoli",
+        hu: "Nyilvános demó, amit bárki szerkeszthet",
+      },
+      text: {
+        en: "Visitors sign in as a manager and change real data, so the demo is hardened rather than trusted: a read-only container without extra privileges, a database role without superuser rights, a strict Content Security Policy, write rate limits and a cap on products. The data resets every night, and a background process simulates sales so the dashboard never looks empty.",
+        sk: "Návštevníci sa prihlásia ako manažér a menia skutočné dáta, preto je demo zabezpečené, nie dôveryhodné: kontajner len na čítanie bez ďalších oprávnení, databázová rola bez práv superusera, prísna Content Security Policy, limity zápisov a strop na počet produktov. Dáta sa každú noc obnovia a proces na pozadí simuluje predaje, aby dashboard nikdy nepôsobil prázdne.",
+        de: "Besucher melden sich als Manager an und ändern echte Daten, daher ist die Demo abgesichert statt vertrauensvoll: ein schreibgeschützter Container ohne zusätzliche Rechte, eine Datenbankrolle ohne Superuser-Rechte, eine strenge Content Security Policy, Schreiblimits und eine Obergrenze für Produkte. Die Daten werden jede Nacht zurückgesetzt, und ein Hintergrundprozess simuliert Verkäufe, damit das Dashboard nie leer wirkt.",
+        cs: "Návštěvníci se přihlásí jako manažer a mění skutečná data, proto je demo zabezpečené, ne důvěřivé: kontejner jen pro čtení bez dalších oprávnění, databázová role bez práv superuživatele, přísná Content Security Policy, limity zápisů a strop na počet produktů. Data se každou noc obnoví a proces na pozadí simuluje prodeje, aby dashboard nikdy nepůsobil prázdně.",
+        hu: "A látogatók menedzserként lépnek be és valódi adatokat módosítanak, ezért a demó védett, nem pedig megbízó: csak olvasható konténer extra jogosultságok nélkül, superuser jogok nélküli adatbázis-szerepkör, szigorú Content Security Policy, írási korlátok és termékszám-plafon. Az adatok minden éjjel visszaállnak, egy háttérfolyamat pedig eladásokat szimulál, hogy az irányítópult sose tűnjön üresnek.",
+      },
+    },
+  ],
+  lessons: [
+    {
+      en: "When I started the rebuild, 26 of the existing tests were failing. I fixed that baseline before upgrading Phoenix, LiveView and Tailwind, and I now start every upgrade from a green test suite.",
+      sk: "Keď som začal s prestavbou, 26 existujúcich testov zlyhávalo. Tento základ som opravil skôr, než som aktualizoval Phoenix, LiveView a Tailwind, a dnes začínam každú aktualizáciu od zelenej sady testov.",
+      de: "Als ich mit dem Neubau begann, schlugen 26 der bestehenden Tests fehl. Ich habe diese Basis repariert, bevor ich Phoenix, LiveView und Tailwind aktualisiert habe, und beginne heute jedes Upgrade mit einer grünen Testsuite.",
+      cs: "Když jsem začal s přestavbou, 26 existujících testů selhávalo. Tento základ jsem opravil dřív, než jsem aktualizoval Phoenix, LiveView a Tailwind, a dnes začínám každou aktualizaci od zelené sady testů.",
+      hu: "Amikor az újraépítést elkezdtem, 26 meglévő teszt hibára futott. Ezt az alapot kijavítottam, mielőtt frissítettem a Phoenixet, a LiveView-t és a Tailwindet, és ma minden frissítést zöld tesztkészletről indítok.",
+    },
+    {
+      en: "A security review right before go-live found real gaps, such as a database user with superuser rights and an Erlang node listening beyond localhost. Security checks with Sobelow, Credo and dependency audits now run before every commit and in CI, so they happen from the start instead of at the end.",
+      sk: "Bezpečnostná revízia tesne pred spustením našla skutočné medzery, napríklad databázového používateľa s právami superusera a Erlang uzol počúvajúci mimo localhostu. Bezpečnostné kontroly cez Sobelow, Credo a audit závislostí dnes bežia pred každým commitom aj v CI, takže prebiehajú od začiatku, nie až na konci.",
+      de: "Ein Sicherheitsreview kurz vor dem Livegang fand echte Lücken, etwa einen Datenbanknutzer mit Superuser-Rechten und einen Erlang-Knoten, der über localhost hinaus erreichbar war. Sicherheitsprüfungen mit Sobelow, Credo und Abhängigkeits-Audits laufen jetzt vor jedem Commit und in der CI, also von Anfang an statt erst am Ende.",
+      cs: "Bezpečnostní revize těsně před spuštěním našla skutečné mezery, například databázového uživatele s právy superuživatele a Erlang uzel naslouchající mimo localhost. Bezpečnostní kontroly přes Sobelow, Credo a audit závislostí dnes běží před každým commitem i v CI, takže probíhají od začátku, ne až na konci.",
+      hu: "Egy biztonsági átnézés közvetlenül az élesítés előtt valódi hiányosságokat talált, például egy superuser jogú adatbázis-felhasználót és egy localhoston túl is elérhető Erlang-csomópontot. A Sobelow, a Credo és a függőségauditok ma minden commit előtt és a CI-ban is lefutnak, így a biztonsági ellenőrzés az elején történik, nem a végén.",
+    },
+  ],
   featured: true,
 };

@@ -399,4 +399,70 @@ export const oriel: Project = {
       },
     },
   ],
+  decisions: [
+    {
+      title: {
+        en: "PowerSync instead of my own sync",
+        sk: "PowerSync namiesto vlastnej synchronizácie",
+        de: "PowerSync statt eigener Synchronisierung",
+        cs: "PowerSync místo vlastní synchronizace",
+        hu: "PowerSync saját szinkronizálás helyett",
+      },
+      text: {
+        en: "Change tracking, ordering, retries and partial replication by hand would have been most of the project, and hosted realtime databases assume you are online. Self-hosted PowerSync gives each device a SQLite database that syncs in the background. It costs an extra service on the server, logical replication in PostgreSQL, and conflict handling on PowerSync's terms.",
+        sk: "Sledovanie zmien, poradie, opakovanie a čiastočnú replikáciu ručne by tvorili väčšinu projektu a hostované realtime databázy počítajú s pripojením. Self-hostovaný PowerSync dáva každému zariadeniu databázu SQLite, ktorá sa synchronizuje na pozadí. Stojí to ďalšiu službu na serveri, logickú replikáciu v PostgreSQL a riešenie konfliktov podľa pravidiel PowerSyncu.",
+        de: "Änderungsverfolgung, Reihenfolge, Wiederholungen und Teilreplikation von Hand wären der größte Teil des Projekts gewesen, und gehostete Echtzeit-Datenbanken setzen eine Verbindung voraus. Selbst gehostetes PowerSync gibt jedem Gerät eine SQLite-Datenbank, die im Hintergrund synchronisiert. Das kostet einen zusätzlichen Dienst auf dem Server, logische Replikation in PostgreSQL und Konfliktbehandlung nach den Regeln von PowerSync.",
+        cs: "Sledování změn, pořadí, opakování a částečná replikace ručně by tvořily většinu projektu a hostované realtime databáze počítají s připojením. Self-hostovaný PowerSync dává každému zařízení databázi SQLite, která se synchronizuje na pozadí. Stojí to další službu na serveru, logickou replikaci v PostgreSQL a řešení konfliktů podle pravidel PowerSyncu.",
+        hu: "A változáskövetés, a sorrend, az újrapróbálás és a részleges replikáció kézzel a projekt nagy részét tette volna ki, a hosztolt valós idejű adatbázisok pedig kapcsolatot feltételeznek. A saját szerveren futó PowerSync minden eszköznek egy SQLite-adatbázist ad, amely a háttérben szinkronizál. Az ára egy plusz szolgáltatás a szerveren, logikai replikáció a PostgreSQL-ben, és a PowerSync szabályai szerinti ütközéskezelés.",
+      },
+    },
+    {
+      title: {
+        en: "The server checks every change",
+        sk: "Server kontroluje každú zmenu",
+        de: "Der Server prüft jede Änderung",
+        cs: "Server kontroluje každou změnu",
+        hu: "A szerver minden változást ellenőriz",
+      },
+      text: {
+        en: "A device can be offline for days, so the server can't trust what it uploads. Each change runs in its own savepoint against the same Zod schemas the client uses, plus a membership check, and fields like who ticked an item are set by the server. A refused change is dropped and the device gets the server's version back. I kept these rules in TypeScript rather than PostgreSQL row-level security, so every rule needs its own test.",
+        sk: "Zariadenie môže byť offline aj niekoľko dní, takže server nemôže veriť tomu, čo nahrá. Každá zmena beží vo vlastnom savepointe proti tým istým Zod schémam ako klient, s kontrolou členstva, a polia ako to, kto položku odškrtol, nastavuje server. Odmietnutá zmena sa zahodí a zariadenie dostane späť verziu zo servera. Pravidlá som nechal v TypeScripte namiesto row-level security v PostgreSQL, takže každé potrebuje vlastný test.",
+        de: "Ein Gerät kann tagelang offline sein, deshalb kann der Server dem Hochgeladenen nicht vertrauen. Jede Änderung läuft in einem eigenen Savepoint gegen dieselben Zod-Schemas wie im Client, dazu eine Mitgliedschaftsprüfung, und Felder wie wer einen Eintrag abgehakt hat setzt der Server. Eine abgelehnte Änderung wird verworfen, und das Gerät erhält die Version des Servers zurück. Die Regeln liegen in TypeScript statt in PostgreSQL Row-Level Security, daher braucht jede ihren eigenen Test.",
+        cs: "Zařízení může být offline i několik dní, takže server nemůže věřit tomu, co nahraje. Každá změna běží ve vlastním savepointu proti stejným Zod schématům jako klient, s kontrolou členství, a pole jako to, kdo položku odškrtl, nastavuje server. Odmítnutá změna se zahodí a zařízení dostane zpět verzi ze serveru. Pravidla jsem nechal v TypeScriptu místo row-level security v PostgreSQL, takže každé potřebuje vlastní test.",
+        hu: "Egy eszköz napokig lehet offline, ezért a szerver nem bízhat abban, amit feltölt. Minden változás saját savepointban fut ugyanazokkal a Zod-sémákkal, mint a kliensen, tagsági ellenőrzéssel, az olyan mezőket pedig, mint hogy ki pipált ki egy tételt, a szerver állítja be. Az elutasított változás elvész, az eszköz pedig visszakapja a szerver változatát. A szabályokat TypeScriptben tartottam a PostgreSQL row-level security helyett, így mindegyikhez saját teszt kell.",
+      },
+    },
+    {
+      title: {
+        en: "Last write wins, per field",
+        sk: "Posledný zápis vyhráva, po poliach",
+        de: "Letzter Schreibvorgang gewinnt, pro Feld",
+        cs: "Poslední zápis vyhrává, po polích",
+        hu: "Az utolsó írás nyer, mezőnként",
+      },
+      text: {
+        en: "An edit uploads only the fields that changed, and every list entry is its own row, so two people ticking different items never collide. I chose this over CRDTs to keep the model simple. The known cost: when two people rewrite the same note at the same time, the later save wins.",
+        sk: "Úprava nahrá len polia, ktoré sa zmenili, a každá položka zoznamu je samostatný riadok, takže dvaja ľudia odškrtávajúci rôzne položky sa nikdy nezrazia. Uprednostnil som to pred CRDT, aby model zostal jednoduchý. Známa cena: keď dvaja ľudia naraz prepisujú tú istú poznámku, vyhrá neskoršie uloženie.",
+        de: "Eine Änderung lädt nur die geänderten Felder hoch, und jeder Listeneintrag ist eine eigene Zeile, sodass zwei Personen, die verschiedene Einträge abhaken, nie kollidieren. Ich habe das CRDTs vorgezogen, um das Modell einfach zu halten. Der bekannte Preis: Schreiben zwei Personen gleichzeitig dieselbe Notiz um, gewinnt das spätere Speichern.",
+        cs: "Úprava nahraje jen pole, která se změnila, a každá položka seznamu je samostatný řádek, takže dva lidé odškrtávající různé položky se nikdy nesrazí. Upřednostnil jsem to před CRDT, aby model zůstal jednoduchý. Známá cena: když dva lidé naráz přepisují stejnou poznámku, vyhraje pozdější uložení.",
+        hu: "Egy szerkesztés csak a megváltozott mezőket tölti fel, és minden listaelem külön sor, így két ember, aki különböző tételeket pipál ki, sosem ütközik. Ezt választottam a CRDT-k helyett, hogy a modell egyszerű maradjon. Az ismert ára: ha ketten egyszerre írják át ugyanazt a jegyzetet, a későbbi mentés nyer.",
+      },
+    },
+  ],
+  lessons: [
+    {
+      en: "A review found sync bugs I had not tested for: a move the server refused deleted the list's entries, and two owners demoting each other at once could leave a space with no owner. Each fix came with a test that fails without it, and I now write the multi-device cases before the feature, not after.",
+      sk: "Revízia našla chyby v synchronizácii, na ktoré som nemal testy: presun, ktorý server odmietol, vymazal položky zoznamu, a dvaja vlastníci, ktorí si naraz odobrali rolu, mohli nechať priestor bez vlastníka. Každá oprava prišla s testom, ktorý bez nej zlyhá, a scenáre s viacerými zariadeniami dnes píšem pred funkciou, nie po nej.",
+      de: "Ein Review fand Sync-Fehler, für die ich keine Tests hatte: Ein vom Server abgelehntes Verschieben löschte die Einträge der Liste, und zwei Eigentümer, die sich gleichzeitig herabstuften, konnten einen Bereich ohne Eigentümer hinterlassen. Jede Korrektur kam mit einem Test, der ohne sie fehlschlägt, und Fälle mit mehreren Geräten schreibe ich heute vor dem Feature, nicht danach.",
+      cs: "Revize našla chyby v synchronizaci, na které jsem neměl testy: přesun, který server odmítl, smazal položky seznamu, a dva vlastníci, kteří si naráz odebrali roli, mohli nechat prostor bez vlastníka. Každá oprava přišla s testem, který bez ní selže, a scénáře s více zařízeními dnes píšu před funkcí, ne po ní.",
+      hu: "Egy átnézés olyan szinkronizálási hibákat talált, amelyekre nem volt tesztem: egy a szerver által elutasított áthelyezés törölte a lista elemeit, és két tulajdonos, aki egyszerre fokozta le egymást, tulajdonos nélkül hagyhatott egy teret. Minden javítás egy olyan teszttel érkezett, amely nélküle elbukik, és a többeszközös eseteket ma már a funkció előtt írom meg, nem utána.",
+    },
+    {
+      en: "Adding request logging quietly replaced the framework's default cross-site check on server functions. I restored it and an end-to-end security test now guards it. Since then I read what a framework hook replaces before I override it.",
+      sk: "Pridanie logovania požiadaviek potichu nahradilo predvolenú kontrolu cross-site požiadaviek na serverových funkciách frameworku. Obnovil som ju a teraz ju stráži end-to-end bezpečnostný test. Odvtedy si pred prepísaním hooku frameworku najprv prečítam, čo nahrádza.",
+      de: "Das Hinzufügen von Request-Logging ersetzte stillschweigend die Standardprüfung des Frameworks gegen Cross-Site-Anfragen auf Serverfunktionen. Ich habe sie wiederhergestellt, und ein End-to-End-Sicherheitstest bewacht sie nun. Seitdem lese ich nach, was ein Framework-Hook ersetzt, bevor ich ihn überschreibe.",
+      cs: "Přidání logování požadavků potichu nahradilo výchozí kontrolu cross-site požadavků na serverových funkcích frameworku. Obnovil jsem ji a teď ji hlídá end-to-end bezpečnostní test. Od té doby si před přepsáním hooku frameworku nejdřív přečtu, co nahrazuje.",
+      hu: "A kérésnaplózás hozzáadása csendben lecserélte a keretrendszer alapértelmezett cross-site ellenőrzését a szerverfüggvényeken. Visszaállítottam, és most egy end-to-end biztonsági teszt őrzi. Azóta mielőtt felülírok egy keretrendszer-hookot, utánanézek, mit cserél le.",
+    },
+  ],
 };

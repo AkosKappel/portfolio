@@ -224,15 +224,15 @@ export const budgetMaster: Project = {
   liveUrl: "https://budgetmaster.akoskappel.dev",
   selfHosted: true,
   image: {
-    src: "/images/projects/budget-master-2026.webp",
+    src: "/images/projects/budget-master-cover-2026.webp",
     width: 1600,
     height: 1000,
     alt: {
-      en: "BudgetMaster home with what is left of the monthly budget and the spending pace",
-      sk: "Úvodná stránka BudgetMaster so zvyškom mesačného rozpočtu a tempom míňania",
-      de: "BudgetMaster-Startseite mit dem verbleibenden Monatsbudget und dem Ausgabentempo",
-      cs: "Úvodní stránka BudgetMaster se zbytkem měsíčního rozpočtu a tempem utrácení",
-      hu: "A BudgetMaster kezdőlapja a havi keret maradékával és a költés ütemével",
+      en: "BudgetMaster reports: monthly income and spending over the last year as a bar chart",
+      sk: "Reporty BudgetMaster: mesačné príjmy a výdavky za posledný rok v stĺpcovom grafe",
+      de: "BudgetMaster-Berichte: monatliche Einnahmen und Ausgaben des letzten Jahres als Balkendiagramm",
+      cs: "Přehledy BudgetMaster: měsíční příjmy a výdaje za poslední rok ve sloupcovém grafu",
+      hu: "BudgetMaster riportok: az elmúlt év havi bevételei és kiadásai oszlopdiagramon",
     },
   },
   gallery: [
@@ -389,4 +389,71 @@ export const budgetMaster: Project = {
       },
     },
   ],
+  decisions: [
+    {
+      title: {
+        en: "Shared spaces instead of shared wallets",
+        sk: "Zdieľané priestory namiesto zdieľaných peňaženiek",
+        de: "Geteilte Bereiche statt geteilter Konten",
+        cs: "Sdílené prostory místo sdílených peněženek",
+        hu: "Megosztott terek megosztott pénztárcák helyett",
+      },
+      text: {
+        en: "Sharing a single wallet would have shown a partner transactions from categories and budgets they don't own. So every finance row belongs to a space with owner, editor and viewer roles, and composite foreign keys make a reference across spaces impossible in the database itself. The cost is a membership check in every server function, so it lives in one server-only helper.",
+        sk: "Zdieľanie jednej peňaženky by partnerovi ukázalo transakcie z kategórií a rozpočtov, ktoré mu nepatria. Preto každý finančný záznam patrí do priestoru s rolami vlastník, editor a čitateľ a zložené cudzie kľúče znemožňujú odkaz naprieč priestormi priamo v databáze. Cenou je kontrola členstva v každej serverovej funkcii, preto je v jednom pomocníkovi, ktorý beží len na serveri.",
+        de: "Ein geteiltes Konto hätte dem Partner Buchungen aus Kategorien und Budgets gezeigt, die ihm nicht gehören. Deshalb gehört jede Finanzzeile zu einem Bereich mit den Rollen Eigentümer, Bearbeiter und Leser, und zusammengesetzte Fremdschlüssel verhindern Verweise zwischen Bereichen direkt in der Datenbank. Der Preis ist eine Mitgliedschaftsprüfung in jeder Serverfunktion, deshalb steckt sie in einem einzigen, nur serverseitigen Helfer.",
+        cs: "Sdílení jedné peněženky by partnerovi ukázalo transakce z kategorií a rozpočtů, které mu nepatří. Proto každý finanční záznam patří do prostoru s rolemi vlastník, editor a čtenář a složené cizí klíče znemožňují odkaz napříč prostory přímo v databázi. Cenou je kontrola členství v každé serverové funkci, proto je v jednom pomocníkovi, který běží jen na serveru.",
+        hu: "Egy megosztott pénztárca a partnernek olyan kategóriák és költségvetések tranzakcióit is megmutatta volna, amelyek nem az övéi. Ezért minden pénzügyi sor egy térhez tartozik tulajdonos, szerkesztő és olvasó szerepkörökkel, az összetett idegen kulcsok pedig már az adatbázisban kizárják a terek közötti hivatkozást. Az ára egy tagsági ellenőrzés minden szerverfüggvényben, ezért ez egyetlen, csak a szerveren futó segédfüggvényben van.",
+      },
+    },
+    {
+      title: {
+        en: "PostgreSQL, with money as whole numbers",
+        sk: "PostgreSQL a peniaze ako celé čísla",
+        de: "PostgreSQL, Geldbeträge als ganze Zahlen",
+        cs: "PostgreSQL a peníze jako celá čísla",
+        hu: "PostgreSQL, a pénz egész számként",
+      },
+      text: {
+        en: "The first version ran on MongoDB. For the rebuild I compared PostgreSQL with Drizzle, Prisma and SQLite, and chose PostgreSQL with Drizzle for typed queries, check constraints and SQL aggregates behind the reports. Amounts are stored as whole minor units with a currency code, never as floats, so totals add up to the cent.",
+        sk: "Prvá verzia bežala na MongoDB. Pri prestavbe som porovnal PostgreSQL s Drizzle, Prisma a SQLite a vybral PostgreSQL s Drizzle kvôli typovaným dotazom, kontrolným obmedzeniam a SQL agregáciám pre reporty. Sumy sa ukladajú ako celé čísla v najmenších jednotkách meny spolu s kódom meny, nikdy nie ako desatinné čísla, takže súčty sedia na cent.",
+        de: "Die erste Version lief auf MongoDB. Für den Neubau habe ich PostgreSQL mit Drizzle, Prisma und SQLite verglichen und mich für PostgreSQL mit Drizzle entschieden: typisierte Abfragen, Check-Constraints und SQL-Aggregate für die Berichte. Beträge werden als ganze Zahlen in der kleinsten Währungseinheit mit Währungscode gespeichert, nie als Gleitkommazahlen, damit Summen auf den Cent stimmen.",
+        cs: "První verze běžela na MongoDB. Při přestavbě jsem porovnal PostgreSQL s Drizzle, Prisma a SQLite a vybral PostgreSQL s Drizzle kvůli typovaným dotazům, kontrolním omezením a SQL agregacím pro přehledy. Částky se ukládají jako celá čísla v nejmenších jednotkách měny spolu s kódem měny, nikdy jako desetinná čísla, takže součty sedí na halíř.",
+        hu: "Az első verzió MongoDB-n futott. Az újraíráshoz összevetettem a PostgreSQL-t Drizzle-lel, a Prismát és az SQLite-ot, és a PostgreSQL-t választottam Drizzle-lel a típusos lekérdezések, az ellenőrző megkötések és a riportok mögötti SQL-aggregációk miatt. Az összegek a pénznem legkisebb egységében, egész számként és pénznemkóddal tárolódnak, soha nem lebegőpontosan, így a végösszegek centre pontosak.",
+      },
+    },
+    {
+      title: {
+        en: "One process, no job queue",
+        sk: "Jeden proces, žiadna fronta úloh",
+        de: "Ein Prozess, keine Job-Queue",
+        cs: "Jeden proces, žádná fronta úloh",
+        hu: "Egy folyamat, feladatsor nélkül",
+      },
+      text: {
+        en: "Live updates are Server-Sent Events from an in-process event bus, and recurring payments are created when they are read, with a row lock so two requests can't book the same payment twice. That kept Redis, a job queue and a scheduler out of a small app. The trade-off is that it works with one app instance only; a second one would need PostgreSQL LISTEN/NOTIFY or Redis.",
+        sk: "Živé zmeny idú cez Server-Sent Events zo zbernice udalostí v rámci procesu a opakované platby vznikajú pri čítaní, so zámkom riadku, aby dve požiadavky nezaúčtovali tú istú platbu dvakrát. Vďaka tomu malá aplikácia nepotrebuje Redis, frontu úloh ani plánovač. Kompromisom je, že funguje len s jednou inštanciou; druhá by potrebovala PostgreSQL LISTEN/NOTIFY alebo Redis.",
+        de: "Live-Änderungen laufen als Server-Sent Events über einen Event-Bus im Prozess, und wiederkehrende Zahlungen entstehen beim Lesen, mit einer Zeilensperre, damit zwei Anfragen dieselbe Zahlung nicht doppelt buchen. So kommt eine kleine App ohne Redis, Job-Queue und Scheduler aus. Der Kompromiss: Das funktioniert nur mit einer App-Instanz; eine zweite bräuchte PostgreSQL LISTEN/NOTIFY oder Redis.",
+        cs: "Živé změny jdou přes Server-Sent Events ze sběrnice událostí v rámci procesu a opakované platby vznikají při čtení, se zámkem řádku, aby dva požadavky nezaúčtovaly stejnou platbu dvakrát. Díky tomu malá aplikace nepotřebuje Redis, frontu úloh ani plánovač. Kompromisem je, že funguje jen s jednou instancí; druhá by potřebovala PostgreSQL LISTEN/NOTIFY nebo Redis.",
+        hu: "Az élő változások Server-Sent Events formájában egy folyamaton belüli eseménybuszról érkeznek, az ismétlődő fizetések pedig olvasáskor jönnek létre, sorzárral, hogy két kérés ne könyvelhesse kétszer ugyanazt. Így egy kis alkalmazásnak nem kell Redis, feladatsor és ütemező. A kompromisszum, hogy ez csak egy példánnyal működik; egy másodikhoz PostgreSQL LISTEN/NOTIFY vagy Redis kellene.",
+      },
+    },
+  ],
+  lessons: [
+    {
+      en: "I designed the first schema around a single user and rewrote the migration when shared spaces arrived. Now I settle who owns the data before the first migration.",
+      sk: "Prvú schému som navrhol pre jedného používateľa a migráciu som prepísal, keď prišli zdieľané priestory. Dnes si ujasním, komu dáta patria, ešte pred prvou migráciou.",
+      de: "Das erste Schema war auf einen einzelnen Nutzer ausgelegt, und als geteilte Bereiche dazukamen, habe ich die Migration neu geschrieben. Heute kläre ich vor der ersten Migration, wem die Daten gehören.",
+      cs: "První schéma jsem navrhl pro jednoho uživatele a migraci jsem přepsal, když přišly sdílené prostory. Dnes si ujasním, komu data patří, ještě před první migrací.",
+      hu: "Az első sémát egyetlen felhasználóra terveztem, és a migrációt újraírtam, amikor jöttek a megosztott terek. Ma már az első migráció előtt tisztázom, kié az adat.",
+    },
+    {
+      en: "The live stream reads a user's spaces when it opens, so a space joined later only updates live after a reload. A review caught it; next time I would scope the stream per space from the start.",
+      sk: "Živý stream načíta priestory používateľa pri otvorení, takže priestor, do ktorého sa pridá neskôr, sa živo aktualizuje až po obnovení stránky. Odhalila to revízia; nabudúce by som stream od začiatku viazal na priestor.",
+      de: "Der Live-Stream liest die Bereiche eines Nutzers beim Öffnen, ein später beigetretener Bereich aktualisiert sich also erst nach einem Neuladen live. Ein Review hat das gefunden; beim nächsten Mal würde ich den Stream von Anfang an pro Bereich aufsetzen.",
+      cs: "Živý stream načte prostory uživatele při otevření, takže prostor, do kterého se přidá později, se živě aktualizuje až po obnovení stránky. Odhalila to revize; příště bych stream od začátku vázal na prostor.",
+      hu: "Az élő adatfolyam megnyitáskor olvassa be a felhasználó tereit, így egy később csatlakozott tér csak újratöltés után frissül élőben. Egy átnézés során derült ki; legközelebb az adatfolyamot eleve terenként építeném fel.",
+    },
+  ],
+  featured: true,
 };

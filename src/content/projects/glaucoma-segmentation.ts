@@ -268,5 +268,4 @@ export const glaucomaSegmentation: Project = {
       },
     },
   ],
-  featured: true,
 };
