@@ -97,7 +97,7 @@ test("area filter and table view sort projects", async ({ page }) => {
 
 test("projects appear under every area they belong to", async ({ page }) => {
   await page.goto("/projects?area=games&view=table");
-  await expect(page.getByRole("rowheader")).toContainText(["Iridescent", "SketchBook"]);
+  await expect(page.getByRole("rowheader")).toContainText(["SketchBook", "Iridescent"]);
 });
 
 test("skills link to the projects that use them", async ({ page }) => {
@@ -112,9 +112,9 @@ test("skills link to the projects that use them", async ({ page }) => {
 
 test("project cards open their case study", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: "Glaucoma Segmentation" }).first().click();
-  await expect(page).toHaveURL(/\/projects\/glaucoma-segmentation$/);
-  await expect(page.getByText("96.8 %").first()).toBeVisible();
+  await page.getByRole("link", { name: "BudgetMaster" }).first().click();
+  await expect(page).toHaveURL(/\/projects\/budget-master$/);
+  await expect(page.getByRole("heading", { name: "Key decisions" })).toBeVisible();
 });
 
 test("only home-server demos warn that they may be offline", async ({ page }) => {
