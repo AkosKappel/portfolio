@@ -5,7 +5,6 @@ import { type ReactNode, ViewTransition } from "react";
 import { type ProjectSummary, pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import { yearRange } from "@/lib/format";
-import { DemoStatusBadge } from "./demo-status";
 import { ProjectPlaceholder } from "./project-placeholder";
 
 export function projectYears(project: ProjectSummary) {
@@ -50,7 +49,6 @@ export function ProjectMedia({
         ) : (
           <ProjectPlaceholder title={project.title} />
         )}
-        {project.selfHosted ? <DemoStatusBadge slug={project.slug} /> : null}
       </div>
     </ViewTransition>
   );

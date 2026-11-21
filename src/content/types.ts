@@ -69,16 +69,7 @@ export type Project = {
 /** The fields cards and the archive need; keeps the client payload small. */
 export type ProjectSummary = Pick<
   Project,
-  | "slug"
-  | "title"
-  | "summary"
-  | "kind"
-  | "areas"
-  | "year"
-  | "until"
-  | "stack"
-  | "image"
-  | "selfHosted"
+  "slug" | "title" | "summary" | "kind" | "areas" | "year" | "until" | "stack" | "image"
 >;
 
 export function toSummary({
@@ -91,9 +82,8 @@ export function toSummary({
   until,
   stack,
   image,
-  selfHosted,
 }: Project): ProjectSummary {
-  return { slug, title, summary, kind, areas, year, until, stack, image, selfHosted };
+  return { slug, title, summary, kind, areas, year, until, stack, image };
 }
 
 export type WorkItem = {

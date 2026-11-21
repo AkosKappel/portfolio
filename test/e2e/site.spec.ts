@@ -127,14 +127,16 @@ test("only home-server demos warn that they may be offline", async ({ page }) =>
   await expect(note).toHaveCount(0);
 });
 
-test("home-server demos show the result of the status check", async ({ page }) => {
+test("deployed demos show the result of the status check on their page", async ({ page }) => {
   await page.route("**/api/demo-status", (route) =>
-    route.fulfill({ json: { demos: { "budget-master": "down", oriel: "up" } } }),
+    route.fulfill({ json: { demos: { "budget-master": "down", pokedex: "up" } } }),
   );
   await page.goto("/projects/budget-master");
   await expect(page.getByText("Demo offline")).toBeVisible();
-  await page.goto("/projects/oriel");
+  await page.goto("/projects/pokedex");
   await expect(page.getByText("Demo online")).toBeVisible();
+  await page.goto("/projects");
+  await expect(page.getByText(/^Demo (online|offline)$/)).toHaveCount(0);
 });
 
 test("the terminal answers commands and opens pages", async ({ page }) => {

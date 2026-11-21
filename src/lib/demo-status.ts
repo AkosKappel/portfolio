@@ -20,10 +20,10 @@ export async function checkDemo(url: string, fetcher: typeof fetch = fetch): Pro
   }
 }
 
-/** Status of every demo that runs on the home server, keyed by project slug. */
+/** Status of every deployed demo (home server, Vercel, GitHub Pages), keyed by project slug. */
 export async function checkDemos(fetcher: typeof fetch = fetch) {
   const demos = projects.flatMap((project) =>
-    project.selfHosted && project.liveUrl ? [{ slug: project.slug, url: project.liveUrl }] : [],
+    project.liveUrl ? [{ slug: project.slug, url: project.liveUrl }] : [],
   );
   const results = await Promise.all(
     demos.map(async ({ slug, url }) => [slug, await checkDemo(url, fetcher)] as const),

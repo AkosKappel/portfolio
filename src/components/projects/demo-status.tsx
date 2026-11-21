@@ -2,23 +2,23 @@
 
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import type { DemoStatus } from "@/lib/demo-status";
+import type { DemoStatus as Status } from "@/lib/demo-status";
 
-// One request per page load, shared by every card on the page.
-let request: Promise<Record<string, DemoStatus>> | undefined;
+// One request per page load, cached by the CDN for five minutes.
+let request: Promise<Record<string, Status>> | undefined;
 
 function loadStatus() {
   request ??= fetch("/api/demo-status")
     .then((response) => (response.ok ? response.json() : { demos: {} }))
-    .then((body: { demos: Record<string, DemoStatus> }) => body.demos)
+    .then((body: { demos: Record<string, Status> }) => body.demos)
     .catch(() => ({}));
   return request;
 }
 
-/** "Demo online" or "Demo offline" over the screenshot; nothing until the check answers. */
-export function DemoStatusBadge({ slug }: { slug: string }) {
+/** "Demo online" or "Demo offline" under the project's links; nothing until the check answers. */
+export function DemoStatus({ slug }: { slug: string }) {
   const t = useTranslations("common");
-  const [status, setStatus] = useState<DemoStatus>();
+  const [status, setStatus] = useState<Status>();
 
   useEffect(() => {
     let active = true;
@@ -32,12 +32,12 @@ export function DemoStatusBadge({ slug }: { slug: string }) {
 
   if (!status) return null;
   return (
-    <span className="absolute top-2.5 right-2.5 inline-flex items-center gap-1.5 rounded-full border border-line bg-surface/90 px-2.5 py-0.5 text-xs font-medium text-ink shadow-sm backdrop-blur-sm">
+    <p className="flex w-full items-center gap-2 text-sm text-muted lg:justify-end">
       <span
         aria-hidden
         className={`size-2 rounded-full ${status === "up" ? "bg-emerald-500" : "bg-rose-500"}`}
       />
       {t(status === "up" ? "demoOnline" : "demoOffline")}
-    </span>
+    </p>
   );
 }

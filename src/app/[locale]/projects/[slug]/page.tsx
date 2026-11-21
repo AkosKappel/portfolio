@@ -18,6 +18,7 @@ import {
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { DemoStatus } from "@/components/projects/demo-status";
 import { Gallery } from "@/components/projects/gallery";
 import { ProjectMedia, projectYears } from "@/components/projects/project-card";
 import { AnchorHeading } from "@/components/ui/anchor-heading";
@@ -138,6 +139,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
                 {tCommon("officialWebsite")}
               </a>
             ) : null}
+            {project.liveUrl ? <DemoStatus slug={project.slug} /> : null}
             {project.selfHosted ? (
               <p className="flex w-full items-start gap-1.5 text-sm text-muted lg:justify-end">
                 <Info aria-hidden size={16} className="mt-0.5 shrink-0" />

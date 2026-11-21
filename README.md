@@ -23,7 +23,7 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 - Projects archive with fuzzy search, filters, sorting, grid and table views, all kept in the URL
 - Command palette (Ctrl+K or ⌘K, or the search button) to jump to any page, project or section, switch theme or language and copy the e-mail; it loads on first use
 - A `/terminal` page that browses the same content from a command line (`help`, `whoami`, `ls projects`, `open <name>`), with Tab completion and history
-- Live status of the demos that run on the home server, checked by a cached route handler at most every five minutes and shown on their cards
+- Live status of every deployed demo (home server, Vercel, GitHub Pages) on its project page, checked by a route handler whose answer the CDN caches for five minutes
 - Light and dark mode with five themes each, without a flash, view transitions between pages and from a project card into its case study, scroll-driven reveals in CSS
 - A WebGL2 particle background that reacts to the pointer, and a colophon page on how the site is built, with an accessibility statement
 - An activity page with one contribution calendar across personal and work GitHub and GitLab activity, with filters, streaks, breakdowns by type and source, commit times and languages per year, refreshed weekly by a workflow

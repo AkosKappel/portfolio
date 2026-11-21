@@ -22,10 +22,10 @@ describe("checkDemo", () => {
 });
 
 describe("checkDemos", () => {
-  it("checks exactly the self-hosted demos", async () => {
+  it("checks every project with a live demo", async () => {
     const status = await checkDemos(answer(200));
-    const selfHosted = projects.filter((project) => project.selfHosted).map((p) => p.slug);
-    expect(Object.keys(status).sort()).toEqual(selfHosted.sort());
+    const deployed = projects.filter((project) => project.liveUrl).map((p) => p.slug);
+    expect(Object.keys(status).sort()).toEqual(deployed.sort());
     expect(Object.values(status)).not.toContain("down");
   });
 });
