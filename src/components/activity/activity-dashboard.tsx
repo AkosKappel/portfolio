@@ -2,7 +2,7 @@
 
 import { Check } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import {
   type ActivityData,
@@ -480,9 +480,12 @@ function CommitPattern({
               <span
                 // biome-ignore lint/suspicious/noArrayIndexKey: the grid is a fixed 7 by 24
                 key={`${weekday}-${hour}`}
-                title={t("pattern.cell", { weekday: formatWeekday(weekday, "long"), hour, count })}
-                className={`h-4 rounded-[3px] sm:h-5 ${shades[level(count, thresholds)]}`}
-              />
+                className={`group/tip relative h-4 rounded-[3px] hover:ring-2 hover:ring-ink/50 sm:h-5 ${shades[level(count, thresholds)]}`}
+              >
+                <HoverTip align={hour < 4 ? "start" : hour > 19 ? "end" : "center"}>
+                  {t("pattern.cell", { weekday: formatWeekday(weekday, "long"), hour, count })}
+                </HoverTip>
+              </span>
             )),
           ])}
           <span />
@@ -499,6 +502,31 @@ function CommitPattern({
         <p className="mt-4 text-xs text-muted">{t("pattern.note")}</p>
       </div>
     </section>
+  );
+}
+
+/**
+ * Shown on hover of its `group/tip` parent, at once, unlike the browser's delayed title.
+ * Visual only: the parents are hidden from screen readers, which get the same facts as text.
+ */
+function HoverTip({
+  align = "center",
+  children,
+}: {
+  align?: "start" | "center" | "end";
+  children: ReactNode;
+}) {
+  const position = {
+    start: "left-0",
+    center: "left-1/2 -translate-x-1/2",
+    end: "right-0",
+  }[align];
+  return (
+    <span
+      className={`pointer-events-none absolute bottom-full z-10 mb-2 hidden rounded-md border border-line bg-surface px-2.5 py-1.5 text-xs font-normal whitespace-nowrap text-ink shadow-md group-hover/tip:block ${position}`}
+    >
+      {children}
+    </span>
   );
 }
 
@@ -577,20 +605,20 @@ function LanguagesOverTime({
                     segment.share >= 0.005 ? (
                       <span
                         key={segment.name}
-                        className="group/segment relative min-w-1 rounded-[4px] transition-[filter] hover:brightness-110"
+                        className="group/tip relative min-w-1 rounded-[4px] transition-[filter] hover:brightness-110"
                         // Grow factors summing below 1 would leave part of the row empty, so scale them up.
                         style={{
                           flex: `${segment.share * 100} 1 0`,
                           backgroundColor: segment.color,
                         }}
                       >
-                        <span className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 hidden -translate-x-1/2 rounded-md border border-line bg-surface px-2.5 py-1.5 text-xs font-normal whitespace-nowrap text-ink shadow-md group-hover/segment:block">
+                        <HoverTip>
                           <span className="font-semibold">{segment.name}</span>{" "}
                           {percent(segment.share)}
                           {segment.detail ? (
                             <span className="block text-muted">{segment.detail}</span>
                           ) : null}
-                        </span>
+                        </HoverTip>
                       </span>
                     ) : null,
                   )}
