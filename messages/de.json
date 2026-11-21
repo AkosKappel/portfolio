@@ -24,6 +24,8 @@
     "pdf": "PDF",
     "sourceCode": "Quellcode",
     "liveDemo": "Live-Demo",
+    "demoOnline": "Demo online",
+    "demoOffline": "Demo offline",
     "selfHostedNote": "Läuft auf meinem Heimserver und kann daher ab und zu offline sein (zum Beispiel bei einem Strom- oder Internetausfall).",
     "thesisRecord": "Die ganze Abschlussarbeit lesen",
     "officialWebsite": "Offizielle Website",

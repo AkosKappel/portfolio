@@ -24,6 +24,8 @@
     "pdf": "PDF",
     "sourceCode": "Forráskód",
     "liveDemo": "Élő demó",
+    "demoOnline": "A demó elérhető",
+    "demoOffline": "A demó nem elérhető",
     "selfHostedNote": "Az otthoni szerveremen fut, ezért időnként elérhetetlen lehet (például áram- vagy internetkimaradás idején).",
     "thesisRecord": "A teljes szakdolgozat elolvasása",
     "officialWebsite": "Hivatalos weboldal",

@@ -126,6 +126,16 @@ test("only home-server demos warn that they may be offline", async ({ page }) =>
   await expect(note).toHaveCount(0);
 });
 
+test("home-server demos show the result of the status check", async ({ page }) => {
+  await page.route("**/api/demo-status", (route) =>
+    route.fulfill({ json: { demos: { "budget-master": "down", oriel: "up" } } }),
+  );
+  await page.goto("/projects/budget-master");
+  await expect(page.getByText("Demo offline")).toBeVisible();
+  await page.goto("/projects/oriel");
+  await expect(page.getByText("Demo online")).toBeVisible();
+});
+
 test("activity filters by type and year without widening the page", async ({ page }) => {
   await page.goto("/activity");
   const total = page.locator("#calendar-heading");

@@ -24,6 +24,8 @@
     "pdf": "PDF",
     "sourceCode": "Zdrojový kód",
     "liveDemo": "Živé demo",
+    "demoOnline": "Demo běží",
+    "demoOffline": "Demo je nedostupné",
     "selfHostedNote": "Běží na mém domácím serveru, takže může být občas nedostupné (například při výpadku proudu nebo internetu).",
     "thesisRecord": "Přečíst celou práci",
     "officialWebsite": "Oficiální web",
