@@ -13,7 +13,8 @@ export function TechLogo({ name, className = "size-3.5" }: { name: string; class
     <svg
       viewBox="0 0 24 24"
       className={`shrink-0 ${className}`}
-      fill={icon.color ?? "currentColor"}
+      // A style, not the fill attribute: the colour can be a light-dark() pair.
+      style={{ fill: icon.color ?? "currentColor" }}
       aria-hidden
     >
       <use href={`/tech-icons.svg#${icon.id}`} />
