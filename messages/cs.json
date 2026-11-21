@@ -10,7 +10,8 @@
     "contact": "Kontakt",
     "cv": "Životopis",
     "main": "Hlavní",
-    "colophon": "O tomto webu"
+    "colophon": "O tomto webu",
+    "terminal": "Terminál"
   },
   "common": {
     "skipToContent": "Přejít na obsah",
@@ -406,5 +407,29 @@
         ]
       }
     ]
+  },
+  "terminal": {
+    "title": "Terminál",
+    "description": "Prohlédněte si portfolio z příkazové řádky: projekty, dovednosti, praxi a kontakty.",
+    "lead": "Stejný web jako příkazová řádka. Tab doplňuje příkazy, šipky vrátí předchozí.",
+    "inputLabel": "Příkaz",
+    "welcome": "Vítejte! Tohle je malá příkazová řádka nad portfoliem. Rozumí těmto příkazům:",
+    "notFound": "příkaz neexistuje: {command}. Napište help pro seznam příkazů.",
+    "unknownTarget": "Nic s názvem {name} tu není. Zkuste ls projects nebo help.",
+    "usageLs": "použití: ls projects | skills | jobs",
+    "usageCat": "použití: cat about",
+    "usageOpen": "použití: open <projekt nebo stránka>, například open skysense nebo open cv",
+    "opening": "Otevírám {name}…",
+    "help": {
+      "whoami": "kdo jsem a o jakou práci mám zájem",
+      "lsProjects": "všechny projekty, nejnovější a nejlepší první",
+      "lsSkills": "jazyky, frameworky a nástroje",
+      "lsJobs": "kde jsem pracoval",
+      "catAbout": "krátké představení",
+      "open": "přejít na projekt nebo stránku",
+      "contact": "e-mail a profily",
+      "clear": "vyčistit obrazovku",
+      "exit": "zpět na úvodní stránku"
+    }
   }
 }

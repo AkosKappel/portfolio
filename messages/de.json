@@ -10,7 +10,8 @@
     "contact": "Kontakt",
     "cv": "Lebenslauf",
     "main": "Hauptmenü",
-    "colophon": "Über diese Seite"
+    "colophon": "Über diese Seite",
+    "terminal": "Terminal"
   },
   "common": {
     "skipToContent": "Zum Inhalt springen",
@@ -406,5 +407,29 @@
         ]
       }
     ]
+  },
+  "terminal": {
+    "title": "Terminal",
+    "description": "Dieses Portfolio per Kommandozeile erkunden: Projekte, Skills, Berufserfahrung und Kontakte.",
+    "lead": "Dieselbe Seite als Kommandozeile. Tab vervollständigt Befehle, die Pfeiltasten holen frühere zurück.",
+    "inputLabel": "Befehl",
+    "welcome": "Willkommen! Das ist eine kleine Kommandozeile über dem Portfolio. Sie versteht diese Befehle:",
+    "notFound": "Befehl nicht gefunden: {command}. Mit help siehst du alle Befehle.",
+    "unknownTarget": "Nichts mit dem Namen {name}. Versuch ls projects oder help.",
+    "usageLs": "Verwendung: ls projects | skills | jobs",
+    "usageCat": "Verwendung: cat about",
+    "usageOpen": "Verwendung: open <Projekt oder Seite>, zum Beispiel open skysense oder open cv",
+    "opening": "Öffne {name}…",
+    "help": {
+      "whoami": "wer ich bin und wofür ich offen bin",
+      "lsProjects": "alle Projekte, die neuesten und besten zuerst",
+      "lsSkills": "Sprachen, Frameworks und Tools",
+      "lsJobs": "wo ich gearbeitet habe",
+      "catAbout": "eine kurze Vorstellung",
+      "open": "zu einem Projekt oder einer Seite wechseln",
+      "contact": "E-Mail und Profile",
+      "clear": "den Bildschirm leeren",
+      "exit": "zurück zur Startseite"
+    }
   }
 }

@@ -10,7 +10,8 @@
     "contact": "Kapcsolat",
     "cv": "Önéletrajz",
     "main": "Főmenü",
-    "colophon": "Az oldalról"
+    "colophon": "Az oldalról",
+    "terminal": "Terminál"
   },
   "common": {
     "skipToContent": "Ugrás a tartalomra",
@@ -406,5 +407,29 @@
         ]
       }
     ]
+  },
+  "terminal": {
+    "title": "Terminál",
+    "description": "Böngészd a portfóliót parancssorból: projektek, készségek, munkahelyek és elérhetőségek.",
+    "lead": "Ugyanez az oldal parancssorként. A Tab kiegészíti a parancsot, a nyilak visszahozzák a korábbiakat.",
+    "inputLabel": "Parancs",
+    "welcome": "Üdv! Ez egy kis parancssor a portfólió fölött. Ezeket a parancsokat érti:",
+    "notFound": "nincs ilyen parancs: {command}. A help kiírja a parancsokat.",
+    "unknownTarget": "Nincs {name} nevű elem. Próbáld az ls projects vagy a help parancsot.",
+    "usageLs": "használat: ls projects | skills | jobs",
+    "usageCat": "használat: cat about",
+    "usageOpen": "használat: open <projekt vagy oldal>, például open skysense vagy open cv",
+    "opening": "{name} megnyitása…",
+    "help": {
+      "whoami": "ki vagyok és milyen munkára vagyok nyitott",
+      "lsProjects": "az összes projekt, elöl a legújabbak és legjobbak",
+      "lsSkills": "nyelvek, keretrendszerek és eszközök",
+      "lsJobs": "hol dolgoztam",
+      "catAbout": "rövid bemutatkozás",
+      "open": "ugrás egy projektre vagy oldalra",
+      "contact": "e-mail és profilok",
+      "clear": "képernyő törlése",
+      "exit": "vissza a kezdőlapra"
+    }
   }
 }

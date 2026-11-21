@@ -282,4 +282,5 @@ export const navigation = [
 export const secondaryNavigation = [
   { href: "/cv", key: "cv" },
   { href: "/colophon", key: "colophon" },
+  { href: "/terminal", key: "terminal" },
 ] as const;

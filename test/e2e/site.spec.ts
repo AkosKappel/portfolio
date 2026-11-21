@@ -14,6 +14,7 @@ const pages = [
   { path: "/cv", heading: "Ákos Kappel" },
   { path: "/cv/pdf", heading: "Curriculum vitae" },
   { path: "/colophon", heading: "How this site is built" },
+  { path: "/terminal", heading: "Terminal" },
   { path: "/sk", heading: "Ákos Kappel" },
   { path: "/sk/projects", heading: "Projekty" },
   { path: "/sk/experience", heading: "Skúsenosti" },
@@ -134,6 +135,19 @@ test("home-server demos show the result of the status check", async ({ page }) =
   await expect(page.getByText("Demo offline")).toBeVisible();
   await page.goto("/projects/oriel");
   await expect(page.getByText("Demo online")).toBeVisible();
+});
+
+test("the terminal answers commands and opens pages", async ({ page }) => {
+  await page.goto("/terminal");
+  const input = page.getByRole("textbox", { name: "Command" });
+  await input.fill("ls proj");
+  await input.press("Tab");
+  await expect(input).toHaveValue("ls projects");
+  await input.press("Enter");
+  await expect(page.getByRole("log").getByRole("link", { name: "skysense" })).toBeVisible();
+  await input.fill("open budget-master");
+  await input.press("Enter");
+  await expect(page).toHaveURL(/\/projects\/budget-master$/);
 });
 
 test("activity filters by type and year without widening the page", async ({ page }) => {

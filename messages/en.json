@@ -10,7 +10,8 @@
     "contact": "Contact",
     "cv": "CV",
     "main": "Main",
-    "colophon": "About this site"
+    "colophon": "About this site",
+    "terminal": "Terminal"
   },
   "common": {
     "skipToContent": "Skip to content",
@@ -406,5 +407,29 @@
         ]
       }
     ]
+  },
+  "terminal": {
+    "title": "Terminal",
+    "description": "Browse this portfolio from a command line: projects, skills, jobs and contacts.",
+    "lead": "The same site as a command line. Tab completes a command, the arrow keys bring back earlier ones.",
+    "inputLabel": "Command",
+    "welcome": "Welcome! This is a small command line over the portfolio. Here is what it understands:",
+    "notFound": "command not found: {command}. Type help to see the commands.",
+    "unknownTarget": "Nothing called {name}. Try ls projects or help.",
+    "usageLs": "usage: ls projects | skills | jobs",
+    "usageCat": "usage: cat about",
+    "usageOpen": "usage: open <project or page>, for example open skysense or open cv",
+    "opening": "Opening {name}…",
+    "help": {
+      "whoami": "who I am and what I am open to",
+      "lsProjects": "all projects, newest and most polished first",
+      "lsSkills": "languages, frameworks and tools",
+      "lsJobs": "where I have worked",
+      "catAbout": "a short introduction",
+      "open": "go to a project or page",
+      "contact": "email and profiles",
+      "clear": "clear the screen",
+      "exit": "back to the home page"
+    }
   }
 }
