@@ -31,14 +31,7 @@ function dateFormat(locale: string, options: Intl.DateTimeFormatOptions) {
   return format;
 }
 
-export function ActivityDashboard({
-  data,
-  languageColors,
-}: {
-  data: ActivityData;
-  /** Brand colour per language name, where the site has its logo. */
-  languageColors: Record<string, string>;
-}) {
+export function ActivityDashboard({ data }: { data: ActivityData }) {
   const t = useTranslations("activity");
   const locale = useLocale();
   const [year, setYear] = useState<number | null>(null);
@@ -399,7 +392,6 @@ export function ActivityDashboard({
 
       <LanguagesOverTime
         {...languageYears(data, sourceIds)}
-        colors={languageColors}
         highlight={year ? String(year) : null}
       />
 
@@ -510,22 +502,45 @@ function CommitPattern({
   );
 }
 
+type LanguageRow = ReturnType<typeof languageYears>["rows"][number];
+
+const seriesColor = (index: number) => `var(--series-${index + 1})`;
+const percent = (share: number) => `${Math.round(share * 100)} %`;
+
 function LanguagesOverTime({
   languages,
   rows,
-  colors,
   highlight,
 }: {
   languages: string[];
-  rows: { year: string; commits: number; shares: number[] }[];
-  colors: Record<string, string>;
+  rows: LanguageRow[];
   highlight: string | null;
 }) {
   const t = useTranslations("activity");
-  const names = [...languages, t("languages.other")];
-  const color = (index: number) =>
-    index < languages.length ? (colors[languages[index]] ?? "var(--muted)") : "var(--line)";
-  const percent = (share: number) => `${Math.round(share * 100)} %`;
+  const otherName = t("languages.other");
+  const otherShare = (row: LanguageRow) => row.other.reduce((sum, item) => sum + item.share, 0);
+  const shown = languages.flatMap((name, index) =>
+    rows.some((row) => row.shares[index] > 0) ? [{ name, color: seriesColor(index), index }] : [],
+  );
+  const hasOther = rows.some((row) => otherShare(row) >= 0.005);
+  const segments = (row: LanguageRow) => [
+    ...shown.map(({ name, color, index }) => ({
+      name,
+      color,
+      share: row.shares[index],
+      detail: "",
+    })),
+    {
+      name: otherName,
+      color: "var(--series-other)",
+      share: otherShare(row),
+      detail: row.other
+        .filter((item) => item.share >= 0.005)
+        .slice(0, 4)
+        .map((item) => `${item.language} ${percent(item.share)}`)
+        .join(", "),
+    },
+  ];
 
   return (
     <section aria-labelledby="languages-over-time">
@@ -535,42 +550,55 @@ function LanguagesOverTime({
       <p className="mt-2 text-muted">{t("languages.lead")}</p>
       {rows.length ? (
         <div className="mt-4 rounded-2xl border border-line bg-surface p-4 sm:p-6">
-          <ul aria-label={t("languages.legend")} className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
-            {names.map((name, index) => (
-              <li key={name} className="inline-flex items-center gap-1.5">
+          <ul aria-label={t("languages.legend")} className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            {[
+              ...shown,
+              ...(hasOther ? [{ name: otherName, color: "var(--series-other)" }] : []),
+            ].map(({ name, color }) => (
+              <li key={name} className="inline-flex items-center gap-2">
                 <span
                   aria-hidden
                   className="size-3 rounded-[3px]"
-                  style={{ backgroundColor: color(index) }}
+                  style={{ backgroundColor: color }}
                 />
                 {name}
               </li>
             ))}
           </ul>
-          <ul className="mt-5 grid gap-3">
+          <ul className="mt-6 grid gap-3.5">
             {rows.map((row) => (
               <li
                 key={row.year}
-                className={`grid grid-cols-[3rem_1fr] items-center gap-3 text-sm sm:grid-cols-[3rem_1fr_6rem] ${row.year === highlight ? "font-semibold" : ""}`}
+                className={`grid grid-cols-[3rem_1fr] items-center gap-3 text-sm sm:grid-cols-[3rem_1fr_7rem] ${row.year === highlight ? "font-semibold" : ""}`}
               >
                 <span className="tabular-nums">{row.year}</span>
-                <div aria-hidden className="flex h-3 gap-px overflow-hidden rounded-full">
-                  {row.shares.map((share, index) =>
-                    share > 0 ? (
+                <div aria-hidden className="flex h-6 gap-0.5">
+                  {segments(row).map((segment) =>
+                    segment.share >= 0.005 ? (
                       <span
-                        key={names[index]}
-                        title={`${names[index]} ${percent(share)}`}
-                        style={{ width: `${share * 100}%`, backgroundColor: color(index) }}
-                      />
+                        key={segment.name}
+                        className="group/segment relative min-w-1 rounded-[4px] transition-[filter] hover:brightness-110"
+                        // Grow factors summing below 1 would leave part of the row empty, so scale them up.
+                        style={{
+                          flex: `${segment.share * 100} 1 0`,
+                          backgroundColor: segment.color,
+                        }}
+                      >
+                        <span className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 hidden -translate-x-1/2 rounded-md border border-line bg-surface px-2.5 py-1.5 text-xs font-normal whitespace-nowrap text-ink shadow-md group-hover/segment:block">
+                          <span className="font-semibold">{segment.name}</span>{" "}
+                          {percent(segment.share)}
+                          {segment.detail ? (
+                            <span className="block text-muted">{segment.detail}</span>
+                          ) : null}
+                        </span>
+                      </span>
                     ) : null,
                   )}
                 </div>
                 <span className="sr-only">
-                  {row.shares
-                    .map((share, index) =>
-                      share >= 0.005 ? `${names[index]} ${percent(share)}` : "",
-                    )
-                    .filter(Boolean)
+                  {segments(row)
+                    .filter((segment) => segment.share >= 0.005)
+                    .map((segment) => `${segment.name} ${percent(segment.share)}`)
                     .join(", ")}
                 </span>
                 <span className="hidden text-right text-muted tabular-nums sm:block">
@@ -579,6 +607,53 @@ function LanguagesOverTime({
               </li>
             ))}
           </ul>
+          <details className="mt-5 text-sm">
+            <summary className="cursor-pointer text-muted hover:text-ink">
+              {t("languages.table")}
+            </summary>
+            <div className="mt-3 overflow-x-auto">
+              <table className="w-full text-right tabular-nums">
+                <thead className="text-muted">
+                  <tr>
+                    <th scope="col" className="py-1 pr-3 text-left font-medium">
+                      {t("languages.year")}
+                    </th>
+                    {[...shown.map((item) => item.name), ...(hasOther ? [otherName] : [])].map(
+                      (name) => (
+                        <th
+                          key={name}
+                          scope="col"
+                          className="px-2 py-1 font-medium whitespace-nowrap"
+                        >
+                          {name}
+                        </th>
+                      ),
+                    )}
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((row) => (
+                    <tr key={row.year} className="border-t border-line">
+                      <th scope="row" className="py-1 pr-3 text-left font-medium">
+                        {row.year}
+                      </th>
+                      {shown.map(({ name, index }) => (
+                        <td key={name} className="px-2 py-1">
+                          {row.shares[index] >= 0.005 ? percent(row.shares[index]) : "–"}
+                        </td>
+                      ))}
+                      {hasOther ? (
+                        <td className="px-2 py-1">
+                          {otherShare(row) >= 0.005 ? percent(otherShare(row)) : "–"}
+                        </td>
+                      ) : null}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
+          <p className="mt-4 text-xs text-muted">{t("languages.note")}</p>
         </div>
       ) : (
         <p className="mt-4 text-muted">{t("pattern.empty")}</p>

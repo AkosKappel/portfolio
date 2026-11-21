@@ -249,7 +249,10 @@
       "title": "Languages over time",
       "lead": "Each year's commits, split by the languages they changed.",
       "legend": "Languages",
-      "other": "Other"
+      "other": "Other",
+      "table": "Show as table",
+      "year": "Year",
+      "note": "Related languages share a colour: notebooks count as Python, Blade templates as PHP, and HTML and CSS go together."
     },
     "card": {
       "title": "Activity",

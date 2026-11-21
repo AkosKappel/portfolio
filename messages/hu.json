@@ -249,7 +249,10 @@
       "title": "Nyelvek az idő során",
       "lead": "Az egyes évek commitjai aszerint felosztva, hogy milyen nyelvű kódot módosítottak.",
       "legend": "Nyelvek",
-      "other": "Egyéb"
+      "other": "Egyéb",
+      "table": "Megjelenítés táblázatként",
+      "year": "Év",
+      "note": "A rokon nyelvek közös színt kapnak: a notebookok Pythonnak, a Blade-sablonok PHP-nak számítanak, a HTML és a CSS együtt szerepel."
     },
     "card": {
       "title": "Aktivitás",

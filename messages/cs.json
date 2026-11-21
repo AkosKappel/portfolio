@@ -249,7 +249,10 @@
       "title": "Jazyky v čase",
       "lead": "Commity každého roku rozdělené podle jazyků, které měnily.",
       "legend": "Jazyky",
-      "other": "Ostatní"
+      "other": "Ostatní",
+      "table": "Zobrazit jako tabulku",
+      "year": "Rok",
+      "note": "Příbuzné jazyky mají společnou barvu: notebooky se počítají jako Python, šablony Blade jako PHP a HTML spolu s CSS."
     },
     "card": {
       "title": "Aktivita",

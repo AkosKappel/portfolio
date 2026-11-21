@@ -5,6 +5,7 @@ import {
   addDays,
   calendarWeeks,
   categories,
+  chartLanguages,
   commitHours,
   languageYears,
   level,
@@ -116,12 +117,40 @@ describe("commitHours", () => {
 });
 
 describe("languageYears", () => {
-  it("names the top languages and sums the rest as other", () => {
+  it("names the top languages and lists the rest under other", () => {
     const { languages, rows } = languageYears(data, ["github", "work"], 2);
     expect(languages).toEqual(["Kotlin", "TypeScript"]);
     expect(rows.map((row) => row.year)).toEqual(["2025", "2026"]);
-    expect(rows[0]).toEqual({ year: "2025", commits: 8, shares: [0.5, 0.375, 0.125] });
-    expect(rows[1].shares).toEqual([0.5, 0, 0.5]);
+    expect(rows[0]).toEqual({
+      year: "2025",
+      commits: 8,
+      shares: [0.5, 0.375],
+      other: [{ language: "Go", share: 0.125 }],
+    });
+    expect(rows[1].shares).toEqual([0.5, 0]);
+    expect(rows[1].other).toEqual([{ language: "TeX", share: 0.5 }]);
+  });
+
+  it("keeps names and order when a source filter hides a language", () => {
+    expect(languageYears(data, ["work"], 2).languages).toEqual(["Kotlin", "TypeScript"]);
+  });
+
+  it("gives a slot to a language that filled a year, ahead of a bigger total", () => {
+    const sample: ActivityData = {
+      ...data,
+      sources: [{ id: "github", label: "GitHub", kind: "personal" }],
+      languages: { github: { "2020": { "C++": 1 }, "2026": { TypeScript: 50, JavaScript: 4 } } },
+    };
+    expect(chartLanguages(sample, 2)).toEqual(["TypeScript", "C++"]);
+  });
+
+  it("shows variants under one name", () => {
+    const sample: ActivityData = {
+      ...data,
+      sources: [{ id: "github", label: "GitHub", kind: "personal" }],
+      languages: { github: { "2023": { Python: 1, "Jupyter Notebook": 3 } } },
+    };
+    expect(languageYears(sample, ["github"]).rows[0].shares).toEqual([1]);
   });
 });
 

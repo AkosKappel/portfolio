@@ -161,35 +161,82 @@ export function commitHours(data: ActivityData, sourceIds: string[]) {
   return grid;
 }
 
-/**
- * Each year's share per language for the selected sources, with the `top` languages overall
- * named and the rest summed as "other".
- */
-export function languageYears(data: ActivityData, sourceIds: string[], top = 6) {
+/** Variants that read as one language on the chart, so they share a colour and a slot. */
+const languageFamilies: Record<string, string> = {
+  "Jupyter Notebook": "Python",
+  Blade: "PHP",
+  HTML: "HTML & CSS",
+  CSS: "HTML & CSS",
+  SCSS: "HTML & CSS",
+  C: "C++",
+  CMake: "C++",
+  PowerShell: "Shell",
+  Batchfile: "Shell",
+  PLpgSQL: "SQL",
+};
+
+/** Each year's commit share per language, summed over the given sources. */
+function sharesByYear(data: ActivityData, sourceIds: string[]) {
   const years: Record<string, Record<string, number>> = {};
-  const overall: Record<string, number> = {};
   for (const id of sourceIds) {
     for (const [year, shares] of Object.entries(data.languages[id] ?? {})) {
       years[year] ??= {};
       for (const [language, share] of Object.entries(shares)) {
-        years[year][language] = (years[year][language] ?? 0) + share;
-        overall[language] = (overall[language] ?? 0) + share;
+        const name = languageFamilies[language] ?? language;
+        years[year][name] = (years[year][name] ?? 0) + share;
       }
     }
   }
-  const languages = Object.entries(overall)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, top)
-    .map(([language]) => language);
-  const rows = Object.entries(years)
+  return years;
+}
+
+const sumOf = (values: number[]) => values.reduce((total, value) => total + value, 0);
+
+/**
+ * The languages the chart names, at most `slots`, ordered by total share (their colour
+ * order). A language that made up a tenth of any year gets a slot first, so a year never
+ * shows mostly "other". Picked from all sources, so a source filter never repaints a language.
+ */
+export function chartLanguages(data: ActivityData, slots = 8) {
+  const years = Object.values(
+    sharesByYear(
+      data,
+      data.sources.map((source) => source.id),
+    ),
+  );
+  const total: Record<string, number> = {};
+  const peak: Record<string, number> = {};
+  for (const shares of years) {
+    const yearTotal = sumOf(Object.values(shares));
+    for (const [language, share] of Object.entries(shares)) {
+      total[language] = (total[language] ?? 0) + share;
+      peak[language] = Math.max(peak[language] ?? 0, share / yearTotal);
+    }
+  }
+  const byTotal = Object.keys(total).sort((a, b) => total[b] - total[a]);
+  const leading = byTotal.filter((language) => peak[language] >= 0.1);
+  return [...new Set([...leading, ...byTotal])].slice(0, slots).sort((a, b) => total[b] - total[a]);
+}
+
+/**
+ * Each year's share per named language for the selected sources, plus "other" with the
+ * languages it holds, largest first.
+ */
+export function languageYears(data: ActivityData, sourceIds: string[], slots = 8) {
+  const languages = chartLanguages(data, slots);
+  const rows = Object.entries(sharesByYear(data, sourceIds))
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([year, shares]) => {
-      const total = Object.values(shares).reduce((sum, share) => sum + share, 0);
-      const named = languages.map((language) => (shares[language] ?? 0) / total);
+      const total = sumOf(Object.values(shares));
+      const other = Object.entries(shares)
+        .filter(([language]) => !languages.includes(language))
+        .map(([language, share]) => ({ language, share: share / total }))
+        .sort((a, b) => b.share - a.share);
       return {
         year,
         commits: Math.round(total),
-        shares: [...named, Math.max(0, 1 - named.reduce((sum, share) => sum + share, 0))],
+        shares: languages.map((language) => (shares[language] ?? 0) / total),
+        other,
       };
     });
   return { languages, rows };

@@ -249,7 +249,10 @@
       "title": "Sprachen im Zeitverlauf",
       "lead": "Die Commits jedes Jahres, aufgeteilt nach den Sprachen, die sie geändert haben.",
       "legend": "Sprachen",
-      "other": "Sonstige"
+      "other": "Sonstige",
+      "table": "Als Tabelle anzeigen",
+      "year": "Jahr",
+      "note": "Verwandte Sprachen teilen sich eine Farbe: Notebooks zählen als Python, Blade-Templates als PHP, HTML und CSS gemeinsam."
     },
     "card": {
       "title": "Aktivität",

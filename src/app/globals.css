@@ -33,6 +33,34 @@
 }
 
 /*
+  Categorical chart colours in a fixed order, checked for colour-blind separation on both
+  surfaces. Dark mode steps the same eight hues for the dark surface. "Other" stays neutral.
+*/
+:root {
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #6250d6;
+  --series-8: #e34948;
+  --series-other: #b3bdc9;
+}
+
+[data-theme="dark"] {
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --series-6: #0ca30c;
+  --series-7: #9085e9;
+  --series-8: #e66767;
+  --series-other: #3d4e63;
+}
+
+/*
   Extra themes for each mode. The head script puts the chosen one on <html> as
   data-palette; the picker's swatches carry the attribute too, so each previews its
   own colours. Screen only: print always uses the light default above.
