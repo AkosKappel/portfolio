@@ -24,6 +24,11 @@ export async function generateMetadata({
   };
 }
 
+const pickMessages = ({ terminal, languages }: Awaited<ReturnType<typeof getMessages>>) => ({
+  terminal,
+  languages,
+});
+
 export default async function TerminalPage({ params }: PageProps<"/[locale]/terminal">) {
   const locale = (await params).locale as Locale;
   setRequestLocale(locale);
@@ -45,8 +50,13 @@ export default async function TerminalPage({ params }: PageProps<"/[locale]/term
       years: yearRange(project.year, project.until),
       summary: pick(project.summary, locale),
     })),
-    skills: skillGroups.map((group) => ({ name: pick(group.name, locale), skills: group.skills })),
+    skills: skillGroups.map((group) => ({
+      id: group.id,
+      name: pick(group.name, locale),
+      skills: group.skills,
+    })),
     jobs: jobs.map((job) => ({
+      id: job.id,
       role: job.role,
       company: job.company,
       period: tCommon("period", {
@@ -67,7 +77,7 @@ export default async function TerminalPage({ params }: PageProps<"/[locale]/term
     <Page>
       <PageHeader title={t("title")} lead={t("lead")} />
       {/* Only this page needs the terminal strings in the browser. */}
-      <NextIntlClientProvider messages={{ terminal: (await getMessages()).terminal }}>
+      <NextIntlClientProvider messages={pickMessages(await getMessages())}>
         <Terminal data={data} />
       </NextIntlClientProvider>
     </Page>

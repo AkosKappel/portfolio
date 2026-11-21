@@ -144,12 +144,31 @@ test("the terminal answers commands and opens pages", async ({ page }) => {
   const input = page.getByRole("textbox", { name: "Command" });
   await input.fill("ls proj");
   await input.press("Tab");
-  await expect(input).toHaveValue("ls projects");
+  await expect(input).toHaveValue("ls projects/");
   await input.press("Enter");
   await expect(page.getByRole("log").getByRole("link", { name: "skysense" })).toBeVisible();
   await input.fill("open budget-master");
   await input.press("Enter");
   await expect(page).toHaveURL(/\/projects\/budget-master$/);
+});
+
+test("the terminal has a filesystem, history and hidden extras", async ({ page }) => {
+  await page.goto("/terminal");
+  const input = page.getByRole("textbox", { name: "Command" });
+  const log = page.getByRole("log");
+  await input.fill("cd projects");
+  await input.press("Enter");
+  await input.fill("pwd");
+  await input.press("Enter");
+  await expect(log).toContainText("/home/guest/projects");
+  await input.fill("lss");
+  await input.press("Enter");
+  await log.getByRole("button", { name: "ls", exact: true }).click();
+  await expect(log.getByRole("link", { name: "skysense" }).last()).toBeVisible();
+  await input.fill("sudo !!");
+  await input.press("Enter");
+  await expect(log).toContainText("guest is not in the sudoers file");
+  await expect(log).toContainText("Achievement unlocked: Nice try");
 });
 
 test("activity filters by type and year without widening the page", async ({ page }) => {

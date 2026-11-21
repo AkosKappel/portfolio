@@ -507,3 +507,95 @@
     transform: translateX(-50%);
   }
 }
+
+/*
+  Terminal page: colour schemes picked with `scheme`, the `crt` effect, the block cursor
+  and the small animations of its easter eggs. Every scheme keeps AA contrast.
+*/
+.terminal[data-scheme="green"] {
+  --surface: #07120a;
+  --ink: #4ade80;
+  --muted: #2fb062;
+  --accent: #a7f3d0;
+  --line: #14532d;
+  --on-accent: #07120a;
+}
+
+.terminal[data-scheme="amber"] {
+  --surface: #140d02;
+  --ink: #fbbf24;
+  --muted: #d6930f;
+  --accent: #fde68a;
+  --line: #4a3104;
+  --on-accent: #140d02;
+}
+
+.terminal[data-scheme="mono"] {
+  --surface: #0a0a0a;
+  --ink: #e5e5e5;
+  --muted: #a3a3a3;
+  --accent: #ffffff;
+  --line: #333333;
+  --on-accent: #0a0a0a;
+}
+
+.terminal-crt {
+  text-shadow: 0 0 3px color-mix(in srgb, currentColor 55%, transparent);
+}
+
+.terminal-crt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 2px, rgb(0 0 0 / 0.14) 2px 3px),
+    radial-gradient(ellipse at center, transparent 60%, rgb(0 0 0 / 0.25));
+}
+
+.terminal-confetti {
+  translate: 0 -2rem;
+  animation-name: terminal-confetti;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .terminal-crt::after {
+    animation: terminal-flicker 0.12s infinite alternate;
+  }
+
+  .terminal-cursor {
+    animation: terminal-blink 1.1s steps(1) infinite;
+  }
+
+  .terminal-fill {
+    animation: terminal-fill 0.7s steps(20);
+  }
+}
+
+@keyframes terminal-confetti {
+  to {
+    translate: 0 105vh;
+    rotate: 720deg;
+  }
+}
+
+@keyframes terminal-flicker {
+  to {
+    opacity: 0.85;
+  }
+}
+
+@keyframes terminal-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes terminal-fill {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+}
