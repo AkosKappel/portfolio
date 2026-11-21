@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly refresh of the portfolio activity page
+
+[Timer]
+# Mondays after the Activity workflow (05:00 UTC), which refreshes the personal sources.
+OnCalendar=Mon *-*-* 08:00:00
+# Catch up after the notebook was off at that time.
+Persistent=true
+
+[Install]
+WantedBy=timers.target

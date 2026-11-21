@@ -95,7 +95,15 @@ Spam protection: a hidden honeypot field and at most five messages per IP addres
 
 Besides daily counts, it stores commits per weekday and hour (from GitHub and the work repositories, in Central European time) and each year's languages: lines changed per language for work repositories, the repository's languages for GitHub.
 
-The file is public, so it holds only counts, never repository or project names. A collector without its token or repository folder is skipped and its source keeps the previous data, so jobs without access stay in the history. Run it locally for the work sources (they need the VPN or the repositories), then commit the JSON.
+The file is public, so it holds only counts, never repository or project names. A collector without its token or repository folder is skipped and its source keeps the previous data, so jobs without access stay in the history. The work sources need the VPN and the local clones, so CI cannot refresh them. On the home server a systemd user timer does: every Monday at 08:00 (after the workflow) `scripts/refresh-activity.sh` fetches the IGT clones, runs `pnpm activity`, commits only the JSON and pushes it. It skips the run when `main` has unpushed commits or the JSON has local edits, so it never pushes other work. Install it once (lingering lets it run without a login session):
+
+```bash
+systemctl --user link ~/projects/portfolio/scripts/systemd/portfolio-activity.{service,timer}
+systemctl --user enable --now portfolio-activity.timer
+loginctl enable-linger
+```
+
+`journalctl --user -u portfolio-activity` shows the last runs; `systemctl --user start portfolio-activity` runs it now.
 
 The `Activity` workflow refreshes the personal sources every Monday and commits the JSON, which Vercel then deploys. It needs two repository secrets: `ACTIVITY_GITHUB_TOKEN` (a classic token with `read:user` and `repo`, so private contributions count) and `ACTIVITY_GITLAB_TOKEN` (a gitlab.com token with read access to events).
 

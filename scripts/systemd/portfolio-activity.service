@@ -1,0 +1,12 @@
+[Unit]
+Description=Refresh the portfolio activity page with work sources
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/projects/portfolio
+# A systemd user service gets no login shell, so name the mise tool folders explicitly.
+Environment=PATH=%h/.local/share/mise/installs/node/lts/bin:%h/.local/share/mise/installs/pnpm/latest:%h/.local/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=%h/projects/portfolio/scripts/refresh-activity.sh
+Nice=10
