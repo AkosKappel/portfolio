@@ -38,6 +38,7 @@ import {
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode, useId, useMemo, useSyncExternalStore } from "react";
+import { LogoMark, type LogoRef } from "@/components/ui/tech-logo-mark";
 import { type ProjectArea, type ProjectSummary, pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -132,10 +133,13 @@ function fromSorting(sorting: SortingState) {
 export function ProjectArchive({
   projects,
   stacks,
+  logos,
 }: {
   projects: ProjectSummary[];
   /** Card stack badges per slug, rendered on the server so the logo data stays out of this bundle. */
   stacks: Record<string, ReactNode>;
+  /** Logo per technology for the table view, without path data. */
+  logos: Record<string, LogoRef>;
 }) {
   const t = useTranslations("projects");
   const locale = useLocale();
@@ -356,8 +360,17 @@ export function ProjectArchive({
                     {project.areas.map((value) => t(`areas.${value}`)).join(", ")}
                   </td>
                   <td className="py-3 pr-4 text-muted">{t(`kinds.${project.kind}`)}</td>
-                  {/* Plain names: logos for every row would weigh more than the rest of the page. */}
-                  <td className="py-3 text-sm text-muted">{project.stack.join(", ")}</td>
+                  {/* Logos from the small map, not server-rendered badges: those were sent for every row even in grid view. */}
+                  <td className="py-3">
+                    <ul className="flex flex-wrap gap-1.5">
+                      {project.stack.map((item) => (
+                        <li key={item} className="tech-tag">
+                          {logos[item] ? <LogoMark logo={logos[item]} /> : null}
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
                 </tr>
               ))}
             </tbody>

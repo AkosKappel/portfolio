@@ -1,25 +1,18 @@
 import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 import { techIcon, techUrl } from "@/lib/tech-icons";
+import { LogoMark, type LogoRef } from "./tech-logo-mark";
 
-export function TechLogo({ name, className = "size-3.5" }: { name: string; className?: string }) {
+export function TechLogo({ name, className }: { name: string; className?: string }) {
+  const logo = logoRef(name);
+  return logo ? <LogoMark logo={logo} className={className} /> : null;
+}
+
+/** The logo of a technology without its path data, or undefined when there is none. */
+export function logoRef(name: string): LogoRef | undefined {
   const icon = techIcon(name);
-  if (!icon) return null;
-  if (icon.kind === "image") {
-    // biome-ignore lint/performance/noImgElement: tiny static SVG logo, next/image adds nothing here
-    return <img src={icon.src} alt="" className={`shrink-0 ${className}`} />;
-  }
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={`shrink-0 ${className}`}
-      // A style, not the fill attribute: the colour can be a light-dark() pair.
-      style={{ fill: icon.color ?? "currentColor" }}
-      aria-hidden
-    >
-      <use href={`/tech-icons.svg#${icon.id}`} />
-    </svg>
-  );
+  if (!icon) return undefined;
+  return icon.kind === "image" ? icon : { kind: "path", id: icon.id, color: icon.color };
 }
 
 /** Links a technology to its official site in a new tab; plain content if the site is unknown. */
