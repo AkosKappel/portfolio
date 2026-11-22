@@ -273,4 +273,70 @@ export const sketchbook: Project = {
       },
     },
   ],
+  decisions: [
+    {
+      title: {
+        en: "p5.js 1.x, stored in the repository",
+        sk: "p5.js 1.x uložené v repozitári",
+        de: "p5.js 1.x, im Repository abgelegt",
+        cs: "p5.js 1.x uložené v repozitáři",
+        hu: "p5.js 1.x a repóban tárolva",
+      },
+      text: {
+        en: "Version 2 of p5.js has breaking API changes, and one sketch still loaded an older release from a CDN. Every sketch now uses one minified 1.x file kept in the repository, and old unminified copies, test builds and an unused sound addon were removed, which shrank the repository several times over. The cost is staying on an older major version.",
+        sk: "Verzia 2 knižnice p5.js má nekompatibilné zmeny API a jeden projekt ešte načítaval staršie vydanie z CDN. Všetky projekty teraz používajú jeden minifikovaný súbor 1.x uložený v repozitári a staré neminifikované kópie, testovacie zostavenia a nepoužívaný zvukový doplnok som odstránil, čím sa repozitár niekoľkonásobne zmenšil. Cenou je zostať na staršej hlavnej verzii.",
+        de: "Version 2 von p5.js bringt inkompatible API-Änderungen, und ein Sketch lud noch eine ältere Version von einem CDN. Alle Sketches nutzen jetzt eine minifizierte 1.x-Datei im Repository, und alte unminifizierte Kopien, Test-Builds und ein ungenutztes Sound-Addon wurden entfernt, wodurch das Repository um ein Vielfaches kleiner wurde. Der Preis ist, auf einer älteren Hauptversion zu bleiben.",
+        cs: "Verze 2 knihovny p5.js má nekompatibilní změny API a jeden projekt ještě načítal starší vydání z CDN. Všechny projekty teď používají jeden minifikovaný soubor 1.x uložený v repozitáři a staré neminifikované kopie, testovací sestavení a nepoužívaný zvukový doplněk jsem odstranil, čímž se repozitář několikanásobně zmenšil. Cenou je zůstat na starší hlavní verzi.",
+        hu: "A p5.js 2-es verziója nem kompatibilis API-változásokat hoz, és egy projekt még egy régebbi kiadást töltött be CDN-ről. Most minden projekt egyetlen, a repóban tárolt minifikált 1.x fájlt használ, a régi minifikálatlan másolatokat, tesztbuildeket és egy nem használt hangkiegészítőt pedig eltávolítottam, amitől a repó többszörösen kisebb lett. Az ára, hogy egy régebbi főverzión marad.",
+      },
+    },
+    {
+      title: {
+        en: "A gallery built from data",
+        sk: "Galéria zostavená z dát",
+        de: "Eine Galerie aus Daten",
+        cs: "Galerie sestavená z dat",
+        hu: "Adatokból épülő galéria",
+      },
+      text: {
+        en: "The first redesign used hand-written cards filtered with the CSS :has() selector. It was redone so the cards are rendered from a list of projects into an HTML template, and adding a sketch is one entry and a thumbnail. The cost is that filtering now needs JavaScript.",
+        sk: "Prvý redizajn používal ručne písané karty filtrované selektorom CSS :has(). Prerobil som ho tak, že karty sa vykresľujú zo zoznamu projektov do šablóny HTML a pridanie projektu je jeden záznam a náhľad. Cenou je, že filtrovanie teraz potrebuje JavaScript.",
+        de: "Das erste Redesign nutzte handgeschriebene Karten, gefiltert mit dem CSS-Selektor :has(). Es wurde so umgebaut, dass die Karten aus einer Projektliste in ein HTML-Template gerendert werden, und ein neuer Sketch ist ein Eintrag plus ein Vorschaubild. Der Preis ist, dass das Filtern jetzt JavaScript braucht.",
+        cs: "První redesign používal ručně psané karty filtrované selektorem CSS :has(). Předělal jsem ho tak, že se karty vykreslují ze seznamu projektů do šablony HTML a přidání projektu je jeden záznam a náhled. Cenou je, že filtrování teď potřebuje JavaScript.",
+        hu: "Az első újratervezés kézzel írt kártyákat használt, amelyeket a CSS :has() szelektora szűrt. Úgy alakítottam át, hogy a kártyák egy projektlistából egy HTML-sablonba renderelődnek, és egy új projekt egyetlen bejegyzés és egy bélyegkép. Az ára, hogy a szűréshez most JavaScript kell.",
+      },
+    },
+    {
+      title: {
+        en: "Minesweeper as buttons, not a canvas",
+        sk: "Mínolovka z tlačidiel, nie na plátne",
+        de: "Minesweeper aus Buttons statt Canvas",
+        cs: "Hledání min z tlačítek, ne na plátně",
+        hu: "Aknakereső gombokból, nem vásznon",
+      },
+      text: {
+        en: "Most sketches draw on a canvas, which a keyboard or screen reader cannot use. Minesweeper is a grid of real buttons instead, so every cell can be reached with the keyboard and announced. The cost is a game that is built differently from the rest of the collection.",
+        sk: "Väčšina projektov kreslí na plátno, ktoré klávesnica ani čítačka obrazovky nevie použiť. Mínolovka je namiesto toho mriežka skutočných tlačidiel, takže každé políčko je dostupné klávesnicou a čítačka ho ohlási. Cenou je hra postavená inak ako zvyšok zbierky.",
+        de: "Die meisten Sketches zeichnen auf ein Canvas, das Tastatur und Screenreader nicht bedienen können. Minesweeper ist stattdessen ein Raster echter Buttons, sodass jedes Feld per Tastatur erreichbar ist und vorgelesen wird. Der Preis ist ein Spiel, das anders gebaut ist als der Rest der Sammlung.",
+        cs: "Většina projektů kreslí na plátno, které klávesnice ani čtečka obrazovky neumí použít. Hledání min je místo toho mřížka skutečných tlačítek, takže každé políčko je dostupné klávesnicí a čtečka ho ohlásí. Cenou je hra postavená jinak než zbytek sbírky.",
+        hu: "A legtöbb projekt vászonra rajzol, amelyet billentyűzettel vagy képernyőolvasóval nem lehet használni. Az aknakereső ehelyett valódi gombokból álló rács, így minden mező elérhető billentyűzettel, és a képernyőolvasó felolvassa. Az ára egy játék, amely másképp épül, mint a gyűjtemény többi része.",
+      },
+    },
+  ],
+  lessons: [
+    {
+      en: "A Lighthouse audit caught what my own clicking missed: thumbnail links without a name, text with too little contrast, and a sketch whose layout jumped while it loaded. Canvases now stay hidden until they are sized, and one simulation moved from drawing shapes to a pixel buffer and runs several times faster. I run the audit before calling a page done.",
+      sk: "Audit Lighthouse zachytil, čo moje vlastné klikanie prehliadlo: odkazy náhľadov bez názvu, text s nízkym kontrastom a projekt, ktorého rozloženie počas načítania skákalo. Plátna teraz zostávajú skryté, kým nemajú veľkosť, a jedna simulácia prešla z kreslenia tvarov na pixelový buffer a beží niekoľkonásobne rýchlejšie. Audit spúšťam skôr, než stránku označím za hotovú.",
+      de: "Ein Lighthouse-Audit fand, was mein eigenes Durchklicken übersehen hatte: Vorschaulinks ohne Namen, Text mit zu wenig Kontrast und einen Sketch, dessen Layout beim Laden sprang. Canvases bleiben jetzt verborgen, bis sie ihre Größe haben, und eine Simulation zeichnet statt Formen in einen Pixelpuffer und läuft um ein Vielfaches schneller. Ich lasse das Audit laufen, bevor ich eine Seite fertig nenne.",
+      cs: "Audit Lighthouse zachytil, co moje vlastní klikání přehlédlo: odkazy náhledů bez názvu, text s nízkým kontrastem a projekt, jehož rozložení během načítání skákalo. Plátna teď zůstávají skrytá, dokud nemají velikost, a jedna simulace přešla z kreslení tvarů na pixelový buffer a běží několikanásobně rychleji. Audit spouštím dřív, než stránku označím za hotovou.",
+      hu: "Egy Lighthouse-audit megtalálta, amit a saját kattintgatásom elnézett: név nélküli bélyegkép-linkeket, túl gyenge kontrasztú szöveget és egy projektet, amelynek elrendezése betöltés közben ugrált. A vásznak most rejtve maradnak, amíg meg nincs a méretük, egy szimuláció pedig alakzatok rajzolása helyett pixelpufferbe rajzol, és többszörösen gyorsabb. Az auditot lefuttatom, mielőtt egy oldalt késznek nevezek.",
+    },
+    {
+      en: "Resizing caused more bugs than anything else. On a phone, a growing step counter wrapped the top bar, which resized the stage, which restarted the run, in a loop, and rotating the phone left some games on their old grid. The grid sketches now keep their pattern centered on resize instead of restarting, and I test every page at desktop and phone width.",
+      sk: "Zmena veľkosti spôsobila viac chýb ako čokoľvek iné. Na telefóne rastúce počítadlo krokov zalomilo horný panel, čo zmenilo veľkosť plochy, čo reštartovalo beh, a tak dokola, a otočenie telefónu nechalo niektoré hry na starej mriežke. Mriežkové projekty teraz pri zmene veľkosti držia vzor v strede namiesto reštartu a každú stránku testujem v šírke počítača aj telefónu.",
+      de: "Größenänderungen verursachten mehr Fehler als alles andere. Auf dem Handy brach ein wachsender Schrittzähler die obere Leiste um, das änderte die Größe der Bühne, das startete den Lauf neu, in einer Schleife, und das Drehen des Handys ließ manche Spiele auf ihrem alten Raster. Die Raster-Sketches halten ihr Muster jetzt bei Größenänderung zentriert, statt neu zu starten, und ich teste jede Seite in Desktop- und Handybreite.",
+      cs: "Změna velikosti způsobila víc chyb než cokoli jiného. Na telefonu rostoucí počítadlo kroků zalomilo horní panel, což změnilo velikost plochy, což restartovalo běh, a tak dokola, a otočení telefonu nechalo některé hry na staré mřížce. Mřížkové projekty teď při změně velikosti drží vzor uprostřed místo restartu a každou stránku testuji v šířce počítače i telefonu.",
+      hu: "Az átméretezés több hibát okozott, mint bármi más. Telefonon egy növekvő lépésszámláló megtörte a felső sávot, ez átméretezte a vásznat, ami újraindította a futást, körbe-körbe, a telefon elforgatása pedig néhány játékot a régi rácson hagyott. A rácsos projektek most átméretezéskor középen tartják a mintát újraindítás helyett, és minden oldalt asztali és telefonos szélességben is tesztelek.",
+    },
+  ],
 };

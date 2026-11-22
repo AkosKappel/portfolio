@@ -451,4 +451,70 @@ export const smarttechEShop: Project = {
       },
     },
   ],
+  decisions: [
+    {
+      title: {
+        en: "Search inside PostgreSQL instead of a search service",
+        sk: "Vyhľadávanie v PostgreSQL namiesto vyhľadávacej služby",
+        de: "Suche in PostgreSQL statt eines Suchdienstes",
+        cs: "Vyhledávání v PostgreSQL místo vyhledávací služby",
+        hu: "Keresés a PostgreSQL-ben külön keresőszolgáltatás helyett",
+      },
+      text: {
+        en: "Laravel Scout with Meilisearch would have meant one more service to run on the home server. Trigram matching and accent-insensitive search in PostgreSQL handle typos and Slovak diacritics with what was already there. The cost is a sequential scan instead of a dedicated index, which is fine for this catalog and worth revisiting if it grows.",
+        sk: "Laravel Scout s Meilisearch by znamenal ďalšiu službu na domácom serveri. Trigramové porovnávanie a vyhľadávanie bez ohľadu na diakritiku v PostgreSQL zvládnu preklepy aj slovenskú diakritiku s tým, čo už bolo k dispozícii. Cenou je sekvenčné prehľadávanie namiesto samostatného indexu, čo pre tento katalóg stačí a oplatí sa prehodnotiť, ak narastie.",
+        de: "Laravel Scout mit Meilisearch hätte einen weiteren Dienst auf dem Heimserver bedeutet. Trigramm-Abgleich und akzentunabhängige Suche in PostgreSQL bewältigen Tippfehler und slowakische Sonderzeichen mit dem, was schon da war. Der Preis ist ein sequenzieller Scan statt eines eigenen Index, was für diesen Katalog reicht und bei Wachstum neu zu prüfen ist.",
+        cs: "Laravel Scout s Meilisearch by znamenal další službu na domácím serveru. Trigramové porovnávání a vyhledávání bez ohledu na diakritiku v PostgreSQL zvládnou překlepy i slovenskou diakritiku s tím, co už bylo k dispozici. Cenou je sekvenční procházení místo samostatného indexu, což pro tento katalog stačí a vyplatí se přehodnotit, pokud naroste.",
+        hu: "A Laravel Scout Meilisearch-csel még egy futtatandó szolgáltatást jelentett volna az otthoni szerveren. A PostgreSQL trigramos egyeztetése és ékezetfüggetlen keresése a meglévő eszközökkel kezeli az elgépeléseket és a szlovák ékezeteket. Az ára egy szekvenciális keresés külön index helyett, ami ehhez a katalógushoz elég, és érdemes újragondolni, ha nő.",
+      },
+    },
+    {
+      title: {
+        en: "Tests before the upgrade, one Laravel version at a time",
+        sk: "Testy pred aktualizáciou, jedna verzia Laravelu naraz",
+        de: "Tests vor dem Upgrade, eine Laravel-Version nach der anderen",
+        cs: "Testy před aktualizací, jedna verze Laravelu najednou",
+        hu: "Tesztek a frissítés előtt, egyszerre egy Laravel-verzió",
+      },
+      text: {
+        en: "The 2021 code had almost no tests and ran on Laravel 8. I wrote feature tests for the main flows first, then moved up one major version per step, so each failure pointed at one release. The cost was a long series of upgrade commits, and abandoned packages had to be replaced along the way.",
+        sk: "Kód z roku 2021 nemal takmer žiadne testy a bežal na Laraveli 8. Najprv som napísal funkčné testy hlavných tokov a potom som postupoval o jednu hlavnú verziu naraz, takže každé zlyhanie ukazovalo na jedno vydanie. Cenou bol dlhý rad aktualizačných commitov a opustené balíky bolo treba cestou nahradiť.",
+        de: "Der Code von 2021 hatte kaum Tests und lief auf Laravel 8. Ich habe zuerst Feature-Tests für die Hauptabläufe geschrieben und bin dann pro Schritt eine Hauptversion höher gegangen, sodass jeder Fehler auf ein Release zeigte. Der Preis war eine lange Reihe von Upgrade-Commits, und verwaiste Pakete mussten unterwegs ersetzt werden.",
+        cs: "Kód z roku 2021 neměl téměř žádné testy a běžel na Laravelu 8. Nejdřív jsem napsal funkční testy hlavních toků a pak postupoval o jednu hlavní verzi najednou, takže každé selhání ukazovalo na jedno vydání. Cenou byla dlouhá řada aktualizačních commitů a opuštěné balíčky bylo nutné cestou nahradit.",
+        hu: "A 2021-es kódban alig voltak tesztek, és Laravel 8-on futott. Először funkcionális teszteket írtam a fő folyamatokra, majd lépésenként egy főverzióval léptem feljebb, így minden hiba egyetlen kiadásra mutatott. Az ára egy hosszú frissítési commitsor volt, és az elhagyott csomagokat menet közben le kellett cserélni.",
+      },
+    },
+    {
+      title: {
+        en: "A nightly reset instead of backups and moderation",
+        sk: "Nočný reset namiesto záloh a moderovania",
+        de: "Nächtlicher Reset statt Backups und Moderation",
+        cs: "Noční reset místo záloh a moderování",
+        hu: "Éjszakai visszaállítás mentések és moderálás helyett",
+      },
+      text: {
+        en: "The public demo is rebuilt from seeders every night. That makes backups unnecessary and lets visitors try the admin section: anything they add is visible only to admins and gone the next morning. The cost is that whatever should survive needs its own handling, so visitor statistics are carried over the reset on purpose.",
+        sk: "Verejné demo sa každú noc znova vytvorí zo seederov. Vďaka tomu nie sú potrebné zálohy a návštevníci si môžu vyskúšať administráciu: čokoľvek pridajú, vidia len administrátori a ráno to zmizne. Cenou je, že všetko, čo má prežiť, potrebuje vlastné riešenie, preto sa štatistiky návštev cez reset zámerne prenášajú.",
+        de: "Die öffentliche Demo wird jede Nacht aus Seedern neu aufgebaut. Das macht Backups überflüssig und lässt Besucher den Admin-Bereich ausprobieren: Was sie anlegen, sehen nur Admins, und am nächsten Morgen ist es weg. Der Preis ist, dass alles, was bleiben soll, eigene Behandlung braucht, deshalb werden Besucherstatistiken bewusst über den Reset gerettet.",
+        cs: "Veřejné demo se každou noc znovu vytvoří ze seederů. Díky tomu nejsou potřeba zálohy a návštěvníci si mohou vyzkoušet administraci: cokoli přidají, vidí jen administrátoři a ráno to zmizí. Cenou je, že vše, co má přežít, potřebuje vlastní řešení, proto se statistiky návštěv přes reset záměrně přenášejí.",
+        hu: "A nyilvános demó minden éjjel újraépül a seederekből. Emiatt nincs szükség mentésekre, és a látogatók kipróbálhatják az admin felületet: amit hozzáadnak, csak az adminok látják, és reggelre eltűnik. Az ára, hogy aminek meg kell maradnia, külön kezelést igényel, ezért a látogatottsági statisztikák szándékosan átkerülnek a visszaállításon.",
+      },
+    },
+  ],
+  lessons: [
+    {
+      en: "Reading the 2021 code again in 2026 turned up real security holes: unprotected admin routes, cart prices taken from the browser, an account takeover through registration after an order, and unvalidated uploads. All were fixed the same day, and the takeover and price tampering cases became regression tests. I now review inherited code for trust boundaries before adding features.",
+      sk: "Opätovné čítanie kódu z roku 2021 v roku 2026 odhalilo skutočné bezpečnostné diery: nechránené administrátorské cesty, ceny v košíku prevzaté z prehliadača, prevzatie účtu cez registráciu po objednávke a neoverené nahrávanie súborov. Všetko bolo opravené v ten istý deň a prípady prevzatia účtu a podvrhnutej ceny sa stali regresnými testami. Pri prevzatom kóde teraz pred pridávaním funkcií najprv kontrolujem hranice dôvery.",
+      de: "Beim erneuten Lesen des Codes von 2021 im Jahr 2026 kamen echte Sicherheitslücken zum Vorschein: ungeschützte Admin-Routen, Warenkorbpreise aus dem Browser, eine Kontoübernahme über die Registrierung nach einer Bestellung und ungeprüfte Uploads. Alles wurde am selben Tag behoben, und Kontoübernahme und Preismanipulation wurden zu Regressionstests. Übernommenen Code prüfe ich jetzt zuerst auf Vertrauensgrenzen, bevor ich Funktionen hinzufüge.",
+      cs: "Opětovné čtení kódu z roku 2021 v roce 2026 odhalilo skutečné bezpečnostní díry: nechráněné administrátorské cesty, ceny v košíku převzaté z prohlížeče, převzetí účtu přes registraci po objednávce a neověřené nahrávání souborů. Vše bylo opraveno týž den a případy převzetí účtu a podvržené ceny se staly regresními testy. U převzatého kódu teď před přidáváním funkcí nejdřív kontroluji hranice důvěry.",
+      hu: "A 2021-es kód 2026-os újraolvasása valódi biztonsági réseket hozott elő: védtelen admin útvonalakat, a böngészőből átvett kosárárakat, fiókátvételt a rendelés utáni regisztrációval és ellenőrizetlen feltöltéseket. Mindegyiket még aznap javítottam, a fiókátvétel és az ármanipuláció esete pedig regressziós teszt lett. Átvett kódban most először a bizalmi határokat nézem át, mielőtt funkciókat adnék hozzá.",
+    },
+    {
+      en: "The shopping cart package saved carts with PHP serialization, and PostgreSQL cut that text at the first null byte, so a saved cart never came back after logging in again. A test documented the bug before I replaced the package with a small JSON cart of my own. A dependency that does one small job can cost more than writing that job myself.",
+      sk: "Balík nákupného košíka ukladal košíky cez serializáciu PHP a PostgreSQL ten text orezal pri prvom nulovom bajte, takže uložený košík sa po opätovnom prihlásení nikdy nevrátil. Chybu najprv zdokumentoval test a potom som balík nahradil vlastným malým košíkom v JSON. Závislosť na jednu malú úlohu môže stáť viac, ako keď si tú úlohu napíšem sám.",
+      de: "Das Warenkorb-Paket speicherte Warenkörbe per PHP-Serialisierung, und PostgreSQL schnitt diesen Text beim ersten Nullbyte ab, sodass ein gespeicherter Warenkorb nach erneutem Login nie zurückkam. Ein Test dokumentierte den Fehler, bevor ich das Paket durch einen kleinen eigenen JSON-Warenkorb ersetzte. Eine Abhängigkeit für eine kleine Aufgabe kann mehr kosten, als die Aufgabe selbst zu schreiben.",
+      cs: "Balíček nákupního košíku ukládal košíky přes serializaci PHP a PostgreSQL ten text ořízl u prvního nulového bajtu, takže uložený košík se po opětovném přihlášení nikdy nevrátil. Chybu nejdřív zdokumentoval test a pak jsem balíček nahradil vlastním malým košíkem v JSON. Závislost na jeden malý úkol může stát víc, než když si ten úkol napíšu sám.",
+      hu: "A kosárcsomag PHP-szerializálással mentette a kosarakat, a PostgreSQL pedig az első null bájtnál levágta ezt a szöveget, így a mentett kosár újbóli bejelentkezés után soha nem jött vissza. Egy teszt dokumentálta a hibát, mielőtt a csomagot egy saját kis JSON-kosárra cseréltem. Egy kis feladatra szánt függőség többe kerülhet, mint ha magam írom meg azt a feladatot.",
+    },
+  ],
 };

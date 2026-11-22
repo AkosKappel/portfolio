@@ -268,4 +268,70 @@ export const glaucomaSegmentation: Project = {
       },
     },
   ],
+  decisions: [
+    {
+      title: {
+        en: "A learned detector for the region of interest",
+        sk: "Naučený detektor pre oblasť záujmu",
+        de: "Ein gelernter Detektor für die Region of Interest",
+        cs: "Naučený detektor pro oblast zájmu",
+        hu: "Tanított detektor az érdeklődési területhez",
+      },
+      text: {
+        en: "Thresholding, brightest-spot and template matching methods often missed the optic disc or returned boxes far too large to crop with. A CenterNet model finds it reliably, so the segmentation networks see a tight crop. The cost is a second model with its own training, hyperparameter search and preprocessed data for every dataset.",
+        sk: "Metódy prahovania, najjasnejšieho bodu a porovnávania so šablónou často minuli optický disk alebo vrátili príliš veľké ohraničenie na orezanie. Model CenterNet ho nájde spoľahlivo, takže segmentačné siete dostanú tesný výrez. Cenou je druhý model s vlastným trénovaním, hľadaním hyperparametrov a predspracovanými dátami pre každý dataset.",
+        de: "Schwellenwert-, Hellster-Punkt- und Template-Matching-Methoden verfehlten die Papille oft oder lieferten viel zu große Rahmen zum Zuschneiden. Ein CenterNet-Modell findet sie zuverlässig, sodass die Segmentierungsnetze einen engen Ausschnitt sehen. Der Preis ist ein zweites Modell mit eigenem Training, eigener Hyperparametersuche und vorverarbeiteten Daten für jeden Datensatz.",
+        cs: "Metody prahování, nejjasnějšího bodu a porovnávání se šablonou často minuly optický disk nebo vrátily příliš velké ohraničení pro ořez. Model CenterNet ho najde spolehlivě, takže segmentační sítě dostanou těsný výřez. Cenou je druhý model s vlastním trénováním, hledáním hyperparametrů a předzpracovanými daty pro každý dataset.",
+        hu: "A küszöbölés, a legfényesebb pont és a sablonillesztés gyakran nem találta el a látóidegfőt, vagy túl nagy keretet adott a kivágáshoz. Egy CenterNet modell megbízhatóan megtalálja, így a szegmentáló hálók szoros kivágást kapnak. Az ára egy második modell saját tanítással, hiperparaméter-kereséssel és minden adathalmazhoz előfeldolgozott adatokkal.",
+      },
+    },
+    {
+      title: {
+        en: "Train on one dataset, test on another",
+        sk: "Trénovať na jednom datasete, testovať na inom",
+        de: "Auf einem Datensatz trainieren, auf einem anderen testen",
+        cs: "Trénovat na jednom datasetu, testovat na jiném",
+        hu: "Tanítás egy adathalmazon, tesztelés egy másikon",
+      },
+      text: {
+        en: "The models are trained on ORIGA and evaluated on DRISHTI-GS, whose images come from a different clinic. That shows how well they carry over to data they have never seen, which matters more for screening than a score on held-out images from the same source. The cost is a harder, less flattering test.",
+        sk: "Modely sa trénujú na ORIGA a vyhodnocujú na DRISHTI-GS, ktorého snímky pochádzajú z inej kliniky. To ukazuje, ako dobre sa prenesú na dáta, ktoré nikdy nevideli, čo je pre skríning dôležitejšie ako skóre na odložených snímkach z toho istého zdroja. Cenou je ťažší a menej lichotivý test.",
+        de: "Die Modelle werden auf ORIGA trainiert und auf DRISHTI-GS ausgewertet, dessen Bilder aus einer anderen Klinik stammen. Das zeigt, wie gut sie auf nie gesehene Daten übertragbar sind, was für das Screening mehr zählt als ein Wert auf zurückgehaltenen Bildern derselben Quelle. Der Preis ist ein härterer, weniger schmeichelhafter Test.",
+        cs: "Modely se trénují na ORIGA a vyhodnocují na DRISHTI-GS, jehož snímky pocházejí z jiné kliniky. To ukazuje, jak dobře se přenesou na data, která nikdy neviděly, což je pro screening důležitější než skóre na odložených snímcích ze stejného zdroje. Cenou je těžší a méně lichotivý test.",
+        hu: "A modelleket az ORIGA-n tanítom, és a DRISHTI-GS-en értékelem, amelynek képei egy másik klinikáról származnak. Ez megmutatja, mennyire működnek soha nem látott adatokon, ami a szűrésnél többet számít, mint egy pontszám ugyanabból a forrásból félretett képeken. Az ára egy nehezebb, kevésbé hízelgő teszt.",
+      },
+    },
+    {
+      title: {
+        en: "Two architectures in two coordinate systems",
+        sk: "Dve architektúry v dvoch súradnicových sústavách",
+        de: "Zwei Architekturen in zwei Koordinatensystemen",
+        cs: "Dvě architektury ve dvou souřadnicových soustavách",
+        hu: "Két architektúra két koordináta-rendszerben",
+      },
+      text: {
+        en: "Instead of betting on one design, I compared a cascade, where the cup is segmented inside the predicted disc, with a dual-decoder model that shares one encoder, each trained on Cartesian and on polar images. The cost was many more models to train, and polar outputs, including test-time augmentation, have to be warped back before they can be scored.",
+        sk: "Namiesto stávky na jeden návrh som porovnal kaskádu, kde sa exkavácia segmentuje vnútri predpovedaného disku, s modelom s dvoma dekodérmi a spoločným enkodérom, každý trénovaný na karteziánskych aj polárnych snímkach. Cenou bolo oveľa viac modelov na trénovanie a polárne výstupy vrátane augmentácie pri testovaní treba pred vyhodnotením transformovať späť.",
+        de: "Statt auf ein Design zu setzen, habe ich eine Kaskade, in der die Exkavation innerhalb der vorhergesagten Papille segmentiert wird, mit einem Dual-Decoder-Modell mit gemeinsamem Encoder verglichen, jeweils auf kartesischen und auf polaren Bildern trainiert. Der Preis waren viel mehr Modelle zum Trainieren, und polare Ausgaben, auch bei Test-Time-Augmentation, müssen vor der Bewertung zurücktransformiert werden.",
+        cs: "Místo sázky na jeden návrh jsem porovnal kaskádu, kde se exkavace segmentuje uvnitř předpovězeného disku, s modelem se dvěma dekodéry a společným enkodérem, každý trénovaný na kartézských i polárních snímcích. Cenou bylo mnohem víc modelů k trénování a polární výstupy včetně augmentace při testování je třeba před vyhodnocením transformovat zpět.",
+        hu: "Ahelyett, hogy egyetlen tervre fogadtam volna, összevetettem egy kaszkádot, ahol a kehely a megjósolt látóidegfőn belül szegmentálódik, egy közös kódolójú, két dekóderes modellel, mindkettőt derékszögű és polárkoordinátás képeken is tanítva. Az ára sokkal több tanítandó modell volt, és a poláris kimeneteket, a tesztidejű augmentációval együtt, értékelés előtt vissza kell transzformálni.",
+      },
+    },
+  ],
+  lessons: [
+    {
+      en: "I built around fifteen U-Net variants, from Inception and Squeeze blocks to a transformer hybrid, before most of them were moved aside and three remained. The survey taught me a lot, but most of that work never reached the final comparison. Now I would start from one strong baseline and add a variant only when it beats that baseline on the same split.",
+      sk: "Postavil som okolo pätnástich variantov U-Netu, od blokov Inception a Squeeze po hybrid s transformerom, kým väčšinu z nich som odložil a zostali tri. Prieskum ma veľa naučil, ale väčšina tej práce sa do finálneho porovnania nedostala. Teraz by som začal od jedného silného základného modelu a variant pridal, len keď ho prekoná na rovnakom rozdelení dát.",
+      de: "Ich habe rund fünfzehn U-Net-Varianten gebaut, von Inception- und Squeeze-Blöcken bis zu einem Transformer-Hybrid, bevor die meisten beiseitegelegt wurden und drei übrig blieben. Die Übersicht hat mir viel beigebracht, aber der Großteil dieser Arbeit kam nie in den finalen Vergleich. Heute würde ich mit einer starken Baseline beginnen und eine Variante nur hinzufügen, wenn sie diese auf demselben Split schlägt.",
+      cs: "Postavil jsem kolem patnácti variant U-Netu, od bloků Inception a Squeeze po hybrid s transformerem, než jsem většinu odložil a zůstaly tři. Průzkum mě hodně naučil, ale většina té práce se do finálního porovnání nedostala. Teď bych začal od jednoho silného základního modelu a variantu přidal, jen když ho překoná na stejném rozdělení dat.",
+      hu: "Körülbelül tizenöt U-Net-változatot építettem, az Inception- és Squeeze-blokkoktól egy transzformeres hibridig, mielőtt a legtöbbet félretettem, és három maradt. A felmérésből sokat tanultam, de a munka nagy része nem jutott el a végső összehasonlításig. Ma egy erős alapmodellből indulnék, és csak akkor adnék hozzá változatot, ha azt ugyanazon a felosztáson megveri.",
+    },
+    {
+      en: "The data pipeline was redone several times: a scaling bug in the ground truth masks, a memory leak during training, and large refactors of dataset loading and cascade training late in the project, close to the final runs. Next time I would test the data loading on its own, with checks on mask values and shapes, before training anything on it.",
+      sk: "Dátový tok som prerábal niekoľkokrát: chyba v škálovaní referenčných masiek, únik pamäte počas trénovania a veľké refaktoringy načítania datasetov a kaskádového trénovania neskoro v projekte, tesne pred finálnymi behmi. Nabudúce by som načítanie dát otestoval samostatne, s kontrolami hodnôt a rozmerov masiek, ešte pred akýmkoľvek trénovaním.",
+      de: "Die Datenpipeline wurde mehrmals überarbeitet: ein Skalierungsfehler in den Ground-Truth-Masken, ein Speicherleck beim Training und große Refactorings des Datensatz-Ladens und des Kaskadentrainings spät im Projekt, kurz vor den finalen Läufen. Nächstes Mal würde ich das Laden der Daten separat testen, mit Prüfungen von Maskenwerten und -formen, bevor ich irgendetwas darauf trainiere.",
+      cs: "Datový tok jsem předělával několikrát: chyba ve škálování referenčních masek, únik paměti během trénování a velké refaktoringy načítání datasetů a kaskádového trénování pozdě v projektu, těsně před finálními běhy. Příště bych načítání dat otestoval samostatně, s kontrolami hodnot a rozměrů masek, ještě před jakýmkoli trénováním.",
+      hu: "Az adatfolyamot többször újracsináltam: egy skálázási hiba a referenciamaszkokban, egy memóriaszivárgás tanítás közben, valamint az adathalmaz-betöltés és a kaszkádtanítás nagy átalakításai a projekt végén, közel a végső futásokhoz. Legközelebb az adatbetöltést külön tesztelném, a maszkok értékeinek és méreteinek ellenőrzésével, mielőtt bármit tanítanék rajta.",
+    },
+  ],
 };

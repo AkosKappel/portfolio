@@ -280,4 +280,70 @@ export const pokedex: Project = {
       },
     },
   ],
+  decisions: [
+    {
+      title: {
+        en: "A bundled data snapshot instead of live search",
+        sk: "Pribalený snímok dát namiesto živého vyhľadávania",
+        de: "Ein mitgelieferter Datenschnappschuss statt Live-Suche",
+        cs: "Přibalený snímek dat místo živého vyhledávání",
+        hu: "Beépített adatpillanatkép élő keresés helyett",
+      },
+      text: {
+        en: "The plan was one cached request for the species list. Instead, a script pulls every species from PokéAPI through GraphQL into a JSON file at build time, so search, filters, quick find and team suggestions send no requests at all. The cost is data that goes stale until the script runs again, and a heavier bundle. Detail pages still use the REST API, cached by the service worker.",
+        sk: "Plán bol jedna požiadavka na zoznam druhov uložená v cache. Namiesto toho skript pri zostavení stiahne všetky druhy z PokéAPI cez GraphQL do súboru JSON, takže vyhľadávanie, filtre, rýchle hľadanie a návrhy tímu neposielajú žiadne požiadavky. Cenou sú dáta, ktoré zastarávajú, kým sa skript znova nespustí, a väčší balík. Stránky detailov stále používajú REST API s cache v service workeri.",
+        de: "Geplant war eine einzige gecachte Anfrage für die Artenliste. Stattdessen lädt ein Skript beim Build alle Arten über GraphQL von PokéAPI in eine JSON-Datei, sodass Suche, Filter, Schnellsuche und Teamvorschläge gar keine Anfragen senden. Der Preis sind Daten, die veralten, bis das Skript erneut läuft, und ein größeres Bundle. Detailseiten nutzen weiterhin die REST-API, gecacht vom Service Worker.",
+        cs: "Plán byl jeden požadavek na seznam druhů uložený v cache. Místo toho skript při sestavení stáhne všechny druhy z PokéAPI přes GraphQL do souboru JSON, takže vyhledávání, filtry, rychlé hledání a návrhy týmu neposílají žádné požadavky. Cenou jsou data, která zastarávají, dokud se skript znovu nespustí, a větší balík. Stránky detailů dál používají REST API s cache v service workeru.",
+        hu: "A terv egyetlen gyorsítótárazott kérés volt a fajok listájáért. Ehelyett egy szkript buildeléskor GraphQL-en keresztül az összes fajt letölti a PokéAPI-ból egy JSON-fájlba, így a keresés, a szűrők, a gyorskeresés és a csapatjavaslatok egyáltalán nem küldenek kérést. Az ára, hogy az adatok elavulnak, amíg a szkript újra nem fut, és nagyobb a csomag. A részletoldalak továbbra is a REST API-t használják, amelyet a service worker gyorsítótáraz.",
+      },
+    },
+    {
+      title: {
+        en: "A copied page shell instead of server rendering",
+        sk: "Kopírovaná kostra stránky namiesto serverového renderovania",
+        de: "Kopierte Seitenhüllen statt Server-Rendering",
+        cs: "Kopírovaná kostra stránky místo serverového vykreslování",
+        hu: "Másolt oldalváz szerveroldali renderelés helyett",
+      },
+      text: {
+        en: "The app moved from a Docker image on my home server to GitHub Pages, which has no fallback for single-page apps, so deep links returned 404. Rather than adding server rendering, the build copies the HTML shell for every page with its own title and preview tags, which also produced a sitemap. The cost is thousands of generated files, and pages still render in the browser.",
+        sk: "Aplikácia sa presunula z Docker obrazu na mojom domácom serveri na GitHub Pages, ktoré nemajú záložnú cestu pre jednostránkové aplikácie, takže priame odkazy vracali 404. Namiesto serverového renderovania zostavenie skopíruje kostru HTML pre každú stránku s vlastným titulkom a náhľadovými značkami, z čoho vznikla aj mapa stránok. Cenou sú tisíce vygenerovaných súborov a stránky sa stále vykresľujú v prehliadači.",
+        de: "Die App zog von einem Docker-Image auf meinem Heimserver zu GitHub Pages, das keinen Fallback für Single-Page-Apps hat, deshalb lieferten Direktlinks 404. Statt Server-Rendering einzuführen, kopiert der Build die HTML-Hülle für jede Seite mit eigenem Titel und eigenen Vorschau-Tags, was nebenbei eine Sitemap ergab. Der Preis sind Tausende generierte Dateien, und die Seiten rendern weiterhin im Browser.",
+        cs: "Aplikace se přesunula z Docker obrazu na mém domácím serveru na GitHub Pages, které nemají záložní cestu pro jednostránkové aplikace, takže přímé odkazy vracely 404. Místo serverového vykreslování sestavení zkopíruje kostru HTML pro každou stránku s vlastním titulkem a náhledovými značkami, z čehož vznikla i mapa stránek. Cenou jsou tisíce vygenerovaných souborů a stránky se dál vykreslují v prohlížeči.",
+        hu: "Az alkalmazás az otthoni szerveremen futó Docker-képből a GitHub Pagesre költözött, amely nem ad tartalék útvonalat egyoldalas alkalmazásoknak, ezért a közvetlen linkek 404-et adtak. Szerveroldali renderelés helyett a build minden oldalhoz lemásolja a HTML-vázat saját címmel és előnézeti címkékkel, amiből egy oldaltérkép is lett. Az ára több ezer generált fájl, és az oldalak továbbra is a böngészőben renderelődnek.",
+      },
+    },
+    {
+      title: {
+        en: "Artwork through an image CDN, measured first",
+        sk: "Obrázky cez obrazové CDN, najprv zmerané",
+        de: "Artwork über ein Bild-CDN, vorher gemessen",
+        cs: "Obrázky přes obrazové CDN, nejdřív změřené",
+        hu: "Képek képes CDN-en keresztül, előbb lemérve",
+      },
+      text: {
+        en: "The official artwork came as large PNG files from GitHub, cached for only a few minutes. Before switching, I compared them with WebP versions from an image CDN, which were several times smaller and cached for a year. The cost is relying on a free third-party service for every picture.",
+        sk: "Oficiálne obrázky prichádzali ako veľké súbory PNG z GitHubu s cache len na pár minút. Pred zmenou som ich porovnal s verziami WebP z obrazového CDN, ktoré boli niekoľkonásobne menšie a s cache na rok. Cenou je závislosť od bezplatnej služby tretej strany pri každom obrázku.",
+        de: "Das offizielle Artwork kam als große PNG-Dateien von GitHub, nur wenige Minuten gecacht. Vor dem Wechsel habe ich sie mit WebP-Versionen eines Bild-CDNs verglichen, die um ein Vielfaches kleiner waren und ein Jahr gecacht werden. Der Preis ist die Abhängigkeit von einem kostenlosen Drittanbieterdienst für jedes Bild.",
+        cs: "Oficiální obrázky přicházely jako velké soubory PNG z GitHubu s cache jen na pár minut. Před změnou jsem je porovnal s verzemi WebP z obrazového CDN, které byly několikanásobně menší a s cache na rok. Cenou je závislost na bezplatné službě třetí strany u každého obrázku.",
+        hu: "A hivatalos képek nagy PNG-fájlokként érkeztek a GitHubról, csak néhány percre gyorsítótárazva. A váltás előtt összevetettem őket egy képes CDN WebP-változataival, amelyek többszörösen kisebbek voltak, és egy évig gyorsítótárazhatók. Az ára, hogy minden kép egy ingyenes külső szolgáltatástól függ.",
+      },
+    },
+  ],
+  lessons: [
+    {
+      en: "The first version had never been tested against slow or failing requests. A code read before the rebuild found more than a dozen bugs, from endless spinners on API errors to home page copy that promised features the app did not have. Now tests, accessibility checks and Lighthouse have to pass before a deploy, and every claim on the page is a real feature.",
+      sk: "Prvá verzia nebola nikdy testovaná s pomalými ani zlyhávajúcimi požiadavkami. Čítanie kódu pred prestavbou našlo vyše tucta chýb, od nekonečných načítavacích koliesok pri chybách API po text na úvodnej stránke, ktorý sľuboval funkcie, aké aplikácia nemala. Teraz musia pred nasadením prejsť testy, kontroly prístupnosti a Lighthouse a každé tvrdenie na stránke je skutočná funkcia.",
+      de: "Die erste Version war nie mit langsamen oder fehlschlagenden Anfragen getestet worden. Eine Code-Durchsicht vor dem Neubau fand mehr als ein Dutzend Fehler, von endlosen Ladekreiseln bei API-Fehlern bis zu Startseitentext, der Funktionen versprach, die die App nicht hatte. Jetzt müssen Tests, Barrierefreiheitsprüfungen und Lighthouse vor jedem Deploy bestehen, und jede Aussage auf der Seite ist eine echte Funktion.",
+      cs: "První verze nebyla nikdy testována s pomalými ani selhávajícími požadavky. Čtení kódu před přestavbou našlo přes tucet chyb, od nekonečných načítacích koleček při chybách API po text na úvodní stránce, který sliboval funkce, jaké aplikace neměla. Teď musí před nasazením projít testy, kontroly přístupnosti a Lighthouse a každé tvrzení na stránce je skutečná funkce.",
+      hu: "Az első verziót soha nem tesztelték lassú vagy hibás kérésekkel. Az újraírás előtti kódátnézés több mint egy tucat hibát talált, a végtelenül pörgő töltésjelzőktől API-hiba esetén a kezdőlap szövegéig, amely olyan funkciókat ígért, amelyek nem voltak az alkalmazásban. Most a teszteknek, az akadálymentességi ellenőrzéseknek és a Lighthouse-nak telepítés előtt át kell menniük, és az oldalon minden állítás valódi funkció.",
+    },
+    {
+      en: "I first dropped view transitions, because the card morphed into an image that had not loaded yet. They came back once only the opened card morphs and its artwork is already cached, so an idea that looks wrong is sometimes a timing problem worth a second try.",
+      sk: "Prechody medzi zobrazeniami som najprv vypustil, lebo sa karta menila na obrázok, ktorý sa ešte nenačítal. Vrátili sa, keď sa mení len otvorená karta a jej obrázok je už v cache, takže nápad, ktorý vyzerá zle, je niekedy problém načasovania, ktorý si zaslúži druhý pokus.",
+      de: "View Transitions habe ich zuerst verworfen, weil die Karte in ein noch nicht geladenes Bild überging. Sie kamen zurück, als nur noch die geöffnete Karte übergeht und ihr Artwork schon im Cache liegt. Eine Idee, die falsch aussieht, ist manchmal ein Timing-Problem, das einen zweiten Versuch wert ist.",
+      cs: "Přechody mezi zobrazeními jsem nejdřív vypustil, protože se karta měnila na obrázek, který se ještě nenačetl. Vrátily se, když se mění jen otevřená karta a její obrázek je už v cache, takže nápad, který vypadá špatně, je někdy problém načasování, který si zaslouží druhý pokus.",
+      hu: "A nézetváltási animációkat először elvetettem, mert a kártya egy még be nem töltött képbe alakult át. Akkor kerültek vissza, amikor már csak a megnyitott kártya alakul át, és a képe már a gyorsítótárban van. Egy rossznak tűnő ötlet néha csak időzítési gond, amely megér egy második próbát.",
+    },
+  ],
 };
