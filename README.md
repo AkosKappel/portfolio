@@ -13,13 +13,13 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".github/readme/home-dark.webp">
-  <img src=".github/readme/home-light.webp" alt="Home page with portrait, headline and selected projects">
+  <img src=".github/readme/home-light.webp" alt="Home page with portrait, headline and the stack I build with">
 </picture>
 
 ## Features
 
 - Every page statically generated in English, Slovak, German, Czech and Hungarian, with `hreflang`, a localized sitemap, structured data and a generated link preview per page
-- Case studies with architecture diagrams, galleries in an accessible lightbox and what changed in each 2026 rebuild
+- Case studies with key decisions and lessons learned, architecture diagrams, galleries in an accessible lightbox and what changed in each rebuild
 - Projects archive with fuzzy search, filters, sorting, grid and table views, all kept in the URL
 - Command palette (Ctrl+K or ⌘K, or the search button) to jump to any page, project or section, switch theme or language and copy the e-mail; it loads on first use
 - A `/terminal` page that browses the same content from a command line (`help`, `whoami`, `ls projects`, `open <name>`), with Tab completion and history
@@ -138,8 +138,8 @@ Technology names in `stack` and `skills` get a logo when they are listed in `src
    magick screenshot.png -resize '1600x>' -quality 80 public/images/projects/<slug>.webp
    ```
 
-2. Add an entry to `src/content/projects.ts`: `slug`, `title`, a one-sentence `summary`, `description` paragraphs, `kind`, `area`, `year`, `stack`, links and `image` with its real width and height. Use `until` for the last year of work (e.g. a 2026 rebuild) and set `featured` to show it on the home page.
-3. Write `summary`, `description` and `highlights` in every language (`en`, `sk`, `de`, `cs`, `hu`), then run `pnpm test`. The card, case-study page, sitemap entry, search and filters follow from the entry.
+2. Create `src/content/projects/<slug>.ts` and add it to the list in `src/content/projects/index.ts` (its position is the "Recommended" order): `slug`, `title`, a one-sentence `summary`, `description` paragraphs, `kind`, `areas`, `year`, `stack`, links and `image` with its real width and height. Use `until` for the last year of work (e.g. the year of a rebuild), optional `decisions` and `lessons` for the case study, and set `featured` to show it on the home page.
+3. Write every text field in every language (`en`, `sk`, `de`, `cs`, `hu`), then run `pnpm test`. The card, case-study page, sitemap entry, search and filters follow from the entry.
 
 Projects without a screenshot get a generated placeholder.
 
