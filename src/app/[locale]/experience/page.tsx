@@ -92,6 +92,8 @@ export default async function ExperiencePage({ params }: PageProps<"/[locale]/ex
                       {item.url ? (
                         <a
                           href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 underline-offset-4 hover:text-accent hover:underline"
                         >
                           {pick(item.name, locale)}

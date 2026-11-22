@@ -65,7 +65,12 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
             <ul className="mt-4 divide-y divide-line border-y border-line">
               {profiles.map(({ href, label, detail, Icon }) => (
                 <li key={label}>
-                  <a href={href} className="group flex items-center gap-4 py-4">
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-4 py-4"
+                  >
                     <Icon className="size-6 shrink-0" />
                     <span>
                       <span className="block font-medium group-hover:text-accent">{label}</span>
@@ -80,7 +85,12 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
               <span>
                 {t.rich("coffee", {
                   link: (chunks) => (
-                    <a href={site.links.buyMeACoffee} className="link">
+                    <a
+                      href={site.links.buyMeACoffee}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link"
+                    >
                       {chunks}
                     </a>
                   ),

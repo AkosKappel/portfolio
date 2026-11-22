@@ -261,7 +261,12 @@ export function execute(line: string, shell: Shell): ReactNode {
       return (
         <>
           {t("cvOpening")}{" "}
-          <a href={pdf.href} className="text-accent hover:underline">
+          <a
+            href={pdf.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:underline"
+          >
             {pdf.href}
           </a>
         </>
@@ -592,7 +597,12 @@ function Contact({ data }: { data: TerminalData }) {
       {data.links.map((link) => (
         <li key={link.name}>
           {link.name}:{" "}
-          <a href={link.url} className="text-accent hover:underline">
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:underline"
+          >
             {link.url.replace(/^https:\/\//, "")}
           </a>
         </li>

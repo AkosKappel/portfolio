@@ -163,6 +163,10 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
               <li key={contact.href} className={contact.wide ? "w-full" : undefined}>
                 <a
                   href={contact.href}
+                  {...(contact.href.startsWith("http") && {
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })}
                   className="flex items-center gap-2 transition-colors hover:text-accent"
                 >
                   {contact.icon}
@@ -255,6 +259,8 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
                           {item.url ? (
                             <a
                               href={item.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="inline-flex items-center gap-1.5 hover:text-accent"
                             >
                               <span className="link">{pick(item.name, locale)}</span>
@@ -363,7 +369,12 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
                     </p>
                   </div>
                   <p className="text-sm text-muted">
-                    <a href={university.url} className="link">
+                    <a
+                      href={university.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link"
+                    >
                       {pick(university.name, locale)}
                     </a>
                     , {pick(university.faculty, locale)}
@@ -387,6 +398,8 @@ export default async function CvPage({ params }: PageProps<"/[locale]/cv">) {
                       {degree.thesis.recordUrl ? (
                         <a
                           href={degree.thesis.recordUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="mt-1.5 inline-flex items-center gap-1.5 text-muted hover:text-accent"
                         >
                           <ExternalLink aria-hidden size={14} />

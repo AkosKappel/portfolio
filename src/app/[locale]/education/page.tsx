@@ -37,7 +37,7 @@ export default async function EducationPage({ params }: PageProps<"/[locale]/edu
           {t("university")}
         </AnchorHeading>
         <p className="mt-2 text-lg">
-          <a href={university.url} className="link">
+          <a href={university.url} target="_blank" rel="noopener noreferrer" className="link">
             {pick(university.name, locale)}
           </a>
         </p>
@@ -78,6 +78,8 @@ export default async function EducationPage({ params }: PageProps<"/[locale]/edu
                     {degree.thesis.recordUrl ? (
                       <a
                         href={degree.thesis.recordUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="mt-1 flex w-fit items-center gap-1.5 text-sm text-muted hover:text-accent"
                       >
                         <ExternalLink aria-hidden size={14} />

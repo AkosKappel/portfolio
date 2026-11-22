@@ -52,6 +52,8 @@ export function SiteFooter() {
               <li key={label}>
                 <a
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 underline-offset-4 hover:text-accent hover:underline"
                 >
                   <Icon className="size-4" />
@@ -72,7 +74,7 @@ export function SiteFooter() {
             {t("common.sourceCode")}
           </a>
           {" · "}
-          <a href={site.links.status} className="link">
+          <a href={site.links.status} target="_blank" rel="noopener noreferrer" className="link">
             {t("footer.status")}
           </a>
           {" · "}
