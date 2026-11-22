@@ -128,6 +128,8 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
             {project.paperUrl ? (
               <a
                 href={project.paperUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-medium transition-colors hover:border-ink"
               >
                 <FileText aria-hidden size={18} />
@@ -137,6 +139,8 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
             {project.websiteUrl ? (
               <a
                 href={project.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-medium transition-colors hover:border-ink"
               >
                 <Globe aria-hidden size={18} />
