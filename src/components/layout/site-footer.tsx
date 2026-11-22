@@ -68,7 +68,7 @@ export function SiteFooter() {
         </p>
         <p>
           {t("footer.builtWith")}{" "}
-          <a href={site.repository} className="link">
+          <a href={site.repository} target="_blank" rel="noopener noreferrer" className="link">
             {t("common.sourceCode")}
           </a>
           {" · "}

@@ -117,6 +117,8 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
             {project.repoUrl ? (
               <a
                 href={project.repoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 font-medium transition-colors hover:border-ink"
               >
                 <RepoIcon className="size-4" />

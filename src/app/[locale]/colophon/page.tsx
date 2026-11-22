@@ -65,7 +65,7 @@ export default async function ColophonPage({ params }: PageProps<"/[locale]/colo
           </section>
         ))}
         <p className="text-lg">
-          <a href={site.repository} className="link">
+          <a href={site.repository} target="_blank" rel="noopener noreferrer" className="link">
             {t("sourceCode")}
           </a>
         </p>
