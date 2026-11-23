@@ -188,8 +188,8 @@
   },
   "activity": {
     "title": "Aktivität",
-    "description": "Meine private und berufliche Aktivität auf GitHub und GitLab in einem Kalender.",
-    "lead": "Meine private und berufliche Aktivität auf GitHub und GitLab in einem Kalender. Bei der beruflichen Aktivität sind nur die Tageszahlen zu sehen, keine Projektnamen.",
+    "description": "Ein Kalender meiner privaten und beruflichen Entwicklungsaktivität aus GitHub, GitLab und Firmen-Repositorys, mit Sprachen, geänderten Zeilen und Commit-Zeiten.",
+    "lead": "Alles, was ich in privaten Projekten und im Beruf committe, reviewe und eröffne, an einem Ort. Berufliche Quellen zeigen nur Tageszahlen, nie Projektnamen. Wählen Sie einen Zeitraum oder eine Quelle, um die Ansicht einzugrenzen.",
     "range": "Zeitraum",
     "lastYear": "Letzte 12 Monate",
     "sources": "Quellen",
@@ -218,6 +218,7 @@
     "days": "{count, plural, one {# Tag} other {# Tage}}",
     "byType": "Nach Art",
     "bySource": "Nach Quelle",
+    "bySourceHint": "Quellen ohne Aktivität in diesem Zeitraum werden ausgeblendet.",
     "byTypeHint": "Wählen Sie eine Art, um nur diese im Kalender und in den Summen zu zeigen.",
     "byYear": "Nach Jahr",
     "byYearHint": "Wählen Sie ein Jahr, um es im Kalender zu zeigen.",
@@ -237,7 +238,7 @@
       "comments": "{count, plural, one {# Kommentar} other {# Kommentare}}",
       "other": "{count, plural, one {# sonstiger Beitrag} other {# sonstige Beiträge}}"
     },
-    "updated": "Aktualisiert am {date}. Gesammelt über die APIs von GitHub und GitLab und aus meinen beruflichen Repositorys. GitHub und GitLab zählen Beiträge etwas unterschiedlich, die Summen sind daher Näherungswerte.",
+    "updated": "Aktualisiert am {date}, wöchentlich über die APIs von GitHub und GitLab und aus meinen lokalen beruflichen Repositorys. Jede Plattform zählt Beiträge etwas anders, die Summen sind daher Näherungswerte.",
     "pattern": {
       "title": "Wann ich committe",
       "summary": "Die meisten Commits entstehen am {weekday} gegen {hour}:00 Uhr. {weekend} % fallen aufs Wochenende und {evening} % auf die Zeit nach 19:00 Uhr.",
@@ -247,12 +248,25 @@
     },
     "languages": {
       "title": "Sprachen im Zeitverlauf",
-      "lead": "Die Commits jedes Jahres, aufgeteilt nach den Sprachen, die sie geändert haben.",
+      "lead": "In welche Sprachen die Arbeit der einzelnen Jahre floss.",
       "legend": "Sprachen",
       "other": "Sonstige",
       "table": "Als Tabelle anzeigen",
       "year": "Jahr",
-      "note": "Verwandte Sprachen teilen sich eine Farbe: Notebooks zählen als Python, Blade-Templates als PHP, HTML und CSS gemeinsam."
+      "note": {
+        "commits": "Jeder Commit zählt einmal, aufgeteilt nach den Zeilen, die er je Sprache geändert hat. Verwandte Sprachen teilen sich eine Farbe: Notebooks zählen als Python, Blade-Templates als PHP, HTML und CSS gemeinsam.",
+        "lines": "Hinzugefügte plus entfernte Zeilen. Für berufliche Repositorys exakt; GitHub meldet Zeilen nur je Commit, daher werden sie nach den Sprachen des Repositorys aufgeteilt und enthalten auch einige Konfigurationsdateien. Commits mit mehr als 5.000 Zeilen (generierter oder importierter Code) zählen nicht. Verwandte Sprachen teilen sich eine Farbe."
+      },
+      "summary": "Seit {from}: {commits, plural, one {# Commit} other {# Commits}}, {added} Zeilen hinzugefügt und {removed} entfernt.",
+      "measure": "Aufteilen nach",
+      "by": {
+        "commits": "Anteil der Commits",
+        "lines": "Anteil geänderter Zeilen"
+      },
+      "changed": "+{added} / −{removed} Zeilen",
+      "commits": "Commits",
+      "added": "Hinzugefügte Zeilen",
+      "removed": "Entfernte Zeilen"
     },
     "card": {
       "title": "Aktivität",

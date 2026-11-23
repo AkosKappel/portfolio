@@ -188,8 +188,8 @@
   },
   "activity": {
     "title": "Aktivitás",
-    "description": "Saját és munkahelyi aktivitásom a GitHubon és a GitLabon, egy naptárban.",
-    "lead": "Saját és munkahelyi aktivitásom a GitHubon és a GitLabon, egy naptárban. A munkahelyi aktivitásnál csak a napi számok látszanak, projektnevek nélkül.",
+    "description": "Saját és munkahelyi fejlesztői aktivitásom naptára a GitHubról, a GitLabről és céges repozitóriumokból, nyelvekkel, módosított sorokkal és a commitok idejével.",
+    "lead": "Minden, amit saját projektekben és munkában commitolok, átnézek és megnyitok, egy helyen. A munkahelyi források csak napi számokat mutatnak, projektneveket soha. Időszak vagy forrás kiválasztásával szűkítheti a nézetet.",
     "range": "Időszak",
     "lastYear": "Elmúlt 12 hónap",
     "sources": "Források",
@@ -218,6 +218,7 @@
     "days": "{count, plural, one {# nap} other {# nap}}",
     "byType": "Típus szerint",
     "bySource": "Forrás szerint",
+    "bySourceHint": "Az ebben az időszakban aktivitás nélküli források rejtve maradnak.",
     "byTypeHint": "Válasszon egy típust, hogy a naptárban és az összesítésben csak az látsszon.",
     "byYear": "Év szerint",
     "byYearHint": "Válasszon egy évet, hogy megjelenjen a naptárban.",
@@ -237,7 +238,7 @@
       "comments": "{count, plural, one {# hozzászólás} other {# hozzászólás}}",
       "other": "{count, plural, one {# egyéb hozzájárulás} other {# egyéb hozzájárulás}}"
     },
-    "updated": "Frissítve: {date}. A GitHub és a GitLab API-jából, valamint a munkahelyi repozitóriumaimból gyűjtve. A GitHub és a GitLab kicsit eltérően számolja a hozzájárulásokat, ezért az összegek közelítőek.",
+    "updated": "Frissítve: {date}, hetente a GitHub és a GitLab API-jából, valamint a helyi munkahelyi repozitóriumaimból. Minden platform kicsit másképp számolja a hozzájárulásokat, ezért az összegek közelítőek.",
     "pattern": {
       "title": "Mikor commitolok",
       "summary": "A legaktívabb nap: {weekday}, a legaktívabb óra {hour}:00 körül. A commitok {weekend}%-a esik hétvégére, {evening}%-a 19:00 utánra.",
@@ -247,12 +248,25 @@
     },
     "languages": {
       "title": "Nyelvek az idő során",
-      "lead": "Az egyes évek commitjai aszerint felosztva, hogy milyen nyelvű kódot módosítottak.",
+      "lead": "Mely nyelvekre ment az egyes évek munkája.",
       "legend": "Nyelvek",
       "other": "Egyéb",
       "table": "Megjelenítés táblázatként",
       "year": "Év",
-      "note": "A rokon nyelvek közös színt kapnak: a notebookok Pythonnak, a Blade-sablonok PHP-nak számítanak, a HTML és a CSS együtt szerepel."
+      "note": {
+        "commits": "Minden commit egyszer számít, nyelvenként az általa módosított sorok szerint felosztva. A rokon nyelvek közös színt kapnak: a notebookok Pythonnak, a Blade-sablonok PHP-nak számítanak, a HTML és a CSS együtt szerepel.",
+        "lines": "Hozzáadott és törölt sorok összesen. A munkahelyi repozitóriumoknál pontos; a GitHub csak commitonként adja meg a sorokat, ezért a repozitórium nyelvei szerint vannak felosztva, és néhány konfigurációs fájlt is tartalmaznak. Az 5000 sornál nagyobb commitok (generált vagy importált kód) nem számítanak bele. A rokon nyelvek közös színt kapnak."
+      },
+      "summary": "{from} óta: {commits, plural, one {# commit} other {# commit}}, {added} hozzáadott és {removed} törölt sor.",
+      "measure": "Felosztás",
+      "by": {
+        "commits": "Commitok aránya",
+        "lines": "Módosított sorok aránya"
+      },
+      "changed": "+{added} / −{removed} sor",
+      "commits": "Commitok",
+      "added": "Hozzáadott sorok",
+      "removed": "Törölt sorok"
     },
     "card": {
       "title": "Aktivitás",

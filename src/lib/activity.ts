@@ -27,7 +27,16 @@ export type ActivityData = {
    * per language (local clones) or by the repository's languages (GitHub).
    */
   languages: Record<string, Record<string, Record<string, number>>>;
+  /**
+   * Source id, year, language, then lines added and removed. Exact for local clones; GitHub
+   * reports lines per commit only, so they are split by the repository's languages. Commits
+   * that change more than a few thousand lines (generated or vendored code) are left out.
+   */
+  lines: Record<string, Record<string, Record<string, number[]>>>;
 };
+
+/** What the language chart splits each year by. */
+export type LanguageMeasure = "commits" | "lines";
 
 export function addDays(isoDate: string, days: number) {
   const date = new Date(`${isoDate}T00:00:00Z`);
@@ -175,15 +184,44 @@ const languageFamilies: Record<string, string> = {
   PLpgSQL: "SQL",
 };
 
-/** Each year's commit share per language, summed over the given sources. */
-function sharesByYear(data: ActivityData, sourceIds: string[]) {
+/** Each year's commits or lines changed per language, summed over the given sources. */
+function sharesByYear(data: ActivityData, sourceIds: string[], measure: LanguageMeasure) {
   const years: Record<string, Record<string, number>> = {};
   for (const id of sourceIds) {
-    for (const [year, shares] of Object.entries(data.languages[id] ?? {})) {
+    const perYear =
+      measure === "commits"
+        ? (data.languages[id] ?? {})
+        : Object.fromEntries(
+            Object.entries(data.lines[id] ?? {}).map(([year, languages]) => [
+              year,
+              Object.fromEntries(
+                Object.entries(languages).map(([language, [added, removed]]) => [
+                  language,
+                  added + removed,
+                ]),
+              ),
+            ]),
+          );
+    for (const [year, shares] of Object.entries(perYear)) {
       years[year] ??= {};
       for (const [language, share] of Object.entries(shares)) {
         const name = languageFamilies[language] ?? language;
         years[year][name] = (years[year][name] ?? 0) + share;
+      }
+    }
+  }
+  return years;
+}
+
+/** Lines added and removed per year over the given sources. */
+function linesByYear(data: ActivityData, sourceIds: string[]) {
+  const years: Record<string, { added: number; removed: number }> = {};
+  for (const id of sourceIds) {
+    for (const [year, languages] of Object.entries(data.lines[id] ?? {})) {
+      years[year] ??= { added: 0, removed: 0 };
+      for (const [added, removed] of Object.values(languages)) {
+        years[year].added += added;
+        years[year].removed += removed;
       }
     }
   }
@@ -202,6 +240,7 @@ export function chartLanguages(data: ActivityData, slots = 8) {
     sharesByYear(
       data,
       data.sources.map((source) => source.id),
+      "commits",
     ),
   );
   const total: Record<string, number> = {};
@@ -219,25 +258,37 @@ export function chartLanguages(data: ActivityData, slots = 8) {
 }
 
 /**
- * Each year's share per named language for the selected sources, plus "other" with the
- * languages it holds, largest first.
+ * Each year's share of commits or lines changed per named language for the selected sources,
+ * plus "other" with the languages it holds, largest first, and the year's commit and line totals.
  */
-export function languageYears(data: ActivityData, sourceIds: string[], slots = 8) {
+export function languageYears(
+  data: ActivityData,
+  sourceIds: string[],
+  measure: LanguageMeasure = "commits",
+  slots = 8,
+) {
   const languages = chartLanguages(data, slots);
-  const rows = Object.entries(sharesByYear(data, sourceIds))
+  const commits = sharesByYear(data, sourceIds, "commits");
+  const lines = linesByYear(data, sourceIds);
+  const rows = Object.entries(sharesByYear(data, sourceIds, measure))
     .sort(([a], [b]) => a.localeCompare(b))
-    .map(([year, shares]) => {
+    .flatMap(([year, shares]) => {
       const total = sumOf(Object.values(shares));
+      if (!total) return [];
       const other = Object.entries(shares)
         .filter(([language]) => !languages.includes(language))
         .map(([language, share]) => ({ language, share: share / total }))
         .sort((a, b) => b.share - a.share);
-      return {
-        year,
-        commits: Math.round(total),
-        shares: languages.map((language) => (shares[language] ?? 0) / total),
-        other,
-      };
+      return [
+        {
+          year,
+          commits: Math.round(sumOf(Object.values(commits[year] ?? {}))),
+          added: lines[year]?.added ?? 0,
+          removed: lines[year]?.removed ?? 0,
+          shares: languages.map((language) => (shares[language] ?? 0) / total),
+          other,
+        },
+      ];
     });
   return { languages, rows };
 }

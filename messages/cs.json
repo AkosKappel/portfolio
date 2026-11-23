@@ -188,8 +188,8 @@
   },
   "activity": {
     "title": "Aktivita",
-    "description": "Moje osobní i pracovní aktivita na GitHubu a GitLabu v jednom kalendáři.",
-    "lead": "Moje osobní i pracovní aktivita na GitHubu a GitLabu v jednom kalendáři. U pracovní aktivity jsou vidět jen denní počty, bez názvů projektů.",
+    "description": "Kalendář mé osobní i pracovní programátorské aktivity z GitHubu, GitLabu a firemních repozitářů, s jazyky, změněnými řádky a časem commitů.",
+    "lead": "Vše, co commituji, reviduji a otevírám v osobních projektech i v práci, na jednom místě. Pracovní zdroje ukazují jen denní počty, nikdy názvy projektů. Výběrem období nebo zdroje zobrazení zúžíte.",
     "range": "Období",
     "lastYear": "Posledních 12 měsíců",
     "sources": "Zdroje",
@@ -218,6 +218,7 @@
     "days": "{count, plural, one {# den} few {# dny} other {# dní}}",
     "byType": "Podle typu",
     "bySource": "Podle zdroje",
+    "bySourceHint": "Zdroje bez aktivity v tomto období jsou skryté.",
     "byTypeHint": "Vyberte typ a v kalendáři i součtech se zobrazí jen on.",
     "byYear": "Podle roku",
     "byYearHint": "Vyberte rok a zobrazí se v kalendáři.",
@@ -237,7 +238,7 @@
       "comments": "{count, plural, one {# komentář} few {# komentáře} other {# komentářů}}",
       "other": "{count, plural, one {# jiný příspěvek} few {# jiné příspěvky} other {# jiných příspěvků}}"
     },
-    "updated": "Aktualizováno {date}. Shromážděno z API GitHubu a GitLabu a z mých pracovních repozitářů. GitHub a GitLab počítají příspěvky trochu jinak, takže součty jsou přibližné.",
+    "updated": "Aktualizováno {date}, každý týden z API GitHubu a GitLabu a z mých lokálních pracovních repozitářů. Každá platforma počítá příspěvky trochu jinak, takže součty jsou přibližné.",
     "pattern": {
       "title": "Kdy commituji",
       "summary": "Nejrušnější den je {weekday} a nejrušnější hodina kolem {hour}:00. {weekend} % commitů připadá na víkendy a {evening} % na dobu po 19:00.",
@@ -247,12 +248,25 @@
     },
     "languages": {
       "title": "Jazyky v čase",
-      "lead": "Commity každého roku rozdělené podle jazyků, které měnily.",
+      "lead": "Do kterých jazyků šla práce v jednotlivých letech.",
       "legend": "Jazyky",
       "other": "Ostatní",
       "table": "Zobrazit jako tabulku",
       "year": "Rok",
-      "note": "Příbuzné jazyky mají společnou barvu: notebooky se počítají jako Python, šablony Blade jako PHP a HTML spolu s CSS."
+      "note": {
+        "commits": "Každý commit se počítá jednou, rozdělený podle řádků, které změnil v jednotlivých jazycích. Příbuzné jazyky mají společnou barvu: notebooky se počítají jako Python, šablony Blade jako PHP a HTML spolu s CSS.",
+        "lines": "Přidané plus odebrané řádky. U pracovních repozitářů přesně; GitHub hlásí řádky jen za celý commit, proto jsou rozdělené podle jazyků repozitáře a zahrnují i část konfiguračních souborů. Commity nad 5 000 řádků (generovaný nebo importovaný kód) se nepočítají. Příbuzné jazyky mají společnou barvu."
+      },
+      "summary": "Od roku {from}: {commits, plural, one {# commit} few {# commity} other {# commitů}}, {added} přidaných a {removed} odebraných řádků.",
+      "measure": "Rozdělit podle",
+      "by": {
+        "commits": "Podíl commitů",
+        "lines": "Podíl změněných řádků"
+      },
+      "changed": "+{added} / −{removed} řádků",
+      "commits": "Commity",
+      "added": "Přidané řádky",
+      "removed": "Odebrané řádky"
     },
     "card": {
       "title": "Aktivita",

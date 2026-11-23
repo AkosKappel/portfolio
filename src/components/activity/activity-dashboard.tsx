@@ -11,6 +11,7 @@ import {
   calendarWeeks,
   categories,
   commitHours,
+  type LanguageMeasure,
   languageYears,
   level,
   quartiles,
@@ -87,13 +88,15 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
   }
 
   const allIds = data.sources.map((source) => source.id);
+  // Sources with nothing in the selected period are hidden rather than listed at zero.
+  const inRange = summarize(data, allIds, start, end).bySource;
   const presets = [
     { key: "all" as const, ids: allIds },
     ...(["personal", "work"] as const).map((kind) => ({
       key: kind,
       ids: data.sources.filter((source) => source.kind === kind).map((source) => source.id),
     })),
-  ].filter((preset) => preset.ids.length);
+  ].filter((preset) => preset.ids.some((id) => inRange[id]));
   const isSelection = (ids: string[]) =>
     ids.length === sourceIds.length && ids.every((id) => sourceIds.includes(id));
 
@@ -150,19 +153,21 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
             </button>
           ))}
           <span aria-hidden className="mx-1 h-6 w-px bg-line" />
-          {data.sources.map((source) => (
-            <button
-              key={source.id}
-              type="button"
-              aria-pressed={sourceIds.includes(source.id)}
-              onClick={() => toggleSource(source.id)}
-              className="group inline-flex items-center gap-1.5 rounded-full border border-line px-3.5 py-1.5 text-sm text-muted transition-colors hover:bg-accent-soft aria-pressed:border-accent aria-pressed:bg-accent-soft aria-pressed:text-ink"
-            >
-              <Check aria-hidden size={14} className="hidden group-aria-pressed:block" />
-              {source.label}
-              <span className="text-xs text-muted">{t(`kinds.${source.kind}`)}</span>
-            </button>
-          ))}
+          {data.sources
+            .filter((source) => inRange[source.id])
+            .map((source) => (
+              <button
+                key={source.id}
+                type="button"
+                aria-pressed={sourceIds.includes(source.id)}
+                onClick={() => toggleSource(source.id)}
+                className="group inline-flex items-center gap-1.5 rounded-full border border-line px-3.5 py-1.5 text-sm text-muted transition-colors hover:bg-accent-soft aria-pressed:border-accent aria-pressed:bg-accent-soft aria-pressed:text-ink"
+              >
+                <Check aria-hidden size={14} className="hidden group-aria-pressed:block" />
+                {source.label}
+                <span className="text-xs text-muted">{t(`kinds.${source.kind}`)}</span>
+              </button>
+            ))}
         </fieldset>
       </div>
 
@@ -305,6 +310,8 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
         ))}
       </dl>
 
+      <LanguagesOverTime data={data} sourceIds={sourceIds} highlight={year ? String(year) : null} />
+
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <section aria-labelledby="by-type">
           <h2 id="by-type" className="text-2xl font-semibold">
@@ -336,22 +343,25 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
           <h2 id="by-source" className="text-2xl font-semibold">
             {t("bySource")}
           </h2>
+          <p className="mt-1 text-sm text-muted">{t("bySourceHint")}</p>
           <Bars
-            rows={selectedSources.map((source) => ({
-              key: source.id,
-              label:
-                source.kind === "work" ? (
-                  <Link
-                    href={`/experience#${source.id}`}
-                    className="underline-offset-4 hover:underline"
-                  >
-                    {source.label}
-                  </Link>
-                ) : (
-                  source.label
-                ),
-              value: summary.bySource[source.id],
-            }))}
+            rows={selectedSources
+              .filter((source) => summary.bySource[source.id])
+              .map((source) => ({
+                key: source.id,
+                label:
+                  source.kind === "work" ? (
+                    <Link
+                      href={`/experience#${source.id}`}
+                      className="underline-offset-4 hover:underline"
+                    >
+                      {source.label}
+                    </Link>
+                  ) : (
+                    source.label
+                  ),
+                value: summary.bySource[source.id],
+              }))}
             max={maxSource}
             format={number.format}
           />
@@ -388,11 +398,6 @@ export function ActivityDashboard({ data }: { data: ActivityData }) {
         formatWeekday={(weekday, style) =>
           formatDate(addDays("2024-01-01", weekday), { weekday: style })
         }
-      />
-
-      <LanguagesOverTime
-        {...languageYears(data, sourceIds)}
-        highlight={year ? String(year) : null}
       />
 
       <p className="text-sm text-muted">
@@ -536,15 +541,28 @@ const seriesColor = (index: number) => `var(--series-${index + 1})`;
 const percent = (share: number) => `${Math.round(share * 100)} %`;
 
 function LanguagesOverTime({
-  languages,
-  rows,
+  data,
+  sourceIds,
   highlight,
 }: {
-  languages: string[];
-  rows: LanguageRow[];
+  data: ActivityData;
+  sourceIds: string[];
   highlight: string | null;
 }) {
   const t = useTranslations("activity");
+  const locale = useLocale();
+  const [measure, setMeasure] = useState<LanguageMeasure>("commits");
+  const { languages, rows } = languageYears(data, sourceIds, measure);
+  const number = new Intl.NumberFormat(locale);
+  const compact = new Intl.NumberFormat(locale, { notation: "compact" });
+  const totals = rows.reduce(
+    (sum, row) => ({
+      commits: sum.commits + row.commits,
+      added: sum.added + row.added,
+      removed: sum.removed + row.removed,
+    }),
+    { commits: 0, added: 0, removed: 0 },
+  );
   const otherName = t("languages.other");
   const otherShare = (row: LanguageRow) => row.other.reduce((sum, item) => sum + item.share, 0);
   const shown = languages.flatMap((name, index) =>
@@ -575,7 +593,31 @@ function LanguagesOverTime({
       <h2 id="languages-over-time" className="text-2xl font-semibold">
         {t("languages.title")}
       </h2>
-      <p className="mt-2 text-muted">{t("languages.lead")}</p>
+      <p className="mt-2 text-muted">
+        {t("languages.lead")}{" "}
+        {rows.length
+          ? t("languages.summary", {
+              from: rows[0].year,
+              commits: totals.commits,
+              added: number.format(totals.added),
+              removed: number.format(totals.removed),
+            })
+          : null}
+      </p>
+      <fieldset className="mt-4 flex flex-wrap items-center gap-2">
+        <legend className="sr-only">{t("languages.measure")}</legend>
+        {(["commits", "lines"] as const).map((option) => (
+          <button
+            key={option}
+            type="button"
+            aria-pressed={measure === option}
+            onClick={() => setMeasure(option)}
+            className="rounded-full border border-line px-3.5 py-1.5 text-sm transition-colors hover:bg-accent-soft aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-on-accent"
+          >
+            {t(`languages.by.${option}`)}
+          </button>
+        ))}
+      </fieldset>
       {rows.length ? (
         <div className="mt-4 rounded-2xl border border-line bg-surface p-4 sm:p-6">
           <ul aria-label={t("languages.legend")} className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
@@ -597,7 +639,7 @@ function LanguagesOverTime({
             {rows.map((row) => (
               <li
                 key={row.year}
-                className={`grid grid-cols-[3rem_1fr] items-center gap-3 text-sm sm:grid-cols-[3rem_1fr_7rem] ${row.year === highlight ? "font-semibold" : ""}`}
+                className={`grid grid-cols-[3rem_1fr] items-center gap-3 text-sm sm:grid-cols-[3rem_1fr_8.5rem] ${row.year === highlight ? "font-semibold" : ""}`}
               >
                 <span className="tabular-nums">{row.year}</span>
                 <div aria-hidden className="flex h-6 gap-0.5">
@@ -629,8 +671,14 @@ function LanguagesOverTime({
                     .map((segment) => `${segment.name} ${percent(segment.share)}`)
                     .join(", ")}
                 </span>
-                <span className="hidden text-right text-muted tabular-nums sm:block">
+                <span className="hidden text-right text-xs leading-tight text-muted tabular-nums sm:block">
                   {t("counts.commits", { count: row.commits })}
+                  <span className="block">
+                    {t("languages.changed", {
+                      added: compact.format(row.added),
+                      removed: compact.format(row.removed),
+                    })}
+                  </span>
                 </span>
               </li>
             ))}
@@ -647,6 +695,17 @@ function LanguagesOverTime({
                       {t("languages.year")}
                     </th>
                     {[...shown.map((item) => item.name), ...(hasOther ? [otherName] : [])].map(
+                      (name) => (
+                        <th
+                          key={name}
+                          scope="col"
+                          className="px-2 py-1 font-medium whitespace-nowrap"
+                        >
+                          {name}
+                        </th>
+                      ),
+                    )}
+                    {[t("languages.commits"), t("languages.added"), t("languages.removed")].map(
                       (name) => (
                         <th
                           key={name}
@@ -675,13 +734,16 @@ function LanguagesOverTime({
                           {otherShare(row) >= 0.005 ? percent(otherShare(row)) : "–"}
                         </td>
                       ) : null}
+                      <td className="px-2 py-1">{number.format(row.commits)}</td>
+                      <td className="px-2 py-1">{number.format(row.added)}</td>
+                      <td className="px-2 py-1">{number.format(row.removed)}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
           </details>
-          <p className="mt-4 text-xs text-muted">{t("languages.note")}</p>
+          <p className="mt-4 text-xs text-muted">{t(`languages.note.${measure}`)}</p>
         </div>
       ) : (
         <p className="mt-4 text-muted">{t("pattern.empty")}</p>

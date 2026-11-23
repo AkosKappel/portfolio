@@ -38,6 +38,10 @@ const data: ActivityData = {
     github: { "2025": { TypeScript: 3, Go: 1 } },
     work: { "2025": { Kotlin: 4 }, "2026": { Kotlin: 1, TeX: 1 } },
   },
+  lines: {
+    github: { "2025": { TypeScript: [60, 20], Go: [20, 0] } },
+    work: { "2025": { Kotlin: [100, 0] } },
+  },
 };
 
 describe("calendarWeeks", () => {
@@ -118,12 +122,14 @@ describe("commitHours", () => {
 
 describe("languageYears", () => {
   it("names the top languages and lists the rest under other", () => {
-    const { languages, rows } = languageYears(data, ["github", "work"], 2);
+    const { languages, rows } = languageYears(data, ["github", "work"], "commits", 2);
     expect(languages).toEqual(["Kotlin", "TypeScript"]);
     expect(rows.map((row) => row.year)).toEqual(["2025", "2026"]);
     expect(rows[0]).toEqual({
       year: "2025",
       commits: 8,
+      added: 180,
+      removed: 20,
       shares: [0.5, 0.375],
       other: [{ language: "Go", share: 0.125 }],
     });
@@ -132,7 +138,14 @@ describe("languageYears", () => {
   });
 
   it("keeps names and order when a source filter hides a language", () => {
-    expect(languageYears(data, ["work"], 2).languages).toEqual(["Kotlin", "TypeScript"]);
+    expect(languageYears(data, ["work"], "commits", 2).languages).toEqual(["Kotlin", "TypeScript"]);
+  });
+
+  it("splits by lines changed and skips years without lines", () => {
+    const { rows } = languageYears(data, ["github", "work"], "lines", 2);
+    expect(rows.map((row) => row.year)).toEqual(["2025"]);
+    expect(rows[0].shares).toEqual([0.5, 0.4]);
+    expect(rows[0].other).toEqual([{ language: "Go", share: 0.1 }]);
   });
 
   it("gives a slot to a language that filled a year, ahead of a bigger total", () => {

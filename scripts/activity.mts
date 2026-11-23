@@ -1,7 +1,7 @@
 /**
  * Collects daily contribution counts from GitHub, GitLab instances and local clones into
- * src/content/activity.json, plus when commits happen (weekday and hour) and which languages
- * they touch per year. The file is public, so it holds only counts: never repository, project
+ * src/content/activity.json, plus when commits happen (weekday and hour), which languages they
+ * touch per year and how many lines they add and remove. The file is public, so it holds only counts: never repository, project
  * or issue names.
  *
  * Tokens come from .env.local: GITHUB_TOKEN (falls back to the gh CLI login), GITLAB_TOKEN and
@@ -59,8 +59,15 @@ const today = new Date().toISOString().slice(0, 10);
 
 type Days = Record<string, Counts>;
 type Languages = ActivityData["languages"][string];
+type Lines = ActivityData["lines"][string];
 /** `since` is the first day the collector can see; older days are kept from the last run. */
-type Collected = { days: Days; since?: string; hours?: number[][]; languages?: Languages };
+type Collected = {
+  days: Days;
+  since?: string;
+  hours?: number[][];
+  languages?: Languages;
+  lines?: Lines;
+};
 
 function add(days: Days, date: string, category: Category, count = 1) {
   if (count <= 0) return;
@@ -79,19 +86,44 @@ const clock = new Intl.DateTimeFormat("en-GB", {
 });
 const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-/** Adds a commit to the weekday and hour grid and splits one unit across its languages. */
-function addCommit(result: Collected, time: Date, languages: Record<string, number>) {
+/** Adds lines added and removed to a language's running total. */
+function addLines(
+  totals: Record<string, number[]>,
+  language: string,
+  added: number,
+  removed: number,
+) {
+  totals[language] ??= [0, 0];
+  totals[language][0] += added;
+  totals[language][1] += removed;
+}
+
+/**
+ * Adds a commit to the weekday and hour grid, splits one unit across its languages by `weights`
+ * and adds its lines added and removed per language.
+ */
+function addCommit(
+  result: Collected,
+  time: Date,
+  weights: Record<string, number>,
+  lines: Record<string, number[]>,
+) {
   const parts = Object.fromEntries(
     clock.formatToParts(time).map((part) => [part.type, part.value]),
   );
   result.hours ??= weekdays.map(() => Array(24).fill(0));
   result.hours[weekdays.indexOf(parts.weekday)][Number(parts.hour)]++;
-  const total = Object.values(languages).reduce((sum, size) => sum + size, 0);
+  result.lines ??= {};
+  result.lines[parts.year] ??= {};
+  for (const [language, [added, removed]] of Object.entries(lines)) {
+    addLines(result.lines[parts.year], language, added, removed);
+  }
+  const total = Object.values(weights).reduce((sum, size) => sum + size, 0);
   if (!total) return;
   result.languages ??= {};
   result.languages[parts.year] ??= {};
   const year = result.languages[parts.year];
-  for (const [language, size] of Object.entries(languages)) {
+  for (const [language, size] of Object.entries(weights)) {
     year[language] = (year[language] ?? 0) + size / total;
   }
 }
@@ -220,7 +252,8 @@ async function github(): Promise<Collected> {
   }
 
   // Commit times come from the default branch of each repository, where GitHub counts commits too.
-  // A commit's languages are the repository's, weighted by size.
+  // A commit's languages are the repository's, weighted by size. Line counts make each page slow
+  // to compute, and pages of 100 commits time out.
   for (const [nameWithOwner, languages] of languagesByRepository) {
     const [owner, name] = nameWithOwner.split("/");
     let after: string | null = null;
@@ -228,18 +261,42 @@ async function github(): Promise<Collected> {
       const { repository } = await query(
         `query($owner: String!, $name: String!, $author: ID!, $after: String) {
           repository(owner: $owner, name: $name) { defaultBranchRef { target { ... on Commit {
-            history(first: 100, after: $after, author: { id: $author }) {
-              nodes { authoredDate } pageInfo { hasNextPage endCursor } } } } } } }`,
+            history(first: 50, after: $after, author: { id: $author }) {
+              nodes { authoredDate additions deletions } pageInfo { hasNextPage endCursor } } } } } } }`,
         { owner, name, author: id, after },
       );
       const history = repository?.defaultBranchRef?.target?.history;
       for (const node of history?.nodes ?? []) {
-        addCommit(result, new Date(node.authoredDate), languages);
+        addCommit(
+          result,
+          new Date(node.authoredDate),
+          languages,
+          githubLines(languages, node.additions, node.deletions),
+        );
       }
       after = history?.pageInfo.hasNextPage ? history.pageInfo.endCursor : null;
     } while (after);
   }
   return result;
+}
+
+/** Lines changed per commit above which it is taken for generated or vendored code. */
+const generatedLines = 5000;
+
+/**
+ * GitHub reports a commit's lines but not per file, so they are split by the repository's
+ * language sizes. The count includes lockfiles and generated files, so commits above
+ * `generatedLines` add none.
+ */
+function githubLines(languages: Record<string, number>, added: number, removed: number) {
+  const total = Object.values(languages).reduce((sum, size) => sum + size, 0);
+  if (!total || added + removed > generatedLines) return {};
+  return Object.fromEntries(
+    Object.entries(languages).map(([language, size]): [string, number[]] => [
+      language,
+      [(added * size) / total, (removed * size) / total],
+    ]),
+  );
 }
 
 function gitlabCategory(event: {
@@ -332,16 +389,22 @@ function git({ path }: Extract<Collector, { type: "git" }>): Collected | null {
       seen.add(header);
       const time = new Date(Number(header.slice(0, header.indexOf(" "))) * 1000);
       add(result.days, localDate.format(time), "commits");
-      // Lines changed per language; binary files show "-" and are left out.
-      const languages: Record<string, number> = {};
+      // Lines added and removed per language; binary files show "-" and are left out.
+      const lines: Record<string, number[]> = {};
       for (const file of files) {
-        const [added, deleted, filePath] = file.split("\t");
+        const [added, removed, filePath] = file.split("\t");
         const language = extensions[filePath?.split(".").pop()?.toLowerCase() ?? ""];
-        if (language && added !== "-") {
-          languages[language] = (languages[language] ?? 0) + Number(added) + Number(deleted);
-        }
+        if (language && added !== "-") addLines(lines, language, Number(added), Number(removed));
       }
-      addCommit(result, time, languages);
+      const changed = Object.values(lines).reduce(
+        (sum, [added, removed]) => sum + added + removed,
+        0,
+      );
+      const weights = Object.fromEntries(
+        Object.entries(lines).map(([language, [added, removed]]) => [language, added + removed]),
+      );
+      // The commit still counts towards the language shares, as on GitHub.
+      addCommit(result, time, weights, changed > generatedLines ? {} : lines);
     }
   }
   return result;
@@ -355,10 +418,11 @@ function collect(collector: Collector) {
 
 const previous: ActivityData = existsSync(output)
   ? JSON.parse(readFileSync(output, "utf8"))
-  : { generatedAt: today, sources: [], days: {}, hours: {}, languages: {} };
+  : { generatedAt: today, sources: [], days: {}, hours: {}, languages: {}, lines: {} };
 const days: ActivityData["days"] = {};
 const hours: ActivityData["hours"] = {};
 const languages: ActivityData["languages"] = {};
+const lines: ActivityData["lines"] = {};
 function countsOf(date: string, sourceId: string) {
   days[date] ??= {};
   days[date][sourceId] ??= {};
@@ -375,6 +439,7 @@ for (const { collectors, ...source } of sources) {
     keepPrevious(today);
     if (previous.hours?.[source.id]) hours[source.id] = previous.hours[source.id];
     if (previous.languages?.[source.id]) languages[source.id] = previous.languages[source.id];
+    if (previous.lines?.[source.id]) lines[source.id] = previous.lines[source.id];
   };
   try {
     const results = (await Promise.all(collectors.map(collect))).filter(
@@ -410,6 +475,13 @@ for (const { collectors, ...source } of sources) {
           target[language] = Math.round(((target[language] ?? 0) + share) * 100) / 100;
         }
       }
+      for (const [year, counts] of Object.entries(result.lines ?? {})) {
+        lines[source.id] ??= {};
+        lines[source.id][year] ??= {};
+        for (const [language, [added, removed]] of Object.entries(counts)) {
+          addLines(lines[source.id][year], language, Math.round(added), Math.round(removed));
+        }
+      }
     }
     keepPrevious(results.map((result) => result.since ?? "").sort()[0]);
     console.log(`${source.label}: ${total} contributions collected`);
@@ -424,7 +496,7 @@ const used = sources
   .filter((source) => Object.values(days).some((day) => day[source.id]))
   .map(({ id, label, kind }) => ({ id, label, kind }));
 const dates = Object.keys(days).sort();
-const lines = (record: Record<string, unknown>) =>
+const jsonLines = (record: Record<string, unknown>) =>
   Object.entries(record)
     .map(([key, value]) => `    "${key}": ${JSON.stringify(value)}`)
     .join(",\n");
@@ -435,13 +507,16 @@ writeFileSync(
   "generatedAt": "${today}",
   "sources": ${JSON.stringify(used)},
   "days": {
-${lines(Object.fromEntries(dates.map((date) => [date, days[date]])))}
+${jsonLines(Object.fromEntries(dates.map((date) => [date, days[date]])))}
   },
   "hours": {
-${lines(hours)}
+${jsonLines(hours)}
   },
   "languages": {
-${lines(languages)}
+${jsonLines(languages)}
+  },
+  "lines": {
+${jsonLines(lines)}
   }
 }
 `,

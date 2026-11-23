@@ -188,8 +188,8 @@
   },
   "activity": {
     "title": "Activity",
-    "description": "My personal and work GitHub and GitLab activity in one calendar.",
-    "lead": "My personal and work GitHub and GitLab activity in one calendar. Work activity shows only daily counts, no project names.",
+    "description": "A calendar of my personal and work coding activity from GitHub, GitLab and company repositories, with languages, lines changed and when I commit.",
+    "lead": "Everything I commit, review and open across personal projects and jobs, in one place. Work sources show only daily counts, never project names. Pick a period or a source to narrow it down.",
     "range": "Period",
     "lastYear": "Last 12 months",
     "sources": "Sources",
@@ -218,6 +218,7 @@
     "days": "{count, plural, one {# day} other {# days}}",
     "byType": "By type",
     "bySource": "By source",
+    "bySourceHint": "Sources without activity in this period are hidden.",
     "byTypeHint": "Select a type to show only it in the calendar and totals.",
     "byYear": "By year",
     "byYearHint": "Select a year to show it in the calendar.",
@@ -237,7 +238,7 @@
       "comments": "{count, plural, one {# comment} other {# comments}}",
       "other": "{count, plural, one {# other contribution} other {# other contributions}}"
     },
-    "updated": "Updated {date}. Collected from the GitHub and GitLab APIs and from my work repositories. GitHub and GitLab count contributions a little differently, so totals are approximate.",
+    "updated": "Updated {date}, refreshed weekly from the GitHub and GitLab APIs and my local work repositories. Each platform counts contributions a little differently, so totals are approximate.",
     "pattern": {
       "title": "When I commit",
       "summary": "Most commits land on {weekday}s around {hour}:00. {weekend} % fall on weekends and {evening} % after 19:00.",
@@ -247,12 +248,25 @@
     },
     "languages": {
       "title": "Languages over time",
-      "lead": "Each year's commits, split by the languages they changed.",
+      "lead": "Which languages each year's work went into.",
       "legend": "Languages",
       "other": "Other",
       "table": "Show as table",
       "year": "Year",
-      "note": "Related languages share a colour: notebooks count as Python, Blade templates as PHP, and HTML and CSS go together."
+      "note": {
+        "commits": "Each commit counts once, split by the lines it changed per language. Related languages share a colour: notebooks count as Python, Blade templates as PHP, and HTML and CSS go together.",
+        "lines": "Lines added plus removed. Exact for work repositories; GitHub reports lines per commit only, so they are split by each repository's languages and include some configuration files. Commits over 5,000 lines (generated or imported code) are left out. Related languages share a colour."
+      },
+      "summary": "Since {from}: {commits, plural, one {# commit} other {# commits}}, {added} lines added and {removed} removed.",
+      "measure": "Split by",
+      "by": {
+        "commits": "Share of commits",
+        "lines": "Share of lines changed"
+      },
+      "changed": "+{added} / −{removed} lines",
+      "commits": "Commits",
+      "added": "Lines added",
+      "removed": "Lines removed"
     },
     "card": {
       "title": "Activity",
