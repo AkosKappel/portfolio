@@ -31,7 +31,7 @@ export const cv = {
       highlights: [
         {
           en: "Responsible for the project management module of **Core3**, a business platform for projects, HR and CRM: kanban boards, task permissions, Scrum and Waterfall workflows.",
-          sk: "Zodpovedal som za projektový manažment vo firemnej platforme **Core3**: kanban, oprávnenia, Scrum a Waterfall.",
+          sk: "Zodpovedal som za modul projektového riadenia vo firemnej platforme **Core3**: kanban, oprávnenia, Scrum a Waterfall.",
           de: "Verantwortlich für das Projektmanagement-Modul von **Core3**, einer Unternehmensplattform für Projekte, HR und CRM: Kanban-Boards, Aufgabenberechtigungen, Scrum- und Wasserfall-Workflows.",
           cs: "Odpovídal jsem za modul projektového řízení ve firemní platformě **Core3** pro projekty, HR a CRM: kanban, oprávnění k úkolům, Scrum a Waterfall.",
           hu: "Én feleltem a **Core3** projektmenedzsment-moduljáért, amely egy projekt-, HR- és CRM-platform: kanban táblák, feladatjogosultságok, Scrum és vízesés munkafolyamatok.",
@@ -74,7 +74,7 @@ export const cv = {
       highlights: [
         {
           en: "Developed the REST API of a new internal company system, a React web app that replaced several older PHP applications.",
-          sk: "Vyvinul som REST API nového interného systému v Reacte, ktorý nahradil staršie PHP aplikácie.",
+          sk: "Vyvinul som REST API nového interného systému, webovej aplikácie v Reacte, ktorá nahradila staršie PHP aplikácie.",
           de: "Die REST-API eines neuen internen Firmensystems entwickelt, einer React-Web-App, die mehrere ältere PHP-Anwendungen ersetzt hat.",
           cs: "Vyvinul jsem REST API nového interního firemního systému, webové aplikace v Reactu, která nahradila několik starších PHP aplikací.",
           hu: "Kifejlesztettem egy új belső céges rendszer REST API-ját. A rendszer egy React webalkalmazás, amely több régebbi PHP alkalmazást váltott le.",
