@@ -101,7 +101,7 @@ describe("skills", () => {
   it("mostly have logos", () => {
     const skills = skillGroups.flatMap((group) => group.skills);
     const withoutLogo = skills.filter((skill) => !techIcon(skill));
-    expect(withoutLogo).toEqual(["MSSQL", "Codex", "OpenAI API"]);
+    expect(withoutLogo).toEqual(["MSSQL"]);
   });
 
   it("link every skill, stack item and version to its official site", () => {

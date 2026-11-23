@@ -5,6 +5,8 @@ const imageIcons: Record<string, string> = {
   "C#": "/icons/csharp.svg",
   Matplotlib: "/icons/matplotlib.svg",
   Playwright: "/icons/playwright.svg",
+  PowerSync: "/icons/powersync.svg",
+  "React Aria": "/icons/react-aria.svg",
 };
 
 /** Names used in versions and architecture steps that share another entry's logo. */
@@ -16,6 +18,11 @@ const aliases: Record<string, string> = {
   "Go API": "Go",
   Mathematica: "Wolfram Mathematica",
   "Tailscale Funnel": "Tailscale",
+  "TanStack DB": "TanStack",
+  "TanStack Start": "TanStack",
+  "OpenAI API": "OpenAI",
+  Codex: "OpenAI",
+  Canvas: "HTML",
 };
 
 export type ResolvedIcon =
