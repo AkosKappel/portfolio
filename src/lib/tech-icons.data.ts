@@ -402,6 +402,7 @@ export const techIcons: Record<string, TechIcon> = {
 /** Official sites of technologies without a Simple Icons logo, or that share another entry's logo. */
 export const techLinks: Record<string, string> = {
   Albumentations: "https://albumentations.ai",
+  Astro: "https://astro.build",
   "Better Auth": "https://www.better-auth.com",
   "C#": "https://learn.microsoft.com/en-us/dotnet/csharp/",
   Canvas: "https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API",
@@ -409,6 +410,7 @@ export const techLinks: Record<string, string> = {
   "Dexie.js": "https://dexie.org",
   "Drizzle ORM": "https://orm.drizzle.team",
   Keras: "https://keras.io",
+  "Laravel Nova": "https://nova.laravel.com",
   Matplotlib: "https://matplotlib.org",
   MSSQL: "https://www.microsoft.com/en-us/sql-server",
   MySQL: "https://www.mysql.com",
