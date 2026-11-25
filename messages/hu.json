@@ -425,7 +425,7 @@
         ]
       }
     ],
-    "assistantPrivacy": "A csevegő asszisztens a kérdéseit sütik és azonosítók nélkül ingyenes AI-modell-szolgáltatóknak (Groq, Cloudflare, Google és OpenRouter) küldi, amelyek a saját feltételeik szerint megőrizhetik azokat. Maga az asszisztens nem tárolja őket, a Cloudflare Turnstile pedig ellenőrzi, hogy ember kérdez."
+    "assistantPrivacy": "A csevegőasszisztens a kérdéseit sütik és azonosítók nélkül ingyenes AI-modell-szolgáltatóknak (Groq, Cloudflare, Google és OpenRouter) küldi, amelyek a saját feltételeik szerint megőrizhetik azokat. Maga az asszisztens nem tárolja őket, a Cloudflare Turnstile pedig ellenőrzi, hogy ember kérdez."
   },
   "terminal": {
     "title": "Terminál",
@@ -523,12 +523,12 @@
     "open": "Kérdezzen rólam",
     "close": "Csevegés bezárása",
     "title": "Kérdezzen Ákosról",
-    "subtitle": "AI asszisztens, amely az oldal tartalma alapján válaszol",
-    "notice": "A válaszokat ingyenes AI modellek adják, és tévedhetnek. Kérdéseit külső AI-szolgáltatók kapják meg, ezért kérem, ne osszon meg személyes adatokat.",
+    "subtitle": "AI-asszisztens, amely az oldal tartalma alapján válaszol",
+    "notice": "A válaszokat ingyenes AI-modellek adják, és tévedhetnek. Kérdéseit külső AI-szolgáltatók kapják meg, ezért kérem, ne osszon meg személyes adatokat.",
     "suggestionsLabel": "Kérdezze például:",
     "suggestions": [
       "Hol dolgozik most?",
-      "Mi a fő technológiai stackje?",
+      "Milyen technológiákkal dolgozik leginkább?",
       "Mely projektjei használnak AI-t?",
       "Nyitott a távmunkára?"
     ],

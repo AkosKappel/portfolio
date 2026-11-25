@@ -541,8 +541,8 @@
     "retry": "Zkusit znovu",
     "errors": {
       "rateLimited": "Příliš mnoho otázek za krátkou dobu. Počkejte prosím minutu.",
-      "busy": "Asistent je právě zaneprázdněný. Zkuste to prosím za minutu.",
-      "botCheck": "Ověření proti robotům selhalo. Obnovte prosím stránku a zkuste to znovu.",
+      "busy": "Asistent je právě zaneprázdněný. Zkuste to prosím znovu za minutu.",
+      "botCheck": "Ověření, že nejste robot, selhalo. Obnovte prosím stránku a zkuste to znovu.",
       "cutOff": "Odpověď byla přerušena.",
       "failed": "Něco se pokazilo. Zkuste to prosím znovu."
     }

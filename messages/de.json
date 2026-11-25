@@ -520,15 +520,15 @@
     }
   },
   "assistant": {
-    "open": "Fragen Sie mich",
+    "open": "Fragen zu mir",
     "close": "Chat schließen",
-    "title": "Fragen über Ákos",
+    "title": "Fragen zu Ákos",
     "subtitle": "KI-Assistent, der aus den Inhalten dieser Website antwortet",
-    "notice": "Die Antworten stammen von kostenlosen KI-Modellen und können falsch sein. Ihre Fragen werden an externe KI-Anbieter gesendet, bitte geben Sie daher keine persönlichen Daten ein.",
+    "notice": "Die Antworten stammen von kostenlosen KI-Modellen und können falsch sein. Ihre Fragen werden an externe KI-Anbieter gesendet. Bitte geben Sie daher keine persönlichen Daten ein.",
     "suggestionsLabel": "Fragen Sie zum Beispiel:",
     "suggestions": [
       "Wo arbeitet er derzeit?",
-      "Was ist sein wichtigster Tech-Stack?",
+      "Mit welchem Tech-Stack arbeitet er hauptsächlich?",
       "Welche seiner Projekte nutzen KI?",
       "Ist er offen für Remote-Arbeit?"
     ],
@@ -536,14 +536,14 @@
     "you": "Sie",
     "assistant": "Assistent",
     "thinking": "Denkt nach…",
-    "placeholder": "Stellen Sie eine Frage über Ákos",
+    "placeholder": "Stellen Sie eine Frage zu Ákos",
     "send": "Senden",
     "retry": "Erneut versuchen",
     "errors": {
       "rateLimited": "Zu viele Fragen in kurzer Zeit. Bitte warten Sie eine Minute.",
       "busy": "Der Assistent ist gerade ausgelastet. Bitte versuchen Sie es in einer Minute erneut.",
       "botCheck": "Die Bot-Prüfung ist fehlgeschlagen. Bitte laden Sie die Seite neu und versuchen Sie es erneut.",
-      "cutOff": "Die Antwort wurde abgebrochen.",
+      "cutOff": "Die Antwort wurde unterbrochen.",
       "failed": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
     }
   }
