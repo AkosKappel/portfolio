@@ -96,7 +96,7 @@ The chat stays hidden until both variables are set (in Vercel or `.env.local`); 
 | `NEXT_PUBLIC_ASSISTANT_URL`      | The Worker's URL, e.g. `https://ai.akoskappel.dev`, or `http://localhost:8787` for a local `wrangler dev`      |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | The Turnstile widget's site key; locally Cloudflare's test key `1x00000000000000000000AA`, which always passes |
 
-`src/lib/assistant.ts` holds the parts with logic (history trimming to the Worker's limits, error mapping and the small Markdown subset answers use), covered by unit tests.
+`src/lib/assistant.ts` holds the parts with logic (history trimming to the Worker's limits, error mapping and the small Markdown subset answers use), covered by unit tests. `test/e2e/assistant.spec.ts` checks the panel with a stubbed Worker and Turnstile; it runs when the build has the chat on, as in CI's e2e job (`NEXT_PUBLIC_ASSISTANT_URL=https://assistant.test pnpm build`, then `pnpm test:e2e` with the same variables).
 
 ## Activity
 

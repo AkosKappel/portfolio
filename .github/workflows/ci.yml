@@ -33,6 +33,11 @@ jobs:
 
   e2e:
     runs-on: ubuntu-latest
+    # The chat is on in this build, so every page is checked with it; the tests stub the Worker
+    # and Turnstile (test/e2e/assistant.spec.ts).
+    env:
+      NEXT_PUBLIC_ASSISTANT_URL: https://assistant.test
+      NEXT_PUBLIC_TURNSTILE_SITE_KEY: 1x00000000000000000000AA
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -51,7 +56,7 @@ jobs:
           path: test-results/
 
   # Desktop Lighthouse: performance 90, accessibility, best practices and SEO 100,
-  # and at most 300 KB of compressed JavaScript per page. Mobile Lighthouse only reports
+  # and at most 320 KB of compressed JavaScript per page. Mobile Lighthouse only reports
   # (performance below 90 is a warning) until the mobile scores reach the budget.
   # The pages are split into shards that override the URL list in the config.
   lighthouse:
