@@ -5,6 +5,7 @@ import { Bricolage_Grotesque, IBM_Plex_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { AssistantLauncher } from "@/components/assistant/assistant-launcher";
 import { DetailsDismiss } from "@/components/layout/details-dismiss";
 import { ParticleField } from "@/components/layout/particle-field";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -14,6 +15,7 @@ import { BackToTop } from "@/components/ui/back-to-top";
 import { site } from "@/content/site";
 import { pick } from "@/content/types";
 import { type Locale, routing } from "@/i18n/routing";
+import { assistantEnabled } from "@/lib/assistant";
 import { alternates } from "@/lib/metadata";
 import "../globals.css";
 
@@ -77,7 +79,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "common" });
   // Client components only need these namespaces; the rest stays on the server.
-  const { nav, common, commands, languages, projects, error, contact } = await getMessages();
+  const { nav, common, commands, languages, projects, error, contact, assistant } =
+    await getMessages();
 
   return (
     <html
@@ -95,7 +98,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
       {/* Extensions such as Grammarly add attributes to <body> before React hydrates. */}
       <body className="flex min-h-dvh flex-col antialiased" suppressHydrationWarning>
         <NextIntlClientProvider
-          messages={{ nav, common, commands, languages, projects, error, contact }}
+          messages={{ nav, common, commands, languages, projects, error, contact, assistant }}
         >
           <a
             href="#main"
@@ -109,7 +112,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
             {children}
           </main>
           <SiteFooter />
-          <BackToTop label={t("backToTop")} />
+          {/* The chat button takes the corner, so the back-to-top button moves above it. */}
+          <BackToTop label={t("backToTop")} raised={assistantEnabled} />
+          {assistantEnabled ? <AssistantLauncher /> : null}
           <DetailsDismiss />
         </NextIntlClientProvider>
         {/* The analytics scripts only exist on Vercel deployments. */}

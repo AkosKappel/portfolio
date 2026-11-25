@@ -424,7 +424,8 @@
           "Ha valamit nehéz használni, kérem, jelezze nekem."
         ]
       }
-    ]
+    ],
+    "assistantPrivacy": "A csevegő asszisztens a kérdéseit sütik és azonosítók nélkül ingyenes AI-modell-szolgáltatóknak (Groq, Cloudflare, Google és OpenRouter) küldi, amelyek a saját feltételeik szerint megőrizhetik azokat. Maga az asszisztens nem tárolja őket, a Cloudflare Turnstile pedig ellenőrzi, hogy ember kérdez."
   },
   "terminal": {
     "title": "Terminál",
@@ -516,6 +517,34 @@
       "achievements": "az eddig megtalált titkok",
       "clear": "képernyő törlése",
       "exit": "vissza a kezdőlapra"
+    }
+  },
+  "assistant": {
+    "open": "Kérdezzen rólam",
+    "close": "Csevegés bezárása",
+    "title": "Kérdezzen Ákosról",
+    "subtitle": "AI asszisztens, amely az oldal tartalma alapján válaszol",
+    "notice": "A válaszokat ingyenes AI modellek adják, és tévedhetnek. Kérdéseit külső AI-szolgáltatók kapják meg, ezért kérem, ne osszon meg személyes adatokat.",
+    "suggestionsLabel": "Kérdezze például:",
+    "suggestions": [
+      "Hol dolgozik most?",
+      "Mi a fő technológiai stackje?",
+      "Mely projektjei használnak AI-t?",
+      "Nyitott a távmunkára?"
+    ],
+    "conversation": "Beszélgetés",
+    "you": "Ön",
+    "assistant": "Asszisztens",
+    "thinking": "Gondolkodom…",
+    "placeholder": "Tegyen fel egy kérdést Ákosról",
+    "send": "Küldés",
+    "retry": "Újrapróbálás",
+    "errors": {
+      "rateLimited": "Túl sok kérdés rövid idő alatt. Kérem, várjon egy percet.",
+      "busy": "Az asszisztens most foglalt. Kérem, próbálja újra egy perc múlva.",
+      "botCheck": "A robotellenőrzés nem sikerült. Kérem, töltse újra az oldalt, és próbálja újra.",
+      "cutOff": "A válasz megszakadt.",
+      "failed": "Valami hiba történt. Kérem, próbálja újra."
     }
   }
 }

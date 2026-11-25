@@ -424,7 +424,8 @@
           "If anything is difficult to use, please let me know."
         ]
       }
-    ]
+    ],
+    "assistantPrivacy": "The chat assistant sends your questions, without any cookies or identifiers, to free AI model providers (Groq, Cloudflare, Google and OpenRouter), which may keep them under their own terms. The assistant itself does not store them, and Cloudflare Turnstile checks that a person is asking."
   },
   "terminal": {
     "title": "Terminal",
@@ -516,6 +517,34 @@
       "achievements": "secrets found so far",
       "clear": "clear the screen",
       "exit": "back to the home page"
+    }
+  },
+  "assistant": {
+    "open": "Ask about me",
+    "close": "Close chat",
+    "title": "Ask about Ákos",
+    "subtitle": "AI assistant that answers from this site",
+    "notice": "Answers come from free AI models and can be wrong. Your questions are sent to third-party AI providers, so please don't share personal data.",
+    "suggestionsLabel": "Try asking:",
+    "suggestions": [
+      "Where does he work now?",
+      "What is his main tech stack?",
+      "Which of his projects use AI?",
+      "Is he open to remote work?"
+    ],
+    "conversation": "Conversation",
+    "you": "You",
+    "assistant": "Assistant",
+    "thinking": "Thinking…",
+    "placeholder": "Ask a question about Ákos",
+    "send": "Send",
+    "retry": "Try again",
+    "errors": {
+      "rateLimited": "Too many questions in a short time. Please wait a minute.",
+      "busy": "The assistant is busy right now. Please try again in a minute.",
+      "botCheck": "The bot check failed. Please reload the page and try again.",
+      "cutOff": "The answer was cut off.",
+      "failed": "Something went wrong. Please try again."
     }
   }
 }

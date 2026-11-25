@@ -424,7 +424,8 @@
           "Pokud je něco obtížné používat, dejte mi prosím vědět."
         ]
       }
-    ]
+    ],
+    "assistantPrivacy": "Chatovací asistent posílá vaše otázky bez cookies a identifikátorů bezplatným poskytovatelům AI modelů (Groq, Cloudflare, Google a OpenRouter), kteří si je mohou ponechat podle vlastních podmínek. Samotný asistent je neukládá a Cloudflare Turnstile ověřuje, že se ptá člověk."
   },
   "terminal": {
     "title": "Terminál",
@@ -516,6 +517,34 @@
       "achievements": "dosud nalezená tajemství",
       "clear": "vyčistí obrazovku",
       "exit": "zpět na úvodní stránku"
+    }
+  },
+  "assistant": {
+    "open": "Zeptejte se na mě",
+    "close": "Zavřít chat",
+    "title": "Zeptejte se na Ákose",
+    "subtitle": "AI asistent, který odpovídá z obsahu tohoto webu",
+    "notice": "Odpovědi generují bezplatné AI modely a mohou být nepřesné. Vaše otázky se posílají externím poskytovatelům AI, proto prosím nesdílejte osobní údaje.",
+    "suggestionsLabel": "Zkuste se zeptat:",
+    "suggestions": [
+      "Kde teď pracuje?",
+      "Jaké technologie používá nejčastěji?",
+      "Které jeho projekty využívají AI?",
+      "Je otevřený práci na dálku?"
+    ],
+    "conversation": "Konverzace",
+    "you": "Vy",
+    "assistant": "Asistent",
+    "thinking": "Přemýšlím…",
+    "placeholder": "Zeptejte se na něco o Ákosovi",
+    "send": "Odeslat",
+    "retry": "Zkusit znovu",
+    "errors": {
+      "rateLimited": "Příliš mnoho otázek za krátkou dobu. Počkejte prosím minutu.",
+      "busy": "Asistent je právě zaneprázdněný. Zkuste to prosím za minutu.",
+      "botCheck": "Ověření proti robotům selhalo. Obnovte prosím stránku a zkuste to znovu.",
+      "cutOff": "Odpověď byla přerušena.",
+      "failed": "Něco se pokazilo. Zkuste to prosím znovu."
     }
   }
 }

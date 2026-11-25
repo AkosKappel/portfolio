@@ -85,6 +85,19 @@ The form on `/contact` sends e-mail through the [Resend](https://resend.com) HTT
 
 Spam protection: a hidden honeypot field and at most five messages per IP address in ten minutes (counted per server instance).
 
+## Chat assistant
+
+A floating "Ask about me" button opens a chat that answers questions from `/llms-full.txt`. The answers come from a Cloudflare Worker in the separate [`ai` repository](https://github.com/AkosKappel/ai), which also documents the models, limits and privacy rules. The panel and Cloudflare Turnstile load only when a visitor first opens the chat.
+
+The chat stays hidden until both variables are set (in Vercel or `.env.local`); the Content Security Policy then also allows the Worker and Turnstile:
+
+| Variable                         | Value                                                                                                          |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_ASSISTANT_URL`      | The Worker's URL, e.g. `https://ai.akoskappel.dev`, or `http://localhost:8787` for a local `wrangler dev`      |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | The Turnstile widget's site key; locally Cloudflare's test key `1x00000000000000000000AA`, which always passes |
+
+`src/lib/assistant.ts` holds the parts with logic (history trimming to the Worker's limits, error mapping and the small Markdown subset answers use), covered by unit tests.
+
 ## Activity
 
 `/activity` renders `src/content/activity.json`, which `pnpm activity` (`scripts/activity.mts`) writes from:

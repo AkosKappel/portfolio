@@ -5,13 +5,19 @@ import createNextIntlPlugin from "next-intl/plugin";
 // inline scripts, so scripts stay limited to this origin plus inline code.
 // React needs eval() only in development, to rebuild call stacks for error overlays.
 const isDev = process.env.NODE_ENV === "development";
+// The chat assistant (see src/lib/assistant.ts) talks to its Worker and loads Cloudflare
+// Turnstile, which runs in an iframe. Both are allowed only when the chat is enabled.
+const assistantUrl = process.env.NEXT_PUBLIC_ASSISTANT_URL;
+const turnstile = assistantUrl ? " https://challenges.cloudflare.com" : "";
 const contentSecurityPolicy = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://va.vercel-scripts.com`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://va.vercel-scripts.com${turnstile}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
-  "connect-src 'self' https://vitals.vercel-insights.com",
+  `connect-src 'self' https://vitals.vercel-insights.com${assistantUrl ? ` ${new URL(assistantUrl).origin}` : ""}`,
+  // The CV viewer frames its own PDFs, so frames stay allowed from this origin.
+  `frame-src 'self'${turnstile}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

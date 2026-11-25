@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
  * Fades in once the page is scrolled half a screen down. While hidden, `invisible`
  * (visibility: hidden) also keeps it out of the tab order and the accessibility tree.
  */
-export function BackToTop({ label }: { label: string }) {
+export function BackToTop({ label, raised = false }: { label: string; raised?: boolean }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export function BackToTop({ label }: { label: string }) {
       href="#main"
       aria-label={label}
       title={label}
-      className={`fixed right-5 bottom-5 z-40 grid size-12 place-items-center rounded-full bg-accent text-on-accent shadow-lg transition-[opacity,visibility] duration-200 hover:opacity-90 print:hidden ${visible ? "" : "invisible opacity-0"}`}
+      className={`fixed right-5 ${raised ? "bottom-20" : "bottom-5"} z-40 grid size-12 place-items-center rounded-full bg-accent text-on-accent shadow-lg transition-[opacity,visibility] duration-200 hover:opacity-90 print:hidden ${visible ? "" : "invisible opacity-0"}`}
     >
       <ArrowUp aria-hidden size={20} />
     </a>

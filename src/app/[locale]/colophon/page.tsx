@@ -5,6 +5,7 @@ import { EmailLink } from "@/components/ui/email-link";
 import { Page, PageHeader } from "@/components/ui/page";
 import { site } from "@/content/site";
 import type { Locale } from "@/i18n/routing";
+import { assistantEnabled } from "@/lib/assistant";
 import { alternates } from "@/lib/metadata";
 
 type Section = { id: string; title: string; paragraphs: string[] };
@@ -56,6 +57,7 @@ export default async function ColophonPage({ params }: PageProps<"/[locale]/colo
               {section.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
+              {section.id === "hosting" && assistantEnabled ? <p>{t("assistantPrivacy")}</p> : null}
               {section.id === "accessibility" ? (
                 <p>
                   <EmailLink className="link" />

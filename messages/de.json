@@ -424,7 +424,8 @@
           "Wenn etwas schwer zu bedienen ist, sagen Sie mir bitte Bescheid."
         ]
       }
-    ]
+    ],
+    "assistantPrivacy": "Der Chat-Assistent sendet Ihre Fragen ohne Cookies oder Kennungen an kostenlose Anbieter von KI-Modellen (Groq, Cloudflare, Google und OpenRouter), die sie nach ihren eigenen Bedingungen speichern können. Der Assistent selbst speichert sie nicht, und Cloudflare Turnstile prüft, dass ein Mensch fragt."
   },
   "terminal": {
     "title": "Terminal",
@@ -516,6 +517,34 @@
       "achievements": "bisher gefundene Geheimnisse",
       "clear": "Bildschirm leeren",
       "exit": "zurück zur Startseite"
+    }
+  },
+  "assistant": {
+    "open": "Fragen Sie mich",
+    "close": "Chat schließen",
+    "title": "Fragen über Ákos",
+    "subtitle": "KI-Assistent, der aus den Inhalten dieser Website antwortet",
+    "notice": "Die Antworten stammen von kostenlosen KI-Modellen und können falsch sein. Ihre Fragen werden an externe KI-Anbieter gesendet, bitte geben Sie daher keine persönlichen Daten ein.",
+    "suggestionsLabel": "Fragen Sie zum Beispiel:",
+    "suggestions": [
+      "Wo arbeitet er derzeit?",
+      "Was ist sein wichtigster Tech-Stack?",
+      "Welche seiner Projekte nutzen KI?",
+      "Ist er offen für Remote-Arbeit?"
+    ],
+    "conversation": "Unterhaltung",
+    "you": "Sie",
+    "assistant": "Assistent",
+    "thinking": "Denkt nach…",
+    "placeholder": "Stellen Sie eine Frage über Ákos",
+    "send": "Senden",
+    "retry": "Erneut versuchen",
+    "errors": {
+      "rateLimited": "Zu viele Fragen in kurzer Zeit. Bitte warten Sie eine Minute.",
+      "busy": "Der Assistent ist gerade ausgelastet. Bitte versuchen Sie es in einer Minute erneut.",
+      "botCheck": "Die Bot-Prüfung ist fehlgeschlagen. Bitte laden Sie die Seite neu und versuchen Sie es erneut.",
+      "cutOff": "Die Antwort wurde abgebrochen.",
+      "failed": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
     }
   }
 }
