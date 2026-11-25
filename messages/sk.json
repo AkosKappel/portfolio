@@ -363,7 +363,8 @@
   "notFound": {
     "title": "Táto stránka neexistuje",
     "text": "Odkaz môže byť starý alebo nesprávny. Tieto stránky existujú:",
-    "label": "Chyba 404"
+    "label": "Chyba 404",
+    "search": "Hľadať na celej stránke"
   },
   "error": {
     "label": "Chyba",

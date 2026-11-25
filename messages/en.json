@@ -363,7 +363,8 @@
   "notFound": {
     "title": "This page does not exist",
     "text": "The link may be old or mistyped. These pages do exist:",
-    "label": "Error 404"
+    "label": "Error 404",
+    "search": "Search the whole site"
   },
   "error": {
     "label": "Error",

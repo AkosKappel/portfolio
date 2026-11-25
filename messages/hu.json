@@ -363,7 +363,8 @@
   "notFound": {
     "title": "Ez az oldal nem létezik",
     "text": "Lehet, hogy a hivatkozás régi vagy elgépelt. Ezek az oldalak léteznek:",
-    "label": "404-es hiba"
+    "label": "404-es hiba",
+    "search": "Keresés az egész oldalon"
   },
   "error": {
     "label": "Hiba",
