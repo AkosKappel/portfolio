@@ -546,6 +546,10 @@
     "notHelpful": "Nicht hilfreich",
     "thanks": "Danke für Ihr Feedback.",
     "followUps": "Weitere Fragen",
+    "sources": "Quellen",
+    "recruiter": "Mit einer Stellenanzeige vergleichen",
+    "recruiterPlaceholder": "Fügen Sie eine Stellenanzeige ein, um zu sehen, wie gut Ákos’ Erfahrung passt",
+    "jobDescription": "Stellenanzeige",
     "errors": {
       "rateLimited": "Zu viele Fragen in kurzer Zeit. Bitte warten Sie eine Minute.",
       "busy": "Der Assistent ist gerade ausgelastet. Bitte versuchen Sie es in einer Minute erneut.",

@@ -11,9 +11,23 @@ export const assistantEnabled = Boolean(assistantConfig.url && assistantConfig.t
 
 export type ChatMessage = { role: "user" | "assistant"; content: string };
 
-/** A message as the chat keeps it: answers also remember their model and the visitor's rating. */
-export type Turn = ChatMessage & { model?: string; rating?: Rating };
+/** A page of this site an answer was written from. */
+export type Source = { path: string; title: string };
+
+/**
+ * A message as the chat keeps it. Answers also remember their model, sources and the visitor's
+ * rating; a visitor message in recruiter mode is a pasted job description.
+ */
+export type Turn = ChatMessage & {
+  model?: string;
+  sources?: Source[];
+  rating?: Rating;
+  mode?: "recruiter";
+};
 export type Rating = "up" | "down";
+
+// Recruiter mode takes one longer message: a job description.
+export const MAX_JOB_DESCRIPTION_CHARS = 5000;
 
 // The Worker's limits: at most 10 messages, 1,000 characters each and 6,000 in total.
 export const MAX_MESSAGE_CHARS = 1000;
@@ -28,9 +42,16 @@ export function trimHistory(turns: Turn[]): ChatMessage[] {
   const kept: ChatMessage[] = [];
   let total = 0;
   // Follow-up suggestions are for the visitor, so the model gets its answers without them.
-  const messages = turns.map(({ role, content }) => ({
+  // A pasted job description would use up the limits on its own; the comparison that follows
+  // it says what matters.
+  const messages = turns.map(({ role, content, mode }) => ({
     role,
-    content: role === "assistant" ? splitFollowUps(content).text : content,
+    content:
+      role === "assistant"
+        ? splitFollowUps(content).text
+        : mode === "recruiter"
+          ? "(I pasted a job description to compare with his portfolio.)"
+          : content,
   }));
   for (const message of messages.reverse()) {
     if (kept.length === MAX_MESSAGES || total + message.content.length > MAX_TOTAL_CHARS) break;
@@ -73,6 +94,23 @@ const MAX_FOLLOW_UP_CHARS = 120;
 // Same as `site.url`, without pulling the site content into the chat bundle. The knowledge file
 // links pages with this origin.
 const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://akoskappel.dev";
+
+/** Reads the Worker's `X-Assistant-Sources` header; anything unexpected counts as no sources. */
+export function parseSources(header: string | null): Source[] {
+  if (!header) return [];
+  try {
+    const sources: unknown = JSON.parse(decodeURIComponent(header));
+    if (!Array.isArray(sources)) return [];
+    return sources.filter(
+      (source): source is Source =>
+        typeof source?.path === "string" &&
+        source.path.startsWith("/") &&
+        typeof source.title === "string",
+    );
+  } catch {
+    return [];
+  }
+}
 
 /** The path of a link to this site, so it opens in the current tab and language; else undefined. */
 export function sitePath(href: string): string | undefined {

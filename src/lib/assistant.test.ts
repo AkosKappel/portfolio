@@ -4,6 +4,7 @@ import {
   errorForStatus,
   parseAnswer,
   parseInline,
+  parseSources,
   sitePath,
   splitFollowUps,
   trimHistory,
@@ -143,5 +144,29 @@ describe("parseAnswer", () => {
     expect(parseAnswer("## Projects\nSkySense")).toEqual([
       { type: "paragraph", content: [{ type: "text", text: "Projects SkySense" }] },
     ]);
+  });
+});
+
+describe("parseSources", () => {
+  it("reads the encoded header and ignores anything unexpected", () => {
+    const sources = [{ path: "/projects/pokedex", title: "Pokédex" }];
+    expect(parseSources(encodeURIComponent(JSON.stringify(sources)))).toEqual(sources);
+    expect(parseSources(null)).toEqual([]);
+    expect(parseSources("%E0%A4%A")).toEqual([]);
+    expect(
+      parseSources(encodeURIComponent(JSON.stringify([{ path: "https://x.example", title: "X" }]))),
+    ).toEqual([]);
+  });
+});
+
+describe("trimHistory in recruiter mode", () => {
+  it("replaces a pasted job description with a short note", () => {
+    const history = trimHistory([
+      { role: "user", content: "x".repeat(5000), mode: "recruiter" },
+      assistant("Good fit."),
+      user("Remote?"),
+    ]);
+    expect(history[0].content).toBe("(I pasted a job description to compare with his portfolio.)");
+    expect(history).toHaveLength(3);
   });
 });

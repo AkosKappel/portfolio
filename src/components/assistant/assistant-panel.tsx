@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Briefcase,
   Check,
   CircleAlert,
   Copy,
@@ -14,15 +15,18 @@ import {
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Fragment, type ReactNode, useEffect, useId, useRef, useState } from "react";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import {
   type AssistantError,
   assistantConfig,
   errorForStatus,
   type Inline,
+  MAX_JOB_DESCRIPTION_CHARS,
   MAX_MESSAGE_CHARS,
   parseAnswer,
+  parseSources,
   type Rating,
+  type Source,
   sitePath,
   splitFollowUps,
   type Turn,
@@ -98,6 +102,34 @@ function Answer({ text, onNavigate }: { text: string; onNavigate: () => void }) 
   });
 }
 
+// Pages with their own name in the menu; other sources (projects) use the title the Worker sends.
+const NAV_KEYS: Record<
+  string,
+  "about" | "contact" | "education" | "experience" | "projects" | "skills"
+> = {
+  "/about": "about",
+  "/contact": "contact",
+  "/education": "education",
+  "/experience": "experience",
+  "/projects": "projects",
+  "/skills": "skills",
+};
+
+function Sources({ sources, onNavigate }: { sources: Source[]; onNavigate: () => void }) {
+  const t = useTranslations("assistant");
+  const nav = useTranslations("nav");
+  return (
+    <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted">
+      <span>{t("sources")}:</span>
+      {sources.map(({ path, title }) => (
+        <Link key={path} href={path} onClick={onNavigate} className="link">
+          {NAV_KEYS[path] ? nav(NAV_KEYS[path]) : title}
+        </Link>
+      ))}
+    </p>
+  );
+}
+
 const iconButton =
   "grid size-7 place-items-center rounded-full text-muted hover:bg-accent-soft hover:text-ink aria-pressed:text-accent";
 
@@ -114,6 +146,8 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
   const [error, setError] = useState<AssistantError | null>(null);
   const [announcement, setAnnouncement] = useState("");
   const [copied, setCopied] = useState<number | null>(null);
+  const [recruiter, setRecruiter] = useState(false);
+  const pathname = usePathname();
   const input = useRef<HTMLTextAreaElement>(null);
   const list = useRef<HTMLOListElement>(null);
   const turnstileBox = useRef<HTMLDivElement>(null);
@@ -142,8 +176,15 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
     setMessages([...history, { role: "assistant", content: "" }]);
     let answer = "";
     let model: string | undefined;
+    let sources: Source[] = [];
     const showAnswer = (text: string) =>
-      setMessages([...history, { role: "assistant", content: text, model }]);
+      setMessages([...history, { role: "assistant", content: text, model, sources }]);
+    // A job description is compared on its own; a chat question brings the conversation along.
+    const last = history[history.length - 1];
+    const conversation =
+      last.mode === "recruiter"
+        ? { mode: "recruiter", messages: [{ role: "user", content: last.content }] }
+        : { messages: trimHistory(history) };
     const controller = new AbortController();
     request.current = controller;
 
@@ -152,8 +193,9 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          messages: trimHistory(history),
+          ...conversation,
           locale,
+          page: pathname,
           turnstileToken: await getToken(),
         }),
         signal: controller.signal,
@@ -165,6 +207,7 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
         return;
       }
       model = response.headers.get("x-assistant-model") ?? undefined;
+      sources = parseSources(response.headers.get("x-assistant-sources"));
       const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
       for (;;) {
         const { done, value } = await reader.read();
@@ -195,7 +238,11 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
     const content = text.trim();
     if (!content || busy) return;
     setDraft("");
-    ask([...messages, { role: "user", content }]);
+    setRecruiter(false);
+    ask([
+      ...messages,
+      recruiter ? { role: "user", content, mode: "recruiter" } : { role: "user", content },
+    ]);
   }
 
   function retry() {
@@ -291,7 +338,16 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
                 className="max-w-[85%] self-end rounded-2xl rounded-br-sm bg-accent px-3.5 py-2 text-on-accent"
               >
                 <span className="sr-only">{t("you")}: </span>
-                {message.content}
+                {message.mode === "recruiter" ? (
+                  <>
+                    <strong className="block">{t("jobDescription")}</strong>
+                    {message.content.length > 160
+                      ? `${message.content.slice(0, 160).trimEnd()}…`
+                      : message.content}
+                  </>
+                ) : (
+                  message.content
+                )}
               </li>
             );
           }
@@ -311,6 +367,9 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
                   <span className="text-muted">{t("thinking")}</span>
                 )}
               </div>
+              {text && !streaming && message.sources?.length ? (
+                <Sources sources={message.sources} onNavigate={onClose} />
+              ) : null}
               {text && !streaming ? (
                 <div className="flex items-center gap-1">
                   <button
@@ -399,17 +458,29 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
       >
         {/* Turnstile shows a checkbox here only when Cloudflare is unsure about the visitor. */}
         <div ref={turnstileBox} />
+        <button
+          type="button"
+          onClick={() => {
+            setRecruiter((value) => !value);
+            input.current?.focus();
+          }}
+          aria-pressed={recruiter}
+          className="inline-flex items-center gap-1.5 justify-self-start rounded-full px-2 py-0.5 text-sm text-muted hover:text-ink aria-pressed:bg-accent-soft aria-pressed:text-ink"
+        >
+          <Briefcase aria-hidden size={14} />
+          {t("recruiter")}
+        </button>
         <div className="flex items-end gap-2">
           <label htmlFor={`${id}-input`} className="sr-only">
-            {t("placeholder")}
+            {recruiter ? t("recruiterPlaceholder") : t("placeholder")}
           </label>
           <textarea
             id={`${id}-input`}
             ref={input}
-            rows={1}
+            rows={recruiter ? 6 : 1}
             value={draft}
-            maxLength={MAX_MESSAGE_CHARS}
-            placeholder={t("placeholder")}
+            maxLength={recruiter ? MAX_JOB_DESCRIPTION_CHARS : MAX_MESSAGE_CHARS}
+            placeholder={recruiter ? t("recruiterPlaceholder") : t("placeholder")}
             onChange={(event) => setDraft(event.target.value)}
             onKeyDown={(event) => {
               if (event.key === "Enter" && !event.shiftKey) {

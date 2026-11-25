@@ -546,6 +546,10 @@
     "notHelpful": "Neužitečné",
     "thanks": "Děkujeme za zpětnou vazbu.",
     "followUps": "Další otázky",
+    "sources": "Zdroje",
+    "recruiter": "Porovnat s pracovní nabídkou",
+    "recruiterPlaceholder": "Vložte pracovní nabídku a uvidíte, jak jí odpovídají Ákosovy zkušenosti",
+    "jobDescription": "Pracovní nabídka",
     "errors": {
       "rateLimited": "Příliš mnoho otázek za krátkou dobu. Počkejte prosím minutu.",
       "busy": "Asistent je právě zaneprázdněný. Zkuste to prosím znovu za minutu.",

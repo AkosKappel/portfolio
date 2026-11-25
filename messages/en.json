@@ -546,6 +546,10 @@
     "notHelpful": "Not helpful",
     "thanks": "Thanks for the feedback.",
     "followUps": "Ask next",
+    "sources": "Sources",
+    "recruiter": "Compare a job description",
+    "recruiterPlaceholder": "Paste a job description to see how Ákos's experience matches it",
+    "jobDescription": "Job description",
     "errors": {
       "rateLimited": "Too many questions in a short time. Please wait a minute.",
       "busy": "The assistant is busy right now. Please try again in a minute.",

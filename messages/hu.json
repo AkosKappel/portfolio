@@ -546,6 +546,10 @@
     "notHelpful": "Nem hasznos",
     "thanks": "Köszönjük a visszajelzést.",
     "followUps": "További kérdések",
+    "sources": "Források",
+    "recruiter": "Összevetés egy álláshirdetéssel",
+    "recruiterPlaceholder": "Illessze be az álláshirdetést, és megmutatjuk, mennyire illik hozzá Ákos tapasztalata",
+    "jobDescription": "Álláshirdetés",
     "errors": {
       "rateLimited": "Túl sok kérdés rövid idő alatt. Kérem, várjon egy percet.",
       "busy": "Az asszisztens most foglalt. Kérem, próbálja újra egy perc múlva.",

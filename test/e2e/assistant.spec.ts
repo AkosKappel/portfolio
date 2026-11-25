@@ -35,8 +35,14 @@ async function stubWorker(page: Page, ...replies: Reply[]) {
         contentType: "text/plain; charset=utf-8",
         headers: {
           "access-control-allow-origin": "*",
-          "access-control-expose-headers": "x-assistant-model",
+          "access-control-expose-headers": "x-assistant-model, x-assistant-sources",
           "x-assistant-model": "groq/openai/gpt-oss-120b",
+          "x-assistant-sources": encodeURIComponent(
+            JSON.stringify([
+              { path: "/experience", title: "Experience" },
+              { path: "/projects/skysense", title: "SkySense" },
+            ]),
+          ),
         },
         body,
       })
@@ -76,6 +82,7 @@ test("the chat answers with lists, bold text and safe links", async ({ page }) =
     {
       messages: [{ role: "user", content: "Where does he work now?" }],
       locale: "en",
+      page: "/",
       turnstileToken: "test-token",
     },
   ]);
@@ -175,7 +182,8 @@ test("follow-up questions become buttons and links to this site stay in the tab"
     ],
   });
 
-  await conversation.getByRole("link", { name: "SkySense" }).click();
+  // The first link is the one in the answer; the same page is also listed as a source.
+  await conversation.getByRole("link", { name: "SkySense" }).first().click();
   await expect(page).toHaveURL(/\/sk\/projects\/skysense$/);
   await expect(chat).toBeHidden();
 
@@ -226,4 +234,68 @@ test("answers can be copied and rated, and a slow answer can be stopped", async 
   await expect(chat.getByRole("button", { name: "Send" })).toBeVisible();
   await expect(chat.getByText("Never shown.")).toHaveCount(0);
   await expect(chat.getByText("Something went wrong")).toHaveCount(0);
+});
+
+test("answers name their sources and the chat knows the page the visitor is on", async ({
+  page,
+}) => {
+  await stubTurnstile(page);
+  const requests = await stubWorker(page, { status: 200, body: "SvelteKit and Tailwind CSS." });
+  await page.goto("/de/projects/skysense");
+  await page.getByRole("button", { name: "Fragen zu mir" }).click();
+  const chat = page.getByRole("dialog");
+  await chat.getByRole("textbox").fill("Welche Technologien nutzt dieses Projekt?");
+  await chat.getByRole("textbox").press("Enter");
+
+  await expect(chat.getByText("SvelteKit and Tailwind CSS.").first()).toBeVisible();
+  expect(requests[0]).toMatchObject({ page: "/projects/skysense", locale: "de" });
+  // Pages with a menu name use it in the visitor's language; projects use their title.
+  await expect(chat.getByRole("link", { name: "Berufserfahrung" })).toHaveAttribute(
+    "href",
+    "/de/experience",
+  );
+  await chat.getByRole("link", { name: "SkySense" }).click();
+  await expect(page).toHaveURL(/\/de\/projects\/skysense$/);
+});
+
+test("recruiter mode sends one job description and keeps it short in the chat", async ({
+  page,
+}) => {
+  await stubTurnstile(page);
+  const requests = await stubWorker(
+    page,
+    { status: 200, body: "A good fit for the React and TypeScript parts." },
+    { status: 200, body: "Yes, within the EU." },
+  );
+  await page.goto("/");
+  await page.getByRole("button", { name: "Ask about me" }).click();
+  const chat = page.getByRole("dialog", { name: "Ask about Ákos" });
+  const description = `Senior Frontend Engineer. ${"We need React and TypeScript. ".repeat(60)}`;
+
+  await chat.getByRole("button", { name: "Compare a job description" }).click();
+  const input = chat.getByRole("textbox", { name: "Paste a job description" });
+  await input.fill(description);
+  await input.press("Enter");
+  await expect(
+    chat.getByText("A good fit for the React and TypeScript parts.").first(),
+  ).toBeVisible();
+  expect(requests[0]).toMatchObject({
+    mode: "recruiter",
+    messages: [{ role: "user", content: description.trim() }],
+  });
+  await expect(chat.getByText("Job description", { exact: true })).toBeVisible();
+
+  // The next question is a normal chat message again.
+  const question = chat.getByRole("textbox", { name: "Ask a question about Ákos" });
+  await question.fill("Is he open to remote work?");
+  await question.press("Enter");
+  await expect(chat.getByText("Yes, within the EU.").first()).toBeVisible();
+  expect(requests[1]).not.toHaveProperty("mode");
+  expect(requests[1]).toMatchObject({
+    messages: [
+      { role: "user", content: "(I pasted a job description to compare with his portfolio.)" },
+      { role: "assistant", content: "A good fit for the React and TypeScript parts." },
+      { role: "user", content: "Is he open to remote work?" },
+    ],
+  });
 });
