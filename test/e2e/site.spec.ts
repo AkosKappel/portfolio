@@ -14,6 +14,7 @@ const pages = [
   { path: "/cv", heading: "Ákos Kappel" },
   { path: "/cv/pdf", heading: "Curriculum vitae" },
   { path: "/colophon", heading: "How this site is built" },
+  { path: "/assistant", heading: "How the chat works" },
   { path: "/terminal", heading: "Terminal" },
   { path: "/sk", heading: "Ákos Kappel" },
   { path: "/sk/projects", heading: "Projekty" },

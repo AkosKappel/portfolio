@@ -11,6 +11,7 @@
     "cv": "CV",
     "main": "Main",
     "colophon": "About this site",
+    "assistant": "AI chat",
     "terminal": "Terminal"
   },
   "common": {
@@ -425,7 +426,7 @@
         ]
       }
     ],
-    "assistantPrivacy": "The chat assistant sends your questions, without any cookies or identifiers, to free AI model providers (Groq, Cloudflare, Google and OpenRouter), which may keep them under their own terms. The assistant itself does not store them, and Cloudflare Turnstile checks that a person is asking."
+    "assistantPrivacy": "The chat assistant sends your questions, without any cookies or identifiers, to free AI model providers (Groq, Cloudflare, Google and OpenRouter), which may keep them under their own terms. The assistant itself does not store them, and Cloudflare Turnstile checks that a person is asking. The conversation stays in this browser tab until you close it. Voice input uses your browser's speech recognition, which in Chrome sends the audio to Google."
   },
   "terminal": {
     "title": "Terminal",
@@ -550,6 +551,10 @@
     "recruiter": "Compare a job description",
     "recruiterPlaceholder": "Paste a job description to see how Ákos's experience matches it",
     "jobDescription": "Job description",
+    "voice": "Ask by voice",
+    "voiceStop": "Stop listening",
+    "listening": "Listening…",
+    "howItWorks": "How this chat works",
     "errors": {
       "rateLimited": "Too many questions in a short time. Please wait a minute.",
       "busy": "The assistant is busy right now. Please try again in a minute.",
@@ -557,5 +562,34 @@
       "cutOff": "The answer was cut off.",
       "failed": "Something went wrong. Please try again."
     }
+  },
+  "assistantPage": {
+    "title": "How the chat works",
+    "description": "The AI assistant on this site: how it answers a question, which free models answer, how its answers are checked and what happens to your data.",
+    "lead": "The \"Ask about me\" chat is a small AI system of its own. This page explains how it answers and how well.",
+    "flowTitle": "From question to answer",
+    "steps": [
+      "Your browser sends the question, the conversation so far and the page you are on to a Cloudflare Worker, together with an invisible Turnstile check against bots.",
+      "The Worker checks where the request comes from, its size and a limit of five questions a minute, then verifies the Turnstile check.",
+      "A small model picks the pages of this site the question needs, through function calling. Each question then carries a fraction of the site's text, which matters on free quotas.",
+      "The first free model that starts answering writes the answer from those pages. If a provider is busy or slow, the next one takes over within seconds.",
+      "The answer streams back as it is written, with the pages it used as sources and a few follow-up questions."
+    ],
+    "modelsTitle": "Free models only",
+    "modelsText": "Every model runs on a free tier and no account has a payment method, so the chat can never cost money. When every free quota is used up, it says it is busy instead.",
+    "qualityTitle": "How good the answers are",
+    "qualityText": "Every Sunday an automated evaluation asks each model the same 34 questions with known answers: facts from this site, questions in all five languages, made-up projects it must not confirm, attempts to change its rules, and a job description to compare. Fixed rules check the answers, not another model.",
+    "latest": "Latest results, {date}",
+    "passed": "{passed} of {answered} correct",
+    "notAnswered": "{count} not answered (free quota used up)",
+    "history": "All results",
+    "date": "Date",
+    "model": "Model",
+    "correct": "Correct",
+    "unavailable": "The results are not available right now.",
+    "privacyTitle": "Your data",
+    "privacyText": "Questions go to the model providers without cookies or identifiers, and the providers may keep them under their own terms. The Worker stores no conversations and logs only which model answered and how fast. A rating sends only the model's name and thumbs up or down. Voice input uses your browser's speech recognition, which in Chrome sends the audio to Google.",
+    "builtTitle": "How it is built",
+    "builtText": "A Cloudflare Worker in TypeScript with Groq, Google AI Studio, OpenRouter and Cloudflare Workers AI as providers, and this site's Next.js front end. Ákos designed it and reviewed every change; AI coding agents helped write it."
   }
 }

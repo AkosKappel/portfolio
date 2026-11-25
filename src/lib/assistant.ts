@@ -180,3 +180,32 @@ export function parseAnswer(answer: string): Block[] {
   flush();
   return blocks;
 }
+
+/** One model's results in one weekly eval run, as the Worker's `GET /evals` serves them. */
+export type ModelResult = {
+  model: string;
+  cases: number;
+  answered: number;
+  passed: number;
+  errors: number;
+  followUps: number;
+};
+export type EvalRun = { date: string; models: ModelResult[]; pagesPicked: number };
+
+const PROVIDERS: Record<string, string> = {
+  groq: "Groq",
+  gemini: "Google AI Studio",
+  openrouter: "OpenRouter",
+  "workers-ai": "Workers AI",
+};
+
+/** "groq/openai/gpt-oss-120b" becomes "gpt-oss-120b (Groq)". */
+export function modelLabel(id: string): string {
+  const [provider, ...rest] = id.split("/");
+  const name = (rest.at(-1) ?? id).replace(/:free$/, "");
+  return `${name} (${PROVIDERS[provider] ?? provider})`;
+}
+
+/** The share of answered questions that passed, in whole percent; undefined when none answered. */
+export const passRate = ({ passed, answered }: ModelResult) =>
+  answered ? Math.round((passed / answered) * 100) : undefined;

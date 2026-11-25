@@ -5,6 +5,8 @@ import {
   Check,
   CircleAlert,
   Copy,
+  Mic,
+  MicOff,
   RotateCcw,
   Send,
   Sparkles,
@@ -32,6 +34,7 @@ import {
   type Turn,
   trimHistory,
 } from "@/lib/assistant";
+import { useSpeech } from "./use-speech";
 import { useTurnstile } from "./use-turnstile";
 
 // The conversation survives reloads and language switches until the tab is closed.
@@ -154,6 +157,7 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
   const request = useRef<AbortController | null>(null);
   const { url = "", turnstileSiteKey = "" } = assistantConfig;
   const getToken = useTurnstile(turnstileSiteKey, turnstileBox, locale);
+  const speech = useSpeech(locale, draft, setDraft);
 
   useEffect(() => {
     if (!busy) saveConversation(messages);
@@ -237,6 +241,7 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
   function submit(text: string) {
     const content = text.trim();
     if (!content || busy) return;
+    speech.stop();
     setDraft("");
     setRecruiter(false);
     ask([
@@ -312,7 +317,12 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
       >
         {messages.length === 0 ? (
           <li className="grid gap-3">
-            <p className="text-sm text-muted">{t("notice")}</p>
+            <p className="text-sm text-muted">
+              {t("notice")}{" "}
+              <Link href="/assistant" onClick={onClose} className="link">
+                {t("howItWorks")}
+              </Link>
+            </p>
             <p className="text-sm font-medium">{t("suggestionsLabel")}</p>
             <ul className="flex flex-wrap gap-2">
               {suggestions.map((suggestion) => (
@@ -480,7 +490,13 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
             rows={recruiter ? 6 : 1}
             value={draft}
             maxLength={recruiter ? MAX_JOB_DESCRIPTION_CHARS : MAX_MESSAGE_CHARS}
-            placeholder={recruiter ? t("recruiterPlaceholder") : t("placeholder")}
+            placeholder={
+              speech.listening
+                ? t("listening")
+                : recruiter
+                  ? t("recruiterPlaceholder")
+                  : t("placeholder")
+            }
             onChange={(event) => setDraft(event.target.value)}
             onKeyDown={(event) => {
               if (event.key === "Enter" && !event.shiftKey) {
@@ -490,6 +506,21 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
             }}
             className="max-h-32 min-h-10 flex-1 resize-none rounded-xl border border-line bg-paper px-3 py-2 hover:border-ink/40"
           />
+          {speech.supported && !busy ? (
+            <button
+              type="button"
+              onClick={() => {
+                speech.toggle();
+                input.current?.focus();
+              }}
+              aria-pressed={speech.listening}
+              aria-label={speech.listening ? t("voiceStop") : t("voice")}
+              title={speech.listening ? t("voiceStop") : t("voice")}
+              className="grid size-10 shrink-0 place-items-center rounded-full border border-line text-muted hover:text-ink aria-pressed:border-accent aria-pressed:text-accent"
+            >
+              {speech.listening ? <MicOff aria-hidden size={18} /> : <Mic aria-hidden size={18} />}
+            </button>
+          ) : null}
           {busy ? (
             <button
               type="button"

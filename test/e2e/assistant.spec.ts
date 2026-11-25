@@ -299,3 +299,37 @@ test("recruiter mode sends one job description and keeps it short in the chat", 
     ],
   });
 });
+
+test("voice input fills the question in the page language", async ({ page }) => {
+  // Headless Chromium has no speech recognition, so a stand-in hears a fixed sentence.
+  await page.addInitScript(() => {
+    class FakeRecognition {
+      lang = "";
+      onresult: ((event: unknown) => void) | null = null;
+      onend: (() => void) | null = null;
+      start() {
+        (window as unknown as { heardIn: string }).heardIn = this.lang;
+        setTimeout(() => {
+          this.onresult?.({ results: [[{ transcript: "kde pracuje" }]] });
+          this.onend?.();
+        }, 100);
+      }
+      stop() {}
+      abort() {}
+    }
+    Object.assign(window, {
+      SpeechRecognition: FakeRecognition,
+      webkitSpeechRecognition: FakeRecognition,
+    });
+  });
+  await stubTurnstile(page);
+  await page.goto("/sk");
+  await page.getByRole("button", { name: "Opýtajte sa na mňa" }).click();
+  const chat = page.getByRole("dialog");
+  await chat.getByRole("textbox").fill("Povedzte mi,");
+  await chat.getByRole("button", { name: "Opýtať sa hlasom" }).click();
+  await expect(chat.getByRole("textbox")).toHaveValue("Povedzte mi, kde pracuje");
+  expect(await page.evaluate(() => (window as unknown as { heardIn: string }).heardIn)).toBe(
+    "sk-SK",
+  );
+});

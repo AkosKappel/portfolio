@@ -11,6 +11,7 @@
     "cv": "Životopis",
     "main": "Hlavní",
     "colophon": "O tomto webu",
+    "assistant": "AI chat",
     "terminal": "Terminál"
   },
   "common": {
@@ -425,7 +426,7 @@
         ]
       }
     ],
-    "assistantPrivacy": "Chatovací asistent posílá vaše otázky bez cookies a identifikátorů bezplatným poskytovatelům AI modelů (Groq, Cloudflare, Google a OpenRouter), kteří si je mohou ponechat podle vlastních podmínek. Samotný asistent je neukládá a Cloudflare Turnstile ověřuje, že se ptá člověk."
+    "assistantPrivacy": "Chatovací asistent posílá vaše otázky bez cookies a identifikátorů bezplatným poskytovatelům AI modelů (Groq, Cloudflare, Google a OpenRouter), kteří si je mohou ponechat podle vlastních podmínek. Samotný asistent je neukládá a Cloudflare Turnstile ověřuje, že se ptá člověk. Konverzace zůstává v této kartě prohlížeče, dokud ji nezavřete. Hlasový vstup používá rozpoznávání řeči vašeho prohlížeče, které v Chromu posílá zvuk společnosti Google."
   },
   "terminal": {
     "title": "Terminál",
@@ -550,6 +551,10 @@
     "recruiter": "Porovnat s pracovní nabídkou",
     "recruiterPlaceholder": "Vložte pracovní nabídku a uvidíte, jak jí odpovídají Ákosovy zkušenosti",
     "jobDescription": "Pracovní nabídka",
+    "voice": "Zeptat se hlasem",
+    "voiceStop": "Přestat poslouchat",
+    "listening": "Poslouchám…",
+    "howItWorks": "Jak tento chat funguje",
     "errors": {
       "rateLimited": "Příliš mnoho otázek za krátkou dobu. Počkejte prosím minutu.",
       "busy": "Asistent je právě zaneprázdněný. Zkuste to prosím znovu za minutu.",
@@ -557,5 +562,34 @@
       "cutOff": "Odpověď byla přerušena.",
       "failed": "Něco se pokazilo. Zkuste to prosím znovu."
     }
+  },
+  "assistantPage": {
+    "title": "Jak funguje chat",
+    "description": "AI asistent na tomto webu: jak odpovídá na otázky, které bezplatné modely odpovídají, jak se kontrolují odpovědi a co se děje s vašimi údaji.",
+    "lead": "Chat „Zeptejte se na mě“ je samostatný malý AI systém. Tato stránka vysvětluje, jak odpovídá a jak dobře.",
+    "flowTitle": "Od otázky k odpovědi",
+    "steps": [
+      "Váš prohlížeč pošle otázku, dosavadní konverzaci a stránku, na které jste, do Cloudflare Workeru spolu s neviditelnou kontrolou Turnstile proti robotům.",
+      "Worker zkontroluje, odkud požadavek přichází, jeho velikost a limit pěti otázek za minutu a poté ověří kontrolu Turnstile.",
+      "Malý model pomocí volání funkcí vybere stránky tohoto webu, které otázka potřebuje. Každá otázka tak nese jen zlomek textu webu, na čemž u bezplatných kvót záleží.",
+      "První bezplatný model, který začne odpovídat, napíše odpověď z těchto stránek. Pokud je poskytovatel zaneprázdněný nebo pomalý, během několika sekund ho nahradí další.",
+      "Odpověď přichází průběžně, se stránkami, ze kterých vychází, jako zdroji a s několika dalšími otázkami."
+    ],
+    "modelsTitle": "Pouze bezplatné modely",
+    "modelsText": "Každý model běží v bezplatném režimu a žádný účet nemá platební metodu, takže chat nikdy nemůže stát peníze. Když se vyčerpají všechny bezplatné kvóty, oznámí, že je zaneprázdněný.",
+    "qualityTitle": "Jak dobré jsou odpovědi",
+    "qualityText": "Každou neděli automatické hodnocení položí každému modelu stejných 34 otázek se známými odpověďmi: fakta z tohoto webu, otázky ve všech pěti jazycích, vymyšlené projekty, které nesmí potvrdit, pokusy změnit jeho pravidla a pracovní nabídku k porovnání. Odpovědi kontrolují pevná pravidla, ne jiný model.",
+    "latest": "Poslední výsledky, {date}",
+    "passed": "{passed} z {answered} správně",
+    "notAnswered": "{count} bez odpovědi (bezplatná kvóta vyčerpána)",
+    "history": "Všechny výsledky",
+    "date": "Datum",
+    "model": "Model",
+    "correct": "Správně",
+    "unavailable": "Výsledky nejsou momentálně k dispozici.",
+    "privacyTitle": "Vaše údaje",
+    "privacyText": "Otázky jdou poskytovatelům modelů bez cookies a identifikátorů a poskytovatelé si je mohou ponechat podle vlastních podmínek. Worker neukládá žádné konverzace a zaznamenává jen to, který model odpověděl a jak rychle. Hodnocení posílá jen název modelu a palec nahoru nebo dolů. Hlasový vstup používá rozpoznávání řeči vašeho prohlížeče, které v Chromu posílá zvuk společnosti Google.",
+    "builtTitle": "Jak je postavený",
+    "builtText": "Cloudflare Worker v TypeScriptu s poskytovateli Groq, Google AI Studio, OpenRouter a Cloudflare Workers AI a front end tohoto webu v Next.js. Ákos ho navrhl a zkontroloval každou změnu; při psaní pomáhali AI agenti pro programování."
   }
 }

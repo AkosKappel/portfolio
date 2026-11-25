@@ -2,9 +2,11 @@ import { describe, expect, it } from "vitest";
 import {
   type ChatMessage,
   errorForStatus,
+  modelLabel,
   parseAnswer,
   parseInline,
   parseSources,
+  passRate,
   sitePath,
   splitFollowUps,
   trimHistory,
@@ -168,5 +170,23 @@ describe("trimHistory in recruiter mode", () => {
     ]);
     expect(history[0].content).toBe("(I pasted a job description to compare with his portfolio.)");
     expect(history).toHaveLength(3);
+  });
+});
+
+describe("eval results", () => {
+  it("names models by their short name and provider", () => {
+    expect(modelLabel("groq/openai/gpt-oss-120b")).toBe("gpt-oss-120b (Groq)");
+    expect(modelLabel("workers-ai/@cf/google/gemma-4-26b-a4b-it")).toBe(
+      "gemma-4-26b-a4b-it (Workers AI)",
+    );
+    expect(modelLabel("openrouter/nvidia/nemotron-3.5-lightning:free")).toBe(
+      "nemotron-3.5-lightning (OpenRouter)",
+    );
+  });
+
+  it("rates only answered questions", () => {
+    const result = { model: "m", cases: 34, answered: 30, passed: 27, errors: 4, followUps: 30 };
+    expect(passRate(result)).toBe(90);
+    expect(passRate({ ...result, answered: 0, passed: 0 })).toBeUndefined();
   });
 });

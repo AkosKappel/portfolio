@@ -11,6 +11,7 @@
     "cv": "Lebenslauf",
     "main": "Hauptmenü",
     "colophon": "Über diese Seite",
+    "assistant": "KI-Chat",
     "terminal": "Terminal"
   },
   "common": {
@@ -425,7 +426,7 @@
         ]
       }
     ],
-    "assistantPrivacy": "Der Chat-Assistent sendet Ihre Fragen ohne Cookies oder Kennungen an kostenlose Anbieter von KI-Modellen (Groq, Cloudflare, Google und OpenRouter), die sie nach ihren eigenen Bedingungen speichern können. Der Assistent selbst speichert sie nicht, und Cloudflare Turnstile prüft, dass ein Mensch fragt."
+    "assistantPrivacy": "Der Chat-Assistent sendet Ihre Fragen ohne Cookies oder Kennungen an kostenlose Anbieter von KI-Modellen (Groq, Cloudflare, Google und OpenRouter), die sie nach ihren eigenen Bedingungen speichern können. Der Assistent selbst speichert sie nicht, und Cloudflare Turnstile prüft, dass ein Mensch fragt. Die Unterhaltung bleibt in diesem Browser-Tab, bis Sie ihn schließen. Die Spracheingabe nutzt die Spracherkennung Ihres Browsers, die in Chrome den Ton an Google sendet."
   },
   "terminal": {
     "title": "Terminal",
@@ -550,6 +551,10 @@
     "recruiter": "Mit einer Stellenanzeige vergleichen",
     "recruiterPlaceholder": "Fügen Sie eine Stellenanzeige ein, um zu sehen, wie gut Ákos’ Erfahrung passt",
     "jobDescription": "Stellenanzeige",
+    "voice": "Per Sprache fragen",
+    "voiceStop": "Zuhören beenden",
+    "listening": "Hört zu…",
+    "howItWorks": "So funktioniert dieser Chat",
     "errors": {
       "rateLimited": "Zu viele Fragen in kurzer Zeit. Bitte warten Sie eine Minute.",
       "busy": "Der Assistent ist gerade ausgelastet. Bitte versuchen Sie es in einer Minute erneut.",
@@ -557,5 +562,34 @@
       "cutOff": "Die Antwort wurde unterbrochen.",
       "failed": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
     }
+  },
+  "assistantPage": {
+    "title": "So funktioniert der Chat",
+    "description": "Der KI-Assistent dieser Website: wie er Fragen beantwortet, welche kostenlosen Modelle antworten, wie die Antworten geprüft werden und was mit Ihren Daten geschieht.",
+    "lead": "Der Chat „Fragen zu mir“ ist ein eigenes kleines KI-System. Diese Seite erklärt, wie er antwortet und wie gut.",
+    "flowTitle": "Von der Frage zur Antwort",
+    "steps": [
+      "Ihr Browser sendet die Frage, die bisherige Unterhaltung und die Seite, auf der Sie sind, an einen Cloudflare Worker, zusammen mit einer unsichtbaren Turnstile-Prüfung gegen Bots.",
+      "Der Worker prüft, woher die Anfrage kommt, ihre Größe und ein Limit von fünf Fragen pro Minute, und bestätigt dann die Turnstile-Prüfung.",
+      "Ein kleines Modell wählt per Function Calling die Seiten dieser Website, die die Frage braucht. So enthält jede Frage nur einen Bruchteil des Website-Texts, was bei kostenlosen Kontingenten zählt.",
+      "Das erste kostenlose Modell, das zu antworten beginnt, schreibt die Antwort aus diesen Seiten. Ist ein Anbieter ausgelastet oder langsam, übernimmt innerhalb von Sekunden der nächste.",
+      "Die Antwort erscheint, während sie geschrieben wird, mit den verwendeten Seiten als Quellen und einigen Folgefragen."
+    ],
+    "modelsTitle": "Nur kostenlose Modelle",
+    "modelsText": "Jedes Modell läuft in einem kostenlosen Tarif und kein Konto hat eine Zahlungsmethode, daher kann der Chat nie Geld kosten. Sind alle kostenlosen Kontingente aufgebraucht, meldet er, dass er ausgelastet ist.",
+    "qualityTitle": "Wie gut die Antworten sind",
+    "qualityText": "Jeden Sonntag stellt eine automatische Auswertung jedem Modell dieselben 34 Fragen mit bekannten Antworten: Fakten von dieser Website, Fragen in allen fünf Sprachen, erfundene Projekte, die es nicht bestätigen darf, Versuche, seine Regeln zu ändern, und eine Stellenanzeige zum Vergleich. Feste Regeln prüfen die Antworten, kein anderes Modell.",
+    "latest": "Neueste Ergebnisse, {date}",
+    "passed": "{passed} von {answered} richtig",
+    "notAnswered": "{count} ohne Antwort (kostenloses Kontingent aufgebraucht)",
+    "history": "Alle Ergebnisse",
+    "date": "Datum",
+    "model": "Modell",
+    "correct": "Richtig",
+    "unavailable": "Die Ergebnisse sind gerade nicht verfügbar.",
+    "privacyTitle": "Ihre Daten",
+    "privacyText": "Fragen gehen ohne Cookies oder Kennungen an die Modellanbieter, die sie nach ihren eigenen Bedingungen speichern können. Der Worker speichert keine Unterhaltungen und protokolliert nur, welches Modell wie schnell geantwortet hat. Eine Bewertung sendet nur den Modellnamen und Daumen hoch oder runter. Die Spracheingabe nutzt die Spracherkennung Ihres Browsers, die in Chrome den Ton an Google sendet.",
+    "builtTitle": "Wie er gebaut ist",
+    "builtText": "Ein Cloudflare Worker in TypeScript mit Groq, Google AI Studio, OpenRouter und Cloudflare Workers AI als Anbietern und das Next.js-Frontend dieser Website. Ákos hat ihn entworfen und jede Änderung geprüft; KI-Coding-Agenten haben beim Schreiben geholfen."
   }
 }

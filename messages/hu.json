@@ -11,6 +11,7 @@
     "cv": "Önéletrajz",
     "main": "Főmenü",
     "colophon": "Az oldalról",
+    "assistant": "AI-csevegő",
     "terminal": "Terminál"
   },
   "common": {
@@ -425,7 +426,7 @@
         ]
       }
     ],
-    "assistantPrivacy": "A csevegőasszisztens a kérdéseit sütik és azonosítók nélkül ingyenes AI-modell-szolgáltatóknak (Groq, Cloudflare, Google és OpenRouter) küldi, amelyek a saját feltételeik szerint megőrizhetik azokat. Maga az asszisztens nem tárolja őket, a Cloudflare Turnstile pedig ellenőrzi, hogy ember kérdez."
+    "assistantPrivacy": "A csevegőasszisztens a kérdéseit sütik és azonosítók nélkül ingyenes AI-modell-szolgáltatóknak (Groq, Cloudflare, Google és OpenRouter) küldi, amelyek a saját feltételeik szerint megőrizhetik azokat. Maga az asszisztens nem tárolja őket, a Cloudflare Turnstile pedig ellenőrzi, hogy ember kérdez. A beszélgetés ebben a böngészőlapban marad, amíg be nem zárja. A hangalapú bevitel a böngésző beszédfelismerését használja, amely Chrome-ban a hangot a Google-nek küldi."
   },
   "terminal": {
     "title": "Terminál",
@@ -550,6 +551,10 @@
     "recruiter": "Összevetés egy álláshirdetéssel",
     "recruiterPlaceholder": "Illessze be az álláshirdetést, és megmutatjuk, mennyire illik hozzá Ákos tapasztalata",
     "jobDescription": "Álláshirdetés",
+    "voice": "Kérdezzen hanggal",
+    "voiceStop": "Hallgatás leállítása",
+    "listening": "Figyelek…",
+    "howItWorks": "Így működik ez a csevegő",
     "errors": {
       "rateLimited": "Túl sok kérdés rövid idő alatt. Kérem, várjon egy percet.",
       "busy": "Az asszisztens most foglalt. Kérem, próbálja újra egy perc múlva.",
@@ -557,5 +562,34 @@
       "cutOff": "A válasz megszakadt.",
       "failed": "Valami hiba történt. Kérem, próbálja újra."
     }
+  },
+  "assistantPage": {
+    "title": "Így működik a csevegő",
+    "description": "Az oldal AI-asszisztense: hogyan válaszol a kérdésekre, mely ingyenes modellek válaszolnak, hogyan ellenőrizzük a válaszokat, és mi történik az adataival.",
+    "lead": "A „Kérdezzen rólam” csevegő egy önálló kis AI-rendszer. Ez az oldal elmagyarázza, hogyan és milyen jól válaszol.",
+    "flowTitle": "A kérdéstől a válaszig",
+    "steps": [
+      "A böngészője elküldi a kérdést, az eddigi beszélgetést és az oldalt, amelyen éppen van, egy Cloudflare Workernek, egy láthatatlan Turnstile-ellenőrzéssel együtt a robotok ellen.",
+      "A Worker ellenőrzi, honnan jön a kérés, mekkora, és a percenként öt kérdéses korlátot, majd igazolja a Turnstile-ellenőrzést.",
+      "Egy kis modell függvényhívással kiválasztja az oldal azon lapjait, amelyekre a kérdéshez szükség van. Így minden kérdés az oldal szövegének csak töredékét viszi, ami az ingyenes kereteknél számít.",
+      "Az első ingyenes modell, amely válaszolni kezd, ezekből a lapokból írja meg a választ. Ha egy szolgáltató foglalt vagy lassú, néhány másodpercen belül a következő veszi át.",
+      "A válasz írás közben érkezik, a felhasznált lapokkal mint forrásokkal és néhány további kérdéssel."
+    ],
+    "modelsTitle": "Csak ingyenes modellek",
+    "modelsText": "Minden modell ingyenes csomagban fut, és egyik fióknak sincs fizetési módja, így a csevegő soha nem kerülhet pénzbe. Ha minden ingyenes keret elfogyott, jelzi, hogy foglalt.",
+    "qualityTitle": "Mennyire jók a válaszok",
+    "qualityText": "Minden vasárnap egy automatikus kiértékelés ugyanazt a 34 ismert válaszú kérdést teszi fel minden modellnek: tények erről az oldalról, kérdések mind az öt nyelven, kitalált projektek, amelyeket nem erősíthet meg, kísérletek a szabályai megváltoztatására, és egy összevetendő álláshirdetés. A válaszokat rögzített szabályok ellenőrzik, nem egy másik modell.",
+    "latest": "Legutóbbi eredmények, {date}",
+    "passed": "{answered} kérdésből {passed} helyes",
+    "notAnswered": "{count} megválaszolatlan (elfogyott az ingyenes keret)",
+    "history": "Összes eredmény",
+    "date": "Dátum",
+    "model": "Modell",
+    "correct": "Helyes",
+    "unavailable": "Az eredmények most nem érhetők el.",
+    "privacyTitle": "Az Ön adatai",
+    "privacyText": "A kérdések sütik és azonosítók nélkül jutnak el a modellszolgáltatókhoz, amelyek a saját feltételeik szerint megőrizhetik azokat. A Worker nem tárol beszélgetéseket, csak azt naplózza, melyik modell válaszolt és milyen gyorsan. Az értékelés csak a modell nevét és a felfelé vagy lefelé mutató hüvelykujjat küldi el. A hangalapú bevitel a böngésző beszédfelismerését használja, amely Chrome-ban a hangot a Google-nek küldi.",
+    "builtTitle": "Hogyan épül fel",
+    "builtText": "Egy TypeScriptben írt Cloudflare Worker, Groq, Google AI Studio, OpenRouter és Cloudflare Workers AI szolgáltatókkal, valamint ennek az oldalnak a Next.js-frontendje. Ákos tervezte meg és nézett át minden változtatást; a megírásában AI kódoló ügynökök segítettek."
   }
 }
