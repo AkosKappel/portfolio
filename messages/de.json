@@ -554,6 +554,7 @@
     "voice": "Per Sprache fragen",
     "voiceStop": "Zuhören beenden",
     "listening": "Hört zu…",
+    "voiceUnavailable": "Spracheingabe ist nicht verfügbar. Bitte prüfen Sie die Mikrofonberechtigung.",
     "howItWorks": "So funktioniert dieser Chat",
     "errors": {
       "rateLimited": "Zu viele Fragen in kurzer Zeit. Bitte warten Sie eine Minute.",

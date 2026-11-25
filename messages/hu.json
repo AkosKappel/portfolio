@@ -554,6 +554,7 @@
     "voice": "Kérdezzen hanggal",
     "voiceStop": "Hallgatás leállítása",
     "listening": "Figyelek…",
+    "voiceUnavailable": "A hangbevitel nem érhető el. Ellenőrizze a mikrofon engedélyét.",
     "howItWorks": "Így működik ez a csevegő",
     "errors": {
       "rateLimited": "Túl sok kérdés rövid idő alatt. Kérem, várjon egy percet.",

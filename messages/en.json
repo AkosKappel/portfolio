@@ -554,6 +554,7 @@
     "voice": "Ask by voice",
     "voiceStop": "Stop listening",
     "listening": "Listening…",
+    "voiceUnavailable": "Voice input is not available. Check the microphone permission.",
     "howItWorks": "How this chat works",
     "errors": {
       "rateLimited": "Too many questions in a short time. Please wait a minute.",

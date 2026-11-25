@@ -554,6 +554,7 @@
     "voice": "Opýtať sa hlasom",
     "voiceStop": "Prestať počúvať",
     "listening": "Počúvam…",
+    "voiceUnavailable": "Hlasový vstup nie je dostupný. Skontrolujte povolenie mikrofónu.",
     "howItWorks": "Ako tento chat funguje",
     "errors": {
       "rateLimited": "Príliš veľa otázok za krátky čas. Počkajte prosím minútu.",

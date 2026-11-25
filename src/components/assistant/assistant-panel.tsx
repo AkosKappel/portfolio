@@ -493,9 +493,11 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
             placeholder={
               speech.listening
                 ? t("listening")
-                : recruiter
-                  ? t("recruiterPlaceholder")
-                  : t("placeholder")
+                : speech.failed
+                  ? t("voiceUnavailable")
+                  : recruiter
+                    ? t("recruiterPlaceholder")
+                    : t("placeholder")
             }
             onChange={(event) => setDraft(event.target.value)}
             onKeyDown={(event) => {

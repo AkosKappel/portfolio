@@ -9,7 +9,7 @@ type SpeechRecognition = {
   continuous: boolean;
   onresult: ((event: { results: ArrayLike<ArrayLike<{ transcript: string }>> }) => void) | null;
   onend: (() => void) | null;
-  onerror: (() => void) | null;
+  onerror: ((event: { error: string }) => void) | null;
   start: () => void;
   stop: () => void;
   abort: () => void;
@@ -24,6 +24,8 @@ const SPEECH_LANGUAGES: Record<string, string> = {
   hu: "hu-HU",
 };
 
+const QUIET_ERRORS = new Set(["no-speech", "aborted"]);
+
 function recognitionClass(): RecognitionConstructor | undefined {
   const scope = window as unknown as Record<string, RecognitionConstructor | undefined>;
   return scope.SpeechRecognition ?? scope.webkitSpeechRecognition;
@@ -37,6 +39,7 @@ function recognitionClass(): RecognitionConstructor | undefined {
 export function useSpeech(locale: string, text: string, setText: (text: string) => void) {
   const [supported, setSupported] = useState(false);
   const [listening, setListening] = useState(false);
+  const [failed, setFailed] = useState(false);
   const recognition = useRef<SpeechRecognition | null>(null);
 
   useEffect(() => {
@@ -57,15 +60,24 @@ export function useSpeech(locale: string, text: string, setText: (text: string) 
       setText(typed ? `${typed} ${spoken}` : spoken);
     };
     session.onend = () => setListening(false);
-    session.onerror = () => setListening(false);
+    // Silence and a stop by the visitor are not failures; a blocked or missing microphone is.
+    session.onerror = ({ error }) => {
+      setListening(false);
+      setFailed(!QUIET_ERRORS.has(error));
+    };
     recognition.current = session;
-    session.start();
-    setListening(true);
+    setFailed(false);
+    try {
+      session.start();
+      setListening(true);
+    } catch {
+      setFailed(true);
+    }
   }
 
   function stop() {
     recognition.current?.stop();
   }
 
-  return { supported, listening, toggle: listening ? stop : start, stop };
+  return { supported, listening, failed, toggle: listening ? stop : start, stop };
 }

@@ -300,17 +300,20 @@ test("recruiter mode sends one job description and keeps it short in the chat", 
   });
 });
 
-test("voice input fills the question in the page language", async ({ page }) => {
-  // Headless Chromium has no speech recognition, so a stand-in hears a fixed sentence.
-  await page.addInitScript(() => {
+// Headless Chromium has no speech recognition, so a stand-in hears a fixed sentence, or fails
+// with the given error.
+async function fakeSpeech(page: Page, error?: string) {
+  await page.addInitScript((error) => {
     class FakeRecognition {
       lang = "";
       onresult: ((event: unknown) => void) | null = null;
+      onerror: ((event: unknown) => void) | null = null;
       onend: (() => void) | null = null;
       start() {
         (window as unknown as { heardIn: string }).heardIn = this.lang;
         setTimeout(() => {
-          this.onresult?.({ results: [[{ transcript: "kde pracuje" }]] });
+          if (error) this.onerror?.({ error });
+          else this.onresult?.({ results: [[{ transcript: "kde pracuje" }]] });
           this.onend?.();
         }, 100);
       }
@@ -321,9 +324,15 @@ test("voice input fills the question in the page language", async ({ page }) => 
       SpeechRecognition: FakeRecognition,
       webkitSpeechRecognition: FakeRecognition,
     });
-  });
+  }, error);
+}
+
+test("voice input fills the question in the page language", async ({ page }) => {
+  await fakeSpeech(page);
   await stubTurnstile(page);
-  await page.goto("/sk");
+  const response = await page.goto("/sk");
+  // A Permissions-Policy without the microphone makes every recognition fail.
+  expect(response?.headers()["permissions-policy"]).toContain("microphone=(self)");
   await page.getByRole("button", { name: "Opýtajte sa na mňa" }).click();
   const chat = page.getByRole("dialog");
   await chat.getByRole("textbox").fill("Povedzte mi,");
@@ -331,5 +340,18 @@ test("voice input fills the question in the page language", async ({ page }) => 
   await expect(chat.getByRole("textbox")).toHaveValue("Povedzte mi, kde pracuje");
   expect(await page.evaluate(() => (window as unknown as { heardIn: string }).heardIn)).toBe(
     "sk-SK",
+  );
+});
+
+test("voice input says when the microphone is blocked", async ({ page }) => {
+  await fakeSpeech(page, "not-allowed");
+  await stubTurnstile(page);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Ask about me" }).click();
+  const chat = page.getByRole("dialog");
+  await chat.getByRole("button", { name: "Ask by voice" }).click();
+  await expect(chat.getByRole("textbox")).toHaveAttribute(
+    "placeholder",
+    "Voice input is not available. Check the microphone permission.",
   );
 });
