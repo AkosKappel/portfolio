@@ -11,6 +11,10 @@ export const assistantEnabled = Boolean(assistantConfig.url && assistantConfig.t
 
 export type ChatMessage = { role: "user" | "assistant"; content: string };
 
+/** A message as the chat keeps it: answers also remember their model and the visitor's rating. */
+export type Turn = ChatMessage & { model?: string; rating?: Rating };
+export type Rating = "up" | "down";
+
 // The Worker's limits: at most 10 messages, 1,000 characters each and 6,000 in total.
 export const MAX_MESSAGE_CHARS = 1000;
 const MAX_MESSAGES = 10;
@@ -20,10 +24,15 @@ const MAX_TOTAL_CHARS = 6000;
  * The most recent part of the conversation that fits the Worker's limits. It starts with a
  * visitor message, so the model never sees an answer without its question.
  */
-export function trimHistory(messages: ChatMessage[]): ChatMessage[] {
+export function trimHistory(turns: Turn[]): ChatMessage[] {
   const kept: ChatMessage[] = [];
   let total = 0;
-  for (const message of [...messages].reverse()) {
+  // Follow-up suggestions are for the visitor, so the model gets its answers without them.
+  const messages = turns.map(({ role, content }) => ({
+    role,
+    content: role === "assistant" ? splitFollowUps(content).text : content,
+  }));
+  for (const message of messages.reverse()) {
     if (kept.length === MAX_MESSAGES || total + message.content.length > MAX_TOTAL_CHARS) break;
     kept.unshift(message);
     total += message.content.length;
@@ -39,6 +48,36 @@ export function errorForStatus(status: number): AssistantError {
   if (status === 503) return "busy";
   if (status === 403) return "botCheck";
   return "failed";
+}
+
+/**
+ * The Worker asks the model to end each answer with a line of follow-up questions:
+ * ">> What does he build? | Since when?". The chat shows them as buttons, so they are split off.
+ * A last line that starts with ">" is hidden while it streams in, before it can be parsed.
+ */
+export function splitFollowUps(answer: string): { text: string; followUps: string[] } {
+  const lines = answer.trimEnd().split("\n");
+  const last = lines.at(-1) ?? "";
+  if (!/^\s*>/.test(last)) return { text: answer, followUps: [] };
+  const followUps = last
+    .replace(/^\s*>+/, "")
+    .split("|")
+    .map((question) => question.trim())
+    .filter((question) => question.length > 0 && question.length <= MAX_FOLLOW_UP_CHARS)
+    .slice(0, 3);
+  return { text: lines.slice(0, -1).join("\n").trimEnd(), followUps };
+}
+
+const MAX_FOLLOW_UP_CHARS = 120;
+
+// Same as `site.url`, without pulling the site content into the chat bundle. The knowledge file
+// links pages with this origin.
+const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? "https://akoskappel.dev";
+
+/** The path of a link to this site, so it opens in the current tab and language; else undefined. */
+export function sitePath(href: string): string | undefined {
+  const url = new URL(href);
+  return url.origin === SITE_ORIGIN ? `${url.pathname}${url.search}${url.hash}` : undefined;
 }
 
 // Answers use a little Markdown: paragraphs, bullet and numbered lists, **bold** and links. It is

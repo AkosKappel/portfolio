@@ -1,25 +1,69 @@
 "use client";
 
-import { CircleAlert, RotateCcw, Send, Sparkles, X } from "lucide-react";
+import {
+  Check,
+  CircleAlert,
+  Copy,
+  RotateCcw,
+  Send,
+  Sparkles,
+  Square,
+  ThumbsDown,
+  ThumbsUp,
+  X,
+} from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Fragment, type ReactNode, useEffect, useId, useRef, useState } from "react";
+import { Link } from "@/i18n/navigation";
 import {
   type AssistantError,
   assistantConfig,
-  type ChatMessage,
   errorForStatus,
   type Inline,
   MAX_MESSAGE_CHARS,
   parseAnswer,
+  type Rating,
+  sitePath,
+  splitFollowUps,
+  type Turn,
   trimHistory,
 } from "@/lib/assistant";
 import { useTurnstile } from "./use-turnstile";
 
-function InlineText({ parts }: { parts: Inline[] }) {
+// The conversation survives reloads and language switches until the tab is closed.
+const STORAGE_KEY = "assistant-conversation";
+
+function loadConversation(): Turn[] {
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(STORAGE_KEY) ?? "[]");
+    return Array.isArray(saved) ? saved : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveConversation(turns: Turn[]) {
+  try {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(turns));
+  } catch {
+    // Storage can be full or blocked; the chat still works without it.
+  }
+}
+
+function InlineText({ parts, onNavigate }: { parts: Inline[]; onNavigate: () => void }) {
   return parts.map((part, index) => {
     const key = `${index}-${part.text}`;
     if (part.type === "bold") return <strong key={key}>{part.text}</strong>;
     if (part.type === "link") {
+      // Pages of this site open in the same tab and language; the chat closes so the page shows.
+      const path = sitePath(part.href);
+      if (path) {
+        return (
+          <Link key={key} href={path} onClick={onNavigate} className="link">
+            {part.text}
+          </Link>
+        );
+      }
       return (
         <a key={key} href={part.href} target="_blank" rel="noopener noreferrer" className="link">
           {part.text}
@@ -30,13 +74,13 @@ function InlineText({ parts }: { parts: Inline[] }) {
   });
 }
 
-function Answer({ text }: { text: string }) {
+function Answer({ text, onNavigate }: { text: string; onNavigate: () => void }) {
   return parseAnswer(text).map((block, index): ReactNode => {
     const key = `${block.type}-${index}`;
     if (block.type === "paragraph") {
       return (
         <p key={key}>
-          <InlineText parts={block.content} />
+          <InlineText parts={block.content} onNavigate={onNavigate} />
         </p>
       );
     }
@@ -46,13 +90,16 @@ function Answer({ text }: { text: string }) {
         {block.items.map((item, itemIndex) => (
           // biome-ignore lint/suspicious/noArrayIndexKey: list items have no identity of their own
           <li key={itemIndex}>
-            <InlineText parts={item} />
+            <InlineText parts={item} onNavigate={onNavigate} />
           </li>
         ))}
       </List>
     );
   });
 }
+
+const iconButton =
+  "grid size-7 place-items-center rounded-full text-muted hover:bg-accent-soft hover:text-ink aria-pressed:text-accent";
 
 type Props = { id: string; open: boolean; onClose: () => void };
 
@@ -61,16 +108,22 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
   const t = useTranslations("assistant");
   const locale = useLocale();
   const titleId = useId();
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [messages, setMessages] = useState<Turn[]>(loadConversation);
   const [draft, setDraft] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<AssistantError | null>(null);
   const [announcement, setAnnouncement] = useState("");
+  const [copied, setCopied] = useState<number | null>(null);
   const input = useRef<HTMLTextAreaElement>(null);
   const list = useRef<HTMLOListElement>(null);
   const turnstileBox = useRef<HTMLDivElement>(null);
+  const request = useRef<AbortController | null>(null);
   const { url = "", turnstileSiteKey = "" } = assistantConfig;
   const getToken = useTurnstile(turnstileSiteKey, turnstileBox, locale);
+
+  useEffect(() => {
+    if (!busy) saveConversation(messages);
+  }, [messages, busy]);
 
   useEffect(() => {
     if (open) input.current?.focus();
@@ -83,13 +136,16 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
   }, [messages, error]);
 
   /** Sends the conversation and streams the answer into a new message at the end. */
-  async function ask(history: ChatMessage[]) {
+  async function ask(history: Turn[]) {
     setError(null);
     setBusy(true);
     setMessages([...history, { role: "assistant", content: "" }]);
     let answer = "";
+    let model: string | undefined;
     const showAnswer = (text: string) =>
-      setMessages([...history, { role: "assistant", content: text }]);
+      setMessages([...history, { role: "assistant", content: text, model }]);
+    const controller = new AbortController();
+    request.current = controller;
 
     try {
       const response = await fetch(`${url}/chat`, {
@@ -100,6 +156,7 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
           locale,
           turnstileToken: await getToken(),
         }),
+        signal: controller.signal,
       });
       if (!response.ok || !response.body) {
         setMessages(history);
@@ -107,6 +164,7 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
         setAnnouncement(t(`errors.${errorForStatus(response.status)}`));
         return;
       }
+      model = response.headers.get("x-assistant-model") ?? undefined;
       const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
       for (;;) {
         const { done, value } = await reader.read();
@@ -114,14 +172,21 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
         answer += value;
         showAnswer(answer);
       }
-      setAnnouncement(answer);
+      setAnnouncement(splitFollowUps(answer).text);
     } catch {
+      if (controller.signal.aborted) {
+        // Stopped by the visitor: keep what arrived, or drop the empty answer.
+        if (answer) showAnswer(answer);
+        else setMessages(history);
+        return;
+      }
       // A stream that breaks after text arrived keeps the partial answer, marked as cut off.
       const failure = answer ? "cutOff" : "failed";
       if (!answer) setMessages(history);
       setError(failure);
       setAnnouncement(t(`errors.${failure}`));
     } finally {
+      request.current = null;
       setBusy(false);
     }
   }
@@ -139,8 +204,31 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
     ask(history);
   }
 
+  function rate(index: number, rating: Rating) {
+    const { model } = messages[index];
+    setMessages(messages.map((turn, i) => (i === index ? { ...turn, rating } : turn)));
+    setAnnouncement(t("thanks"));
+    if (!model) return;
+    // Best effort: a lost rating is not worth an error message.
+    fetch(`${url}/feedback`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ model, rating }),
+    }).catch(() => {});
+  }
+
+  async function copy(index: number, text: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(index);
+      setTimeout(() => setCopied((current) => (current === index ? null : current)), 2000);
+    } catch {
+      // Clipboard access can be denied; the text is still there to select.
+    }
+  }
+
   const suggestions = t.raw("suggestions") as string[];
-  const waiting = busy && messages.at(-1)?.content === "";
+  const lastIndex = messages.length - 1;
 
   return (
     <section
@@ -194,31 +282,96 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
             </ul>
           </li>
         ) : null}
-        {messages.map((message, index) =>
-          message.role === "user" ? (
+        {messages.map((message, index) => {
+          if (message.role === "user") {
+            return (
+              <li
+                // biome-ignore lint/suspicious/noArrayIndexKey: messages are only ever appended
+                key={index}
+                className="max-w-[85%] self-end rounded-2xl rounded-br-sm bg-accent px-3.5 py-2 text-on-accent"
+              >
+                <span className="sr-only">{t("you")}: </span>
+                {message.content}
+              </li>
+            );
+          }
+          const { text, followUps } = splitFollowUps(message.content);
+          const streaming = busy && index === lastIndex;
+          return (
             <li
               // biome-ignore lint/suspicious/noArrayIndexKey: messages are only ever appended
               key={index}
-              className="max-w-[85%] self-end rounded-2xl rounded-br-sm bg-accent px-3.5 py-2 text-on-accent"
+              className="grid max-w-[92%] gap-2 self-start"
             >
-              <span className="sr-only">{t("you")}: </span>
-              {message.content}
+              <div className="grid gap-2 rounded-2xl rounded-bl-sm border border-line bg-paper px-3.5 py-2">
+                <span className="sr-only">{t("assistant")}: </span>
+                {text ? (
+                  <Answer text={text} onNavigate={onClose} />
+                ) : (
+                  <span className="text-muted">{t("thinking")}</span>
+                )}
+              </div>
+              {text && !streaming ? (
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={() => copy(index, text)}
+                    aria-label={copied === index ? t("copied") : t("copy")}
+                    title={copied === index ? t("copied") : t("copy")}
+                    className={iconButton}
+                  >
+                    {copied === index ? (
+                      <Check aria-hidden size={15} />
+                    ) : (
+                      <Copy aria-hidden size={15} />
+                    )}
+                  </button>
+                  {message.model ? (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => rate(index, "up")}
+                        disabled={Boolean(message.rating)}
+                        aria-pressed={message.rating === "up"}
+                        aria-label={t("helpful")}
+                        title={t("helpful")}
+                        className={iconButton}
+                      >
+                        <ThumbsUp aria-hidden size={15} />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => rate(index, "down")}
+                        disabled={Boolean(message.rating)}
+                        aria-pressed={message.rating === "down"}
+                        aria-label={t("notHelpful")}
+                        title={t("notHelpful")}
+                        className={iconButton}
+                      >
+                        <ThumbsDown aria-hidden size={15} />
+                      </button>
+                    </>
+                  ) : null}
+                </div>
+              ) : null}
+              {index === lastIndex && !busy && followUps.length > 0 ? (
+                <ul aria-label={t("followUps")} className="flex flex-wrap gap-2">
+                  {followUps.map((question) => (
+                    <li key={question}>
+                      <button
+                        type="button"
+                        onClick={() => submit(question)}
+                        className="rounded-full border border-line bg-paper px-3 py-1.5 text-left text-sm hover:border-ink/40"
+                      >
+                        {question}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </li>
-          ) : (
-            <li
-              // biome-ignore lint/suspicious/noArrayIndexKey: messages are only ever appended
-              key={index}
-              className="grid max-w-[92%] gap-2 self-start rounded-2xl rounded-bl-sm border border-line bg-paper px-3.5 py-2"
-            >
-              <span className="sr-only">{t("assistant")}: </span>
-              {message.content ? (
-                <Answer text={message.content} />
-              ) : (
-                <span className="text-muted">{t("thinking")}</span>
-              )}
-            </li>
-          ),
-        )}
+          );
+        })}
         {error ? (
           <li className="flex flex-wrap items-center gap-2 text-sm text-red-700 dark:text-red-300">
             <CircleAlert aria-hidden size={16} />
@@ -266,15 +419,27 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
             }}
             className="max-h-32 min-h-10 flex-1 resize-none rounded-xl border border-line bg-paper px-3 py-2 hover:border-ink/40"
           />
-          <button
-            type="submit"
-            disabled={busy || draft.trim() === ""}
-            aria-label={waiting ? t("thinking") : t("send")}
-            title={t("send")}
-            className="grid size-10 shrink-0 place-items-center rounded-full bg-accent text-on-accent transition-opacity hover:opacity-90 disabled:opacity-50"
-          >
-            <Send aria-hidden size={18} />
-          </button>
+          {busy ? (
+            <button
+              type="button"
+              onClick={() => request.current?.abort()}
+              aria-label={t("stop")}
+              title={t("stop")}
+              className="grid size-10 shrink-0 place-items-center rounded-full bg-accent text-on-accent transition-opacity hover:opacity-90"
+            >
+              <Square aria-hidden size={16} fill="currentColor" />
+            </button>
+          ) : (
+            <button
+              type="submit"
+              disabled={draft.trim() === ""}
+              aria-label={t("send")}
+              title={t("send")}
+              className="grid size-10 shrink-0 place-items-center rounded-full bg-accent text-on-accent transition-opacity hover:opacity-90 disabled:opacity-50"
+            >
+              <Send aria-hidden size={18} />
+            </button>
+          )}
         </div>
       </form>
     </section>

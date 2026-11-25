@@ -539,6 +539,13 @@
     "placeholder": "Zeptejte se na něco o Ákosovi",
     "send": "Odeslat",
     "retry": "Zkusit znovu",
+    "copy": "Kopírovat odpověď",
+    "copied": "Zkopírováno",
+    "stop": "Zastavit odpověď",
+    "helpful": "Užitečné",
+    "notHelpful": "Neužitečné",
+    "thanks": "Děkujeme za zpětnou vazbu.",
+    "followUps": "Další otázky",
     "errors": {
       "rateLimited": "Příliš mnoho otázek za krátkou dobu. Počkejte prosím minutu.",
       "busy": "Asistent je právě zaneprázdněný. Zkuste to prosím znovu za minutu.",

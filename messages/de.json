@@ -539,6 +539,13 @@
     "placeholder": "Stellen Sie eine Frage zu Ákos",
     "send": "Senden",
     "retry": "Erneut versuchen",
+    "copy": "Antwort kopieren",
+    "copied": "Kopiert",
+    "stop": "Antwort stoppen",
+    "helpful": "Hilfreich",
+    "notHelpful": "Nicht hilfreich",
+    "thanks": "Danke für Ihr Feedback.",
+    "followUps": "Weitere Fragen",
     "errors": {
       "rateLimited": "Zu viele Fragen in kurzer Zeit. Bitte warten Sie eine Minute.",
       "busy": "Der Assistent ist gerade ausgelastet. Bitte versuchen Sie es in einer Minute erneut.",

@@ -87,7 +87,7 @@ Spam protection: a hidden honeypot field and at most five messages per IP addres
 
 ## Chat assistant
 
-A floating "Ask about me" button opens a chat that answers questions from `/llms-full.txt`. The answers come from a Cloudflare Worker in the separate [`ai` repository](https://github.com/AkosKappel/ai), which also documents the models, limits and privacy rules. The panel and Cloudflare Turnstile load only when a visitor first opens the chat.
+A floating "Ask about me" button opens a chat that answers questions from `/llms-full.txt`. The answers come from a Cloudflare Worker in the separate [`ai` repository](https://github.com/AkosKappel/ai), which also documents the models, limits and privacy rules. The panel and Cloudflare Turnstile load only when a visitor first opens the chat. Answers end with follow-up questions as buttons, link the site's own pages (opened in the same tab and language), and can be copied, rated (thumbs up or down, sent to the Worker with the model name only) or stopped while they stream. The conversation stays in `sessionStorage` until the tab is closed.
 
 The chat stays hidden until both variables are set (in Vercel or `.env.local`); the Content Security Policy then also allows the Worker and Turnstile:
 

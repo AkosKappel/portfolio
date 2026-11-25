@@ -20,15 +20,30 @@ async function stubTurnstile(page: Page) {
   );
 }
 
-function stubWorker(page: Page, ...responses: { status: number; body: string }[]) {
+type Reply = { status: number; body: string; delayMs?: number };
+
+/** Answers each chat request with the next reply, as the Worker would, and records the requests. */
+async function stubWorker(page: Page, ...replies: Reply[]) {
   const requests: Record<string, unknown>[] = [];
-  return page
-    .route(`${workerUrl}/chat`, (route) => {
-      requests.push(route.request().postDataJSON());
-      const { status, body } = responses.shift() ?? { status: 500, body: "" };
-      return route.fulfill({ status, contentType: "text/plain; charset=utf-8", body });
-    })
-    .then(() => requests);
+  await page.route(`${workerUrl}/chat`, async (route) => {
+    requests.push(route.request().postDataJSON());
+    const { status, body, delayMs = 0 } = replies.shift() ?? { status: 500, body: "" };
+    await new Promise((resolve) => setTimeout(resolve, delayMs));
+    await route
+      .fulfill({
+        status,
+        contentType: "text/plain; charset=utf-8",
+        headers: {
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "x-assistant-model",
+          "x-assistant-model": "groq/openai/gpt-oss-120b",
+        },
+        body,
+      })
+      // The visitor may have stopped the answer in the meantime.
+      .catch(() => {});
+  });
+  return requests;
 }
 
 test("the chat answers with lists, bold text and safe links", async ({ page }) => {
@@ -124,4 +139,91 @@ test("the chat explains errors and retries when the assistant is busy", async ({
   await chat.getByRole("button", { name: "Try again" }).click();
   await expect(conversation.getByText("He works at IGT.")).toBeVisible();
   await expect(conversation.getByText("The assistant is busy right now.")).toBeHidden();
+});
+
+test("follow-up questions become buttons and links to this site stay in the tab", async ({
+  page,
+}) => {
+  await stubTurnstile(page);
+  const requests = await stubWorker(
+    page,
+    {
+      status: 200,
+      body: "He built [SkySense](https://akoskappel.dev/projects/skysense).\n\n>> Which stack does it use? | Is it live?",
+    },
+    { status: 200, body: "SvelteKit." },
+  );
+  await page.goto("/sk");
+  await page.getByRole("button", { name: "Opýtajte sa na mňa" }).click();
+  const chat = page.getByRole("dialog");
+  const conversation = chat.getByRole("list").first();
+  await chat.getByRole("textbox").fill("Čo vytvoril?");
+  await chat.getByRole("textbox").press("Enter");
+
+  await expect(conversation.getByText(">>")).toHaveCount(0);
+  await conversation.getByRole("button", { name: "Which stack does it use?" }).click();
+  await expect(conversation.getByText("SvelteKit.")).toBeVisible();
+  // The model gets its earlier answer without the follow-up line.
+  expect(requests[1]).toMatchObject({
+    messages: [
+      { role: "user", content: "Čo vytvoril?" },
+      {
+        role: "assistant",
+        content: "He built [SkySense](https://akoskappel.dev/projects/skysense).",
+      },
+      { role: "user", content: "Which stack does it use?" },
+    ],
+  });
+
+  await conversation.getByRole("link", { name: "SkySense" }).click();
+  await expect(page).toHaveURL(/\/sk\/projects\/skysense$/);
+  await expect(chat).toBeHidden();
+
+  // The conversation is still there after a reload.
+  await page.reload();
+  await page.getByRole("button", { name: "Opýtajte sa na mňa" }).click();
+  await expect(page.getByRole("dialog").getByText("SvelteKit.").first()).toBeVisible();
+});
+
+test("answers can be copied and rated, and a slow answer can be stopped", async ({
+  page,
+  context,
+}) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+  await stubTurnstile(page);
+  await stubWorker(
+    page,
+    { status: 200, body: "He works at IGT." },
+    { status: 200, body: "Never shown.", delayMs: 5000 },
+  );
+  const ratings: unknown[] = [];
+  await page.route(`${workerUrl}/feedback`, (route) => {
+    ratings.push(route.request().postDataJSON());
+    return route.fulfill({ status: 204, headers: { "access-control-allow-origin": "*" } });
+  });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Ask about me" }).click();
+  const chat = page.getByRole("dialog", { name: "Ask about Ákos" });
+  const input = chat.getByRole("textbox", { name: "Ask a question about Ákos" });
+
+  await input.fill("Where does he work?");
+  await input.press("Enter");
+  await chat.getByRole("button", { name: "Copy answer" }).click();
+  await expect(chat.getByRole("button", { name: "Copied" })).toBeVisible();
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe("He works at IGT.");
+
+  await chat.getByRole("button", { name: "Not helpful" }).click();
+  await expect(chat.getByRole("button", { name: "Not helpful" })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await expect(chat.getByRole("button", { name: "Helpful", exact: true })).toBeDisabled();
+  await expect.poll(() => ratings).toEqual([{ model: "groq/openai/gpt-oss-120b", rating: "down" }]);
+
+  await input.fill("And before that?");
+  await input.press("Enter");
+  await chat.getByRole("button", { name: "Stop the answer" }).click();
+  await expect(chat.getByRole("button", { name: "Send" })).toBeVisible();
+  await expect(chat.getByText("Never shown.")).toHaveCount(0);
+  await expect(chat.getByText("Something went wrong")).toHaveCount(0);
 });

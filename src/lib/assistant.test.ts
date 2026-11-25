@@ -4,6 +4,8 @@ import {
   errorForStatus,
   parseAnswer,
   parseInline,
+  sitePath,
+  splitFollowUps,
   trimHistory,
 } from "./assistant";
 
@@ -41,6 +43,44 @@ describe("trimHistory", () => {
     expect(trimmed.reduce((sum, m) => sum + m.content.length, 0)).toBeLessThanOrEqual(6000);
     expect(trimmed[0].role).toBe("user");
     expect(trimmed.at(-1)).toEqual(user("Last?"));
+  });
+
+  it("sends answers without their follow-up questions", () => {
+    expect(
+      trimHistory([user("Hi"), assistant("Hello.\n\n>> Skills? | Projects?"), user("Skills?")]),
+    ).toEqual([user("Hi"), assistant("Hello."), user("Skills?")]);
+  });
+});
+
+describe("splitFollowUps", () => {
+  it("turns the last line into at most three questions", () => {
+    expect(
+      splitFollowUps("He works at IGT.\n\n>> What does he build? | Since when? | Remote? | More?"),
+    ).toEqual({
+      text: "He works at IGT.",
+      followUps: ["What does he build?", "Since when?", "Remote?"],
+    });
+  });
+
+  it("hides a follow-up line that is still streaming in", () => {
+    expect(splitFollowUps("He works at IGT.\n>")).toEqual({
+      text: "He works at IGT.",
+      followUps: [],
+    });
+  });
+
+  it("leaves answers without follow-ups as they are", () => {
+    expect(splitFollowUps("He works at IGT.")).toEqual({ text: "He works at IGT.", followUps: [] });
+  });
+});
+
+describe("sitePath", () => {
+  it("returns the path of links to this site and nothing for other sites", () => {
+    expect(sitePath("https://akoskappel.dev/projects/skysense#stack")).toBe(
+      "/projects/skysense#stack",
+    );
+    expect(sitePath("https://github.com/AkosKappel")).toBeUndefined();
+    expect(sitePath("https://akoskappel.dev.evil.example/x")).toBeUndefined();
   });
 });
 
