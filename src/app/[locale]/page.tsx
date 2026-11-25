@@ -1,5 +1,7 @@
 import { ArrowRight, Building2, FolderOpen, Globe, Mail, MapPin, Plane } from "lucide-react";
 import Image from "next/image";
+import { notFound } from "next/navigation";
+import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ActivityCard } from "@/components/activity/activity-card";
 import { WorkflowShowcase } from "@/components/home/workflow-showcase";
@@ -15,12 +17,15 @@ import { site } from "@/content/site";
 import { skillGroups } from "@/content/skills";
 import { pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
-import type { Locale } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { formatMonth } from "@/lib/format";
 import { person } from "@/lib/structured-data";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
-  const locale = (await params).locale as Locale;
+  const { locale } = await params;
+  // Paths with a dot skip the proxy, so "/foo.txt" lands here as the locale. Next.js renders
+  // this page alongside the layout's own check, and formatting dates with it would throw (500).
+  if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const tCommon = await getTranslations("common");
   const tAbout = await getTranslations("about");
