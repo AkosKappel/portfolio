@@ -68,7 +68,7 @@ pnpm dev
 | `pnpm analyze`                                      | Turbopack bundle analyzer in the browser (per route, client and server)                                        |
 | `pnpm test:e2e`                                     | Playwright against the production build (run `pnpm build` first)                                               |
 | `pnpm activity`                                     | Refreshes `src/content/activity.json` for the activity page (see below)                                        |
-| `pnpm lighthouse`                                   | Lighthouse CI against the production build, with a 300 KB budget for compressed JavaScript per page            |
+| `pnpm lighthouse`                                   | Lighthouse CI against the production build, with a 320 KB budget for compressed JavaScript per page            |
 | `pnpm lighthouse --config=lighthouserc.mobile.json` | Mobile Lighthouse report (throttled phone); CI shows its scores in the run summary without failing             |
 
 GitHub Actions runs all of these on every push and pull request. Vercel builds and deploys `main` to production, and every other branch and pull request to its own preview URL (linked from the pull request, behind Vercel login and marked `noindex`).
