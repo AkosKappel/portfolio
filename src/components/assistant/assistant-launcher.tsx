@@ -48,7 +48,7 @@ export function AssistantLauncher() {
           setStarted(true);
           setOpen((value) => !value);
         }}
-        className="fixed right-5 bottom-5 z-40 inline-flex h-12 items-center gap-2 rounded-full bg-accent px-4 font-medium text-on-accent shadow-lg transition-opacity hover:opacity-90 print:hidden"
+        className="fixed right-5 bottom-5 z-40 [view-transition-name:assistant-launcher] inline-flex h-12 items-center gap-2 rounded-full bg-accent px-4 font-medium text-on-accent shadow-lg transition-opacity hover:opacity-90 print:hidden"
       >
         {open ? <X aria-hidden size={20} /> : <MessageCircle aria-hidden size={20} />}
         <span className="hidden sm:inline">{open ? t("close") : t("open")}</span>

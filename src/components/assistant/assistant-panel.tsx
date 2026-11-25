@@ -288,7 +288,7 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
       role="dialog"
       aria-labelledby={titleId}
       hidden={!open}
-      className="fixed right-3 bottom-20 z-50 flex h-[min(36rem,calc(100dvh-7rem))] w-[min(26rem,calc(100vw-1.5rem))] flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-2xl sm:right-5 print:hidden"
+      className="fixed right-3 bottom-20 z-50 [view-transition-name:assistant-panel] flex h-[min(36rem,calc(100dvh-7rem))] w-[min(26rem,calc(100vw-1.5rem))] flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-2xl sm:right-5 print:hidden"
     >
       <header className="flex items-start gap-3 border-b border-line px-4 py-3">
         <Sparkles aria-hidden size={20} className="mt-0.5 shrink-0 text-accent" />

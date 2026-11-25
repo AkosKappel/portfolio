@@ -451,6 +451,20 @@
   animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
+/*
+ * The chat and its button float above every page. Their own names keep them out of the page
+ * snapshot, so the incoming page no longer slides over them; they stay put without a crossfade.
+ */
+::view-transition-old(assistant-panel),
+::view-transition-old(assistant-launcher) {
+  display: none;
+}
+
+::view-transition-new(assistant-panel),
+::view-transition-new(assistant-launcher) {
+  animation: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(.page),
   ::view-transition-new(.page),
