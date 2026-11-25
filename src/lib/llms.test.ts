@@ -25,6 +25,10 @@ describe("llms-full.txt", () => {
     for (const project of projects) expect(full).toContain(`### ${project.title} (`);
   });
 
+  it("has no doubled periods", () => {
+    expect(full).not.toContain("..");
+  });
+
   it("leaves out the e-mail address and phone number", () => {
     expect(full).not.toContain(site.email);
     expect(full).not.toContain(site.phone);

@@ -71,7 +71,8 @@ export function buildLlmsFullTxt() {
       project.liveUrl && `Live: ${project.liveUrl}`,
       project.repoUrl && `Code: ${project.repoUrl}`,
     ].filter(Boolean);
-    const role = project.role ? ` Role: ${t(project.role)}.` : "";
+    // Some roles already end with a period ("…, PhD.").
+    const role = project.role ? ` Role: ${t(project.role).replace(/\.$/, "")}.` : "";
     return `### ${project.title} (${yearRange(project.year, project.until)}, ${project.kind})\n\n${t(project.summary)}${role}\n\nStack: ${project.stack.join(", ")}\n\n${links.join("\n")}`;
   });
 
