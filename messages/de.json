@@ -526,6 +526,7 @@
     "title": "Fragen zu Ákos",
     "subtitle": "KI-Assistent, der aus den Inhalten dieser Website antwortet",
     "notice": "Die Antworten stammen von kostenlosen KI-Modellen und können falsch sein. Ihre Fragen werden an externe KI-Anbieter gesendet. Bitte geben Sie daher keine persönlichen Daten ein.",
+    "dismissNotice": "Diesen Hinweis ausblenden",
     "suggestionsLabel": "Fragen Sie zum Beispiel:",
     "suggestions": [
       "Wo arbeitet er derzeit?",

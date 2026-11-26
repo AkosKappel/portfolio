@@ -526,6 +526,7 @@
     "title": "Kérdezzen Ákosról",
     "subtitle": "AI-asszisztens, amely az oldal tartalma alapján válaszol",
     "notice": "A válaszokat ingyenes AI-modellek adják, és tévedhetnek. Kérdéseit külső AI-szolgáltatók kapják meg, ezért kérem, ne osszon meg személyes adatokat.",
+    "dismissNotice": "Értesítés elrejtése",
     "suggestionsLabel": "Kérdezze például:",
     "suggestions": [
       "Hol dolgozik most?",

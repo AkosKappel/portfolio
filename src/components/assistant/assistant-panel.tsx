@@ -57,6 +57,16 @@ function saveConversation(turns: Turn[]) {
   }
 }
 
+const NOTICE_KEY = "assistant-notice-dismissed";
+
+function noticeDismissed() {
+  try {
+    return localStorage.getItem(NOTICE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 function InlineText({ parts, onNavigate }: { parts: Inline[]; onNavigate: () => void }) {
   return parts.map((part, index) => {
     const key = `${index}-${part.text}`;
@@ -144,6 +154,7 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
   const locale = useLocale();
   const titleId = useId();
   const [messages, setMessages] = useState<Turn[]>(loadConversation);
+  const [showNotice, setShowNotice] = useState(() => !noticeDismissed());
   const [draft, setDraft] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<AssistantError | null>(null);
@@ -317,12 +328,32 @@ export default function AssistantPanel({ id, open, onClose }: Props) {
       >
         {messages.length === 0 ? (
           <li className="grid gap-3">
-            <p className="text-sm text-muted">
-              {t("notice")}{" "}
-              <Link href="/assistant" onClick={onClose} className="link">
-                {t("howItWorks")}
-              </Link>
-            </p>
+            {showNotice ? (
+              <div className="flex items-start gap-2 rounded-lg bg-accent-soft/50 p-3">
+                <p className="text-sm text-muted">
+                  {t("notice")}{" "}
+                  <Link href="/assistant" onClick={onClose} className="link">
+                    {t("howItWorks")}
+                  </Link>
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowNotice(false);
+                    try {
+                      localStorage.setItem(NOTICE_KEY, "1");
+                    } catch {
+                      // Blocked storage only means the notice shows again next time.
+                    }
+                  }}
+                  aria-label={t("dismissNotice")}
+                  title={t("dismissNotice")}
+                  className="grid size-6 shrink-0 place-items-center rounded-full text-muted hover:bg-accent-soft hover:text-ink"
+                >
+                  <X aria-hidden size={14} />
+                </button>
+              </div>
+            ) : null}
             <p className="text-sm font-medium">{t("suggestionsLabel")}</p>
             <ul className="flex flex-wrap gap-2">
               {suggestions.map((suggestion) => (

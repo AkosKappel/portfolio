@@ -526,6 +526,7 @@
     "title": "Zeptejte se na Ákose",
     "subtitle": "AI asistent, který odpovídá z obsahu tohoto webu",
     "notice": "Odpovědi generují bezplatné AI modely a mohou být nepřesné. Vaše otázky se posílají externím poskytovatelům AI, proto prosím nesdílejte osobní údaje.",
+    "dismissNotice": "Skrýt toto upozornění",
     "suggestionsLabel": "Zkuste se zeptat:",
     "suggestions": [
       "Kde teď pracuje?",

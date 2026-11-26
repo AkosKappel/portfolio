@@ -526,6 +526,7 @@
     "title": "Ask about Ákos",
     "subtitle": "AI assistant that answers from this site",
     "notice": "Answers come from free AI models and can be wrong. Your questions are sent to third-party AI providers, so please don't share personal data.",
+    "dismissNotice": "Hide this notice",
     "suggestionsLabel": "Try asking:",
     "suggestions": [
       "Where does he work now?",
