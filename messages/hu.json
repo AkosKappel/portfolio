@@ -278,12 +278,17 @@
   "skills": {
     "title": "Készségek",
     "description": "Frontend, backend, mobil, adatok, AI, DevOps és tesztelés: a technológiák, amelyekkel dolgozom.",
-    "lead": "Területek szerint csoportosítva, kitalált szintek nélkül. A projektjeimben használt technológiák azokra hivatkoznak, a nyíl ikon a hivatalos oldalt nyitja meg.",
+    "lead": "Területek szerint csoportosítva, és aszerint jelölve, mennyit használom őket: naponta, magabiztosan vagy korábbi projektekből ismerem. A projektjeimben használt technológiák azokra hivatkoznak, a nyíl ikon pedig a hivatalos oldalt nyitja meg. A munkamódszerek, például a tesztelés, az akadálymentesség és a SEO a végén szerepelnek.",
     "practices": "Gyakorlatok",
     "projectCount": "{count, plural, one {# projekt} other {# projekt}}",
     "workflow": "Az ötlettől az éles üzemig",
     "workflowLead": "A szakaszok, amelyeken minden projekt végigmegy, az első beszélgetéstől az éles üzemig.",
-    "practicesLead": "Hogyan dolgozom, az eszközökön túl."
+    "practicesLead": "Hogyan dolgozom, az eszközökön túl.",
+    "levels": {
+      "daily": "Naponta használom",
+      "comfortable": "Magabiztosan",
+      "familiar": "Ismerem"
+    }
   },
   "education": {
     "title": "Tanulmányok",

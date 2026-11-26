@@ -278,12 +278,17 @@
   "skills": {
     "title": "Skills",
     "description": "Frontend, backend, mobile, data, AI, DevOps and testing: the technologies I work with.",
-    "lead": "Grouped by area, without made-up skill levels. Technologies used in my projects link to them, the arrow icon opens the official site.",
+    "lead": "Grouped by area and marked by how much I use them: daily use, comfortable, or familiar from earlier projects. Technologies used in my projects link to them, and the arrow icon opens the official site. Ways of working such as testing, accessibility and SEO are listed at the end.",
     "practices": "Practices",
     "projectCount": "{count, plural, one {# project} other {# projects}}",
     "workflow": "From idea to production",
     "workflowLead": "The stages every project goes through, from the first conversation to running in production.",
-    "practicesLead": "How I work, apart from the tools."
+    "practicesLead": "How I work, apart from the tools.",
+    "levels": {
+      "daily": "Daily use",
+      "comfortable": "Comfortable",
+      "familiar": "Familiar"
+    }
   },
   "education": {
     "title": "Education",

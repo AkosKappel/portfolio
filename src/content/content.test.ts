@@ -12,7 +12,7 @@ import { techIcon, techUrl } from "../lib/tech-icons";
 import { jobs } from "./experience";
 import { projects } from "./projects";
 import { site } from "./site";
-import { skillGroups } from "./skills";
+import { skillGroups, skillLevelOf } from "./skills";
 
 const publicDir = join(__dirname, "../../public");
 
@@ -96,6 +96,11 @@ describe("skills", () => {
   it("are unique", () => {
     const skills = skillGroups.flatMap((group) => group.skills);
     expect(new Set(skills).size).toBe(skills.length);
+  });
+
+  it("give levels only to listed skills", () => {
+    const skills = new Set(skillGroups.flatMap((group) => group.skills));
+    for (const skill of Object.keys(skillLevelOf)) expect(skills, skill).toContain(skill);
   });
 
   it("mostly have logos", () => {

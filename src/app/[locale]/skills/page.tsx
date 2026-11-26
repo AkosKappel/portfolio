@@ -7,7 +7,7 @@ import { Page, PageHeader } from "@/components/ui/page";
 import { TechLogo } from "@/components/ui/tech-badge";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
-import { practices, skillGroups } from "@/content/skills";
+import { practices, skillGroups, skillLevel, skillLevels } from "@/content/skills";
 import { pick } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -40,6 +40,50 @@ export default async function SkillsPage({ params }: PageProps<"/[locale]/skills
   const tCommon = await getTranslations("common");
   const t = await getTranslations("skills");
 
+  function renderSkill(skill: string) {
+    const count = projectCount(skill);
+    const content = (
+      <>
+        <TechLogo name={skill} className="size-[1.1rem]" />
+        {skill}
+      </>
+    );
+    const url = techUrl(skill);
+    return (
+      <li
+        key={skill}
+        className={`inline-flex items-center rounded-lg border border-line ${count ? "hover-lift bg-surface" : "bg-surface/60"}`}
+      >
+        {count ? (
+          <Link
+            href={{ pathname: "/projects", query: { q: skill } }}
+            title={t("projectCount", { count })}
+            className={`inline-flex items-center gap-2 py-1.5 pl-3 hover:text-accent ${url ? "pr-1" : "pr-3"}`}
+          >
+            {content}
+            <span className="sr-only">({t("projectCount", { count })})</span>
+          </Link>
+        ) : (
+          <span className={`inline-flex items-center gap-2 py-1.5 pl-3 ${url ? "pr-1" : "pr-3"}`}>
+            {content}
+          </span>
+        )}
+        {url ? (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={tCommon("techWebsite", { name: skill })}
+            title={tCommon("techWebsite", { name: skill })}
+            className="grid size-7 place-items-center rounded-md text-muted hover:text-accent"
+          >
+            <ExternalLink aria-hidden size={13} />
+          </a>
+        ) : null}
+      </li>
+    );
+  }
+
   return (
     <Page>
       <PageHeader title={t("title")} lead={t("lead")} />
@@ -69,53 +113,22 @@ export default async function SkillsPage({ params }: PageProps<"/[locale]/skills
               {pick(group.name, locale)}
             </AnchorHeading>
             <p className="mt-2 max-w-xl text-muted">{pick(group.description, locale)}</p>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {group.skills.map((skill) => {
-                const count = projectCount(skill);
-                const content = (
-                  <>
-                    <TechLogo name={skill} className="size-[1.1rem]" />
-                    {skill}
-                  </>
-                );
-                const url = techUrl(skill);
+            <div className="mt-5 grid gap-4">
+              {skillLevels.map((level) => {
+                const skills = group.skills.filter((skill) => skillLevel(skill) === level);
+                if (skills.length === 0) return null;
                 return (
-                  <li
-                    key={skill}
-                    className={`inline-flex items-center rounded-lg border border-line ${count ? "hover-lift bg-surface" : "bg-surface/60"}`}
-                  >
-                    {count ? (
-                      <Link
-                        href={{ pathname: "/projects", query: { q: skill } }}
-                        title={t("projectCount", { count })}
-                        className={`inline-flex items-center gap-2 py-1.5 pl-3 hover:text-accent ${url ? "pr-1" : "pr-3"}`}
-                      >
-                        {content}
-                        <span className="sr-only">({t("projectCount", { count })})</span>
-                      </Link>
-                    ) : (
-                      <span
-                        className={`inline-flex items-center gap-2 py-1.5 pl-3 ${url ? "pr-1" : "pr-3"}`}
-                      >
-                        {content}
-                      </span>
-                    )}
-                    {url ? (
-                      <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={tCommon("techWebsite", { name: skill })}
-                        title={tCommon("techWebsite", { name: skill })}
-                        className="grid size-7 place-items-center rounded-md text-muted hover:text-accent"
-                      >
-                        <ExternalLink aria-hidden size={13} />
-                      </a>
-                    ) : null}
-                  </li>
+                  <div key={level}>
+                    <h3 className="mb-2 text-xs font-medium tracking-wide text-muted uppercase">
+                      {t(`levels.${level}`)}
+                    </h3>
+                    <ul className="flex flex-wrap gap-2">
+                      {skills.map((skill) => renderSkill(skill))}
+                    </ul>
+                  </div>
                 );
               })}
-            </ul>
+            </div>
           </section>
         ))}
       </div>

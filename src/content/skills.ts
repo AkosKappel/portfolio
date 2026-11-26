@@ -1,5 +1,43 @@
 import type { SkillGroup, Text } from "./types";
 
+export const skillLevels = ["daily", "comfortable", "familiar"] as const;
+export type SkillLevel = (typeof skillLevels)[number];
+
+/** How much I use each skill; anything not listed here is "comfortable". */
+export const skillLevelOf: Record<string, Exclude<SkillLevel, "comfortable">> = {
+  TypeScript: "daily",
+  JavaScript: "daily",
+  React: "daily",
+  TanStack: "daily",
+  HTML: "daily",
+  CSS: "daily",
+  "Tailwind CSS": "daily",
+  Kotlin: "daily",
+  "Spring Boot": "daily",
+  "Kotlin Multiplatform": "daily",
+  "Compose Multiplatform": "daily",
+  PostgreSQL: "daily",
+  "Claude Code": "daily",
+  Docker: "daily",
+  Git: "daily",
+  Linux: "daily",
+  Vitest: "daily",
+  Playwright: "daily",
+  Angular: "familiar",
+  Bootstrap: "familiar",
+  Java: "familiar",
+  Laravel: "familiar",
+  "C#": "familiar",
+  Redis: "familiar",
+  TensorFlow: "familiar",
+  OpenCV: "familiar",
+  Kubernetes: "familiar",
+};
+
+export function skillLevel(skill: string): SkillLevel {
+  return skillLevelOf[skill] ?? "comfortable";
+}
+
 /** Grouped by area, the same way as on the CV. Logos come from `src/lib/tech-icons.ts`. */
 export const skillGroups: SkillGroup[] = [
   {

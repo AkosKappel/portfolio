@@ -278,12 +278,17 @@
   "skills": {
     "title": "Zručnosti",
     "description": "Frontend, backend, mobilné aplikácie, dáta, AI, DevOps a testovanie: technológie, s ktorými pracujem.",
-    "lead": "Rozdelené podľa oblastí, bez vymyslených úrovní. Technológie použité v mojich projektoch na ne odkazujú, ikona šípky otvorí oficiálnu stránku.",
+    "lead": "Rozdelené podľa oblastí a podľa toho, ako často ich používam: denne, ovládam dobre alebo poznám z predchádzajúcich projektov. Technológie použité v mojich projektoch na ne odkazujú a ikona šípky otvorí oficiálnu stránku. Postupy ako testovanie, prístupnosť a SEO sú na konci.",
     "practices": "Postupy",
     "projectCount": "{count, plural, one {# projekt} few {# projekty} other {# projektov}}",
     "workflow": "Od nápadu po produkciu",
     "workflowLead": "Fázy, ktorými prejde každý projekt, od prvého rozhovoru až po prevádzku v produkcii.",
-    "practicesLead": "Ako pracujem, okrem samotných nástrojov."
+    "practicesLead": "Ako pracujem, okrem samotných nástrojov.",
+    "levels": {
+      "daily": "Používam denne",
+      "comfortable": "Ovládam dobre",
+      "familiar": "Poznám"
+    }
   },
   "education": {
     "title": "Vzdelanie",

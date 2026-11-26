@@ -278,12 +278,17 @@
   "skills": {
     "title": "Kenntnisse",
     "description": "Frontend, Backend, Mobil, Daten, KI, DevOps und Testen: die Technologien, mit denen ich arbeite.",
-    "lead": "Nach Bereichen gruppiert, ohne erfundene Kenntnisstufen. Technologien aus meinen Projekten verlinken auf diese, das Pfeilsymbol öffnet die offizielle Website.",
+    "lead": "Nach Bereichen gruppiert und danach markiert, wie oft ich sie nutze: täglich, sicher oder als Grundkenntnisse aus früheren Projekten. Technologien aus meinen Projekten verlinken auf diese, und das Pfeilsymbol öffnet die offizielle Website. Arbeitsweisen wie Tests, Barrierefreiheit und SEO stehen am Ende.",
     "practices": "Arbeitsweisen",
     "projectCount": "{count, plural, one {# Projekt} other {# Projekte}}",
     "workflow": "Von der Idee bis zur Produktion",
     "workflowLead": "Die Phasen, die jedes Projekt durchläuft, vom ersten Gespräch bis zum Betrieb in der Produktion.",
-    "practicesLead": "Wie ich arbeite, abgesehen von den Werkzeugen."
+    "practicesLead": "Wie ich arbeite, abgesehen von den Werkzeugen.",
+    "levels": {
+      "daily": "Täglich im Einsatz",
+      "comfortable": "Sicher",
+      "familiar": "Grundkenntnisse"
+    }
   },
   "education": {
     "title": "Ausbildung",

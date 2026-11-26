@@ -278,12 +278,17 @@
   "skills": {
     "title": "Dovednosti",
     "description": "Frontend, backend, mobilní vývoj, data, AI, DevOps a testování: technologie, se kterými pracuji.",
-    "lead": "Rozdělené podle oblastí, bez vymyšlených úrovní. Technologie použité v mých projektech na ně odkazují, ikona šipky otevře oficiální web.",
+    "lead": "Rozdělené podle oblastí a podle toho, jak často je používám: denně, ovládám dobře nebo znám z předchozích projektů. Technologie použité v mých projektech na ně odkazují a ikona šipky otevře oficiální web. Postupy jako testování, přístupnost a SEO jsou na konci.",
     "practices": "Postupy",
     "projectCount": "{count, plural, one {# projekt} few {# projekty} other {# projektů}}",
     "workflow": "Od nápadu po produkci",
     "workflowLead": "Fáze, kterými projde každý projekt, od prvního rozhovoru až po provoz v produkci.",
-    "practicesLead": "Jak pracuji, kromě nástrojů."
+    "practicesLead": "Jak pracuji, kromě nástrojů.",
+    "levels": {
+      "daily": "Používám denně",
+      "comfortable": "Ovládám dobře",
+      "familiar": "Znám"
+    }
   },
   "education": {
     "title": "Vzdělání",
