@@ -273,7 +273,7 @@
   card and each one is sent twice (HTML and React payload).
 */
 @utility tech-tag {
-  @apply inline-flex items-center gap-1.5 rounded-md border border-line bg-surface px-2 py-0.5 text-[0.8rem] leading-5 text-muted;
+  @apply inline-flex items-center gap-1.5 rounded-md border border-line bg-surface px-2 py-0.5 text-[0.8rem] leading-5 text-muted align-top;
 
   &:is(a):hover {
     border-color: var(--accent);
