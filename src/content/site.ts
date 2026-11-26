@@ -32,26 +32,12 @@ export const site = {
     cs: "Full-stack vývojář s více než 3 lety praxe ve vývoji webových a mobilních produktů: frontendy v Reactu a TypeScriptu, backendy v Kotlinu a Elixiru a aplikace pro Android a iOS v Kotlin Multiplatform. Projekty dotáhnu od plánování přes implementaci a testování až po nasazení a záleží mi na rychlých, přístupných rozhraních a kódu, který se dá snadno rozšiřovat.",
     hu: "Full-stack fejlesztő, több mint 3 év tapasztalattal webes és mobilos termékek fejlesztésében: React és TypeScript frontendek, Kotlin és Elixir backendek, valamint Android- és iOS-alkalmazások Kotlin Multiplatformban. A projekteket a tervezéstől a megvalósításon és a tesztelésen át az élesítésig viszem végig, és fontosak számomra a gyors, akadálymentes felületek és a könnyen bővíthető kód.",
   } satisfies Text,
-  workAuthorization: {
-    en: "EU citizen, no visa or sponsorship needed",
-    sk: "Občan EÚ, bez potreby víza či sponzorstva",
-    de: "EU-Bürger, kein Visum und kein Sponsoring nötig",
-    cs: "Občan EU, bez potřeby víza či sponzorství",
-    hu: "EU-állampolgár, nincs szükség vízumra vagy szponzorációra",
-  } satisfies Text,
   timezone: {
     en: "CET (UTC+1)",
     sk: "SEČ (UTC+1)",
     de: "MEZ (UTC+1)",
     cs: "SEČ (UTC+1)",
     hu: "CET (UTC+1)",
-  } satisfies Text,
-  notice: {
-    en: "1 month notice period",
-    sk: "Výpovedná lehota 1 mesiac",
-    de: "Kündigungsfrist 1 Monat",
-    cs: "Výpovědní lhůta 1 měsíc",
-    hu: "1 hónap felmondási idő",
   } satisfies Text,
   /** The stages shown on the home page, each one done with AI coding agents. */
   workflow: [
@@ -229,11 +215,11 @@ export const site = {
     },
   ] satisfies { id: string; title: Text; paragraphs: Text[] }[],
   availability: {
-    en: "Open to remote roles anywhere, hybrid roles in the EU and relocation. I can start after a one-month notice period.",
-    sk: "Otvorený pracovným ponukám na diaľku odkiaľkoľvek, hybridne v rámci EÚ aj relokácii. Nastúpiť môžem po mesačnej výpovednej lehote.",
-    de: "Offen für Remote-Stellen weltweit, hybride Stellen in der EU und einen Umzug. Ich kann nach einer Kündigungsfrist von einem Monat anfangen.",
-    cs: "Otevřený pracovním nabídkám na dálku odkudkoli, hybridně v rámci EU i relokaci. Nastoupit mohu po měsíční výpovědní lhůtě.",
-    hu: "Nyitott vagyok távmunkára bárhonnan, hibrid munkára az EU-n belül és költözésre is. Egy hónapos felmondási idő után tudok kezdeni.",
+    en: "Open to remote roles anywhere, hybrid roles in the EU and relocation.",
+    sk: "Otvorený pracovným ponukám na diaľku odkiaľkoľvek, hybridne v rámci EÚ aj relokácii.",
+    de: "Offen für Remote-Stellen weltweit, hybride Stellen in der EU und einen Umzug.",
+    cs: "Otevřený pracovním nabídkám na dálku odkudkoli, hybridně v rámci EU i relokaci.",
+    hu: "Nyitott vagyok távmunkára bárhonnan, hibrid munkára az EU-n belül és költözésre is.",
   } satisfies Text,
   links: {
     github: "https://github.com/AkosKappel",

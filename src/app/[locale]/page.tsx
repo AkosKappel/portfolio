@@ -1,8 +1,6 @@
 import {
   ArrowRight,
-  BadgeCheck,
   Building2,
-  CalendarClock,
   Clock,
   FolderOpen,
   Globe,
@@ -75,8 +73,6 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
             {[
               { icon: MapPin, label: pick(site.location, locale) },
               { icon: Clock, label: pick(site.timezone, locale) },
-              { icon: BadgeCheck, label: pick(site.workAuthorization, locale) },
-              { icon: CalendarClock, label: pick(site.notice, locale) },
               { icon: Languages, label: languages },
             ].map(({ icon: Icon, label }) => (
               <li key={label} className="inline-flex items-center gap-2">

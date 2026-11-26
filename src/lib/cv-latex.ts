@@ -48,20 +48,16 @@ export function renderCv(locale: Locale, { photo = true } = {}) {
     `\\contact{${icon}}{${url(href)}}{${tex(label)}}`;
   const label = (href: string) => href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
-  const fact = (icon: string, text: string) => `\\fact{${icon}}{${tex(text)}}`;
   const name = `{${tex(`${site.title} ${site.name}`)}}{${tex(site.headline)}}`;
   const header = [
     photo ? `\\cvheader{profile.jpg}${name}{%` : `\\cvheaderplain${name}{%`,
     `  ${contact("\\faEnvelope[regular]", `mailto:${site.email}`, site.email)}\\quad`,
     `  ${contact("\\faPhone*", `tel:${site.phone.replaceAll(" ", "")}`, site.phone)}\\quad`,
+    `  ${contact("\\faMapMarker*", "https://www.google.com/maps/place/Bratislava", t(site.location))}\\quad`,
     `  ${contact("\\faGlobe", home, label(home))}\\\\[2pt]`,
     `  ${contact("\\faLinkedinIn", site.links.linkedin, label(site.links.linkedin))}\\quad`,
     `  ${contact("\\faGithub", site.links.github, label(site.links.github))}\\quad`,
-    `  ${contact("\\faGitlab", site.links.gitlab, label(site.links.gitlab))}\\\\[2pt]`,
-    `  ${contact("\\faMapMarker*", "https://www.google.com/maps/place/Bratislava", t(site.location))}\\quad`,
-    `  ${fact("\\faPassport", t(site.workAuthorization))}\\quad`,
-    `  ${fact("\\faClock[regular]", t(site.timezone))}\\quad`,
-    `  ${fact("\\faCalendarCheck[regular]", t(site.notice))}%`,
+    `  ${contact("\\faGitlab", site.links.gitlab, label(site.links.gitlab))}%`,
     "}",
   ];
 
