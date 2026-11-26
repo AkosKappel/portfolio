@@ -43,11 +43,11 @@ export const jobs: Job[] = [
           hu: "Céges platform projektekhez, jelenléti nyilvántartáshoz, HR-hez, CRM-hez és hibajegykezeléshez",
         },
         role: {
-          en: "Owned the project management module and sped up the slowest pages",
-          sk: "Zodpovedal za modul projektového riadenia a zrýchlil najpomalšie stránky",
-          de: "Verantwortlich für das Projektmanagement-Modul, die langsamsten Seiten beschleunigt",
-          cs: "Zodpovídal za modul projektového řízení a zrychlil nejpomalejší stránky",
-          hu: "A projektmenedzsment-modul felelőse vagyok, és felgyorsítottam a leglassabb oldalakat",
+          en: "Owned the project management module and fixed the slow pages users had complained about",
+          sk: "Zodpovedal za modul projektového riadenia a opravil pomalé stránky, na ktoré sa sťažovali používatelia",
+          de: "Verantwortlich für das Projektmanagement-Modul, die von Nutzern beanstandeten langsamen Seiten beschleunigt",
+          cs: "Zodpovídal za modul projektového řízení a opravil pomalé stránky, na které si stěžovali uživatelé",
+          hu: "A projektmenedzsment-modul felelőse vagyok, és felgyorsítottam a lassú oldalakat, amelyekre a felhasználók panaszkodtak",
         },
         team: 8,
         highlights: [
@@ -181,11 +181,11 @@ export const jobs: Job[] = [
           hu: "White-label hűségprogram-platform tagoknak szóló alkalmazással és partnerportállal",
         },
         role: {
-          en: "Main maintainer of the member app and the partner portal",
-          sk: "Hlavný správca aplikácie pre členov a partnerského portálu",
-          de: "Hauptverantwortlich für die Mitglieder-App und das Partnerportal",
-          cs: "Hlavní správce aplikace pro členy a partnerského portálu",
-          hu: "A tagi alkalmazás és a partnerportál fő karbantartója",
+          en: "Took over the member app and the partner portal from a colleague and now maintains both",
+          sk: "Prevzal aplikáciu pre členov a partnerský portál od kolegu a stal sa ich hlavným správcom",
+          de: "Mitglieder-App und Partnerportal von einem Kollegen übernommen, heute hauptverantwortlich für beide",
+          cs: "Převzal aplikaci pro členy a partnerský portál od kolegy a stal se jejich hlavním správcem",
+          hu: "Egy kollégától vettem át a tagi alkalmazást és a partnerportált, ma én vagyok a fő karbantartójuk",
         },
         highlights: [
           {
@@ -230,11 +230,11 @@ export const jobs: Job[] = [
           hu: "Az IGT Systems weboldala és a Core3 marketingoldalai",
         },
         role: {
-          en: "SEO, performance and CMS work on live marketing sites",
-          sk: "SEO, výkon a funkcie CMS na živých marketingových weboch",
-          de: "SEO, Performance und CMS-Funktionen auf produktiven Marketing-Websites",
-          cs: "SEO, výkon a funkce CMS na živých marketingových webech",
-          hu: "SEO, teljesítmény és CMS-funkciók élő marketingoldalakon",
+          en: "Made the live marketing sites faster and easier to find in search, and added CMS features",
+          sk: "Zrýchlil živé marketingové weby, zlepšil ich dohľadateľnosť vo vyhľadávačoch a pridal funkcie CMS",
+          de: "Produktive Marketing-Websites schneller und in Suchmaschinen besser auffindbar gemacht, CMS-Funktionen ergänzt",
+          cs: "Zrychlil živé marketingové weby, zlepšil jejich dohledatelnost ve vyhledávačích a přidal funkce CMS",
+          hu: "Gyorsabbá és a keresőkben jobban megtalálhatóvá tettem az élő marketingoldalakat, és CMS-funkciókat adtam hozzá",
         },
         highlights: [
           {

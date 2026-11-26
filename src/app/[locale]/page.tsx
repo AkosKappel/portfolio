@@ -247,7 +247,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                   start: formatMonth(job.start, locale),
                   end: job.end ? formatMonth(job.end, locale) : tCommon("present"),
                 })}
-                )
+                ): {pick(job.items[0].role, locale)}
               </li>
             ))}
           </ul>
