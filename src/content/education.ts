@@ -23,7 +23,7 @@ export const degrees: Degree[] = [
   {
     id: "masters",
     degree: {
-      en: "Master's degree (Ing.)",
+      en: "MSc (Ing.)",
       sk: "Inžinierske štúdium (Ing.)",
       de: "Masterstudium (Ing.)",
       cs: "Inženýrské studium (Ing.)",
@@ -60,7 +60,7 @@ export const degrees: Degree[] = [
   {
     id: "bachelors",
     degree: {
-      en: "Bachelor's degree (Bc.)",
+      en: "BSc (Bc.)",
       sk: "Bakalárske štúdium (Bc.)",
       de: "Bachelorstudium (Bc.)",
       cs: "Bakalářské studium (Bc.)",

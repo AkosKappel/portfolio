@@ -48,7 +48,9 @@ export function renderCv(locale: Locale, { photo = true } = {}) {
     `\\contact{${icon}}{${url(href)}}{${tex(label)}}`;
   const label = (href: string) => href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
-  const name = `{${tex(`${site.title} ${site.name}`)}}{${tex(site.headline)}}`;
+  // The Slovak title means little abroad, so the English CV leaves it out.
+  const fullName = locale === "en" ? site.name : `${site.title} ${site.name}`;
+  const name = `{${tex(fullName)}}{${tex(site.headline)}}`;
   const header = [
     photo ? `\\cvheader{profile.jpg}${name}{%` : `\\cvheaderplain${name}{%`,
     `  ${contact("\\faEnvelope[regular]", `mailto:${site.email}`, site.email)}\\quad`,
@@ -100,11 +102,11 @@ export function renderCv(locale: Locale, { photo = true } = {}) {
   const education = [
     `{\\small ${tex(t(university.name))}, ${tex(faculty)}}\\par`,
     ...degrees.map((degree) => {
-      const abbreviation = t(degree.degree).match(/\((.+)\)/)?.[1] ?? t(degree.degree);
+      // English keeps "MSc (Ing.)": foreign recruiters rarely know the Slovak titles.
       const name =
         locale === "en"
-          ? `${abbreviation} in ${t(degree.field)}`
-          : `${abbreviation}, ${t(degree.field)}`;
+          ? `${t(degree.degree)} in ${t(degree.field)}`
+          : `${t(degree.degree).match(/\((.+)\)/)?.[1] ?? t(degree.degree)}, ${t(degree.field)}`;
       const thesisLabel = cv.thesisLabels[degree.id];
       if (!thesisLabel) throw new Error(`CV has no thesis label for degree: ${degree.id}`);
       const thesisUrl = degree.thesis.recordUrl ?? degree.thesis.url ?? home;
