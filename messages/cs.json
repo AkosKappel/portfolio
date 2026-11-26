@@ -93,6 +93,7 @@
     "remoteWork": "Práci na dálku",
     "hybridEu": "Hybridní práci v EU",
     "relocation": "Relokaci",
+    "euCitizen": "Občan EU, v EU nepotřebuji pracovní povolení",
     "stackTitle": "S čím pracuji",
     "stackLead": "Většina mých projektů je v TypeScriptu od začátku do konce: React a knihovny TanStack v prohlížeči se styly v Tailwind CSS, Node.js na serveru a PostgreSQL pro data. Typy sahají od databáze až po rozhraní, takže mnoho chyb se ukáže dřív, než se aplikace vůbec spustí.",
     "stackMore": "V práci vyvíjím také v Elixiru s Phoenixem a v Kotlinu a nový stack si osvojím, když ho projekt potřebuje. Další jazyky a nástroje, se kterými jsem pracoval:",

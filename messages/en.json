@@ -93,6 +93,7 @@
     "remoteWork": "Remote work",
     "hybridEu": "Hybrid roles in the EU",
     "relocation": "Relocation",
+    "euCitizen": "EU citizen, no work permit needed in the EU",
     "stackTitle": "What I build with",
     "stackLead": "Most of my projects are TypeScript end to end: React and the TanStack libraries in the browser, styled with Tailwind CSS, Node.js on the server and PostgreSQL for the data. The types reach from the database to the interface, so many mistakes show up before the app even runs.",
     "stackMore": "At work I also build with Elixir and Phoenix and with Kotlin, and I pick up a new stack when a project needs it. Other languages and tools I have worked with:",

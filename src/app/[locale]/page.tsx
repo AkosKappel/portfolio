@@ -100,6 +100,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                 </li>
               ))}
             </ul>
+            <p className="basis-full text-muted">{t("euCitizen")}</p>
           </div>
           <div className="mt-8 flex flex-wrap items-start gap-3">
             <Link

@@ -93,6 +93,7 @@
     "remoteWork": "Távmunkára",
     "hybridEu": "Hibrid munkára az EU-ban",
     "relocation": "Költözésre",
+    "euCitizen": "Uniós állampolgár, az EU-ban nincs szükségem munkavállalási engedélyre",
     "stackTitle": "Amivel dolgozom",
     "stackLead": "A legtöbb projektem elejétől a végéig TypeScript: React és a TanStack könyvtárak a böngészőben Tailwind CSS stílusokkal, Node.js a szerveren és PostgreSQL az adatokhoz. A típusok az adatbázistól a felületig érnek, így sok hiba már azelőtt kiderül, hogy az alkalmazás elindulna.",
     "stackMore": "A munkámban Elixirrel és Phoenixszel, valamint Kotlinnal is fejlesztek, és ha egy projektnek új stack kell, megtanulom. További nyelvek és eszközök, amelyekkel dolgoztam:",

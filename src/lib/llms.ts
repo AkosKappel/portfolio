@@ -95,6 +95,7 @@ export function buildLlmsFullTxt() {
 - GitHub: ${site.links.github}
 - LinkedIn: ${site.links.linkedin}
 - Availability: ${t(site.availability)}
+- Work permit: ${en.home.euCitizen}
 - Location: ${t(site.location)}, time zone ${t(site.timezone)}
 - Languages: ${site.languages.map((l) => `${t(l.name)} (${t(l.level)}${"cefr" in l ? `, ${l.cefr}` : ""})`).join(", ")}
 
