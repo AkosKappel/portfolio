@@ -114,7 +114,7 @@
   "projects": {
     "title": "Projekty",
     "description": "Osobní, univerzitní a týmové projekty: webové aplikace, diplomová práce o detekci glaukomu, hra a programátorské úlohy.",
-    "lead": "Věci, které jsem vytvořil sám, na univerzitě a v týmech. Několik z nich jsem později přestavěl se současnými nástroji, testy a živými ukázkami.",
+    "lead": "Věci, které jsem vytvořil sám, na univerzitě a v týmech: webové aplikace, diplomová práce o detekci glaukomu, hra a programátorské výzvy. Několik z nich jsem později přestavěl se současnými nástroji, testy a živými ukázkami. Hledejte podle technologie, nebo otevřete projekt a podívejte se, co dělá a jak je postavený.",
     "searchLabel": "Hledat projekty",
     "searchPlaceholder": "Hledat podle názvu nebo technologie",
     "area": "Oblast",
@@ -185,12 +185,12 @@
   "experience": {
     "title": "Praxe",
     "description": "Full-stack práce v IGT Systems, Švarba a SoftPoint: webové, mobilní a backendové produkty a datové pipeline.",
-    "lead": "Tři firmy od roku 2023, od datových pipeline po mobilní aplikace."
+    "lead": "Tři firmy od roku 2023, od datových pipeline a firemních webů po webové a mobilní aplikace. U každého projektu najdete, za co jsem zodpovídal, jak velký byl tým, co jsem vytvořil a jaké technologie jsem použil. V IGT Systems pracuji na několika produktech pro klienty zároveň."
   },
   "activity": {
     "title": "Aktivita",
     "description": "Kalendář mé osobní i pracovní programátorské aktivity z GitHubu, GitLabu a firemních repozitářů, s jazyky, změněnými řádky a časem commitů.",
-    "lead": "Vše, co commituji, reviduji a otevírám v osobních projektech i v práci, na jednom místě. Pracovní zdroje ukazují jen denní počty, nikdy názvy projektů. Výběrem období nebo zdroje zobrazení zúžíte.",
+    "lead": "Vše, co commituji, reviduji a otevírám v osobních projektech i v práci, na jednom místě a aktualizované každý týden. Pracovní zdroje ukazují jen denní počty, nikdy názvy projektů. Výběrem období nebo zdroje zobrazení zúžíte a uvidíte, jaké jazyky používám, kolik řádků měním a kdy obvykle commituji.",
     "range": "Období",
     "lastYear": "Posledních 12 měsíců",
     "sources": "Zdroje",
@@ -293,7 +293,7 @@
   "education": {
     "title": "Vzdělání",
     "description": "Magisterský titul v oboru Inteligentní softwarové systémy a bakalářský titul v oboru Informatika na Slovenské technické univerzitě v Bratislavě.",
-    "lead": "Informatika a inteligentní softwarové systémy na Slovenské technické univerzitě v Bratislavě, po gymnáziu v Nových Zámcích.",
+    "lead": "Informatika a inteligentní softwarové systémy na Slovenské technické univerzitě v Bratislavě, po gymnáziu v Nových Zámcích. Obě závěrečné práce jsou propojené, včetně diplomové práce o detekci glaukomu na snímcích oka pomocí neuronových sítí.",
     "thesis": "Závěrečná práce",
     "languages": "Jazyky",
     "university": "Vysoká škola",
@@ -381,7 +381,7 @@
   "colophon": {
     "title": "Jak je tento web postavený",
     "description": "Technologie, architektura, design, testování, hosting a přístupnost tohoto portfolia.",
-    "lead": "Technologie a inženýrské postupy, na kterých tento web stojí.",
+    "lead": "Technologie a inženýrské postupy, na kterých tento web stojí: stack, jak se stránky vykreslují a překládají do pěti jazyků, jak se testuje a nasazuje a jak zůstává rychlý a přístupný.",
     "sourceCode": "Zdrojový kód je na GitHubu.",
     "sections": [
       {
@@ -436,7 +436,7 @@
   "terminal": {
     "title": "Terminál",
     "description": "Prohlédněte si portfolio z příkazové řádky: projekty, dovednosti, praxi a kontakty.",
-    "lead": "Stejný web jako příkazová řádka. Tab doplňuje, šipky vrátí předchozí příkazy a Ctrl+R v nich hledá.",
+    "lead": "Stejný web jako příkazová řádka. Napište help a uvidíte všechny příkazy, nebo začněte s whoami, ls a contact. Tab doplňuje, šipky vrátí předchozí příkazy a Ctrl+R v nich hledá.",
     "inputLabel": "Příkaz",
     "welcome": "Vítejte! Tohle je malá příkazová řádka nad portfoliem. Rozumí těmto příkazům:",
     "notFound": "příkaz neexistuje: {command}. Napište help pro seznam příkazů.",
@@ -573,7 +573,7 @@
   "assistantPage": {
     "title": "Jak funguje chat",
     "description": "AI asistent na tomto webu: jak odpovídá na otázky, které bezplatné modely odpovídají, jak se kontrolují odpovědi a co se děje s vašimi údaji.",
-    "lead": "Chat „Zeptejte se na mě“ je samostatný malý AI systém. Tato stránka vysvětluje, jak odpovídá a jak dobře.",
+    "lead": "Chat „Zeptejte se na mě“ je samostatný malý AI systém. Tato stránka vysvětluje, jak odpovídá na otázky, jaké bezplatné modely používá, jak si vede v pravidelných testech a co se děje s vašimi údaji.",
     "flowTitle": "Od otázky k odpovědi",
     "steps": [
       "Váš prohlížeč pošle otázku, dosavadní konverzaci a stránku, na které jste, do Cloudflare Workeru spolu s neviditelnou kontrolou Turnstile proti robotům.",

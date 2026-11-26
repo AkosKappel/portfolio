@@ -114,7 +114,7 @@
   "projects": {
     "title": "Projekte",
     "description": "Private, universitäre und Teamprojekte: Webanwendungen, eine Masterarbeit zur Glaukomerkennung, ein Spiel und Programmieraufgaben.",
-    "lead": "Dinge, die ich allein, an der Universität und im Team gebaut habe. Einige habe ich später mit aktuellen Werkzeugen, Tests und Live-Demos neu aufgebaut.",
+    "lead": "Dinge, die ich allein, an der Universität und im Team gebaut habe: Web-Apps, eine Masterarbeit zur Glaukomerkennung, ein Spiel und Programmier-Challenges. Einige habe ich später mit aktuellen Werkzeugen, Tests und Live-Demos neu aufgebaut. Suchen Sie nach Technologie oder öffnen Sie ein Projekt, um zu sehen, was es macht und wie es gebaut ist.",
     "searchLabel": "Projekte durchsuchen",
     "searchPlaceholder": "Nach Name oder Technologie suchen",
     "area": "Bereich",
@@ -185,12 +185,12 @@
   "experience": {
     "title": "Berufserfahrung",
     "description": "Full-Stack-Arbeit bei IGT Systems, Švarba und SoftPoint: Web-, Mobil- und Backend-Produkte sowie Datenpipelines.",
-    "lead": "Drei Firmen seit 2023, von Datenpipelines bis zu mobilen Apps."
+    "lead": "Drei Firmen seit 2023, von Datenpipelines und Firmenwebsites bis zu Web- und Mobile-Apps. Zu jedem Projekt finden Sie, wofür ich verantwortlich war, wie groß das Team war, was ich gebaut habe und welche Technologien ich eingesetzt habe. Bei IGT Systems arbeite ich gleichzeitig an mehreren Kundenprodukten."
   },
   "activity": {
     "title": "Aktivität",
     "description": "Ein Kalender meiner privaten und beruflichen Entwicklungsaktivität aus GitHub, GitLab und Firmen-Repositorys, mit Sprachen, geänderten Zeilen und Commit-Zeiten.",
-    "lead": "Alles, was ich in privaten Projekten und im Beruf committe, reviewe und eröffne, an einem Ort. Berufliche Quellen zeigen nur Tageszahlen, nie Projektnamen. Wählen Sie einen Zeitraum oder eine Quelle, um die Ansicht einzugrenzen.",
+    "lead": "Alles, was ich in privaten Projekten und im Beruf committe, reviewe und eröffne, an einem Ort und jede Woche aktualisiert. Berufliche Quellen zeigen nur Tageszahlen, nie Projektnamen. Wählen Sie einen Zeitraum oder eine Quelle, um die Ansicht einzugrenzen, und sehen Sie, welche Sprachen ich nutze, wie viele Zeilen ich ändere und wann ich meistens committe.",
     "range": "Zeitraum",
     "lastYear": "Letzte 12 Monate",
     "sources": "Quellen",
@@ -293,7 +293,7 @@
   "education": {
     "title": "Ausbildung",
     "description": "Masterabschluss in Intelligenten Softwaresystemen und Bachelorabschluss in Informatik an der Slowakischen Technischen Universität in Bratislava.",
-    "lead": "Informatik und intelligente Softwaresysteme an der Slowakischen Technischen Universität in Bratislava, nach dem Gymnasium in Nové Zámky.",
+    "lead": "Informatik und intelligente Softwaresysteme an der Slowakischen Technischen Universität in Bratislava, nach dem Gymnasium in Nové Zámky. Beide Abschlussarbeiten sind verlinkt, darunter meine Masterarbeit zur Erkennung von Glaukom auf Augenaufnahmen mit neuronalen Netzen.",
     "thesis": "Abschlussarbeit",
     "languages": "Sprachen",
     "university": "Universität",
@@ -381,7 +381,7 @@
   "colophon": {
     "title": "Wie diese Seite gebaut ist",
     "description": "Technologien, Architektur, Design, Tests, Hosting und Barrierefreiheit dieses Portfolios.",
-    "lead": "Die Technik und die Arbeitsweisen hinter dieser Seite.",
+    "lead": "Die Technik und die Arbeitsweisen hinter dieser Seite: der Stack, wie die Seiten gerendert und in fünf Sprachen übersetzt werden, wie sie getestet und ausgeliefert wird und wie sie schnell und barrierefrei bleibt.",
     "sourceCode": "Der Quellcode liegt auf GitHub.",
     "sections": [
       {
@@ -436,7 +436,7 @@
   "terminal": {
     "title": "Terminal",
     "description": "Dieses Portfolio per Kommandozeile erkunden: Projekte, Skills, Berufserfahrung und Kontakte.",
-    "lead": "Dieselbe Seite als Kommandozeile. Tab vervollständigt, die Pfeiltasten holen frühere Befehle zurück und Strg+R durchsucht sie.",
+    "lead": "Dieselbe Seite als Kommandozeile. Geben Sie help ein, um alle Befehle zu sehen, oder beginnen Sie mit whoami, ls und contact. Tab vervollständigt, die Pfeiltasten holen frühere Befehle zurück und Strg+R durchsucht sie.",
     "inputLabel": "Befehl",
     "welcome": "Willkommen! Das ist eine kleine Kommandozeile über dem Portfolio. Sie versteht diese Befehle:",
     "notFound": "Befehl nicht gefunden: {command}. Mit help siehst du alle Befehle.",
@@ -573,7 +573,7 @@
   "assistantPage": {
     "title": "So funktioniert der Chat",
     "description": "Der KI-Assistent dieser Website: wie er Fragen beantwortet, welche kostenlosen Modelle antworten, wie die Antworten geprüft werden und was mit Ihren Daten geschieht.",
-    "lead": "Der Chat „Fragen zu mir“ ist ein eigenes kleines KI-System. Diese Seite erklärt, wie er antwortet und wie gut.",
+    "lead": "Der Chat „Fragen zu mir“ ist ein eigenes kleines KI-System. Diese Seite erklärt, wie er eine Frage beantwortet, welche kostenlosen Modelle er nutzt, wie gut er in regelmäßigen Tests abschneidet und was mit Ihren Daten passiert.",
     "flowTitle": "Von der Frage zur Antwort",
     "steps": [
       "Ihr Browser sendet die Frage, die bisherige Unterhaltung und die Seite, auf der Sie sind, an einen Cloudflare Worker, zusammen mit einer unsichtbaren Turnstile-Prüfung gegen Bots.",

@@ -114,7 +114,7 @@
   "projects": {
     "title": "Projects",
     "description": "Personal, university and team projects: web apps, a master's thesis on glaucoma detection, a game and coding challenges.",
-    "lead": "Things I built on my own, at university and in teams. Several were later rebuilt with current tools, tests and live demos.",
+    "lead": "Things I built on my own, at university and in teams: web apps, a master's thesis on glaucoma detection, a game and coding challenges. Several were later rebuilt with current tools, tests and live demos. Search by technology, or open a project to see what it does and how it is built.",
     "searchLabel": "Search projects",
     "searchPlaceholder": "Search by name or technology",
     "area": "Area",
@@ -185,12 +185,12 @@
   "experience": {
     "title": "Experience",
     "description": "Full-stack work at IGT Systems, Švarba and SoftPoint: web, mobile and backend products and data pipelines.",
-    "lead": "Three companies since 2023, from data pipelines to mobile apps."
+    "lead": "Three companies since 2023, from data pipelines and company websites to web and mobile apps. For each project you will find what I owned, the size of the team, what I built and the technologies I used. At IGT Systems I work on several client products at once."
   },
   "activity": {
     "title": "Activity",
     "description": "A calendar of my personal and work coding activity from GitHub, GitLab and company repositories, with languages, lines changed and when I commit.",
-    "lead": "Everything I commit, review and open across personal projects and jobs, in one place. Work sources show only daily counts, never project names. Pick a period or a source to narrow it down.",
+    "lead": "Everything I commit, review and open across personal projects and jobs, in one place and refreshed every week. Work sources show only daily counts, never project names. Pick a period or a source to narrow it down, and see which languages I use, how many lines I change and when I usually commit.",
     "range": "Period",
     "lastYear": "Last 12 months",
     "sources": "Sources",
@@ -293,7 +293,7 @@
   "education": {
     "title": "Education",
     "description": "Master's degree in Intelligent Software Systems and bachelor's degree in Computer Science from the Slovak University of Technology in Bratislava.",
-    "lead": "Computer science and intelligent software systems at the Slovak University of Technology in Bratislava, after a grammar school in Nové Zámky.",
+    "lead": "Computer science and intelligent software systems at the Slovak University of Technology in Bratislava, after a grammar school in Nové Zámky. Both theses are linked, including my master's thesis on detecting glaucoma in eye images with neural networks.",
     "thesis": "Thesis",
     "languages": "Languages",
     "university": "University",
@@ -381,7 +381,7 @@
   "colophon": {
     "title": "How this site is built",
     "description": "The stack, architecture, design, testing, hosting and accessibility of this portfolio.",
-    "lead": "The technology and engineering practices behind this site.",
+    "lead": "The technology and engineering practices behind this site: the stack, how pages are rendered and translated into five languages, how it is tested and deployed, and how it stays fast and accessible.",
     "sourceCode": "The source code is on GitHub.",
     "sections": [
       {
@@ -436,7 +436,7 @@
   "terminal": {
     "title": "Terminal",
     "description": "Browse this portfolio from a command line: projects, skills, jobs and contacts.",
-    "lead": "The same site as a command line. Tab completes, the arrow keys bring back earlier commands and Ctrl+R searches them.",
+    "lead": "The same site as a command line. Type help to see every command, or start with whoami, ls and contact. Tab completes, the arrow keys bring back earlier commands and Ctrl+R searches them.",
     "inputLabel": "Command",
     "welcome": "Welcome! This is a small command line over the portfolio. Here is what it understands:",
     "notFound": "command not found: {command}. Type help to see the commands.",
@@ -573,7 +573,7 @@
   "assistantPage": {
     "title": "How the chat works",
     "description": "The AI assistant on this site: how it answers a question, which free models answer, how its answers are checked and what happens to your data.",
-    "lead": "The \"Ask about me\" chat is a small AI system of its own. This page explains how it answers and how well.",
+    "lead": "The \"Ask about me\" chat is a small AI system of its own. This page explains how it answers a question, which free models it uses, how well it scores in regular tests and what happens to your data.",
     "flowTitle": "From question to answer",
     "steps": [
       "Your browser sends the question, the conversation so far and the page you are on to a Cloudflare Worker, together with an invisible Turnstile check against bots.",

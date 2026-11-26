@@ -114,7 +114,7 @@
   "projects": {
     "title": "Projektek",
     "description": "Saját, egyetemi és csapatprojektek: webalkalmazások, diplomamunka a glaukóma felismeréséről, egy játék és programozási feladatok.",
-    "lead": "Amit egyedül, az egyetemen és csapatban készítettem. Többet később újraépítettem mai eszközökkel, tesztekkel és élő demókkal.",
+    "lead": "Amit egyedül, az egyetemen és csapatban készítettem: webalkalmazások, egy diplomamunka a glaukóma felismeréséről, egy játék és programozási kihívások. Többet később újraépítettem mai eszközökkel, tesztekkel és élő demókkal. Keressen technológia szerint, vagy nyisson meg egy projektet, hogy lássa, mit csinál és hogyan épül fel.",
     "searchLabel": "Projektek keresése",
     "searchPlaceholder": "Keresés név vagy technológia szerint",
     "area": "Terület",
@@ -185,12 +185,12 @@
   "experience": {
     "title": "Szakmai tapasztalat",
     "description": "Full-stack munka az IGT Systemsnél, a Švarbánál és a SoftPointnál: webes, mobilos és backend termékek, valamint adatfeldolgozó pipeline-ok.",
-    "lead": "Három cég 2023 óta, az adatfeldolgozó pipeline-októl a mobilalkalmazásokig."
+    "lead": "Három cég 2023 óta, az adatfeldolgozó pipeline-októl és céges weboldalaktól a web- és mobilalkalmazásokig. Minden projektnél megtalálja, miért feleltem, mekkora volt a csapat, mit készítettem és milyen technológiákat használtam. Az IGT Systemsnél egyszerre több ügyfélterméken dolgozom."
   },
   "activity": {
     "title": "Aktivitás",
     "description": "Saját és munkahelyi fejlesztői aktivitásom naptára a GitHubról, a GitLabről és céges repozitóriumokból, nyelvekkel, módosított sorokkal és a commitok idejével.",
-    "lead": "Minden, amit saját projektekben és munkában commitolok, átnézek és megnyitok, egy helyen. A munkahelyi források csak napi számokat mutatnak, projektneveket soha. Időszak vagy forrás kiválasztásával szűkítheti a nézetet.",
+    "lead": "Minden, amit saját projektekben és munkában commitolok, átnézek és megnyitok, egy helyen, hetente frissítve. A munkahelyi források csak napi számokat mutatnak, projektneveket soha. Időszak vagy forrás kiválasztásával szűkítheti a nézetet, és láthatja, milyen nyelveket használok, hány sort módosítok és mikor szoktam commitolni.",
     "range": "Időszak",
     "lastYear": "Elmúlt 12 hónap",
     "sources": "Források",
@@ -293,7 +293,7 @@
   "education": {
     "title": "Tanulmányok",
     "description": "Mesterdiploma intelligens szoftverrendszerek szakon és alapdiploma informatika szakon a pozsonyi Szlovák Műszaki Egyetemen.",
-    "lead": "Informatika és intelligens szoftverrendszerek a pozsonyi Szlovák Műszaki Egyetemen, az érsekújvári gimnázium után.",
+    "lead": "Informatika és intelligens szoftverrendszerek a pozsonyi Szlovák Műszaki Egyetemen, az érsekújvári gimnázium után. Mindkét szakdolgozat elérhető, köztük a diplomamunkám a glaukóma felismeréséről szemfelvételeken, neurális hálókkal.",
     "thesis": "Szakdolgozat",
     "languages": "Nyelvek",
     "university": "Egyetem",
@@ -381,7 +381,7 @@
   "colophon": {
     "title": "Hogyan készült ez az oldal",
     "description": "A portfólió technológiái, architektúrája, dizájnja, tesztelése, hosztingja és akadálymentessége.",
-    "lead": "Az oldal mögötti technológia és mérnöki gyakorlat.",
+    "lead": "Az oldal mögötti technológia és mérnöki gyakorlat: a stack, hogyan renderelődnek és fordítódnak le az oldalak öt nyelvre, hogyan tesztelem és telepítem, és hogyan marad gyors és akadálymentes.",
     "sourceCode": "A forráskód a GitHubon érhető el.",
     "sections": [
       {
@@ -436,7 +436,7 @@
   "terminal": {
     "title": "Terminál",
     "description": "Böngészd a portfóliót parancssorból: projektek, készségek, munkahelyek és elérhetőségek.",
-    "lead": "Ugyanez az oldal parancssorként. A Tab kiegészít, a nyilak visszahozzák a korábbi parancsokat, a Ctrl+R keres köztük.",
+    "lead": "Ugyanez az oldal parancssorként. Írja be a help parancsot az összes parancshoz, vagy kezdje a whoami, ls és contact parancsokkal. A Tab kiegészít, a nyilak visszahozzák a korábbi parancsokat, a Ctrl+R keres köztük.",
     "inputLabel": "Parancs",
     "welcome": "Üdv! Ez egy kis parancssor a portfólió fölött. Ezeket a parancsokat érti:",
     "notFound": "nincs ilyen parancs: {command}. A help kiírja a parancsokat.",
@@ -573,7 +573,7 @@
   "assistantPage": {
     "title": "Így működik a csevegő",
     "description": "Az oldal AI-asszisztense: hogyan válaszol a kérdésekre, mely ingyenes modellek válaszolnak, hogyan ellenőrizzük a válaszokat, és mi történik az adataival.",
-    "lead": "A „Kérdezzen rólam” csevegő egy önálló kis AI-rendszer. Ez az oldal elmagyarázza, hogyan és milyen jól válaszol.",
+    "lead": "A „Kérdezzen rólam” csevegő egy önálló kis AI-rendszer. Ez az oldal elmagyarázza, hogyan válaszol egy kérdésre, milyen ingyenes modelleket használ, milyen jól teljesít a rendszeres teszteken, és mi történik az adataival.",
     "flowTitle": "A kérdéstől a válaszig",
     "steps": [
       "A böngészője elküldi a kérdést, az eddigi beszélgetést és az oldalt, amelyen éppen van, egy Cloudflare Workernek, egy láthatatlan Turnstile-ellenőrzéssel együtt a robotok ellen.",
