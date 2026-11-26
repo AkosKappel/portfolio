@@ -109,7 +109,8 @@
     "currentRole": "{role} bei {company} seit {start}.",
     "fullExperience": "Gesamte Berufserfahrung",
     "letsTalk": "Schreiben Sie mir",
-    "otherWays": "Weitere Kontaktmöglichkeiten"
+    "otherWays": "Weitere Kontaktmöglichkeiten",
+    "earlier": "Davor"
   },
   "projects": {
     "title": "Projekte",

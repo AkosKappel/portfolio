@@ -109,7 +109,8 @@
     "currentRole": "{role} ve firmě {company} od {start}.",
     "fullExperience": "Celá praxe",
     "letsTalk": "Ozvěte se",
-    "otherWays": "Další možnosti kontaktu"
+    "otherWays": "Další možnosti kontaktu",
+    "earlier": "Předtím"
   },
   "projects": {
     "title": "Projekty",

@@ -1,4 +1,16 @@
-import { ArrowRight, Building2, FolderOpen, Globe, Mail, MapPin, Plane } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Building2,
+  CalendarClock,
+  Clock,
+  FolderOpen,
+  Globe,
+  Languages,
+  Mail,
+  MapPin,
+  Plane,
+} from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
@@ -30,7 +42,17 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const tCommon = await getTranslations("common");
   const tAbout = await getTranslations("about");
   const t = await getTranslations("home");
-  const currentJob = jobs[0];
+  const tExperience = await getTranslations("experience");
+  const [currentJob, ...earlierJobs] = jobs;
+  const languages = site.languages
+    .map((language) => {
+      const level = pick(language.level, locale);
+      // German capitalizes nouns such as "Muttersprache".
+      const shown =
+        "cefr" in language ? language.cefr : locale === "de" ? level : level.toLowerCase();
+      return `${pick(language.name, locale)} ${shown}`;
+    })
+    .join(" · ");
   const mainStack = new Set<string>(site.stack);
   const otherSkills = [...new Set(skillGroups.flatMap((group) => group.skills))].filter(
     (skill) => !mainStack.has(skill),
@@ -49,10 +71,20 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           </h1>
           <p className="mt-4 font-display text-2xl text-accent sm:text-3xl">{site.headline}</p>
           <p className="mt-6 max-w-xl text-lg text-muted">{pick(site.intro, locale)}</p>
-          <p className="mt-5 inline-flex items-center gap-2 text-muted">
-            <MapPin aria-hidden size={18} />
-            {pick(site.location, locale)}
-          </p>
+          <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-muted">
+            {[
+              { icon: MapPin, label: pick(site.location, locale) },
+              { icon: Clock, label: pick(site.timezone, locale) },
+              { icon: BadgeCheck, label: pick(site.workAuthorization, locale) },
+              { icon: CalendarClock, label: pick(site.notice, locale) },
+              { icon: Languages, label: languages },
+            ].map(({ icon: Icon, label }) => (
+              <li key={label} className="inline-flex items-center gap-2">
+                <Icon aria-hidden size={18} className="shrink-0" />
+                {label}
+              </li>
+            ))}
+          </ul>
           <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
             <span id="open-to" className="font-medium text-muted">
               {t("openTo")}:
@@ -207,6 +239,22 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               start: formatMonth(currentJob.start, locale),
             })}
           </p>
+          <p className="mt-4 text-sm font-medium text-muted">{t("earlier")}</p>
+          <ul className="mt-1 grid gap-1 text-sm text-muted">
+            {earlierJobs.map((job) => (
+              <li key={job.id}>
+                <Link href={`/experience#${job.id}`} className="hover:text-accent">
+                  {job.role}, {job.company}
+                </Link>{" "}
+                (
+                {tCommon("period", {
+                  start: formatMonth(job.start, locale),
+                  end: job.end ? formatMonth(job.end, locale) : tCommon("present"),
+                })}
+                )
+              </li>
+            ))}
+          </ul>
           <Link
             href="/experience"
             className="mt-4 inline-flex items-center gap-1.5 hover:text-accent"
@@ -227,6 +275,12 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                 </Link>
               </h3>
               <p className="mt-1 text-muted">{pick(item.context, locale)}</p>
+              <p className="mt-2 text-sm">
+                {pick(item.role, locale)}
+                {item.team ? (
+                  <span className="text-muted"> · {tExperience("team", { count: item.team })}</span>
+                ) : null}
+              </p>
               <StackList items={item.stack} className="mt-3" />
             </li>
           ))}

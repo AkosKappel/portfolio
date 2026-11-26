@@ -109,7 +109,8 @@
     "currentRole": "{role} at {company} since {start}.",
     "fullExperience": "Full experience",
     "letsTalk": "Let's talk",
-    "otherWays": "Other ways to reach me"
+    "otherWays": "Other ways to reach me",
+    "earlier": "Before that"
   },
   "projects": {
     "title": "Projects",

@@ -84,6 +84,13 @@ describe("experience", () => {
       if (job.end) expect(job.end >= job.start).toBe(true);
     }
   });
+
+  // Fails once a year passes, as a reminder to raise the "N+ years" in the intro.
+  it("matches the years of experience in the intro", () => {
+    const thisMonth = new Date().toISOString().slice(0, 7);
+    const years = Math.floor((monthsBetween(jobs.at(-1)?.start ?? thisMonth, thisMonth) - 1) / 12);
+    expect(site.intro.en).toContain(`${years}+ years`);
+  });
 });
 
 describe("messages", () => {

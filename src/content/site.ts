@@ -24,12 +24,34 @@ export const site = {
     cs: "Bratislava, Slovensko",
     hu: "Pozsony, Szlovákia",
   } satisfies Text,
+  /** Also the meta description. Keep the years in step with `experienceYears` (tested). */
   intro: {
-    en: "Full-stack software engineer with years of experience in web and mobile development. I take projects from planning through implementation and testing to deployment. AI coding agents help me work faster, but I review every change and the result is my responsibility.",
-    sk: "Full-stack vývojár s viacročnou praxou vo vývoji webových a mobilných aplikácií. Projekty dotiahnem od plánovania cez implementáciu a testovanie až po nasadenie. AI agenti mi pomáhajú pracovať rýchlejšie, no každú zmenu kontrolujem a za výsledok zodpovedám ja.",
-    de: "Full-Stack-Entwickler mit mehrjähriger Erfahrung in der Web- und Mobile-Entwicklung. Ich begleite Projekte von der Planung über Umsetzung und Tests bis zum Deployment. KI-Coding-Agenten helfen mir, schneller zu arbeiten, doch jede Änderung prüfe ich selbst und trage die Verantwortung für das Ergebnis.",
-    cs: "Full-stack vývojář s několikaletou praxí ve vývoji webových a mobilních aplikací. Projekty dotáhnu od plánování přes implementaci a testování až po nasazení. AI agenti mi pomáhají pracovat rychleji, ale každou změnu kontroluji a za výsledek odpovídám já.",
-    hu: "Full-stack fejlesztő, többéves tapasztalattal webes és mobilalkalmazások fejlesztésében. A projekteket a tervezéstől a megvalósításon és a tesztelésen át az élesítésig viszem végig. Az AI kódoló ágensek segítenek gyorsabban dolgozni, de minden változtatást átnézek, és az eredményért én felelek.",
+    en: "Full-stack software engineer with 3+ years of experience building web and mobile products: React and TypeScript frontends, Kotlin and Elixir backends, and Kotlin Multiplatform apps for Android and iOS. I take projects from planning through implementation and testing to deployment, and I care about fast, accessible interfaces and code that is easy to extend.",
+    sk: "Full-stack vývojár s viac ako 3 rokmi praxe vo vývoji webových a mobilných produktov: frontendy v Reacte a TypeScripte, backendy v Kotline a Elixire a aplikácie pre Android a iOS v Kotlin Multiplatform. Projekty dotiahnem od plánovania cez implementáciu a testovanie až po nasadenie a záleží mi na rýchlych, prístupných rozhraniach a kóde, ktorý sa dá ľahko rozširovať.",
+    de: "Full-Stack-Entwickler mit über 3 Jahren Erfahrung in der Entwicklung von Web- und Mobile-Produkten: Frontends mit React und TypeScript, Backends mit Kotlin und Elixir sowie Apps für Android und iOS mit Kotlin Multiplatform. Ich begleite Projekte von der Planung über Umsetzung und Tests bis zum Deployment und lege Wert auf schnelle, barrierefreie Oberflächen und Code, der sich leicht erweitern lässt.",
+    cs: "Full-stack vývojář s více než 3 lety praxe ve vývoji webových a mobilních produktů: frontendy v Reactu a TypeScriptu, backendy v Kotlinu a Elixiru a aplikace pro Android a iOS v Kotlin Multiplatform. Projekty dotáhnu od plánování přes implementaci a testování až po nasazení a záleží mi na rychlých, přístupných rozhraních a kódu, který se dá snadno rozšiřovat.",
+    hu: "Full-stack fejlesztő, több mint 3 év tapasztalattal webes és mobilos termékek fejlesztésében: React és TypeScript frontendek, Kotlin és Elixir backendek, valamint Android- és iOS-alkalmazások Kotlin Multiplatformban. A projekteket a tervezéstől a megvalósításon és a tesztelésen át az élesítésig viszem végig, és fontosak számomra a gyors, akadálymentes felületek és a könnyen bővíthető kód.",
+  } satisfies Text,
+  workAuthorization: {
+    en: "EU citizen, no visa or sponsorship needed",
+    sk: "Občan EÚ, bez potreby víza či sponzorstva",
+    de: "EU-Bürger, kein Visum und kein Sponsoring nötig",
+    cs: "Občan EU, bez potřeby víza či sponzorství",
+    hu: "EU-állampolgár, nincs szükség vízumra vagy szponzorációra",
+  } satisfies Text,
+  timezone: {
+    en: "CET (UTC+1)",
+    sk: "SEČ (UTC+1)",
+    de: "MEZ (UTC+1)",
+    cs: "SEČ (UTC+1)",
+    hu: "CET (UTC+1)",
+  } satisfies Text,
+  notice: {
+    en: "1 month notice period",
+    sk: "Výpovedná lehota 1 mesiac",
+    de: "Kündigungsfrist 1 Monat",
+    cs: "Výpovědní lhůta 1 měsíc",
+    hu: "1 hónap felmondási idő",
   } satisfies Text,
   /** The stages shown on the home page, each one done with AI coding agents. */
   workflow: [
@@ -207,11 +229,11 @@ export const site = {
     },
   ] satisfies { id: string; title: Text; paragraphs: Text[] }[],
   availability: {
-    en: "Open to remote roles anywhere, hybrid roles in the EU and relocation.",
-    sk: "Otvorený pracovným ponukám na diaľku odkiaľkoľvek, hybridne v rámci EÚ aj relokácii.",
-    de: "Offen für Remote-Stellen weltweit, hybride Stellen in der EU und einen Umzug.",
-    cs: "Otevřený pracovním nabídkám na dálku odkudkoli, hybridně v rámci EU i relokaci.",
-    hu: "Nyitott vagyok távmunkára bárhonnan, hibrid munkára az EU-n belül és költözésre is.",
+    en: "Open to remote roles anywhere, hybrid roles in the EU and relocation. I can start after a one-month notice period.",
+    sk: "Otvorený pracovným ponukám na diaľku odkiaľkoľvek, hybridne v rámci EÚ aj relokácii. Nastúpiť môžem po mesačnej výpovednej lehote.",
+    de: "Offen für Remote-Stellen weltweit, hybride Stellen in der EU und einen Umzug. Ich kann nach einer Kündigungsfrist von einem Monat anfangen.",
+    cs: "Otevřený pracovním nabídkám na dálku odkudkoli, hybridně v rámci EU i relokaci. Nastoupit mohu po měsíční výpovědní lhůtě.",
+    hu: "Nyitott vagyok távmunkára bárhonnan, hibrid munkára az EU-n belül és költözésre is. Egy hónapos felmondási idő után tudok kezdeni.",
   } satisfies Text,
   links: {
     github: "https://github.com/AkosKappel",

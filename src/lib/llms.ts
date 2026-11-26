@@ -3,7 +3,7 @@ import { degrees, secondarySchool, university } from "../content/education";
 import { jobs } from "../content/experience";
 import { projects } from "../content/projects";
 import { navigation, secondaryNavigation, site } from "../content/site";
-import { practices, skillGroups } from "../content/skills";
+import { practices, skillGroups, skillLevel, skillLevels } from "../content/skills";
 import type { Project, Text } from "../content/types";
 import { formatMonth, yearRange } from "./format";
 
@@ -48,7 +48,7 @@ export function buildLlmsFullTxt() {
     const note = job.companyNote ? ` (${t(job.companyNote)})` : "";
     const items = job.items.map(
       (item) =>
-        `#### ${t(item.name)}\n\n${t(item.context)}\n\n${item.highlights.map((h) => `- ${t(h)}`).join("\n")}\n\nStack: ${item.stack.join(", ")}`,
+        `#### ${t(item.name)}\n\n${t(item.context)}\n\nRole: ${t(item.role)}${item.team ? `. Team size: ${item.team}` : ""}.\n\n${item.highlights.map((h) => `- ${t(h)}`).join("\n")}\n\nStack: ${item.stack.join(", ")}`,
     );
     return `### ${job.role}, ${job.company}${note}\n\n${dates}, ${t(job.location)}\n\n${t(job.summary)}\n\n${items.join("\n\n")}`;
   });
@@ -62,7 +62,14 @@ export function buildLlmsFullTxt() {
   ];
 
   const skills = skillGroups.map(
-    (group) => `### ${t(group.name)}\n\n${t(group.description)}\n\n${group.skills.join(", ")}`,
+    (group) =>
+      `### ${t(group.name)}\n\n${skillLevels
+        .map(
+          (level) => [level, group.skills.filter((skill) => skillLevel(skill) === level)] as const,
+        )
+        .filter(([, skills]) => skills.length > 0)
+        .map(([level, skills]) => `${en.skills.levels[level]}: ${skills.join(", ")}`)
+        .join("\n")}`,
   );
 
   const projectEntries = projects.map((project) => {
@@ -88,6 +95,9 @@ export function buildLlmsFullTxt() {
 - GitHub: ${site.links.github}
 - LinkedIn: ${site.links.linkedin}
 - Availability: ${t(site.availability)}
+- Location: ${t(site.location)}, time zone ${t(site.timezone)}
+- Work authorization: ${t(site.workAuthorization)}
+- Notice: ${t(site.notice)}
 - Languages: ${site.languages.map((l) => `${t(l.name)} (${t(l.level)}${"cefr" in l ? `, ${l.cefr}` : ""})`).join(", ")}
 
 ## About

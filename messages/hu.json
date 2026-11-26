@@ -109,7 +109,8 @@
     "currentRole": "{company}: {role}, {start} óta.",
     "fullExperience": "Teljes szakmai tapasztalat",
     "letsTalk": "Beszéljünk",
-    "otherWays": "További elérhetőségek"
+    "otherWays": "További elérhetőségek",
+    "earlier": "Korábban"
   },
   "projects": {
     "title": "Projektek",
