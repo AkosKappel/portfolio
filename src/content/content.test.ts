@@ -9,6 +9,7 @@ import sk from "../../messages/sk.json";
 import { routing } from "../i18n/routing";
 import { formatMonth, monthsBetween, yearRange } from "../lib/format";
 import { techIcon, techUrl } from "../lib/tech-icons";
+import { cv } from "./cv";
 import { jobs } from "./experience";
 import { projects } from "./projects";
 import { site } from "./site";
@@ -85,11 +86,12 @@ describe("experience", () => {
     }
   });
 
-  // Fails once a year passes, as a reminder to raise the "N+ years" in the intro.
-  it("matches the years of experience in the intro", () => {
+  // Fails once a year passes, as a reminder to raise the "N+ years" in the intro and the CV.
+  it("matches the years of experience in the intro and the CV", () => {
     const thisMonth = new Date().toISOString().slice(0, 7);
     const years = Math.floor((monthsBetween(jobs.at(-1)?.start ?? thisMonth, thisMonth) - 1) / 12);
     expect(site.intro.en).toContain(`${years}+ years`);
+    expect(cv.profile.en).toContain(`${years}+ years`);
   });
 });
 

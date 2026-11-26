@@ -18,11 +18,11 @@ type CvProject = {
  */
 export const cv = {
   profile: {
-    en: "Full-stack software engineer with years of experience in web and mobile development. I build software that is fast, accessible and easy to maintain, and I learn new technologies quickly. I work well both independently and in a team. AI coding agents make me much faster in my daily work: I plan the work, build it with their help and review every change.",
-    sk: "Full-stack vývojár s viacročnou praxou vo vývoji webových a mobilných aplikácií. Tvorím softvér, ktorý je rýchly, prístupný a ľahko udržiavateľný, a nové technológie sa učím rýchlo. Dobre pracujem samostatne aj v tíme. AI agenti na programovanie ma v každodennej práci výrazne zrýchľujú: prácu naplánujem, s ich pomocou ju vytvorím a každú zmenu skontrolujem.",
-    de: "Full-Stack-Entwickler mit mehrjähriger Erfahrung in der Web- und Mobile-Entwicklung. Ich baue Software, die schnell, barrierefrei und leicht wartbar ist, und lerne neue Technologien schnell. Ich arbeite gut selbstständig wie auch im Team. KI-Coding-Agenten machen mich in meiner täglichen Arbeit deutlich schneller: Ich plane die Arbeit, setze sie mit ihrer Hilfe um und prüfe jede Änderung.",
-    cs: "Full-stack vývojář s několikaletou praxí ve vývoji webových a mobilních aplikací. Tvořím software, který je rychlý, přístupný a snadno udržovatelný, a nové technologie se učím rychle. Dobře pracuji samostatně i v týmu. AI agenti na programování mě v každodenní práci výrazně zrychlují: práci naplánuji, s jejich pomocí ji vytvořím a každou změnu zkontroluji.",
-    hu: "Full-stack fejlesztő, többéves tapasztalattal webes és mobilalkalmazások fejlesztésében. Gyors, akadálymentes és könnyen karbantartható szoftvert készítek, és gyorsan tanulok új technológiákat. Önállóan és csapatban is jól dolgozom. Az AI kódoló ágensek a mindennapi munkámban jóval gyorsabbá tesznek: megtervezem a munkát, a segítségükkel elkészítem, és minden változtatást átnézek.",
+    en: "Full-stack software engineer with 3+ years of experience in web and mobile development. I build software that is fast, accessible and easy to maintain, and I learn new technologies quickly. I work well both independently and in a team. AI coding agents make me much faster in my daily work: I plan the work, build it with their help and review every change.",
+    sk: "Full-stack vývojár s viac ako 3 rokmi praxe vo vývoji webových a mobilných aplikácií. Tvorím softvér, ktorý je rýchly, prístupný a ľahko udržiavateľný, a nové technológie sa učím rýchlo. Dobre pracujem samostatne aj v tíme. AI agenti na programovanie ma v každodennej práci výrazne zrýchľujú: prácu naplánujem, s ich pomocou ju vytvorím a každú zmenu skontrolujem.",
+    de: "Full-Stack-Entwickler mit über 3 Jahren Erfahrung in der Web- und Mobile-Entwicklung. Ich baue Software, die schnell, barrierefrei und leicht wartbar ist, und lerne neue Technologien schnell. Ich arbeite gut selbstständig wie auch im Team. KI-Coding-Agenten machen mich in meiner täglichen Arbeit deutlich schneller: Ich plane die Arbeit, setze sie mit ihrer Hilfe um und prüfe jede Änderung.",
+    cs: "Full-stack vývojář s více než 3 lety praxe ve vývoji webových a mobilních aplikací. Tvořím software, který je rychlý, přístupný a snadno udržovatelný, a nové technologie se učím rychle. Dobře pracuji samostatně i v týmu. AI agenti na programování mě v každodenní práci výrazně zrychlují: práci naplánuji, s jejich pomocí ji vytvořím a každou změnu zkontroluji.",
+    hu: "Full-stack fejlesztő, több mint 3 év tapasztalattal webes és mobilalkalmazások fejlesztésében. Gyors, akadálymentes és könnyen karbantartható szoftvert készítek, és gyorsan tanulok új technológiákat. Önállóan és csapatban is jól dolgozom. Az AI kódoló ágensek a mindennapi munkámban jóval gyorsabbá tesznek: megtervezem a munkát, a segítségükkel elkészítem, és minden változtatást átnézek.",
   } satisfies Text,
 
   /** Short bullets and the technology line per job, keyed by `Job.id`. */
@@ -30,25 +30,25 @@ export const cv = {
     "igt-systems": {
       highlights: [
         {
-          en: "Responsible for the project management module of **Core3**, a business platform for projects, HR and CRM: kanban boards, task permissions, Scrum and Waterfall workflows.",
-          sk: "Zodpovedal som za modul projektového riadenia vo firemnej platforme **Core3**: kanban, oprávnenia, Scrum a Waterfall.",
-          de: "Verantwortlich für das Projektmanagement-Modul von **Core3**, einer Unternehmensplattform für Projekte, HR und CRM: Kanban-Boards, Aufgabenberechtigungen, Scrum- und Wasserfall-Workflows.",
-          cs: "Odpovídal jsem za modul projektového řízení ve firemní platformě **Core3** pro projekty, HR a CRM: kanban, oprávnění k úkolům, Scrum a Waterfall.",
-          hu: "Én feleltem a **Core3** projektmenedzsment-moduljáért, amely egy projekt-, HR- és CRM-platform: kanban táblák, feladatjogosultságok, Scrum és vízesés munkafolyamatok.",
+          en: "Owned the project management module of **Core3**, a business platform for projects, HR and CRM, in a team of 8: kanban boards, task permissions, Scrum and Waterfall workflows.",
+          sk: "Zodpovedal som za modul projektového riadenia platformy **Core3** v tíme 8 ľudí: kanban, oprávnenia, Scrum, Waterfall.",
+          de: "Verantwortlich für das Projektmanagement-Modul von **Core3**, einer Unternehmensplattform für Projekte, HR und CRM, in einem Team von 8 Entwicklern: Kanban-Boards, Aufgabenberechtigungen, Scrum- und Wasserfall-Workflows.",
+          cs: "Odpovídal jsem za modul projektového řízení ve firemní platformě **Core3** pro projekty, HR a CRM v týmu 8 vývojářů: kanban, oprávnění k úkolům, Scrum a Waterfall.",
+          hu: "Egy 8 fős csapatban én feleltem a **Core3** projektmenedzsment-moduljáért, amely egy projekt-, HR- és CRM-platform: kanban táblák, feladatjogosultságok, Scrum és vízesés munkafolyamatok.",
         },
         {
-          en: "Optimized the slowest Core3 pages by fixing N+1 database queries, adding caching and loading data in the background.",
-          sk: "Optimalizoval som najpomalšie stránky Core3: opravil N+1 dopyty, pridal cache a načítavanie na pozadí.",
-          de: "Die langsamsten Core3-Seiten optimiert: N+1-Datenbankabfragen behoben, Caching ergänzt und Daten im Hintergrund geladen.",
-          cs: "Optimalizoval jsem nejpomalejší stránky Core3: opravil N+1 dotazy do databáze, přidal cache a načítání na pozadí.",
-          hu: "Optimalizáltam a Core3 leglassabb oldalait: kijavítottam az N+1 adatbázis-lekérdezéseket, gyorsítótárat és háttérbeli adatbetöltést vezettem be.",
+          en: "Sped up the slowest Core3 pages after user complaints: fixed N+1 queries, added caching and background loading.",
+          sk: "Po sťažnostiach používateľov som zrýchlil najpomalšie stránky Core3: N+1 dopyty, cache a načítavanie na pozadí.",
+          de: "Die langsamsten Core3-Seiten nach Nutzerbeschwerden beschleunigt: N+1-Abfragen behoben, Caching und Laden im Hintergrund.",
+          cs: "Po stížnostech uživatelů jsem zrychlil nejpomalejší stránky Core3: N+1 dotazy, cache a načítání na pozadí.",
+          hu: "Felhasználói panaszok után felgyorsítottam a Core3 leglassabb oldalait: N+1 lekérdezések, gyorsítótár, háttérbetöltés.",
         },
         {
-          en: "Developed the **WYDO** sports app for Android and iOS in Kotlin Multiplatform, then moved its web version to React.",
-          sk: "Vyvíjal som mobilnú aplikáciu **WYDO** pre Android a iOS v Kotlin Multiplatform a potom presunul jej web do Reactu.",
-          de: "Die Sport-App **WYDO** für Android und iOS in Kotlin Multiplatform entwickelt und danach ihre Webversion auf React umgestellt.",
-          cs: "Vyvíjel jsem sportovní aplikaci **WYDO** pro Android a iOS v Kotlin Multiplatform a potom převedl její webovou verzi do Reactu.",
-          hu: "Kotlin Multiplatformban fejlesztettem a **WYDO** sportalkalmazást Androidra és iOS-re, majd a webes verzióját átvittem Reactre.",
+          en: "Started the **WYDO** sports app in Kotlin Multiplatform and its React web app; top contributor in a team of 3.",
+          sk: "Založil som športovú aplikáciu **WYDO** v Kotlin Multiplatform aj jej web v Reacte; hlavný vývojár v tíme troch.",
+          de: "Die Sport-App **WYDO** in Kotlin Multiplatform und ihre React-Web-App gestartet; Hauptentwickler im Dreierteam.",
+          cs: "Založil jsem sportovní aplikaci **WYDO** v Kotlin Multiplatform i její web v Reactu; hlavní vývojář v týmu tří.",
+          hu: "Elindítottam a **WYDO** sportalkalmazást Kotlin Multiplatformban és a React webappját; fő fejlesztő egy háromfős csapatban.",
         },
         {
           en: "Built the **CleanEEG** web app from scratch, including a WebGL viewer that compares raw and cleaned brain signals (EEG), and the frontend of **BDAP**, an analytics dashboard for an enterprise client.",
@@ -73,11 +73,11 @@ export const cv = {
     svarba: {
       highlights: [
         {
-          en: "Developed the REST API of a new internal company system, a React web app that replaced several older PHP applications.",
-          sk: "Vyvinul som REST API nového interného systému, webovej aplikácie v Reacte, ktorá nahradila staršie PHP aplikácie.",
-          de: "Die REST-API eines neuen internen Firmensystems entwickelt, einer React-Web-App, die mehrere ältere PHP-Anwendungen ersetzt hat.",
-          cs: "Vyvinul jsem REST API nového interního firemního systému, webové aplikace v Reactu, která nahradila několik starších PHP aplikací.",
-          hu: "Kifejlesztettem egy új belső céges rendszer REST API-ját. A rendszer egy React webalkalmazás, amely több régebbi PHP alkalmazást váltott le.",
+          en: "Wrote most of the REST API and its 200+ tests for a new internal system that replaced older PHP apps.",
+          sk: "Napísal som väčšinu REST API a 200+ testov pre nový interný systém, ktorý nahradil staršie PHP aplikácie.",
+          de: "Den Großteil der REST-API und über 200 Tests für ein neues internes System geschrieben, das ältere PHP-Apps ablöste.",
+          cs: "Napsal jsem většinu REST API a 200+ testů pro nový interní systém, který nahradil starší PHP aplikace.",
+          hu: "Én írtam egy új belső rendszer REST API-jának nagy részét és több mint 200 tesztjét; a rendszer régebbi PHP-alkalmazásokat váltott le.",
         },
         {
           en: "Implemented real-time notifications, scheduled data imports and exports, and AI translations of product texts.",
@@ -204,16 +204,6 @@ export const cv = {
     },
   ] as CvProject[],
 
-  /** Linked by name in the closing line. */
-  otherProjects: [
-    "oriel",
-    "fakeshop",
-    "wac-microfrontends",
-    "smarttech-e-shop",
-    "pokedex",
-    "advent-of-code",
-  ],
-
   labels: {
     profile: { en: "Profile", sk: "Profil", de: "Profil", cs: "Profil", hu: "Profil" },
     experience: {
@@ -254,20 +244,12 @@ export const cv = {
     },
     present: { en: "present", sk: "súčasnosť", de: "heute", cs: "současnost", hu: "jelenleg" },
     pdfTitle: { en: "CV", sk: "životopis", de: "Lebenslauf", cs: "životopis", hu: "önéletrajz" },
-    otherProjects: {
-      en: "Other projects include",
-      sk: "Ďalšie projekty sú napríklad",
-      de: "Weitere Projekte sind zum Beispiel",
-      cs: "Další projekty jsou například",
-      hu: "További projektek például",
-    },
-    and: { en: "and", sk: "a", de: "und", cs: "a", hu: "és" },
-    findAll: {
-      en: "You can find all of them and read more about me at",
-      sk: "Všetky nájdete spolu s informáciami o mne na",
-      de: "Alle Projekte und mehr über mich finden Sie auf",
-      cs: "Všechny najdete spolu s informacemi o mně na",
-      hu: "Mindegyiket megtalálja, és többet is megtudhat rólam itt:",
+    more: {
+      en: "Find more about me, my projects and my skills at",
+      sk: "Viac o mne, mojich projektoch a zručnostiach nájdete na",
+      de: "Mehr über mich, meine Projekte und meine Kenntnisse finden Sie auf",
+      cs: "Více o mně, mých projektech a dovednostech najdete na",
+      hu: "Többet rólam, a projektjeimről és a készségeimről itt talál:",
     },
   } satisfies Record<string, Text>,
 };

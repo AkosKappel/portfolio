@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 # Generates both CVs from src/content, builds them with LaTeX, copies the PDFs to public/
-# and renders the page images that the CV viewer shows on phones and tablets.
+# and renders the page images that the CV viewer shows on phones and tablets. The no-photo
+# versions are for countries where CV photos are uncommon and for automated screening forms.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 pnpm cv:tex
 
-(cd latex && latexmk -pdf -interaction=nonstopmode -quiet main-english.tex main-slovak.tex)
+(cd latex && latexmk -pdf -interaction=nonstopmode -quiet main-english.tex main-slovak.tex \
+  main-english-nophoto.tex main-slovak-nophoto.tex)
 
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
@@ -16,6 +18,7 @@ for pair in english:en slovak:sk; do
   name=${pair%%:*}
   code=${pair##*:}
   cp "latex/main-$name.pdf" "public/CV_Akos_Kappel_(${code^^}).pdf"
+  cp "latex/main-$name-nophoto.pdf" "public/CV_Akos_Kappel_(${code^^})_no_photo.pdf"
   rm -f public/images/cv/cv-"$code"-*.webp
   # 150 dpi: an A4 page is 1241 px wide, enough for a phone screen at 3x.
   pdftoppm -r 150 -png "latex/main-$name.pdf" "$tmp/cv-$code"

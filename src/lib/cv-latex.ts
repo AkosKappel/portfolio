@@ -37,23 +37,31 @@ function project(slug: string) {
   return { title: found.title, href, years: years(found.year, found.until) };
 }
 
-/** The full `main-*.tex` document for one language; the layout lives in `latex/cv-style.tex`. */
-export function renderCv(locale: Locale) {
+/**
+ * The full `main-*.tex` document for one language; the layout lives in `latex/cv-style.tex`.
+ * Without the photo it suits countries where photos are uncommon and automated screening.
+ */
+export function renderCv(locale: Locale, { photo = true } = {}) {
   const t = (text: Record<Locale, string>) => text[locale];
   const home = locale === "en" ? `${site.url}/` : `${site.url}/${locale}`;
   const contact = (icon: string, href: string, label: string) =>
     `\\contact{${icon}}{${url(href)}}{${tex(label)}}`;
   const label = (href: string) => href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
+  const fact = (icon: string, text: string) => `\\fact{${icon}}{${tex(text)}}`;
+  const name = `{${tex(`${site.title} ${site.name}`)}}{${tex(site.headline)}}`;
   const header = [
-    `\\cvheader{profile.jpg}{${tex(`${site.title} ${site.name}`)}}{${tex(site.headline)}}{%`,
+    photo ? `\\cvheader{profile.jpg}${name}{%` : `\\cvheaderplain${name}{%`,
     `  ${contact("\\faEnvelope[regular]", `mailto:${site.email}`, site.email)}\\quad`,
     `  ${contact("\\faPhone*", `tel:${site.phone.replaceAll(" ", "")}`, site.phone)}\\quad`,
-    `  ${contact("\\faMapMarker*", "https://www.google.com/maps/place/Bratislava", t(site.location))}\\quad`,
     `  ${contact("\\faGlobe", home, label(home))}\\\\[2pt]`,
     `  ${contact("\\faLinkedinIn", site.links.linkedin, label(site.links.linkedin))}\\quad`,
     `  ${contact("\\faGithub", site.links.github, label(site.links.github))}\\quad`,
-    `  ${contact("\\faGitlab", site.links.gitlab, label(site.links.gitlab))}%`,
+    `  ${contact("\\faGitlab", site.links.gitlab, label(site.links.gitlab))}\\\\[2pt]`,
+    `  ${contact("\\faMapMarker*", "https://www.google.com/maps/place/Bratislava", t(site.location))}\\quad`,
+    `  ${fact("\\faPassport", t(site.workAuthorization))}\\quad`,
+    `  ${fact("\\faClock[regular]", t(site.timezone))}\\quad`,
+    `  ${fact("\\faCalendarCheck[regular]", t(site.notice))}%`,
     "}",
   ];
 
@@ -118,12 +126,6 @@ export function renderCv(locale: Locale) {
     return `  \\project{${tex(title)}}{${url(href)}}{${span}}{${tex(t(entry.summary))}}{${tex(entry.stack)}}`;
   });
 
-  const others = cv.otherProjects.map((slug) => {
-    const { title, href } = project(slug);
-    return `\\href{${url(href)}}{${tex(title)}}`;
-  });
-  const otherList = `${others.slice(0, -1).join(",\n")}\n${t(cv.labels.and)} ${others.at(-1)}`;
-
   return [
     "% Generated from src/content by src/lib/cv-latex.ts. Do not edit; run `pnpm cv:tex`.",
     "\\documentclass[10pt]{article}",
@@ -152,9 +154,7 @@ export function renderCv(locale: Locale) {
     "\\begin{itemize}",
     ...selected,
     "\\end{itemize}",
-    `{\\small ${tex(t(cv.labels.otherProjects))}`,
-    `${otherList}.\\\\`,
-    `${tex(t(cv.labels.findAll))} \\href{${url(home)}}{\\color{accent}${tex(label(home))}}.}`,
+    `\\more{${tex(t(cv.labels.more))}}{${url(home)}}{${tex(label(home))}}`,
     "",
     "\\end{document}",
     "",

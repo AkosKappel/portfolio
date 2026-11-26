@@ -11,6 +11,18 @@ describe("CV LaTeX", () => {
     await expect(renderCv("sk")).toMatchFileSnapshot("../../latex/main-slovak.tex");
   });
 
+  it("matches latex/main-english-nophoto.tex", async () => {
+    await expect(renderCv("en", { photo: false })).toMatchFileSnapshot(
+      "../../latex/main-english-nophoto.tex",
+    );
+  });
+
+  it("matches latex/main-slovak-nophoto.tex", async () => {
+    await expect(renderCv("sk", { photo: false })).toMatchFileSnapshot(
+      "../../latex/main-slovak-nophoto.tex",
+    );
+  });
+
   it("escapes LaTeX special characters", () => {
     expect(renderCv("en")).toContain("C\\#");
   });

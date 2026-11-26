@@ -48,6 +48,23 @@
   \vspace{0.2cm}
 }
 
+% \cvheaderplain{name}{headline}{contact lines}: the header without a photo.
+\newcommand{\cvheaderplain}[3]{%
+  {\fontsize{26}{28}\selectfont\bfseries #1}\\[3pt]
+  {\large\color{accent} #2}\\[6pt]
+  {\footnotesize #3}\par
+  \vspace{0.2cm}
+}
+
+% A contact-line item without a link, such as the work authorization.
+\newcommand{\fact}[2]{\mbox{{\color{muted}#1}\hspace{0.35em}#2}}
+
+% \more{text}{url}{label}: the closing line that points to the website.
+\newcommand{\more}[3]{%
+  \vspace{0.2\baselineskip}
+  {\small\color{muted}\faGlobe\hspace{0.4em}\color{black}#1 \href{#2}{\color{accent}\textbf{#3}}.}\par
+}
+
 % \job{role}{company}{place}{dates}
 \newcommand{\job}[4]{%
   \needspace{3\baselineskip}%
