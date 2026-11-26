@@ -104,6 +104,15 @@ export default async function ExperiencePage({ params }: PageProps<"/[locale]/ex
                       )}
                     </AnchorHeading>
                     <p className="text-sm text-muted">{pick(item.context, locale)}</p>
+                    <p className="mt-2 max-w-2xl font-medium">
+                      {pick(item.role, locale)}
+                      {item.team ? (
+                        <span className="font-normal text-muted">
+                          {" · "}
+                          {t("team", { count: item.team })}
+                        </span>
+                      ) : null}
+                    </p>
                     <ul className="mt-3 max-w-2xl list-disc space-y-1.5 pl-5 marker:text-accent">
                       {item.highlights.map((highlight) => (
                         <li key={highlight.en}>{pick(highlight, locale)}</li>

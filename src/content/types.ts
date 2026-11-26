@@ -92,6 +92,10 @@ export type WorkItem = {
   name: Text;
   url?: string;
   context: Text;
+  /** What I owned or achieved, in one line. The home page shows it under the project. */
+  role: Text;
+  /** Developers on the project, me included. */
+  team?: number;
   highlights: Text[];
   stack: string[];
 };

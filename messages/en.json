@@ -185,7 +185,8 @@
   "experience": {
     "title": "Experience",
     "description": "Full-stack work at IGT Systems, Švarba and SoftPoint: web, mobile and backend products and data pipelines.",
-    "lead": "Three companies since 2023, from data pipelines and company websites to web and mobile apps. For each project you will find what I owned, the size of the team, what I built and the technologies I used. At IGT Systems I work on several client products at once."
+    "lead": "Three companies since 2023, from data pipelines and company websites to web and mobile apps. For each project you will find what I owned, the size of the team, what I built and the technologies I used. At IGT Systems I work on several client products at once.",
+    "team": "Team size: {count}"
   },
   "activity": {
     "title": "Activity",

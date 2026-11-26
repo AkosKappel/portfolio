@@ -185,7 +185,8 @@
   "experience": {
     "title": "Praxe",
     "description": "Full-stack práce v IGT Systems, Švarba a SoftPoint: webové, mobilní a backendové produkty a datové pipeline.",
-    "lead": "Tři firmy od roku 2023, od datových pipeline a firemních webů po webové a mobilní aplikace. U každého projektu najdete, za co jsem zodpovídal, jak velký byl tým, co jsem vytvořil a jaké technologie jsem použil. V IGT Systems pracuji na několika produktech pro klienty zároveň."
+    "lead": "Tři firmy od roku 2023, od datových pipeline a firemních webů po webové a mobilní aplikace. U každého projektu najdete, za co jsem zodpovídal, jak velký byl tým, co jsem vytvořil a jaké technologie jsem použil. V IGT Systems pracuji na několika produktech pro klienty zároveň.",
+    "team": "Velikost týmu: {count}"
   },
   "activity": {
     "title": "Aktivita",

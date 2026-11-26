@@ -185,7 +185,8 @@
   "experience": {
     "title": "Berufserfahrung",
     "description": "Full-Stack-Arbeit bei IGT Systems, Švarba und SoftPoint: Web-, Mobil- und Backend-Produkte sowie Datenpipelines.",
-    "lead": "Drei Firmen seit 2023, von Datenpipelines und Firmenwebsites bis zu Web- und Mobile-Apps. Zu jedem Projekt finden Sie, wofür ich verantwortlich war, wie groß das Team war, was ich gebaut habe und welche Technologien ich eingesetzt habe. Bei IGT Systems arbeite ich gleichzeitig an mehreren Kundenprodukten."
+    "lead": "Drei Firmen seit 2023, von Datenpipelines und Firmenwebsites bis zu Web- und Mobile-Apps. Zu jedem Projekt finden Sie, wofür ich verantwortlich war, wie groß das Team war, was ich gebaut habe und welche Technologien ich eingesetzt habe. Bei IGT Systems arbeite ich gleichzeitig an mehreren Kundenprodukten.",
+    "team": "Teamgröße: {count}"
   },
   "activity": {
     "title": "Aktivität",

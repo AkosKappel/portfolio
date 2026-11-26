@@ -185,7 +185,8 @@
   "experience": {
     "title": "Szakmai tapasztalat",
     "description": "Full-stack munka az IGT Systemsnél, a Švarbánál és a SoftPointnál: webes, mobilos és backend termékek, valamint adatfeldolgozó pipeline-ok.",
-    "lead": "Három cég 2023 óta, az adatfeldolgozó pipeline-októl és céges weboldalaktól a web- és mobilalkalmazásokig. Minden projektnél megtalálja, miért feleltem, mekkora volt a csapat, mit készítettem és milyen technológiákat használtam. Az IGT Systemsnél egyszerre több ügyfélterméken dolgozom."
+    "lead": "Három cég 2023 óta, az adatfeldolgozó pipeline-októl és céges weboldalaktól a web- és mobilalkalmazásokig. Minden projektnél megtalálja, miért feleltem, mekkora volt a csapat, mit készítettem és milyen technológiákat használtam. Az IGT Systemsnél egyszerre több ügyfélterméken dolgozom.",
+    "team": "Csapatméret: {count} fő"
   },
   "activity": {
     "title": "Aktivitás",
