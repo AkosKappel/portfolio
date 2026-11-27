@@ -59,11 +59,11 @@ export const jobs: Job[] = [
             hu: "A projektmenedzsment-modul felelőse: kanban táblák drag and droppal, feladatjogosultságok a létrehozóknak, felelősöknek és projektvezetőknek, valamint Scrum és Waterfall munkafolyamatok",
           },
           {
-            en: "Optimized the slowest pages after user complaints: found the slow parts with flame graphs, fixed N+1 queries in PostgreSQL and MongoDB, and added caching with proper invalidation",
-            sk: "Optimalizoval najpomalšie stránky po sťažnostiach používateľov: pomalé miesta som našiel cez flame grafy, opravil N+1 dopyty v PostgreSQL a MongoDB a pridal cache so správnou invalidáciou",
-            de: "Die langsamsten Seiten nach Beschwerden von Nutzern optimiert: die langsamen Stellen mit Flame Graphs gefunden, N+1-Abfragen in PostgreSQL und MongoDB behoben und Caching mit sauberer Invalidierung ergänzt",
-            cs: "Optimalizoval nejpomalejší stránky po stížnostech uživatelů: pomalá místa jsem našel pomocí flame grafů, opravil N+1 dotazy v PostgreSQL a MongoDB a přidal cache se správnou invalidací",
-            hu: "Felhasználói panaszok után optimalizáltam a leglassabb oldalakat: flame graphokkal megtaláltam a lassú részeket, kijavítottam az N+1 lekérdezéseket PostgreSQL-ben és MongoDB-ben, és gyorsítótárazást vezettem be megfelelő invalidálással",
+            en: "Optimized the slowest pages after user complaints. Flame graphs showed that opening a project took over 2 seconds and 300+ database queries, mostly asset labels loaded one by one. Fixed the N+1 queries in PostgreSQL and MongoDB and added caching with proper invalidation",
+            sk: "Optimalizoval najpomalšie stránky po sťažnostiach používateľov. Flame grafy ukázali, že otvorenie projektu trvalo vyše 2 sekúnd a 300+ dopytov do databázy, väčšinou kvôli štítkom assetov načítavaným po jednom. Opravil som N+1 dopyty v PostgreSQL a MongoDB a pridal cache so správnou invalidáciou",
+            de: "Die langsamsten Seiten nach Beschwerden von Nutzern optimiert. Flame Graphs zeigten, dass das Öffnen eines Projekts über 2 Sekunden und 300+ Datenbankabfragen brauchte, meist für einzeln geladene Asset-Labels. N+1-Abfragen in PostgreSQL und MongoDB behoben und Caching mit sauberer Invalidierung ergänzt",
+            cs: "Optimalizoval nejpomalejší stránky po stížnostech uživatelů. Flame grafy ukázaly, že otevření projektu trvalo přes 2 sekundy a 300+ dotazů do databáze, většinou kvůli štítkům assetů načítaným po jednom. Opravil jsem N+1 dotazy v PostgreSQL a MongoDB a přidal cache se správnou invalidací",
+            hu: "Felhasználói panaszok után optimalizáltam a leglassabb oldalakat. A flame graphok megmutatták, hogy egy projekt megnyitása több mint 2 másodpercig tartott és 300+ adatbázis-lekérdezést futtatott, főleg az egyenként betöltött asset-címkék miatt. Kijavítottam az N+1 lekérdezéseket PostgreSQL-ben és MongoDB-ben, és gyorsítótárazást vezettem be megfelelő invalidálással",
           },
           {
             en: "Async data loading with infinite scroll, documented as a shared pattern for the team",

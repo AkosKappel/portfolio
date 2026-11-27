@@ -37,11 +37,11 @@ export const cv = {
           hu: "Egy 8 fős csapatban én feleltem a **Core3** projektmenedzsment-moduljáért, amely egy projekt-, HR- és CRM-platform: kanban táblák, feladatjogosultságok, Scrum és vízesés munkafolyamatok.",
         },
         {
-          en: "Sped up the slowest Core3 pages after user complaints: fixed N+1 queries, added caching and background loading.",
-          sk: "Po sťažnostiach používateľov som zrýchlil najpomalšie stránky Core3: N+1 dopyty, cache a načítavanie na pozadí.",
-          de: "Die langsamsten Core3-Seiten nach Nutzerbeschwerden beschleunigt: N+1-Abfragen behoben, Caching und Laden im Hintergrund.",
-          cs: "Po stížnostech uživatelů jsem zrychlil nejpomalejší stránky Core3: N+1 dotazy, cache a načítání na pozadí.",
-          hu: "Felhasználói panaszok után felgyorsítottam a Core3 leglassabb oldalait: N+1 lekérdezések, gyorsítótár, háttérbetöltés.",
+          en: "Sped up the slowest Core3 pages after user complaints: opening a project took 2+ s and 300+ queries. Fixed N+1 queries, added caching and background loading.",
+          sk: "Po sťažnostiach používateľov som zrýchlil najpomalšie stránky Core3: otvorenie projektu trvalo 2+ s a 300+ dopytov. Opravil som N+1 dopyty, pridal cache a načítavanie na pozadí.",
+          de: "Die langsamsten Core3-Seiten nach Nutzerbeschwerden beschleunigt: Ein Projekt zu öffnen dauerte 2+ s und 300+ Abfragen. N+1-Abfragen behoben, Caching und Laden im Hintergrund.",
+          cs: "Po stížnostech uživatelů jsem zrychlil nejpomalejší stránky Core3: otevření projektu trvalo 2+ s a 300+ dotazů. Opravil jsem N+1 dotazy, přidal cache a načítání na pozadí.",
+          hu: "Felhasználói panaszok után felgyorsítottam a Core3 leglassabb oldalait: egy projekt megnyitása 2+ s és 300+ lekérdezés volt. N+1 lekérdezések javítása, gyorsítótár, háttérbetöltés.",
         },
         {
           en: "Started the **WYDO** sports app in Kotlin Multiplatform and its React web app; top contributor in a team of 3.",
