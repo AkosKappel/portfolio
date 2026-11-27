@@ -9,6 +9,7 @@ import sk from "../../messages/sk.json";
 import { routing } from "../i18n/routing";
 import { formatMonth, monthsBetween, yearRange } from "../lib/format";
 import { techIcon, techUrl } from "../lib/tech-icons";
+import { caseStudies, getCaseStudy } from "./case-studies";
 import { cv } from "./cv";
 import { jobs } from "./experience";
 import { projects } from "./projects";
@@ -92,6 +93,32 @@ describe("experience", () => {
     const years = Math.floor((monthsBetween(jobs.at(-1)?.start ?? thisMonth, thisMonth) - 1) / 12);
     expect(site.intro.en).toContain(`${years}+ years`);
     expect(cv.profile.en).toContain(`${years}+ years`);
+  });
+});
+
+describe("case studies", () => {
+  it("each describe one work project", () => {
+    const ids = caseStudies.map((study) => study.id);
+    expect(new Set(ids).size).toBe(ids.length);
+    for (const id of ids) expect(getCaseStudy(id), id).toBeDefined();
+  });
+
+  it("have text in every language", () => {
+    for (const study of caseStudies) {
+      const texts = [
+        study.summary,
+        ...study.description,
+        ...study.contributions,
+        ...study.decisions.flatMap((decision) => [decision.title, decision.text]),
+        ...(study.lessons ?? []),
+        ...(study.measurements ? [study.measurements.lead, study.measurements.note] : []),
+        ...(study.measurements?.rows.map((row) => row.label) ?? []),
+        ...(study.gallery ?? []).flatMap((figure) => [figure.alt, figure.caption]),
+      ];
+      for (const text of texts) {
+        for (const locale of routing.locales) expect(text[locale], study.id).toBeTruthy();
+      }
+    }
   });
 });
 

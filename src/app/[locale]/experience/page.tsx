@@ -1,11 +1,13 @@
-import { Briefcase, ExternalLink, MapPin } from "lucide-react";
+import { ArrowRight, Briefcase, ExternalLink, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AnchorHeading } from "@/components/ui/anchor-heading";
 import { Page, PageHeader } from "@/components/ui/page";
 import { StackList } from "@/components/ui/tech-badge";
+import { hasCaseStudy } from "@/content/case-studies";
 import { jobs } from "@/content/experience";
 import { pick } from "@/content/types";
+import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { formatDuration, formatMonth } from "@/lib/format";
 import { alternates } from "@/lib/metadata";
@@ -119,6 +121,15 @@ export default async function ExperiencePage({ params }: PageProps<"/[locale]/ex
                       ))}
                     </ul>
                     <StackList items={item.stack} className="mt-4" />
+                    {hasCaseStudy(item.id) ? (
+                      <Link
+                        href={`/experience/${item.id}`}
+                        className="mt-4 inline-flex items-center gap-1.5 font-medium text-accent underline-offset-4 hover:underline"
+                      >
+                        {t("caseStudy")}
+                        <ArrowRight aria-hidden size={16} />
+                      </Link>
+                    ) : null}
                   </section>
                 ))}
               </div>

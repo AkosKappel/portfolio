@@ -100,6 +100,25 @@ export type WorkItem = {
   stack: string[];
 };
 
+/** A detail page for a work project, at /experience/{id}. Name, role, team and stack come from its WorkItem. */
+export type CaseStudy = {
+  /** The id of the WorkItem it describes. */
+  id: string;
+  /** One sentence for link previews and search results. */
+  summary: Text;
+  description: Text[];
+  contributions: Text[];
+  decisions: { title: Text; text: Text }[];
+  lessons?: Text[];
+  /** Timings measured before an optimization, drawn as bars. */
+  measurements?: {
+    lead: Text;
+    rows: { label: Text; ms: number; queries: number }[];
+    note: Text;
+  };
+  gallery?: Figure[];
+};
+
 export type Job = {
   /** Anchor on the experience page. */
   id: string;

@@ -6,6 +6,7 @@ const pages = [
   { path: "/projects", heading: "Projects" },
   { path: "/projects/glaucoma-segmentation", heading: "Glaucoma Segmentation" },
   { path: "/experience", heading: "Experience" },
+  { path: "/experience/core3", heading: "Core3" },
   { path: "/activity", heading: "Activity" },
   { path: "/skills", heading: "Skills" },
   { path: "/education", heading: "Education" },

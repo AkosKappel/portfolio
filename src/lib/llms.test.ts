@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { caseStudies } from "../content/case-studies";
 import { jobs } from "../content/experience";
 import { projects } from "../content/projects";
 import { site } from "../content/site";
@@ -8,6 +9,11 @@ describe("llms.txt", () => {
   it("links every project", () => {
     const index = buildLlmsTxt();
     for (const project of projects) expect(index).toContain(`/projects/${project.slug})`);
+  });
+
+  it("links every work case study", () => {
+    const index = buildLlmsTxt();
+    for (const study of caseStudies) expect(index).toContain(`/experience/${study.id})`);
   });
 });
 

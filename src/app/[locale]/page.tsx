@@ -21,6 +21,7 @@ import { EmailLink } from "@/components/ui/email-link";
 import { JsonLd } from "@/components/ui/json-ld";
 import { Page } from "@/components/ui/page";
 import { CardStack, StackList, TechLogo } from "@/components/ui/tech-badge";
+import { hasCaseStudy } from "@/content/case-studies";
 import { jobs } from "@/content/experience";
 import { featuredProjects } from "@/content/projects";
 import { site } from "@/content/site";
@@ -265,7 +266,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
             <li key={item.id} className="reveal">
               <h3 className="text-xl font-semibold">
                 <Link
-                  href={`/experience#${item.id}`}
+                  href={hasCaseStudy(item.id) ? `/experience/${item.id}` : `/experience#${item.id}`}
                   className="underline-offset-4 hover:text-accent hover:underline"
                 >
                   {pick(item.name, locale)}

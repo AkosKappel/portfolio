@@ -1,4 +1,5 @@
 import en from "../../messages/en.json";
+import { caseStudies, hasCaseStudy } from "../content/case-studies";
 import { degrees, secondarySchool, university } from "../content/education";
 import { jobs } from "../content/experience";
 import { projects } from "../content/projects";
@@ -29,6 +30,18 @@ The whole public profile (experience, education, skills and projects) as one Mar
 
 ${pages.map(({ href, key }) => `- [${en.nav[key]}](${url(href)})`).join("\n")}
 
+## Work case studies
+
+${jobs
+  .flatMap((job) => job.items)
+  .flatMap((item) => {
+    const study = caseStudies.find((entry) => entry.id === item.id);
+    return study
+      ? [`- [${t(item.name)}](${url(`/experience/${item.id}`)}): ${t(study.summary)}`]
+      : [];
+  })
+  .join("\n")}
+
 ## Projects
 
 ${projects.map((project) => `- [${project.title}](${projectUrl(project)}): ${t(project.summary)}`).join("\n")}
@@ -48,7 +61,7 @@ export function buildLlmsFullTxt() {
     const note = job.companyNote ? ` (${t(job.companyNote)})` : "";
     const items = job.items.map(
       (item) =>
-        `#### ${t(item.name)}\n\n${t(item.context)}\n\nRole: ${t(item.role)}${item.team ? `. Team size: ${item.team}` : ""}.\n\n${item.highlights.map((h) => `- ${t(h)}`).join("\n")}\n\nStack: ${item.stack.join(", ")}`,
+        `#### ${t(item.name)}\n\n${t(item.context)}\n\nRole: ${t(item.role)}${item.team ? `. Team size: ${item.team}` : ""}.\n\n${item.highlights.map((h) => `- ${t(h)}`).join("\n")}\n\nStack: ${item.stack.join(", ")}${hasCaseStudy(item.id) ? `\n\nCase study: ${url(`/experience/${item.id}`)}` : ""}`,
     );
     return `### ${job.role}, ${job.company}${note}\n\n${dates}, ${t(job.location)}\n\n${t(job.summary)}\n\n${items.join("\n\n")}`;
   });
