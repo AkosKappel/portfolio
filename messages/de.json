@@ -196,7 +196,17 @@
     "queries": "{count, plural, one {# Abfrage} other {# Abfragen}}",
     "company": "Firma",
     "role": "Rolle",
-    "teamLabel": "Teamgröße"
+    "teamLabel": "Teamgröße",
+    "modules": "Module und mein Anteil",
+    "parts": {
+      "started": "Begonnen",
+      "main": "Hauptbereich",
+      "features": "Funktionen gebaut",
+      "small": "Kleine Änderungen"
+    },
+    "previous": "Vorherige Fallstudie",
+    "next": "Nächste Fallstudie",
+    "more": "Weitere Fallstudien"
   },
   "activity": {
     "title": "Aktivität",

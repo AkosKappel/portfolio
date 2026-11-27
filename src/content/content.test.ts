@@ -108,7 +108,10 @@ describe("case studies", () => {
       const texts = [
         study.summary,
         ...study.description,
+        ...study.facts,
         ...study.contributions,
+        ...(study.modules ?? []).map((module) => module.name),
+        ...(study.architecture ?? []).flatMap((node) => [node.name, node.detail]),
         ...study.decisions.flatMap((decision) => [decision.title, decision.text]),
         ...(study.lessons ?? []),
         ...(study.measurements ? [study.measurements.lead, study.measurements.note] : []),

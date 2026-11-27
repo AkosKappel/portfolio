@@ -196,7 +196,17 @@
     "queries": "{count} lekérdezés",
     "company": "Cég",
     "role": "Szerep",
-    "teamLabel": "Csapatméret"
+    "teamLabel": "Csapatméret",
+    "modules": "Modulok és a részem",
+    "parts": {
+      "started": "Én indítottam",
+      "main": "Fő terület",
+      "features": "Funkciók",
+      "small": "Kisebb változtatások"
+    },
+    "previous": "Előző esettanulmány",
+    "next": "Következő esettanulmány",
+    "more": "További esettanulmányok"
   },
   "activity": {
     "title": "Aktivitás",

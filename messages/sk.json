@@ -196,7 +196,17 @@
     "queries": "{count, plural, one {# dopyt} few {# dopyty} other {# dopytov}}",
     "company": "Firma",
     "role": "Rola",
-    "teamLabel": "Veľkosť tímu"
+    "teamLabel": "Veľkosť tímu",
+    "modules": "Moduly a moja časť",
+    "parts": {
+      "started": "Založil som",
+      "main": "Hlavná oblasť",
+      "features": "Funkcie",
+      "small": "Drobné zmeny"
+    },
+    "previous": "Predchádzajúca štúdia",
+    "next": "Ďalšia štúdia",
+    "more": "Ďalšie prípadové štúdie"
   },
   "activity": {
     "title": "Aktivita",

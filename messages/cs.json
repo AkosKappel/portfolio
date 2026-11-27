@@ -196,7 +196,17 @@
     "queries": "{count, plural, one {# dotaz} few {# dotazy} other {# dotazů}}",
     "company": "Firma",
     "role": "Role",
-    "teamLabel": "Velikost týmu"
+    "teamLabel": "Velikost týmu",
+    "modules": "Moduly a moje část",
+    "parts": {
+      "started": "Založil jsem",
+      "main": "Hlavní oblast",
+      "features": "Funkce",
+      "small": "Drobné změny"
+    },
+    "previous": "Předchozí studie",
+    "next": "Další studie",
+    "more": "Další případové studie"
   },
   "activity": {
     "title": "Aktivita",

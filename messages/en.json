@@ -196,7 +196,17 @@
     "queries": "{count, plural, one {# query} other {# queries}}",
     "company": "Company",
     "role": "Role",
-    "teamLabel": "Team size"
+    "teamLabel": "Team size",
+    "modules": "Modules and my part",
+    "parts": {
+      "started": "Started it",
+      "main": "Main area",
+      "features": "Built features",
+      "small": "Small changes"
+    },
+    "previous": "Previous case study",
+    "next": "Next case study",
+    "more": "More case studies"
   },
   "activity": {
     "title": "Activity",

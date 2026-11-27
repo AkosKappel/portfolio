@@ -100,6 +100,8 @@ export type WorkItem = {
   stack: string[];
 };
 
+export type ModulePart = "started" | "main" | "features" | "small";
+
 /** A detail page for a work project, at /experience/{id}. Name, role, team and stack come from its WorkItem. */
 export type CaseStudy = {
   /** The id of the WorkItem it describes. */
@@ -107,7 +109,13 @@ export type CaseStudy = {
   /** One sentence for link previews and search results. */
   summary: Text;
   description: Text[];
+  /** Short facts shown as chips under the summary: dates, platforms, scale. */
+  facts: Text[];
   contributions: Text[];
+  /** Every module of a modular product, with my part in it. */
+  modules?: { name: Text; part: ModulePart }[];
+  /** How the parts connect, drawn as a chain of boxes like the project architecture. */
+  architecture?: { name: Text; detail: Text }[];
   decisions: { title: Text; text: Text }[];
   lessons?: Text[];
   /** Timings measured before an optimization, drawn as bars. */

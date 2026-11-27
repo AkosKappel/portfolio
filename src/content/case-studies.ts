@@ -31,6 +31,24 @@ export const caseStudies: CaseStudy[] = [
         hu: "2025 februárjában kezdtem Elixir-fejlesztőként, és azóta minden modulban dolgoztam. A ticketing és a HR modult a nulláról indítottam, a fő területem a projektmenedzsment, és a jelenléthez, a pénzügyekhez, a CRM-hez és a közös maghoz is készítek funkciókat.",
       },
     ],
+    facts: [
+      {
+        en: "Since February 2025",
+        sk: "Od februára 2025",
+        de: "Seit Februar 2025",
+        cs: "Od února 2025",
+        hu: "2025 februárja óta",
+      },
+      { en: "9 modules", sk: "9 modulov", de: "9 Module", cs: "9 modulů", hu: "9 modul" },
+      { en: "Team of 8", sk: "Tím 8 ľudí", de: "Team von 8", cs: "Tým 8 lidí", hu: "8 fős csapat" },
+      {
+        en: "Started 2 modules",
+        sk: "Založil 2 moduly",
+        de: "2 Module begonnen",
+        cs: "Založil 2 moduly",
+        hu: "2 modult indítottam",
+      },
+    ],
     contributions: [
       {
         en: "Project management, my main area, where I am the second largest contributor: kanban boards with drag and drop and status rules, task permissions for creators, assignees and project leads, Scrum and Waterfall workflows, the task detail drawer, project spaces and activity feeds",
@@ -80,6 +98,66 @@ export const caseStudies: CaseStudy[] = [
         de: "Über alle Module: die langsamsten Seiten gefunden und beschleunigt, Echtzeit-Updates in ein PubSub verlegt und asynchrones Laden mit Infinite Scroll für das Team dokumentiert, dazu Lade-Skeletons, optimistische UI und typsichere URL-Parameter",
         cs: "Napříč moduly: našel a opravil jsem nejpomalejší stránky, přesunul aktualizace v reálném čase do jednoho PubSub a zdokumentoval pro tým asynchronní načítání s nekonečným scrollem, spolu se skeletony při načítání, optimistickým UI a typově bezpečnými parametry v URL",
         hu: "Modulokon át: megtaláltam és felgyorsítottam a leglassabb oldalakat, a valós idejű frissítéseket egyetlen PubSubba tettem, és dokumentáltam a csapatnak az aszinkron betöltést végtelen görgetéssel, a betöltési skeletonokkal, az optimista UI-jal és a típusbiztos URL-paraméterekkel együtt",
+      },
+    ],
+    modules: [
+      {
+        name: {
+          en: "Project management",
+          sk: "Projektové riadenie",
+          de: "Projektmanagement",
+          cs: "Projektové řízení",
+          hu: "Projektmenedzsment",
+        },
+        part: "main",
+      },
+      {
+        name: {
+          en: "Ticketing",
+          sk: "Ticketing",
+          de: "Ticketing",
+          cs: "Ticketing",
+          hu: "Ticketing",
+        },
+        part: "started",
+      },
+      { name: { en: "HR", sk: "HR", de: "HR", cs: "HR", hu: "HR" }, part: "started" },
+      {
+        name: {
+          en: "Attendance",
+          sk: "Dochádzka",
+          de: "Anwesenheit",
+          cs: "Docházka",
+          hu: "Jelenlét",
+        },
+        part: "features",
+      },
+      {
+        name: { en: "Finance", sk: "Financie", de: "Finanzen", cs: "Finance", hu: "Pénzügyek" },
+        part: "features",
+      },
+      { name: { en: "CRM", sk: "CRM", de: "CRM", cs: "CRM", hu: "CRM" }, part: "features" },
+      {
+        name: {
+          en: "Shared core",
+          sk: "Spoločné jadro",
+          de: "Gemeinsamer Kern",
+          cs: "Společné jádro",
+          hu: "Közös mag",
+        },
+        part: "features",
+      },
+      {
+        name: { en: "Benefits", sk: "Benefity", de: "Benefits", cs: "Benefity", hu: "Juttatások" },
+        part: "small",
+      },
+      {
+        name: { en: "Planning", sk: "Plánovanie", de: "Planung", cs: "Plánování", hu: "Tervezés" },
+        part: "small",
+      },
+      {
+        name: { en: "Warehouse", sk: "Sklad", de: "Lager", cs: "Sklad", hu: "Raktár" },
+        part: "small",
       },
     ],
     measurements: {
@@ -225,6 +303,24 @@ export const caseStudies: CaseStudy[] = [
         hu: "A mobilalkalmazást Kotlin Multiplatformban 2026 februárjában indítottam, később a React webes alkalmazást is, és mindkettő legnagyobb részét én írtam. Én készítettem a promóciós oldalt is, és Spring Bootban backendfunkciókat adtam hozzá. A csapat 3 fejlesztőből áll.",
       },
     ],
+    facts: [
+      {
+        en: "Since February 2026",
+        sk: "Od februára 2026",
+        de: "Seit Februar 2026",
+        cs: "Od února 2026",
+        hu: "2026 februárja óta",
+      },
+      {
+        en: "Android, iOS and web",
+        sk: "Android, iOS a web",
+        de: "Android, iOS und Web",
+        cs: "Android, iOS a web",
+        hu: "Android, iOS és web",
+      },
+      { en: "4 languages", sk: "4 jazyky", de: "4 Sprachen", cs: "4 jazyky", hu: "4 nyelv" },
+      { en: "Team of 3", sk: "Tím 3 ľudí", de: "Team von 3", cs: "Tým 3 lidí", hu: "3 fős csapat" },
+    ],
     contributions: [
       {
         en: "Mobile app in Kotlin and Compose Multiplatform: a map that clusters activities and loads them as you move, search with filters, a location picker with address search, groups with posts, comments and reactions, ratings, calendar export and chat over WebSockets that reconnects on its own",
@@ -260,6 +356,76 @@ export const caseStudies: CaseStudy[] = [
         de: "Vier Sprachen überall, mit Tests, die die Übersetzungen synchron halten, sowie Unit- und End-to-End-Tests mit Vitest und Playwright",
         cs: "Čtyři jazyky všude, s testy, které udržují překlady sladěné, a unit a end-to-end testy ve Vitestu a Playwrightu",
         hu: "Négy nyelv mindenhol, a fordításokat szinkronban tartó tesztekkel, valamint unit és end-to-end tesztek Vitesttel és Playwrighttal",
+      },
+    ],
+    architecture: [
+      {
+        name: {
+          en: "Compose Multiplatform",
+          sk: "Compose Multiplatform",
+          de: "Compose Multiplatform",
+          cs: "Compose Multiplatform",
+          hu: "Compose Multiplatform",
+        },
+        detail: {
+          en: "The Android and iOS app, from one Kotlin codebase",
+          sk: "Aplikácia pre Android a iOS z jedného kódu v Kotline",
+          de: "Die Android- und iOS-App aus einer Kotlin-Codebasis",
+          cs: "Aplikace pro Android a iOS z jednoho kódu v Kotlinu",
+          hu: "Az Android- és iOS-alkalmazás egyetlen Kotlin-kódbázisból",
+        },
+      },
+      {
+        name: { en: "React", sk: "React", de: "React", cs: "React", hu: "React" },
+        detail: {
+          en: "The web app, a second client of the same API, with its client code generated from OpenAPI",
+          sk: "Webová aplikácia, druhý klient toho istého API, s kódom klienta generovaným z OpenAPI",
+          de: "Die Web-App, ein zweiter Client derselben API, mit aus OpenAPI generiertem Client-Code",
+          cs: "Webová aplikace, druhý klient stejného API, s kódem klienta generovaným z OpenAPI",
+          hu: "A webes alkalmazás, ugyanannak az API-nak a második kliense, OpenAPI-ból generált klienskóddal",
+        },
+      },
+      {
+        name: {
+          en: "Spring Boot",
+          sk: "Spring Boot",
+          de: "Spring Boot",
+          cs: "Spring Boot",
+          hu: "Spring Boot",
+        },
+        detail: {
+          en: "One REST API for both apps, and WebSockets (STOMP) for chat and notifications",
+          sk: "Jedno REST API pre obe aplikácie a WebSockety (STOMP) pre chat a notifikácie",
+          de: "Eine REST-API für beide Apps und WebSockets (STOMP) für Chat und Benachrichtigungen",
+          cs: "Jedno REST API pro obě aplikace a WebSockety (STOMP) pro chat a notifikace",
+          hu: "Egy REST API mindkét alkalmazásnak, és WebSocket (STOMP) a chathez és az értesítésekhez",
+        },
+      },
+      {
+        name: { en: "RabbitMQ", sk: "RabbitMQ", de: "RabbitMQ", cs: "RabbitMQ", hu: "RabbitMQ" },
+        detail: {
+          en: "Message broker that relays the WebSocket messages",
+          sk: "Message broker, ktorý preposiela správy z WebSocketov",
+          de: "Message Broker, der die WebSocket-Nachrichten weiterleitet",
+          cs: "Message broker, který přeposílá zprávy z WebSocketů",
+          hu: "Üzenetközvetítő, amely továbbítja a WebSocket-üzeneteket",
+        },
+      },
+      {
+        name: {
+          en: "PostgreSQL",
+          sk: "PostgreSQL",
+          de: "PostgreSQL",
+          cs: "PostgreSQL",
+          hu: "PostgreSQL",
+        },
+        detail: {
+          en: "The data, with Flyway migrations and a Redis cache",
+          sk: "Dáta, s migráciami cez Flyway a cache v Redise",
+          de: "Die Daten, mit Flyway-Migrationen und einem Redis-Cache",
+          cs: "Data, s migracemi přes Flyway a cache v Redisu",
+          hu: "Az adatok, Flyway-migrációkkal és Redis-gyorsítótárral",
+        },
       },
     ],
     decisions: [
@@ -354,6 +520,30 @@ export const caseStudies: CaseStudy[] = [
         hu: "Az egész webes alkalmazást a nulláról építettem egy kétfős csapatban, 2025 decemberétől 2026 márciusáig: regisztráció, árak, számlázás, a fájlok áttekintése és az EEG-megjelenítő. A Spring Boot backendet és a Python tisztító folyamatot a kollégáim készítették.",
       },
     ],
+    facts: [
+      {
+        en: "December 2025 to March 2026",
+        sk: "December 2025 až marec 2026",
+        de: "Dezember 2025 bis März 2026",
+        cs: "Prosinec 2025 až březen 2026",
+        hu: "2025 decembere és 2026 márciusa között",
+      },
+      { en: "Team of 2", sk: "Tím 2 ľudí", de: "Team von 2", cs: "Tým 2 lidí", hu: "2 fős csapat" },
+      {
+        en: "Frontend from scratch",
+        sk: "Frontend od nuly",
+        de: "Frontend von Grund auf",
+        cs: "Frontend od nuly",
+        hu: "Frontend a nulláról",
+      },
+      {
+        en: "WebGL viewer",
+        sk: "WebGL prehliadač",
+        de: "WebGL-Viewer",
+        cs: "WebGL prohlížeč",
+        hu: "WebGL-megjelenítő",
+      },
+    ],
     contributions: [
       {
         en: "An EEG viewer that shows raw and cleaned signals over each other, only one of them or their difference, with stacked channels and the true values in tooltips",
@@ -396,6 +586,54 @@ export const caseStudies: CaseStudy[] = [
         de: "TanStack Router, Query, Form, Table und Virtual in der ganzen App, mit Zod-Validierung und dem React Compiler",
         cs: "TanStack Router, Query, Form, Table a Virtual v celé aplikaci, s validací přes Zod a React Compilerem",
         hu: "TanStack Router, Query, Form, Table és Virtual az egész alkalmazásban, Zod-validációval és a React Compilerrel",
+      },
+    ],
+    architecture: [
+      {
+        name: { en: "React", sk: "React", de: "React", cs: "React", hu: "React" },
+        detail: {
+          en: "The web app: upload with drag and drop, a price estimate and the status of each file",
+          sk: "Webová aplikácia: nahrávanie cez drag and drop, odhad ceny a stav každého súboru",
+          de: "Die Web-App: Upload per Drag and Drop, eine Preisschätzung und der Status jeder Datei",
+          cs: "Webová aplikace: nahrávání přes drag and drop, odhad ceny a stav každého souboru",
+          hu: "A webes alkalmazás: drag and drop feltöltés, árbecslés és minden fájl állapota",
+        },
+      },
+      {
+        name: {
+          en: "Spring Boot",
+          sk: "Spring Boot",
+          de: "Spring Boot",
+          cs: "Spring Boot",
+          hu: "Spring Boot",
+        },
+        detail: {
+          en: "Stores the recording, sends it for cleaning and returns a reduced signal for the viewer",
+          sk: "Uloží záznam, pošle ho na čistenie a vráti zredukovaný signál pre prehliadač",
+          de: "Speichert die Aufnahme, schickt sie zur Bereinigung und liefert ein reduziertes Signal für den Viewer",
+          cs: "Uloží záznam, pošle ho k čištění a vrátí zredukovaný signál pro prohlížeč",
+          hu: "Eltárolja a felvételt, elküldi tisztításra, és csökkentett jelet ad vissza a megjelenítőnek",
+        },
+      },
+      {
+        name: { en: "Python", sk: "Python", de: "Python", cs: "Python", hu: "Python" },
+        detail: {
+          en: "The worker that removes noise and artefacts from the recording",
+          sk: "Proces, ktorý zo záznamu odstráni šum a artefakty",
+          de: "Der Worker, der Rauschen und Artefakte aus der Aufnahme entfernt",
+          cs: "Proces, který ze záznamu odstraní šum a artefakty",
+          hu: "A feldolgozó, amely eltávolítja a zajt és a műtermékeket a felvételből",
+        },
+      },
+      {
+        name: { en: "Plotly", sk: "Plotly", de: "Plotly", cs: "Plotly", hu: "Plotly" },
+        detail: {
+          en: "The viewer cuts out the visible time window, filters it in the browser and draws it with WebGL",
+          sk: "Prehliadač vyreže viditeľné časové okno, prefiltruje ho v prehliadači a vykreslí cez WebGL",
+          de: "Der Viewer schneidet das sichtbare Zeitfenster aus, filtert es im Browser und zeichnet es mit WebGL",
+          cs: "Prohlížeč vyřízne viditelné časové okno, profiltruje ho v prohlížeči a vykreslí přes WebGL",
+          hu: "A megjelenítő kivágja a látható időablakot, a böngészőben szűri, és WebGL-lel rajzolja ki",
+        },
       },
     ],
     decisions: [
