@@ -43,11 +43,11 @@ export const jobs: Job[] = [
           hu: "Céges platform projektekhez, jelenléti nyilvántartáshoz, HR-hez, CRM-hez és hibajegykezeléshez",
         },
         role: {
-          en: "Owned the project management module and fixed the slow pages users had complained about",
-          sk: "Zodpovedal za modul projektového riadenia a opravil pomalé stránky, na ktoré sa sťažovali používatelia",
-          de: "Verantwortlich für das Projektmanagement-Modul, die von Nutzern beanstandeten langsamen Seiten beschleunigt",
-          cs: "Zodpovídal za modul projektového řízení a opravil pomalé stránky, na které si stěžovali uživatelé",
-          hu: "A projektmenedzsment-modul felelőse vagyok, és felgyorsítottam a lassú oldalakat, amelyekre a felhasználók panaszkodtak",
+          en: "Started the ticketing and HR modules, own project management and fixed the slow pages users had complained about",
+          sk: "Založil moduly ticketingu a HR, zodpovedá za projektové riadenie a opravil pomalé stránky, na ktoré sa sťažovali používatelia",
+          de: "Module Ticketing und HR begonnen, verantwortlich für das Projektmanagement, die von Nutzern beanstandeten langsamen Seiten beschleunigt",
+          cs: "Založil moduly ticketingu a HR, zodpovídá za projektové řízení a opravil pomalé stránky, na které si stěžovali uživatelé",
+          hu: "Én indítottam a ticketing és a HR modult, a projektmenedzsment felelőse vagyok, és felgyorsítottam a lassú oldalakat, amelyekre a felhasználók panaszkodtak",
         },
         team: 8,
         highlights: [
@@ -57,6 +57,13 @@ export const jobs: Job[] = [
             de: "Verantwortlich für das Projektmanagement-Modul: Kanban-Boards mit Drag and Drop, Aufgabenberechtigungen für Ersteller, Bearbeiter und Projektleiter sowie Scrum- und Waterfall-Workflows",
             cs: "Zodpovědný za modul projektového řízení: kanban s drag and drop, oprávnění k úkolům pro autory, řešitele a vedoucí projektů, postupy Scrum a Waterfall",
             hu: "A projektmenedzsment-modul felelőse: kanban táblák drag and droppal, feladatjogosultságok a létrehozóknak, felelősöknek és projektvezetőknek, valamint Scrum és Waterfall munkafolyamatok",
+          },
+          {
+            en: "Started the ticketing module (service desk, ticket types and statuses, live comments) and the HR module (payroll and time sheet approvals), and built features in attendance, finance and CRM",
+            sk: "Založil modul ticketingu (zákaznícka podpora, typy a stavy tiketov, komentáre naživo) a modul HR (schvaľovanie miezd a výkazov) a robil funkcie v dochádzke, financiách a CRM",
+            de: "Das Ticketing-Modul (Service Desk, Ticket-Typen und Status, Live-Kommentare) und das HR-Modul (Freigaben für Lohnabrechnungen und Stundenzettel) begonnen sowie Funktionen in Anwesenheit, Finanzen und CRM gebaut",
+            cs: "Založil modul ticketingu (zákaznická podpora, typy a stavy tiketů, komentáře živě) a modul HR (schvalování mezd a výkazů) a dělal funkce v docházce, financích a CRM",
+            hu: "Én indítottam a ticketing modult (ügyfélszolgálat, jegytípusok és státuszok, élő kommentek) és a HR modult (bér- és munkaidő-jóváhagyások), és funkciókat készítettem a jelenlét, a pénzügyek és a CRM moduljaiban",
           },
           {
             en: "Optimized the slowest pages after user complaints. Flame graphs showed that opening a project took over 2 seconds and 300+ database queries, mostly asset labels loaded one by one. Fixed the N+1 queries in PostgreSQL and MongoDB and added caching with proper invalidation",

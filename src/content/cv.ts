@@ -30,11 +30,11 @@ export const cv = {
     "igt-systems": {
       highlights: [
         {
-          en: "Owned the project management module of **Core3**, a business platform for projects, HR and CRM, in a team of 8: kanban boards, task permissions, Scrum and Waterfall workflows.",
-          sk: "Zodpovedal som za modul projektového riadenia platformy **Core3** v tíme 8 ľudí: kanban, oprávnenia, Scrum, Waterfall.",
-          de: "Verantwortlich für das Projektmanagement-Modul von **Core3**, einer Unternehmensplattform für Projekte, HR und CRM, in einem Team von 8 Entwicklern: Kanban-Boards, Aufgabenberechtigungen, Scrum- und Wasserfall-Workflows.",
-          cs: "Odpovídal jsem za modul projektového řízení ve firemní platformě **Core3** pro projekty, HR a CRM v týmu 8 vývojářů: kanban, oprávnění k úkolům, Scrum a Waterfall.",
-          hu: "Egy 8 fős csapatban én feleltem a **Core3** projektmenedzsment-moduljáért, amely egy projekt-, HR- és CRM-platform: kanban táblák, feladatjogosultságok, Scrum és vízesés munkafolyamatok.",
+          en: "Started the ticketing and HR modules of **Core3**, a nine-module business platform, and own project management in a team of 8: kanban, permissions, Scrum, Waterfall.",
+          sk: "Založil som moduly ticketingu a HR v **Core3**, v tíme 8 ľudí mám na starosti projektové riadenie: kanban, Scrum, Waterfall.",
+          de: "Die Module Ticketing und HR von **Core3**, einer Unternehmensplattform mit neun Modulen, begonnen; im Team von 8 verantwortlich für das Projektmanagement: Kanban, Berechtigungen, Scrum, Wasserfall.",
+          cs: "Založil jsem moduly ticketingu a HR ve firemní platformě **Core3** s devíti moduly a v týmu 8 vývojářů odpovídám za projektové řízení: kanban, oprávnění, Scrum, Waterfall.",
+          hu: "Én indítottam a kilencmodulos **Core3** üzleti platform ticketing és HR modulját, és egy 8 fős csapatban a projektmenedzsment felelőse vagyok: kanban, jogosultságok, Scrum, vízesés.",
         },
         {
           en: "Sped up the slowest Core3 pages after user complaints: opening a project took 2+ s and 300+ queries. Fixed N+1 queries, added caching and background loading.",
