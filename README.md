@@ -7,7 +7,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-7-3178c6?logo=typescript&logoColor=white)
 ![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?logo=tailwindcss&logoColor=white)
 
-Personal website of Ákos Kappel, full-stack software engineer: projects with case studies, experience, skills, education and contact in English, Slovak, German, Czech and Hungarian, with a PDF CV in English and Slovak.
+Personal website of Ákos Kappel, full-stack software engineer: projects and work projects with case studies, experience, skills, education and contact in English, Slovak, German, Czech and Hungarian, with a PDF CV in English and Slovak.
 
 **Live:** https://akoskappel.dev · **CV:** [web](https://akoskappel.dev/cv) · [PDF](https://akoskappel.dev/cv/pdf)
 
@@ -20,6 +20,7 @@ Personal website of Ákos Kappel, full-stack software engineer: projects with ca
 
 - Every page statically generated in English, Slovak, German, Czech and Hungarian, with `hreflang`, a localized sitemap, structured data and a generated link preview per page
 - Case studies with key decisions and lessons learned, architecture diagrams, galleries in an accessible lightbox and what changed in each rebuild
+- Work case studies at `/experience/<id>` for selected jobs: quick facts, a module map or architecture chain, measured timings and key decisions, written without internal names or client data
 - Projects archive with fuzzy search, filters, sorting, grid and table views, all kept in the URL
 - Command palette (Ctrl+K or ⌘K, or the search button) to jump to any page, project or section, switch theme or language and copy the e-mail; it loads on first use
 - A `/terminal` page that browses the same content from a command line (`help`, `whoami`, `ls projects`, `open <name>`), with Tab completion and history
@@ -156,11 +157,15 @@ Technology names in `stack` and `skills` get a logo when they are listed in `src
 
 Projects without a screenshot get a generated placeholder.
 
+### Adding a work case study
+
+Add an entry to `src/content/case-studies.ts` whose `id` matches a work item in `src/content/experience.ts`. Name, role, team and stack come from that item; the entry adds the `summary`, `facts`, `description`, `contributions` and `decisions`, and optionally `modules`, `architecture`, `measurements`, `lessons` and a `gallery`. The page, its link on `/experience` and the home page, the sitemap entry and the `llms.txt` line follow from the entry. Show only what the employer and client allow: no internal names, code or real user data.
+
 ## CV
 
-The PDF CV is generated from the same content as the site: contacts, jobs, skills, languages, degrees and project links come from `src/content/`, and the short wording that only the CV uses (profile, condensed bullets, project one-liners) lives in `src/content/cv.ts`. `src/lib/cv-latex.ts` renders it into `latex/main-english.tex` and `latex/main-slovak.tex` (A4, one page, shared layout in `cv-style.tex`). Do not edit those two files by hand: `pnpm cv:tex` rewrites them, and `pnpm test` fails when they are out of date.
+The PDF CV is generated from the same content as the site: contacts, jobs, skills, languages, degrees and project links come from `src/content/`, and the short wording that only the CV uses (profile, condensed bullets, project one-liners) lives in `src/content/cv.ts`. `src/lib/cv-latex.ts` renders it into `latex/main-english.tex` and `latex/main-slovak.tex`, plus `-nophoto` versions without the portrait for countries and applicant tracking systems where photos are uncommon (A4, one page, shared layout in `cv-style.tex`). Do not edit these files by hand: `pnpm cv:tex` rewrites them, and `pnpm test` fails when they are out of date.
 
-Generate the LaTeX, build both PDFs, copy them to `public/` and render the page images for the viewer (needs `latexmk`, `pdftoppm` and ImageMagick):
+Generate the LaTeX, build the PDFs (with and without the photo), copy them to `public/` and render the page images for the viewer (needs `latexmk`, `pdftoppm` and ImageMagick):
 
 ```bash
 ./scripts/build-cv.sh
